@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 2 Data | Data Applications in Public Administration</title>
+  <title> 18 R Missing Data | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 2 Data | Data Applications in Public Administration" />
+  <meta property="og:title" content=" 18 R Missing Data | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 2 Data | Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 18 R Missing Data | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="1-intro.html"/>
-<link rel="next" href="3-measurement-and-missing.html"/>
+<link rel="prev" href="17-r-data.html"/>
+<link rel="next" href="19-r-description.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,736 +425,131 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data" class="section level1">
-<h1><span class="header-section-number"> 2</span> Data</h1>
+<div id="r-missing-data" class="section level1">
+<h1><span class="header-section-number"> 18</span> R Missing Data</h1>
+<div id="learning-objectives-3" class="section level2">
+<h2><span class="header-section-number">18.1</span> Learning Objectives</h2>
+<p>In this chapter, you will learn how to:</p>
+<ul>
+<li>Determine if a dataset has missing values</li>
+<li>Determine which variables in a dataset have missing values and how many values are missing</li>
+<li>Run functions on variables that have missing values</li>
+<li>Replace all missing values with a non-missing value, such as 0, if doing so is advisable</li>
+</ul>
+</div>
+<div id="set-up-1" class="section level2">
+<h2><span class="header-section-number">18.2</span> Set-up</h2>
+<p>To complete this chapter, you need to</p>
+<ul>
+<li>Open a script</li>
+<li>Load the following packages</li>
+</ul>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="18-r-missing-data.html#cb37-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb37-2"><a href="18-r-missing-data.html#cb37-2"></a><span class="kw">library</span>(carData)</span></code></pre></div>
+</div>
+<div id="data-1" class="section level2">
+<h2><span class="header-section-number">18.3</span> Data</h2>
+<p>We will be using the <code>SLID</code> data from the <code>carData</code> package to learn how to deal with missing data. Per its documentation,</p>
 <blockquote>
-<p><em>Nothing exists except atoms and empty space; everything else is opinion.</em></p>
-<p>—Democritus</p>
+<p>“The SLID data frame has 7425 rows and 5 columns. The data are from the 1994 wave of the Canadian Survey of Labour and Income Dynamics, for the province of Ontario. There are missing data, particularly for wages.”</p>
 </blockquote>
-<p><br></p>
-<p>We cannot effectively convert the raw material of knowledge into a useful product without first understanding the raw material. Therefore, learning statistics naturally begins with learning the types and structures of data.</p>
-<div id="learning-objectives" class="section level2">
-<h2><span class="header-section-number">2.1</span> Learning objectives</h2>
-<ul>
-<li>Understand the organization of rectangular data</li>
-<li>Identify the unit of analysis within a dataset</li>
-<li>Identify and distinguish types of variables</li>
-<li>Identify and distinguish types of dataset structures</li>
-</ul>
-</div>
-<div id="rectangular-data" class="section level2">
-<h2><span class="header-section-number">2.2</span> Rectangular Data</h2>
-<p>Most data are rectangular, often represented using a standard spreadsheet organized by rows and columns. A rectangle of data is commonly referred to as a <strong>dataset</strong>.</p>
-<table>
-<caption>
-<span id="tab:print-generic">Table 2.1: </span>Generic rectangular data
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-ID
-</th>
-<th style="text-align:left;">
-Variable_1
-</th>
-<th style="text-align:left;">
-Variable_2
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Unit of Analysis
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Unit of Analysis
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Unit of Analysis
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<p>A rectangular dataset has three components. Not all datasets will fit the below description because many datasets are not organized in a tidy manner. The elements of tidy data will be covered in a later chapter.</p>
-<ul>
-<li><strong>Unit of analysis or observation:</strong> The generic entity or subject a row of data refers to. The unit of analysis uniquely identifies each row of a dataset. If we have a dataset of 50 states and some variables measured in 2020, then our unit of analysis is states. If you were told a specific state, then you could find the row in the dataset. If we have 50 states measured in 2019 and 2020, then the unit of analysis is state-year because you will need to know the state and year to find a specific row.</li>
-<li><strong>Variable:</strong> A measured characteristic of the unit of analysis. State unemployment rate is a variable for a state unit of analysis.</li>
-<li><strong>Datum:</strong> The intersection of a variable (column) and a unit of analysis (row) resulting in a cell. The datum is a particular piece of information. A cell could contain something like 4.8 as the unemployment rate for Georgia in 2020.</li>
-</ul>
-</div>
-<div id="types-of-variables" class="section level2">
-<h2><span class="header-section-number">2.3</span> Types of variables</h2>
-<p>The variables in a given dataset can be of several types. Types of variables are important to learn because the types of variables one is dealing with has consequences for data applications, such as description, visualization, and inference.</p>
-<p>A variable provides us raw information about the units of analysis. If statistics is a discipline to convert raw information into something useful, then it stands to reason that we should want to know what type of information a variable provides us, especially the specificity of that information.</p>
-<p>For example, suppose you ask two strangers to report their annual income. What options do they have for answers? If virtually any value, then you know to a precise degree the income each earns and can compute the precise difference between the two incomes. What if their choices are either more or less than $50,000? Then, you have a coarse understanding of how much they earn. If they provide different answers, you can only conclude whether one makes more than the other but not by how much. If they provide the same answer, then the two are grouped together even though it is highly unlikely they earn equal incomes. This makes a serious difference for statistical analysis.</p>
-<br>
-<center>
-<div class="figure"><span id="fig:vartypefig"></span>
-<img src="images/variables.png" alt="Variable Types" width="504" />
-<p class="caption">
-Figure 2.1: Variable Types
+<p>As is always the case when we begin working with new data, we want to get a sense of what it contains.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 1:</strong> Use <code>glimpse</code> to examine <code>SLID</code>.
 </p>
 </div>
-</center>
-<p><br></p>
-<p>All variables belong to one of two broad types: qualitative (or categorical) and quantitative (or numeric).</p>
-<ul>
-<li><strong>Qualitative</strong> variables take on values that have no intrensic numerical meaning. They are exressed in words.</li>
-<li><strong>Quantitative</strong> variables take on values that do have intrensic numerical meaning.</li>
-</ul>
-<div id="qualitative-variables" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Qualitative variables</h3>
-<p>Qualitative variables can be further differentiated into two types: nominal and ordinal.</p>
-<ul>
-<li><strong>Nominal</strong> variables take on values that differ in name only.</li>
-<li><strong>Ordinal</strong> variables take on values that can be ranked relative to each other but the difference between rankings has no numerical value.</li>
-</ul>
-<p>The values that categorical variables take on are commonly referred to as levels. Categorical variables can contain virtually any number of levels, though the number of levels is usually limited.</p>
-<p>A variable such as sex contains two levels: male and female. The variable sex is nominal, as its values have no numerical meaning and the two levels have no ranking. Race, state, country, political party, and any variable coded as yes/no such as unemployed, married, and below the federal poverty line are all examples of nominal variables.</p>
-<p>If you have ever participated in a customer satisfaction survey, then you have almost surely contributed data to an ordinal variable. Those scales that provide some number of options from “disagree” to “agree” are called Likert scales. Your answer has no intrinsic numerical value but it can be ranked against the answers of others. One respondent can be said to be more satsfied than another but not by how much. Moreover, one can only trust the results insofar as responents have the same understanding or frame of reference–the service that satisfied one respondent may not have satisfied another. Other ordinal variables, such as education degree and income level do not have this issue.</p>
+<p>This is a moderately large dataset with 7,425 observations. Obviously, it would be crazy to look for missing values by scrolling through a spreadsheet. We can see from the glimpse results that wages definitely has missing values.</p>
 </div>
-<div id="quantitative-variables" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Quantitative variables</h3>
-<p>Quantitative variables can be further differentiated into two types: discrete and continuous.</p>
-<ul>
-<li><strong>Discrete</strong> variables take on countable or indivisible values.</li>
-<li><strong>Continuous</strong> variables take on infinitely divisible values (at least in theory).</li>
-</ul>
-<p>The distinction between discrete and continuous can be more difficult to discern but also less consequential for analysis. It is often the case that analytical models treat the two variables the same. However, for a purpose such as data visualization, the distinction can be informative.</p>
-<p>Any variable that is a count of persons, places, events, or things is a discrete variable, usually taking on integer values (e.g. 0, 1, 2, 3,…). By contrast, a continuous variable can contain values with an infinite number of decimal places. Even so, continuous variables take on a limited number of decimal places because either we measure phenomena with finite precision or it simply becomes impractical to include so many decimal places.</p>
+<div id="checking-for-missing-data" class="section level2">
+<h2><span class="header-section-number">18.4</span> Checking for missing data</h2>
+<p>We can tell R to check if an entire dataset has <em>any</em> missing data using the following function</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="18-r-missing-data.html#cb38-1"></a><span class="kw">anyNA</span>(dataset)</span></code></pre></div>
+<p>where we <code>dataset</code> with the name of the dataset. If the dataset has at least one missing value, then <code>anyNA</code> will return <code>TRUE</code>.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 2:</strong> Use <code>anyNA</code> to confirm <code>SLID</code> has missing values.
+</p>
 </div>
-<div id="index-variables" class="section level3">
-<h3><span class="header-section-number">2.3.3</span> Index variables</h3>
-<p>Index variables are continuous variables but warrant separate discussion. An index variable is a composite measure of multiple variables. They can be used to make a continuous variable out of multiple categorical variables or simplify multiple quantitative variables into one. Purposes such as ranking colleges, measuring poverty beyond income, and determining political ideology make use of index variables.</p>
-<p>Index variables mask underlying information. This can be helpful or harmful. In either case, it is important to consider how an index variable is constructed. Doing so can offer insight or uncover problems.</p>
-<p>An instructive example familiar to readers is college rankings. U.S. News and World Report <a href="https://www.usnews.com/education/best-colleges/articles/ranking-criteria-and-weights">describes</a> how rankings are determined.</p>
-<p>What makes a college good? According to these rankings, five percent of what makes a college good is the percent of undergraduate alumni giving a donation as a proxy of student satisfaction. Another 20% is based on the opinions of administrators at peer institutions.</p>
-<p>Are these choices wise? This is difficult to say and besides the point. The point is that index variables involve choices made by people and are not naturally occurring data. They are synthetic materials of knowledge and worthy of our discernment.</p>
+<p>The <code>anyNA</code> hasn’t told us anything we didn’t already know given the obvious <code>NA</code>s present in wages. Next, we may want to know which variables have missing values.</p>
+<p>To determine which variables have missing values, we want to run <code>anyNA</code> repeatedly for each variable in our dataset. To run any function repeatedly on each row or column of a dataset, we can use the following function:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="18-r-missing-data.html#cb39-1"></a><span class="kw">apply</span>(dataset, <span class="dv">1</span> (<span class="cf">for</span> rows, or) <span class="dv">2</span> (<span class="cf">for</span> columns), <span class="cf">function</span>)</span></code></pre></div>
+<p>where we replace <code>dataset</code> with the name of our dataset, include either <code>1</code> or <code>2</code>, and replace <code>function</code> with the name of the function we want to repeat.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 3:</strong> Use <code>apply</code> to run the <code>anyNA</code> function repeatedly on each column.
+</p>
+</div>
+<p>Your results should tell you that wages, education, and language contain missing values.</p>
+</div>
+<div id="counting-missing-values" class="section level2">
+<h2><span class="header-section-number">18.5</span> Counting missing values</h2>
+<p>Once we know a variable has missing values, we typically want to know how many values are missing or what percentage of total observations are missing for that variable.</p>
+<p>The <code>is.na</code> function tests every value of a variable for whether it is missing. If a value is NA, <code>is.na</code> returns <code>TRUE</code>. To illustrate, the below code assigns a series of ten values to <code>v</code>, five of which are missing. This <code>v</code> object is no different from a variable in a dataset. Then, using the <code>is.na</code> function on <code>v</code> will return a list of values accordingly.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="18-r-missing-data.html#cb40-1"></a>v &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">5</span>, <span class="ot">NA</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="ot">NA</span>, <span class="ot">NA</span>, <span class="dv">1</span>, <span class="ot">NA</span>)</span>
+<span id="cb40-2"><a href="18-r-missing-data.html#cb40-2"></a><span class="kw">is.na</span>(v)</span></code></pre></div>
+<pre><code>##  [1]  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE</code></pre>
+<p>Recall in Chapter <a href="17-r-data.html#r-data">17</a> that the logical value of <code>TRUE</code> equals 1 in R, while <code>FALSE</code> equals 0. This means we can do math on TRUE/FALSE values just like we would if they were coded as 1/0.</p>
+<p>If <code>is.na</code> gives us <code>TRUE</code> for every <code>NA</code>, then adding all the <code>TRUE</code>s will give us the total count of missing values.</p>
+<p>To sum all the values of any variable, we can use the <code>sum</code> function</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="18-r-missing-data.html#cb42-1"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(v))</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>The result tells us 5 of the 10 values in <code>v</code> are missing. We can easily determine that 50% of the data for <code>v</code> is missing. But what if we have some denominator that is not as easy as 10? We can quickly to determine the percent of missing values by taking the average of <code>TRUE</code>s and <code>FALSE</code>s from the <code>is.na</code> function because the average sums the values of the variable and divides by the number of values.</p>
+<p>We take the average of the <code>is.na</code> function using the <code>mean</code> function</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="18-r-missing-data.html#cb44-1"></a><span class="kw">mean</span>(<span class="kw">is.na</span>(v))</span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<p>As expected, we get 0.5 or 50%. Building from this example, we can quantify the total and percent of missing values for wages like so</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="18-r-missing-data.html#cb46-1"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(SLID<span class="op">$</span>wages))</span></code></pre></div>
+<pre><code>## [1] 3278</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="18-r-missing-data.html#cb48-1"></a><span class="kw">mean</span>(<span class="kw">is.na</span>(SLID<span class="op">$</span>wages))</span></code></pre></div>
+<pre><code>## [1] 0.4414815</code></pre>
+<p>Wages is missing 3,278 observations, or about 44% of all observations.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 4:</strong> Use the <code>sum</code> and <code>mean</code> function to determine the count and percent of missing values for the <code>education</code> and <code>language</code> variables.
+</p>
+</div>
+<p>If we had, say, 10 variables with missing values, the process above would be rather tedious. Like before, we can tell R to repeatedly quantify missing values for each variable using a slightly different function:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="18-r-missing-data.html#cb50-1"></a><span class="kw">sapply</span>(SLID, <span class="cf">function</span>(x) <span class="kw">sum</span>(<span class="kw">is.na</span>(x)))</span></code></pre></div>
+<pre><code>##     wages education       age       sex  language 
+##      3278       249         0         0       121</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="18-r-missing-data.html#cb52-1"></a><span class="kw">sapply</span>(SLID, <span class="cf">function</span>(x) <span class="kw">mean</span>(<span class="kw">is.na</span>(x)))</span></code></pre></div>
+<pre><code>##      wages  education        age        sex   language 
+## 0.44148148 0.03353535 0.00000000 0.00000000 0.01629630</code></pre>
+</div>
+<div id="bypassing-missing-values" class="section level2">
+<h2><span class="header-section-number">18.6</span> Bypassing missing values</h2>
+<p>Many functions that execute some kind of computation (e.g. sum, average) do not work if you execute them on variables that contain missing values. This is deliberate so users are notified of missing values.</p>
+<p>For instance, let’s try to calculate average years of education.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="18-r-missing-data.html#cb54-1"></a><span class="kw">mean</span>(SLID<span class="op">$</span>education)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>In order to have functions bypass missing values, we have to include the <code>na.rm=TRUE</code> option that tells R to skip <code>NA</code>s.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="18-r-missing-data.html#cb56-1"></a><span class="kw">mean</span>(SLID<span class="op">$</span>education, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 12.49608</code></pre>
+<p>Since education is missing only 3% of its values, this is probably a good approximation of what the average would be if there were no missing values.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 5:</strong> Compute the average for <code>wages</code>.
+</p>
+</div>
+<p>It is unclear what to do with average wages since almost half of its values is missing. At the very least, we can report something like, “Only 56% of respondents reported a wage. Of those who reported a wage, the average equals $15.55.”</p>
+</div>
+<div id="replacing-missing-values" class="section level2">
+<h2><span class="header-section-number">18.7</span> Replacing missing values</h2>
+<p>There are several reasons wages may be missing. The respondent could be unemployed, a student, or a stay-at-home parent. We don’t know exactly why wages is missing values.</p>
+<p>For the sake of this example, let’s assume all missing wages means the respondent is unemployed (a bad assumption since this would suggest an unemployment rate of about 44%). Suppose we wanted to know the average wages for our entire sample, regardless of whether they are employed. In that case, we want to replace the missing values with 0.</p>
+<p>To replace <code>NA</code>s with some other value, we can use the <code>replace_na</code> function like so</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="18-r-missing-data.html#cb58-1"></a>dataset_nomissing &lt;-<span class="st"> </span><span class="kw">replace_na</span>(dataset, <span class="kw">list</span>(<span class="dt">variable1 =</span> <span class="dv">0</span>, <span class="dt">variable2 =</span> <span class="dv">0</span>,...))</span></code></pre></div>
+<p>where we create a new dataset indicating we’ve replaced the missing values (we don’t want to overwrite the original data). Inside the <code>replace_na</code> function, we include the name of the <code>dataset</code> then list the names of the variables and the value we want to use to replace their missing values.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 6:</strong> Create a new dataset <code>SLID_nomissing</code> that replaces all missing values for <code>wages</code> with 0. Then, calculate the average wage for this new data.
+</p>
 </div>
 </div>
-<div id="dataset-structures" class="section level2">
-<h2><span class="header-section-number">2.4</span> Dataset structures</h2>
-<p>Just as the type of variable one is dealing with impacts the kinds of visualizations or analyses one should use, so too does the structure of a dataset. Datasets come in three varieties depending on their unit of analysis.</p>
-<ul>
-<li>Cross-sectional
-<ul>
-<li>Pooled cross-sectional</li>
-</ul></li>
-<li>Time series</li>
-<li>Panel or longitudinal</li>
-</ul>
-<p><strong>Cross-sectional</strong> data is a snapshot in time measuring some size sample of units. One column serves as the identifier of the unit of analysis, such as the name or ID number of the unit. Notice in Table 2.2 that all one needs to know is the country in order to identify a specific row.</p>
-<table>
-<caption>
-<span id="tab:cross-sec-fig">Table 2.2: </span>Cross-section example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Brazil
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-72.390
-</td>
-<td style="text-align:right;">
-190010647
-</td>
-<td style="text-align:right;">
-9065.801
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Pooled cross-sectional</strong> data could be considered a fourth structure but is simply multiple cross-sections stacked atop each other. The critical quality of pooled cross-sectional data is that each cross-section contains <em>different</em> units measured at different times, not the same units measured at different times. Notice in Table 2.3 that the countries included from 2002 are not the same as those included from 2007.</p>
-<table>
-<caption>
-<span id="tab:pooled">Table 2.3: </span>Pooled cross-section example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Algeria
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-70.994
-</td>
-<td style="text-align:right;">
-31287142
-</td>
-<td style="text-align:right;">
-5288.040
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Angola
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-41.003
-</td>
-<td style="text-align:right;">
-10866106
-</td>
-<td style="text-align:right;">
-2773.287
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Benin
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-54.406
-</td>
-<td style="text-align:right;">
-7026113
-</td>
-<td style="text-align:right;">
-1372.878
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Botswana
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-46.634
-</td>
-<td style="text-align:right;">
-1630347
-</td>
-<td style="text-align:right;">
-11003.605
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Brazil
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-72.390
-</td>
-<td style="text-align:right;">
-190010647
-</td>
-<td style="text-align:right;">
-9065.801
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Time series</strong> data measures one unit over mulitple time periods. The unit of analysis in time series data is time, as it uniquely identifies each row. Notice in Table 2.4 that one country is tracked over multiple years.</p>
-<table>
-<caption>
-<span id="tab:timeseries">Table 2.4: </span>Time series example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1977
-</td>
-<td style="text-align:right;">
-68.481
-</td>
-<td style="text-align:right;">
-26983828
-</td>
-<td style="text-align:right;">
-10079.027
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1982
-</td>
-<td style="text-align:right;">
-69.942
-</td>
-<td style="text-align:right;">
-29341374
-</td>
-<td style="text-align:right;">
-8997.897
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1987
-</td>
-<td style="text-align:right;">
-70.774
-</td>
-<td style="text-align:right;">
-31620918
-</td>
-<td style="text-align:right;">
-9139.671
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1992
-</td>
-<td style="text-align:right;">
-71.868
-</td>
-<td style="text-align:right;">
-33958947
-</td>
-<td style="text-align:right;">
-9308.419
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-73.275
-</td>
-<td style="text-align:right;">
-36203463
-</td>
-<td style="text-align:right;">
-10967.282
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-74.340
-</td>
-<td style="text-align:right;">
-38331121
-</td>
-<td style="text-align:right;">
-8797.641
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Panel</strong> (or longitudinal) data measures the same units over multiple time periods. The unit of analysis is pair of unit and time period. Notice in Table 2.5 that in order to identify a specific row, you would need to know the country <em>and</em> year. One could also think of panel data as numerous time series.</p>
-<table>
-<caption>
-<span id="tab:panel">Table 2.5: </span>Panel example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-73.275
-</td>
-<td style="text-align:right;">
-36203463
-</td>
-<td style="text-align:right;">
-10967.282
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-74.340
-</td>
-<td style="text-align:right;">
-38331121
-</td>
-<td style="text-align:right;">
-8797.641
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-62.050
-</td>
-<td style="text-align:right;">
-7693188
-</td>
-<td style="text-align:right;">
-3326.143
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-63.883
-</td>
-<td style="text-align:right;">
-8445134
-</td>
-<td style="text-align:right;">
-3413.263
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
-</tr>
-</tbody>
-</table>
-<p>To learn how to examine data in R, proceed to Chapter <a href="17-r-data.html#r-data">17</a>.</p>
-</div>
-<div id="additional-resources" class="section level2">
-<h2><span class="header-section-number">2.5</span> Additional Resources</h2>
-<ul>
-<li><a href="https://moderndive.com/1-getting-started.html">ModernDive Chapter 1</a></li>
-<li>Chapter 1 of OpenIntro Statistics</li>
-</ul>
+<div id="submit-2" class="section level2">
+<h2><span class="header-section-number">18.8</span> Submit</h2>
+<p>Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.</p>
 
 </div>
 </div>
@@ -1163,8 +558,8 @@ Americas
           </div>
         </div>
       </div>
-<a href="1-intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="3-measurement-and-missing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="17-r-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="19-r-description.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

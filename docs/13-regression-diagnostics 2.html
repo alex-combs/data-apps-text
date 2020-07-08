@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 2 Data | Data Applications in Public Administration</title>
+  <title> 13 Regression Diagnostics | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 2 Data | Data Applications in Public Administration" />
+  <meta property="og:title" content=" 13 Regression Diagnostics | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 2 Data | Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 13 Regression Diagnostics | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="1-intro.html"/>
-<link rel="next" href="3-measurement-and-missing.html"/>
+<link rel="prev" href="12-regression-inference.html"/>
+<link rel="next" href="14-forecasting.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,746 +425,126 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data" class="section level1">
-<h1><span class="header-section-number"> 2</span> Data</h1>
+<div id="regression-diagnostics" class="section level1">
+<h1><span class="header-section-number"> 13</span> Regression Diagnostics</h1>
 <blockquote>
-<p><em>Nothing exists except atoms and empty space; everything else is opinion.</em></p>
-<p>—Democritus</p>
+<p><em>“The hardest assumption to challenge is the one you don’t even know you are making.”</em></p>
+<p>—Douglas Adams</p>
 </blockquote>
-<p><br></p>
-<p>We cannot effectively convert the raw material of knowledge into a useful product without first understanding the raw material. Therefore, learning statistics naturally begins with learning the types and structures of data.</p>
-<div id="learning-objectives" class="section level2">
-<h2><span class="header-section-number">2.1</span> Learning objectives</h2>
-<ul>
-<li>Understand the organization of rectangular data</li>
-<li>Identify the unit of analysis within a dataset</li>
-<li>Identify and distinguish types of variables</li>
-<li>Identify and distinguish types of dataset structures</li>
-</ul>
-</div>
-<div id="rectangular-data" class="section level2">
-<h2><span class="header-section-number">2.2</span> Rectangular Data</h2>
-<p>Most data are rectangular, often represented using a standard spreadsheet organized by rows and columns. A rectangle of data is commonly referred to as a <strong>dataset</strong>.</p>
-<table>
-<caption>
-<span id="tab:print-generic">Table 2.1: </span>Generic rectangular data
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-ID
-</th>
-<th style="text-align:left;">
-Variable_1
-</th>
-<th style="text-align:left;">
-Variable_2
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Unit of Analysis
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Unit of Analysis
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Unit of Analysis
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<p>A rectangular dataset has three components. Not all datasets will fit the below description because many datasets are not organized in a tidy manner. The elements of tidy data will be covered in a later chapter.</p>
-<ul>
-<li><strong>Unit of analysis or observation:</strong> The generic entity or subject a row of data refers to. The unit of analysis uniquely identifies each row of a dataset. If we have a dataset of 50 states and some variables measured in 2020, then our unit of analysis is states. If you were told a specific state, then you could find the row in the dataset. If we have 50 states measured in 2019 and 2020, then the unit of analysis is state-year because you will need to know the state and year to find a specific row.</li>
-<li><strong>Variable:</strong> A measured characteristic of the unit of analysis. State unemployment rate is a variable for a state unit of analysis.</li>
-<li><strong>Datum:</strong> The intersection of a variable (column) and a unit of analysis (row) resulting in a cell. The datum is a particular piece of information. A cell could contain something like 4.8 as the unemployment rate for Georgia in 2020.</li>
-</ul>
-</div>
-<div id="types-of-variables" class="section level2">
-<h2><span class="header-section-number">2.3</span> Types of variables</h2>
-<p>The variables in a given dataset can be of several types. Types of variables are important to learn because the types of variables one is dealing with has consequences for data applications, such as description, visualization, and inference.</p>
-<p>A variable provides us raw information about the units of analysis. If statistics is a discipline to convert raw information into something useful, then it stands to reason that we should want to know what type of information a variable provides us, especially the specificity of that information.</p>
-<p>For example, suppose you ask two strangers to report their annual income. What options do they have for answers? If virtually any value, then you know to a precise degree the income each earns and can compute the precise difference between the two incomes. What if their choices are either more or less than $50,000? Then, you have a coarse understanding of how much they earn. If they provide different answers, you can only conclude whether one makes more than the other but not by how much. If they provide the same answer, then the two are grouped together even though it is highly unlikely they earn equal incomes. This makes a serious difference for statistical analysis.</p>
-<br>
+<p>As previous chapters explained, the regression model we choose to use for explaining or predicting an outcome and the inferences we make involve several assumptions based on sound statistical theory. However, this is not to suggest that those assumptions cannot be violated. Bad choices regarding the inclusion or exclusion of explanatory variables, small sample size, and statistical oddities in our data can cause necessary assumptions to break down. If so, we may make or accept invalid conclusions.</p>
+<p>Recall the credible analysis figure depicted below. Whether one’s role is a producer or consumer of a quantitative analysis, expertise on the subject in question can make significant contributions to every level of Figure <a href="13-regression-diagnostics.html#fig:credfigrepeat2">13.1</a>. Understanding how variables are measured helps us evaluate measurement validity and reliability. Understanding the causal pathways between variables helps us evaluate internal and external validity. Understanding inference, probabilities of error, and the context of the results can help us make valid statistical conclusions like whether we have statistical and or practical significance. Analysts and managers alike can involve themselves in this process and work together to ensure an analysis is as credible as possible.</p>
 <center>
-<div class="figure"><span id="fig:vartypefig"></span>
-<img src="images/variables.png" alt="Variable Types" width="504" />
+<div class="figure"><span id="fig:credfigrepeat2"></span>
+<img src="_bookdown_files/credible.png" alt="Components of credible analysis" width="489" />
 <p class="caption">
-Figure 2.1: Variable Types
+Figure 13.1: Components of credible analysis
 </p>
 </div>
 </center>
 <p><br></p>
-<p>All variables belong to one of two broad types: qualitative (or categorical) and quantitative (or numeric).</p>
-<ul>
-<li><strong>Qualitative</strong> variables take on values that have no intrensic numerical meaning. They are exressed in words.</li>
-<li><strong>Quantitative</strong> variables take on values that do have intrensic numerical meaning.</li>
-</ul>
-<div id="qualitative-variables" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Qualitative variables</h3>
-<p>Qualitative variables can be further differentiated into two types: nominal and ordinal.</p>
-<ul>
-<li><strong>Nominal</strong> variables take on values that differ in name only.</li>
-<li><strong>Ordinal</strong> variables take on values that can be ranked relative to each other but the difference between rankings has no numerical value.</li>
-</ul>
-<p>The values that categorical variables take on are commonly referred to as levels. Categorical variables can contain virtually any number of levels, though the number of levels is usually limited.</p>
-<p>A variable such as sex contains two levels: male and female. The variable sex is nominal, as its values have no numerical meaning and the two levels have no ranking. Race, state, country, political party, and any variable coded as yes/no such as unemployed, married, and below the federal poverty line are all examples of nominal variables.</p>
-<p>If you have ever participated in a customer satisfaction survey, then you have almost surely contributed data to an ordinal variable. Those scales that provide some number of options from “disagree” to “agree” are called Likert scales. Your answer has no intrinsic numerical value but it can be ranked against the answers of others. One respondent can be said to be more satsfied than another but not by how much. Moreover, one can only trust the results insofar as responents have the same understanding or frame of reference–the service that satisfied one respondent may not have satisfied another. Other ordinal variables, such as education degree and income level do not have this issue.</p>
+<p>This chapter covers some remaining assumptions and diagnostics that a credible quantitative analysis should include. While running diagnostics may primarily fall within the role of an analyst, those managing an analysis can ask good questions or identify potential issues if they at least know what else can go wrong.</p>
+<div id="classical-assumptions" class="section level2">
+<h2><span class="header-section-number">13.1</span> Classical assumptions</h2>
+<p>The estimates we obtain from regression are the best linear unbiased estimates possible <em>if</em> certain assumptions hold. If they do not, then our estimates could be biased or they could render our hypothesis tests invalid, creating a higher chance of Types I and II error than we chose that our significance level establishes. Fortunately, these assumptions can be remembered with an apt acronym: LINE.</p>
+<p>For the assumptions of regression to hold, the relationship between the outcome and explanatory variables must be <strong>Linear</strong> (or modeled correctly as nonlinear), the observations must be <strong>Independent</strong> of each other, the data points must be <strong>Normally</strong> distributed around the regression line, and the data points should have <strong>Equal</strong> variation around the regression line. A key tool used to evaluate these assumptions is a <strong>Residual vs. Fitted Plot</strong> (RVFP). An RVFP is a simple transformation of the regression line plot. Figure <a href="13-regression-diagnostics.html#fig:genericreg">13.2</a> below shows a generic regression line fit to data with the outcome and predicted outcome on the y axis. An RVFP rotates the predicted outcome to the x axis, resulting in a horizontal line. This allows the distance between the observed and the fitted outcome to be vertical. Thus, the residuals of the regression are plotted on the y axis. Figure <a href="13-regression-diagnostics.html#fig:genericrvfp">13.3</a> shows a generic RVFP.</p>
+<center>
+<div class="figure"><span id="fig:genericreg"></span>
+<img src="_bookdown_files/genericreg.png" alt="Generic regression line through data" width="252" />
+<p class="caption">
+Figure 13.2: Generic regression line through data
+</p>
 </div>
-<div id="quantitative-variables" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Quantitative variables</h3>
-<p>Quantitative variables can be further differentiated into two types: discrete and continuous.</p>
+</center>
+<center>
+<div class="figure"><span id="fig:genericrvfp"></span>
+<img src="_bookdown_files/genericrvfp.png" alt="Generic residual vs. fitted plot" width="246" />
+<p class="caption">
+Figure 13.3: Generic residual vs. fitted plot
+</p>
+</div>
+</center>
+<p>Note that the residuals in the RVFP above appear to be randomly positioned; there is no discernible pattern in the scatter plot. No pattern in the RVFP is a visual indication that the classic regression assumptions are not violated.</p>
+<p>Certain patterns in the RVFP signal violations of certain assumptions. For example, Figure <a href="13-regression-diagnostics.html#fig:rvfplinear">13.4</a> below shows a clear case that the linear assumptions is violated due to age and wage sharing a quadratic relationship.</p>
+<center>
+<div class="figure"><span id="fig:rvfplinear"></span>
+<img src="_bookdown_files/rvfp_linear.png" alt="Fitting linear model to quadratic data" width="530" />
+<p class="caption">
+Figure 13.4: Fitting linear model to quadratic data
+</p>
+</div>
+</center>
+<p>The RVFP can also be used to check whether residuals are normally distributed around the regression line and whether the residuals have equal variance. Figures <a href="13-regression-diagnostics.html#fig:rvfpnormal">13.5</a> and <a href="13-regression-diagnostics.html#fig:rvfpequal">13.6</a> below show examples where each is clearly violated.</p>
+<center>
+<div class="figure"><span id="fig:rvfpnormal"></span>
+<img src="_bookdown_files/rvfp_normal.png" alt="Violation of normally distributed risiduals" width="523" />
+<p class="caption">
+Figure 13.5: Violation of normally distributed risiduals
+</p>
+</div>
+</center>
+<center>
+<div class="figure"><span id="fig:rvfpequal"></span>
+<img src="_bookdown_files/rvfp_equal.png" alt="Violation of equal variation" width="511" />
+<p class="caption">
+Figure 13.6: Violation of equal variation
+</p>
+</div>
+</center>
+<p>There is not a direct visual check for the assumption that observations are independent of each other. However, signs that normality or linearity have been violated could be due to violation of independence.</p>
+<p>Independent observations is a very strong assumption. It states that the units in our data share absolutely no relationship with each other; the information pertaining to one unit has absolutely no bearing on the information gathered for another. Consider all the scenarios in which this assumption is likely violated: individuals in the same household or community, governments in the same state/province, states/provinces in the same country. Random sampling ensures independence, but random sampling is often unfeasible or not applicable to a research question.</p>
+<p>Other than controlling for the variable(s) by which observations are related covered in Chapter <a href="9-causation-and-bias.html#causation-and-bias">9</a>, there are statistical methods to account for dependence across observations, but they are beyond the scope of this book. A competent analyst should know at least a few such methods. As with any of the above assumptions, a manager who is knowledgeable in statistics knows to ask questions regarding independence.</p>
+</div>
+<div id="multicollinearity" class="section level2">
+<h2><span class="header-section-number">13.2</span> Multicollinearity</h2>
+<p>Multicollinearity involves whether two or more explanatory variables in our regression are strongly correlated. If the correlation between two or more explanatory variables is strong enough, it can result in Type II error (i.e. false negative) for one or more of the variables sharing the strong correlation.</p>
+<p>Recall that multiple regression isolates the effect of one variable on the outcome by holding all other explanatory variables constant at their mean. This requires variables to vary while holding others constant. If the values of two variables move in near perfect tandem, then regression will find it difficult to isolate the effect of one while another is held constant.</p>
+<p>It is as if regression creates a traffic intersection with each variable having its own lane and stoplight. To investigate the isolated effect of one variable, regression turns the stoplight for that variable green and sets the stoplights for the other variables to red, letting them idle at their mean. But suppose two variables have decided not to move unless the other is allowed to move. Thus, when one gets the green light to go, it does not move, and regression estimates an effect that is less likely to be statistically significant than should be the case.</p>
+<p>Calculating the correlation coefficient covered in Chapter <a href="4-descriptive-statistics.html#descriptive-statistics">4</a> can give us a sense of whether multicollinearity may be an issue. As a general rule of thumb, if two variables have a correlation coefficient greater than 0.8 or less than -0.8, then multicollinearity could be a problem. Once a regression is run, if one or more variables that you thought should reject the null fail to do so, this could be due to multicollinearity with another explanatory variable in the model.</p>
+<p>The solution to multicollinearity is somewhat subjective. If one variable is integral to the original purpose of your analysis, then consider dropping the other variable causing the problem. However, dropping a variable from your model should not be done lightly. The inclusion of a variable implies a theoretical claim that it affects the outcome. By dropping that variable because it is correlated with another explanatory variable, you may be introducing omitted variable bias because the dropped variable may be a confounder as discussed in Chapter <a href="9-causation-and-bias.html#causation-and-bias">9</a>. Instead, you could combine the collinear variables into a single index variable, which were discussed in Chapter <a href="2-data.html#data">2</a>. For instance, if the collinear variables are numerical, you calculate the average between them as a more holistic measure of the construct they both represent and include that in your regression model instead.</p>
+</div>
+<div id="influential-data" class="section level2">
+<h2><span class="header-section-number">13.3</span> Influential Data</h2>
+<p>Regression is an extension of correlation, which is fundamentally based on the mean. As is any measure based on the mean, regression estimates are sensitive to extreme values in our data. Depending on our sample size, one or a few extreme values can substantially impact our regression estimates. We should be aware of influential observations and consider whether our conclusions or recommendations should differ depending on whether influential observations are included.</p>
+<p>One must be more specific when communicating extreme values in regression, as there are three varieties:</p>
 <ul>
-<li><strong>Discrete</strong> variables take on countable or indivisible values.</li>
-<li><strong>Continuous</strong> variables take on infinitely divisible values (at least in theory).</li>
+<li>Regression Outlier: an observation with a extreme residual</li>
+<li>High-leverage observation: an observation with an extreme value with respect to a particular variable; an outlier in the distribution of the explanatory variable</li>
+<li>High-influence: a regression outlier with high leverage</li>
 </ul>
-<p>The distinction between discrete and continuous can be more difficult to discern but also less consequential for analysis. It is often the case that analytical models treat the two variables the same. However, for a purpose such as data visualization, the distinction can be informative.</p>
-<p>Any variable that is a count of persons, places, events, or things is a discrete variable, usually taking on integer values (e.g. 0, 1, 2, 3,…). By contrast, a continuous variable can contain values with an infinite number of decimal places. Even so, continuous variables take on a limited number of decimal places because either we measure phenomena with finite precision or it simply becomes impractical to include so many decimal places.</p>
+<p>Suppose we were interested in the relationship between poverty rate and murder rate among U.S. states and D.C. Figure <a href="13-regression-diagnostics.html#fig:influential">13.7</a> below provides a visual example of an influential observation in regression. Note the plot point in the far upper-right corner in the left panel. This plot point has an extreme positive residual and it imposes high positive leverage because it is positioned far from the center of the poverty distribution. As a result, this plot point pulls the slope of the regression line upward. The right panel visualizes the same regression with the influential observation removed. The regression line is noticeably flatter and fits the data better.</p>
+<center>
+<div class="figure"><span id="fig:influential"></span>
+<img src="_bookdown_files/influential.png" alt="Regression with and without a high-influence observation" width="538" />
+<p class="caption">
+Figure 13.7: Regression with and without a high-influence observation
+</p>
 </div>
-<div id="index-variables" class="section level3">
-<h3><span class="header-section-number">2.3.3</span> Index variables</h3>
-<p>Index variables are continuous variables but warrant separate discussion. An index variable is a composite measure of multiple variables. They can be used to make a continuous variable out of multiple categorical variables or simplify multiple quantitative variables into one. Purposes such as ranking colleges, measuring poverty beyond income, and determining political ideology make use of index variables.</p>
-<p>Index variables mask underlying information. This can be helpful or harmful. In either case, it is important to consider how an index variable is constructed. Doing so can offer insight or uncover problems.</p>
-<p>An instructive example familiar to readers is college rankings. U.S. News and World Report <a href="https://www.usnews.com/education/best-colleges/articles/ranking-criteria-and-weights">describes</a> how rankings are determined.</p>
-<p>What makes a college good? According to these rankings, five percent of what makes a college good is the percent of undergraduate alumni giving a donation as a proxy of student satisfaction. Another 20% is based on the opinions of administrators at peer institutions.</p>
-<p>Are these choices wise? This is difficult to say and besides the point. The point is that index variables involve choices made by people and are not naturally occurring data. They are synthetic materials of knowledge and worthy of our discernment.</p>
+</center>
+<p>Figure <a href="13-regression-diagnostics.html#fig:influential">13.7</a> provides an obvious case. The primary question is how do we decide an observation is high-influence? As is the case when identifying outliers of a single distribution, there is no definitive rule for identifying high-influence observations in regression. Furthermore, whether to exclude a high-influence observation is subjective and depends on the context. Either way, influential observations should be noted in a report.</p>
+<p>A key tool used to invstigate possible high-influence observations is a residual vs. leverage plot (RVLP). This is similar to an RVFP in that it is a simple transformation of the standard regression scatter plot that allows us to identify outliers, high-leverage, and high-influence observations more effectively. Figure <a href="13-regression-diagnostics.html#fig:rvlp">13.8</a> below shows an RVLP for the regression of poverty and murder rates.</p>
+<center>
+<div class="figure"><span id="fig:rvlp"></span>
+<img src="_bookdown_files/rvlp.png" alt="Residual vs. leverage plot" width="334" />
+<p class="caption">
+Figure 13.8: Residual vs. leverage plot
+</p>
 </div>
-</div>
-<div id="dataset-structures" class="section level2">
-<h2><span class="header-section-number">2.4</span> Dataset structures</h2>
-<p>Just as the type of variable one is dealing with impacts the kinds of visualizations or analyses one should use, so too does the structure of a dataset. Datasets come in three varieties depending on their unit of analysis.</p>
-<ul>
-<li>Cross-sectional
-<ul>
-<li>Pooled cross-sectional</li>
-</ul></li>
-<li>Time series</li>
-<li>Panel or longitudinal</li>
-</ul>
-<p><strong>Cross-sectional</strong> data is a snapshot in time measuring some size sample of units. One column serves as the identifier of the unit of analysis, such as the name or ID number of the unit. Notice in Table 2.2 that all one needs to know is the country in order to identify a specific row.</p>
-<table>
-<caption>
-<span id="tab:cross-sec-fig">Table 2.2: </span>Cross-section example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Brazil
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-72.390
-</td>
-<td style="text-align:right;">
-190010647
-</td>
-<td style="text-align:right;">
-9065.801
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Pooled cross-sectional</strong> data could be considered a fourth structure but is simply multiple cross-sections stacked atop each other. The critical quality of pooled cross-sectional data is that each cross-section contains <em>different</em> units measured at different times, not the same units measured at different times. Notice in Table 2.3 that the countries included from 2002 are not the same as those included from 2007.</p>
-<table>
-<caption>
-<span id="tab:pooled">Table 2.3: </span>Pooled cross-section example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Algeria
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-70.994
-</td>
-<td style="text-align:right;">
-31287142
-</td>
-<td style="text-align:right;">
-5288.040
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Angola
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-41.003
-</td>
-<td style="text-align:right;">
-10866106
-</td>
-<td style="text-align:right;">
-2773.287
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Benin
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-54.406
-</td>
-<td style="text-align:right;">
-7026113
-</td>
-<td style="text-align:right;">
-1372.878
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Botswana
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-46.634
-</td>
-<td style="text-align:right;">
-1630347
-</td>
-<td style="text-align:right;">
-11003.605
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Brazil
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-72.390
-</td>
-<td style="text-align:right;">
-190010647
-</td>
-<td style="text-align:right;">
-9065.801
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Time series</strong> data measures one unit over mulitple time periods. The unit of analysis in time series data is time, as it uniquely identifies each row. Notice in Table 2.4 that one country is tracked over multiple years.</p>
-<table>
-<caption>
-<span id="tab:timeseries">Table 2.4: </span>Time series example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1977
-</td>
-<td style="text-align:right;">
-68.481
-</td>
-<td style="text-align:right;">
-26983828
-</td>
-<td style="text-align:right;">
-10079.027
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1982
-</td>
-<td style="text-align:right;">
-69.942
-</td>
-<td style="text-align:right;">
-29341374
-</td>
-<td style="text-align:right;">
-8997.897
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1987
-</td>
-<td style="text-align:right;">
-70.774
-</td>
-<td style="text-align:right;">
-31620918
-</td>
-<td style="text-align:right;">
-9139.671
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1992
-</td>
-<td style="text-align:right;">
-71.868
-</td>
-<td style="text-align:right;">
-33958947
-</td>
-<td style="text-align:right;">
-9308.419
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-73.275
-</td>
-<td style="text-align:right;">
-36203463
-</td>
-<td style="text-align:right;">
-10967.282
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-74.340
-</td>
-<td style="text-align:right;">
-38331121
-</td>
-<td style="text-align:right;">
-8797.641
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Panel</strong> (or longitudinal) data measures the same units over multiple time periods. The unit of analysis is pair of unit and time period. Notice in Table 2.5 that in order to identify a specific row, you would need to know the country <em>and</em> year. One could also think of panel data as numerous time series.</p>
-<table>
-<caption>
-<span id="tab:panel">Table 2.5: </span>Panel example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-73.275
-</td>
-<td style="text-align:right;">
-36203463
-</td>
-<td style="text-align:right;">
-10967.282
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-74.340
-</td>
-<td style="text-align:right;">
-38331121
-</td>
-<td style="text-align:right;">
-8797.641
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-62.050
-</td>
-<td style="text-align:right;">
-7693188
-</td>
-<td style="text-align:right;">
-3326.143
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-63.883
-</td>
-<td style="text-align:right;">
-8445134
-</td>
-<td style="text-align:right;">
-3413.263
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
-</tr>
-</tbody>
-</table>
-<p>To learn how to examine data in R, proceed to Chapter <a href="17-r-data.html#r-data">17</a>.</p>
-</div>
-<div id="additional-resources" class="section level2">
-<h2><span class="header-section-number">2.5</span> Additional Resources</h2>
-<ul>
-<li><a href="https://moderndive.com/1-getting-started.html">ModernDive Chapter 1</a></li>
-<li>Chapter 1 of OpenIntro Statistics</li>
-</ul>
+</center>
+<p>The software used to produce this RVLP also adds something called Cook’s distance to the plot, denoted by the red dashed line. Cook’s distance is a measure commonly used to identify influential observations. One rule of thumb is that any observation with a Cook’s distance greater than 1 should be investigated. Here, we see that observation 51 in our data has a Cook’s distance greater than 1. This observation is D.C.</p>
+<p>To learn how to run regression diagnostics in R, proceed to Chapter <a href="25-r-regression-diagnostics.html#r-regression-diagnostics">25</a>.</p>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="1-intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="3-measurement-and-missing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="12-regression-inference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="14-forecasting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

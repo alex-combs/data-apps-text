@@ -50,7 +50,7 @@ For example, suppose you ask two strangers to report their annual income. What o
 <br>
 <center>
 ```{r vartypefig, echo=FALSE, fig.cap="Variable Types"}
-include_graphics("docs/_bookdown_files/variables.png")
+include_graphics("images/variables.png")
 ```
 </center>
 <br>

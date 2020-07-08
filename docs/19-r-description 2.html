@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 2 Data | Data Applications in Public Administration</title>
+  <title> 19 R Description | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 2 Data | Data Applications in Public Administration" />
+  <meta property="og:title" content=" 19 R Description | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 2 Data | Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 19 R Description | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="1-intro.html"/>
-<link rel="next" href="3-measurement-and-missing.html"/>
+<link rel="prev" href="18-r-missing-data.html"/>
+<link rel="next" href="20-r-visualization.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,736 +425,469 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data" class="section level1">
-<h1><span class="header-section-number"> 2</span> Data</h1>
-<blockquote>
-<p><em>Nothing exists except atoms and empty space; everything else is opinion.</em></p>
-<p>—Democritus</p>
-</blockquote>
-<p><br></p>
-<p>We cannot effectively convert the raw material of knowledge into a useful product without first understanding the raw material. Therefore, learning statistics naturally begins with learning the types and structures of data.</p>
-<div id="learning-objectives" class="section level2">
-<h2><span class="header-section-number">2.1</span> Learning objectives</h2>
+<div id="r-description" class="section level1">
+<h1><span class="header-section-number"> 19</span> R Description</h1>
+<div id="learning-objectives-4" class="section level2">
+<h2><span class="header-section-number">19.1</span> Learning Objectives</h2>
+<p>In this chapter, you will learn how to:</p>
 <ul>
-<li>Understand the organization of rectangular data</li>
-<li>Identify the unit of analysis within a dataset</li>
-<li>Identify and distinguish types of variables</li>
-<li>Identify and distinguish types of dataset structures</li>
+<li>Make a professional quality table of descriptive statistics</li>
 </ul>
 </div>
-<div id="rectangular-data" class="section level2">
-<h2><span class="header-section-number">2.2</span> Rectangular Data</h2>
-<p>Most data are rectangular, often represented using a standard spreadsheet organized by rows and columns. A rectangle of data is commonly referred to as a <strong>dataset</strong>.</p>
-<table>
-<caption>
-<span id="tab:print-generic">Table 2.1: </span>Generic rectangular data
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-ID
-</th>
-<th style="text-align:left;">
-Variable_1
-</th>
-<th style="text-align:left;">
-Variable_2
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Unit of Analysis
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Unit of Analysis
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Unit of Analysis
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<p>A rectangular dataset has three components. Not all datasets will fit the below description because many datasets are not organized in a tidy manner. The elements of tidy data will be covered in a later chapter.</p>
+<div id="set-up-2" class="section level2">
+<h2><span class="header-section-number">19.2</span> Set-up</h2>
+<p>To complete this chapter, you need to</p>
 <ul>
-<li><strong>Unit of analysis or observation:</strong> The generic entity or subject a row of data refers to. The unit of analysis uniquely identifies each row of a dataset. If we have a dataset of 50 states and some variables measured in 2020, then our unit of analysis is states. If you were told a specific state, then you could find the row in the dataset. If we have 50 states measured in 2019 and 2020, then the unit of analysis is state-year because you will need to know the state and year to find a specific row.</li>
-<li><strong>Variable:</strong> A measured characteristic of the unit of analysis. State unemployment rate is a variable for a state unit of analysis.</li>
-<li><strong>Datum:</strong> The intersection of a variable (column) and a unit of analysis (row) resulting in a cell. The datum is a particular piece of information. A cell could contain something like 4.8 as the unemployment rate for Georgia in 2020.</li>
+<li>Start a notebook</li>
+<li>Load the following packages</li>
 </ul>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="19-r-description.html#cb59-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb59-2"><a href="19-r-description.html#cb59-2"></a><span class="kw">library</span>(arsenal)</span>
+<span id="cb59-3"><a href="19-r-description.html#cb59-3"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb59-4"><a href="19-r-description.html#cb59-4"></a><span class="kw">library</span>(carData)</span></code></pre></div>
 </div>
-<div id="types-of-variables" class="section level2">
-<h2><span class="header-section-number">2.3</span> Types of variables</h2>
-<p>The variables in a given dataset can be of several types. Types of variables are important to learn because the types of variables one is dealing with has consequences for data applications, such as description, visualization, and inference.</p>
-<p>A variable provides us raw information about the units of analysis. If statistics is a discipline to convert raw information into something useful, then it stands to reason that we should want to know what type of information a variable provides us, especially the specificity of that information.</p>
-<p>For example, suppose you ask two strangers to report their annual income. What options do they have for answers? If virtually any value, then you know to a precise degree the income each earns and can compute the precise difference between the two incomes. What if their choices are either more or less than $50,000? Then, you have a coarse understanding of how much they earn. If they provide different answers, you can only conclude whether one makes more than the other but not by how much. If they provide the same answer, then the two are grouped together even though it is highly unlikely they earn equal incomes. This makes a serious difference for statistical analysis.</p>
-<br>
-<center>
-<div class="figure"><span id="fig:vartypefig"></span>
-<img src="images/variables.png" alt="Variable Types" width="504" />
-<p class="caption">
-Figure 2.1: Variable Types
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">19.3</span> Introduction</h2>
+<p>Summary statistics tables are ubiquitous in reports and studies. Usually a project involves numerous variables that would require too many visualizations to summarize, though we should still consider visualizations for the most important variables. A standard summary stats table provides readers a reference for key measures pertaining to all our variables in a fairly compact form. They can even provide new insights in lieu of a visualization.</p>
+<p>In this chapter, we set out to summarize variables within the <code>States</code> dataset of the <code>carData</code> package.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 1:</strong> Use the <code>glimpse</code> function to examine the <code>States</code> dataset.
 </p>
 </div>
-</center>
-<p><br></p>
-<p>All variables belong to one of two broad types: qualitative (or categorical) and quantitative (or numeric).</p>
-<ul>
-<li><strong>Qualitative</strong> variables take on values that have no intrensic numerical meaning. They are exressed in words.</li>
-<li><strong>Quantitative</strong> variables take on values that do have intrensic numerical meaning.</li>
-</ul>
-<div id="qualitative-variables" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Qualitative variables</h3>
-<p>Qualitative variables can be further differentiated into two types: nominal and ordinal.</p>
-<ul>
-<li><strong>Nominal</strong> variables take on values that differ in name only.</li>
-<li><strong>Ordinal</strong> variables take on values that can be ranked relative to each other but the difference between rankings has no numerical value.</li>
-</ul>
-<p>The values that categorical variables take on are commonly referred to as levels. Categorical variables can contain virtually any number of levels, though the number of levels is usually limited.</p>
-<p>A variable such as sex contains two levels: male and female. The variable sex is nominal, as its values have no numerical meaning and the two levels have no ranking. Race, state, country, political party, and any variable coded as yes/no such as unemployed, married, and below the federal poverty line are all examples of nominal variables.</p>
-<p>If you have ever participated in a customer satisfaction survey, then you have almost surely contributed data to an ordinal variable. Those scales that provide some number of options from “disagree” to “agree” are called Likert scales. Your answer has no intrinsic numerical value but it can be ranked against the answers of others. One respondent can be said to be more satsfied than another but not by how much. Moreover, one can only trust the results insofar as responents have the same understanding or frame of reference–the service that satisfied one respondent may not have satisfied another. Other ordinal variables, such as education degree and income level do not have this issue.</p>
+<p><code>States</code> is a cross-section of the 50 states and D.C. containing education and related statistics. Be sure to read the help page for <code>States</code> to understand each variable. You can do that by typing <code>States</code> in the search bar of the bottom-right pane of RStudio or going to the <code>carData</code> package under the Packages tab and clicking on the <code>States</code> link.</p>
 </div>
-<div id="quantitative-variables" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Quantitative variables</h3>
-<p>Quantitative variables can be further differentiated into two types: discrete and continuous.</p>
+<div id="summary-table" class="section level2">
+<h2><span class="header-section-number">19.4</span> Summary Table</h2>
+<p>Summary tables come in many styles, so there is no way to cover everything. In most cases, a summary table includes the following descriptive measures depending on the type of variable:</p>
 <ul>
-<li><strong>Discrete</strong> variables take on countable or indivisible values.</li>
-<li><strong>Continuous</strong> variables take on infinitely divisible values (at least in theory).</li>
-</ul>
-<p>The distinction between discrete and continuous can be more difficult to discern but also less consequential for analysis. It is often the case that analytical models treat the two variables the same. However, for a purpose such as data visualization, the distinction can be informative.</p>
-<p>Any variable that is a count of persons, places, events, or things is a discrete variable, usually taking on integer values (e.g. 0, 1, 2, 3,…). By contrast, a continuous variable can contain values with an infinite number of decimal places. Even so, continuous variables take on a limited number of decimal places because either we measure phenomena with finite precision or it simply becomes impractical to include so many decimal places.</p>
-</div>
-<div id="index-variables" class="section level3">
-<h3><span class="header-section-number">2.3.3</span> Index variables</h3>
-<p>Index variables are continuous variables but warrant separate discussion. An index variable is a composite measure of multiple variables. They can be used to make a continuous variable out of multiple categorical variables or simplify multiple quantitative variables into one. Purposes such as ranking colleges, measuring poverty beyond income, and determining political ideology make use of index variables.</p>
-<p>Index variables mask underlying information. This can be helpful or harmful. In either case, it is important to consider how an index variable is constructed. Doing so can offer insight or uncover problems.</p>
-<p>An instructive example familiar to readers is college rankings. U.S. News and World Report <a href="https://www.usnews.com/education/best-colleges/articles/ranking-criteria-and-weights">describes</a> how rankings are determined.</p>
-<p>What makes a college good? According to these rankings, five percent of what makes a college good is the percent of undergraduate alumni giving a donation as a proxy of student satisfaction. Another 20% is based on the opinions of administrators at peer institutions.</p>
-<p>Are these choices wise? This is difficult to say and besides the point. The point is that index variables involve choices made by people and are not naturally occurring data. They are synthetic materials of knowledge and worthy of our discernment.</p>
-</div>
-</div>
-<div id="dataset-structures" class="section level2">
-<h2><span class="header-section-number">2.4</span> Dataset structures</h2>
-<p>Just as the type of variable one is dealing with impacts the kinds of visualizations or analyses one should use, so too does the structure of a dataset. Datasets come in three varieties depending on their unit of analysis.</p>
+<li>Numerical variables
 <ul>
-<li>Cross-sectional
-<ul>
-<li>Pooled cross-sectional</li>
+<li>Mean</li>
+<li>Standard deviation</li>
+<li>Minimum</li>
+<li>Maximum</li>
 </ul></li>
-<li>Time series</li>
-<li>Panel or longitudinal</li>
-</ul>
-<p><strong>Cross-sectional</strong> data is a snapshot in time measuring some size sample of units. One column serves as the identifier of the unit of analysis, such as the name or ID number of the unit. Notice in Table 2.2 that all one needs to know is the country in order to identify a specific row.</p>
-<table>
-<caption>
-<span id="tab:cross-sec-fig">Table 2.2: </span>Cross-section example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Brazil
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-72.390
-</td>
-<td style="text-align:right;">
-190010647
-</td>
-<td style="text-align:right;">
-9065.801
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Pooled cross-sectional</strong> data could be considered a fourth structure but is simply multiple cross-sections stacked atop each other. The critical quality of pooled cross-sectional data is that each cross-section contains <em>different</em> units measured at different times, not the same units measured at different times. Notice in Table 2.3 that the countries included from 2002 are not the same as those included from 2007.</p>
-<table>
-<caption>
-<span id="tab:pooled">Table 2.3: </span>Pooled cross-section example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Algeria
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-70.994
-</td>
-<td style="text-align:right;">
-31287142
-</td>
-<td style="text-align:right;">
-5288.040
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Angola
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-41.003
-</td>
-<td style="text-align:right;">
-10866106
-</td>
-<td style="text-align:right;">
-2773.287
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Benin
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-54.406
-</td>
-<td style="text-align:right;">
-7026113
-</td>
-<td style="text-align:right;">
-1372.878
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Botswana
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-46.634
-</td>
-<td style="text-align:right;">
-1630347
-</td>
-<td style="text-align:right;">
-11003.605
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Brazil
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-72.390
-</td>
-<td style="text-align:right;">
-190010647
-</td>
-<td style="text-align:right;">
-9065.801
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Time series</strong> data measures one unit over mulitple time periods. The unit of analysis in time series data is time, as it uniquely identifies each row. Notice in Table 2.4 that one country is tracked over multiple years.</p>
-<table>
-<caption>
-<span id="tab:timeseries">Table 2.4: </span>Time series example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1977
-</td>
-<td style="text-align:right;">
-68.481
-</td>
-<td style="text-align:right;">
-26983828
-</td>
-<td style="text-align:right;">
-10079.027
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1982
-</td>
-<td style="text-align:right;">
-69.942
-</td>
-<td style="text-align:right;">
-29341374
-</td>
-<td style="text-align:right;">
-8997.897
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1987
-</td>
-<td style="text-align:right;">
-70.774
-</td>
-<td style="text-align:right;">
-31620918
-</td>
-<td style="text-align:right;">
-9139.671
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1992
-</td>
-<td style="text-align:right;">
-71.868
-</td>
-<td style="text-align:right;">
-33958947
-</td>
-<td style="text-align:right;">
-9308.419
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-73.275
-</td>
-<td style="text-align:right;">
-36203463
-</td>
-<td style="text-align:right;">
-10967.282
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-74.340
-</td>
-<td style="text-align:right;">
-38331121
-</td>
-<td style="text-align:right;">
-8797.641
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Panel</strong> (or longitudinal) data measures the same units over multiple time periods. The unit of analysis is pair of unit and time period. Notice in Table 2.5 that in order to identify a specific row, you would need to know the country <em>and</em> year. One could also think of panel data as numerous time series.</p>
-<table>
-<caption>
-<span id="tab:panel">Table 2.5: </span>Panel example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-73.275
-</td>
-<td style="text-align:right;">
-36203463
-</td>
-<td style="text-align:right;">
-10967.282
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-74.340
-</td>
-<td style="text-align:right;">
-38331121
-</td>
-<td style="text-align:right;">
-8797.641
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-62.050
-</td>
-<td style="text-align:right;">
-7693188
-</td>
-<td style="text-align:right;">
-3326.143
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-63.883
-</td>
-<td style="text-align:right;">
-8445134
-</td>
-<td style="text-align:right;">
-3413.263
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
-</tr>
-</tbody>
-</table>
-<p>To learn how to examine data in R, proceed to Chapter <a href="17-r-data.html#r-data">17</a>.</p>
-</div>
-<div id="additional-resources" class="section level2">
-<h2><span class="header-section-number">2.5</span> Additional Resources</h2>
+<li>Categorical variables
 <ul>
-<li><a href="https://moderndive.com/1-getting-started.html">ModernDive Chapter 1</a></li>
-<li>Chapter 1 of OpenIntro Statistics</li>
+<li>Counts for each level, and/or</li>
+<li>Percentages for each level</li>
+</ul></li>
 </ul>
+<p>If a variable is skewed, then it may be wise to replace the mean and standard deviation with the median, first quartile, and third quartile. We will learn how to do this.</p>
+</div>
+<div id="using-arsenal" class="section level2">
+<h2><span class="header-section-number">19.5</span> Using Arsenal</h2>
+<p>Due to the many styles of summary tables, there are numerous R packages designed to produce summary tables. The best R package in terms of quickly getting the information to a nicely formatted table of which I am aware is Arsenal. Therefore, we will learn how to use Arsenal. I will demonstrate Arsenal using the <code>gapminder</code> data with which we are all familiar. Then, I will ask you to replicate those demonstrations using the <code>States</code> data.</p>
+<p>Producing a summary table with Arsenal involves at least two, probably three, steps.</p>
+<ul>
+<li>Create a new object containing the summary statistics we want to include in a table</li>
+<li>Relabel the variables to something appropriate for our audience</li>
+<li>Generating the summary table based on the new object we just created</li>
+</ul>
+<p>Here is an example using <code>gapminder</code> data without altering any of Aresenal’s default options that we will want to know how to alter in most cases.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="19-r-description.html#cb60-1"></a>sum.gapminder &lt;-<span class="st"> </span><span class="kw">tableby</span>(<span class="op">~</span><span class="st"> </span>continent <span class="op">+</span><span class="st"> </span>gdpPercap <span class="op">+</span><span class="st"> </span>lifeExp <span class="op">+</span><span class="st"> </span>pop, <span class="dt">data =</span> gapminder)</span>
+<span id="cb60-2"><a href="19-r-description.html#cb60-2"></a></span>
+<span id="cb60-3"><a href="19-r-description.html#cb60-3"></a><span class="kw">labels</span>(sum.gapminder) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="dt">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="dt">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="dt">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="19-r-description.html#cb61-1"></a><span class="kw">summary</span>(sum.gapminder, <span class="dt">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<table>
+<caption>Summary Stats for Gapminder Data</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Overall (N=1704)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Continent</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Africa</td>
+<td align="center">624 (36.6%)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Americas</td>
+<td align="center">300 (17.6%)</td>
+</tr>
+<tr class="even">
+<td align="left">   Asia</td>
+<td align="center">396 (23.2%)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Europe</td>
+<td align="center">360 (21.1%)</td>
+</tr>
+<tr class="even">
+<td align="left">   Oceania</td>
+<td align="center">24 (1.4%)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>GDP Per Capita</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Mean (SD)</td>
+<td align="center">7215.327 (9857.455)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Range</td>
+<td align="center">241.166 - 113523.133</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Life Expectancy</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Mean (SD)</td>
+<td align="center">59.474 (12.917)</td>
+</tr>
+<tr class="even">
+<td align="left">   Range</td>
+<td align="center">23.599 - 82.603</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Population</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Mean (SD)</td>
+<td align="center">29601212.325 (106157896.744)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Range</td>
+<td align="center">60011.000 - 1318683096.000</td>
+</tr>
+</tbody>
+</table>
+<p>The second code chunk above requires a specific code chunk option in order for the table to print correctly. The top line of a code chunk includes <code>{r}</code> by default. To print the summary table from the Arsenal package correctly using the <code>summary()</code> function, we need to add the code chunk option <code>results='asis'</code>. Therefore, the top line of the code chunk should be <code>{r, results='asis'}</code>.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 2:</strong> Replicate the code shown above to create a default summary table for the <code>States</code> data using the Arsenal package. Be sure to relabel the variables to something relatively understandable and brief. Labeling is tedious but you only need to do it once. You can run the code individually or knit your notebook to preview the table.
+</p>
+</div>
+<p>In three relatively short bits of code, we already have a decent summary table that would have taken excruciatingly long to input manually. But it can be made better.</p>
+<div id="adjustments" class="section level3">
+<h3><span class="header-section-number">19.5.1</span> Adjustments</h3>
+<div id="decimal-digits" class="section level4 unnumbered">
+<h4>Decimal digits</h4>
+<p>The biggest aesthetic issue with this table is including so many decimals. None of these variables have such a small range that rounding to integers masks useful information. Obviously, if a variable only ranges between 0 and 1, we would not want to round to an integer.</p>
+<p>Specifying the number of decimals is quite easy with Arsenal. Because arsenal tries to be as flexible as possible, we have to specify the number of decimals separately for numerical and percentage measures. The following code sets the number of decimals to zero for the gapminder data.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="19-r-description.html#cb62-1"></a>sum.gapminder2 &lt;-<span class="st"> </span><span class="kw">tableby</span>(<span class="op">~</span><span class="st"> </span>continent <span class="op">+</span><span class="st"> </span>gdpPercap <span class="op">+</span><span class="st"> </span>lifeExp <span class="op">+</span><span class="st"> </span>pop, <span class="dt">data =</span> gapminder, <span class="dt">digits =</span> <span class="dv">0</span>, <span class="dt">digits.pct =</span> <span class="dv">0</span>)</span>
+<span id="cb62-2"><a href="19-r-description.html#cb62-2"></a></span>
+<span id="cb62-3"><a href="19-r-description.html#cb62-3"></a><span class="kw">labels</span>(sum.gapminder2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="dt">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="dt">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="dt">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="19-r-description.html#cb63-1"></a><span class="kw">summary</span>(sum.gapminder2, <span class="dt">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<table>
+<caption>Summary Stats for Gapminder Data</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Overall (N=1704)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Continent</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Africa</td>
+<td align="center">624 (37%)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Americas</td>
+<td align="center">300 (18%)</td>
+</tr>
+<tr class="even">
+<td align="left">   Asia</td>
+<td align="center">396 (23%)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Europe</td>
+<td align="center">360 (21%)</td>
+</tr>
+<tr class="even">
+<td align="left">   Oceania</td>
+<td align="center">24 (1%)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>GDP Per Capita</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Mean (SD)</td>
+<td align="center">7215 (9857)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Range</td>
+<td align="center">241 - 113523</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Life Expectancy</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Mean (SD)</td>
+<td align="center">59 (13)</td>
+</tr>
+<tr class="even">
+<td align="left">   Range</td>
+<td align="center">24 - 83</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Population</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Mean (SD)</td>
+<td align="center">29601212 (106157897)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Range</td>
+<td align="center">60011 - 1318683096</td>
+</tr>
+</tbody>
+</table>
+<div class="learncheck">
+<p>
+<strong>Exercise 3:</strong> Replicate the code shown above to create a summary table for the <code>States</code> data with no decimals. You will need to copy-and-paste the labels code.
+</p>
+</div>
+</div>
+<div id="reporting-median-and-iqr" class="section level4 unnumbered">
+<h4>Reporting median and IQR</h4>
+<p>Instead of the mean and standard deviation, we may want to report the median, first quartile, and third quartile for our numerical variables. We can control the descriptive measures using the following code.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="19-r-description.html#cb64-1"></a>sum.gapminder3 &lt;-<span class="st"> </span><span class="kw">tableby</span>(<span class="op">~</span><span class="st"> </span>continent <span class="op">+</span><span class="st"> </span>gdpPercap <span class="op">+</span><span class="st"> </span>lifeExp <span class="op">+</span><span class="st"> </span>pop, <span class="dt">data =</span> gapminder, <span class="dt">digits =</span> <span class="dv">0</span>, <span class="dt">digits.pct =</span> <span class="dv">0</span>, <span class="dt">numeric.stats =</span> <span class="kw">c</span>(<span class="st">&quot;median&quot;</span>, <span class="st">&quot;q1q3&quot;</span>, <span class="st">&quot;range&quot;</span>))</span>
+<span id="cb64-2"><a href="19-r-description.html#cb64-2"></a></span>
+<span id="cb64-3"><a href="19-r-description.html#cb64-3"></a><span class="kw">labels</span>(sum.gapminder3) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="dt">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="dt">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="dt">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="19-r-description.html#cb65-1"></a><span class="kw">summary</span>(sum.gapminder3, <span class="dt">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<table>
+<caption>Summary Stats for Gapminder Data</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Overall (N=1704)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Continent</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Africa</td>
+<td align="center">624 (37%)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Americas</td>
+<td align="center">300 (18%)</td>
+</tr>
+<tr class="even">
+<td align="left">   Asia</td>
+<td align="center">396 (23%)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Europe</td>
+<td align="center">360 (21%)</td>
+</tr>
+<tr class="even">
+<td align="left">   Oceania</td>
+<td align="center">24 (1%)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>GDP Per Capita</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Median</td>
+<td align="center">3532</td>
+</tr>
+<tr class="odd">
+<td align="left">   Q1, Q3</td>
+<td align="center">1202, 9325</td>
+</tr>
+<tr class="even">
+<td align="left">   Range</td>
+<td align="center">241 - 113523</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Life Expectancy</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Median</td>
+<td align="center">61</td>
+</tr>
+<tr class="odd">
+<td align="left">   Q1, Q3</td>
+<td align="center">48, 71</td>
+</tr>
+<tr class="even">
+<td align="left">   Range</td>
+<td align="center">24 - 83</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Population</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Median</td>
+<td align="center">7023596</td>
+</tr>
+<tr class="odd">
+<td align="left">   Q1, Q3</td>
+<td align="center">2793664, 19585222</td>
+</tr>
+<tr class="even">
+<td align="left">   Range</td>
+<td align="center">60011 - 1318683096</td>
+</tr>
+</tbody>
+</table>
+<div class="learncheck">
+<p>
+<strong>Exercise 4:</strong> Replicate the code shown above to create a summary table for the <code>States</code> data that reports median and the first and third quartiles.
+</p>
+</div>
+</div>
+<div id="across-groups" class="section level4 unnumbered">
+<h4>Across groups</h4>
+<p>Finally, instead of reporting summary statistics for the entire sample, we may want to report them separately for each level of a categorical variable. This is a common way to make comparisons.</p>
+<p>We can have Arsenal report across groups by adding the categorical variable to the left side of the formula in the <code>tableby</code> code. The code below reports the <code>gapminder</code> data across continents. By default, Arsenal tests for correlations across groups and reports a p-value. This is not a common part of a summary table, so I turn this feature off with the <code>test = FALSE</code> within the code below.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="19-r-description.html#cb66-1"></a>sum.gapminder4 &lt;-<span class="st"> </span><span class="kw">tableby</span>(continent <span class="op">~</span><span class="st"> </span>gdpPercap <span class="op">+</span><span class="st"> </span>lifeExp <span class="op">+</span><span class="st"> </span>pop, <span class="dt">data =</span> gapminder, <span class="dt">digits =</span> <span class="dv">0</span>, <span class="dt">digits.pct =</span> <span class="dv">0</span>, <span class="dt">test =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb66-2"><a href="19-r-description.html#cb66-2"></a></span>
+<span id="cb66-3"><a href="19-r-description.html#cb66-3"></a><span class="kw">labels</span>(sum.gapminder4) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="dt">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="dt">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="dt">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="19-r-description.html#cb67-1"></a><span class="kw">summary</span>(sum.gapminder4, <span class="dt">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<table style="width:100%;">
+<caption>Summary Stats for Gapminder Data</caption>
+<colgroup>
+<col width="18%" />
+<col width="12%" />
+<col width="13%" />
+<col width="14%" />
+<col width="13%" />
+<col width="12%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Africa (N=624)</th>
+<th align="center">Americas (N=300)</th>
+<th align="center">Asia (N=396)</th>
+<th align="center">Europe (N=360)</th>
+<th align="center">Oceania (N=24)</th>
+<th align="center">Total (N=1704)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>GDP Per Capita</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Mean (SD)</td>
+<td align="center">2194 (2828)</td>
+<td align="center">7136 (6397)</td>
+<td align="center">7902 (14045)</td>
+<td align="center">14469 (9355)</td>
+<td align="center">18622 (6359)</td>
+<td align="center">7215 (9857)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Range</td>
+<td align="center">241 - 21951</td>
+<td align="center">1202 - 42952</td>
+<td align="center">331 - 113523</td>
+<td align="center">974 - 49357</td>
+<td align="center">10040 - 34435</td>
+<td align="center">241 - 113523</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Life Expectancy</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Mean (SD)</td>
+<td align="center">49 (9)</td>
+<td align="center">65 (9)</td>
+<td align="center">60 (12)</td>
+<td align="center">72 (5)</td>
+<td align="center">74 (4)</td>
+<td align="center">59 (13)</td>
+</tr>
+<tr class="even">
+<td align="left">   Range</td>
+<td align="center">24 - 76</td>
+<td align="center">38 - 81</td>
+<td align="center">29 - 83</td>
+<td align="center">44 - 82</td>
+<td align="center">69 - 81</td>
+<td align="center">24 - 83</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Population</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Mean (SD)</td>
+<td align="center">9916003 (15490923)</td>
+<td align="center">24504795 (50979430)</td>
+<td align="center">77038722 (206885205)</td>
+<td align="center">17169765 (20519438)</td>
+<td align="center">8874672 (6506342)</td>
+<td align="center">29601212 (106157897)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Range</td>
+<td align="center">60011 - 135031164</td>
+<td align="center">662850 - 301139947</td>
+<td align="center">120447 - 1318683096</td>
+<td align="center">147962 - 82400996</td>
+<td align="center">1994794 - 20434176</td>
+<td align="center">60011 - 1318683096</td>
+</tr>
+</tbody>
+</table>
+<div class="learncheck">
+<p>
+<strong>Exercise 5:</strong> Replicate the code shown above to create a summary table for the <code>States</code> data that reports across regions.
+</p>
+</div>
+</div>
+</div>
+<div id="export-to-csv" class="section level3">
+<h3><span class="header-section-number">19.5.2</span> Export to CSV</h3>
+<p>Knitting your notebook to HTML, Word, or PDF should produce a summary table in the appropriate format. Depending on our or others’ workflow, we may want to export our summary table to CSV in order to easily open in Excel or other spreadsheet software. Arsenal can easily handle this.</p>
+<p>To export my <code>gapminder</code> summary to CSV, I need to create a new object that contains the actual summary table. Below, I save the last summary to the object named <code>sum.table</code>.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="19-r-description.html#cb68-1"></a>sum.table &lt;-<span class="st"> </span><span class="kw">summary</span>(sum.gapminder4, <span class="dt">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<p>Next, I need to convert this table into a data frame using the <code>as.data.frame()</code> function like so.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="19-r-description.html#cb69-1"></a>sum.table &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(sum.table)</span></code></pre></div>
+<p>Lastly, I just need to save this data frame as a CSV file using the <code>write.csv()</code> function like so.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="19-r-description.html#cb70-1"></a><span class="kw">write.csv</span>(sum.table, <span class="dt">file =</span> <span class="st">&quot;sumtable.csv&quot;</span>)</span></code></pre></div>
+<p>R will save the CSV file to my project folder. Otherwise, R will save the file to my current working directory.</p>
+</div>
+</div>
+<div id="submit-3" class="section level2">
+<h2><span class="header-section-number">19.6</span> Submit</h2>
+<p>Arsenal has many more options. The help page and links to tutorials can help you generate various types of summary tables.</p>
+<p>Submit your notebook to eLC.</p>
 
 </div>
 </div>
@@ -1163,8 +896,8 @@ Americas
           </div>
         </div>
       </div>
-<a href="1-intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="3-measurement-and-missing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="18-r-missing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="20-r-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

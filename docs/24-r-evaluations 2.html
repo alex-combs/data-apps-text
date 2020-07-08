@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 2 Data | Data Applications in Public Administration</title>
+  <title> 24 R Evaluations | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 2 Data | Data Applications in Public Administration" />
+  <meta property="og:title" content=" 24 R Evaluations | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 2 Data | Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 24 R Evaluations | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="1-intro.html"/>
-<link rel="next" href="3-measurement-and-missing.html"/>
+<link rel="prev" href="23-r-nonlinear-regression.html"/>
+<link rel="next" href="25-r-regression-diagnostics.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,736 +425,165 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data" class="section level1">
-<h1><span class="header-section-number"> 2</span> Data</h1>
-<blockquote>
-<p><em>Nothing exists except atoms and empty space; everything else is opinion.</em></p>
-<p>—Democritus</p>
-</blockquote>
-<p><br></p>
-<p>We cannot effectively convert the raw material of knowledge into a useful product without first understanding the raw material. Therefore, learning statistics naturally begins with learning the types and structures of data.</p>
-<div id="learning-objectives" class="section level2">
-<h2><span class="header-section-number">2.1</span> Learning objectives</h2>
+<div id="r-evaluations" class="section level1">
+<h1><span class="header-section-number"> 24</span> R Evaluations</h1>
+<div id="learning-outcomes" class="section level2">
+<h2><span class="header-section-number">24.1</span> Learning Outcomes</h2>
+<p>In this chapter, you will learn how to:</p>
 <ul>
-<li>Understand the organization of rectangular data</li>
-<li>Identify the unit of analysis within a dataset</li>
-<li>Identify and distinguish types of variables</li>
-<li>Identify and distinguish types of dataset structures</li>
+<li>Conduct a chi-square test</li>
+<li>Conduct an independent t-test</li>
 </ul>
 </div>
-<div id="rectangular-data" class="section level2">
-<h2><span class="header-section-number">2.2</span> Rectangular Data</h2>
-<p>Most data are rectangular, often represented using a standard spreadsheet organized by rows and columns. A rectangle of data is commonly referred to as a <strong>dataset</strong>.</p>
+<div id="set-up-7" class="section level2">
+<h2><span class="header-section-number">24.2</span> Set-up</h2>
+<p>To complete this chapter, you need to</p>
+<ul>
+<li>Open a script</li>
+<li>Load the following packages</li>
+</ul>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="24-r-evaluations.html#cb108-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb108-2"><a href="24-r-evaluations.html#cb108-2"></a><span class="kw">library</span>(carData)</span>
+<span id="cb108-3"><a href="24-r-evaluations.html#cb108-3"></a><span class="kw">library</span>(MASS)</span></code></pre></div>
+<p>For the chi-square test, we will use the <code>MplsStops</code> dataset within the <code>carData</code> package. For the t-tests, we will use the <code>UScrime</code> dataset within the <code>MASS</code> package. Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.</p>
+</div>
+<div id="chi-square-test-1" class="section level2">
+<h2><span class="header-section-number">24.3</span> Chi-square test</h2>
+<p>A chi-square test, like the one demonstrated in Chapter <a href="11-surveys-and-evaluations.html#surveys-and-evaluations">11</a>, requires two steps:</p>
+<ul>
+<li>Create a cross-tabulation table using the <code>table</code> function</li>
+<li>Run the chi-square on the cross-tabulation using the <code>chisq.test</code> function</li>
+</ul>
+<div id="cross-tab" class="section level3">
+<h3><span class="header-section-number">24.3.1</span> Cross-tab</h3>
+<p>Below is the code used to produce the cross-tab from Chapter <a href="11-surveys-and-evaluations.html#surveys-and-evaluations">11</a>. I save the new table as <code>polltable</code>. Using the <code>table</code> function, I tell R which two variables from the <code>poll</code> dataset to cross-tabulate. The <code>$</code> is how we identify a specific variable within a dataset. The levels of the first variable, <code>response</code>, will be tabulated by row, while the frequency of the levels of the second variable, <code>party</code>, will be tabulated by column.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="24-r-evaluations.html#cb109-1"></a>polltable &lt;-<span class="st"> </span><span class="kw">table</span>(poll<span class="op">$</span>response, poll<span class="op">$</span>party)</span></code></pre></div>
 <table>
 <caption>
-<span id="tab:print-generic">Table 2.1: </span>Generic rectangular data
+<span id="tab:unnamed-chunk-181">Table 24.1: </span>Response by political party
 </caption>
 <thead>
 <tr>
 <th style="text-align:left;">
-ID
 </th>
-<th style="text-align:left;">
-Variable_1
+<th style="text-align:right;">
+Republican
 </th>
-<th style="text-align:left;">
-Variable_2
+<th style="text-align:right;">
+Democrat
+</th>
+<th style="text-align:right;">
+Independent
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-Unit of Analysis
+Apply for citizenship
 </td>
-<td style="text-align:left;">
-Datum
+<td style="text-align:right;">
+57
 </td>
-<td style="text-align:left;">
-Datum
+<td style="text-align:right;">
+101
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Unit of Analysis
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-<td style="text-align:left;">
-Datum
+<td style="text-align:right;">
+120
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Unit of Analysis
+Guest worker
 </td>
-<td style="text-align:left;">
-Datum
+<td style="text-align:right;">
+121
 </td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+113
+</td>
+</tr>
+<tr>
 <td style="text-align:left;">
-Datum
+Leave the country
+</td>
+<td style="text-align:right;">
+179
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+126
 </td>
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<p>A rectangular dataset has three components. Not all datasets will fit the below description because many datasets are not organized in a tidy manner. The elements of tidy data will be covered in a later chapter.</p>
-<ul>
-<li><strong>Unit of analysis or observation:</strong> The generic entity or subject a row of data refers to. The unit of analysis uniquely identifies each row of a dataset. If we have a dataset of 50 states and some variables measured in 2020, then our unit of analysis is states. If you were told a specific state, then you could find the row in the dataset. If we have 50 states measured in 2019 and 2020, then the unit of analysis is state-year because you will need to know the state and year to find a specific row.</li>
-<li><strong>Variable:</strong> A measured characteristic of the unit of analysis. State unemployment rate is a variable for a state unit of analysis.</li>
-<li><strong>Datum:</strong> The intersection of a variable (column) and a unit of analysis (row) resulting in a cell. The datum is a particular piece of information. A cell could contain something like 4.8 as the unemployment rate for Georgia in 2020.</li>
-</ul>
 </div>
-<div id="types-of-variables" class="section level2">
-<h2><span class="header-section-number">2.3</span> Types of variables</h2>
-<p>The variables in a given dataset can be of several types. Types of variables are important to learn because the types of variables one is dealing with has consequences for data applications, such as description, visualization, and inference.</p>
-<p>A variable provides us raw information about the units of analysis. If statistics is a discipline to convert raw information into something useful, then it stands to reason that we should want to know what type of information a variable provides us, especially the specificity of that information.</p>
-<p>For example, suppose you ask two strangers to report their annual income. What options do they have for answers? If virtually any value, then you know to a precise degree the income each earns and can compute the precise difference between the two incomes. What if their choices are either more or less than $50,000? Then, you have a coarse understanding of how much they earn. If they provide different answers, you can only conclude whether one makes more than the other but not by how much. If they provide the same answer, then the two are grouped together even though it is highly unlikely they earn equal incomes. This makes a serious difference for statistical analysis.</p>
-<br>
-<center>
-<div class="figure"><span id="fig:vartypefig"></span>
-<img src="images/variables.png" alt="Variable Types" width="504" />
-<p class="caption">
-Figure 2.1: Variable Types
+<div id="run-chi-square" class="section level3">
+<h3><span class="header-section-number">24.3.2</span> Run chi-square</h3>
+<p>Now that we have a cross-tabulation table, we can run the chi-square test. The code below demonstrates how.</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="24-r-evaluations.html#cb110-1"></a><span class="kw">chisq.test</span>(immigration_poll)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  immigration_poll
+## X-squared = 100.95, df = 4, p-value &lt; 0.00000000000000022</code></pre>
+<p>Then, it is simply a matter of interpreting the results.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 1:</strong> Using the <code>MplsStops</code> data, suppose we wanted to test whether receiving a citation after being stopped by the police, <code>citationIssued</code>, is independent of <code>race.</code> Both are nominal variables, so a chi-square test can be used. Run this chi-square test.
 </p>
 </div>
-</center>
-<p><br></p>
-<p>All variables belong to one of two broad types: qualitative (or categorical) and quantitative (or numeric).</p>
-<ul>
-<li><strong>Qualitative</strong> variables take on values that have no intrensic numerical meaning. They are exressed in words.</li>
-<li><strong>Quantitative</strong> variables take on values that do have intrensic numerical meaning.</li>
-</ul>
-<div id="qualitative-variables" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Qualitative variables</h3>
-<p>Qualitative variables can be further differentiated into two types: nominal and ordinal.</p>
-<ul>
-<li><strong>Nominal</strong> variables take on values that differ in name only.</li>
-<li><strong>Ordinal</strong> variables take on values that can be ranked relative to each other but the difference between rankings has no numerical value.</li>
-</ul>
-<p>The values that categorical variables take on are commonly referred to as levels. Categorical variables can contain virtually any number of levels, though the number of levels is usually limited.</p>
-<p>A variable such as sex contains two levels: male and female. The variable sex is nominal, as its values have no numerical meaning and the two levels have no ranking. Race, state, country, political party, and any variable coded as yes/no such as unemployed, married, and below the federal poverty line are all examples of nominal variables.</p>
-<p>If you have ever participated in a customer satisfaction survey, then you have almost surely contributed data to an ordinal variable. Those scales that provide some number of options from “disagree” to “agree” are called Likert scales. Your answer has no intrinsic numerical value but it can be ranked against the answers of others. One respondent can be said to be more satsfied than another but not by how much. Moreover, one can only trust the results insofar as responents have the same understanding or frame of reference–the service that satisfied one respondent may not have satisfied another. Other ordinal variables, such as education degree and income level do not have this issue.</p>
-</div>
-<div id="quantitative-variables" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Quantitative variables</h3>
-<p>Quantitative variables can be further differentiated into two types: discrete and continuous.</p>
-<ul>
-<li><strong>Discrete</strong> variables take on countable or indivisible values.</li>
-<li><strong>Continuous</strong> variables take on infinitely divisible values (at least in theory).</li>
-</ul>
-<p>The distinction between discrete and continuous can be more difficult to discern but also less consequential for analysis. It is often the case that analytical models treat the two variables the same. However, for a purpose such as data visualization, the distinction can be informative.</p>
-<p>Any variable that is a count of persons, places, events, or things is a discrete variable, usually taking on integer values (e.g. 0, 1, 2, 3,…). By contrast, a continuous variable can contain values with an infinite number of decimal places. Even so, continuous variables take on a limited number of decimal places because either we measure phenomena with finite precision or it simply becomes impractical to include so many decimal places.</p>
-</div>
-<div id="index-variables" class="section level3">
-<h3><span class="header-section-number">2.3.3</span> Index variables</h3>
-<p>Index variables are continuous variables but warrant separate discussion. An index variable is a composite measure of multiple variables. They can be used to make a continuous variable out of multiple categorical variables or simplify multiple quantitative variables into one. Purposes such as ranking colleges, measuring poverty beyond income, and determining political ideology make use of index variables.</p>
-<p>Index variables mask underlying information. This can be helpful or harmful. In either case, it is important to consider how an index variable is constructed. Doing so can offer insight or uncover problems.</p>
-<p>An instructive example familiar to readers is college rankings. U.S. News and World Report <a href="https://www.usnews.com/education/best-colleges/articles/ranking-criteria-and-weights">describes</a> how rankings are determined.</p>
-<p>What makes a college good? According to these rankings, five percent of what makes a college good is the percent of undergraduate alumni giving a donation as a proxy of student satisfaction. Another 20% is based on the opinions of administrators at peer institutions.</p>
-<p>Are these choices wise? This is difficult to say and besides the point. The point is that index variables involve choices made by people and are not naturally occurring data. They are synthetic materials of knowledge and worthy of our discernment.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 2:</strong> Are the two variables independent? Why?
+</p>
 </div>
 </div>
-<div id="dataset-structures" class="section level2">
-<h2><span class="header-section-number">2.4</span> Dataset structures</h2>
-<p>Just as the type of variable one is dealing with impacts the kinds of visualizations or analyses one should use, so too does the structure of a dataset. Datasets come in three varieties depending on their unit of analysis.</p>
-<ul>
-<li>Cross-sectional
-<ul>
-<li>Pooled cross-sectional</li>
-</ul></li>
-<li>Time series</li>
-<li>Panel or longitudinal</li>
-</ul>
-<p><strong>Cross-sectional</strong> data is a snapshot in time measuring some size sample of units. One column serves as the identifier of the unit of analysis, such as the name or ID number of the unit. Notice in Table 2.2 that all one needs to know is the country in order to identify a specific row.</p>
-<table>
-<caption>
-<span id="tab:cross-sec-fig">Table 2.2: </span>Cross-section example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Brazil
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-72.390
-</td>
-<td style="text-align:right;">
-190010647
-</td>
-<td style="text-align:right;">
-9065.801
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Pooled cross-sectional</strong> data could be considered a fourth structure but is simply multiple cross-sections stacked atop each other. The critical quality of pooled cross-sectional data is that each cross-section contains <em>different</em> units measured at different times, not the same units measured at different times. Notice in Table 2.3 that the countries included from 2002 are not the same as those included from 2007.</p>
-<table>
-<caption>
-<span id="tab:pooled">Table 2.3: </span>Pooled cross-section example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Algeria
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-70.994
-</td>
-<td style="text-align:right;">
-31287142
-</td>
-<td style="text-align:right;">
-5288.040
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Angola
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-41.003
-</td>
-<td style="text-align:right;">
-10866106
-</td>
-<td style="text-align:right;">
-2773.287
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Benin
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-54.406
-</td>
-<td style="text-align:right;">
-7026113
-</td>
-<td style="text-align:right;">
-1372.878
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Botswana
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-46.634
-</td>
-<td style="text-align:right;">
-1630347
-</td>
-<td style="text-align:right;">
-11003.605
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Brazil
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-72.390
-</td>
-<td style="text-align:right;">
-190010647
-</td>
-<td style="text-align:right;">
-9065.801
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Time series</strong> data measures one unit over mulitple time periods. The unit of analysis in time series data is time, as it uniquely identifies each row. Notice in Table 2.4 that one country is tracked over multiple years.</p>
-<table>
-<caption>
-<span id="tab:timeseries">Table 2.4: </span>Time series example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1977
-</td>
-<td style="text-align:right;">
-68.481
-</td>
-<td style="text-align:right;">
-26983828
-</td>
-<td style="text-align:right;">
-10079.027
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1982
-</td>
-<td style="text-align:right;">
-69.942
-</td>
-<td style="text-align:right;">
-29341374
-</td>
-<td style="text-align:right;">
-8997.897
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1987
-</td>
-<td style="text-align:right;">
-70.774
-</td>
-<td style="text-align:right;">
-31620918
-</td>
-<td style="text-align:right;">
-9139.671
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1992
-</td>
-<td style="text-align:right;">
-71.868
-</td>
-<td style="text-align:right;">
-33958947
-</td>
-<td style="text-align:right;">
-9308.419
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-73.275
-</td>
-<td style="text-align:right;">
-36203463
-</td>
-<td style="text-align:right;">
-10967.282
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-74.340
-</td>
-<td style="text-align:right;">
-38331121
-</td>
-<td style="text-align:right;">
-8797.641
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Panel</strong> (or longitudinal) data measures the same units over multiple time periods. The unit of analysis is pair of unit and time period. Notice in Table 2.5 that in order to identify a specific row, you would need to know the country <em>and</em> year. One could also think of panel data as numerous time series.</p>
-<table>
-<caption>
-<span id="tab:panel">Table 2.5: </span>Panel example
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-73.275
-</td>
-<td style="text-align:right;">
-36203463
-</td>
-<td style="text-align:right;">
-10967.282
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-74.340
-</td>
-<td style="text-align:right;">
-38331121
-</td>
-<td style="text-align:right;">
-8797.641
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-62.050
-</td>
-<td style="text-align:right;">
-7693188
-</td>
-<td style="text-align:right;">
-3326.143
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-63.883
-</td>
-<td style="text-align:right;">
-8445134
-</td>
-<td style="text-align:right;">
-3413.263
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
-</tr>
-</tbody>
-</table>
-<p>To learn how to examine data in R, proceed to Chapter <a href="17-r-data.html#r-data">17</a>.</p>
 </div>
-<div id="additional-resources" class="section level2">
-<h2><span class="header-section-number">2.5</span> Additional Resources</h2>
-<ul>
-<li><a href="https://moderndive.com/1-getting-started.html">ModernDive Chapter 1</a></li>
-<li>Chapter 1 of OpenIntro Statistics</li>
-</ul>
+<div id="t-tests" class="section level2">
+<h2><span class="header-section-number">24.4</span> T-tests</h2>
+<p>To reiterate, if the two groups in a t-test are comprised of different subjects, we use an independent t-test. If they are comprised of the same subjects, then we use a dependent t-test.</p>
+<div id="independent-t-test" class="section level3">
+<h3><span class="header-section-number">24.4.1</span> Independent t-test</h3>
+<p>The code below demonstrates how the independent t-test from Chapter <a href="11-surveys-and-evaluations.html#surveys-and-evaluations">11</a> was conducted. The <code>t.test</code> function works a lot like the <code>lm</code> function in that the outcome is entered first, then we input the variable that identifies the groups, which is essentially an explanatory variable. The two variables are separated by <code>~</code>. Then, we tell R which dataset to use, which is called <code>jobtrain</code> in this case.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="24-r-evaluations.html#cb112-1"></a><span class="kw">t.test</span>(earnings <span class="op">~</span><span class="st"> </span>treatment, <span class="dt">data =</span> jobtrain)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  earnings by treatment
+## t = -1.1921, df = 275.58, p-value = 0.2342
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -11629.708   2856.939
+## sample estimates:
+## mean in group 0 mean in group 1 
+##        21645.10        26031.49</code></pre>
+<div class="learncheck">
+<p>
+<strong>Exercise 3:</strong> Using the <code>UScrimes</code> data, suppose we wanted to test whether the probability of imprisonment, <code>Prob</code>, is independent of between Southern and non-Southern states, <code>So</code>. The outcome is numerical and the explanatory is nominal. Therefore, a t-test can be used. Run this t-test.
+</p>
+</div>
+<div class="learncheck">
+<p>
+<strong>Exercise 4:</strong> Is there an association between the two variables? Why?
+</p>
+</div>
+</div>
+<div id="dependent-t-test" class="section level3">
+<h3><span class="header-section-number">24.4.2</span> Dependent t-test</h3>
+<p>To conduct a dependent t-test, add the option <code>paired=TRUE</code> inside the <code>t.test</code> code like so</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="24-r-evaluations.html#cb114-1"></a><span class="kw">t.test</span>(earnings <span class="op">~</span><span class="st"> </span>treatment, <span class="dt">data =</span> jobtrain, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p>However, this code will not work because the number of observations in the treatment and control groups are not equal. If we truly had a paired sample where the same subjects measured twice, then we should have the same number of observations in both groups.</p>
+</div>
+</div>
+<div id="submit-8" class="section level2">
+<h2><span class="header-section-number">24.5</span> Submit</h2>
+<p>Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.</p>
 
 </div>
 </div>
@@ -1163,8 +592,8 @@ Americas
           </div>
         </div>
       </div>
-<a href="1-intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="3-measurement-and-missing.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="23-r-nonlinear-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="25-r-regression-diagnostics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
