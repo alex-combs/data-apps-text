@@ -1,0 +1,26 @@
+.learncheck {
+  padding: 1em 1em 0.5em 1em;
+  margin-bottom: 10px;
+  background: #BCEDEB center/1em no-repeat;
+}
+
+.announcement {
+  padding: 1em 1em 0.5em 1em;
+  margin-bottom: 10px;
+  background: #EC544E center/1em no-repeat;
+}
+
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}

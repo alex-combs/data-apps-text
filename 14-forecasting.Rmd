@@ -1,0 +1,268 @@
+# (PART) Advanced Topics {-}
+
+# Forecasting
+
+> *"Forecasting is the art of saying what will happen, and then explaining why it didn't!"*
+>
+>---Anonymous; Balaji Rajagopalan
+
+<br>
+
+Previous chapters primarily used cross-sectional data to demonstrate various applications. Those applications fundamentally apply to time series and panel data as well. However, time series and panel data contain additional information, opening a vast array of additional methods that go far beyond the scope of this book.
+
+This and the next chapter offer narrow coverage of two common, yet potentially advanced data applications in public administration: forecasting with time series data and fixed effects analysis with panel data. The intent is to provide the readers a few skills to conduct or understand basic analyses in each scenario.
+
+## What is forecasting
+
+Recall in Chapter \@ref(data) that time series measures one or more characteristics pertaining to the same subject over time. Therefore, the unit of analysis is the unit of time over which those characteristics are measured.
+
+```{r timeseriesrep, echo=FALSE}
+gapminder %>% 
+  filter(country == 'United States') %>% 
+  tail(n=5) %>% 
+  kable(format = 'html', caption = "Time series example")
+```
+
+Forecasting involves making out-of-sample predictions for a measure within a time series. Throughout the chapters on regression, we made out-of-sample predictions each time we computed the predicted value of the outcome in our regression, $\hat{y}$, for a scenario not observed in our sample. Forecasting is no different in this regard. It is specific to predictions with time series data. Since the unit of analysis in time series data is a unit of time, an out-of-sample prediction involves a time period unobserved in our sample (i.e. the future).
+
+Analyses can seek to predict, to explain, or both. Keep in mind that forecasting is typically focused on prediction rather than explanation. Would it be helpful to know why an outcome is the value that it is in most cases? Certainly, but good decisions can be made by knowing what to expect regardless of why. Moreover, the benefits of modeling a valid explanatory model may not exceed the costs of delaying accurate predictions.
+
+If the focus is solely prediction, then we do not need to concern ourselves with internal validity or omitted variable bias. Frankly, we do not care if our model makes theoretical sense as long as its predictions are accurate. While this frees us from many constraints, it makes goodness-of-fit even more important. Therefore, the primary focus of this chapter is how to identify a good forecast model and how to choose the best model among mutiple good models.
+
+Lastly, keep in mind that a forecast involves confidence intervals. Whereas explanatory regression produces confidence intervals around the estimated effect of an explanatory variable on an outcome, forecasts produce confidence intervals around the predicted value of a future outcome. These confidence intervals convey the range of values that our forecast model expects the future outcome to fall within some percentage of simulated futures. 
+
+Figure \@ref(fig:futures) shows one forecast model of Australian tourism with 10 simulated futures based on resampling. This is not a typical way to show a forecast. Instead, forecasts are usually shown with a shaded confidence interval as in Figure \@ref(fig:ci). The darker region represents an 80% confidence interval and the lighter region represents a 95% confidence interval. These confidence intervals are based on the simulated futures.
+
+```{r futures, echo=FALSE, fig.cap='Simulated futures of a forecast'}
+include_graphics('_bookdown_files/forecast_futures.png')
+```
+
+```{r ci, echo=FALSE, fig.cap='Confidence intervals based on simultated futures'}
+include_graphics('_bookdown_files/forecast_ci.png')
+```
+
+## Patterns
+
+We rely on patterns to make good forecasts. A time series that exhibits no  patterns offers no information for predicting the future. Time series can exhibit the following three types of patterns:
+
+- Trend: a long-term increase or decrease
+- Seasonal: a repeated pattern according to a calendar interval usually shorter than a year
+- Cyclic: irregular increases or decreases over unfixed periods of multiple years
+
+```{r, include=FALSE}
+usgdp <- read_csv('_bookdown_files/usgdp.csv')
+
+usgdp$DATE <- mdy(usgdp$DATE)
+```
+
+With a time series of U.S. GDP in Figure \@ref(fig:usgdp), we can see two of the aforementioned patterns. First, there is an obvious upward trend. Secondly, there appear to be irregularly spaced plateaus or dips, most of which represent economic recessions. Recessions exhibit a cyclical pattern. Phenomena related to weather or holidays, such as energy production, consumption, and travel, are likely to exhibit seasonal patterns like the sales data shown in Figure \@ref(fig:sales) below.
+
+```{r usgdp, echo=FALSE, fig.cap='U.S. GDP 1975-2019'}
+ggplot(usgdp, aes(x = DATE, y = GDP)) +
+  geom_line(color = 'steelblue') +
+  labs(y = 'GDP (in billions)') +
+  theme_minimal() +
+  theme(axis.title.x = element_blank())
+```
+
+```{r, include=FALSE}
+sales <- load("_bookdown_files/sales.RData")
+sales <- read_excel("_bookdown_files/sales.xlsx")
+sales_ts <- ts(sales[,-1], start = 1981, end = 2005, frequency = 4)
+```
+
+
+```{r sales, echo=FALSE, fig.cap='Sales data'}
+autoplot(window(sales_ts[,1], start = 1995, end = 1997)) +
+  theme_minimal() +
+  labs(y = "Sales") +
+  theme(axis.title.x = element_blank())
+```
+
+### Autocorrelation
+
+Again, it is useful for forecasts if a time series exhibits a pattern. Another way to think of a pattern is that past values provide some information for predicting future values.
+
+Whereas correlation measures the linear association between two variables, autocorrelation measures the linear association between an outcome and past values of that outcome. We can use an autocorrelation plot to examine if past values appear to predict future values. 
+
+Figure \@ref(fig:acfgdp) below is an autocorrelation plot of U.S. GDP. For all measurements along the time series of GDP, the autocorrelation plot quantifies the correlation between a chosen "current" GDP and past measurements of GDP called lags. Figure \@ref(fig:acfgdp) goes as far as 22 lagged measures. The blue dashed line denotes the threshold at which the correlations are statistically significant at the 95% confidence level.
+
+We can see that the first lag of GDP is almost perfectly correlated with current GDP. In other words, last quarter's GDP is a very strong predictor of current GDP. The strength of the correlation decreases over time but remains statistically significant. This gradual decrease in autocorrelation is indicative of time series with a trend pattern.
+
+```{r acfgdp, echo=FALSE, fig.cap='Autocorrelation of U.S. GDP'}
+ggAcf(usgdp[,2]) +
+  theme_minimal() +
+  labs(title = "")
+```
+
+Figure \@ref(fig:acfgdp) below shows the autocorrelation from the quarterly sales time series that exhibited a seasonal pattern. The autocorrelation plot suggests that each even-numbered lag is correlated with the current sales measure, switching between negative and positive each time. This peak and valley pattern is common in seasonal data.
+
+```{r acfsales, echo=FALSE, fig.cap='Autocorrelation of sales'}
+ggAcf(sales_ts[,1]) +
+  theme_minimal() +
+  labs(title = "")
+```
+
+In each of the examples above, we can use information from the past to predict the future. A time series that shows no autocorrelation is called **white noise**. White noise provides us no significant information about predicting the future. Figures \@ref(fig:wn) and \@ref(fig:acfwn) below is an example of white noise. Note there is no discernible pattern in the time series plot and no autocorrelations are statistically significant.
+
+```{r, include=FALSE}
+set.seed(383)
+whitenoise <- tibble(x = c(1:20), y = rnorm(20, mean = 50, sd = 10))
+whitenoise_ts <- ts(whitenoise[,-1])
+```
+
+
+```{r wn, echo=FALSE, fig.cap='White noise time series'}
+autoplot(whitenoise_ts) +
+  labs(y = "y") +
+  theme_minimal()
+```
+
+```{r acfwn, echo=FALSE, fig.cap='Autocorrelation of white noise'}
+ggAcf(whitenoise_ts) +
+  theme_minimal() +
+  labs(title = "")
+```
+
+## Forecasting basics
+
+Forecasts use past observed data to predict future unobserved data. If time series exhibits a pattern such that autocorrelation is present, we can use the past to improve predictions of the future.
+
+### Evaluation
+
+The central goal of a forecast is to provide the most accurate prediction. How can we evaluate the accuracy of our predictions if the future events have not occurred? As was the case in previous chapters on regression, a forecast essentially draws a line through data. We can get a sense of how accurate our forecast model is by comparing its predictions to observed values. That is, we can use the residuals of a forecast model to evaluate its goodness-of-fit. A better fitting model is expected to generate more accurate predictions, on average.
+
+#### Residuals {-}
+
+Figure \@ref(fig:compare) shows a forecast model denoted by the red line that simply uses the previous GDP measure to predict current GDP, compared to observed GDP denoted by the blue line. Recall how strongly lagged GDP was correlated with current GDP. This results in a forecast that appears to fit the trend fairly well. Nevertheless, there is error for almost every year, and since GDP in this time window exhibits a consistent upward trend, using last year's GDP causes a consistent underestimation.
+
+```{r compare, echo=FALSE}
+usgdp %>% 
+  mutate(newdate = DATE + months(3)) %>% 
+  ggplot() +
+  geom_line(aes(x = DATE, y = GDP), color = 'steelblue') +
+  geom_line(aes(x = newdate, y = GDP), color = 'red') +
+  coord_cartesian(xlim = c(as.Date("2015-10-01"), as.Date("2020-01-01")), ylim = c(18000, 22000)) +
+  theme_minimal() +
+  theme(axis.title.x = element_blank())
+```
+
+Figure \@ref(fig:residcheck) below plots the residuals between observed and predicted GDP--the vertical distance between blue and red lines--in the top panel. The bottom-left panel is a autocorrelation plot for the residuals--computing the correlation between current residuals and lagged residuals--and the bottom-right panel shows the histogram of the residuals.
+
+```{r, include=FALSE}
+ts.usgdp <- ts(usgdp[,-1], frequency = 4, start = c(1974,4))
+
+gdp_naive <- naive(ts.usgdp)
+```
+
+```{r residcheck, echo=FALSE}
+checkresiduals(gdp_naive, test = FALSE)
+```
+
+Figure \@ref(fig:residcheck) provides a lot of useful information related to the central goal of forecasting. In order for us to conclude we have a good forecast, two goals must be met:
+
+- The time series of residuals should be white noise, and
+- the residuals should have a mean approximately equal to zero.
+
+It is difficult to tell from the top panel of Figure \@ref(fig:residcheck) whether these goals are met. However, notice that the residuals are almost always positive, which we would expect since we know our forecast almost always underestimates GDP. Therefore, the mean is certainly greater than zero, as can be seen in the histogram.
+
+The autocorrelation plot of the residuals suggests that residuals lagged up to six time periods is significantly correlated with current residuals. This is further evidence that the time series of our residuals is not white noise.
+
+A good forecast extracts as much information from past data as possible to predict the future. If it fails to do so, then lagged residuals will be correlated with current residuals. Therefore, our simple forecast for GDP has not extracted all the information from the past that could inform future predictions, resulting in a sub-par forecast.
+
+#### Root Mean Squared Error {-}
+
+Multiple models could achieve residuals that are white noise and have a mean equal to zero. We can further evaluate forecast models by comparing their root mean squared errors (RMSE). Recall from Chapter \@ref(simple-and-multiple-regression) that the RMSE quantifies the typical deviation of the observed data points from the regression line and is analogous to the standard deviation or standard error measures. In fact, the 95% confidence interval around a forecast is based on two RMSEs above and below the point forecast, just as two standard errors are used to construct a 95% confidence interval around a point estimate in regression.
+
+Table \@ref(tab:frmse) shows a set of standard goodness-of-fit measures for our simple forecast of GDP. We will only concern ourselves with RMSE. According to the results, the point forecast of our model is off by plus-or-minus 137 billion dollars, on average. If we developed a model with a smaller RMSE, we would prefer it to this model, provided its residuals behave no worse.
+
+```{r frmse, echo=FALSE}
+accuracy(gdp_naive) %>% 
+  kable(format = 'html', caption = 'Forecast goodness-of-fit measures')
+```
+
+### Models
+
+There are four basic forecasting models:
+
+- Mean: future outcomes predicted to equal the average of the outcome over the entire time series
+- Naive: future outcomes predicted to equal the last observed outcome
+- Drift: draws a straight line connecting the first and last observed outcome and extrapolates it into the future
+- Seasonal naive: same as naive but predicts each future season to equal its last observed season
+
+```{r, include=FALSE}
+gdp_meanf <- meanf(ts.usgdp)
+gdp_drift <- rwf(ts.usgdp, drift = TRUE)
+```
+
+Figure \@ref(fig:fcompare) below applies the mean, naive, and drift forecast models to U.S. GDP. It should be obvious that using the mean is a poor choice and will be for any time series with a strong trend pattern. Under normal circumstances absent of an impending economic shutdown, we would likely conclude that the drift model provides a more accurate forecast than the naive model.
+
+```{r fcompare, echo=FALSE, fig.cap='Comparison of forecast models to trend data'}
+autoplot(gdp_meanf) +
+  theme_minimal() +
+  labs(y = "GDP")
+
+autoplot(gdp_naive) +
+  theme_minimal() +
+  labs(y = "GDP")
+
+autoplot(gdp_drift) +
+  theme_minimal() +
+  labs(title = "Forecasts from Drift method", y = "GDP")
+```
+
+According to the drift model, predicted GDP for the next ten time periods is shown in Table \@ref(tab:gdpdrift). Again, this is not a sophisticated model, and some may be alarmed by making predictions based on simply connecting the first and last observations, then extending the line into the future. It is important to keep in mind that the utility of a forecast is not the exact point forecasts in Table \@ref(tab:gdpdrift). In fact, it would be misleading to report GDP in Q2 of 2020 is predicted to be 21.65 trillion dollars. The utility of a forecast is the corresponding confidence interval. If this is our best model, then we can report that GDP in Q2 of 2020 is predicted to be between 21.48 and 21.81 trillion dollars with 95% confidence.
+
+```{r, echo=FALSE}
+forecast(gdp_drift) %>% 
+  kable(format = 'html', caption = 'Forecast values')
+```
+
+Perhaps more sophisticated methods would provide a better forecast model. If so, then the model will fit observed data better, resulting in more precise confidence intervals. Greater precision could indeed be valuable depending on the context, as many decisions can be aided by considering best- and worst-case scenarios. Nevertheless, as long as our model achieves residuals that look like white noise with a mean approximately equal to zero, we can be fairly confident that our model is not wildly inaccurate though it may be less precise than an alternative model.
+
+Let us check the residuals for our drift model. As can be seen in Figure \@ref(fig:gdpdriftresid), the mean of the residuals is approximately zero, but it appears that there is still information in past measures not extracted by our simple drift model. These results suggest we should try to improve our model.
+
+```{r gdpdriftresid, echo=FALSE, fig.cap='GDP drift residuals'}
+checkresiduals(gdp_drift, test = FALSE)
+```
+
+The figures below compare mean, naive, and seasonal naive models using the seasonal sales data from earlier. Because this time series does not exhibit a clear trend, the mean model is not as obviously bad as it was with GDP, though it is highly imprecise. The same applies to the naive model. If we care about predicting specific seasons (i.e. quarters), then clearly the seasonal naive model is the preferred choice. 
+
+```{r, include=FALSE}
+sales_meanf <- meanf(sales_ts[,1], h = 8)
+sales_naive <- naive(sales_ts[,1], h = 8)
+sales_snaive <- snaive(sales_ts[,1])
+```
+
+```{r fcompare2, echo=FALSE, fig.cap='Comparison of forecast models to seasonal data'}
+autoplot(sales_meanf) +
+  theme_minimal() +
+  labs(y = "Sales")
+
+autoplot(sales_naive) +
+  theme_minimal() +
+  labs(y = "Sales")
+
+autoplot(sales_snaive) +
+  theme_minimal() +
+  labs(y = "Sales")
+```
+
+Let us check the residuals of the seasonal naive model. The residuals have a mean of zero, and with the exception of one significantly correlated residual for lag 4, it appears we have mostly white noise. This model may be sufficient in many cases. The fact that sales from a year ago still provide information for current sales suggests there may be an annual trend component to this time series that our seasonal naive model does not extract. Therefore, a better model is achievable.
+
+```{r salesresid, echo=FALSE, fig.cap='Residual check'}
+checkresiduals(sales_snaive, test = FALSE)
+```
+
+## Recap
+
+We have only scratched the surface of forecasting. The corresponding R Chapter covers how to implement the models and plots above as well as incorporating explanatory variables into a forecast model.
+
+Here are the key takeaways from this chapter:
+
+- Prediction does not care about the theory of a model.
+- Patterns in time series contain information that can be used to predict the future.
+- A good forecast model extracts all useful information from the past to predict the future. If this is achieved, the residuals from our forecast will look like white noise and have a mean equal to zero.
+- The best model among competing good models is the model with the smallest RMSE.
+
+

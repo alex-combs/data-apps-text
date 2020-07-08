@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 11 Surveys and Evaluations | Data Applications in Public Administration</title>
+  <meta name="description" content="Companion text for PADP 7120" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 11 Surveys and Evaluations | Data Applications in Public Administration" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Companion text for PADP 7120" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 11 Surveys and Evaluations | Data Applications in Public Administration" />
+  
+  <meta name="twitter:description" content="Companion text for PADP 7120" />
+  
+
+<meta name="author" content="Alex E. Combs" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="10-sampling.html"/>
+<link rel="next" href="12-regression-inference.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.14/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Applications in PA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objective"><i class="fa fa-check"></i>Objective</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#style"><i class="fa fa-check"></i>Style</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software requirements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#supplemental-resources"><i class="fa fa-check"></i>Supplemental resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-intro.html"><a href="1-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-intro.html"><a href="1-intro.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why statistics</a></li>
+<li class="chapter" data-level="1.2" data-path="1-intro.html"><a href="1-intro.html#professional-standards"><i class="fa fa-check"></i><b>1.2</b> Professional standards</a></li>
+<li class="chapter" data-level="1.3" data-path="1-intro.html"><a href="1-intro.html#statistics-in-pa"><i class="fa fa-check"></i><b>1.3</b> Statistics in PA</a></li>
+<li class="chapter" data-level="1.4" data-path="1-intro.html"><a href="1-intro.html#using-r"><i class="fa fa-check"></i><b>1.4</b> Using R</a></li>
+</ul></li>
+<li class="part"><span><b>I Data and Description</b></span></li>
+<li class="chapter" data-level="2" data-path="2-data.html"><a href="2-data.html"><i class="fa fa-check"></i><b>2</b> Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-data.html"><a href="2-data.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="2-data.html"><a href="2-data.html#rectangular-data"><i class="fa fa-check"></i><b>2.2</b> Rectangular Data</a></li>
+<li class="chapter" data-level="2.3" data-path="2-data.html"><a href="2-data.html#types-of-variables"><i class="fa fa-check"></i><b>2.3</b> Types of variables</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="2-data.html"><a href="2-data.html#qualitative-variables"><i class="fa fa-check"></i><b>2.3.1</b> Qualitative variables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2-data.html"><a href="2-data.html#quantitative-variables"><i class="fa fa-check"></i><b>2.3.2</b> Quantitative variables</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2-data.html"><a href="2-data.html#index-variables"><i class="fa fa-check"></i><b>2.3.3</b> Index variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2-data.html"><a href="2-data.html#dataset-structures"><i class="fa fa-check"></i><b>2.4</b> Dataset structures</a></li>
+<li class="chapter" data-level="2.5" data-path="2-data.html"><a href="2-data.html#additional-resources"><i class="fa fa-check"></i><b>2.5</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html"><i class="fa fa-check"></i><b>3</b> Measurement and Missing</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#credible-analysis"><i class="fa fa-check"></i><b>3.2</b> Credible analysis</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#measurement-validity-reliability"><i class="fa fa-check"></i><b>3.2.1</b> Measurement validity &amp; reliability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#missing-data"><i class="fa fa-check"></i><b>3.3</b> Missing data</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#types-of-missing-data"><i class="fa fa-check"></i><b>3.3.1</b> Types of missing data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#two-kinds-of-statistics"><i class="fa fa-check"></i><b>4.1</b> Two kinds of statistics</a></li>
+<li class="chapter" data-level="4.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#distributions"><i class="fa fa-check"></i><b>4.2</b> Distributions</a></li>
+<li class="chapter" data-level="4.3" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#descriptive-measures"><i class="fa fa-check"></i><b>4.3</b> Descriptive Measures</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-center"><i class="fa fa-check"></i><b>4.3.1</b> Measures of center</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-spread"><i class="fa fa-check"></i><b>4.3.2</b> Measures of spread</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.3.3</b> The normal distribution</a></li>
+<li class="chapter" data-level="4.3.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-association"><i class="fa fa-check"></i><b>4.3.4</b> Measures of association</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-data-visualization.html"><a href="5-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#so-many-choices"><i class="fa fa-check"></i><b>5.1</b> So many choices</a></li>
+<li class="chapter" data-level="5.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#distribution"><i class="fa fa-check"></i><b>5.2</b> Distribution</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#histogram"><i class="fa fa-check"></i><b>5.2.1</b> Histogram</a></li>
+<li class="chapter" data-level="5.2.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#density"><i class="fa fa-check"></i><b>5.2.2</b> Density</a></li>
+<li class="chapter" data-level="5.2.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#box-plot"><i class="fa fa-check"></i><b>5.2.3</b> Box plot</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#compostion-of-a-category"><i class="fa fa-check"></i><b>5.3</b> Compostion of a category</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#pie-charts"><i class="fa fa-check"></i><b>5.3.1</b> Pie charts</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#bar-chart"><i class="fa fa-check"></i><b>5.3.2</b> Bar chart</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5-data-visualization.html"><a href="5-data-visualization.html#comparing-between-units"><i class="fa fa-check"></i><b>5.4</b> Comparing between units</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#bar-chart-1"><i class="fa fa-check"></i><b>5.4.1</b> Bar chart</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#dot-plot"><i class="fa fa-check"></i><b>5.4.2</b> Dot plot</a></li>
+<li class="chapter" data-level="5.4.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#line-graph"><i class="fa fa-check"></i><b>5.4.3</b> Line graph</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5-data-visualization.html"><a href="5-data-visualization.html#association"><i class="fa fa-check"></i><b>5.5</b> Association</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#categorical-and-numerical"><i class="fa fa-check"></i><b>5.5.1</b> Categorical and numerical</a></li>
+<li class="chapter" data-level="5.5.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>5.5.2</b> Scatter plot</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Regression Models</b></span></li>
+<li class="chapter" data-level="6" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html"><i class="fa fa-check"></i><b>6</b> Simple and Multiple Regression</a><ul>
+<li class="chapter" data-level="6.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#basic-idea"><i class="fa fa-check"></i><b>6.1</b> Basic idea</a></li>
+<li class="chapter" data-level="6.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>6.2</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#using-regression"><i class="fa fa-check"></i><b>6.2.1</b> Using regression</a></li>
+<li class="chapter" data-level="6.2.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#the-error-term"><i class="fa fa-check"></i><b>6.2.2</b> The error term</a></li>
+<li class="chapter" data-level="6.2.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#goodness-of-fit"><i class="fa fa-check"></i><b>6.2.3</b> Goodness of fit</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#multiple-regression"><i class="fa fa-check"></i><b>6.3</b> Multiple regression</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#using-multiple-regression"><i class="fa fa-check"></i><b>6.3.1</b> Using multiple regression</a></li>
+<li class="chapter" data-level="6.3.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#fit-and-adjusted-r-squared"><i class="fa fa-check"></i><b>6.3.2</b> Fit and adjusted R squared</a></li>
+<li class="chapter" data-level="6.3.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#explanatory-penalty"><i class="fa fa-check"></i><b>6.3.3</b> Explanatory penalty</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html"><i class="fa fa-check"></i><b>7</b> Categorical Variables and Interactions</a><ul>
+<li class="chapter" data-level="7.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#parallel-slopes-model"><i class="fa fa-check"></i><b>7.1</b> Parallel slopes model</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-parallel-slopes"><i class="fa fa-check"></i><b>7.1.1</b> Using parallel slopes</a></li>
+<li class="chapter" data-level="7.1.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations"><i class="fa fa-check"></i><b>7.1.2</b> Variations</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#interaction-model"><i class="fa fa-check"></i><b>7.2</b> Interaction model</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-an-interaction"><i class="fa fa-check"></i><b>7.2.1</b> Using an interaction</a></li>
+<li class="chapter" data-level="7.2.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations-1"><i class="fa fa-check"></i><b>7.2.2</b> Variations</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#linear-probability-model"><i class="fa fa-check"></i><b>7.3</b> Linear probability model</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-lpm"><i class="fa fa-check"></i><b>7.3.1</b> Using LPM</a></li>
+<li class="chapter" data-level="7.3.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#fit"><i class="fa fa-check"></i><b>7.3.2</b> Fit</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html"><i class="fa fa-check"></i><b>8</b> Nonlinear Variables</a><ul>
+<li class="chapter" data-level="8.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#quadratic"><i class="fa fa-check"></i><b>8.1</b> Quadratic</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#using-quadratics"><i class="fa fa-check"></i><b>8.1.1</b> Using quadratics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#log-models"><i class="fa fa-check"></i><b>8.2</b> Log models</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#logarithmic-scales"><i class="fa fa-check"></i><b>8.2.1</b> Logarithmic scales</a></li>
+<li class="chapter" data-level="8.2.2" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#percent-v-percentage-point-change"><i class="fa fa-check"></i><b>8.2.2</b> Percent v percentage point change</a></li>
+<li class="chapter" data-level="8.2.3" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#why-logs-in-regression"><i class="fa fa-check"></i><b>8.2.3</b> Why logs in regression</a></li>
+<li class="chapter" data-level="8.2.4" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#using-log-models"><i class="fa fa-check"></i><b>8.2.4</b> Using log models</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html"><i class="fa fa-check"></i><b>9</b> Causation and Bias</a><ul>
+<li class="chapter" data-level="9.1" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#causality"><i class="fa fa-check"></i><b>9.1</b> Causality</a></li>
+<li class="chapter" data-level="9.2" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#directed-acyclical-graphs"><i class="fa fa-check"></i><b>9.2</b> Directed acyclical graphs</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#evaluationg-dags"><i class="fa fa-check"></i><b>9.2.1</b> Evaluationg DAGs</a></li>
+<li class="chapter" data-level="9.2.2" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#backdoor-criterion"><i class="fa fa-check"></i><b>9.2.2</b> Backdoor criterion</a></li>
+<li class="chapter" data-level="9.2.3" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#dags-and-regression"><i class="fa fa-check"></i><b>9.2.3</b> DAGs and regression</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#direction-of-ovb"><i class="fa fa-check"></i><b>9.3</b> Direction of OVB</a></li>
+<li class="chapter" data-level="9.4" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#usefulness"><i class="fa fa-check"></i><b>9.4</b> Usefulness</a></li>
+</ul></li>
+<li class="part"><span><b>III Inference</b></span></li>
+<li class="chapter" data-level="10" data-path="10-sampling.html"><a href="10-sampling.html"><i class="fa fa-check"></i><b>10</b> Sampling</a><ul>
+<li class="chapter" data-level="10.1" data-path="10-sampling.html"><a href="10-sampling.html#normal-distribution"><i class="fa fa-check"></i><b>10.1</b> Normal distribution</a></li>
+<li class="chapter" data-level="10.2" data-path="10-sampling.html"><a href="10-sampling.html#sampling-distribution"><i class="fa fa-check"></i><b>10.2</b> Sampling Distribution</a></li>
+<li class="chapter" data-level="10.3" data-path="10-sampling.html"><a href="10-sampling.html#central-limit-theorem"><i class="fa fa-check"></i><b>10.3</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="10.4" data-path="10-sampling.html"><a href="10-sampling.html#confidence-intervals"><i class="fa fa-check"></i><b>10.4</b> Confidence intervals</a></li>
+<li class="chapter" data-level="10.5" data-path="10-sampling.html"><a href="10-sampling.html#conclusion"><i class="fa fa-check"></i><b>10.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html"><i class="fa fa-check"></i><b>11</b> Surveys and Evaluations</a><ul>
+<li class="chapter" data-level="11.1" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#sample-size"><i class="fa fa-check"></i><b>11.1</b> Sample size</a></li>
+<li class="chapter" data-level="11.2" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#survey-weights"><i class="fa fa-check"></i><b>11.2</b> Survey weights</a></li>
+<li class="chapter" data-level="11.3" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#hypothesis-testing"><i class="fa fa-check"></i><b>11.3</b> Hypothesis testing</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#null-and-alternative-hypos"><i class="fa fa-check"></i><b>11.3.1</b> Null and alternative hypos</a></li>
+<li class="chapter" data-level="11.3.2" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#conclusion-and-error-type"><i class="fa fa-check"></i><b>11.3.2</b> Conclusion and error type</a></li>
+<li class="chapter" data-level="11.3.3" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#decision-rule"><i class="fa fa-check"></i><b>11.3.3</b> Decision rule</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#chi-square-test"><i class="fa fa-check"></i><b>11.4</b> Chi-square test</a></li>
+<li class="chapter" data-level="11.5" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#t-test"><i class="fa fa-check"></i><b>11.5</b> T-test</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="12-regression-inference.html"><a href="12-regression-inference.html"><i class="fa fa-check"></i><b>12</b> Regression Inference</a><ul>
+<li class="chapter" data-level="12.1" data-path="12-regression-inference.html"><a href="12-regression-inference.html#regression-table"><i class="fa fa-check"></i><b>12.1</b> Regression table</a></li>
+<li class="chapter" data-level="12.2" data-path="12-regression-inference.html"><a href="12-regression-inference.html#other-hypotheses"><i class="fa fa-check"></i><b>12.2</b> Other hypotheses</a></li>
+<li class="chapter" data-level="12.3" data-path="12-regression-inference.html"><a href="12-regression-inference.html#practical-significance"><i class="fa fa-check"></i><b>12.3</b> Practical significance</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html"><i class="fa fa-check"></i><b>13</b> Regression Diagnostics</a><ul>
+<li class="chapter" data-level="13.1" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#classical-assumptions"><i class="fa fa-check"></i><b>13.1</b> Classical assumptions</a></li>
+<li class="chapter" data-level="13.2" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#multicollinearity"><i class="fa fa-check"></i><b>13.2</b> Multicollinearity</a></li>
+<li class="chapter" data-level="13.3" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#influential-data"><i class="fa fa-check"></i><b>13.3</b> Influential Data</a></li>
+</ul></li>
+<li class="part"><span><b>IV Advanced Topics</b></span></li>
+<li class="chapter" data-level="14" data-path="14-forecasting.html"><a href="14-forecasting.html"><i class="fa fa-check"></i><b>14</b> Forecasting</a><ul>
+<li class="chapter" data-level="14.1" data-path="14-forecasting.html"><a href="14-forecasting.html#what-is-forecasting"><i class="fa fa-check"></i><b>14.1</b> What is forecasting</a></li>
+<li class="chapter" data-level="14.2" data-path="14-forecasting.html"><a href="14-forecasting.html#patterns"><i class="fa fa-check"></i><b>14.2</b> Patterns</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="14-forecasting.html"><a href="14-forecasting.html#autocorrelation"><i class="fa fa-check"></i><b>14.2.1</b> Autocorrelation</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="14-forecasting.html"><a href="14-forecasting.html#forecasting-basics"><i class="fa fa-check"></i><b>14.3</b> Forecasting basics</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="14-forecasting.html"><a href="14-forecasting.html#evaluation"><i class="fa fa-check"></i><b>14.3.1</b> Evaluation</a></li>
+<li class="chapter" data-level="14.3.2" data-path="14-forecasting.html"><a href="14-forecasting.html#models"><i class="fa fa-check"></i><b>14.3.2</b> Models</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="14-forecasting.html"><a href="14-forecasting.html#recap"><i class="fa fa-check"></i><b>14.4</b> Recap</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html"><i class="fa fa-check"></i><b>15</b> Panel Analysis</a><ul>
+<li class="chapter" data-level="15.1" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html#panel-data"><i class="fa fa-check"></i><b>15.1</b> Panel data</a></li>
+<li class="chapter" data-level="15.2" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html#fixed-effects"><i class="fa fa-check"></i><b>15.2</b> Fixed effects</a></li>
+</ul></li>
+<li class="part"><span><b>V R Chapters</b></span></li>
+<li class="chapter" data-level="16" data-path="16-r-introduction.html"><a href="16-r-introduction.html"><i class="fa fa-check"></i><b>16</b> R Introduction</a><ul>
+<li class="chapter" data-level="16.1" data-path="16-r-introduction.html"><a href="16-r-introduction.html#r-chapter-structure"><i class="fa fa-check"></i><b>16.1</b> R chapter structure</a></li>
+<li class="chapter" data-level="16.2" data-path="16-r-introduction.html"><a href="16-r-introduction.html#r-chapter-feedback"><i class="fa fa-check"></i><b>16.2</b> R chapter feedback</a></li>
+<li class="chapter" data-level="16.3" data-path="16-r-introduction.html"><a href="16-r-introduction.html#what-is-r-and-rstudio"><i class="fa fa-check"></i><b>16.3</b> What is R and RStudio</a></li>
+<li class="chapter" data-level="16.4" data-path="16-r-introduction.html"><a href="16-r-introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>16.4</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="16.5" data-path="16-r-introduction.html"><a href="16-r-introduction.html#rstudio-orientation"><i class="fa fa-check"></i><b>16.5</b> RStudio orientation</a><ul>
+<li class="chapter" data-level="16.5.1" data-path="16-r-introduction.html"><a href="16-r-introduction.html#r-packages"><i class="fa fa-check"></i><b>16.5.1</b> R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="16.6" data-path="16-r-introduction.html"><a href="16-r-introduction.html#submit"><i class="fa fa-check"></i><b>16.6</b> Submit</a></li>
+<li class="chapter" data-level="16.7" data-path="16-r-introduction.html"><a href="16-r-introduction.html#additional-resources-1"><i class="fa fa-check"></i><b>16.7</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="17-r-data.html"><a href="17-r-data.html"><i class="fa fa-check"></i><b>17</b> R Data</a><ul>
+<li class="chapter" data-level="17.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives-2"><i class="fa fa-check"></i><b>17.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="17.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>17.2</b> Set-up</a></li>
+<li class="chapter" data-level="17.3" data-path="17-r-data.html"><a href="17-r-data.html#viewing-datasets"><i class="fa fa-check"></i><b>17.3</b> Viewing datasets</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="17-r-data.html"><a href="17-r-data.html#warning-about-view"><i class="fa fa-check"></i><b>17.3.1</b> Warning about View</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="17-r-data.html"><a href="17-r-data.html#glimpsing-datasets"><i class="fa fa-check"></i><b>17.4</b> Glimpsing Datasets</a></li>
+<li class="chapter" data-level="17.5" data-path="17-r-data.html"><a href="17-r-data.html#preview-first-or-last-few-rows"><i class="fa fa-check"></i><b>17.5</b> Preview first or last few rows</a></li>
+<li class="chapter" data-level="17.6" data-path="17-r-data.html"><a href="17-r-data.html#submit-1"><i class="fa fa-check"></i><b>17.6</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html"><i class="fa fa-check"></i><b>18</b> R Missing Data</a><ul>
+<li class="chapter" data-level="18.1" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#learning-objectives-3"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="18.2" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#set-up-1"><i class="fa fa-check"></i><b>18.2</b> Set-up</a></li>
+<li class="chapter" data-level="18.3" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#data-1"><i class="fa fa-check"></i><b>18.3</b> Data</a></li>
+<li class="chapter" data-level="18.4" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#checking-for-missing-data"><i class="fa fa-check"></i><b>18.4</b> Checking for missing data</a></li>
+<li class="chapter" data-level="18.5" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#counting-missing-values"><i class="fa fa-check"></i><b>18.5</b> Counting missing values</a></li>
+<li class="chapter" data-level="18.6" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#bypassing-missing-values"><i class="fa fa-check"></i><b>18.6</b> Bypassing missing values</a></li>
+<li class="chapter" data-level="18.7" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#replacing-missing-values"><i class="fa fa-check"></i><b>18.7</b> Replacing missing values</a></li>
+<li class="chapter" data-level="18.8" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#submit-2"><i class="fa fa-check"></i><b>18.8</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="19-r-description.html"><a href="19-r-description.html"><i class="fa fa-check"></i><b>19</b> R Description</a><ul>
+<li class="chapter" data-level="19.1" data-path="19-r-description.html"><a href="19-r-description.html#learning-objectives-4"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="19.2" data-path="19-r-description.html"><a href="19-r-description.html#set-up-2"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
+<li class="chapter" data-level="19.3" data-path="19-r-description.html"><a href="19-r-description.html#introduction"><i class="fa fa-check"></i><b>19.3</b> Introduction</a></li>
+<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.4</b> Summary Table</a></li>
+<li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#using-arsenal"><i class="fa fa-check"></i><b>19.5</b> Using Arsenal</a><ul>
+<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#adjustments"><i class="fa fa-check"></i><b>19.5.1</b> Adjustments</a></li>
+<li class="chapter" data-level="19.5.2" data-path="19-r-description.html"><a href="19-r-description.html#export-to-csv"><i class="fa fa-check"></i><b>19.5.2</b> Export to CSV</a></li>
+</ul></li>
+<li class="chapter" data-level="19.6" data-path="19-r-description.html"><a href="19-r-description.html#submit-3"><i class="fa fa-check"></i><b>19.6</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="20-r-visualization.html"><a href="20-r-visualization.html"><i class="fa fa-check"></i><b>20</b> R Visualization</a><ul>
+<li class="chapter" data-level="20.1" data-path="20-r-visualization.html"><a href="20-r-visualization.html#learning-objectives-5"><i class="fa fa-check"></i><b>20.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="20.2" data-path="20-r-visualization.html"><a href="20-r-visualization.html#set-up-3"><i class="fa fa-check"></i><b>20.2</b> Set-up</a></li>
+<li class="chapter" data-level="20.3" data-path="20-r-visualization.html"><a href="20-r-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>20.3</b> Grammar of graphics</a></li>
+<li class="chapter" data-level="20.4" data-path="20-r-visualization.html"><a href="20-r-visualization.html#histogram-1"><i class="fa fa-check"></i><b>20.4</b> Histogram</a></li>
+<li class="chapter" data-level="20.5" data-path="20-r-visualization.html"><a href="20-r-visualization.html#box-plot-1"><i class="fa fa-check"></i><b>20.5</b> Box plot</a></li>
+<li class="chapter" data-level="20.6" data-path="20-r-visualization.html"><a href="20-r-visualization.html#bar-chart-2"><i class="fa fa-check"></i><b>20.6</b> Bar chart</a></li>
+<li class="chapter" data-level="20.7" data-path="20-r-visualization.html"><a href="20-r-visualization.html#scatter-plot-1"><i class="fa fa-check"></i><b>20.7</b> Scatter plot</a></li>
+<li class="chapter" data-level="20.8" data-path="20-r-visualization.html"><a href="20-r-visualization.html#line-graph-1"><i class="fa fa-check"></i><b>20.8</b> Line graph</a></li>
+<li class="chapter" data-level="20.9" data-path="20-r-visualization.html"><a href="20-r-visualization.html#submit-4"><i class="fa fa-check"></i><b>20.9</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="21-r-regression.html"><a href="21-r-regression.html"><i class="fa fa-check"></i><b>21</b> R Regression</a><ul>
+<li class="chapter" data-level="21.1" data-path="21-r-regression.html"><a href="21-r-regression.html#learning-objectives-6"><i class="fa fa-check"></i><b>21.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="21.2" data-path="21-r-regression.html"><a href="21-r-regression.html#set-up-4"><i class="fa fa-check"></i><b>21.2</b> Set-up</a></li>
+<li class="chapter" data-level="21.3" data-path="21-r-regression.html"><a href="21-r-regression.html#running-regression"><i class="fa fa-check"></i><b>21.3</b> Running Regression</a></li>
+<li class="chapter" data-level="21.4" data-path="21-r-regression.html"><a href="21-r-regression.html#reporting-results"><i class="fa fa-check"></i><b>21.4</b> Reporting Results</a><ul>
+<li class="chapter" data-level="21.4.1" data-path="21-r-regression.html"><a href="21-r-regression.html#moderndive"><i class="fa fa-check"></i><b>21.4.1</b> Moderndive</a></li>
+<li class="chapter" data-level="21.4.2" data-path="21-r-regression.html"><a href="21-r-regression.html#base-r"><i class="fa fa-check"></i><b>21.4.2</b> Base R</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="21-r-regression.html"><a href="21-r-regression.html#submit-5"><i class="fa fa-check"></i><b>21.5</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="22-r-interactions.html"><a href="22-r-interactions.html"><i class="fa fa-check"></i><b>22</b> R Interactions</a><ul>
+<li class="chapter" data-level="22.1" data-path="22-r-interactions.html"><a href="22-r-interactions.html#learning-objectives-7"><i class="fa fa-check"></i><b>22.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="22.2" data-path="22-r-interactions.html"><a href="22-r-interactions.html#set-up-5"><i class="fa fa-check"></i><b>22.2</b> Set-up</a></li>
+<li class="chapter" data-level="22.3" data-path="22-r-interactions.html"><a href="22-r-interactions.html#including-an-interaction"><i class="fa fa-check"></i><b>22.3</b> Including an interaction</a></li>
+<li class="chapter" data-level="22.4" data-path="22-r-interactions.html"><a href="22-r-interactions.html#submit-6"><i class="fa fa-check"></i><b>22.4</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html"><i class="fa fa-check"></i><b>23</b> R Nonlinear Regression</a><ul>
+<li class="chapter" data-level="23.1" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#learning-objectives-8"><i class="fa fa-check"></i><b>23.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="23.2" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#set-up-6"><i class="fa fa-check"></i><b>23.2</b> Set-up</a></li>
+<li class="chapter" data-level="23.3" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#quadratic-term"><i class="fa fa-check"></i><b>23.3</b> Quadratic term</a></li>
+<li class="chapter" data-level="23.4" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#log-transformation"><i class="fa fa-check"></i><b>23.4</b> Log Transformation</a></li>
+<li class="chapter" data-level="23.5" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#submit-7"><i class="fa fa-check"></i><b>23.5</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html"><i class="fa fa-check"></i><b>24</b> R Evaluations</a><ul>
+<li class="chapter" data-level="24.1" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#learning-outcomes"><i class="fa fa-check"></i><b>24.1</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="24.2" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#set-up-7"><i class="fa fa-check"></i><b>24.2</b> Set-up</a></li>
+<li class="chapter" data-level="24.3" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#chi-square-test-1"><i class="fa fa-check"></i><b>24.3</b> Chi-square test</a><ul>
+<li class="chapter" data-level="24.3.1" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#cross-tab"><i class="fa fa-check"></i><b>24.3.1</b> Cross-tab</a></li>
+<li class="chapter" data-level="24.3.2" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#run-chi-square"><i class="fa fa-check"></i><b>24.3.2</b> Run chi-square</a></li>
+</ul></li>
+<li class="chapter" data-level="24.4" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#t-tests"><i class="fa fa-check"></i><b>24.4</b> T-tests</a><ul>
+<li class="chapter" data-level="24.4.1" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#independent-t-test"><i class="fa fa-check"></i><b>24.4.1</b> Independent t-test</a></li>
+<li class="chapter" data-level="24.4.2" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#dependent-t-test"><i class="fa fa-check"></i><b>24.4.2</b> Dependent t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="24.5" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#submit-8"><i class="fa fa-check"></i><b>24.5</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html"><i class="fa fa-check"></i><b>25</b> R Regression Diagnostics</a><ul>
+<li class="chapter" data-level="25.1" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#learning-outcomes-1"><i class="fa fa-check"></i><b>25.1</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="25.2" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#set-up-8"><i class="fa fa-check"></i><b>25.2</b> Set-up</a></li>
+<li class="chapter" data-level="25.3" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#rvf-and-rvl"><i class="fa fa-check"></i><b>25.3</b> RVF and RVL</a></li>
+<li class="chapter" data-level="25.4" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#vif"><i class="fa fa-check"></i><b>25.4</b> VIF</a></li>
+<li class="chapter" data-level="25.5" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#exclude-observations"><i class="fa fa-check"></i><b>25.5</b> Exclude observations</a></li>
+<li class="chapter" data-level="25.6" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#submit-9"><i class="fa fa-check"></i><b>25.6</b> Submit</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html"><i class="fa fa-check"></i><b>A</b> Wrangle and Tidy Reference</a><ul>
+<li class="chapter" data-level="A.1" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#cheatsheets"><i class="fa fa-check"></i><b>A.1</b> Cheatsheets</a></li>
+<li class="chapter" data-level="A.2" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#common-functions"><i class="fa fa-check"></i><b>A.2</b> Common functions</a><ul>
+<li class="chapter" data-level="A.2.1" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#wrangle-verbs"><i class="fa fa-check"></i><b>A.2.1</b> Wrangle Verbs</a></li>
+<li class="chapter" data-level="A.2.2" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#tidy-verbs"><i class="fa fa-check"></i><b>A.2.2</b> Tidy Verbs</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Applications in Public Administration</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="surveys-and-evaluations" class="section level1">
+<h1><span class="header-section-number"> 11</span> Surveys and Evaluations</h1>
+<blockquote>
+<p><em>“A census taker once tried to test me. I ate his liver with some fava beans and a nice chianti.”</em></p>
+<p>—Hannibal Lecter</p>
+</blockquote>
+<p>Before considering inference with respect to regression, this chapter covers two common concerns in sampling beyond question design or sampling method: sample power and weighting. Then, hypothesis testing is introduced, which applies to any sample estimate from which we wish to make inference. Lastly, using hypothesis testing for evaluations in their simplest forms is considered.</p>
+<div id="sample-size" class="section level2">
+<h2><span class="header-section-number">11.1</span> Sample size</h2>
+<p>Now that we understand how a sample of relatively small size allows us to make inferences about the population with a reasonable degree of confidence, let us next consider how to determine the size of sample we need to achieve a confidence interval with a specific degree of precision.</p>
+<p>When President Trump’s impeachment inquiry was in progress, numerous polls were conducted to gauge the sentiment of the U.S. electorate as to whether Trump should be impeached. One poll conducted by Fox News, using a sample of 1,000 voters, reported that 51% of voters support impeaching Trump with a margin of error of 3 percentage points. These results garnered national attention as the first time a majority of U.S. voters supported the impeachment of Trump. Regardless of one’s opinion on the matter or whether a national majority persuades elected officials, the claim that a majority of voters supported impeachment based on this poll is dubious.</p>
+<p>A sample of U.S. voters was taken. From this sample, the proportion of voters in support of impeachment was calculated to serve as an estimate of the population parameter. This sample produced an estimate of 51 percent. The margin or error in surveys or polls, unless noted otherwise, refers to one-half of the 95% confidence interval, or roughly two standard errors. Therefore, the 95% confidence interval of the polling results was 48 to 54 percent. The confidence interval used to capture the unobserved population parameter includes a minority of voters supporting impeachment.</p>
+<p>A common mistake made when interpreting estimates and confidence intervals is that the estimate is the most likely value within the confidence interval for the population parameter. <strong>The population parameter is no more likely to equal the estimate than any other value within the confidence interval</strong>. A confidence interval either captures the population parameter or it does not. Therefore, it was just as likely that 48 percent of voters supported the impeachment as it was 54 percent did or any percentage in between.</p>
+<p>As long as our estimate is unbiased, we cannot influence its value. Any attempt to do so would be bias by definition. Thus, the pollsters were stuck with an estimate of 51 percent. The estimate of 51 percent was not the issue for making the conclusion that a majority of voters supported impeachment. The issue was the critical lack of precision around the estimate. Unlike the estimate, we <em>can</em> influence the precision of the confidence interval.</p>
+<p>How many voters would the pollsters have had to survey in order to achieve a margin of error of 1 percentage point and conclude a majority of voters support impeachment?</p>
+<p>If the outcome is dichotomous or binary, such as whether or not a respondent supports impeachment, then the equation for determining the desired sample size is as follows</p>
+<p><span class="math display" id="eq:sampsizeprop">\[\begin{equation}
+n=p(1-p)({\frac{Z}{E}})^2
+\tag{11.1}
+\end{equation}\]</span></p>
+<ul>
+<li>n is the sample size</li>
+<li>p is the proportion of yes/true/success</li>
+<li>Z is the number of standard deviations we set according to what confidence interval is desired</li>
+<li>E is the desired margin of error</li>
+</ul>
+<p>It is important to point out that the calculation in Equation <a href="11-surveys-and-evaluations.html#eq:sampsizeprop">(11.1)</a> occurs <em>prior</em> to the poll. Therefore, we do not know the value of <span class="math inline">\(p\)</span>. Unless there is reason to expect <span class="math inline">\(p\)</span> to equal a particular proportion, it is customary to input 0.50. If we want to use a 95% confidence interval then we input 2 for <span class="math inline">\(Z\)</span>. Lastly, we replace <span class="math inline">\(E\)</span> with how far we want each side of our chosen confidence interval to be below and above our estimate.</p>
+<p>Suppose the primary purpose of the Fox News poll was to conclude a majority opinion. Then, a margin of error equal to 1 percentage point would allow a valid conclusion that a majority of voters support or oppose impeachment if the result of the poll were slightly below 49% or above 51% in favor. Choosing to use a 95% confidence interval, then the sample size necessary to achieve a margin of error equal to 1 percent (0.01) is</p>
+<p><span class="math display">\[\begin{equation}
+n=0.5(1-0.5)({\frac{1.96}{0.01}})^2\\
+n=9,604
+\end{equation}\]</span></p>
+<p>which is likely impractical for the kind of flash or expedient polling that news organizations tend to conduct.</p>
+<p>If we wish to determine the sample size needed for estimating a 95% confidence interval within a certain distance from a continuous estimate, such as the mean, we can use the following equation</p>
+<p><span class="math display" id="eq:sampsizemean">\[\begin{equation}
+n=(\frac{sZ}{E})^2
+\tag{11.2}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(s\)</span> is the sample standard deviation. Again, we do not have the sample standard deviation prior to obtaining the sample. We must rely on past analyses of the variable in question or a pilot study with a small sample in order to input the sample standard deviation.</p>
+</div>
+<div id="survey-weights" class="section level2">
+<h2><span class="header-section-number">11.2</span> Survey weights</h2>
+<p>Ideally, the demographic composition of survey respondents should match the demographic composition of the survey’s intended population. Thanks to Census data, we have a reasonably accurate understanding of population demographics such as age, sex, race, and ethnicity for multiple geographic areas and government jurisdictions. Other organizations like Pew Research Center and Gallup provide population proportions of other various ways to form groups, such as political party or religious affiliation.</p>
+<p>Unfortunately, it is unlikely for the demographic composition of survey respondents to match the population. Recipients choose not to respond and surveys tend to reach some demographics disproportionately more than others. This results in over- or under-representation of certain demographic groups in our survey, which limits our ability to generalize survey results and threatens the internal validity of any estimate.</p>
+<p>Weighting is a way to correct for a demographic mismatch between the composition of respondents and the intended population. There are multiple methods of weighting, some of which are complex, but the basic method described below can work for most cases where maximum correction is not necessary or feasible.</p>
+<p>Suppose a poll targeted to the general U.S. public asked if workers who have illegally entered the U.S. should be 1) allowed to keep their jobs and apply for citizenship, 2) allowed to keep their jobs as temporary guest workers but not allowed to apply for citizenship, and 3) lose their jobs and have to leave the country. The poll also asked for political party affiliation. A total of 890 responses were collected, generating the following results.</p>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-54">Table 11.1: </span>Illegal immigration poll results
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+response
+</th>
+<th style="text-align:left;">
+party
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Apply for citizenship:278
+</td>
+<td style="text-align:left;">
+Republican :357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Guest worker :262
+</td>
+<td style="text-align:left;">
+Democrat :174
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Leave the country :350
+</td>
+<td style="text-align:left;">
+Independent:359
+</td>
+</tr>
+</tbody>
+</table>
+<p>Based on the results, a plurality of 39% of the U.S. public believes illegal immigrants should leave the country and 31% believe they should be allowed to apply for citizenship. The question these estimates are biased by the composition of political party affiliation. About 40% of the respondents are Republican and Independent, while about 20% are Democrat. Suppose we find a national survey reporting that the U.S. is 30% Republican, 36% Independent, and 31% Democrat. Therefore, Republicans and Independents are over-represented in our survey, while Democrats are under-represented. We need to correct for this using weights.</p>
+<p>To calculate weights, we can use the following formula.</p>
+<p><span class="math display" id="eq:weight">\[\begin{equation}
+Weight = \frac{Population}{Sample}
+\tag{11.3}
+\end{equation}\]</span></p>
+<p>Using Equation <a href="11-surveys-and-evaluations.html#eq:weight">(11.3)</a>, we obtain the following weights for our survey</p>
+<ul>
+<li>Republican: 30/40 = 0.75</li>
+<li>Independent: 36/40 = 0.9</li>
+<li>Democrats: 31/20 = 1.55</li>
+</ul>
+<p>These weights mean that each Republican response counts as only three-quarters of a response and each Democrat response counts as about 1.5 responses.</p>
+<p>Next, we need to tabulate how many of each response was made by the three parties.</p>
+<table>
+<caption>
+<span id="tab:pollparty">Table 11.2: </span>Response by political party
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Republican
+</th>
+<th style="text-align:right;">
+Democrat
+</th>
+<th style="text-align:right;">
+Independent
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Apply for citizenship
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+101
+</td>
+<td style="text-align:right;">
+120
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Guest worker
+</td>
+<td style="text-align:right;">
+121
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+113
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Leave the country
+</td>
+<td style="text-align:right;">
+179
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+126
+</td>
+</tr>
+</tbody>
+</table>
+<p>Then, we multiply the values by their corresponding weight. For example, applying the weight for Republicans results in 134 responses for “Leave the country” (<span class="math inline">\(179 \times 0.75\)</span>). This process gives us the following counts</p>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-56">Table 11.3: </span>Weighted survey counts
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+party
+</th>
+<th style="text-align:left;">
+response
+</th>
+<th style="text-align:right;">
+total
+</th>
+<th style="text-align:right;">
+weight
+</th>
+<th style="text-align:right;">
+w.total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Republican
+</td>
+<td style="text-align:left;">
+Apply for citizenship
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+43
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Republican
+</td>
+<td style="text-align:left;">
+Guest worker
+</td>
+<td style="text-align:right;">
+121
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+91
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Republican
+</td>
+<td style="text-align:left;">
+Leave the country
+</td>
+<td style="text-align:right;">
+179
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+134
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Democrat
+</td>
+<td style="text-align:left;">
+Apply for citizenship
+</td>
+<td style="text-align:right;">
+101
+</td>
+<td style="text-align:right;">
+1.55
+</td>
+<td style="text-align:right;">
+157
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Democrat
+</td>
+<td style="text-align:left;">
+Guest worker
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+1.55
+</td>
+<td style="text-align:right;">
+43
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Democrat
+</td>
+<td style="text-align:left;">
+Leave the country
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+1.55
+</td>
+<td style="text-align:right;">
+70
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Independent
+</td>
+<td style="text-align:left;">
+Apply for citizenship
+</td>
+<td style="text-align:right;">
+120
+</td>
+<td style="text-align:right;">
+0.90
+</td>
+<td style="text-align:right;">
+108
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Independent
+</td>
+<td style="text-align:left;">
+Guest worker
+</td>
+<td style="text-align:right;">
+113
+</td>
+<td style="text-align:right;">
+0.90
+</td>
+<td style="text-align:right;">
+102
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Independent
+</td>
+<td style="text-align:left;">
+Leave the country
+</td>
+<td style="text-align:right;">
+126
+</td>
+<td style="text-align:right;">
+0.90
+</td>
+<td style="text-align:right;">
+113
+</td>
+</tr>
+</tbody>
+</table>
+<p>According to our weighted counts, 36% of the U.S. believes illegal immigrants should leave the country, while 35% believe they should be allowed to apply for citizenship. Weighting has changed a 8 percentage point gap in these two responses to a 1 point gap.</p>
+<p>In case it was not obvious in the example, we have to ask survey recipients to provide the demographic information upon which we plan to weight. Survey administrators must consider what variables might bias the response(s) of interest if there is a mismatch between the sample and population. Wisely, the designers of the survey above suspected if a disproportionate number of Republicans or any other political party responded, this would bias their estimates. Presumably, race and ethnicity are correlated with this response, but we do not have this information to construct a weight.</p>
+</div>
+<div id="hypothesis-testing" class="section level2">
+<h2><span class="header-section-number">11.3</span> Hypothesis testing</h2>
+<p>At its foundation, hypothesis testing is a simple procedural process. It does involve some application of statistical theory, the most fascinating and misunderstood aspect of which is the p-value. This section covers how to set up and use a hypothesis test to determine if an estimate is statistically significant.</p>
+<div id="null-and-alternative-hypos" class="section level3">
+<h3><span class="header-section-number">11.3.1</span> Null and alternative hypos</h3>
+<p>Setting up a hypothesis test first involves establishing two mutually exclusive, competing statements:</p>
+<ul>
+<li>Null hypothesis: the condition I intend to test for is not true, not the case</li>
+<li>Alternative hypothesis: the condition I intend to test for is true, is the case</li>
+</ul>
+<p>The condition is based on our research question that warranted the analysis in the first place. For example, is the average age of MPA students less than the average age of all graduate students? Are females more likely to enroll in an MPA program than males? Does obtaining an MPA increase earnings?</p>
+<p>Based on our question, we make a hypothesis <em>before</em> computing an estimate that would answer the question. For example, the average age of MPA students is less than the average age of all graduate students. Females are more likely to enroll in an MPA program than males. The effect of attaining an MPA increases earnings. These examples are alternative hypotheses; the affirmative of the condition we set out to test. The null hypothesis is the negative of the condition. For example, average age of MPA students is equal to graduate students. The likelihood of enrolling in an MPA program are equal between males and females. An MPA degree does not increase earnings.</p>
+<p>Note that the examples of alternative hypotheses were all directional. They used words like less/more than or increase/decrease. An alternative hypothesis need not be directional even though we may expect one direction over the other. For example, our alternative hypotheses could be that average age differs between MPA students and other grad students, the likelihood of enrolling differs between males and females, and attaining an MPA effects income.</p>
+<p>I encourage students to stick with non-directional hypotheses. In additional to simplifying the analysis, doing so reduces the likelihood that we report a statistically significant result when in fact there is not one (i.e. false positive). A strong case can be and is made that the statistical analyses allow too high of a likelihood for false positives. Claiming a direction means we have theoretically ruled out half of the possible results of our analysis before we even conduct the test, thereby increasing the likelihood we get the results we expected. If we are able to do this, one might wonder why conduct the test in the first place.</p>
+<p>Translating the above into more mathematical concepts, most research questions involve differences: the difference in mean age between MPA students and other grad students, the difference in the proportions of female and male MPA graduates, the difference in the slopes of regression lines drawn through data points for income and education level or degree type.</p>
+<p>Thus, the null hypothesis states that any of these differences equals zero. The alternative hypothesis states that any of these differences does not equal zero. The null hypothesis is denoted by <span class="math inline">\(H_0\)</span> and the alternative hypothesis is denoted by <span class="math inline">\(H_A\)</span>.</p>
+<ul>
+<li><span class="math inline">\(H_0: \mu_{MPA}-\mu_{grad} = 0\)</span> or <span class="math inline">\(H_A: \mu_{MPA}-\mu_{grad} \neq 0\)</span></li>
+<li><span class="math inline">\(H_0: \rho_{female}-\rho_{male} = 0\)</span> or <span class="math inline">\(H_A: \rho_{female}-\rho_{male} \neq 0\)</span></li>
+<li><span class="math inline">\(H_0: \beta_{MPA} = 0\)</span> or <span class="math inline">\(H_A: \beta_{MPA} \neq 0\)</span></li>
+</ul>
+<p>Note the use of population parameters above. Again, inference computes a sample estimate to make inferences about a population. Therefore, our hypotheses include the unobserved population parameter. Our estimate and confidence interval represents our best guess of that population parameter. The purpose of the hypothesis test is to establish a threshold at which we are sufficiently confident in our results to make a conclusion concerning our hypotheses <em>prior</em> to viewing the results.</p>
+</div>
+<div id="conclusion-and-error-type" class="section level3">
+<h3><span class="header-section-number">11.3.2</span> Conclusion and error type</h3>
+<p>There are two possible outcomes of a hypothesis test. We either</p>
+<ul>
+<li>reject the null hypothesis, or</li>
+<li>fail to reject the null hypothesis.</li>
+</ul>
+<p>We never accept the null hypothesis or reject the alternative hypothesis. This may seem like semantics, but it actually has important implications for our conclusions.</p>
+<p>Suppose our results do not meet the threshold to reject the hypothesis, thus leading us to fail to reject the null hypothesis. This does not mean the null hypothesis is true. Our null hypothesis states whatever parameter of interest in our study equals zero. We do not observe the population parameter. Therefore, we cannot say that our null hypothesis is true. Instead, we say that we do not have sufficient evidence to reject the null. It may be true or false, but we cannot determine which based on our particular estimate from our particular sample.</p>
+<p>Conversely, if we reject the null, then our conclusion is that the null hypothesis is false. We can rule out with reasonable confidence that the population parameter does not equal zero because doing so does not require us to claim a particular value for the population parameter; just that it is not equal to zero.</p>
+<p>A popular example of hypothesis testing is a jury decision in a court case. A defendant is accused of committing a crime. In truth, the defendant is either innocent or guilty of that crime. Ideally, the defendant is presumed innocent until proven guilty according to a jury of their peers. Therefore, the null hypothesis is that the defendant is innocent and the alternative hypothesis is that the defendant is guilty. The jury decides either that the defendant is guilty or not guilty. If guilty, then the jury has rejected the null hypothesis of innocence. If not guilty, then the jury has failed to reject the null hypothesis. Note that the jury does not decide the defendant is innocent, which would be equivalent to accepting the null or rejecting the alternative.</p>
+<p>Despite our best efforts, there always remains some chance that we have reached the wrong conclusion with our hypothesis test. We can make one of two possible errors:</p>
+<ul>
+<li>Type I error or false positive: rejecting the null when the null is actually true</li>
+<li>Type II error or false negative: failing to reject the null when the null is actually false</li>
+</ul>
+<p>For instance, Type I error is finding an innocent defendant guilty, a healthy patient sick, or an ineffective program effective. Type II error is finding a guilty defendant not guilty, no evidence of illness in a sick patient, or no evidence of efficacy in an effective program. Again, the null hypothesis involves the population parameter, so we do not <em>know</em> if it is actually true or not. The null must be true or false, and the outcome of our hypothesis test claims whether the null does not appear to be false or is false. Therefore, there is a probability that we have reached the incorrect conclusion.</p>
+<p>It is impossible to eliminate the chance of Types I and II errors, though it is possible to increase or decrease their likelihoods. However, the two share an inverse relationship; as we reduce the chance of one type of error, we increase the chance of the other type of error. Depending on the context of our research question, we may be more or less concerned about Type II error, but the focus of a hypothesis test is placed on Type I error, which serves as the threshold for our decision.</p>
+</div>
+<div id="decision-rule" class="section level3">
+<h3><span class="header-section-number">11.3.3</span> Decision rule</h3>
+<p>Before testing our hypothesis, we ask ourselves the following question: “What is the maximum probability of Type I error that I or others should be willing to tolerate?” Actually, this question has been answered for us in most disciplines. The common threshold for this tolerance is 5% or 1% probability of rejecting the null hypothesis when the null is actually true. Social sciences typically use 5%.</p>
+<p>With our threshold set, we can now test our hypothesis. We calculate the sample estimate and the standard error of our estimate, which are used to calculate the confidence interval. The confidence level of our confidence interval depends on our chosen threshold for Type I error. If our threshold for Type I error is 5%, then we calculate the 95% confidence interval. If our threshold is 1%, we use a 99% confidence interval.</p>
+<p>Our confidence interval is our best guess of the plausible range of values for the population parameter. We have decided to tolerate the chance that our confidence interval is one of the five out of 100 confidence intervals–or 1 out of 100–expected to fail to capture the parameter. Our null hypothesis states that the parameter equals zero. Therefore, if our confidence interval does not contain zero, we reject the null hypothesis. If our confidence interval does contain zero, then we have failed to reject the null hypothesis because the parameter <em>might</em> equal zero with a higher probability than we decided to tolerate.</p>
+<p>In most cases, we do not need more information than the estimate, standard error, and confidence interval to make a decision regarding our hypothesis test. However, an analysis provides us an additional piece of information that allows us to arrive at the same conclusion but from a different perspective called the <strong>p-value</strong>.</p>
+<blockquote>
+<p>The p-value tells us the probability of obtaining the estimate we did, or an estimate further away from the null hypothesis, if the null hypothesis were actually true.</p>
+</blockquote>
+<p>The p-value provides us a concise decision rule. The tolerance threshold we set is often referred to as the significance level and denoted by the Greek letter <span class="math inline">\(\alpha\)</span> (alpha).</p>
+<ul>
+<li>If <span class="math inline">\(p&lt;\alpha\)</span>, reject the null hypothesis.</li>
+<li>If <span class="math inline">\(p\geq \alpha\)</span>, fail to reject the null hypothesis.</li>
+</ul>
+<p>Again, a typical value for <span class="math inline">\(\alpha\)</span> is 5%, or 0.05. Having chosen a 5% significance level, if our results generate a p-value of 0.04, for instance, then the likelihood of obtaining our result in a world where the null is true is 4%. Therefore, we reject the null hypothesis. If our p-value were equal to 0.06, then the likelihood of obtaining our result in a world where the null is true is 6%. This exceeds our maximum tolerance, thus we fail to reject the null hypothesis.</p>
+</div>
+</div>
+<div id="chi-square-test" class="section level2">
+<h2><span class="header-section-number">11.4</span> Chi-square test</h2>
+<p>The Chi-square (<span class="math inline">\(\chi^2\)</span>) test is a common choice for introducing the application of hypothesis testing. Chi-square is used to test whether two <em>nominal</em> variables are associated to a statistically significant extent. A nominal variable, such as race, sex, or political party affiliation, has two or more of levels. If one wanted to test if, given the level for a unit of analysis in one nominal variable (e.g. male), there is a higher likelihood for a particular level in another nominal variable to occur (e.g. Republican), a Chi-square test is an appropriate choice.</p>
+<p>For an example, let us return to the immigration survey. We saw in <a href="11-surveys-and-evaluations.html#tab:pollparty">11.2</a> that 179 out of 357 Republicans (50%) responded that illegal immigrants should be forced to leave the country, while 101 out of 174 Democrats (58%) responded that illegal immigrants should be allowed to apply for citizenship. Is there a statistically significant pattern in responses conditional on political party affiliation, or are these differences due to random noise?</p>
+<p>The null hypothesis for this question is that there is no association between the opinion on illegal immigration and political party affiliation. That is to say, if we chose any of the three political party levels in our data, the probability of an individual providing one of the three opinions is equal the other opinions, or</p>
+<p><span class="math inline">\(H_0: P_{leave} = P_{guest} = P_{citizen}\)</span></p>
+<p>The alternative hypothesis is that there is an association between opinion on illegal immigration and political party affiliation, or</p>
+<p><span class="math inline">\(H_A\)</span>: at least one <span class="math inline">\(P\)</span> is not equal to the others</p>
+<p>Next, suppose we chose to use the customary 5% statistical significance level, or <span class="math inline">\(\alpha=0.05\)</span>. Now we are ready to test our hypothesis using a Chi-square test. Doing so generates the following results.</p>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  immigration_poll
+## X-squared = 100.95, df = 4, p-value &lt; 2.2e-16</code></pre>
+<p>This is one case where there are no confidence intervals to compute since our variables are not numerical. Instead, we rely on the p-value. Our p-value is less than 0.00000000000000022. More concisely, <span class="math inline">\(p&lt;0.05\)</span>. Therefore, we reject the null hypothesis that there is no association between the three illegal immigration opinions in the survey and political party affiliation. Furthermore, the probability for us to get the values in Table <a href="11-surveys-and-evaluations.html#tab:pollparty">11.2</a> or more extreme in a world where the null hypothesis is actually true is equal to an infinitesimal percent, not to suggest that such a small p-value is required to make inferences.</p>
+<p>Our results allow us to make inferences such as Republicans are more likely to believe illegal immigrants should lose their jobs and have to leave the country, while Democrats are more likely to believe they should be allowed to keep their jobs and apply for citizenship. Not a particularly surprising inference, but perhaps that is because many such inferences in the past have been made using similar techniques and reported many times.</p>
+</div>
+<div id="t-test" class="section level2">
+<h2><span class="header-section-number">11.5</span> T-test</h2>
+<p>The t-test is another common introductory application of hypothesis testing. A t-test is used to test the association between a nominal variable with two levels and a numerical variable. It is frequently used in simple program evaluations with a pre/post or treatment/control design. Both involve a nominal variable with two levels. If one want to test if a numerical outcome is different between the two levels, then a t-test is an appropriation choice.</p>
+<p>There are two varieties of the t-test. To test if an average of a numerical outcome is different between two groups, such as a treatment and control group, then we use an <strong>independent t-test</strong>. To test if an average numerical outcome is different before and after a treatment for the <em>same</em> units of analysis, we use a <strong>dependent t-test</strong>. The difference between the two t-tests concerns how we approximate the sampling distributions and confidence intervals, but their use for hypothesis testing is essentially the same.</p>
+<p>Suppose we work for a nonprofit that provides job training workshops and want to evaluate their effectiveness. One way to go about such a task is to compare the earnings of participants (i.e. treatment group) to the earnings of non-participants (i.e. control group). We have earnings data for 185 participants and 128 non-participants, some of which is previewed in the table below.</p>
+<table>
+<caption>
+<span id="tab:jobtraindata">Table 11.4: </span>Preview of job training data
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+treatment
+</th>
+<th style="text-align:right;">
+earnings
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+66493.964
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+46651.829
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+10070.227
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1211.736
+</td>
+</tr>
+</tbody>
+</table>
+<p>Before constructing the null and alternative hypotheses, a note about the population in this example. In program evaluations or generally any analysis aimed toward testing whether some event caused an effect on an outcome of interest, there are two populations. There is the entire population of units of analysis (e.g. all people, all nations, all dogs) and the subset of that population for whom/which the program, policy, or intervention is intended.</p>
+<p>The choice of population leads to two slightly different questions. If the entire population is our research population, then our intent is to estimate the average effect of the program on a randomly chosen unit from the entire population. This is referred to as the <strong>average treatment effect</strong> (ATE). If the subset that the program targets is our research population, then our intent is to report the average effect of a randomly chosen targeted unit. This is referred to as the <strong>average treatment on the treated</strong> (ATT). The detailed differences between the two are beyond the scope of this book and more appropriate for a class in program evaluation or causal inference, but the existence of this difference is worth being aware of.</p>
+<p>Given that job training programs are not intended for all people, the presumption is that we want to estimate the average effect on those the program targets. Of course, we could choose as our population only those who participated in the program. In that case, we need not bother with hypothesis tests, as we would be calculating the population parameters directly from the observed data. However, we would not be able to generalize the results.</p>
+<p>With the population in mind, our null hypothesis is that the average earnings of participants is equal to the average earnings of non-participants, or</p>
+<p><span class="math inline">\(H_0: \mu_{treated} = \mu_{untreated}\)</span></p>
+<p>Our alternative hypothesis is that the average earnings of participants is not equal to the average earnings of non-participants, or</p>
+<p><span class="math inline">\(H_A: \mu_{treated} \neq \mu_{untreated}\)</span></p>
+<p>Choosing a significance level of 5%, we are ready to test our hypothesis.</p>
+<p>A simple computation of the average earnings between the two groups provides the following information.</p>
+<table>
+<caption>
+<span id="tab:jobtrainsum">Table 11.5: </span>Comparison of means between treated and untreated
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+treatment
+</th>
+<th style="text-align:right;">
+Average Earnings
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+21645.10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+26031.49
+</td>
+</tr>
+</tbody>
+</table>
+<p>Participants have a higher average earnings than non-participants, but is this difference statistically significant? For that, we should use an <em>independent</em> t-test because participants and non-participants are two different groups. Running the t-test provides the following results</p>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  earnings by treatment
+## t = -1.1921, df = 275.58, p-value = 0.2342
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -11629.708   2856.939
+## sample estimates:
+## mean in group 0 mean in group 1 
+##        21645.10        26031.49</code></pre>
+<p>Our p-value is greater than our significance level, <span class="math inline">\(0.23&gt;0.05\)</span>. Therefore, we fail to reject the null hypothesis and conclude that there is not statistically significant evidence that participants earn more than non-participants, on average. Note that our 95% confidence interval ranges between -11,630 and 2,856. It includes zero, thus we cannot claim the difference between the means is not equal to zero with reasonable confidence.</p>
+<p>To learn how to conduct chi-square and t-tests in R, proceed to Chapter <a href="24-r-evaluations.html#r-evaluations">24</a>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="10-sampling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="12-regression-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

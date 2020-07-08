@@ -1,0 +1,95 @@
+# R Regression Diagnostics
+
+```{r, include=FALSE}
+load("_bookdown_files/statecrime1997.RData")
+```
+
+## Learning Outcomes
+
+In this chapter, you will learn how to:
+
+- Produce residual vs. fitted (RVFP) and residual vs. leverage plots (RVLP)
+- Check for multicollinearity using variance inflation factor (VIF)
+- Exclude observations from a regression model
+
+## Set-up
+
+To complete this chapter, you need to
+
+- Open a script
+- Load the following packages
+
+```{r, eval=FALSE}
+library(car)
+library(gvlma)
+library(carData)
+```
+
+We will use the `States` dataset within the `carData` package. Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.
+
+## RVF and RVL
+
+Producing RVF and RVL plots is very easy. In Chapter \@ref(regression-diagnostics), the following regression was run.
+
+```{r, results='hide'}
+murder_mod <- lm(murder ~ pctmetro + pcths + poverty, data = statecrime1997)
+get_regression_table(murder_mod)
+```
+
+```{r, echo=FALSE}
+get_regression_table(murder_mod) %>% 
+  kable(format = 'html')
+```
+
+Once we have our regression results saved to an object, all we need to do is use the `plot` function, as shown in the code below. The `plot` function produces four plots. The first plot is the RVFP and the fourth plot is the RVLP. You do not need to concern yourself with the second and third plots.
+
+```{r}
+plot(murder_mod)
+```
+
+In both plots, we see that observation 51 (D.C.) is particularly problematic.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 1:** Using the `States` data, run a regression model where either `SATV` or `SATM` is the outcome. Once you have the model, produce the RVFP and RVLP. Do any observations appear problematic?
+```
+
+## VIF
+
+VIF is a common way to check for excessive multicollinearity. There is no strict rule for identifying multicollinearity, but a VIF between 5 and 10 signals a potential problem. To obtain the VIF, we can use the `vif` function from the `car` package like so.
+
+```{r}
+vif(murder_mod)
+```
+
+None of the VIF values for the explanatory variables come close to 5. Therefore, we can be confident that multicollinearity is not an issue.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 2:** Obtain VIF values for your regression model. Might multicollinearity be a concern?
+```
+
+## Exclude observations
+
+We should be judicious and transparent when deciding to exclude observations from an analysis. When in doubt, do not exclude observations. If we decide an exclusion is defensible, then we can exclude observations directly within the `lm` function to avoid the need to create a new dataset. In the code below, I exclude observation 51 from the regression model.
+
+```{r}
+murder_mod2 <- lm(murder ~ pctmetro + pcths + poverty, data = statecrime1997[-51,])
+```
+
+Now I have different results that are more representative of state murder rates.
+
+```{r, eval=FALSE}
+get_regression_table(murder_mod)
+```
+
+```{r, echo=FALSE}
+get_regression_table(murder_mod) %>% 
+  kable(format = 'html')
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 3:** Exclude one or more observations from your regression model.
+```
+
+## Submit
+
+Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.

@@ -1,0 +1,95 @@
+# R Evaluations
+
+## Learning Outcomes
+
+In this chapter, you will learn how to:
+
+- Conduct a chi-square test
+- Conduct an independent t-test
+
+## Set-up
+
+To complete this chapter, you need to
+
+- Open a script
+- Load the following packages
+
+```{r, eval=FALSE}
+library(tidyverse)
+library(carData)
+library(MASS)
+```
+
+For the chi-square test, we will use the `MplsStops` dataset within the `carData` package. For the t-tests, we will use the `UScrime` dataset within the `MASS` package. Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.
+
+## Chi-square test
+
+A chi-square test, like the one demonstrated in Chapter \@ref(surveys-and-evaluations), requires two steps:
+
+- Create a cross-tabulation table using the `table` function
+- Run the chi-square on the cross-tabulation using the `chisq.test` function
+
+### Cross-tab
+
+Below is the code used to produce the cross-tab from Chapter \@ref(surveys-and-evaluations). I save the new table as `polltable`. Using the `table` function, I tell R which two variables from the `poll` dataset to cross-tabulate. The `$` is how we identify a specific variable within a dataset. The levels of the first variable, `response`, will be tabulated by row, while the frequency of the levels of the second variable, `party`, will be tabulated by column. 
+
+```{r, eval=FALSE}
+polltable <- table(poll$response, poll$party)
+```
+
+```{r, echo=FALSE}
+polltable <- table(poll$response, poll$party)
+kable(polltable, format = 'html', caption = 'Response by political party')
+```
+
+### Run chi-square
+
+Now that we have a cross-tabulation table, we can run the chi-square test. The code below demonstrates how.
+
+```{r}
+chisq.test(immigration_poll)
+```
+
+Then, it is simply a matter of interpreting the results.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 1:** Using the `MplsStops` data, suppose we wanted to test whether receiving a citation after being stopped by the police, `citationIssued`, is independent of `race.` Both are nominal variables, so a chi-square test can be used. Run this chi-square test.
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 2:** Are the two variables independent? Why?
+```
+
+## T-tests
+
+To reiterate, if the two groups in a t-test are comprised of different subjects, we use an independent t-test. If they are comprised of the same subjects, then we use a dependent t-test.
+
+### Independent t-test
+
+The code below demonstrates how the independent t-test from Chapter \@ref(surveys-and-evaluations) was conducted. The `t.test` function works a lot like the `lm` function in that the outcome is entered first, then we input the variable that identifies the groups, which is essentially an explanatory variable. The two variables are separated by `~`. Then, we tell R which dataset to use, which is called `jobtrain` in this case.
+
+```{r}
+t.test(earnings ~ treatment, data = jobtrain)
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 3:** Using the `UScrimes` data, suppose we wanted to test whether the probability of imprisonment, `Prob`, is independent of between Southern and non-Southern states, `So`. The outcome is numerical and the explanatory is nominal. Therefore, a t-test can be used. Run this t-test.
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 4:** Is there an association between the two variables? Why?
+```
+
+### Dependent t-test
+
+To conduct a dependent t-test, add the option `paired=TRUE` inside the `t.test` code like so
+
+```{r, eval=FALSE}
+t.test(earnings ~ treatment, data = jobtrain, paired = TRUE)
+```
+
+However, this code will not work because the number of observations in the treatment and control groups are not equal. If we truly had a paired sample where the same subjects measured twice, then we should have the same number of observations in both groups.
+
+## Submit
+
+Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.

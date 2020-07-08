@@ -1,0 +1,273 @@
+# R Visualization
+
+## Learning Objectives
+
+In this chapter you will learn how to make the following visualizations:
+
+- Histogram
+- Box plot
+- Bar chart
+- Line graph
+- Scatter plot
+
+The code used to make the above visualizations in \@ref(data-visualization) will be provided and explained. Then, you will be asked to replicate the visualization using different data.
+
+## Set-up
+
+To complete this chapter, you need to
+
+- Start a notebook
+- Load the following packages
+
+```{r, eval=FALSE}
+library(tidyverse)
+library(openintro)
+library(fpp2)
+```
+
+For everything but the line graph, we will use the `countyComplete` data within the `openintro` package. This dataset contains 3,143 counties and 53 variables. For the line graph, we will use the `prisonLF` data within the `fpp2` package. This dataset is a quarterly time series of prisoner numbers in Australia from 2005 to 2016, split by sex, state, and legal status.
+
+## Grammar of graphics
+
+R uses the grammar of graphics to make visualizations. You need to define **three** essential elements to produce a graph:
+
+- `data`: defines the dataset containing our variable(s) of interest
+- `aes`: defines the variables used to generate the plot and how they are used
+- `geom`: defines the kind of plot
+
+We plot variables from `data` to `aes`thetic attributes of `geom`etric objects. The function we use to do this is called `ggplot`. The generic code below shows the essential elements that will produce a default plot. We replace `data` with the name of the dataset. Within the `aes` parentheses, we tell R to assign one or more variables to a variety of attributes, such as `x` or `y` or `color`. What we include within `aes` depends on the type of plot we want to make, which is determined by the second line which always includes `geom_` followed by the type of plot.
+
+```{r, eval=FALSE}
+ggplot(data, aes(x = variable, ...)) +
+  geom_type()
+```
+
+For example, the below code takes the variable `gdpPercap` from the dataset `gapminder` and maps it to the horizontal x axis of a chosen `geom`etric object called a histogram.
+
+```{r, message=FALSE, warning=FALSE}
+ggplot(gapminder, aes(x = gdpPercap)) +
+  geom_histogram()
+```
+
+Data, aesthetics, and geometries are the essential elements needed to generate a graph. If you tell R these three elements correctly, it will produce a graph. There are additional elements that can be added to make graphs be more effective or look better that will be covered in class.
+
+Aesthetics take variables in your data and assign them to attributes that correspond to the geometric object you intend to use. That is, `aes` and `geom` work together and must be compatible. 
+
+For example, you can't generate a scatter plot--`geom_point`--if you only define an `x` aesthetic. You must define an `x` and `y` aesthetic for a scatter plot. The figure below lists various aesthetic attributes. 
+
+```{r, echo=FALSE}
+include_graphics('_bookdown_files/ggaes.png')
+```
+
+The type of your variable also informs which aesthetic(s) to use. The following work well with visualizing continuous variables:
+
+- x and y
+- size
+
+ The following aesthetics work well with visualizing categorical variables:
+
+- labels
+- color and fill
+- shape
+- linetype
+- size
+
+## Histogram
+
+Here is the code used to make the histogram from Chapter \@ref(data-visualization). The dataset is named `college_grad_students` and the variable assigned to the x axis aesthetic is named `grad_median`, which is the median earnings of full-time employees with various graduate school majors. Then, a `geom_histogram` is added. The rest of the code inside the histogram parentheses, the `labs` parentheses (stands for labels), and the `theme_classic` is optional and used to make the histogram look more polished.
+
+```{r gradmedhistrep, fig.cap='Histogram of full-time median earnings for different graduate school majors'}
+ggplot(college_grad_students, aes(x = grad_median)) +
+  geom_histogram(bins = 30, fill = 'steelblue', color = 'white') +
+  labs(x = 'Median earnings', y = 'Count of graduate majors') +
+  theme_classic()
+```
+
+Here is the code for the same histogram without the optional code. This is all that is needed to generate a histogram. In general, all plots require very little code if we do not care what they look like. 
+
+```{r, warning=FALSE, message=FALSE}
+ggplot(college_grad_students, aes(x = grad_median)) +
+  geom_histogram()
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 1:**  In the `countyComplete` dataset, there is a variable named `bachelors` that measures the percent of the county population with a bachelor's degree between 2006-2010. Suppose we want to visualize the distribution of `bachelors` with a histogram. Generate a simple, default histogram (no optional code unless you want to add it).
+```
+
+```{r, include=FALSE}
+ggplot(countyComplete, aes(x = bachelors)) +
+  geom_histogram()
+```
+
+## Box plot
+
+Below is the code used for the box plot in Chapter \@ref(data-visualization). Like the histogram, a box plot visualizes the distribution of one variable but uses descriptive measures median, first and third quartile, and identifies extreme values. Therefore, we only need to tell R which variable to assign to the either the x or y axis. Note that I assign `grad_median` to the y axis so that the box plot is vertical, which is merely a stylistic choice. Assigning `grad_median` to the x axis would make the box plot horizontal. Then, `geom_boxplot` is used to tell R to make a boxplot from `grad_median`.
+
+Again, all the code after `geom_boxplot` is optional and was used to make the box plot look more polished. The `fill = 'steelblue'` changes the color of the box, `labs` is used to help the reader understand what `grad_median` measures, `theme_classic` is one of several themes built within R that changes the look of a plot, and the code inside the `theme` function removes all of the ink related to the x axis due to it being unnecessary. The `theme` function allows you to control every element of a plot. Unique themes can be created and saved for replication, saving time and avoiding errors.
+
+```{r gradmedboxrep, fig.cap='Box plot of full-time median earnings for different graduate school majors'}
+ggplot(college_grad_students, aes(y = grad_median)) +
+  geom_boxplot(fill = 'steelblue') +
+  labs(y = 'Median earnings') +
+  theme_classic() +
+  theme(axis.line.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank())
+```
+
+Again, if we do not care how the box plot looks, all we need to make the plot is shown in the code below.
+
+```{r}
+ggplot(college_grad_students, aes(y = grad_median)) +
+  geom_boxplot()
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 2:**  Generate a simple, default box plot for `bachelors` (no optional code unless you want to add it).
+```
+
+## Bar chart
+
+There are two functions that make bar graphs: `geom_bar` and `geom_col`. Recall that a bar chart is used to show counts or proportions of levels within a categorical variable. In Chapter \@ref(data-visualization), a bar chart was used to show the counts and proportions of graduate majors defined as having either high or low unemployment. The table below shows a few rows and variables from the data. Note that these data are **disaggregated** with respect to the count of majors belonging to high or low unemployment. That is, we need our bar chart to count the number of rows with "high" and "low" in the `unemp_cat` column. In this case, we should use `geom_bar`.
+
+```{r, echo=FALSE}
+gradschool_spia2 <- gradschool_spia %>% 
+  mutate(unemp_cat = if_else(grad_unemployment_rate >= 0.05, "high", "low")) %>% 
+  select(major, grad_total, grad_unemployment_rate, unemp_cat, grad_median)
+
+gradschool$unemp_cat <- as.factor(gradschool$unemp_cat)
+
+kable(gradschool_spia2, format = 'html', digits = 3)
+```
+
+Below is the code used to generate the side-by-side or dodged bar chart from Chapter \@ref(data-visualization). Note the use of `geom_bar`, which requires either an x or y aesthetic to be defined. Here, I assign the categorical variable `unemp_cat` to the x aesthetic, making the bar chart vertical. Assigning it to the y aesthetic would make the bar chart horizontal. Again, all the code past `geom_bar` is optional.
+
+```{r}
+ggplot(gradschool, aes(x = unemp_cat)) +
+  geom_bar(fill = 'steelblue') +
+  labs(y = 'Count of degrees') +
+  theme_classic() +
+  theme(axis.line.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank())
+```
+
+Here is what the bar chart looks like without the optional code.
+
+```{r}
+ggplot(gradschool, aes(x = unemp_cat)) +
+  geom_bar()
+```
+
+Below is the code used to generate the stacked bar chart showing counts, Figure \@ref(fig:empbar). The code within `aes` is less intuitive. Since `geom_bar` requires an x or y aesthetic to be defined, I have to assign x to nothing via the blank quotation marks. The `fill = unemp_cat` tell R to stack the bar chart, filling the bar with the counts of high and low. 
+
+```{r}
+ggplot(gradschool, aes(x = "", fill = unemp_cat)) +
+  geom_bar() +
+  labs(y = 'Count of degrees',
+       fill = 'Unemployment') +
+  theme_classic() +
+  theme(axis.line.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank())
+```
+
+Below is what the stacked bar chart looks like by default.
+
+```{r}
+ggplot(gradschool, aes(x = "", fill = unemp_cat)) +
+  geom_bar()
+```
+
+Lastly, the code below is used to show proportions rather than counts. The only substantive difference between this code and the code above is the use of `position='fill'` within the `geom_bar` function. This tells R to show proportions.
+
+```{r}
+ggplot(gradschool, aes(x = "", fill = unemp_cat)) +
+  geom_bar(position = 'fill') +
+  labs(y = 'Proportion of degrees',
+       fill = 'Unemployment') +
+  theme_classic() +
+  theme(axis.line.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank())
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 3:**  Suppose we want to visualize how many counties each state has. That is, we want to count how many rows belong to each `state` in the `countyComplete` data using a bar chart. Generate a bar chart that achieves this. Choose the type of bar chart you deem best.
+```
+
+When should we use `geom_col` instead? When our counts are already aggregated in our data. Refer back to the table above. Note that `grad_total` and `grad_median` contain the count of graduates within each major and their median pay, respectively. Therefore, we do not need R to count the number of rows in our data, but rather report each number already included in the data. The `geom_col` function takes these counts and visualizes them using a bar (or column) chart.
+
+The below code shows how to generate Figure \@ref(fig:spiapay), which visualized the median pay for the four majors in the data related to those offered by SPIA. Median pay is simply a number in the data that does not need counting, thus the code uses `geom_col`, which requires both an x and y aesthetic to be defined. To allow room for the long names of each major, I made the bar chart horizontal by assigning `major` to the y aesthetic. Each bar visually represents the numbers for `grad_median` in the above table.
+
+There is a new piece of code in the below chunk that can be used to reorder bars in ascending or descending order, which is generally preferred over random order of peaks and valleys. The `reorder(major, -grad_median)` code tells R to reorder the majors in the plot in ascending because of the minus sign; removing it would reverse the order to descending.
+
+```{r}
+ggplot(gradschool_spia, aes(y = reorder(major, -grad_median), x = grad_median)) +
+  geom_col(fill = 'steelblue') +
+  theme_classic() +
+  labs(x = 'Median pay') +
+  theme(
+    axis.title.y = element_blank(),
+    axis.line.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
+```
+
+Below is what the bar chart looks like without the optional code.
+
+```{r}
+ggplot(gradschool_spia, aes(y = major, x = grad_median)) +
+  geom_col()
+```
+
+## Scatter plot
+
+The code below shows how the scatter plot in Chapter \@ref(data-visualization) was generated. This scatter plot actually contains two geometric objects. The `geom_point` function generates the scatter plot, and the `geom_smooth` function generates the regression/trend line. Note the assignment of x and y aesthetics that every scatter plot requires. Everything beyond `geom_point` is optional.
+
+```{r, message=FALSE}
+ggplot(gradschool, aes(x = grad_median, y = grad_total)) +
+  geom_point(color = 'steelblue', size = 2) +
+  geom_smooth(method = 'lm', se = FALSE, 
+              linetype = 'dashed', color = 'black') +
+  scale_y_log10(label=scales::comma_format()) +
+  labs(y = 'Total degrees',
+       x = 'Median pay') +
+  theme_minimal()
+```
+
+Below is the scatter plot without optional code.
+
+```{r}
+ggplot(gradschool, aes(x = grad_median, y = grad_total)) +
+  geom_point()
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 4:**  Pick two variables in the `countyComplete` data and plot their relationship using a simple scatter plot.
+```
+
+## Line graph
+
+Line graphs are best for visualizing variables over time (i.e. time series). The `prisonLF` data separate prisoner counts by male vs. female, remanded vs. sentenced, and state. Therefore, there are four times series for each state. The code below generates a line graph for the time series of female prisoners who were sentenced in each Australia state.
+
+Note how this code is different from the code before because I need to manipulate it before creating the plot. Specifically, I pipe the `prisonLF` data into the `filter` verb, which keeps only the rows with `Female` and `Sentenced`. Then, I pipe that result into the typical `ggplot`. However, I do not need to specify the dataset because it is already being piped into `ggplot`. Therefore, `ggplot` only needs `aes` and `geom` to be defined. Time `t` is assigned to the `x` aesthetic, `count` is assigned to the `y` aesthetic, and `state` is assigned to the `color` aesthetic. The `color` aesthetic is a common way to plot multiple groups. It also provides a legend by default. The `geom_line` function generates a line graph. 
+
+```{r}
+prisonLF %>% 
+  filter(gender == 'Female' & legal == 'Sentenced') %>% 
+  ggplot(aes(x = t, y = count, color = state)) +
+  geom_line() +
+  labs(color = 'State', y = 'Female Sentenced Prisoners', x = '') +
+  theme_minimal()
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 5:**  Create a line graph for male prisoners who were sentenced by state.
+```
+
+## Submit
+
+Save your notebook and submit to eLC. Once you submit, answers will become available for download.

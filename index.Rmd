@@ -1,0 +1,91 @@
+--- 
+title: "Data Applications in Public Administration"
+subtitle: "Using R to Learn Concepts and Skills"
+author: "Alex E. Combs"
+date: "Last updated on `r format(Sys.time(), '%d %B %Y')`"
+site: bookdown::bookdown_site
+documentclass: book
+biblio-style: apalike
+link-citations: yes
+colorlinks: yes
+lot: false
+lof: false
+description: "Companion text for PADP 7120"
+---
+
+# Preface {-}
+
+```{block, type='announcement', purl=FALSE}
+**Disclaimer**
+
+This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
+```
+
+This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes unfeasible, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. In general, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.
+
+### Objective {-}
+
+The objective of this book is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical software. It aims to simultaneously teach students key concepts in statistics and applications of those concepts using R.
+
+This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.
+
+### Style {-}
+
+Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained. 
+
+Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.
+
+### Structure {-}
+
+This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the `R Data` chapter corresponds to the `Data` chapter in the first track.
+
+The conceptual track is divided into four sections:
+
+1. Data and description
+2. Regression models
+3. Inference
+4. Advanced topics
+
+Each chapter begins with learning objectives and ends with supplemental resources, such as additional readings or opportunities to practice using R.
+
+### Software requirements {-}
+
+This book provides examples and exercises using R. Students who intend to use a personal computer must download and install the following software:
+
+- [R](https://cloud.r-project.org)
+- [RStudio](https://rstudio.com/products/rstudio/download/)
+
+```{r bookpacks, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(arsenal)
+library(forecast)
+library(fpp2)
+library(lubridate)
+library(readxl)
+library(plm)
+library(broom)
+library(car)
+library(gvlma)
+library(gapminder)
+library(Ecdat)
+library(carData)
+library(openintro)
+library(fivethirtyeight)
+library(moderndive)
+library(DAAG)
+library(Stat2Data)
+```
+
+### Supplemental resources {-}
+
+There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.
+
+- [OpenIntro Statistics](https://www.openintro.org/book/os/) by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr
+- [R for Data Science](https://r4ds.had.co.nz) by Garrett Grolemund and Hadley Wickham
+- [Statistical Inference via Data Science](https://moderndive.com/index.html) by Chester Ismay and Albert Y. Kim
+- [Kahn Academy: Statistics and probability](https://www.khanacademy.org/math/statistics-probability)
+- [Data Visualization: A practical introduction](https://socviz.co/index.html#preface) by Kieran Healy
+- [R Markdown from RStudio](https://rmarkdown.rstudio.com/lesson-1.html)
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) by Yihui Xie, J.J. Allaire, and Garrett Grolemund
+- [Forecasting: Principles and Practice](https://otexts.com/fpp2/) by Rob J. Hyndman and George Athanasopoulos

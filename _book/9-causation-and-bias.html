@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 9 Causation and Bias | Data Applications in Public Administration</title>
+  <meta name="description" content="Companion text for PADP 7120" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 9 Causation and Bias | Data Applications in Public Administration" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Companion text for PADP 7120" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 9 Causation and Bias | Data Applications in Public Administration" />
+  
+  <meta name="twitter:description" content="Companion text for PADP 7120" />
+  
+
+<meta name="author" content="Alex E. Combs" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="8-nonlinear-variables.html"/>
+<link rel="next" href="10-sampling.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.14/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Applications in PA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objective"><i class="fa fa-check"></i>Objective</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#style"><i class="fa fa-check"></i>Style</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software requirements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#supplemental-resources"><i class="fa fa-check"></i>Supplemental resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-intro.html"><a href="1-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-intro.html"><a href="1-intro.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why statistics</a></li>
+<li class="chapter" data-level="1.2" data-path="1-intro.html"><a href="1-intro.html#professional-standards"><i class="fa fa-check"></i><b>1.2</b> Professional standards</a></li>
+<li class="chapter" data-level="1.3" data-path="1-intro.html"><a href="1-intro.html#statistics-in-pa"><i class="fa fa-check"></i><b>1.3</b> Statistics in PA</a></li>
+<li class="chapter" data-level="1.4" data-path="1-intro.html"><a href="1-intro.html#using-r"><i class="fa fa-check"></i><b>1.4</b> Using R</a></li>
+</ul></li>
+<li class="part"><span><b>I Data and Description</b></span></li>
+<li class="chapter" data-level="2" data-path="2-data.html"><a href="2-data.html"><i class="fa fa-check"></i><b>2</b> Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-data.html"><a href="2-data.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="2-data.html"><a href="2-data.html#rectangular-data"><i class="fa fa-check"></i><b>2.2</b> Rectangular Data</a></li>
+<li class="chapter" data-level="2.3" data-path="2-data.html"><a href="2-data.html#types-of-variables"><i class="fa fa-check"></i><b>2.3</b> Types of variables</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="2-data.html"><a href="2-data.html#qualitative-variables"><i class="fa fa-check"></i><b>2.3.1</b> Qualitative variables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2-data.html"><a href="2-data.html#quantitative-variables"><i class="fa fa-check"></i><b>2.3.2</b> Quantitative variables</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2-data.html"><a href="2-data.html#index-variables"><i class="fa fa-check"></i><b>2.3.3</b> Index variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2-data.html"><a href="2-data.html#dataset-structures"><i class="fa fa-check"></i><b>2.4</b> Dataset structures</a></li>
+<li class="chapter" data-level="2.5" data-path="2-data.html"><a href="2-data.html#additional-resources"><i class="fa fa-check"></i><b>2.5</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html"><i class="fa fa-check"></i><b>3</b> Measurement and Missing</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#credible-analysis"><i class="fa fa-check"></i><b>3.2</b> Credible analysis</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#measurement-validity-reliability"><i class="fa fa-check"></i><b>3.2.1</b> Measurement validity &amp; reliability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#missing-data"><i class="fa fa-check"></i><b>3.3</b> Missing data</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#types-of-missing-data"><i class="fa fa-check"></i><b>3.3.1</b> Types of missing data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#two-kinds-of-statistics"><i class="fa fa-check"></i><b>4.1</b> Two kinds of statistics</a></li>
+<li class="chapter" data-level="4.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#distributions"><i class="fa fa-check"></i><b>4.2</b> Distributions</a></li>
+<li class="chapter" data-level="4.3" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#descriptive-measures"><i class="fa fa-check"></i><b>4.3</b> Descriptive Measures</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-center"><i class="fa fa-check"></i><b>4.3.1</b> Measures of center</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-spread"><i class="fa fa-check"></i><b>4.3.2</b> Measures of spread</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.3.3</b> The normal distribution</a></li>
+<li class="chapter" data-level="4.3.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-association"><i class="fa fa-check"></i><b>4.3.4</b> Measures of association</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-data-visualization.html"><a href="5-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#so-many-choices"><i class="fa fa-check"></i><b>5.1</b> So many choices</a></li>
+<li class="chapter" data-level="5.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#distribution"><i class="fa fa-check"></i><b>5.2</b> Distribution</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#histogram"><i class="fa fa-check"></i><b>5.2.1</b> Histogram</a></li>
+<li class="chapter" data-level="5.2.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#density"><i class="fa fa-check"></i><b>5.2.2</b> Density</a></li>
+<li class="chapter" data-level="5.2.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#box-plot"><i class="fa fa-check"></i><b>5.2.3</b> Box plot</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#compostion-of-a-category"><i class="fa fa-check"></i><b>5.3</b> Compostion of a category</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#pie-charts"><i class="fa fa-check"></i><b>5.3.1</b> Pie charts</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#bar-chart"><i class="fa fa-check"></i><b>5.3.2</b> Bar chart</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5-data-visualization.html"><a href="5-data-visualization.html#comparing-between-units"><i class="fa fa-check"></i><b>5.4</b> Comparing between units</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#bar-chart-1"><i class="fa fa-check"></i><b>5.4.1</b> Bar chart</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#dot-plot"><i class="fa fa-check"></i><b>5.4.2</b> Dot plot</a></li>
+<li class="chapter" data-level="5.4.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#line-graph"><i class="fa fa-check"></i><b>5.4.3</b> Line graph</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5-data-visualization.html"><a href="5-data-visualization.html#association"><i class="fa fa-check"></i><b>5.5</b> Association</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#categorical-and-numerical"><i class="fa fa-check"></i><b>5.5.1</b> Categorical and numerical</a></li>
+<li class="chapter" data-level="5.5.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>5.5.2</b> Scatter plot</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Regression Models</b></span></li>
+<li class="chapter" data-level="6" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html"><i class="fa fa-check"></i><b>6</b> Simple and Multiple Regression</a><ul>
+<li class="chapter" data-level="6.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#basic-idea"><i class="fa fa-check"></i><b>6.1</b> Basic idea</a></li>
+<li class="chapter" data-level="6.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>6.2</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#using-regression"><i class="fa fa-check"></i><b>6.2.1</b> Using regression</a></li>
+<li class="chapter" data-level="6.2.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#the-error-term"><i class="fa fa-check"></i><b>6.2.2</b> The error term</a></li>
+<li class="chapter" data-level="6.2.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#goodness-of-fit"><i class="fa fa-check"></i><b>6.2.3</b> Goodness of fit</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#multiple-regression"><i class="fa fa-check"></i><b>6.3</b> Multiple regression</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#using-multiple-regression"><i class="fa fa-check"></i><b>6.3.1</b> Using multiple regression</a></li>
+<li class="chapter" data-level="6.3.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#fit-and-adjusted-r-squared"><i class="fa fa-check"></i><b>6.3.2</b> Fit and adjusted R squared</a></li>
+<li class="chapter" data-level="6.3.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#explanatory-penalty"><i class="fa fa-check"></i><b>6.3.3</b> Explanatory penalty</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html"><i class="fa fa-check"></i><b>7</b> Categorical Variables and Interactions</a><ul>
+<li class="chapter" data-level="7.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#parallel-slopes-model"><i class="fa fa-check"></i><b>7.1</b> Parallel slopes model</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-parallel-slopes"><i class="fa fa-check"></i><b>7.1.1</b> Using parallel slopes</a></li>
+<li class="chapter" data-level="7.1.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations"><i class="fa fa-check"></i><b>7.1.2</b> Variations</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#interaction-model"><i class="fa fa-check"></i><b>7.2</b> Interaction model</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-an-interaction"><i class="fa fa-check"></i><b>7.2.1</b> Using an interaction</a></li>
+<li class="chapter" data-level="7.2.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations-1"><i class="fa fa-check"></i><b>7.2.2</b> Variations</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#linear-probability-model"><i class="fa fa-check"></i><b>7.3</b> Linear probability model</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-lpm"><i class="fa fa-check"></i><b>7.3.1</b> Using LPM</a></li>
+<li class="chapter" data-level="7.3.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#fit"><i class="fa fa-check"></i><b>7.3.2</b> Fit</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html"><i class="fa fa-check"></i><b>8</b> Nonlinear Variables</a><ul>
+<li class="chapter" data-level="8.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#quadratic"><i class="fa fa-check"></i><b>8.1</b> Quadratic</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#using-quadratics"><i class="fa fa-check"></i><b>8.1.1</b> Using quadratics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#log-models"><i class="fa fa-check"></i><b>8.2</b> Log models</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#logarithmic-scales"><i class="fa fa-check"></i><b>8.2.1</b> Logarithmic scales</a></li>
+<li class="chapter" data-level="8.2.2" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#percent-v-percentage-point-change"><i class="fa fa-check"></i><b>8.2.2</b> Percent v percentage point change</a></li>
+<li class="chapter" data-level="8.2.3" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#why-logs-in-regression"><i class="fa fa-check"></i><b>8.2.3</b> Why logs in regression</a></li>
+<li class="chapter" data-level="8.2.4" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#using-log-models"><i class="fa fa-check"></i><b>8.2.4</b> Using log models</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html"><i class="fa fa-check"></i><b>9</b> Causation and Bias</a><ul>
+<li class="chapter" data-level="9.1" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#causality"><i class="fa fa-check"></i><b>9.1</b> Causality</a></li>
+<li class="chapter" data-level="9.2" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#directed-acyclical-graphs"><i class="fa fa-check"></i><b>9.2</b> Directed acyclical graphs</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#evaluationg-dags"><i class="fa fa-check"></i><b>9.2.1</b> Evaluationg DAGs</a></li>
+<li class="chapter" data-level="9.2.2" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#backdoor-criterion"><i class="fa fa-check"></i><b>9.2.2</b> Backdoor criterion</a></li>
+<li class="chapter" data-level="9.2.3" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#dags-and-regression"><i class="fa fa-check"></i><b>9.2.3</b> DAGs and regression</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#direction-of-ovb"><i class="fa fa-check"></i><b>9.3</b> Direction of OVB</a></li>
+<li class="chapter" data-level="9.4" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#usefulness"><i class="fa fa-check"></i><b>9.4</b> Usefulness</a></li>
+</ul></li>
+<li class="part"><span><b>III Inference</b></span></li>
+<li class="chapter" data-level="10" data-path="10-sampling.html"><a href="10-sampling.html"><i class="fa fa-check"></i><b>10</b> Sampling</a><ul>
+<li class="chapter" data-level="10.1" data-path="10-sampling.html"><a href="10-sampling.html#normal-distribution"><i class="fa fa-check"></i><b>10.1</b> Normal distribution</a></li>
+<li class="chapter" data-level="10.2" data-path="10-sampling.html"><a href="10-sampling.html#sampling-distribution"><i class="fa fa-check"></i><b>10.2</b> Sampling Distribution</a></li>
+<li class="chapter" data-level="10.3" data-path="10-sampling.html"><a href="10-sampling.html#central-limit-theorem"><i class="fa fa-check"></i><b>10.3</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="10.4" data-path="10-sampling.html"><a href="10-sampling.html#confidence-intervals"><i class="fa fa-check"></i><b>10.4</b> Confidence intervals</a></li>
+<li class="chapter" data-level="10.5" data-path="10-sampling.html"><a href="10-sampling.html#conclusion"><i class="fa fa-check"></i><b>10.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html"><i class="fa fa-check"></i><b>11</b> Surveys and Evaluations</a><ul>
+<li class="chapter" data-level="11.1" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#sample-size"><i class="fa fa-check"></i><b>11.1</b> Sample size</a></li>
+<li class="chapter" data-level="11.2" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#survey-weights"><i class="fa fa-check"></i><b>11.2</b> Survey weights</a></li>
+<li class="chapter" data-level="11.3" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#hypothesis-testing"><i class="fa fa-check"></i><b>11.3</b> Hypothesis testing</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#null-and-alternative-hypos"><i class="fa fa-check"></i><b>11.3.1</b> Null and alternative hypos</a></li>
+<li class="chapter" data-level="11.3.2" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#conclusion-and-error-type"><i class="fa fa-check"></i><b>11.3.2</b> Conclusion and error type</a></li>
+<li class="chapter" data-level="11.3.3" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#decision-rule"><i class="fa fa-check"></i><b>11.3.3</b> Decision rule</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#chi-square-test"><i class="fa fa-check"></i><b>11.4</b> Chi-square test</a></li>
+<li class="chapter" data-level="11.5" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#t-test"><i class="fa fa-check"></i><b>11.5</b> T-test</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="12-regression-inference.html"><a href="12-regression-inference.html"><i class="fa fa-check"></i><b>12</b> Regression Inference</a><ul>
+<li class="chapter" data-level="12.1" data-path="12-regression-inference.html"><a href="12-regression-inference.html#regression-table"><i class="fa fa-check"></i><b>12.1</b> Regression table</a></li>
+<li class="chapter" data-level="12.2" data-path="12-regression-inference.html"><a href="12-regression-inference.html#other-hypotheses"><i class="fa fa-check"></i><b>12.2</b> Other hypotheses</a></li>
+<li class="chapter" data-level="12.3" data-path="12-regression-inference.html"><a href="12-regression-inference.html#practical-significance"><i class="fa fa-check"></i><b>12.3</b> Practical significance</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html"><i class="fa fa-check"></i><b>13</b> Regression Diagnostics</a><ul>
+<li class="chapter" data-level="13.1" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#classical-assumptions"><i class="fa fa-check"></i><b>13.1</b> Classical assumptions</a></li>
+<li class="chapter" data-level="13.2" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#multicollinearity"><i class="fa fa-check"></i><b>13.2</b> Multicollinearity</a></li>
+<li class="chapter" data-level="13.3" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#influential-data"><i class="fa fa-check"></i><b>13.3</b> Influential Data</a></li>
+</ul></li>
+<li class="part"><span><b>IV Advanced Topics</b></span></li>
+<li class="chapter" data-level="14" data-path="14-forecasting.html"><a href="14-forecasting.html"><i class="fa fa-check"></i><b>14</b> Forecasting</a><ul>
+<li class="chapter" data-level="14.1" data-path="14-forecasting.html"><a href="14-forecasting.html#what-is-forecasting"><i class="fa fa-check"></i><b>14.1</b> What is forecasting</a></li>
+<li class="chapter" data-level="14.2" data-path="14-forecasting.html"><a href="14-forecasting.html#patterns"><i class="fa fa-check"></i><b>14.2</b> Patterns</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="14-forecasting.html"><a href="14-forecasting.html#autocorrelation"><i class="fa fa-check"></i><b>14.2.1</b> Autocorrelation</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="14-forecasting.html"><a href="14-forecasting.html#forecasting-basics"><i class="fa fa-check"></i><b>14.3</b> Forecasting basics</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="14-forecasting.html"><a href="14-forecasting.html#evaluation"><i class="fa fa-check"></i><b>14.3.1</b> Evaluation</a></li>
+<li class="chapter" data-level="14.3.2" data-path="14-forecasting.html"><a href="14-forecasting.html#models"><i class="fa fa-check"></i><b>14.3.2</b> Models</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="14-forecasting.html"><a href="14-forecasting.html#recap"><i class="fa fa-check"></i><b>14.4</b> Recap</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html"><i class="fa fa-check"></i><b>15</b> Panel Analysis</a><ul>
+<li class="chapter" data-level="15.1" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html#panel-data"><i class="fa fa-check"></i><b>15.1</b> Panel data</a></li>
+<li class="chapter" data-level="15.2" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html#fixed-effects"><i class="fa fa-check"></i><b>15.2</b> Fixed effects</a></li>
+</ul></li>
+<li class="part"><span><b>V R Chapters</b></span></li>
+<li class="chapter" data-level="16" data-path="16-r-introduction.html"><a href="16-r-introduction.html"><i class="fa fa-check"></i><b>16</b> R Introduction</a><ul>
+<li class="chapter" data-level="16.1" data-path="16-r-introduction.html"><a href="16-r-introduction.html#r-chapter-structure"><i class="fa fa-check"></i><b>16.1</b> R chapter structure</a></li>
+<li class="chapter" data-level="16.2" data-path="16-r-introduction.html"><a href="16-r-introduction.html#r-chapter-feedback"><i class="fa fa-check"></i><b>16.2</b> R chapter feedback</a></li>
+<li class="chapter" data-level="16.3" data-path="16-r-introduction.html"><a href="16-r-introduction.html#what-is-r-and-rstudio"><i class="fa fa-check"></i><b>16.3</b> What is R and RStudio</a></li>
+<li class="chapter" data-level="16.4" data-path="16-r-introduction.html"><a href="16-r-introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>16.4</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="16.5" data-path="16-r-introduction.html"><a href="16-r-introduction.html#rstudio-orientation"><i class="fa fa-check"></i><b>16.5</b> RStudio orientation</a><ul>
+<li class="chapter" data-level="16.5.1" data-path="16-r-introduction.html"><a href="16-r-introduction.html#r-packages"><i class="fa fa-check"></i><b>16.5.1</b> R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="16.6" data-path="16-r-introduction.html"><a href="16-r-introduction.html#submit"><i class="fa fa-check"></i><b>16.6</b> Submit</a></li>
+<li class="chapter" data-level="16.7" data-path="16-r-introduction.html"><a href="16-r-introduction.html#additional-resources-1"><i class="fa fa-check"></i><b>16.7</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="17-r-data.html"><a href="17-r-data.html"><i class="fa fa-check"></i><b>17</b> R Data</a><ul>
+<li class="chapter" data-level="17.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives-2"><i class="fa fa-check"></i><b>17.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="17.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>17.2</b> Set-up</a></li>
+<li class="chapter" data-level="17.3" data-path="17-r-data.html"><a href="17-r-data.html#viewing-datasets"><i class="fa fa-check"></i><b>17.3</b> Viewing datasets</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="17-r-data.html"><a href="17-r-data.html#warning-about-view"><i class="fa fa-check"></i><b>17.3.1</b> Warning about View</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="17-r-data.html"><a href="17-r-data.html#glimpsing-datasets"><i class="fa fa-check"></i><b>17.4</b> Glimpsing Datasets</a></li>
+<li class="chapter" data-level="17.5" data-path="17-r-data.html"><a href="17-r-data.html#preview-first-or-last-few-rows"><i class="fa fa-check"></i><b>17.5</b> Preview first or last few rows</a></li>
+<li class="chapter" data-level="17.6" data-path="17-r-data.html"><a href="17-r-data.html#submit-1"><i class="fa fa-check"></i><b>17.6</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html"><i class="fa fa-check"></i><b>18</b> R Missing Data</a><ul>
+<li class="chapter" data-level="18.1" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#learning-objectives-3"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="18.2" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#set-up-1"><i class="fa fa-check"></i><b>18.2</b> Set-up</a></li>
+<li class="chapter" data-level="18.3" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#data-1"><i class="fa fa-check"></i><b>18.3</b> Data</a></li>
+<li class="chapter" data-level="18.4" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#checking-for-missing-data"><i class="fa fa-check"></i><b>18.4</b> Checking for missing data</a></li>
+<li class="chapter" data-level="18.5" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#counting-missing-values"><i class="fa fa-check"></i><b>18.5</b> Counting missing values</a></li>
+<li class="chapter" data-level="18.6" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#bypassing-missing-values"><i class="fa fa-check"></i><b>18.6</b> Bypassing missing values</a></li>
+<li class="chapter" data-level="18.7" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#replacing-missing-values"><i class="fa fa-check"></i><b>18.7</b> Replacing missing values</a></li>
+<li class="chapter" data-level="18.8" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#submit-2"><i class="fa fa-check"></i><b>18.8</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="19-r-description.html"><a href="19-r-description.html"><i class="fa fa-check"></i><b>19</b> R Description</a><ul>
+<li class="chapter" data-level="19.1" data-path="19-r-description.html"><a href="19-r-description.html#learning-objectives-4"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="19.2" data-path="19-r-description.html"><a href="19-r-description.html#set-up-2"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
+<li class="chapter" data-level="19.3" data-path="19-r-description.html"><a href="19-r-description.html#introduction"><i class="fa fa-check"></i><b>19.3</b> Introduction</a></li>
+<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.4</b> Summary Table</a></li>
+<li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#using-arsenal"><i class="fa fa-check"></i><b>19.5</b> Using Arsenal</a><ul>
+<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#adjustments"><i class="fa fa-check"></i><b>19.5.1</b> Adjustments</a></li>
+<li class="chapter" data-level="19.5.2" data-path="19-r-description.html"><a href="19-r-description.html#export-to-csv"><i class="fa fa-check"></i><b>19.5.2</b> Export to CSV</a></li>
+</ul></li>
+<li class="chapter" data-level="19.6" data-path="19-r-description.html"><a href="19-r-description.html#submit-3"><i class="fa fa-check"></i><b>19.6</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="20-r-visualization.html"><a href="20-r-visualization.html"><i class="fa fa-check"></i><b>20</b> R Visualization</a><ul>
+<li class="chapter" data-level="20.1" data-path="20-r-visualization.html"><a href="20-r-visualization.html#learning-objectives-5"><i class="fa fa-check"></i><b>20.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="20.2" data-path="20-r-visualization.html"><a href="20-r-visualization.html#set-up-3"><i class="fa fa-check"></i><b>20.2</b> Set-up</a></li>
+<li class="chapter" data-level="20.3" data-path="20-r-visualization.html"><a href="20-r-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>20.3</b> Grammar of graphics</a></li>
+<li class="chapter" data-level="20.4" data-path="20-r-visualization.html"><a href="20-r-visualization.html#histogram-1"><i class="fa fa-check"></i><b>20.4</b> Histogram</a></li>
+<li class="chapter" data-level="20.5" data-path="20-r-visualization.html"><a href="20-r-visualization.html#box-plot-1"><i class="fa fa-check"></i><b>20.5</b> Box plot</a></li>
+<li class="chapter" data-level="20.6" data-path="20-r-visualization.html"><a href="20-r-visualization.html#bar-chart-2"><i class="fa fa-check"></i><b>20.6</b> Bar chart</a></li>
+<li class="chapter" data-level="20.7" data-path="20-r-visualization.html"><a href="20-r-visualization.html#scatter-plot-1"><i class="fa fa-check"></i><b>20.7</b> Scatter plot</a></li>
+<li class="chapter" data-level="20.8" data-path="20-r-visualization.html"><a href="20-r-visualization.html#line-graph-1"><i class="fa fa-check"></i><b>20.8</b> Line graph</a></li>
+<li class="chapter" data-level="20.9" data-path="20-r-visualization.html"><a href="20-r-visualization.html#submit-4"><i class="fa fa-check"></i><b>20.9</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="21-r-regression.html"><a href="21-r-regression.html"><i class="fa fa-check"></i><b>21</b> R Regression</a><ul>
+<li class="chapter" data-level="21.1" data-path="21-r-regression.html"><a href="21-r-regression.html#learning-objectives-6"><i class="fa fa-check"></i><b>21.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="21.2" data-path="21-r-regression.html"><a href="21-r-regression.html#set-up-4"><i class="fa fa-check"></i><b>21.2</b> Set-up</a></li>
+<li class="chapter" data-level="21.3" data-path="21-r-regression.html"><a href="21-r-regression.html#running-regression"><i class="fa fa-check"></i><b>21.3</b> Running Regression</a></li>
+<li class="chapter" data-level="21.4" data-path="21-r-regression.html"><a href="21-r-regression.html#reporting-results"><i class="fa fa-check"></i><b>21.4</b> Reporting Results</a><ul>
+<li class="chapter" data-level="21.4.1" data-path="21-r-regression.html"><a href="21-r-regression.html#moderndive"><i class="fa fa-check"></i><b>21.4.1</b> Moderndive</a></li>
+<li class="chapter" data-level="21.4.2" data-path="21-r-regression.html"><a href="21-r-regression.html#base-r"><i class="fa fa-check"></i><b>21.4.2</b> Base R</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="21-r-regression.html"><a href="21-r-regression.html#submit-5"><i class="fa fa-check"></i><b>21.5</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="22-r-interactions.html"><a href="22-r-interactions.html"><i class="fa fa-check"></i><b>22</b> R Interactions</a><ul>
+<li class="chapter" data-level="22.1" data-path="22-r-interactions.html"><a href="22-r-interactions.html#learning-objectives-7"><i class="fa fa-check"></i><b>22.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="22.2" data-path="22-r-interactions.html"><a href="22-r-interactions.html#set-up-5"><i class="fa fa-check"></i><b>22.2</b> Set-up</a></li>
+<li class="chapter" data-level="22.3" data-path="22-r-interactions.html"><a href="22-r-interactions.html#including-an-interaction"><i class="fa fa-check"></i><b>22.3</b> Including an interaction</a></li>
+<li class="chapter" data-level="22.4" data-path="22-r-interactions.html"><a href="22-r-interactions.html#submit-6"><i class="fa fa-check"></i><b>22.4</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html"><i class="fa fa-check"></i><b>23</b> R Nonlinear Regression</a><ul>
+<li class="chapter" data-level="23.1" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#learning-objectives-8"><i class="fa fa-check"></i><b>23.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="23.2" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#set-up-6"><i class="fa fa-check"></i><b>23.2</b> Set-up</a></li>
+<li class="chapter" data-level="23.3" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#quadratic-term"><i class="fa fa-check"></i><b>23.3</b> Quadratic term</a></li>
+<li class="chapter" data-level="23.4" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#log-transformation"><i class="fa fa-check"></i><b>23.4</b> Log Transformation</a></li>
+<li class="chapter" data-level="23.5" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#submit-7"><i class="fa fa-check"></i><b>23.5</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html"><i class="fa fa-check"></i><b>24</b> R Evaluations</a><ul>
+<li class="chapter" data-level="24.1" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#learning-outcomes"><i class="fa fa-check"></i><b>24.1</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="24.2" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#set-up-7"><i class="fa fa-check"></i><b>24.2</b> Set-up</a></li>
+<li class="chapter" data-level="24.3" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#chi-square-test-1"><i class="fa fa-check"></i><b>24.3</b> Chi-square test</a><ul>
+<li class="chapter" data-level="24.3.1" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#cross-tab"><i class="fa fa-check"></i><b>24.3.1</b> Cross-tab</a></li>
+<li class="chapter" data-level="24.3.2" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#run-chi-square"><i class="fa fa-check"></i><b>24.3.2</b> Run chi-square</a></li>
+</ul></li>
+<li class="chapter" data-level="24.4" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#t-tests"><i class="fa fa-check"></i><b>24.4</b> T-tests</a><ul>
+<li class="chapter" data-level="24.4.1" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#independent-t-test"><i class="fa fa-check"></i><b>24.4.1</b> Independent t-test</a></li>
+<li class="chapter" data-level="24.4.2" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#dependent-t-test"><i class="fa fa-check"></i><b>24.4.2</b> Dependent t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="24.5" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#submit-8"><i class="fa fa-check"></i><b>24.5</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html"><i class="fa fa-check"></i><b>25</b> R Regression Diagnostics</a><ul>
+<li class="chapter" data-level="25.1" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#learning-outcomes-1"><i class="fa fa-check"></i><b>25.1</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="25.2" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#set-up-8"><i class="fa fa-check"></i><b>25.2</b> Set-up</a></li>
+<li class="chapter" data-level="25.3" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#rvf-and-rvl"><i class="fa fa-check"></i><b>25.3</b> RVF and RVL</a></li>
+<li class="chapter" data-level="25.4" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#vif"><i class="fa fa-check"></i><b>25.4</b> VIF</a></li>
+<li class="chapter" data-level="25.5" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#exclude-observations"><i class="fa fa-check"></i><b>25.5</b> Exclude observations</a></li>
+<li class="chapter" data-level="25.6" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#submit-9"><i class="fa fa-check"></i><b>25.6</b> Submit</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html"><i class="fa fa-check"></i><b>A</b> Wrangle and Tidy Reference</a><ul>
+<li class="chapter" data-level="A.1" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#cheatsheets"><i class="fa fa-check"></i><b>A.1</b> Cheatsheets</a></li>
+<li class="chapter" data-level="A.2" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#common-functions"><i class="fa fa-check"></i><b>A.2</b> Common functions</a><ul>
+<li class="chapter" data-level="A.2.1" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#wrangle-verbs"><i class="fa fa-check"></i><b>A.2.1</b> Wrangle Verbs</a></li>
+<li class="chapter" data-level="A.2.2" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#tidy-verbs"><i class="fa fa-check"></i><b>A.2.2</b> Tidy Verbs</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Applications in Public Administration</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="causation-and-bias" class="section level1">
+<h1><span class="header-section-number"> 9</span> Causation and Bias</h1>
+<blockquote>
+<p><em>“All models are wrong but some are useful.”</em></p>
+<p>—George Box</p>
+</blockquote>
+<p>Our regression toolbox has grown considerably over the previous three chapters. We can now set out to answer a multitude of research questions that require us to accommodate different types of variables that may share linear or nonlinear relationships. Nevertheless, a model is a simplified version of our complex world. In this sense, all models are wrong. The goal is to make modeling choices that prevent our model from being <em>so</em> wrong that they are useless for decision-making.</p>
+<p>First, let’s consider the two possible goals of regression:</p>
+<ul>
+<li><strong>Explain</strong> the change in an outcome due to a change in a set of explanatory variables</li>
+<li><strong>Predict</strong> the value of an outcome given values for a set of explanatory variables</li>
+</ul>
+<p>The usefulness of a model with the sole goal of prediction is how well it predicts the outcome. That may sound obvious and cyclical but it is an important point. Which variables we choose to include and their linear or nonlinear relationships is a secondary concern of prediction, if at all. If we don’t care <em>how</em> variables affect the outcome and only care about predicting the outcome with the greatest accuracy and precision possible, then we can throw together whatever model we want to achieve that without much concern for what the model actually means.</p>
+<p>Models with the goal of prediction are common within the field of forecasting, which will be introduced in Chapter <a href="#time-series"><strong>??</strong></a>. Sometimes, we care about good prediction and <em>how</em> some explanatory variables impact the outcome. Then we are back in the realm of explanation where we have to take special care about which variables are included and excluded from our model as well as how they relate with each other.</p>
+<p>The focus of this chapter is explanation using regression. Many scenarios within program evaluation or policy analysis involve explaining whether and to what extent one variable impacts another we care about changing. Ultimately, our concern is causality. It is one thing to conclude two variables are associated with each other; it is an entirely different thing to conclude that a change in one variable <em>causes</em> the other to change. If we propose to spend millions of dollars on a program to help people, or decide to cut a program that does not, we should be as certain as about this causal claim as statistics allows us to be.</p>
+<p>Sufficient understanding of causality or causal inference warrants its own course. It does not involve regression models that much different from what you have learned so far or will learn by the end of this book, but it does involve a broader and deeper understanding of research design and knowing how to identify threats to internal and external validity. Let us revisit the figure of credible analysis first shown in Chapter <a href="3-measurement-and-missing.html#measurement-and-missing">3</a>.</p>
+<center>
+<div class="figure"><span id="fig:credfigrepeat"></span>
+<img src="_bookdown_files/credible.png" alt="Components of credible analysis" width="489" />
+<p class="caption">
+Figure 9.1: Components of credible analysis
+</p>
+</div>
+</center>
+<p>Chapter <a href="3-measurement-and-missing.html#measurement-and-missing">3</a> covered measurement validity and measurement reliability. Now, let us define internal validity and external reliability.</p>
+<ul>
+<li><strong>Internal validity:</strong> the credibility of the theoretical assumptions applied to the causal connection established between the explanatory variable(s) and its (their) effect on the outcome.</li>
+<li><strong>External validity:</strong> can results of the analysis be applied beyond the subjects included or context involved?</li>
+</ul>
+<p>In other words, is there reason to believe our results are critically mistaken and are those affected or the context in which they were affected so unique or limited that we can not generalize to other potential targets or contexts?</p>
+<div id="causality" class="section level2">
+<h2><span class="header-section-number">9.1</span> Causality</h2>
+<p>Three conditions must be met to credibly claim a causal relationship. We will address each in turn.</p>
+<ul>
+<li>The explanatory variable is correlated with the outcome</li>
+<li>The change in the explanatory variable occurred prior to the change in the outcome</li>
+<li>No alternative explanation exists to which the change in the outcome could be attributed instead of the explanatory variable</li>
+</ul>
+<p>Correlation between the explanatory and outcome variables is perhaps the most straightforward condition to satisfy. We have not yet covered inference and how to identify statistically significant results. For now, suffice it to say that if we run a regression and the estimate for our explanatory variable is statistically significant, then we have established correlation between the explanatory and outcome variables that is unlikely to be random.</p>
+<p>The second condition is succinctly referred to as <strong>temporal precedence</strong>. In order for something to be a cause, it must occur prior to its alleged effect. Otherwise, perhaps it is our supposed outcome that is having an effect on the cause, similar to what was considered in Chapter <a href="7-categorical-variables-and-interactions.html#categorical-variables-and-interactions">7</a> with the mandatory jail for drunk driving. This is also known as <strong>reverse causality</strong>.</p>
+<p>Reverse causality could still be argued even when it seems clear the cause occurred prior to the effect. For example, the mere availability of a scholarship may cause students to reach higher levels of academic achievement. If we were to claim receipt of the scholarship caused a rise in the likelihood of completing college, which obviously occurred prior to graduation, this may not be accurate. Perhaps by virtue of motivating oneself to perform better in school would result in a higher likelihood of graduation whether the scholarship was received or not. Then again, the student would not have been as motivated if not for the scholarship. Perhaps the <em>availability</em> of the scholarship would meet temporal precedence more convincingly.</p>
+<p>As may be evident by now, something as seemingly simple as before-and-after can become complex if the causal pathway is considered carefully. Credible causal claims require subject matter expertise as much as quantitative skills. For temporal precedence, do your best to ensure your explanatory variable was measured or occurred prior to when your outcome was measured or occurred.</p>
+<p>The remainder of this chapter concerns the third and most difficult condition to satisfy: no plausible rival or alternative explanation for our causal claim. Since we do not have the luxury of delving deep into causal modeling, what can MPA students learn that will serve them well when they need to consider whether the possibility of alternative explanations has been reasonably eliminated? My answer to this is the <strong>directed acyclical graph</strong>.</p>
+</div>
+<div id="directed-acyclical-graphs" class="section level2">
+<h2><span class="header-section-number">9.2</span> Directed acyclical graphs</h2>
+<p>Directed acyclical graphs (DAGs) are visual representations of causal pathways. Constructing a DAG involves theory, existing research, or theory. A DAG requires us to state our assumptions clearly, thus allowing us and others to evaluate the internal validity of our model.</p>
+<p>Figure <a href="9-causation-and-bias.html#fig:dagbasic">9.2</a> below shows a basic DAG. This model involves three variables, X, Y, and Z. Y denotes the outcome and X denotes the variable of primary interest for which we intend to estimate a causal effect. Z denotes any other variables in the model. The arrow from X to Y indicates our claim that X causes changes in Y. X also causes Z to change, and Z causes Y to change. In this example, the claim is that X has a direct effect on Y and an indirect (mediated) effect on Y through Z.</p>
+<center>
+<div class="figure"><span id="fig:dagbasic"></span>
+<img src="_bookdown_files/dag_basic.png" alt="A basic DAG" width="159" />
+<p class="caption">
+Figure 9.2: A basic DAG
+</p>
+</div>
+</center>
+<p>Any DAG follows a few rules and conventions:</p>
+<ul>
+<li>Only one-directional arrows (directed)</li>
+<li>No arrow from Y back to X (acyclical)</li>
+<li>Solid arrows used for relationships between observable variables or variables specifically observed in our data</li>
+<li>Dashed arrows used for relationships between unobservable variables (e.g. ability, attitudes, propensities for certain behaviors) or variables unobserved in our data</li>
+</ul>
+<p>Underlying every regression with the goal to explain a causal relationship is a DAG. Consider the following regression model</p>
+<p><span class="math display" id="eq:dagreg">\[\begin{equation}
+BMI = \beta_0 + \beta_1Exercise + \epsilon
+\tag{9.1}
+\end{equation}\]</span></p>
+<p>Figure <a href="9-causation-and-bias.html#fig:dagreg">9.3</a> below shows the DAG that corresponds with Equation <a href="9-causation-and-bias.html#eq:dagreg">(9.1)</a>. The central claim is that exercise causes BMI to change. Therefore, there is a solid arrow from exercise to BMI. Also, note that because <span class="math inline">\(\epsilon\)</span>, by definition, represents all other unobserved factors that affect BMI, there is a dashed line from <span class="math inline">\(\epsilon\)</span> to BMI. Lastly, this DAG makes the assumption that no variables contained in <span class="math inline">\(\epsilon\)</span> affects exercise, nor does exercise affect any variables contained in <span class="math inline">\(\epsilon\)</span></p>
+<center>
+<div class="figure"><span id="fig:dagreg"></span>
+<img src="_bookdown_files/dag_reg.png" alt="DAG representation of a regression model" width="259" />
+<p class="caption">
+Figure 9.3: DAG representation of a regression model
+</p>
+</div>
+</center>
+<p>With this basic set-up, we can begin to learn how to evaluate a DAG in order to determine if our regression model credibly eliminates alternative explanations of our causal claim.</p>
+<div id="evaluationg-dags" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Evaluationg DAGs</h3>
+<p>We will review two aspects of evaluating DAGs for causal claims:</p>
+<ul>
+<li>Identifying backdoor paths</li>
+<li>Adjusting regression models based on the presence of confounding or colliding variables</li>
+</ul>
+<p>A backdoor path is any indirect path from X to Y no matter the direction of the arrows that connect it. For example, Figure <a href="9-causation-and-bias.html#fig:dagbasic">9.2</a> has one backdoor path: X –&gt; Z –&gt; Y. Figure <a href="9-causation-and-bias.html#fig:dagreg">9.3</a> has no backdoor paths between exercise and BMI.</p>
+<div id="confounders" class="section level4 unnumbered">
+<h4>Confounders</h4>
+<p>Identifying backdoor paths allow us to then identify whether confounding or colliding variables are present in our model. Figure <a href="9-causation-and-bias.html#fig:dagconf">9.4</a> below shows a variation on the simple DAG with one backdoor path. The backdoor path still runs from X to Z to Y, but now the direction of the arrows connecting this path are different. Specifically, the backdoor path is X &lt;– Z –&gt; Y.</p>
+<center>
+<div class="figure"><span id="fig:dagconf"></span>
+<img src="_bookdown_files/dag_confound.png" alt="Example of confounder variable" width="206" />
+<p class="caption">
+Figure 9.4: Example of confounder variable
+</p>
+</div>
+</center>
+<p>The variable Z in this case is a <strong>confounder</strong>. Any variable in a backdoor path with arrows directed away from it toward X and Y is a confounder. This representation means Z affects X and Y. If as Z changes, X and Y change, then we may incorrectly attribute the effect of Z on Y to the effect of X on Y because it appears to us that as X changes, Y changes. And it does, but it is really Z that is causing changes.</p>
+<p>This example of a confounder is sometimes referred to as spurious correlation. For example, ice cream sales and crime are spuriously correlated due to both increasing because of temperature. It would be mistake to claim an increase in ice cream sales causes an increase in crime.</p>
+</div>
+<div id="colliders" class="section level4 unnumbered">
+<h4>Colliders</h4>
+<p>Figure <a href="9-causation-and-bias.html#fig:dagcoll">9.5</a> below shows another variation of the simple DAG with one backdoor path between X and Y that goes through Z. The direction of the arrows are such that this backdoor path can be written as X –&gt; Z &lt;– Y. In this case, Z is a <strong>collider</strong>. Any variable on which the arrows connecting X and Y converge is a collider.</p>
+<center>
+<div class="figure"><span id="fig:dagcoll"></span>
+<img src="_bookdown_files/dag_collide.png" alt="Example of collider variable" width="195" />
+<p class="caption">
+Figure 9.5: Example of collider variable
+</p>
+</div>
+</center>
+<p>Z is just some variable that is affected by both X and Y. Changes in Z do not cause changes in X or Y. Therefore, if we estimate how much Y changes in response to a change in X, Z has nothing to do with that causal estimate.</p>
+</div>
+</div>
+<div id="backdoor-criterion" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Backdoor criterion</h3>
+<p>For any theoretical model we intend to estimate via regression, we can now identify backdoor paths and whether there are confounding or colliding variables along those backdoor paths. How do we use this information to eliminate plausible alternative explanations and confidently claim a one-unit change in X causes Y to change by <span class="math inline">\(\beta\)</span>? We need to satisfy the <strong>backdoor criterion</strong>.</p>
+<p>The backdoor criterion is satisfied if all backdoor paths between X and Y are closed. We know if a backdoor path is open or closed depending on the presence of confounding or colliding variables.</p>
+<ul>
+<li>A confounder variable opens a backdoor path</li>
+<li>A collider variable closes a backdoor path</li>
+</ul>
+<p>If a backdoor path is open, we can close it by controlling for the confounder variable or any other variable along the backdoor path between X and Y. For instance if were were to identify a backdoor path of the following form</p>
+<p>X &lt;– Z –&gt; A –&gt; Y</p>
+<p>where A is some fourth variable in our model, then controlling for Z or A will close this backdoor path. If a set of control variables in our regression model closes all backdoor paths, then we have satisfied the backdoor criterion and we can consider our estimate of X on Y to be a causal estimate.</p>
+<p>Consider the simple backdoor path again where Z is a collider variable.</p>
+<p>X –&gt; Z &lt;– Y</p>
+<p>This backdoor path is already closed. We don’t need to control for anything in our model because of this backdoor path. In fact, <strong>controlling for a collider opens a backdoor path</strong>. Therefore, we should not control for Z in our model, as doing so opens a backdoor that was already closed.</p>
+<p>This is a valuable insight provided by the use of DAGs. If we already have the data, it costs us virtually no time or effort to include a variable in our model we think may affect our outcome Y, and it can be quite tempting to throw variables into a regression model for not much more reason than we have it in our data. However, a DAG forces us to consider all of the relationships between the variables in our model. If an explanatory variable is a collider, then including it may threaten our ability to make causal claims. Sometimes, deliberately excluding a variable from a regression model is the right choice and DAGs give us a fairly simple way to make and explain that choice.</p>
+<p>Consider another backdoor path where Z is a collider and A is a confounder</p>
+<p>X –&gt; Z &lt;– A –&gt; Y</p>
+<p>A opens this backdoor path but Z blocks A’s confounding. Controlling for Z would open this backdoor path. We can control for A in our regression without reopening the backdoor path, but it is not necessary.</p>
+</div>
+<div id="dags-and-regression" class="section level3">
+<h3><span class="header-section-number">9.2.3</span> DAGs and regression</h3>
+<p>Let us relate this new information to making choices about regression models. Referring back to Equation <a href="9-causation-and-bias.html#eq:dagreg">(9.1)</a> and Figure <a href="9-causation-and-bias.html#fig:dagreg">9.3</a>, recall that <span class="math inline">\(\epsilon\)</span> represents all other variables we do not observe or cannot include in our regression model but affect our outcome, BMI. Based on the DAG for this regression model, there are no backdoor paths. Therefore, whatever estimate we get for <span class="math inline">\(\beta_1\)</span> is causal estimate.</p>
+<p>However, Figure <a href="9-causation-and-bias.html#fig:dagreg">9.3</a> is probably incorrect. There are likely variables contained in <span class="math inline">\(\epsilon\)</span> that affect exercise. If that is the case, then our DAG should be drawn like Figure <a href="9-causation-and-bias.html#fig:dagregovb">9.6</a> below. Now we have a backdoor path of the form</p>
+<p>Exercise &lt;– <span class="math inline">\(\epsilon\)</span> –&gt; BMI</p>
+<p>where <span class="math inline">\(\epsilon\)</span> is a confounder. Therefore, this backdoor path is open, and because we do not observe the variables in <span class="math inline">\(\epsilon\)</span>, we do not currently have the means to close it.</p>
+<center>
+<div class="figure"><span id="fig:dagregovb"></span>
+<img src="_bookdown_files/dag_regovb.png" alt="Counfounding error term" width="240" />
+<p class="caption">
+Figure 9.6: Counfounding error term
+</p>
+</div>
+</center>
+<p>The issue illustrated by Figure <a href="9-causation-and-bias.html#fig:dagregovb">9.6</a> is commonly referred to as <strong>omitted variable bias</strong> (OVB) and it is the bane of analysts’ attempts to estimate causal relationships. To have omitted variable bias means we have failed to satisfy the third criterion of causality. There is a variable out there we have not controlled for which causes our explanatory variable of interest and our outcome to change. Therefore, we cannot trust our estimate of the effect of our explanatory variable on our outcome because it may be due to the omitted variable. In other words, an omitted variable is biasing our estimate, <span class="math inline">\(b_1\)</span> to be systematically above or below the population parameter <span class="math inline">\(\beta_1\)</span>.</p>
+<p>Our next task then is to identify the set of variables that would eliminate the arrow from <span class="math inline">\(\epsilon\)</span> to exercise. If we can credibly break the link between <span class="math inline">\(\epsilon\)</span> and our explanatory variables, then we can credibly claim there is no omitted variable bias in our model.</p>
+<p>For the sake of this example, suppose healthy eating is the key omitted variable. Healthy nutrition gives us the energy to exercise and obviously affects our BMI. Suppose we collect a variable that measures the extent to which a person’s diet is healthy. Now, we have a new DAG, as depicted in Figure <a href="9-causation-and-bias.html#fig:dagregnut">9.7</a>.</p>
+<center>
+<div class="figure"><span id="fig:dagregnut"></span>
+<img src="_bookdown_files/dag_regnut.png" alt="Eliminating OVB" width="231" />
+<p class="caption">
+Figure 9.7: Eliminating OVB
+</p>
+</div>
+</center>
+<p>To close the backdoor path in this DAG, we need to control for nutrition in our regression model. Equation <a href="9-causation-and-bias.html#eq:dagreg2">(9.2)</a> shows our new regression model. If our theory informing our new DAG is correct, then our estimates of <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> are unbiased.</p>
+<p><span class="math display" id="eq:dagreg2">\[\begin{equation}
+BMI = \beta_0 + \beta_1Exercise + \beta_2Nutrition + \epsilon
+\tag{9.2}
+\end{equation}\]</span></p>
+<p>The DAG in Figure <a href="9-causation-and-bias.html#fig:dagregnut">9.7</a> may still be fail to be sufficiently convincing to those who have expertise in public health or related fields. In that case, we would continue the process of identifying and controlling for variables until we credibly break the link between <span class="math inline">\(\epsilon\)</span> and all explanatory variables in our model.</p>
+<p>Isolating causal effects is hard, and careers can be made by successfully doing so. Regardless of whether an unbiased causal estimate can be obtained for a particular question, knowing whether or not threats exist and what could be done about it is valuable, especially for managers or consumers of statistical analyses who have expertise concerning the potential causal pathways involved.</p>
+</div>
+</div>
+<div id="direction-of-ovb" class="section level2">
+<h2><span class="header-section-number">9.3</span> Direction of OVB</h2>
+<p>Fortunately, we can salvage estimates that suffer from omitted variable bias to make causal conclusions in some cases. Again, doing so requires us to have knowledge about the variables involved and their causal pathways.</p>
+<p>We will cover this more thoroughly in the following chapters, but a statistically significant result means we can confidently conclude the association between X and Y is not equal to zero. In other words, our regression results provide an estimate so much less or greater than zero that it would be highly unlikely to see these results if the true association were equal to zero.</p>
+<p>That is the issue with OVB: it causes our estimate to be lower or higher than what it should be. Therefore, OVB may lead us to conclude statistically significant results when otherwise there would not be statistically significant results in the absence of OVB; our estimate would not be sufficiently far from zero to confidently conclude a relationship.</p>
+<p>However, if we can predict the direction of the OVB–whether it is pushing our estimate below or above what it should be–then we may be able to salvage our results. For instance, suppose we obtain a statistically significant estimate of 10 that we suspect is biased due to an omitted variable. If we can credibly claim the OVB causes our estimate to be lower than what it should be, then we still have useful results; our result would be even greater than 10 if not for OVB. Similarly, if our estimate were -10 and we suspect the OVB causes our estimate to be greater than what is should be, then we would have an even lower estimate in the absence of OVB.</p>
+<p>The moral of this section is that when you or someone identifies a variable that may cause OVB, all is not lost. If OVB works against the estimate’s value relative to zero, then it actually lowers the likelihood of significant results that you still obtained. However, if OVB works with the estimate’s value relative to zero, then it increases the likelihood of finding the significant results you found when there may not be a significant relationship.</p>
+<p>How can we postulate the direction of OVB? Figure <a href="9-causation-and-bias.html#fig:dagovbdirect">9.8</a> below shows a simple confounding scenario where our estimate of the effect of X on Y is biased due to an omitted variable Z. If X and Y move in the same direction because of a change in Z, then OVB is positive. If X and Y move in opposite direction because of a change if Z, then OVB is negative.</p>
+<center>
+<div class="figure"><span id="fig:dagovbdirect"></span>
+<img src="_bookdown_files/dag_ovbdirect.png" alt="Predicting direction of OVB" width="228" />
+<p class="caption">
+Figure 9.8: Predicting direction of OVB
+</p>
+</div>
+</center>
+</div>
+<div id="usefulness" class="section level2">
+<h2><span class="header-section-number">9.4</span> Usefulness</h2>
+<p>Just because you cannot claim a causal relationship does not mean you do not have useful results. It is worth reiterating the value of prediction. Regardless of whether we have a model that eliminates OVB, if it accurately predicts an outcome we would like to preempt, then it could be useful. Sure, we would like to know the underlying causes of an outcome, but the ability to accurately predict the likelihood of an outcome still allows policy or programs to intervene.</p>
+<p>If I have a model that is biased but accurately predicts students who will drop out of college, I will use that model to provide assistance to those likely to drop out. In addition to making a difference by helping my target population, perhaps I will gain insights into the underlying causes I have failed to include in my model.</p>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="8-nonlinear-variables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="10-sampling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Book.pdf", "Book.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

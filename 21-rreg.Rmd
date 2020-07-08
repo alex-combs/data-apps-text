@@ -1,0 +1,153 @@
+# R Regression
+
+## Learning Objectives
+
+In this chapter, you will learn how to:
+
+- Run a regression model
+- Have R report key results
+
+## Set-up
+
+To complete this chapter, you need to
+
+- Open a script
+- Load the following packages
+
+```{r, eval=FALSE}
+library(tidyverse)
+library(moderndive)
+library(Stat2Data)
+```
+
+We will use the `TeenPregnancy` dataset within the `Stat2Data` package. We need to manually load specific datasets from `Stat2Data` in order to use them. Therefore, run the following code, and the dataset should show up in your `Environment` pane in the top-right.
+
+```{r}
+data("TeenPregnancy")
+```
+
+Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.
+
+## Running Regression
+
+Chapters \@ref(simple-and-multiple-regression) and \@ref(categorical-variables-and-interactions) cover the following regression models:
+
+- Simple linear regression with two numerical variables
+- Multiple linear regression with all numerical variables
+- Including a categorical explanatory variable (parallel slopes)
+- Regression with a categorical explanatory interacted with a numerical variable
+- Regression with a binary categorical outcome (linear probability model)
+
+While our interpretation of results changes depending on the kind of regression model we use, the code to run a standard linear regression is the same regardless of the number and type of explanatory variables and whether the outcome variable is numerical or binary. With the exception of including an interaction, running the regression models listed above can be done with the same code structure shown below.
+
+```{r, eval=FALSE}
+new_object_name <- lm(outcome ~ exp_1 + exp_2 + ... + exp_k, data = name_of_dataset)
+```
+
+- We name a new object that will hold the results of our regression 
+- `lm` is the function for linear regression (acronym for linear model) 
+- We replace `outcome` with the name of our outcome variable that should be either numerical or binary
+- The tilde `~` separates the outcome from the explanatory variables
+- We replace the `exp_1` to `exp_k` with the names of how ever many explanatory variables we wish to include, each separated by a plus sign `+`
+- We replace `name_of_dataset` with the name of the dataset that contains the variables for the regression model.
+
+Recall the following multiple regression model from Chapter \@ref(simple-and-multiple-regression).
+
+\begin{equation}
+FedSpend = \beta_0 + \beta_1Poverty + \beta_2HomeOwn + \beta_3Income + \epsilon
+(\#eq:multregexrep)
+\end{equation}
+
+I ran this regression using the following code:
+
+```{r}
+fedpov2 <- lm(fed_spend ~ poverty + homeownership + income, data = selcounty)
+```
+
+That's all there is to it. I named the model `fedpov2` to remind myself it was the second model I ran to examine the relationship between federal spending and poverty rate. Note that the code within the `lm` function mimics Equation \@ref(eq:multregexrep). No matter if the explanatory variables happen to be numerical or categorical, the regression works the same in R. Lastly, I did some behind-the-scenes cleaning of the original `county` data discussed in Chapter \@ref(simple-and-multiple-regression) and named it `selcounty`. Therefore, I told R to use that dataset when running the regression.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 1:** Suppose we want to use the `TeenPregnancy` dataset to examine whether state teen pregnancy rates are associated with church attendance and a state's role in the Civil War (admittedly an odd variable to include but let's think of it as a proxy for region). The model would be represented using the following formula
+
+\begin{equation}
+Teen = \beta_0 + \beta_1Church + \beta_2CivilWar + \epsilon
+\end{equation}
+
+Run this regression model.
+```
+
+```{r, include=FALSE}
+teenpreg <- lm(Teen ~ Church + CivilWar, data = TeenPregnancy)
+```
+
+## Reporting Results
+
+This section presents two ways to obtain results after running a regression. The first uses functions that load with the `moderndive` package and the second uses functions that load with R by default (i.e. Base R). The `moderndive` functions are somewhat more intuitive and produce results that look nicer, but the base R functions are more robust to any variety of regression model.
+
+### Moderndive
+
+To get a standard table of regression results from using `moderndive`, we can use the `get_regression_table` function on our saved regression model results like so
+
+```{r, eval=FALSE}
+get_regression_table(fedpov2)
+```
+
+```{r, echo=FALSE}
+get_regression_table(fedpov2) %>% 
+  kable(format = 'html')
+```
+
+And to get goodness-of-fit measures, we can use the `get_regression_summaries` function like so
+
+```{r, eval=FALSE}
+get_regression_summaries(fedpov2)
+```
+
+```{r, echo=FALSE}
+get_regression_summaries(fedpov2) %>% 
+  kable(format = 'html')
+```
+
+and if I only want the R-squared, Adjusted R-squared, and RMSE from this table, I can add the `select` function to the above code chunk like so
+
+```{r, eval=FALSE}
+get_regression_summaries(fedpov2) %>% 
+  select(r_squared, adj_r_squared, rmse)
+```
+
+```{r, echo=FALSE}
+get_regression_summaries(fedpov2) %>% 
+  select(r_squared, adj_r_squared, rmse) %>% 
+  kable(format = 'html')
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 2:** Produce a standard table of regression results and goodness-of-fit measures for your regression model for teen pregnancy rates using the `moderndive` functions.
+```
+
+### Base R
+
+A comprehensive set of regression results can be obtained using the `summary` function on our regression model like so
+
+```{r}
+options(scipen = 999) # turns off scientific notation if necessary
+summary(fedpov2)
+```
+
+which gives us most of the information from `get_regression_table` except for the confidence intervals as well as R-squared and Adjusted R-squared. The Residual standard error is not exactly the same as the RMSE above--it is actually equal to `sigma` in the full table from `get_regression_summaries`--but you can treat them the same. The difference between the two is statistically technical and obtaining the same RMSE as the table above requires too much new code.
+
+To get the confidence intervals, we can use the `confint` function like so, 
+
+```{r}
+confint(fedpov2)
+```
+
+which uses the 95% confidence level by default.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 3:** Generate the key regression results and goodness-of-fit measures for your regression model for teen pregnancy rates using the Base R functions.
+```
+
+## Submit
+
+Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.

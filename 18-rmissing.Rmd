@@ -1,0 +1,163 @@
+# R Missing Data
+
+## Learning Objectives
+
+In this chapter, you will learn how to:
+
+- Determine if a dataset has missing values
+- Determine which variables in a dataset have missing values and how many values are missing
+- Run functions on variables that have missing values
+- Replace all missing values with a non-missing value, such as 0, if doing so is advisable
+
+## Set-up
+
+To complete this chapter, you need to
+
+- Open a script
+- Load the following packages
+
+```{r, eval=FALSE}
+library(tidyverse)
+library(carData)
+```
+
+## Data
+
+We will be using the `SLID` data from the `carData` package to learn how to deal with missing data. Per its documentation,
+
+> "The SLID data frame has 7425 rows and 5 columns. The data are from the 1994 wave of the Canadian Survey of Labour and Income Dynamics, for the province of Ontario. There are missing data, particularly for wages."
+
+As is always the case when we begin working with new data, we want to get a sense of what it contains.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 1:** Use `glimpse` to examine `SLID`.
+```
+
+This is a moderately large dataset with 7,425 observations. Obviously, it would be crazy to look for missing values by scrolling through a spreadsheet. We can see from the glimpse results that wages definitely has missing values.
+
+## Checking for missing data
+
+We can tell R to check if an entire dataset has *any* missing data using the following function
+
+```{r, eval=FALSE}
+anyNA(dataset)
+```
+
+where we `dataset` with the name of the dataset. If the dataset has at least one missing value, then `anyNA` will return `TRUE`.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 2:** Use `anyNA` to confirm `SLID` has missing values.
+```
+
+The `anyNA` hasn't told us anything we didn't already know given the obvious `NA`s present in wages. Next, we may want to know which variables have missing values.
+
+To determine which variables have missing values, we want to run `anyNA` repeatedly for each variable in our dataset. To run any function repeatedly on each row or column of a dataset, we can use the following function:
+
+```{r, eval=FALSE}
+apply(dataset, 1 (for rows, or) 2 (for columns), function)
+```
+
+where we replace `dataset` with the name of our dataset, include either `1` or `2`, and replace `function` with the name of the function we want to repeat.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 3:** Use `apply` to run the `anyNA` function repeatedly on each column.
+```
+
+Your results should tell you that wages, education, and language contain missing values.
+
+## Counting missing values
+
+Once we know a variable has missing values, we typically want to know how many values are missing or what percentage of total observations are missing for that variable.
+
+The `is.na` function tests every value of a variable for whether it is missing. If a value is NA, `is.na` returns `TRUE`. To illustrate, the below code assigns a series of ten values to `v`, five of which are missing. This `v` object is no different from a variable in a dataset. Then, using the `is.na` function on `v` will return a list of values accordingly. 
+
+```{r}
+v <- c(NA, 5, NA, 4, 10, 11, NA, NA, 1, NA)
+is.na(v)
+```
+
+Recall in Chapter \@ref(r-data) that the logical value of `TRUE` equals 1 in R, while `FALSE` equals 0. This means we can do math on TRUE/FALSE values just like we would if they were coded as 1/0.
+
+If `is.na` gives us `TRUE` for every `NA`, then adding all the `TRUE`s will give us the total count of missing values.
+
+To sum all the values of any variable, we can use the `sum` function
+
+```{r}
+sum(is.na(v))
+```
+
+The result tells us 5 of the 10 values in `v` are missing. We can easily determine that 50% of the data for `v` is missing. But what if we have some denominator that is not as easy as 10? We can quickly to determine the percent of missing values by taking the average of `TRUE`s and `FALSE`s from the `is.na` function because the average sums the values of the variable and divides by the number of values.
+
+We take the average of the `is.na` function using the `mean` function
+
+```{r}
+mean(is.na(v))
+```
+
+As expected, we get 0.5 or 50%. Building from this example, we can quantify the total and percent of missing values for wages like so
+
+```{r}
+sum(is.na(SLID$wages))
+```
+```{r}
+mean(is.na(SLID$wages))
+```
+
+Wages is missing 3,278 observations, or about 44% of all observations.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 4:**  Use the `sum` and `mean` function to determine the count and percent of missing values for the `education` and `language` variables.
+```
+
+If we had, say, 10 variables with missing values, the process above would be rather tedious. Like before, we can tell R to repeatedly quantify missing values for each variable using a slightly different function:
+
+```{r}
+sapply(SLID, function(x) sum(is.na(x)))
+sapply(SLID, function(x) mean(is.na(x)))
+```
+
+## Bypassing missing values
+
+Many functions that execute some kind of computation (e.g. sum, average) do not work if you execute them on variables that contain missing values. This is deliberate so users are notified of missing values. 
+
+For instance, let's try to calculate average years of education.
+
+```{r}
+mean(SLID$education)
+```
+
+In order to have functions bypass missing values, we have to include the `na.rm=TRUE` option that tells R to skip `NA`s.
+
+```{r}
+mean(SLID$education, na.rm = TRUE)
+```
+
+Since education is missing only 3% of its values, this is probably a good approximation of what the average would be if there were no missing values.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 5:**  Compute the average for `wages`.
+```
+
+It is unclear what to do with average wages since almost half of its values is missing. At the very least, we can report something like, "Only 56% of respondents reported a wage. Of those who reported a wage, the average equals $15.55."
+
+## Replacing missing values
+
+There are several reasons wages may be missing. The respondent could be unemployed, a student, or a stay-at-home parent. We don't know exactly why wages is missing values.
+
+For the sake of this example, let's assume all missing wages means the respondent is unemployed (a bad assumption since this would suggest an unemployment rate of about 44%). Suppose we wanted to know the average wages for our entire sample, regardless of whether they are employed. In that case, we want to replace the missing values with 0.
+
+To replace `NA`s with some other value, we can use the `replace_na` function like so
+
+```{r, eval=FALSE}
+dataset_nomissing <- replace_na(dataset, list(variable1 = 0, variable2 = 0,...))
+```
+
+where we create a new dataset indicating we've replaced the missing values (we don't want to overwrite the original data). Inside the `replace_na` function, we include the name of the `dataset` then list the names of the variables and the value we want to use to replace their missing values.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 6:**  Create a new dataset `SLID_nomissing` that replaces all missing values for `wages` with 0. Then, calculate the average wage for this new data.
+```
+
+## Submit
+
+Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.

@@ -1,0 +1,36 @@
+# Introduction {#intro}
+
+> *"Data, data everywhere, and not a thought to think."*
+>
+>---John Allen Paulos
+
+## Why statistics
+
+Statistics converts raw information (i.e. data) into something useful. If we want to make evidence-based decisions, we need statistics. If we want to allow ourselves to be misled by nefarious or mistaken analyses of data, we should resist learning statistics.
+
+## Professional standards
+
+The National Association of Schools of Public Affairs and Administration (NASPAA) is the accrediting authority for MPA programs. NASPAA promotes the following universal competencies:
+
+- to lead and manage in the public interest;
+- to participate in, and contribute to, the policy process;
+- to analyze, synthesize, think critically, solve problems and make evidence-informed decisions in a complex and dynamic environment;
+- to articulate, apply, and advance a public service perspective;
+- to communicate and interact productively and in culturally responsive ways with a diverse and changing workforce and society at large. 
+
+Statistics will help you develop all of the above competencies. In fact, by virtue of this and other methods courses being included in MPA curriculum, you would not sufficiently possess one or more of the above competencies without knowledge and skills in statistics.
+
+## Statistics in PA
+
+The use of statistics is ubiquitous in public administration. Agencies and nonprofits use statistics to describe their clients and assess their needs. Agencies like the Government Accountability Office and watchdog organizations use statistics to monitor performance and guard against fraud. Service-oriented organizations like schools and hospitals use statistics to evaluate services and communicate to stakeholders. The Congressional Budget Office, Office of Management and Budget, and employees at every level of government use statistics to assess finances and forecast trends.
+
+## Using R
+Before moving forward with this book, you need to learn how to operate R at a very basic level. The goal of this book is not to train you to become an expert in R or even a data scientist or analyst. Rather, the goal is to train you enough so R becomes a legitimate alternative to inferior spreadsheet software like Excel to perform tasks that may be expected of a master in public administration. 
+
+MPA students may be reluctant to learn something referred to as a statistical computing language and its relevancy to their career goals may not be clear. I firmly believe that not training you to use statistical software in a course such as this would be doing you a disservice. 
+
+Demand for those competent in statistical software like R continues to rise. Even if you plan to pursue a managerial role with minimal analytic tasks, chances are high that you will supervise or work with those who conduct analyses, and you will need to interpret their findings, applying your own managerial or subject matter expertise toward making an evidence-based decision. People in both roles--consumers and producers of statistical analyses--need to be able to communicate with the other. The best way to become a competent consumer of statistical information is to learn the basics of producing it.
+
+In addition, R is free, comes with many free educational resources, and is popular across many disciplines. If you study statistics and data applications for a semester, you might as well spend part of that semester learning software like R. There is only upside in doing so with respect to employment prospects.
+
+For a brief orientation to R, proceed to Chapter \@ref(r-introduction).

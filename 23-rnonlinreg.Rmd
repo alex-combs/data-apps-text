@@ -1,0 +1,107 @@
+# R Nonlinear Regression
+
+## Learning Objectives
+
+In this chapter, you will learn how to:
+
+- Run a regression with a quadratic term
+- Run a regression with log transformations
+
+## Set-up
+
+To complete this chapter, you need to
+
+- Open a script
+- Load the following packages
+
+```{r, eval=FALSE}
+library(tidyverse)
+library(moderndive)
+library(carData)
+```
+
+We will use the `Mroz` dataset within the `carData` package. Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.
+
+## Quadratic term
+
+Recall the below regression model from Chapter \@ref(nonlinear-variables) that includes a squared term for `Age`, which allows our regression line to change directions once as `Age` changes. We included this term because Figure \@ref(fig:quadscatter) suggested wages initially increase with age, then decreases.
+
+\begin{equation}
+Wage = \beta_0 + \beta_1Age + \beta_2Age^2 + \beta_3Educ + \epsilon
+\end{equation}
+
+The below code demonstrates how to include a quadratic term within the `lm` function.
+
+```{r}
+quad_mod <- lm(Wage ~ Age + I(Age^2) + Educ, data = wages)
+```
+
+In this case, the code reflects the equation only somewhat; the `I()` is necessary to tell R that `Age^2` is the squared version of `Age`. Otherwise, R would not recognize `Age^2` in the data, thus excluding it from the regression.
+
+Now we can obtain results in the usual manner.
+```{r, eval=FALSE}
+get_regression_table(quad_mod)
+```
+
+```{r, echo=FALSE}
+get_regression_table(quad_mod) %>% 
+  kable(format = 'html')
+```
+
+We need to alter the `Mroz` data slightly before running a regression. Run the following code that creates a new variable that equals 1 if `lfp` equals "yes" and 0 if `lfp` equals "no." This is necessary because our outcome variable--even though categorical--must be represented numerically in order for the regression to work.
+
+```{r, eval=FALSE}
+my_Mroz <- Mroz %>% 
+  mutate(lfp_numeric = if_else(lfp == "yes", 1, 0))
+```
+
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 1:** Suppose we want to examine factors that explain whether married women participate in the labor force, which is a binary outcome. We use the following model:
+
+\begin{equation}
+lfp = \beta_0 + \beta_1k5 + \beta_2age + \beta_3age^2 + \beta_4wc + \beta_5lwg + \beta_6inc + \epsilon
+\end{equation}
+
+Run this regression model and obtain the results.
+```
+
+## Log Transformation
+
+In Chapter \@ref(nonlinear-variables), the following log-log regression model was run.
+
+\begin{equation}
+ln(LifeExp)=\beta_0 + \beta_1ln(GDPpercap) + \beta_2Continent + \epsilon
+\end{equation}
+
+The below code demonstrates how to transform a variable into its natural log within the `lm` function.
+
+```{r}
+loglog <- lm(log(lifeExp) ~ log(gdpPercap) + continent, data = gapminder)
+```
+
+Note that all we need to do is place the appropriate variables within the `log()` function, which R interprets as the natural log. This *temporarily* transforms the variables; it does not create new variables in the dataset equal to the natural log of the variables.
+
+Now we can obtain results in the usual manner.
+```{r, eval=FALSE}
+get_regression_table(loglog)
+```
+
+```{r, echo=FALSE}
+get_regression_table(loglog) %>% 
+  kable(format = 'html')
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 2:** Suppose we decide we want to use the natural log of family income exclusive of wife's income, `inc`, resulting in the following model
+
+\begin{equation}
+lfp = \beta_0 + \beta_1k5 + \beta_2age + \beta_3age^2 + \beta_4wc + \beta_5lwg + \beta_6ln(inc) + \epsilon
+\end{equation}
+
+Run this regression model and obtain the results.
+```
+
+## Submit
+
+Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.

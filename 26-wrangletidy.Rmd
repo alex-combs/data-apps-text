@@ -1,0 +1,322 @@
+# (APPENDIX) Appendix {-} 
+
+# Wrangle and Tidy Reference
+
+Unless data are already perfectly prepared, the most time consuming part of data analysis is wrangling and tidying data. It is impossible to cover all scenarios one may encounter when preparing raw data for an analysis. Even for advanced users of R, it is not uncommon to search for an unknown solution to a new problem via the web, texts, or manuals. Attempting to memorize the plethora of functions in R that could serve as solutions would quickly result in diminishing returns. Instead, it is more realistic to obtain enough familiarity with basic wrangle and tidy problems and solutions that one knows where how to effectively search for the solution.
+
+## Cheatsheets
+
+RStudio provides numerous [cheatsheets](https://rstudio.com/resources/cheatsheets/) to help R users reference commonly used and helpful functions. Below is a list of cheatsheets that pertain to wrangling and tidying and mostly accessible for new users.
+
+This is the most relevant cheatsheet for what you will encounter in the course:
+
+- [Data transformation](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+
+Here are some more that are less relevant:
+
+- [Factors](https://github.com/rstudio/cheatsheets/raw/master/factors.pdf)
+- [Working with string variables](https://github.com/rstudio/cheatsheets/raw/master/strings.pdf)
+- [Dates and times](https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf)
+
+## Common functions
+
+Knowing just a handful of functions can help you make considerable progress in many situations. The remainder of this chapter serves as a sort of cheatsheet that distills some of the most common and relevant functions useful for problems you may encounter during the course. Functions are demonstrated using the friendly `gapminder` data.
+
+The `tidyverse` package is actually a collection of several `packages` designed to make the wrangle, tidy, and data exploration process as intuitive and consistent as possible. You should almost always load `tidyverse`, as it contains every function you may need to wrangle and tidy data.
+
+```{r, eval=FALSE}
+library(tidyverse)
+```
+
+### Wrangle Verbs
+
+- filter: extract rows/cases
+- select: extract columns/variables
+- mutate: alter existing variables or create new variables 
+- arrange: reorder rows in ascending or descending order of one or more variables
+- head/tail: extract the top/bottom number of rows
+- summarize: collapses data into a table of summary statistics
+- group_by: tells R to apply functions to each group separately; common to use with summarize
+
+#### Filter {-}
+
+Use `filter` to extract rows from a dataset. Inversely, one can think of `filter` as a way to remove rows. However, remember that `filter` keeps the rows that meet the condition on which you filter. Therefore, you want to use a condition that keeps the rows you want.
+
+Note there are 1,704 rows in the `gapminder` dataset.
+
+```{r}
+glimpse(gapminder)
+```
+
+Suppose I want to keep only countries in Asia. Then:
+
+```{r}
+gapminder %>% 
+  filter(continent == 'Asia') %>% 
+  glimpse()
+```
+
+The result is a new dataset with 396 rows. Note the use of double equal signs `==` to tell R it is a conditional ("if equal to") rather than setting something equal to something else, which would not make sense in this case.
+
+Suppose I want countries in Asia **AND** in the year 1952. Then:
+
+```{r}
+gapminder %>% 
+  filter(continent == 'Asia' & year == 1952) %>% 
+  glimpse()
+```
+
+This results in a new dataset with 33 rows. Note the use of the ampersand `&` to code the "and" conditional. 
+
+Suppose I want countries in Asia with a life expectancy less than or equal to 40 in 1952. Then:
+
+```{r}
+gapminder %>% 
+  filter(continent == 'Asia' & year == 1952 & lifeExp <= 40) %>% 
+  glimpse()
+```
+
+Suppose I all countries in 1952 except those in Asia. There are a few options to do this. Which option is most efficient depends on the specific case. In this case:
+
+**Option 1: Using the "or" conditional `|` (least efficient)**
+```{r}
+gapminder %>% 
+  filter(continent == 'Africa' | continent == 'Americas' | continent == 'Europe' | continent == 'Oceania') %>% 
+  glimpse()
+```
+
+**Option 2: Using the shortcut `%in%` for multiple "or" conditionals (moderately efficient)**
+```{r}
+gapminder %>% 
+  filter(continent %in% c('Africa', 'Americas', 'Europe', 'Oceania')) %>% 
+  glimpse()
+```
+
+**Option 3: Use the "not equal to" conditional `!=` (most efficient)**
+```{r}
+gapminder %>% 
+  filter(continent != 'Asia') %>% 
+  glimpse()
+```
+
+#### Select {-}
+
+Suppose I want a dataset that contains only country, continent, year, and life expectancy. There are multiple options. Which is more efficient depends on the specific case. In this case:
+
+**Option 1: List the variables I want to keep (least efficient)**
+```{r}
+gapminder %>% 
+  select(country, continent, year, lifeExp) %>% 
+  glimpse()
+```
+
+**Option 2: List the variables I don't want to keep (moderately efficient)**
+```{r}
+gapminder %>% 
+  select(-pop, -gdpPercap) %>% 
+  glimpse()
+```
+
+**Option 3: Use `:` to specify the range of variables, which only works because the variables I want happen to be stored next to each other (most efficient)**
+
+```{r}
+gapminder %>% 
+  select(country:lifeExp) %>% 
+  glimpse()
+```
+
+#### Mutate {-}
+
+The `mutate` function allows you to mutate your dataset by either changing an existing variable or creating a new one.
+
+Suppose I wanted to change GDP per capita so that it is expressed in thousands of dollars instead of dollars. Then:
+
+```{r}
+gapminder %>% 
+  mutate(gdpPercap = gdpPercap/1000) %>% 
+  glimpse()
+```
+
+Note that I use the name of an existing variable on the left-hand side of the equation. This overwrites the data according to the function I have specified. You can scroll up to previous glimpses to confirm that gdpPercap has indeed been divided by 1,000.
+
+Suppose I wanted a new variable that measures total GDP to have in addition to GDP per capita expressed in thousands. Since GDP per capita equals GDP divided by population, I can simply use the inverse of this calculation. Thus:
+
+```{r}
+gapminder %>% 
+  mutate(gdpPercap = gdpPercap/1000,
+         gdp = gdpPercap*pop) %>% 
+  glimpse()
+```
+
+Since `mutate` applies mathematical functions, there are way too many possible uses to cover here. The second page of the [Data transformation](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) cheatsheet lists numerous common functions used with `mutate` under the "Vector Functions" header. Also, the first page of the cheatsheet lists a few different versions of `mutate` that can come in handy. One particularly helpful variation is `mutate_at`.
+
+Suppose there are multiple variables you want to mutate using the same formula. A common example is when a bunch of variables are expressed as proportions between 0 and 1 when you want them all to be expressed as percentages between 0 and 100. You could list each mutate individually, but this quickly becomes tedious. Instead, you can use `mutate_at` to list the variables you want to mutate, then define the function you want applied to them.
+
+For example, suppose I wanted to multiply all of the numerical variables in `gapminder` by 100 (doesn't make sense but just go with it). Then:
+
+```{r, warning=FALSE}
+gapminder %>% 
+  mutate_at(vars(year, lifeExp, pop, gdpPercap), funs(.*100)) %>% 
+  glimpse()
+```
+
+The period `.` inside `funs` is a generic placeholder, telling R to multiply each of the variables inside `vars` by 100.
+
+#### Combining filter, select, and mutate {-}
+
+You can do some serious wrangling efficiently with filter, select, and mutate. Suppose I wanted a new dataset of GDP (in billions) for European countries in 2007.
+
+```{r}
+euro_gdp07 <- gapminder %>% 
+  filter(continent == 'Europe' & year == 2007) %>% 
+  mutate(gdp = (gdpPercap*pop)/1000000000) %>% 
+  select(country, year, gdp)
+
+glimpse(euro_gdp07)
+```
+
+#### Arrange {-}
+
+The `arrange` verb is useful if you want to identify cases that have the highest or lowest values for one or more variables. By default, `arrange` reorders rows in ascending order (i.e. lowest to highest). In the previous glimpse, countries are arranged in alphabetical order. Suppose I wanted them arranged based on GDP.
+
+```{r}
+euro_gdp07 %>% 
+  arrange(gdp) %>% 
+  glimpse()
+```
+
+Now we see a few countries with the lowest GDP. If instead I wanted GDP arranged from highest to lowest, then:
+
+```{r}
+euro_gdp07 %>% 
+  arrange(desc(gdp)) %>% 
+  glimpse()
+```
+
+Now we see some of the wealthiest European countries.
+
+#### Head/Tail {-}
+
+By default, the `head` and `tail` verbs extract the top and bottom 6 rows of a dataset, respectively. These verbs are useful if we want to show a reader a sample of the data in a familiar spreadsheet form, which can be useful. Though the output from `glimpse` is very useful, it does not look good in a report. The `head` and `tail` verbs allow us to provide similar information in a much more presentable format.
+
+Suppose we wanted to show a reader the three wealthiest and poorest European countries (in absolute terms). We can specify the number of rows `head` or `tail` extract using `n=#`. Thus:
+
+```{r}
+euro_gdp07 %>% 
+  arrange(desc(gdp)) %>% 
+  head(n=3) %>% 
+  kable(format = 'html')
+```
+
+```{r}
+euro_gdp07 %>% 
+  arrange(gdp) %>% 
+  head(n=3) %>% 
+  kable(format = 'html')
+```
+
+#### Summarize {-}
+
+Summarize creates a new dataset by collapsing all of the cases of a dataset into one or more summary statistics. It is useful for providing quick summary stat calculations in a somewhat presentable format. I do not recommend using `summarize` to produce the kind of summary stats table commonly found in reports because it can become tedious and the formatting is not good enough. I recommend using the `arsenal` package instead.
+
+Suppose I wanted to report the average gdpPercap and lifeExp for 2007 in a rough and ready table. Then:
+
+```{r}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  summarize('Average GDP per capita' = mean(gdpPercap), 
+            'Average life expectance' = mean(lifeExp)) %>% 
+  kable(format = 'html')
+```
+
+The `summarize` verb works with numerous summary functions listed on the second page of the [Data transformation](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) cheatsheet under the heading "Summary Functions."
+
+#### Group_By {-}
+
+The `group_by` verb is most commonly used in tandem with `summarize`. If instead of calculating a summary stat for the entire dataset, you wanted to calculate the summary stat for each group of a categorical variable seperately, use `group_by` before using `summarize`.
+
+Suppose I wanted average GDP per capita and life expectancy in 2007 for each continent. Then:
+
+```{r}
+gapminder %>% 
+  filter(year == 2007) %>% 
+  group_by(continent) %>% 
+  summarize('Average GDP per capita' = mean(gdpPercap), 
+            'Average life expectance' = mean(lifeExp)) %>% 
+  kable(format = 'html')
+```
+
+Pretty powerful! You can also use multiple grouping variables. Suppose I wanted these summary stats for each continent each year since 1997. Then:
+
+```{r}
+gapminder %>% 
+  filter(year >= 1997) %>% 
+  group_by(continent, year) %>% 
+  summarize('Average GDP per capita' = mean(gdpPercap), 
+            'Average life expectance' = mean(lifeExp)) %>% 
+  kable(format = 'html')
+```
+
+### Tidy Verbs
+
+As with wrangling, one can encounter numerous different tidying scenarios. However, most of the time tidying involves converting a wide dataset to a long dataset. The most common untidy data one encounters is a time series or panel data where each time period is stored across columns (i.e. wide) rather than down rows (i.e. long).
+
+Let's begin with a simple time series of population taken from the `gapminder` data. Suppose we downloaded a dataset named `uspop` for U.S. population.
+
+```{r, echo=FALSE}
+uspop <- gapminder %>% 
+  filter(country == 'United States' & year >= 1997) %>% 
+  select(country, year, pop) %>% 
+  pivot_wider(names_from = year, values_from = pop) 
+
+ 
+kable(uspop, format = 'html')
+```
+We don't want each year to be a variable. Rather, we want year to be one variable with separate levels/rows for each period. We can achieve this with `pivot_longer`.
+
+```{r}
+uspop %>% 
+  pivot_longer(cols = '1997':'2007', 
+               names_to = 'year',
+               values_to = 'pop') %>% 
+  kable(format = 'html')
+```
+
+Note that `pivot_longer` tries to make the code as intuitive as possible using natural language. First, we tell R which columns to pivot, then we tell R to name the new column 'year', then we tell R to name the new column with the values for population 'pop'.  
+
+Suppose we encountered a more difficult wide version of the `gapminder` data named `gap_wide` shown below. This one has multiple variables listed wide for each year.
+
+```{r, echo=FALSE}
+gap_wide <- gapminder %>% 
+  filter(year >= 1997) %>% 
+  pivot_wider(names_from = year, values_from = c(pop, lifeExp, gdpPercap)) 
+
+DT::datatable(gap_wide, rownames = FALSE, options = list(pageLength = 5, scrollX=T))
+```
+
+Tidying `gap_wide` will take two steps. First, we can separate the variable names `pop/lifeExp/gdpPercap` from the numeric year into two columns using `pivot_longer`. This will result in a column that contains all three variables that precede the year and a column that contains year. We will also need to name a third column that will contain the values that the pivoted columns contained.
+
+In the code below, I tell R which columns to pivot using `cols` and to name the two new columns 'var' and 'year'. I use `names_sep` to tell that each of the columns should be separated using the underscore. Then, I give the new column that will contain the values the generic name 'value' since this is an temporary column.
+
+```{r}
+gap_long1 <- gap_wide %>% 
+  pivot_longer(cols = pop_1997:gdpPercap_2007,
+               names_to = c('var', 'year'),
+               names_sep = '_',
+               values_to = 'value')
+
+DT::datatable(gap_long1, rownames = FALSE, options = list(pageLength = 5, scrollX=T))
+```
+
+Now we need to convert the `var` column to wide using `pivot_wider`. This will create new columns for each of the unique values contained in the 'var' column. Since there are three unique values, the result will be three new columns. We also need to specify which column contains the values that will be transferred over to the three new columns.
+
+In the code below, I tell R to pivot the 'var' column wide and take the values from the 'value' column. And voila; we are back to having our original, tidy data.
+
+```{r}
+gap_long2 <- gap_long1 %>% 
+  pivot_wider(names_from = var,
+              values_from = value)
+
+DT::datatable(gap_long2, rownames = FALSE, options = list(pageLength = 5, scrollX=T))
+```
+

@@ -1,0 +1,339 @@
+# Nonlinear Variables
+
+>*"The shortest distance between two points is often unbearable."*
+>
+>---Charles Bukowski
+
+So far, we have repeatedly drawn straight lines through points. But, we know not all relationships are linear. Our income tends to rise and fall with age. Those in charge of the purchasing or production of something should know that average and marginal costs fall and then rise with quantity. Happiness tends to rise sharply with income but then plateaus at around $70,000 per year. If our goal is to draw the line that fits data best, why draw a straight line through data that is evidently nonlinear?
+
+In this chapter, we will cover two ways to incorporate nonlinear relationships:
+
+- Include a quadratic
+- Include a logarithmic transformation
+
+## Quadratic
+
+If we theorize or see visual evidence that the association between an explanatory variable and an outcome is such that the outcome initially increases or decreases as the explanatory variable increases, then, at some value of the explanatory variable, the outcome decreases, then we may want to include a quadratic term of that explanatory variable in our regression model. That long-winded statement warrants an immediate visualization provided by Figure \@ref(fig:quadscatter) below. 
+
+Note that wage appears to initially increase with age, then decreases. The data present a pattern that resembles an inverted U, also known as a concave parabola. Age and wage is a classic example of a quadratic relationship. We should not force ourselves to fit a straight line to these data; we can estimate a better line.
+
+```{r, include=FALSE}
+load('_bookdown_files/wages.RData')
+```
+
+```{r quadscatter, echo=FALSE, fig.cap='Wages by age'}
+ggplot(wages, aes(x = Age, y = Wage)) +
+  geom_point(color = 'steelblue') +
+  theme_minimal()
+```
+
+Equation \@ref(eq:quadratic) presents a generic population regression model with a quadratic term. With respect to the math, the only difference between this and previous models is the choice to square one of the explanatory variables. This is just an example. Any number of explanatory variables can be squared if theory warrants it. 
+
+\begin{equation}
+y = \beta_0 + \beta_1x_1 + \beta_2x_1^2 + \beta_3x_2 + \cdots + \beta_kx_k + \epsilon
+(\#eq:quadratic)
+\end{equation}
+
+Thus, the sample equation is as follows
+
+\begin{equation}
+\hat{y} = b_0 + b_1x_1 + b_2x_1^2 + b_3x_2 + \cdots + b_kx_k
+(\#eq:quadraticsamp)
+\end{equation}
+
+Fully understanding the logic of the above equations to answer questions we may encounter as we have done before involves calculus that this book will spare you. In order to report the marginal effect of a variable that has been squared on an outcome in regression, we use Equation \@ref(eq:quadraticsampmarg) below. The result of this equation provides the predicted change in $y$ given a one-unit change in $x_1$.
+
+\begin{equation}
+b_1 + 2b_2x_1
+(\#eq:quadraticsampmarg)
+\end{equation}
+
+Note that had we not squared $x_1$ the predicted change in $y$ from a one-unit change in $x_1$ would be $b_1$, which is exactly the same as in previous models. However, now that we are drawing a curved line, the effect of a one-unit change in $x$ on $y$ is not constant; it changes depending on the value of $x$.
+
+Another important question when a quadratic relationship is involved is at what value of $x$ is $y$ maximized or minimized. This can help decision-making, such as how to minimize costs or maximize profit, or maximize the probability of some desirable outcome. In order to report the value of $x$ at which $y$ reaches its maximum or minimum, we use Equation \@ref(eq:quadraticsampopt) below. The result of the equation gives us the optimal value of $x$.
+
+\begin{equation}
+x = {\frac{-b_1}{2b_2}}
+(\#eq:quadraticsampopt)
+\end{equation}
+
+### Using quadratics
+
+Suppose we collect the following data.
+
+```{r wagestab, echo=FALSE}
+wages %>% 
+  sample_n(7) %>% 
+  kable(format = 'html', caption = 'Preview of wages, age, and education')
+```
+
+Therefore, our regression equation is as follows
+
+\begin{equation}
+Wage = \beta_0 + \beta_1Age + \beta_2Age^2 + \beta_3Educ + \epsilon
+(\#eq:quadraticex)
+\end{equation}
+
+Running this regression generates the following results
+
+```{r, include=FALSE}
+quad_mod <- lm(Wage ~ Age + I(Age^2) + Educ, data = wages)
+```
+
+```{r quadextab, echo=FALSE}
+get_regression_table(quad_mod) %>% 
+  kable(format = 'html', caption = 'Quadratic model results')
+```
+
+In Table \@ref(tab:quadextab), note that there are two rows for Age--one for the linear or level term and a second for the quadratic term. When the quadratic relationship is an inverted U, or concave, the linear term will be positive and the quadratic will be negative. This corresponds with an initial positive relationship that eventually turns negative once the negative quadratic term overcomes the positive linear term.
+
+Plugging our results from Table \@ref(tab:quadextab) into the regression equation, we obtain the following equation
+
+\begin{equation}
+\hat{Wage} = -22.7 + 1.4\times Age - 0.01\times Age^2 + 1.3\times Educ
+(\#eq:quadraticexsamp)
+\end{equation}
+
+We can answer questions regarding the predicted *value* of Wage the same way as before. For example, the predicted wage of an individual who is 40 years old with 16 years of education is
+
+```{r}
+-22.7 + 1.4*40 - 0.01*40^2 + 1.3*16
+```
+dollars per hour.
+
+To predict the *change* in wage given a change in age, we need to know the beginning point for age. For example, if we were asked what is the predicted change is wage for a 24-year old two years later who consequently increases their education from 16 to 18 to get their masters degree, we plug this scenario into Equation \@ref(eq:quadraticsampmarg) like so
+
+```{r}
+2*(1.4 - 2*0.01*24) + 1.25*2
+```
+
+providing us the answer of a predicted increase of $4.34.
+
+Controlling for education, at what age do wages tend to reach their maximum? To answer, we plug the results into \@ref(eq:quadraticsampopt) like so
+
+```{r}
+-1.35/(2*-0.013)
+```
+
+According to our results, wages reach their maximum at around 52 years of age.
+
+## Log models
+
+Once again, we will forego the math of logarithms and instead focus on why we may want to use them in a regression model and how to interpret the results. In short, logarithms are used to express rates of change in a variable (i.e. percent change) rather than absolute change in a variable (i.e. unit change). 
+
+### Logarithmic scales
+
+Graphs like Figure \@ref(fig:logcovid) below were commonplace during the initial COVID-19 spread. Take a look at the small note at the bottom explaining to readers the purpose of a logarithmic scale. Note how the values on the y axis are evenly dispersed, but each tick mark increases by a factor of 10 (i.e. the previous value multiplied by 10). The y-axis is in a **log10** scale. Another common log scale for visualization is a **log2** scale which increases each interval by a factor of 2.
+
+The use of a log scale allows us to compare states like New York and Wyoming by taking into account large differences in absolute numbers. It would be unfair to compare the absolute number of COVID cases in New York to the absolute number of cases in Wyoming. It would also be unfair to compare the absolute number of new cases each day between the two states. A non-trivial portion of those numbers is a result of the size of the population in each state. 
+
+However, it is fair to compare the *rate* of growth between the two states. While it is obviously concerning that New York has over 300,000 deaths, the key feature of this graph is that we can compare the slopes of each state's growth path because population size has been accounted for by the y-axis. Given New York's population and population density, it was likely to have the most cases, but the state also had the fastest growth rate in cases from about day 5 to day 10.
+
+```{r logcovid, echo=FALSE, fig.cap='Growth in COVID-19 cases by state'}
+include_graphics('_bookdown_files/logs_covid.png')
+```
+
+### Percent v percentage point change
+
+Rate of change typically refers to percent change. The equation for percent change is shown below.
+
+\begin{equation}
+PctChange = {\frac{NewValue-OldValue}{OldValue}} \times 100
+(\#eq:pctchange)
+\end{equation}
+
+For example, if the number of COVID cases increase from 1,000 to 10,000 over the course of a week, the absolute change is 9,000. The percent change is 900%.
+
+A common cause of confusion is the difference between a percent change and a percentage point change. This occurs when we discuss the change in a variable that is already expressed as a percent. For example, if the U.S. unemployment rate increases from 4% to 15% during the pandemic, that's an absolute change of 11 percentage points. The unemployment rate is expressed units of percentage points, so a unit change is a percentage point change. An increase from 4% to 15% is also a 275% percent change. 
+
+As we have seen in previous examples of regression, when we include a variable that is not log-transformed, regression estimates the **unit change** in $y$ given a **unit change** in $x$. If a variable is expressed in units of percentages like unemployment or poverty, then a unit change for those variables is a percentage point change. Including a log-transformed variable in regression estimates percent changes in the variable(s) we transformed.
+
+One reason we may prefer to use percent change is if the variable in question has some underlying impact that differs depending on the initial value from which it changed. This too applies to measures of wealth or income. Suppose we estimate that a policy will, on average, increase peoples' incomes by 12,000 dollars. This average unit change does not quite capture the benefit of the policy. Imagine a society of two people. One person earns 20,000 dollars per year and the other earns 80,000 dollars. That 12,000 likely has a greater positive impact on the low-income individual than it does the high-income individual. Consequently, this can be expressed in percent change. The 12,000 represents a 60% increase in income for the low-income individual and 15% for the high-income individual. 
+
+### Why logs in regression
+
+To summarize, we may want to use logs in regression if
+
+- it is preferable to express change in percentages rather than units
+- a variable we intend to include has a skewed distribution
+- we theorize the relationship between two variables follows a logarithmic path
+
+Let's consider these last two reasons further. As was mentioned, log scales allow us to compare numbers that are very far apart, as seen in Figure \@ref(fig:logcovid). If the scale for COVID cases were left in constant units, New York and a few other states would be so far above most other states that it would be difficult to fit in a sensible graph. Using logs condensed or pulled those extreme numbers back to a more compact distribution. 
+
+As will become clear in the next section on inference, using a sample to make valid conclusions about a population relies heavily on the normal distribution, which was introduced in Chapter \@ref(descriptive-statistics). In a similar sense, we want the variables we use for inference to be approximately normally distributed because extreme values of a skewed distribution can impose undue influence on our results. Log-transformations can transform a skewed distribution to be more normal.
+
+For instance, variables that measure income or wealth tend to be right-skewed. Figure \@ref(fig:gapskew) shows the distribution of GDP per capita across most countries in multiple years. Clearly this distribution is not normal and skewed to the right. It is difficult to see because there are so few cases, but some countries have GDP per capita near or more than $120,000.
+
+Figure \@ref(fig:gaplog) shows the distribution if we convert GDP per capita to a log scale (log10 was used but any log scale will achieve the same normalization). Now we have a more normal distribution. This is desirable in statistics.
+
+```{r gapskew, echo=FALSE, message=FALSE, fig.cap='Distribution of GDP per capita'}
+gapminder %>% 
+  ggplot(aes(x = gdpPercap)) +
+  geom_histogram(bins = 50, fill = 'steelblue', color = 'white') +
+  labs(x = 'GDP per capita', y = 'Count of countries') +
+  theme_minimal()
+```
+
+```{r gaplog, echo=FALSE, message=FALSE, fig.cap='Distribution of log10 GDP per capita'}
+gapminder %>% 
+  ggplot(aes(x = gdpPercap)) +
+  geom_histogram(bins = 50, fill = 'steelblue', color = 'white') +
+  scale_x_log10(labels = scales::dollar) +
+  labs(x = 'GDP per capita', y = 'Count of countries') +
+  theme_minimal()
+```
+
+The third reason for using logs concerns theory, which should always inform the choices we make in statistics. When choosing how to model the relationship between an outcome and an explanatory variable, if past research, experience, visualization of data, or intuition tells us that the outcome changes dramatically at first, then begins to flatten, a logarithmic transformation should be used.
+
+For example, suppose we wish to examine the relationship between national wealth and life expectancy. Intuitively, we expect this relationship to be positive--as wealth increases, life expectancy should increase. Also, life expectancy has some natural ceiling, so it cannot increase indefinitely, and we may expect relatively small increases from low levels of wealth to have much greater impacts on life expectancy then similar increases from high levels of wealth. 
+
+Figure \@ref(fig:gapskewscatter) provides a scatter plot of GDP per capita and life expectancy in their original units. Note the rapid increase then plateau in life expectancy. A regression line would not fit these data well.
+
+```{r gapskewscatter, echo=FALSE, message=FALSE, fig.cap='Relationship between wealth and life expectancy using unit scale'}
+gapminder %>% 
+  ggplot(aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(color = 'steelblue', alpha = 0.4) +
+  labs(x = 'GDP per capita', y = 'Life expectancy') +
+  theme_minimal()
+```
+
+Using a log transformation in an association between two variables does not change the underlying data or relationship, but it *does* transform the pattern of points to be more linear, thus allowing a linear regression line to do a better job modeling the relationship. Figure \@ref(fig:gaplogscatter) uses the same data but GDP per capita has been transformed to log scale. This simple change makes a big difference for the validity of any conclusions we may make regarding the relationship between wealth and life expectancy.
+
+```{r gaplogscatter, echo=FALSE, message=FALSE, fig.cap='Relationship between wealth and life expectancy using log scale'}
+gapminder %>% 
+  ggplot(aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(color = 'steelblue', alpha = 0.4) +
+  scale_x_log10(labels = scales::dollar) +
+  labs(x = 'Log GDP per capita', y = 'Life expectancy') +
+  theme_minimal()
+```
+
+### Using log models
+
+There are three variations of the log model:
+
+- Level-log: log transforming one or more explanatory variables but not the outcome
+- Log-level: log transforming the outcome but not an explanatory variable
+- Log-log: log transforming the outcome and an explanatory variable
+
+Each model fits slightly different patterns of association best but they share the general pattern of a pronounced initial increase or decrease followed by a plateau. If past research, visuals, or theory does not lead us to choose one model over the other, one option is to compare the goodness-of-fit between the three, choosing the one with the highest $R^2$ or lowest RMSE.
+
+One last point before presenting each of the models and how to interpret: using the logarithmic transformation uses a special log scale called the **natural log**, often denoted as **$ln$**, as opposed to, say, $log_{10}$ or $log_2$. You do not need to concern yourself with the mathematical properties of the natural log. Just know that the natural log is what is used in regression to transform unit changes to percent changes.
+
+#### Log-log {-}
+
+The log-log model is somewhat special among the three variations because it estimates a commonly used measure in economic or policy analyses--the **elasticity**. You may have already learned in policy analysis courses that the **elasticity is the percent change in an outcome given a one percent change in the explanatory variable**.
+
+Equation \@ref(eq:loglog) presents a generic log-log model. Log-log is simply meant to convey that we logged our outcome and logged at least one explanatory variable. 
+
+\begin{equation}
+ln(y)=\beta_0 + \beta_1ln(x_1) + \beta_2x_2 + \cdots + \beta_kx_k + \epsilon
+(\#eq:loglog)
+\end{equation}
+
+Thus, the sample equation is
+
+\begin{equation}
+\hat{ln(y)}=b_0 + b_1ln(x_1) + b_2x_2 + \cdots + b_kx_k
+(\#eq:loglogsamp)
+\end{equation}
+
+When we obtain an estimate for $b_1$ we can plug it into the following template
+
+> On average, a one percent change in $x_1$ is associated with a $b_1$ percent change in $y$, all else equal.
+
+Or, if we wanted to report using elasticity language, assuming our audience understands what we are talking about:
+
+> According to the results, the $x_1$ elasiticy of $y$ is $b_1$.
+
+#### Level-log {-}
+
+Equation \@ref(eq:levlog) presents a generic level-log model. Level-log is simply meant to convey that we logged at least one explanatory variable. 
+
+\begin{equation}
+y=\beta_0 + \beta_1ln(x_1) + \beta_2x_2 + \cdots + \beta_kx_k + \epsilon
+(\#eq:levlog)
+\end{equation}
+
+Thus, the sample equation is
+
+\begin{equation}
+\hat{y}=b_0 + b_1ln(x_1) + b_2x_2 + \cdots + b_kx_k
+(\#eq:levlogsamp)
+\end{equation}
+
+When we obtain an estimate for $b_1$ we can plug it into the following template
+
+> On average, a one percent change in $x_1$ is associated with a $\frac{b_1}{100}$ unit change in $y$, all else equal.
+
+Or, if dividing our estimate by 100 results in too small of a number to report, we can say the following
+
+> On average, a doubling of $x_1$ is associated with a $b_1$ unit change in $y$, all else equal.
+
+because a doubling is equal to a 100 percent increase. Multiplying $\frac{b_1}{100}$ by 100 cancels out the 100 in the denominator, leaving us with just $b_1$.
+
+#### Log-level {-}
+
+Equation \@ref(eq:loglev) presents a generic log-level model. Log-level is simply meant to convey that we logged our outcome. 
+
+\begin{equation}
+ln(y)=\beta_0 + \beta_1x_1 + \beta_2x_2 + \cdots + \beta_kx_k + \epsilon
+(\#eq:loglev)
+\end{equation}
+
+Thus, the sample equation is
+
+\begin{equation}
+\hat{ln(y)}=b_0 + b_1x_1 + b_2x_2 + \cdots + b_kx_k
+(\#eq:loglevsamp)
+\end{equation}
+
+When we obtain an estimate for $b_1$ we can plug it into the following template
+
+> On average, a one unit change in $x_1$ is associated with a $b_1 \times 100$ percent change in $y$, all else equal.
+
+#### Example {-}
+
+Let's continue our investigation of national life expectancy using the various log models. Suppose we are interested in using the following base model for the three varieties of log models. Continent is included because perhaps we think it will capture some geographical, social, and/or cultural differences that impact life expectancy.
+
+\begin{equation}
+LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
+(\#eq:logex)
+\end{equation}
+
+The following tables present results for each of the three log models.
+
+```{r, include=FALSE}
+loglog <- lm(log(lifeExp) ~ log(gdpPercap) + continent, data = gapminder)
+levlog <- lm(lifeExp ~ log(gdpPercap) + continent, data = gapminder)
+loglev <- lm(log(lifeExp) ~ gdpPercap + continent, data = gapminder)
+```
+
+```{r loglogtab, echo=FALSE}
+get_regression_table(loglog) %>% 
+  kable(format = 'html', caption = 'Log-log results')
+```
+
+```{r levlogtab, echo=FALSE}
+get_regression_table(levlog) %>% 
+  kable(format = 'html', caption = 'Level-log results')
+```
+
+```{r loglevtab, echo=FALSE}
+get_regression_table(loglev) %>% 
+  kable(format = 'html', caption = 'Log-level results')
+```
+
+Our log-log results indicate that a one percent increase in GDP per capita is associated with a 0.11 percent increase in life expectancy, on average and controlling for continent. 
+
+Our level-log results indicate that a one percent increase in GDP per capita is associated with an increase in life expectancy of 0.06 years. 
+
+Our log-level results indicate that a one dollar increase in GDP per capita is associated with a indiscernible percent increase in life expectancy. Changing GDP per capita from dollars to something like thousands of dollars would probably give an estimate that doesn't round to 0. 
+
+The continent estimates can be interpreted in similar fashion, remembering that with categorical variables, the estimate of each level of the variable is relative to the base comparison excluded from the equation. In this example, Africa is the base comparison. Let's focus on Asia for interpretation.
+
+Our log-log results indicate that life expectancy in Asia is 110% greater than life expectancy in Africa. Since a dummy variable can only change from 0 to 1, this is equivalent to a 100 percent change. Therefore, we must multiply our estimate by 100.
+
+Our level-log results indicate that life expectancy in Asia is 5.9 years greater than life expectancy in Africa. Lastly, our log-level results indicate that life expectancy in Asia is 160% greater than life expectancy in Africa.
+
+To learn how to include nonlinear variables in regression using R, proceed to Chapter \@ref(r-nonlinear-regression).
