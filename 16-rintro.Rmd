@@ -43,7 +43,7 @@ Second, download and install RStudio [here](https://www.rstudio.com/products/rst
 Upon launch, you should see three panes:
 
 ```{r, echo=FALSE}
-include_graphics('_bookdown_files/rstudio_sshot.png')
+include_graphics('images/rstudio_sshot.png')
 ```
 
 - Console pane (left) is where you can tell R what to do. It also displays the results of commands. **Only use the console for installing packages.**

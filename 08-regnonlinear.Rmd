@@ -130,7 +130,7 @@ The use of a log scale allows us to compare states like New York and Wyoming by 
 However, it is fair to compare the *rate* of growth between the two states. While it is obviously concerning that New York has over 300,000 deaths, the key feature of this graph is that we can compare the slopes of each state's growth path because population size has been accounted for by the y-axis. Given New York's population and population density, it was likely to have the most cases, but the state also had the fastest growth rate in cases from about day 5 to day 10.
 
 ```{r logcovid, echo=FALSE, fig.cap='Growth in COVID-19 cases by state'}
-include_graphics('_bookdown_files/logs_covid.png')
+include_graphics('images/logs_covid.png')
 ```
 
 ### Percent v percentage point change

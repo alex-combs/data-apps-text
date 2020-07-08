@@ -21,7 +21,7 @@ Measurement validity and reliability are the foundations of credible analysis, t
 
 <center>
 ```{r credfig, echo=FALSE, fig.cap="Components of credible analysis"}
-include_graphics("_bookdown_files/credible.png")
+include_graphics("images/credible.png")
 ```
 </center>
 
@@ -51,7 +51,7 @@ The combination of validity and reliability presents four scenarios depicted in 
 
 <center>
 ```{r, echo=FALSE, fig.cap="Representation of measurement validity and reliability"}
-include_graphics("_bookdown_files/measure_targets.png")
+include_graphics("images/measure_targets.png")
 ```
 </center>
 
@@ -71,7 +71,7 @@ Let us consider another example where an agency needs to allocate resources to s
 
 <center>
 ```{r, echo=FALSE, fig.cap="Comparing measurement validity and reliability"}
-include_graphics("_bookdown_files/measure_lines.png")
+include_graphics("images/measure_lines.png")
 ```
 </center>
 

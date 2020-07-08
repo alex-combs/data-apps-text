@@ -10,7 +10,7 @@ Recall the credible analysis figure depicted below. Whether one's role is a prod
 
 <center>
 ```{r credfigrepeat2, echo=FALSE, fig.cap="Components of credible analysis"}
-include_graphics("_bookdown_files/credible.png")
+include_graphics("images/credible.png")
 ```
 </center>
 
@@ -26,13 +26,13 @@ For the assumptions of regression to hold, the relationship between the outcome 
 
 <center>
 ```{r genericreg, echo=FALSE, fig.cap="Generic regression line through data"}
-include_graphics("_bookdown_files/genericreg.png")
+include_graphics("images/genericreg.png")
 ```
 </center>
 
 <center>
 ```{r genericrvfp, echo=FALSE, fig.cap="Generic residual vs. fitted plot"}
-include_graphics("_bookdown_files/genericrvfp.png")
+include_graphics("images/genericrvfp.png")
 ```
 </center>
 
@@ -42,7 +42,7 @@ Certain patterns in the RVFP signal violations of certain assumptions. For examp
 
 <center>
 ```{r rvfplinear, echo=FALSE, fig.cap="Fitting linear model to quadratic data"}
-include_graphics("_bookdown_files/rvfp_linear.png")
+include_graphics("images/rvfp_linear.png")
 ```
 </center>
 
@@ -50,13 +50,13 @@ The RVFP can also be used to check whether residuals are normally distributed ar
 
 <center>
 ```{r rvfpnormal, echo=FALSE, fig.cap="Violation of normally distributed risiduals"}
-include_graphics("_bookdown_files/rvfp_normal.png")
+include_graphics("images/rvfp_normal.png")
 ```
 </center>
 
 <center>
 ```{r rvfpequal, echo=FALSE, fig.cap="Violation of equal variation"}
-include_graphics("_bookdown_files/rvfp_equal.png")
+include_graphics("images/rvfp_equal.png")
 ```
 </center>
 
@@ -92,7 +92,7 @@ Suppose we were interested in the relationship between poverty rate and murder r
 
 <center>
 ```{r influential, echo=FALSE, fig.cap="Regression with and without a high-influence observation"}
-include_graphics("_bookdown_files/influential.png")
+include_graphics("images/influential.png")
 ```
 </center>
 
@@ -102,7 +102,7 @@ A key tool used to invstigate possible high-influence observations is a residual
 
 <center>
 ```{r rvlp, echo=FALSE, fig.cap="Residual vs. leverage plot"}
-include_graphics("_bookdown_files/rvlp.png")
+include_graphics("images/rvlp.png")
 ```
 </center>
 

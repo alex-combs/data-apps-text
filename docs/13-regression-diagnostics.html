@@ -435,7 +435,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Recall the credible analysis figure depicted below. Whether one’s role is a producer or consumer of a quantitative analysis, expertise on the subject in question can make significant contributions to every level of Figure <a href="13-regression-diagnostics.html#fig:credfigrepeat2">13.1</a>. Understanding how variables are measured helps us evaluate measurement validity and reliability. Understanding the causal pathways between variables helps us evaluate internal and external validity. Understanding inference, probabilities of error, and the context of the results can help us make valid statistical conclusions like whether we have statistical and or practical significance. Analysts and managers alike can involve themselves in this process and work together to ensure an analysis is as credible as possible.</p>
 <center>
 <div class="figure"><span id="fig:credfigrepeat2"></span>
-<img src="_bookdown_files/credible.png" alt="Components of credible analysis" width="489" />
+<img src="images/credible.png" alt="Components of credible analysis" width="489" />
 <p class="caption">
 Figure 13.1: Components of credible analysis
 </p>
@@ -449,7 +449,7 @@ Figure 13.1: Components of credible analysis
 <p>For the assumptions of regression to hold, the relationship between the outcome and explanatory variables must be <strong>Linear</strong> (or modeled correctly as nonlinear), the observations must be <strong>Independent</strong> of each other, the data points must be <strong>Normally</strong> distributed around the regression line, and the data points should have <strong>Equal</strong> variation around the regression line. A key tool used to evaluate these assumptions is a <strong>Residual vs. Fitted Plot</strong> (RVFP). An RVFP is a simple transformation of the regression line plot. Figure <a href="13-regression-diagnostics.html#fig:genericreg">13.2</a> below shows a generic regression line fit to data with the outcome and predicted outcome on the y axis. An RVFP rotates the predicted outcome to the x axis, resulting in a horizontal line. This allows the distance between the observed and the fitted outcome to be vertical. Thus, the residuals of the regression are plotted on the y axis. Figure <a href="13-regression-diagnostics.html#fig:genericrvfp">13.3</a> shows a generic RVFP.</p>
 <center>
 <div class="figure"><span id="fig:genericreg"></span>
-<img src="_bookdown_files/genericreg.png" alt="Generic regression line through data" width="252" />
+<img src="images/genericreg.png" alt="Generic regression line through data" width="252" />
 <p class="caption">
 Figure 13.2: Generic regression line through data
 </p>
@@ -457,7 +457,7 @@ Figure 13.2: Generic regression line through data
 </center>
 <center>
 <div class="figure"><span id="fig:genericrvfp"></span>
-<img src="_bookdown_files/genericrvfp.png" alt="Generic residual vs. fitted plot" width="246" />
+<img src="images/genericrvfp.png" alt="Generic residual vs. fitted plot" width="246" />
 <p class="caption">
 Figure 13.3: Generic residual vs. fitted plot
 </p>
@@ -467,7 +467,7 @@ Figure 13.3: Generic residual vs. fitted plot
 <p>Certain patterns in the RVFP signal violations of certain assumptions. For example, Figure <a href="13-regression-diagnostics.html#fig:rvfplinear">13.4</a> below shows a clear case that the linear assumptions is violated due to age and wage sharing a quadratic relationship.</p>
 <center>
 <div class="figure"><span id="fig:rvfplinear"></span>
-<img src="_bookdown_files/rvfp_linear.png" alt="Fitting linear model to quadratic data" width="530" />
+<img src="images/rvfp_linear.png" alt="Fitting linear model to quadratic data" width="530" />
 <p class="caption">
 Figure 13.4: Fitting linear model to quadratic data
 </p>
@@ -476,7 +476,7 @@ Figure 13.4: Fitting linear model to quadratic data
 <p>The RVFP can also be used to check whether residuals are normally distributed around the regression line and whether the residuals have equal variance. Figures <a href="13-regression-diagnostics.html#fig:rvfpnormal">13.5</a> and <a href="13-regression-diagnostics.html#fig:rvfpequal">13.6</a> below show examples where each is clearly violated.</p>
 <center>
 <div class="figure"><span id="fig:rvfpnormal"></span>
-<img src="_bookdown_files/rvfp_normal.png" alt="Violation of normally distributed risiduals" width="523" />
+<img src="images/rvfp_normal.png" alt="Violation of normally distributed risiduals" width="523" />
 <p class="caption">
 Figure 13.5: Violation of normally distributed risiduals
 </p>
@@ -484,7 +484,7 @@ Figure 13.5: Violation of normally distributed risiduals
 </center>
 <center>
 <div class="figure"><span id="fig:rvfpequal"></span>
-<img src="_bookdown_files/rvfp_equal.png" alt="Violation of equal variation" width="511" />
+<img src="images/rvfp_equal.png" alt="Violation of equal variation" width="511" />
 <p class="caption">
 Figure 13.6: Violation of equal variation
 </p>
@@ -514,7 +514,7 @@ Figure 13.6: Violation of equal variation
 <p>Suppose we were interested in the relationship between poverty rate and murder rate among U.S. states and D.C. Figure <a href="13-regression-diagnostics.html#fig:influential">13.7</a> below provides a visual example of an influential observation in regression. Note the plot point in the far upper-right corner in the left panel. This plot point has an extreme positive residual and it imposes high positive leverage because it is positioned far from the center of the poverty distribution. As a result, this plot point pulls the slope of the regression line upward. The right panel visualizes the same regression with the influential observation removed. The regression line is noticeably flatter and fits the data better.</p>
 <center>
 <div class="figure"><span id="fig:influential"></span>
-<img src="_bookdown_files/influential.png" alt="Regression with and without a high-influence observation" width="538" />
+<img src="images/influential.png" alt="Regression with and without a high-influence observation" width="538" />
 <p class="caption">
 Figure 13.7: Regression with and without a high-influence observation
 </p>
@@ -524,7 +524,7 @@ Figure 13.7: Regression with and without a high-influence observation
 <p>A key tool used to invstigate possible high-influence observations is a residual vs. leverage plot (RVLP). This is similar to an RVFP in that it is a simple transformation of the standard regression scatter plot that allows us to identify outliers, high-leverage, and high-influence observations more effectively. Figure <a href="13-regression-diagnostics.html#fig:rvlp">13.8</a> below shows an RVLP for the regression of poverty and murder rates.</p>
 <center>
 <div class="figure"><span id="fig:rvlp"></span>
-<img src="_bookdown_files/rvlp.png" alt="Residual vs. leverage plot" width="334" />
+<img src="images/rvlp.png" alt="Residual vs. leverage plot" width="334" />
 <p class="caption">
 Figure 13.8: Residual vs. leverage plot
 </p>

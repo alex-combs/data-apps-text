@@ -21,7 +21,7 @@ Sufficient understanding of causality or causal inference warrants its own cours
 
 <center>
 ```{r credfigrepeat, echo=FALSE, fig.cap="Components of credible analysis"}
-include_graphics("_bookdown_files/credible.png")
+include_graphics("images/credible.png")
 ```
 </center>
 
@@ -58,7 +58,7 @@ Figure \@ref(fig:dagbasic) below shows a basic DAG. This model involves three va
 
 <center>
 ```{r dagbasic, echo=FALSE, fig.cap='A basic DAG'}
-include_graphics('_bookdown_files/dag_basic.png')
+include_graphics('images/dag_basic.png')
 ```
 </center>
 
@@ -80,7 +80,7 @@ Figure \@ref(fig:dagreg) below shows the DAG that corresponds with Equation \@re
 
 <center>
 ```{r dagreg, echo=FALSE, fig.cap='DAG representation of a regression model'}
-include_graphics('_bookdown_files/dag_reg.png')
+include_graphics('images/dag_reg.png')
 ```
 </center>
 
@@ -101,7 +101,7 @@ Identifying backdoor paths allow us to then identify whether confounding or coll
 
 <center>
 ```{r dagconf, echo=FALSE, fig.cap='Example of confounder variable'}
-include_graphics('_bookdown_files/dag_confound.png')
+include_graphics('images/dag_confound.png')
 ```
 </center>
 
@@ -115,7 +115,7 @@ Figure \@ref(fig:dagcoll) below shows another variation of the simple DAG with o
 
 <center>
 ```{r dagcoll, echo=FALSE, fig.cap='Example of collider variable'}
-include_graphics('_bookdown_files/dag_collide.png')
+include_graphics('images/dag_collide.png')
 ```
 </center>
 
@@ -162,7 +162,7 @@ where $\epsilon$ is a confounder. Therefore, this backdoor path is open, and bec
 
 <center>
 ```{r dagregovb, echo=FALSE, fig.cap='Counfounding error term'}
-include_graphics('_bookdown_files/dag_regovb.png')
+include_graphics('images/dag_regovb.png')
 ```
 </center>
 
@@ -174,7 +174,7 @@ For the sake of this example, suppose healthy eating is the key omitted variable
 
 <center>
 ```{r dagregnut, echo=FALSE, fig.cap='Eliminating OVB'}
-include_graphics('_bookdown_files/dag_regnut.png')
+include_graphics('images/dag_regnut.png')
 ```
 </center>
 
@@ -205,7 +205,7 @@ How can we postulate the direction of OVB? Figure \@ref(fig:dagovbdirect) below 
 
 <center>
 ```{r dagovbdirect, echo=FALSE, fig.cap='Predicting direction of OVB'}
-include_graphics('_bookdown_files/dag_ovbdirect.png')
+include_graphics('images/dag_ovbdirect.png')
 ```
 </center>
 

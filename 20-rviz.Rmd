@@ -56,7 +56,7 @@ Aesthetics take variables in your data and assign them to attributes that corres
 For example, you can't generate a scatter plot--`geom_point`--if you only define an `x` aesthetic. You must define an `x` and `y` aesthetic for a scatter plot. The figure below lists various aesthetic attributes. 
 
 ```{r, echo=FALSE}
-include_graphics('_bookdown_files/ggaes.png')
+include_graphics('images/ggaes.png')
 ```
 
 The type of your variable also informs which aesthetic(s) to use. The following work well with visualizing continuous variables:

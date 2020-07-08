@@ -9,12 +9,6 @@ The world of data visualization is incredibly diverse and detailed. You could sp
 - [Flowing Data](https://flowingdata.com)
 - [Data Viz by Kieran Healy](https://socviz.co/index.html#preface)
 
-Figure \@ref(fig:flowdata) below provides a sense of deciding between many options.
-
-```{r flowdata, echo=FALSE, fig.cap='A detailed data viz flowchart'}
-include_graphics('_bookdown_files/flowdata_viz.jpg')
-```
-
 At a basic level, most choices of visualization can be determined based on:
 
 - The kind of description we want to convey, and
@@ -23,7 +17,7 @@ At a basic level, most choices of visualization can be determined based on:
 This decision tree for visualizations is depicted in Figure \@ref(fig:vizflow) below.
 
 ```{r vizflow, echo=FALSE, fig.cap='Basic data viz decisions'}
-include_graphics('_bookdown_files/vizflow.png')
+include_graphics('images/vizflow.png')
 ```
 
 The above flowchart contains variations on six visualizations that cover most needs:

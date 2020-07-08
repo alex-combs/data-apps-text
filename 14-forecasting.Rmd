@@ -34,11 +34,11 @@ Lastly, keep in mind that a forecast involves confidence intervals. Whereas expl
 Figure \@ref(fig:futures) shows one forecast model of Australian tourism with 10 simulated futures based on resampling. This is not a typical way to show a forecast. Instead, forecasts are usually shown with a shaded confidence interval as in Figure \@ref(fig:ci). The darker region represents an 80% confidence interval and the lighter region represents a 95% confidence interval. These confidence intervals are based on the simulated futures.
 
 ```{r futures, echo=FALSE, fig.cap='Simulated futures of a forecast'}
-include_graphics('_bookdown_files/forecast_futures.png')
+include_graphics('images/forecast_futures.png')
 ```
 
 ```{r ci, echo=FALSE, fig.cap='Confidence intervals based on simultated futures'}
-include_graphics('_bookdown_files/forecast_ci.png')
+include_graphics('images/forecast_ci.png')
 ```
 
 ## Patterns

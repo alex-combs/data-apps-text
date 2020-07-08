@@ -16,7 +16,7 @@ Inference relies on the normal distribution introduced in \@ref(descriptive-stat
 
 <center>
 ```{r normdist, echo=FALSE, fig.cap='68-95-99 rule of normal distribution'}
-include_graphics('_bookdown_files/normdist.png')
+include_graphics('images/normdist.png')
 ```
 </center>
 
