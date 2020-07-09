@@ -84,6 +84,7 @@ library(Stat2Data)
 There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.
 
 - [OpenIntro Statistics](https://www.openintro.org/book/os/) by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr
+- [Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition](https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition) by Hank Jenkins-Smith and Joseph Ripberger
 - [R for Data Science](https://r4ds.had.co.nz) by Garrett Grolemund and Hadley Wickham
 - [Statistical Inference via Data Science](https://moderndive.com/index.html) by Chester Ismay and Albert Y. Kim
 - [Kahn Academy: Statistics and probability](https://www.khanacademy.org/math/statistics-probability)

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Applications in Public Administration</title>
+  <title> 13 Regression Diagnostics | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data Applications in Public Administration" />
+  <meta property="og:title" content=" 13 Regression Diagnostics | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alex-combs/data-apps-text" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 13 Regression Diagnostics | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-intro.html"/>
+<link rel="prev" href="12-regression-inference.html"/>
+<link rel="next" href="14-forecasting.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,77 +425,126 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Applications in Public Administration</h1>
-<h2 class="subtitle"><em>Using R to Learn Concepts and Skills</em></h2>
-<p class="author"><em>Alex Combs</em></p>
-<p class="date"><em>Last updated on 09 July 2020</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div class="announcement">
-<p>
-<strong>Disclaimer</strong>
+<div id="regression-diagnostics" class="section level1">
+<h1><span class="header-section-number"> 13</span> Regression Diagnostics</h1>
+<blockquote>
+<p><em>“The hardest assumption to challenge is the one you don’t even know you are making.”</em></p>
+<p>—Douglas Adams</p>
+</blockquote>
+<p>As previous chapters explained, the regression model we choose to use for explaining or predicting an outcome and the inferences we make involve several assumptions based on sound statistical theory. However, this is not to suggest that those assumptions cannot be violated. Bad choices regarding the inclusion or exclusion of explanatory variables, small sample size, and statistical oddities in our data can cause necessary assumptions to break down. If so, we may make or accept invalid conclusions.</p>
+<p>Recall the credible analysis figure depicted below. Whether one’s role is a producer or consumer of a quantitative analysis, expertise on the subject in question can make significant contributions to every level of Figure <a href="13-regression-diagnostics.html#fig:credfigrepeat2">13.1</a>. Understanding how variables are measured helps us evaluate measurement validity and reliability. Understanding the causal pathways between variables helps us evaluate internal and external validity. Understanding inference, probabilities of error, and the context of the results can help us make valid statistical conclusions like whether we have statistical and or practical significance. Analysts and managers alike can involve themselves in this process and work together to ensure an analysis is as credible as possible.</p>
+<center>
+<div class="figure"><span id="fig:credfigrepeat2"></span>
+<img src="images/credible.png" alt="Components of credible analysis" width="489" />
+<p class="caption">
+Figure 13.1: Components of credible analysis
 </p>
-<p>
-This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
+</div>
+</center>
+<p><br></p>
+<p>This chapter covers some remaining assumptions and diagnostics that a credible quantitative analysis should include. While running diagnostics may primarily fall within the role of an analyst, those managing an analysis can ask good questions or identify potential issues if they at least know what else can go wrong.</p>
+<div id="classical-assumptions" class="section level2">
+<h2><span class="header-section-number">13.1</span> Classical assumptions</h2>
+<p>The estimates we obtain from regression are the best linear unbiased estimates possible <em>if</em> certain assumptions hold. If they do not, then our estimates could be biased or they could render our hypothesis tests invalid, creating a higher chance of Types I and II error than we chose that our significance level establishes. Fortunately, these assumptions can be remembered with an apt acronym: LINE.</p>
+<p>For the assumptions of regression to hold, the relationship between the outcome and explanatory variables must be <strong>Linear</strong> (or modeled correctly as nonlinear), the observations must be <strong>Independent</strong> of each other, the data points must be <strong>Normally</strong> distributed around the regression line, and the data points should have <strong>Equal</strong> variation around the regression line. A key tool used to evaluate these assumptions is a <strong>Residual vs. Fitted Plot</strong> (RVFP). An RVFP is a simple transformation of the regression line plot. Figure <a href="13-regression-diagnostics.html#fig:genericreg">13.2</a> below shows a generic regression line fit to data with the outcome and predicted outcome on the y axis. An RVFP rotates the predicted outcome to the x axis, resulting in a horizontal line. This allows the distance between the observed and the fitted outcome to be vertical. Thus, the residuals of the regression are plotted on the y axis. Figure <a href="13-regression-diagnostics.html#fig:genericrvfp">13.3</a> shows a generic RVFP.</p>
+<center>
+<div class="figure"><span id="fig:genericreg"></span>
+<img src="images/genericreg.png" alt="Generic regression line through data" width="252" />
+<p class="caption">
+Figure 13.2: Generic regression line through data
 </p>
 </div>
-<p>This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes unfeasible, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. In general, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.</p>
-<div id="objective" class="section level3 unnumbered">
-<h3>Objective</h3>
-<p>The objective of this book is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical software. It aims to simultaneously teach students key concepts in statistics and applications of those concepts using R.</p>
-<p>This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.</p>
+</center>
+<center>
+<div class="figure"><span id="fig:genericrvfp"></span>
+<img src="images/genericrvfp.png" alt="Generic residual vs. fitted plot" width="246" />
+<p class="caption">
+Figure 13.3: Generic residual vs. fitted plot
+</p>
 </div>
-<div id="style" class="section level3 unnumbered">
-<h3>Style</h3>
-<p>Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained.</p>
-<p>Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.</p>
+</center>
+<p>Note that the residuals in the RVFP above appear to be randomly positioned; there is no discernible pattern in the scatter plot. No pattern in the RVFP is a visual indication that the classic regression assumptions are not violated.</p>
+<p>Certain patterns in the RVFP signal violations of certain assumptions. For example, Figure <a href="13-regression-diagnostics.html#fig:rvfplinear">13.4</a> below shows a clear case that the linear assumptions is violated due to age and wage sharing a quadratic relationship.</p>
+<center>
+<div class="figure"><span id="fig:rvfplinear"></span>
+<img src="images/rvfp_linear.png" alt="Fitting linear model to quadratic data" width="530" />
+<p class="caption">
+Figure 13.4: Fitting linear model to quadratic data
+</p>
 </div>
-<div id="structure" class="section level3 unnumbered">
-<h3>Structure</h3>
-<p>This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the <code>R Data</code> chapter corresponds to the <code>Data</code> chapter in the first track.</p>
-<p>The conceptual track is divided into four sections:</p>
-<ol style="list-style-type: decimal">
-<li>Data and description</li>
-<li>Regression models</li>
-<li>Inference</li>
-<li>Advanced topics</li>
-</ol>
-<p>Each chapter begins with learning objectives and ends with supplemental resources, such as additional readings or opportunities to practice using R.</p>
+</center>
+<p>The RVFP can also be used to check whether residuals are normally distributed around the regression line and whether the residuals have equal variance. Figures <a href="13-regression-diagnostics.html#fig:rvfpnormal">13.5</a> and <a href="13-regression-diagnostics.html#fig:rvfpequal">13.6</a> below show examples where each is clearly violated.</p>
+<center>
+<div class="figure"><span id="fig:rvfpnormal"></span>
+<img src="images/rvfp_normal.png" alt="Violation of normally distributed risiduals" width="523" />
+<p class="caption">
+Figure 13.5: Violation of normally distributed risiduals
+</p>
 </div>
-<div id="software-requirements" class="section level3 unnumbered">
-<h3>Software requirements</h3>
-<p>This book provides examples and exercises using R. Students who intend to use a personal computer must download and install the following software:</p>
+</center>
+<center>
+<div class="figure"><span id="fig:rvfpequal"></span>
+<img src="images/rvfp_equal.png" alt="Violation of equal variation" width="511" />
+<p class="caption">
+Figure 13.6: Violation of equal variation
+</p>
+</div>
+</center>
+<p>There is not a direct visual check for the assumption that observations are independent of each other. However, signs that normality or linearity have been violated could be due to violation of independence.</p>
+<p>Independent observations is a very strong assumption. It states that the units in our data share absolutely no relationship with each other; the information pertaining to one unit has absolutely no bearing on the information gathered for another. Consider all the scenarios in which this assumption is likely violated: individuals in the same household or community, governments in the same state/province, states/provinces in the same country. Random sampling ensures independence, but random sampling is often unfeasible or not applicable to a research question.</p>
+<p>Other than controlling for the variable(s) by which observations are related covered in Chapter <a href="9-causation-and-bias.html#causation-and-bias">9</a>, there are statistical methods to account for dependence across observations, but they are beyond the scope of this book. A competent analyst should know at least a few such methods. As with any of the above assumptions, a manager who is knowledgeable in statistics knows to ask questions regarding independence.</p>
+</div>
+<div id="multicollinearity" class="section level2">
+<h2><span class="header-section-number">13.2</span> Multicollinearity</h2>
+<p>Multicollinearity involves whether two or more explanatory variables in our regression are strongly correlated. If the correlation between two or more explanatory variables is strong enough, it can result in Type II error (i.e. false negative) for one or more of the variables sharing the strong correlation.</p>
+<p>Recall that multiple regression isolates the effect of one variable on the outcome by holding all other explanatory variables constant at their mean. This requires variables to vary while holding others constant. If the values of two variables move in near perfect tandem, then regression will find it difficult to isolate the effect of one while another is held constant.</p>
+<p>It is as if regression creates a traffic intersection with each variable having its own lane and stoplight. To investigate the isolated effect of one variable, regression turns the stoplight for that variable green and sets the stoplights for the other variables to red, letting them idle at their mean. But suppose two variables have decided not to move unless the other is allowed to move. Thus, when one gets the green light to go, it does not move, and regression estimates an effect that is less likely to be statistically significant than should be the case.</p>
+<p>Calculating the correlation coefficient covered in Chapter <a href="4-descriptive-statistics.html#descriptive-statistics">4</a> can give us a sense of whether multicollinearity may be an issue. As a general rule of thumb, if two variables have a correlation coefficient greater than 0.8 or less than -0.8, then multicollinearity could be a problem. Once a regression is run, if one or more variables that you thought should reject the null fail to do so, this could be due to multicollinearity with another explanatory variable in the model.</p>
+<p>The solution to multicollinearity is somewhat subjective. If one variable is integral to the original purpose of your analysis, then consider dropping the other variable causing the problem. However, dropping a variable from your model should not be done lightly. The inclusion of a variable implies a theoretical claim that it affects the outcome. By dropping that variable because it is correlated with another explanatory variable, you may be introducing omitted variable bias because the dropped variable may be a confounder as discussed in Chapter <a href="9-causation-and-bias.html#causation-and-bias">9</a>. Instead, you could combine the collinear variables into a single index variable, which were discussed in Chapter <a href="2-data.html#data">2</a>. For instance, if the collinear variables are numerical, you calculate the average between them as a more holistic measure of the construct they both represent and include that in your regression model instead.</p>
+</div>
+<div id="influential-data" class="section level2">
+<h2><span class="header-section-number">13.3</span> Influential Data</h2>
+<p>Regression is an extension of correlation, which is fundamentally based on the mean. As is any measure based on the mean, regression estimates are sensitive to extreme values in our data. Depending on our sample size, one or a few extreme values can substantially impact our regression estimates. We should be aware of influential observations and consider whether our conclusions or recommendations should differ depending on whether influential observations are included.</p>
+<p>One must be more specific when communicating extreme values in regression, as there are three varieties:</p>
 <ul>
-<li><a href="https://cloud.r-project.org">R</a></li>
-<li><a href="https://rstudio.com/products/rstudio/download/">RStudio</a></li>
+<li>Regression Outlier: an observation with a extreme residual</li>
+<li>High-leverage observation: an observation with an extreme value with respect to a particular variable; an outlier in the distribution of the explanatory variable</li>
+<li>High-influence: a regression outlier with high leverage</li>
 </ul>
+<p>Suppose we were interested in the relationship between poverty rate and murder rate among U.S. states and D.C. Figure <a href="13-regression-diagnostics.html#fig:influential">13.7</a> below provides a visual example of an influential observation in regression. Note the plot point in the far upper-right corner in the left panel. This plot point has an extreme positive residual and it imposes high positive leverage because it is positioned far from the center of the poverty distribution. As a result, this plot point pulls the slope of the regression line upward. The right panel visualizes the same regression with the influential observation removed. The regression line is noticeably flatter and fits the data better.</p>
+<center>
+<div class="figure"><span id="fig:influential"></span>
+<img src="images/influential.png" alt="Regression with and without a high-influence observation" width="538" />
+<p class="caption">
+Figure 13.7: Regression with and without a high-influence observation
+</p>
 </div>
-<div id="supplemental-resources" class="section level3 unnumbered">
-<h3>Supplemental resources</h3>
-<p>There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.</p>
-<ul>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a> by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr</li>
-<li><a href="https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition">Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition</a> by Hank Jenkins-Smith and Joseph Ripberger</li>
-<li><a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham</li>
-<li><a href="https://moderndive.com/index.html">Statistical Inference via Data Science</a> by Chester Ismay and Albert Y. Kim</li>
-<li><a href="https://www.khanacademy.org/math/statistics-probability">Kahn Academy: Statistics and probability</a></li>
-<li><a href="https://socviz.co/index.html#preface">Data Visualization: A practical introduction</a> by Kieran Healy</li>
-<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown from RStudio</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
-<li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
-</ul>
+</center>
+<p>Figure <a href="13-regression-diagnostics.html#fig:influential">13.7</a> provides an obvious case. The primary question is how do we decide an observation is high-influence? As is the case when identifying outliers of a single distribution, there is no definitive rule for identifying high-influence observations in regression. Furthermore, whether to exclude a high-influence observation is subjective and depends on the context. Either way, influential observations should be noted in a report.</p>
+<p>A key tool used to invstigate possible high-influence observations is a residual vs. leverage plot (RVLP). This is similar to an RVFP in that it is a simple transformation of the standard regression scatter plot that allows us to identify outliers, high-leverage, and high-influence observations more effectively. Figure <a href="13-regression-diagnostics.html#fig:rvlp">13.8</a> below shows an RVLP for the regression of poverty and murder rates.</p>
+<center>
+<div class="figure"><span id="fig:rvlp"></span>
+<img src="images/rvlp.png" alt="Residual vs. leverage plot" width="334" />
+<p class="caption">
+Figure 13.8: Residual vs. leverage plot
+</p>
+</div>
+</center>
+<p>The software used to produce this RVLP also adds something called Cook’s distance to the plot, denoted by the red dashed line. Cook’s distance is a measure commonly used to identify influential observations. One rule of thumb is that any observation with a Cook’s distance greater than 1 should be investigated. Here, we see that observation 51 in our data has a Cook’s distance greater than 1. This observation is D.C.</p>
+<p>To learn how to run regression diagnostics in R, proceed to Chapter <a href="25-r-regression-diagnostics.html#r-regression-diagnostics">25</a>.</p>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="1-intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="12-regression-inference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="14-forecasting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

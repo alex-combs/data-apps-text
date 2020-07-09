@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Applications in Public Administration</title>
+  <title> 23 R Nonlinear Regression | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data Applications in Public Administration" />
+  <meta property="og:title" content=" 23 R Nonlinear Regression | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alex-combs/data-apps-text" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 23 R Nonlinear Regression | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-intro.html"/>
+<link rel="prev" href="22-r-interactions.html"/>
+<link rel="next" href="24-r-evaluations.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,67 +425,372 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Applications in Public Administration</h1>
-<h2 class="subtitle"><em>Using R to Learn Concepts and Skills</em></h2>
-<p class="author"><em>Alex Combs</em></p>
-<p class="date"><em>Last updated on 09 July 2020</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div class="announcement">
-<p>
-<strong>Disclaimer</strong>
-</p>
-<p>
-This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
-</p>
-</div>
-<p>This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes unfeasible, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. In general, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.</p>
-<div id="objective" class="section level3 unnumbered">
-<h3>Objective</h3>
-<p>The objective of this book is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical software. It aims to simultaneously teach students key concepts in statistics and applications of those concepts using R.</p>
-<p>This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.</p>
-</div>
-<div id="style" class="section level3 unnumbered">
-<h3>Style</h3>
-<p>Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained.</p>
-<p>Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.</p>
-</div>
-<div id="structure" class="section level3 unnumbered">
-<h3>Structure</h3>
-<p>This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the <code>R Data</code> chapter corresponds to the <code>Data</code> chapter in the first track.</p>
-<p>The conceptual track is divided into four sections:</p>
-<ol style="list-style-type: decimal">
-<li>Data and description</li>
-<li>Regression models</li>
-<li>Inference</li>
-<li>Advanced topics</li>
-</ol>
-<p>Each chapter begins with learning objectives and ends with supplemental resources, such as additional readings or opportunities to practice using R.</p>
-</div>
-<div id="software-requirements" class="section level3 unnumbered">
-<h3>Software requirements</h3>
-<p>This book provides examples and exercises using R. Students who intend to use a personal computer must download and install the following software:</p>
+<div id="r-nonlinear-regression" class="section level1">
+<h1><span class="header-section-number"> 23</span> R Nonlinear Regression</h1>
+<div id="learning-objectives-8" class="section level2">
+<h2><span class="header-section-number">23.1</span> Learning Objectives</h2>
+<p>In this chapter, you will learn how to:</p>
 <ul>
-<li><a href="https://cloud.r-project.org">R</a></li>
-<li><a href="https://rstudio.com/products/rstudio/download/">RStudio</a></li>
+<li>Run a regression with a quadratic term</li>
+<li>Run a regression with log transformations</li>
 </ul>
 </div>
-<div id="supplemental-resources" class="section level3 unnumbered">
-<h3>Supplemental resources</h3>
-<p>There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.</p>
+<div id="set-up-6" class="section level2">
+<h2><span class="header-section-number">23.2</span> Set-up</h2>
+<p>To complete this chapter, you need to</p>
 <ul>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a> by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr</li>
-<li><a href="https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition">Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition</a> by Hank Jenkins-Smith and Joseph Ripberger</li>
-<li><a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham</li>
-<li><a href="https://moderndive.com/index.html">Statistical Inference via Data Science</a> by Chester Ismay and Albert Y. Kim</li>
-<li><a href="https://www.khanacademy.org/math/statistics-probability">Kahn Academy: Statistics and probability</a></li>
-<li><a href="https://socviz.co/index.html#preface">Data Visualization: A practical introduction</a> by Kieran Healy</li>
-<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown from RStudio</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
-<li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
+<li>Open a script</li>
+<li>Load the following packages</li>
 </ul>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="23-r-nonlinear-regression.html#cb102-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb102-2"><a href="23-r-nonlinear-regression.html#cb102-2"></a><span class="kw">library</span>(moderndive)</span>
+<span id="cb102-3"><a href="23-r-nonlinear-regression.html#cb102-3"></a><span class="kw">library</span>(carData)</span></code></pre></div>
+<p>We will use the <code>Mroz</code> dataset within the <code>carData</code> package. Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.</p>
+</div>
+<div id="quadratic-term" class="section level2">
+<h2><span class="header-section-number">23.3</span> Quadratic term</h2>
+<p>Recall the below regression model from Chapter <a href="8-nonlinear-variables.html#nonlinear-variables">8</a> that includes a squared term for <code>Age</code>, which allows our regression line to change directions once as <code>Age</code> changes. We included this term because Figure <a href="8-nonlinear-variables.html#fig:quadscatter">8.1</a> suggested wages initially increase with age, then decreases.</p>
+<p><span class="math display">\[\begin{equation}
+Wage = \beta_0 + \beta_1Age + \beta_2Age^2 + \beta_3Educ + \epsilon
+\end{equation}\]</span></p>
+<p>The below code demonstrates how to include a quadratic term within the <code>lm</code> function.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="23-r-nonlinear-regression.html#cb103-1"></a>quad_mod &lt;-<span class="st"> </span><span class="kw">lm</span>(Wage <span class="op">~</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(Age<span class="op">^</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>Educ, <span class="dt">data =</span> wages)</span></code></pre></div>
+<p>In this case, the code reflects the equation only somewhat; the <code>I()</code> is necessary to tell R that <code>Age^2</code> is the squared version of <code>Age</code>. Otherwise, R would not recognize <code>Age^2</code> in the data, thus excluding it from the regression.</p>
+<p>Now we can obtain results in the usual manner.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="23-r-nonlinear-regression.html#cb104-1"></a><span class="kw">get_regression_table</span>(quad_mod)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std_error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p_value
+</th>
+<th style="text-align:right;">
+lower_ci
+</th>
+<th style="text-align:right;">
+upper_ci
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+intercept
+</td>
+<td style="text-align:right;">
+-22.722
+</td>
+<td style="text-align:right;">
+3.023
+</td>
+<td style="text-align:right;">
+-7.517
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+-28.742
+</td>
+<td style="text-align:right;">
+-16.701
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age
+</td>
+<td style="text-align:right;">
+1.350
+</td>
+<td style="text-align:right;">
+0.134
+</td>
+<td style="text-align:right;">
+10.077
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1.083
+</td>
+<td style="text-align:right;">
+1.617
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+I(Age^2)
+</td>
+<td style="text-align:right;">
+-0.013
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+-9.840
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+-0.016
+</td>
+<td style="text-align:right;">
+-0.011
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Educ
+</td>
+<td style="text-align:right;">
+1.254
+</td>
+<td style="text-align:right;">
+0.090
+</td>
+<td style="text-align:right;">
+13.990
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1.075
+</td>
+<td style="text-align:right;">
+1.432
+</td>
+</tr>
+</tbody>
+</table>
+<p>We need to alter the <code>Mroz</code> data slightly before running a regression. Run the following code that creates a new variable that equals 1 if <code>lfp</code> equals “yes” and 0 if <code>lfp</code> equals “no.” This is necessary because our outcome variable–even though categorical–must be represented numerically in order for the regression to work.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="23-r-nonlinear-regression.html#cb105-1"></a>my_Mroz &lt;-<span class="st"> </span>Mroz <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb105-2"><a href="23-r-nonlinear-regression.html#cb105-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lfp_numeric =</span> <span class="kw">if_else</span>(lfp <span class="op">==</span><span class="st"> &quot;yes&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
+<div class="learncheck">
+<p>
+<strong>Exercise 1:</strong> Suppose we want to examine factors that explain whether married women participate in the labor force, which is a binary outcome. We use the following model:
+</p>
+<p>
+<span class="math display"><span class="math display">\[\begin{equation}
+lfp = \beta_0 + \beta_1k5 + \beta_2age + \beta_3age^2 + \beta_4wc + \beta_5lwg + \beta_6inc + \epsilon
+\end{equation}\]</span></span>
+</p>
+<p>
+Run this regression model and obtain the results.
+</p>
+</div>
+</div>
+<div id="log-transformation" class="section level2">
+<h2><span class="header-section-number">23.4</span> Log Transformation</h2>
+<p>In Chapter <a href="8-nonlinear-variables.html#nonlinear-variables">8</a>, the following log-log regression model was run.</p>
+<p><span class="math display">\[\begin{equation}
+ln(LifeExp)=\beta_0 + \beta_1ln(GDPpercap) + \beta_2Continent + \epsilon
+\end{equation}\]</span></p>
+<p>The below code demonstrates how to transform a variable into its natural log within the <code>lm</code> function.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="23-r-nonlinear-regression.html#cb106-1"></a>loglog &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(lifeExp) <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(gdpPercap) <span class="op">+</span><span class="st"> </span>continent, <span class="dt">data =</span> gapminder)</span></code></pre></div>
+<p>Note that all we need to do is place the appropriate variables within the <code>log()</code> function, which R interprets as the natural log. This <em>temporarily</em> transforms the variables; it does not create new variables in the dataset equal to the natural log of the variables.</p>
+<p>Now we can obtain results in the usual manner.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="23-r-nonlinear-regression.html#cb107-1"></a><span class="kw">get_regression_table</span>(loglog)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std_error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p_value
+</th>
+<th style="text-align:right;">
+lower_ci
+</th>
+<th style="text-align:right;">
+upper_ci
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+intercept
+</td>
+<td style="text-align:right;">
+3.062
+</td>
+<td style="text-align:right;">
+0.026
+</td>
+<td style="text-align:right;">
+117.692
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3.011
+</td>
+<td style="text-align:right;">
+3.113
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+log(gdpPercap)
+</td>
+<td style="text-align:right;">
+0.112
+</td>
+<td style="text-align:right;">
+0.004
+</td>
+<td style="text-align:right;">
+31.843
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.105
+</td>
+<td style="text-align:right;">
+0.119
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+continentAmericas
+</td>
+<td style="text-align:right;">
+0.133
+</td>
+<td style="text-align:right;">
+0.011
+</td>
+<td style="text-align:right;">
+12.519
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.112
+</td>
+<td style="text-align:right;">
+0.154
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+continentAsia
+</td>
+<td style="text-align:right;">
+0.110
+</td>
+<td style="text-align:right;">
+0.009
+</td>
+<td style="text-align:right;">
+12.037
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.092
+</td>
+<td style="text-align:right;">
+0.128
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+continentEurope
+</td>
+<td style="text-align:right;">
+0.166
+</td>
+<td style="text-align:right;">
+0.012
+</td>
+<td style="text-align:right;">
+14.357
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.143
+</td>
+<td style="text-align:right;">
+0.189
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+continentOceania
+</td>
+<td style="text-align:right;">
+0.152
+</td>
+<td style="text-align:right;">
+0.029
+</td>
+<td style="text-align:right;">
+5.187
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.095
+</td>
+<td style="text-align:right;">
+0.210
+</td>
+</tr>
+</tbody>
+</table>
+<div class="learncheck">
+<p>
+<strong>Exercise 2:</strong> Suppose we decide we want to use the natural log of family income exclusive of wife’s income, <code>inc</code>, resulting in the following model
+</p>
+<p>
+<span class="math display"><span class="math display">\[\begin{equation}
+lfp = \beta_0 + \beta_1k5 + \beta_2age + \beta_3age^2 + \beta_4wc + \beta_5lwg + \beta_6ln(inc) + \epsilon
+\end{equation}\]</span></span>
+</p>
+<p>
+Run this regression model and obtain the results.
+</p>
+</div>
+</div>
+<div id="submit-7" class="section level2">
+<h2><span class="header-section-number">23.5</span> Submit</h2>
+<p>Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.</p>
 
 </div>
 </div>
@@ -494,8 +799,8 @@ This is a companion resource for PADP 7120: Data Applications in Public Administ
           </div>
         </div>
       </div>
-
-<a href="1-intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="22-r-interactions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="24-r-evaluations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

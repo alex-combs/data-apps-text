@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Applications in Public Administration</title>
+  <title> 21 R Regression | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data Applications in Public Administration" />
+  <meta property="og:title" content=" 21 R Regression | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alex-combs/data-apps-text" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 21 R Regression | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-intro.html"/>
+<link rel="prev" href="20-r-visualization.html"/>
+<link rel="next" href="22-r-interactions.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,67 +425,341 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Applications in Public Administration</h1>
-<h2 class="subtitle"><em>Using R to Learn Concepts and Skills</em></h2>
-<p class="author"><em>Alex Combs</em></p>
-<p class="date"><em>Last updated on 09 July 2020</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div class="announcement">
-<p>
-<strong>Disclaimer</strong>
-</p>
-<p>
-This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
-</p>
-</div>
-<p>This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes unfeasible, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. In general, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.</p>
-<div id="objective" class="section level3 unnumbered">
-<h3>Objective</h3>
-<p>The objective of this book is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical software. It aims to simultaneously teach students key concepts in statistics and applications of those concepts using R.</p>
-<p>This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.</p>
-</div>
-<div id="style" class="section level3 unnumbered">
-<h3>Style</h3>
-<p>Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained.</p>
-<p>Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.</p>
-</div>
-<div id="structure" class="section level3 unnumbered">
-<h3>Structure</h3>
-<p>This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the <code>R Data</code> chapter corresponds to the <code>Data</code> chapter in the first track.</p>
-<p>The conceptual track is divided into four sections:</p>
-<ol style="list-style-type: decimal">
-<li>Data and description</li>
-<li>Regression models</li>
-<li>Inference</li>
-<li>Advanced topics</li>
-</ol>
-<p>Each chapter begins with learning objectives and ends with supplemental resources, such as additional readings or opportunities to practice using R.</p>
-</div>
-<div id="software-requirements" class="section level3 unnumbered">
-<h3>Software requirements</h3>
-<p>This book provides examples and exercises using R. Students who intend to use a personal computer must download and install the following software:</p>
+<div id="r-regression" class="section level1">
+<h1><span class="header-section-number"> 21</span> R Regression</h1>
+<div id="learning-objectives-6" class="section level2">
+<h2><span class="header-section-number">21.1</span> Learning Objectives</h2>
+<p>In this chapter, you will learn how to:</p>
 <ul>
-<li><a href="https://cloud.r-project.org">R</a></li>
-<li><a href="https://rstudio.com/products/rstudio/download/">RStudio</a></li>
+<li>Run a regression model</li>
+<li>Have R report key results</li>
 </ul>
 </div>
-<div id="supplemental-resources" class="section level3 unnumbered">
-<h3>Supplemental resources</h3>
-<p>There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.</p>
+<div id="set-up-4" class="section level2">
+<h2><span class="header-section-number">21.2</span> Set-up</h2>
+<p>To complete this chapter, you need to</p>
 <ul>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a> by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr</li>
-<li><a href="https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition">Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition</a> by Hank Jenkins-Smith and Joseph Ripberger</li>
-<li><a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham</li>
-<li><a href="https://moderndive.com/index.html">Statistical Inference via Data Science</a> by Chester Ismay and Albert Y. Kim</li>
-<li><a href="https://www.khanacademy.org/math/statistics-probability">Kahn Academy: Statistics and probability</a></li>
-<li><a href="https://socviz.co/index.html#preface">Data Visualization: A practical introduction</a> by Kieran Healy</li>
-<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown from RStudio</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
-<li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
+<li>Open a script</li>
+<li>Load the following packages</li>
 </ul>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="21-r-regression.html#cb88-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb88-2"><a href="21-r-regression.html#cb88-2"></a><span class="kw">library</span>(moderndive)</span>
+<span id="cb88-3"><a href="21-r-regression.html#cb88-3"></a><span class="kw">library</span>(Stat2Data)</span></code></pre></div>
+<p>We will use the <code>TeenPregnancy</code> dataset within the <code>Stat2Data</code> package. We need to manually load specific datasets from <code>Stat2Data</code> in order to use them. Therefore, run the following code, and the dataset should show up in your <code>Environment</code> pane in the top-right.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="21-r-regression.html#cb89-1"></a><span class="kw">data</span>(<span class="st">&quot;TeenPregnancy&quot;</span>)</span></code></pre></div>
+<p>Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.</p>
+</div>
+<div id="running-regression" class="section level2">
+<h2><span class="header-section-number">21.3</span> Running Regression</h2>
+<p>Chapters <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a> and <a href="7-categorical-variables-and-interactions.html#categorical-variables-and-interactions">7</a> cover the following regression models:</p>
+<ul>
+<li>Simple linear regression with two numerical variables</li>
+<li>Multiple linear regression with all numerical variables</li>
+<li>Including a categorical explanatory variable (parallel slopes)</li>
+<li>Regression with a categorical explanatory interacted with a numerical variable</li>
+<li>Regression with a binary categorical outcome (linear probability model)</li>
+</ul>
+<p>While our interpretation of results changes depending on the kind of regression model we use, the code to run a standard linear regression is the same regardless of the number and type of explanatory variables and whether the outcome variable is numerical or binary. With the exception of including an interaction, running the regression models listed above can be done with the same code structure shown below.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="21-r-regression.html#cb90-1"></a>new_object_name &lt;-<span class="st"> </span><span class="kw">lm</span>(outcome <span class="op">~</span><span class="st"> </span>exp_<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>exp_<span class="dv">2</span> <span class="op">+</span><span class="st"> </span>... <span class="op">+</span><span class="st"> </span>exp_k, <span class="dt">data =</span> name_of_dataset)</span></code></pre></div>
+<ul>
+<li>We name a new object that will hold the results of our regression</li>
+<li><code>lm</code> is the function for linear regression (acronym for linear model)</li>
+<li>We replace <code>outcome</code> with the name of our outcome variable that should be either numerical or binary</li>
+<li>The tilde <code>~</code> separates the outcome from the explanatory variables</li>
+<li>We replace the <code>exp_1</code> to <code>exp_k</code> with the names of how ever many explanatory variables we wish to include, each separated by a plus sign <code>+</code></li>
+<li>We replace <code>name_of_dataset</code> with the name of the dataset that contains the variables for the regression model.</li>
+</ul>
+<p>Recall the following multiple regression model from Chapter <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a>.</p>
+<p><span class="math display" id="eq:multregexrep">\[\begin{equation}
+FedSpend = \beta_0 + \beta_1Poverty + \beta_2HomeOwn + \beta_3Income + \epsilon
+\tag{21.1}
+\end{equation}\]</span></p>
+<p>I ran this regression using the following code:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="21-r-regression.html#cb91-1"></a>fedpov2 &lt;-<span class="st"> </span><span class="kw">lm</span>(fed_spend <span class="op">~</span><span class="st"> </span>poverty <span class="op">+</span><span class="st"> </span>homeownership <span class="op">+</span><span class="st"> </span>income, <span class="dt">data =</span> selcounty)</span></code></pre></div>
+<p>That’s all there is to it. I named the model <code>fedpov2</code> to remind myself it was the second model I ran to examine the relationship between federal spending and poverty rate. Note that the code within the <code>lm</code> function mimics Equation <a href="21-r-regression.html#eq:multregexrep">(21.1)</a>. No matter if the explanatory variables happen to be numerical or categorical, the regression works the same in R. Lastly, I did some behind-the-scenes cleaning of the original <code>county</code> data discussed in Chapter <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a> and named it <code>selcounty</code>. Therefore, I told R to use that dataset when running the regression.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 1:</strong> Suppose we want to use the <code>TeenPregnancy</code> dataset to examine whether state teen pregnancy rates are associated with church attendance and a state’s role in the Civil War (admittedly an odd variable to include but let’s think of it as a proxy for region). The model would be represented using the following formula
+</p>
+<p>
+<span class="math display"><span class="math display">\[\begin{equation}
+Teen = \beta_0 + \beta_1Church + \beta_2CivilWar + \epsilon
+\end{equation}\]</span></span>
+</p>
+<p>
+Run this regression model.
+</p>
+</div>
+</div>
+<div id="reporting-results" class="section level2">
+<h2><span class="header-section-number">21.4</span> Reporting Results</h2>
+<p>This section presents two ways to obtain results after running a regression. The first uses functions that load with the <code>moderndive</code> package and the second uses functions that load with R by default (i.e. Base R). The <code>moderndive</code> functions are somewhat more intuitive and produce results that look nicer, but the base R functions are more robust to any variety of regression model.</p>
+<div id="moderndive" class="section level3">
+<h3><span class="header-section-number">21.4.1</span> Moderndive</h3>
+<p>To get a standard table of regression results from using <code>moderndive</code>, we can use the <code>get_regression_table</code> function on our saved regression model results like so</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="21-r-regression.html#cb92-1"></a><span class="kw">get_regression_table</span>(fedpov2)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std_error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p_value
+</th>
+<th style="text-align:right;">
+lower_ci
+</th>
+<th style="text-align:right;">
+upper_ci
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+intercept
+</td>
+<td style="text-align:right;">
+13.504
+</td>
+<td style="text-align:right;">
+1.438
+</td>
+<td style="text-align:right;">
+9.391
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+10.684
+</td>
+<td style="text-align:right;">
+16.323
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+poverty
+</td>
+<td style="text-align:right;">
+0.105
+</td>
+<td style="text-align:right;">
+0.021
+</td>
+<td style="text-align:right;">
+5.042
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.064
+</td>
+<td style="text-align:right;">
+0.146
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+homeownership
+</td>
+<td style="text-align:right;">
+-0.093
+</td>
+<td style="text-align:right;">
+0.012
+</td>
+<td style="text-align:right;">
+-7.584
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+-0.117
+</td>
+<td style="text-align:right;">
+-0.069
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+income
+</td>
+<td style="text-align:right;">
+0.057
+</td>
+<td style="text-align:right;">
+0.024
+</td>
+<td style="text-align:right;">
+2.401
+</td>
+<td style="text-align:right;">
+0.016
+</td>
+<td style="text-align:right;">
+0.010
+</td>
+<td style="text-align:right;">
+0.104
+</td>
+</tr>
+</tbody>
+</table>
+<p>And to get goodness-of-fit measures, we can use the <code>get_regression_summaries</code> function like so</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="21-r-regression.html#cb93-1"></a><span class="kw">get_regression_summaries</span>(fedpov2)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+r_squared
+</th>
+<th style="text-align:right;">
+adj_r_squared
+</th>
+<th style="text-align:right;">
+mse
+</th>
+<th style="text-align:right;">
+rmse
+</th>
+<th style="text-align:right;">
+sigma
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p_value
+</th>
+<th style="text-align:right;">
+df
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.048
+</td>
+<td style="text-align:right;">
+0.047
+</td>
+<td style="text-align:right;">
+21.0806
+</td>
+<td style="text-align:right;">
+4.591362
+</td>
+<td style="text-align:right;">
+4.594
+</td>
+<td style="text-align:right;">
+52.353
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+</tbody>
+</table>
+<p>and if I only want the R-squared, Adjusted R-squared, and RMSE from this table, I can add the <code>select</code> function to the above code chunk like so</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="21-r-regression.html#cb94-1"></a><span class="kw">get_regression_summaries</span>(fedpov2) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb94-2"><a href="21-r-regression.html#cb94-2"></a><span class="st">  </span><span class="kw">select</span>(r_squared, adj_r_squared, rmse)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+r_squared
+</th>
+<th style="text-align:right;">
+adj_r_squared
+</th>
+<th style="text-align:right;">
+rmse
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.048
+</td>
+<td style="text-align:right;">
+0.047
+</td>
+<td style="text-align:right;">
+4.591362
+</td>
+</tr>
+</tbody>
+</table>
+<div class="learncheck">
+<p>
+<strong>Exercise 2:</strong> Produce a standard table of regression results and goodness-of-fit measures for your regression model for teen pregnancy rates using the <code>moderndive</code> functions.
+</p>
+</div>
+</div>
+<div id="base-r" class="section level3">
+<h3><span class="header-section-number">21.4.2</span> Base R</h3>
+<p>A comprehensive set of regression results can be obtained using the <code>summary</code> function on our regression model like so</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="21-r-regression.html#cb95-1"></a><span class="kw">options</span>(<span class="dt">scipen =</span> <span class="dv">999</span>) <span class="co"># turns off scientific notation if necessary</span></span>
+<span id="cb95-2"><a href="21-r-regression.html#cb95-2"></a><span class="kw">summary</span>(fedpov2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = fed_spend ~ poverty + homeownership + income, data = selcounty)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -11.198  -2.589  -0.957   1.215  37.009 
+## 
+## Coefficients:
+##               Estimate Std. Error t value             Pr(&gt;|t|)    
+## (Intercept)   13.50352    1.43796   9.391 &lt; 0.0000000000000002 ***
+## poverty        0.10506    0.02084   5.042   0.0000004869488784 ***
+## homeownership -0.09257    0.01221  -7.584   0.0000000000000439 ***
+## income         0.05717    0.02381   2.401               0.0164 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.594 on 3120 degrees of freedom
+## Multiple R-squared:  0.04793,    Adjusted R-squared:  0.04701 
+## F-statistic: 52.35 on 3 and 3120 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<p>which gives us most of the information from <code>get_regression_table</code> except for the confidence intervals as well as R-squared and Adjusted R-squared. The Residual standard error is not exactly the same as the RMSE above–it is actually equal to <code>sigma</code> in the full table from <code>get_regression_summaries</code>–but you can treat them the same. The difference between the two is statistically technical and obtaining the same RMSE as the table above requires too much new code.</p>
+<p>To get the confidence intervals, we can use the <code>confint</code> function like so,</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="21-r-regression.html#cb97-1"></a><span class="kw">confint</span>(fedpov2)</span></code></pre></div>
+<pre><code>##                     2.5 %      97.5 %
+## (Intercept)   10.68406894 16.32297111
+## poverty        0.06420260  0.14591102
+## homeownership -0.11650761 -0.06864128
+## income         0.01048952  0.10384078</code></pre>
+<p>which uses the 95% confidence level by default.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 3:</strong> Generate the key regression results and goodness-of-fit measures for your regression model for teen pregnancy rates using the Base R functions.
+</p>
+</div>
+</div>
+</div>
+<div id="submit-5" class="section level2">
+<h2><span class="header-section-number">21.5</span> Submit</h2>
+<p>Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.</p>
 
 </div>
 </div>
@@ -494,8 +768,8 @@ This is a companion resource for PADP 7120: Data Applications in Public Administ
           </div>
         </div>
       </div>
-
-<a href="1-intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="20-r-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="22-r-interactions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

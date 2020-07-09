@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Applications in Public Administration</title>
+  <title> 4 Descriptive Statistics | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data Applications in Public Administration" />
+  <meta property="og:title" content=" 4 Descriptive Statistics | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alex-combs/data-apps-text" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 4 Descriptive Statistics | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-intro.html"/>
+<link rel="prev" href="3-measurement-and-missing.html"/>
+<link rel="next" href="5-data-visualization.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,68 +425,647 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Applications in Public Administration</h1>
-<h2 class="subtitle"><em>Using R to Learn Concepts and Skills</em></h2>
-<p class="author"><em>Alex Combs</em></p>
-<p class="date"><em>Last updated on 09 July 2020</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div class="announcement">
-<p>
-<strong>Disclaimer</strong>
-</p>
-<p>
-This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
-</p>
-</div>
-<p>This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes unfeasible, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. In general, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.</p>
-<div id="objective" class="section level3 unnumbered">
-<h3>Objective</h3>
-<p>The objective of this book is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical software. It aims to simultaneously teach students key concepts in statistics and applications of those concepts using R.</p>
-<p>This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.</p>
-</div>
-<div id="style" class="section level3 unnumbered">
-<h3>Style</h3>
-<p>Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained.</p>
-<p>Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.</p>
-</div>
-<div id="structure" class="section level3 unnumbered">
-<h3>Structure</h3>
-<p>This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the <code>R Data</code> chapter corresponds to the <code>Data</code> chapter in the first track.</p>
-<p>The conceptual track is divided into four sections:</p>
-<ol style="list-style-type: decimal">
-<li>Data and description</li>
-<li>Regression models</li>
-<li>Inference</li>
-<li>Advanced topics</li>
-</ol>
-<p>Each chapter begins with learning objectives and ends with supplemental resources, such as additional readings or opportunities to practice using R.</p>
-</div>
-<div id="software-requirements" class="section level3 unnumbered">
-<h3>Software requirements</h3>
-<p>This book provides examples and exercises using R. Students who intend to use a personal computer must download and install the following software:</p>
+<div id="descriptive-statistics" class="section level1">
+<h1><span class="header-section-number"> 4</span> Descriptive Statistics</h1>
+<blockquote>
+<p><em>"Just the facts, ma’am.</em></p>
+<p>—Joe Friday, Dragnet</p>
+</blockquote>
+<div id="two-kinds-of-statistics" class="section level2">
+<h2><span class="header-section-number">4.1</span> Two kinds of statistics</h2>
+<p>There are two kinds of statistics, each having a specific goal:</p>
 <ul>
-<li><a href="https://cloud.r-project.org">R</a></li>
-<li><a href="https://rstudio.com/products/rstudio/download/">RStudio</a></li>
+<li><p><strong>Descriptive statistics</strong> summarizes the qualities of observed data, typically describing distributions of variables or the relationship between two variables.</p></li>
+<li><p><strong>Inferential statistics</strong> uses observed data in a sample to make inferences/conclusions about an unobserved population.</p></li>
 </ul>
-</div>
-<div id="supplemental-resources" class="section level3 unnumbered">
-<h3>Supplemental resources</h3>
-<p>There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.</p>
+<p>Descriptive statistics concerns just the facts. Inferential statistics uses those facts to make educated, scientific guesses about a group of people, places, or things for which we don’t have data.</p>
+<p>The above definitions include some terms that warrant further explanation.</p>
 <ul>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a> by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr</li>
-<li><a href="https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition">Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition</a> by Hank Jenkins-Smith and Joseph Ripberger</li>
-<li><a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham</li>
-<li><a href="https://moderndive.com/index.html">Statistical Inference via Data Science</a> by Chester Ismay and Albert Y. Kim</li>
-<li><a href="https://www.khanacademy.org/math/statistics-probability">Kahn Academy: Statistics and probability</a></li>
-<li><a href="https://socviz.co/index.html#preface">Data Visualization: A practical introduction</a> by Kieran Healy</li>
-<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown from RStudio</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
-<li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
+<li><strong>Population:</strong> all members of a specified group pertaining to a research question</li>
+<li><strong>Sample:</strong> a subset of that population</li>
 </ul>
+<p>In many cases, we cannot study an entire population because of logistics or cost. Instead, we take a sample of that population to make inferences about it.</p>
+<p>Sometimes our population is small or accessible enough to observe. If I wanted to know the average GPA of students in my class, my population is the students in my class, and I could compute the exact average for the entire population. Or if I worked in HR for an agency and wanted to know the racial diversity of a department, I could calculate percentages of each race for the population.</p>
+<p>We can describe a sample or a population. Inference is specifically using a sample to describe a population. When we compute measures of a population or sample, these measures have specific names:</p>
+<ul>
+<li><strong>Parameter:</strong> a measure pertaining to a population</li>
+<li><strong>Statistic:</strong> a measure pertaining to a sample</li>
+</ul>
+<p>If my population is students in my class, and I compute the average GPA for all of the students in my class, that measure is a population parameter. If my population is all students at a university, and I use the students in my class as a sample, then the average GPA of the students in my class is a sample statistic. In inference, a statistic is often referred to as an <strong>estimate</strong> because it is used to estimate a population parameter. The parameter in this example would be the average GPA of all students at the university.</p>
+</div>
+<div id="distributions" class="section level2">
+<h2><span class="header-section-number">4.2</span> Distributions</h2>
+<p>The goal of descriptive statistics is to summarize characteristics of variable distributions. Before reviewing the measures used to summarize distributions, we should understand what a distribution is.</p>
+<p>A <strong>distribution</strong> tells us the (possible) values of a variable and the frequency at which those values occur.</p>
+<p>The values of a variable are the result of some random data-generating process. If it wasn’t random, and instead deterministic, then there would be no uncertainty in the world. You do not know if you will get a job that requires your degree before you get the degree. An HR department does not know if an implicit bias workshop will reduce the number of racial insensitivity complaints before providing the workshop and measuring the number of complaints, nor does it know how many complaints occur at all before they are made. All of these are variables with some range of possible values, each of which occurs at some frequency. These frequencies are revealed to us when we take measures of the variable.</p>
+<p>Sometimes we know all the possible values of a variable, or at least the range of possible values. We know a variable for biological sex has possible values of male or female. We know a variable for GPA has a possible range of 0 to 4, in most cases.</p>
+<p>Sometimes we know what the frequency of values for a variable should be. Genetics tells us to expect 50% males and females. Most of the time we don’t know the function that determines frequency, or it is too complex. For example, we have some idea of the factors that influence GPAs, but there will always be some randomness that goes unaccounted.</p>
+<p>This somewhat esoteric exposition underlies the main focus here: the distribution of a variable. To make this as concrete as possible, let’s consider a variable of something that is simple and familiar to all of us: a roll of a six-sided die.</p>
+<p>We know a roll of a six-sided die can take on a range of integers between 1 and 6. We also know the frequency of each value is the same at 1 in 6, or about 17%. Therefore, we <em>know</em> the distribution of this variable, which is depicted below in Figure 4.1.</p>
+<div class="figure"><span id="fig:unnamed-chunk-9"></span>
+<img src="data-apps-text_files/figure-html/unnamed-chunk-9-1.png" alt="Probability distribution of a six-sided die" width="672" />
+<p class="caption">
+Figure 4.1: Probability distribution of a six-sided die
+</p>
+</div>
+<p>Therefore, if we were to roll the die six times, we would <em>expect</em> the following data in Table 4.1.</p>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-10">Table 4.1: </span>Expected results of 6 rolls
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+roll
+</th>
+<th style="text-align:right;">
+value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+</tbody>
+</table>
+<p>And we could represent this distribution by counting the number of times each value occurred using a histogram as shown in Figure 4.2.</p>
+<div class="figure"><span id="fig:unnamed-chunk-11"></span>
+<img src="data-apps-text_files/figure-html/unnamed-chunk-11-1.png" alt="Expected distribution of 6 rolls" width="672" />
+<p class="caption">
+Figure 4.2: Expected distribution of 6 rolls
+</p>
+</div>
+<p>Of course, this is just what is expected to happen, on average, given many rolls of a die. Anyone who has played a board game knows streaks can occur. Given a number or rolls, we probably will not observe a uniform number of values.</p>
+<p>Suppose we roll 12 times and record the value of each roll, as is shown in Table 4.2.</p>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-13">Table 4.2: </span>Observed results of 12 rolls
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+roll
+</th>
+<th style="text-align:right;">
+value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<p>We can visualize the distribution of these 12 rolls, as is done in Figure 4.3.</p>
+<div class="figure"><span id="fig:unnamed-chunk-14"></span>
+<img src="data-apps-text_files/figure-html/unnamed-chunk-14-1.png" alt="Observed distribution of 12 die rolls" width="672" />
+<p class="caption">
+Figure 4.3: Observed distribution of 12 die rolls
+</p>
+</div>
+<p>Here we can see the randomness of the variable. Values 1, 2, and 5 occur more frequently than 3 and 4, and 6 does not occur at all. If we were to roll the die many more times, it would look more like the distribution we would expect. But for <em>this</em> sample of die rolls, the distribution is unique.</p>
+<p>This is exactly the point of descriptive statistics: whether or not we know what to expect in terms of a variable’s distribution, we want to know the characteristics of the distribution for a variable from a particular sample or population. When we ask for, say, a variable’s average, we are asking for the approximate midpoint of that variable’s distribution.</p>
+<p>Descriptive measures help us summarize characteristics of distributions and some serve as the building blocks for other descriptive measures as well as inferential statistics.</p>
+</div>
+<div id="descriptive-measures" class="section level2">
+<h2><span class="header-section-number">4.3</span> Descriptive Measures</h2>
+<p>A die roll is uninteresting and unimportant. In our review of descriptive measures, let us consider them with respect to the distribution of the infant mortality rate across 222 countries in 2012. Infant mortality is the number deaths of infants under one year old per 1,000 live births. It is used as a measure of health in a country.</p>
+<div class="figure"><span id="fig:unnamed-chunk-15"></span>
+<img src="data-apps-text_files/figure-html/unnamed-chunk-15-1.png" alt="Infant Mortality Rates" width="672" />
+<p class="caption">
+Figure 4.4: Infant Mortality Rates
+</p>
+</div>
+<p>We could simply show this distribution, but it is usually helpful to summarize key characteristics of it, as doing so help answer some specific questions. Distributions are typically described in one of three ways:</p>
+<ul>
+<li><strong>Center:</strong> what is the typical value of this variable?</li>
+<li><strong>Spread:</strong> how far away are values typically from the center?</li>
+<li><strong>Association:</strong> what is the typical value or spread of the distribution given a value of another variable?</li>
+</ul>
+<p>The three types of descriptive measures above are defined using questions because there are multiple options for each, and which one is more appropriate to use depends on which one answers the question best given the shape of the distribution.</p>
+<div id="measures-of-center" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Measures of center</h3>
+<div id="mean" class="section level4 unnumbered">
+<h4>Mean</h4>
+<p>The mean or average takes the values of a variable, adds them, then divides that sum by the total count of values.</p>
+<p><span class="math display" id="eq:mean">\[\begin{equation}
+{\displaystyle \bar{x}={\frac {1}{n}}\sum _{i=1}^{n}x_{i}={\frac {x_{1}+x_{2}+\cdots +x_{n}}{n}}}
+\tag{4.1}
+\end{equation}\]</span></p>
+<p>Infant mortality has 222 values, so <span class="math inline">\(n\)</span> in equation <a href="4-descriptive-statistics.html#eq:mean">(4.1)</a> above would equal 222 in this case. If we were to pluck one country out of our pool of 222 countries at random, the mean tells us the infant mortality rate to expect. In other words, the mean tells us the typical infant mortality rate given our observed data. In this case, the average infant mortality rate is 26.7.</p>
+</div>
+<div id="median" class="section level4 unnumbered">
+<h4>Median</h4>
+<p>If we took the 222 rates and listed them in ascending or descending numerical order, the median is the value that values exactly in the middle of that list. The median is also referred to as the 50th percentile because half of the values fall below it and half of the values fall above it. In the case of an even number of values, there is no naturally occurring middle value. In that case, we take the average of the two values in the middle. The median infant mortality rate is 15.6.</p>
+</div>
+<div id="mode" class="section level4 unnumbered">
+<h4>Mode</h4>
+<p>The mode is the value that occurs most frequently. If all values occur only once, then a variable has no mode. If two or more values occur an equal number of times and it is more than other values, then a variable has two or more modes. For instance, the modes for our 12 die rolls from before are 1, 2, and 5. The mode for infant mortality rates is 11.6.</p>
+</div>
+<div id="choosing-a-center" class="section level4 unnumbered">
+<h4>Choosing a center</h4>
+<p>As Figure 4.5 shows, three measures of center have provided us three different typical infant mortality rates. The mean is represented by the red line, the median by the purple line, and the mode by the green line.</p>
+<div class="figure"><span id="fig:mortcenters"></span>
+<img src="data-apps-text_files/figure-html/mortcenters-1.png" alt="Centers of infant mortality rates" width="672" />
+<p class="caption">
+Figure 4.5: Centers of infant mortality rates
+</p>
+</div>
+<p>Which should we choose to report? We could report all three, but let us apply some professional judgment to this dilemma. After all, people generally do not like nuance and prefer one best number instead of deciphering the meaning from three, assuming they understand all three measures in the first place.</p>
+<p>For continuous variables reported at several decimal places, a value may not occur more than once because of the precision. More importantly, because of this low probability of repeat values, the mode is not guaranteed to represent a typical value. If it only takes two occurrences to qualify as the mode, that second occurrence could be an extreme value. Therefore, the mode is more commonly used to report frequencies of categorical or discrete variables for which there are relatively few possible values.</p>
+<p>When choosing between mean and median, it usually comes down to the presence of extreme values or the extent to which a distribution is <strong>skewed</strong>. Skew pertains to the tails of a distribution–the taper to the left and right of its center. If the right or left tail extends far out from the center, we consider the distribution to be right- or left-skewed. Our distribution of infant mortality rates is right-skewed.</p>
+<p>When a distribution is skewed, the median is generally a better choice for reporting its center. This is because the mean is sensitive to extreme values. Note in Figure <a href="4-descriptive-statistics.html#fig:mortcenters">4.5</a> that the mean is being pulled to the right by the extreme values. As a result, the red line is to the right of the cluster of frequent values and may not be a good answer for the typical value of this distribution. The median is not sensitive to extreme values. No matter how far to the right the goes, the middle of the distribution stays put. If one were to use the median because of skew, one should also mention that in their report.</p>
+</div>
+</div>
+<div id="measures-of-spread" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Measures of spread</h3>
+<p>Reporting the center of a distribution does not tell us how tightly values are grouped around the mean. Put differently, if the center is a good guess of the value for a unit drawn randomly from our data, the measure of spread is a good guess of how far off that guess will be from the random draw.</p>
+<div id="variance" class="section level4 unnumbered">
+<h4>Variance</h4>
+<p>Almost all values of our variable will not exactly equal the mean. This is referred to as <strong>deviation from the mean</strong>. The variance squares each observation’s deviation from the mean, sums all the deviations, and divides this sum by the total count of observations minus one. Equation <a href="4-descriptive-statistics.html#eq:variance">(4.2)</a> displays this process mathematically.</p>
+<p><span class="math display" id="eq:variance">\[\begin{equation}
+{\displaystyle S^2={\frac {1}{n-1}}\sum _{i=1}^{n}(x_{i}-\bar{x})^2={\frac {(x_{1}-\bar{x})^2+(x_{2}-\bar{x})^2+\cdots +(x_{n}-\bar{x})^2}{n-1}}}
+\tag{4.2}
+\end{equation}\]</span></p>
+<p>The mean infant mortality rate is 26.7. If we subtract this mean from each country’s rate, we have each country’s deviation from the mean, some of which is shown in Table <a href="4-descriptive-statistics.html#tab:varcalcs">4.3</a>. Then, we square these deviations as is also shown in the table. We then sum the 222 squared deviations and divide by 221. The variance for our infant mortality rates is 672.6.</p>
+<table>
+<caption>
+<span id="tab:varcalcs">Table 4.3: </span>Excerpt of variance calculations
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:right;">
+infMortRate
+</th>
+<th style="text-align:right;">
+deviate
+</th>
+<th style="text-align:right;">
+sq_deviate
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+121.63
+</td>
+<td style="text-align:right;">
+94.93
+</td>
+<td style="text-align:right;">
+9011.705
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Niger
+</td>
+<td style="text-align:right;">
+109.98
+</td>
+<td style="text-align:right;">
+83.28
+</td>
+<td style="text-align:right;">
+6935.558
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:right;">
+109.08
+</td>
+<td style="text-align:right;">
+82.38
+</td>
+<td style="text-align:right;">
+6786.464
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Somalia
+</td>
+<td style="text-align:right;">
+103.72
+</td>
+<td style="text-align:right;">
+77.02
+</td>
+<td style="text-align:right;">
+5932.080
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:right;">
+97.17
+</td>
+<td style="text-align:right;">
+70.47
+</td>
+<td style="text-align:right;">
+4966.021
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="standard-deviation" class="section level4 unnumbered">
+<h4>Standard deviation</h4>
+<p>Variance is an important building block for inference, but it is virtually useless as a descriptive measure because it is in squared units. If someone asks how far values are spread out from the mean, it would not help much to report values deviate from the mean by 672 squared-deaths.</p>
+<p>The standard deviation is simply the square root of variance to return our units to their original meaning.</p>
+<p><span class="math display" id="eq:sd">\[\begin{equation}
+{\displaystyle s = \sqrt{S^2}}
+\tag{4.3}
+\end{equation}\]</span></p>
+<p>The standard deviation of our infant mortality rates data is 25.9. This tells us that, on average, infant mortality rates are about 26 deaths above or below the mean.</p>
+</div>
+<div id="interquartile-range" class="section level4 unnumbered">
+<h4>Interquartile range</h4>
+<p>Recall that the median is the 50th percentile of a distribution–half of the values fall below the median and half fall above it. The interquartile range (IQR) is equal to the 75th percentile minus the 25th percentile, thus providing the range that captures the middle 50% of the values in the distribution. The IQR is the spread analog of the median. The IQR for our distribution is 35.6.</p>
+</div>
+<div id="range" class="section level4 unnumbered">
+<h4>Range</h4>
+<p>The range is simply the maximum value in a distribution minus the minimum value of a distribution. Usually, the range is left implied in a table of summary statistics by reporting the maximum and minimum without differencing the two. The range of our distribution is 119.8.</p>
+</div>
+<div id="choosing-a-spread" class="section level4 unnumbered">
+<h4>Choosing a spread</h4>
+<p>The same logic applies to choosing a measure of spread as choosing a measure of center. The standard deviation is based on the mean, and so it is also sensitive to extreme values that, if present, could exaggerate the typical spread of the distribution. The IQR is based on percentiles just like the median. Therefore, IQR is not sensitive to extreme values.</p>
+<p>Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> displays the mean and plus-and-minus one standard deviation using red dashed and solid lines, respectively. The median and the IQR (25th and 75th percentiles) are represented by the purple dashed and solid lines, respectively. Note how wide the area contained by the standard deviation is–it contains most of the distribution. It is arguably not ideal for conveying the typical deviation from the center, as it contains plenty of values that are rather atypical deviations from the center. In the case of describing the distribution of infant mortality rates, the median and IQR are likely a better choice.</p>
+<div class="figure"><span id="fig:mortspread"></span>
+<img src="data-apps-text_files/figure-html/mortspread-1.png" alt="Center and spread of infant mortality rates" width="672" />
+<p class="caption">
+Figure 4.6: Center and spread of infant mortality rates
+</p>
+</div>
+<p>In most cases, the range (or minimum and maximum values) should be reported along with either the mean and standard deviation or median and IQR (or 25th and 75th percentiles), especially when a distribution is skewed. In addition to signaling the skew of a distribution, the range helps convey what may be the possible values of a variable and how different the most different units in the data are with respect to that variable.</p>
+<p>In the case of infant mortality rates, we know the minimum possible value is 0 by definition, but the minimum value in our distribution is 1.8. Perhaps 0 deaths is unrealistic for any country. Moreover, the maximum value is 121.63. This range, along with the median and IQR, tells us the most different countries are <em>very</em> different.</p>
+</div>
+</div>
+<div id="the-normal-distribution" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> The normal distribution</h3>
+<p>As a brief aside, it should be mentioned that if a distribution is <strong>normal</strong>, then measures of center and spread will be similar to each other. This is one of several desirable features of the normal distribution.</p>
+<p>Figure <a href="4-descriptive-statistics.html#fig:normrates">4.7</a> shows a simulated scenario in which the infant mortality rates in our 222 countries exhibit a normal distribution. Note the peaks in the center and symmetry. There is no skew.</p>
+<div class="figure"><span id="fig:normrates"></span>
+<img src="data-apps-text_files/figure-html/normrates-1.png" alt="Simulated normal distribution of infant mortality rates" width="672" />
+<p class="caption">
+Figure 4.7: Simulated normal distribution of infant mortality rates
+</p>
+</div>
+<p>Table <a href="4-descriptive-statistics.html#tab:normratesum">4.4</a> confirms the similarity between measures of center and spread for this simulated distribution. This is one reason it is important to visualize your distribution. If it appears approximately normal, then you should report the mean and standard deviation (along with minimum and maximum values), as the are more widely understood.</p>
+<table>
+<caption>
+<span id="tab:normratesum">Table 4.4: </span>Center and spread measures of simulated data
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Mean
+</th>
+<th style="text-align:right;">
+Median
+</th>
+<th style="text-align:right;">
+Mode
+</th>
+<th style="text-align:right;">
+SD
+</th>
+<th style="text-align:right;">
+IQR
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+25.5
+</td>
+<td style="text-align:right;">
+22.1
+</td>
+<td style="text-align:right;">
+6.6
+</td>
+<td style="text-align:right;">
+8.4
+</td>
+</tr>
+</tbody>
+</table>
+<p>Again, the normal distribution has several desirable features that will be discussed further in the chapters pertaining to inference. However, you now know one desirable feature. If a distribution is approximately normal, then extreme values are not a concern and the mean and standard deviation are good measures of center and spread, respectively. Besides making our choice of measures convenient, why is this worth repeating? Because the mean and standard deviation are building blocks to the next category of descriptive measures: association.</p>
+</div>
+<div id="measures-of-association" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Measures of association</h3>
+<p>With association, we now consider the distributions of two variables at a time. That is, given the value within one variable’s distribution, what does the distribution of another variable look like?</p>
+<p>We need a second variable to continue our example involving infant mortality rates. Table <a href="4-descriptive-statistics.html#tab:gapdeathtab">4.5</a> shows a preview of a dataset that adds two more variables to our previous infant mortality data.</p>
+<table>
+<caption>
+<span id="tab:gapdeathtab">Table 4.5: </span>First five rows of country data
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:right;">
+infMortRate
+</th>
+<th style="text-align:right;">
+lifeExp
+</th>
+<th style="text-align:right;">
+gdpPercap
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+121.63
+</td>
+<td style="text-align:right;">
+43.828
+</td>
+<td style="text-align:right;">
+974.5803
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Niger
+</td>
+<td style="text-align:right;">
+109.98
+</td>
+<td style="text-align:right;">
+56.867
+</td>
+<td style="text-align:right;">
+619.6769
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mali
+</td>
+<td style="text-align:right;">
+109.08
+</td>
+<td style="text-align:right;">
+54.467
+</td>
+<td style="text-align:right;">
+1042.5816
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Somalia
+</td>
+<td style="text-align:right;">
+103.72
+</td>
+<td style="text-align:right;">
+48.159
+</td>
+<td style="text-align:right;">
+926.1411
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Central African Republic
+</td>
+<td style="text-align:right;">
+97.17
+</td>
+<td style="text-align:right;">
+44.741
+</td>
+<td style="text-align:right;">
+706.0165
+</td>
+</tr>
+</tbody>
+</table>
+<p>Recalling that the mean infant mortality rate is about 26, the five countries included are in the right tail of the distribution. Also, you probably know enough about life expectancy to know that the values for these countries are quite low. Perhaps these two variables share a relationship?</p>
+<p>In fact, we know they do. Life expectancy in a given year is the average age at which people in that country died. If a country has a high frequency of infants dying, then that will pull the mean downward. A common misunderstanding of life expectancy is that people in that country tend to die at the age of the country’s life expectancy. This is certainly not the case if a country has a high infant mortality rate. While adults in countries with low life expectancy may die somewhat younger (or much younger if it is a war-torn country), adults tend to live longer than the average life expectancy. The key is making it out of infancy alive.</p>
+<div id="visual-association" class="section level4 unnumbered">
+<h4>Visual association</h4>
+<p>As was the case with one variable, we want to visualize the distributions of two variables. When working with two continuous variables, the <strong>scatter plot</strong> is the most common choice to visualize association between two variables. Figure <a href="4-descriptive-statistics.html#fig:scatterlifedeath">4.8</a> plots the paired values of infant mortality rate and life expectancy for each country.</p>
+<div class="figure"><span id="fig:scatterlifedeath"></span>
+<img src="data-apps-text_files/figure-html/scatterlifedeath-1.png" alt="Visualizing association between two continuous variables" width="672" />
+<p class="caption">
+Figure 4.8: Visualizing association between two continuous variables
+</p>
+</div>
+<p>Note that I plotted infant mortality rate along the x axis and life expectancy on the y axis. This choice was deliberate. If we suspect that one variable influences or affects the value of another variable, then the variable doing the influencing should be plotted on the x axis. Plotting a variable on the y axis implies to the viewer that it responds to the variable on the x axis.</p>
+<p>Figure <a href="4-descriptive-statistics.html#fig:scatterlifedeath">4.8</a> confirms our suspicion that the two variables are associated. There appears to be a rather strong association such that as infant mortality rate increases, the lower a country’s life expectancy.</p>
+</div>
+<div id="quantified-association" class="section level4 unnumbered">
+<h4>Quantified association</h4>
+<p>As was the case with one variable, we want to describe the association between two variables using quantitative measures. The association between two or more variables can be described in terms of</p>
+<ul>
+<li><strong>Direction:</strong> when one variable increases, does the other variable increase or decrease?</li>
+<li><strong>Strength:</strong> how much do the variables seem to be tied together?</li>
+<li><strong>Magnitude:</strong> given an specific increase or decrease in one variable, by how much does the other variable increase or decrease?</li>
+</ul>
+<p>Again, we have several options to answer the above question.</p>
+<ul>
+<li><strong>Covariance:</strong> measures direction of association between between two variables</li>
+<li><strong>Correlation:</strong> measures direction and strength of association between two variables</li>
+<li><strong>Regression coefficient:</strong> measures the direction and magnitude of association between an explanatory variable and an outcome variable</li>
+<li><strong>Coefficient of determination (<span class="math inline">\(R^2\)</span>):</strong> measures the strength of association between a set of one or more explanatory variables and an outcome variable</li>
+</ul>
+<p>The regression coefficient and coefficient of determination will be discussed in later chapter involving regression models. Let us briefly consider covariance and correlation.</p>
+</div>
+<div id="covariance" class="section level4 unnumbered">
+<h4>Covariance</h4>
+<p>Covariance tells us when our x variable is above (below) its mean, whether our y variable tends to be above or below its mean. If our y variable tends to be above its mean when x is above its mean, then the two have a positive covariance and are positively associated. If our y variable tends to be below its mean when x is above its mean, then the two have a negative covariance and are negatively associated. A covariance of 0 indicates no association.</p>
+<p>Figure <a href="4-descriptive-statistics.html#fig:scattercovar">4.9</a> adds references lines for the mean of each variable. Note that when infant mortality is above its mean (to the right of the red line), life expectancy is below its mean (below the green line) in almost all cases. When infant mortality is below its mean, life expectancy is above its mean in almost all cases. Therefore, these two variables have a negative covariance and are negatively associated. In fact, the covariance between infant mortality rate and life expectancy is -312.7</p>
+<div class="figure"><span id="fig:scattercovar"></span>
+<img src="data-apps-text_files/figure-html/scattercovar-1.png" alt="Visualizing covariance" width="672" />
+<p class="caption">
+Figure 4.9: Visualizing covariance
+</p>
+</div>
+<p>Covariance is the association analog of variance. It is an important building block of other measures of association, but it is virtually useless for description because it only tells us direction. Correlation tells us direction and strength. Therefore, covariance is never used for description because correlation tells us twice as much information.</p>
+</div>
+<div id="correlation" class="section level4 unnumbered">
+<h4>Correlation</h4>
+<p>Correlation tells us how much the paired values of two variables exhibit a straight line and whether that straight line is sloped positively or negatively. Correlation ranges between -1 and 1. If it is negative, then the two variables are negatively associated. If it is positive, the two variables are positively associated. The closer correlation is to -1 or 1, the more the two variables exhibit a straight line. A correlation equal to -1 or 1 indicates the two variables form a perfect straight line. A correlation of 0 indicates no association.</p>
+<p>Based on the covariance and the scatter plot, we know to expect a negative correlation between infant mortality rate and life expectancy. We also know the correlation will not be -1 because the points do not form a perfect straight line. Nevertheless they do form a fairly tight negative path, so we should expect a correlation closer to -1 than 0. It turns out that the correlation is equal to -0.9. Infant mortality rate and life expectancy exhibit a very strong, negative association.</p>
+<p>Another way to think about correlation is if we tried to draw a line through the data points on our scatter plot from left to right that could freely curve about however the data are scattered, would that line be a straight line and would it slope upward or downward? Figure <a href="4-descriptive-statistics.html#fig:scattercorr">4.10</a> does exactly that with our data. Note that the data lead the line to be essectially straight until the end when it appears the association turns positively.</p>
+<div class="figure"><span id="fig:scattercorr"></span>
+<img src="data-apps-text_files/figure-html/scattercorr-1.png" alt="Drawing a free line through the data" width="672" />
+<p class="caption">
+Figure 4.10: Drawing a free line through the data
+</p>
+</div>
+<p>Correlation has three qualities that can lead to misunderstandings or mistakes, some of which may have become apparent to you in the above discussion. First, correlation is sensitive to extreme values. A few dots on a scatter plot can have a substantial impact on the line that is drawn through the data. Second, correlation measures only the <strong>linear</strong> association, thus the repeated mentioning of <strong>straight</strong> lines. If two variables formed a perfect U-shape, they are almost certainly strongly associated. However, their correlation would suggest a weaker relationship because a straight line does not fit a U-shape well. Third, <strong>correlation is a necessary but not sufficient condition of causation</strong>. In order to validly claim that a change in the value of one variable <em>causes</em> the values of another variable to change, they must be correlated, but a few more conditions must also be met. Those conditions are discussed in Chapter <a href="9-causation-and-bias.html#causation-and-bias">9</a>.</p>
+<p>To learn how to produce a summary table for a publication, proceed to Chapter <a href="19-r-description.html#r-description">19</a>.</p>
 
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -494,8 +1073,8 @@ This is a companion resource for PADP 7120: Data Applications in Public Administ
           </div>
         </div>
       </div>
-
-<a href="1-intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="3-measurement-and-missing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="5-data-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

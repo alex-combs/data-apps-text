@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Applications in Public Administration</title>
+  <title> 19 R Description | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data Applications in Public Administration" />
+  <meta property="og:title" content=" 19 R Description | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alex-combs/data-apps-text" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 19 R Description | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-intro.html"/>
+<link rel="prev" href="18-r-missing-data.html"/>
+<link rel="next" href="20-r-visualization.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,67 +425,469 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Applications in Public Administration</h1>
-<h2 class="subtitle"><em>Using R to Learn Concepts and Skills</em></h2>
-<p class="author"><em>Alex Combs</em></p>
-<p class="date"><em>Last updated on 09 July 2020</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div class="announcement">
-<p>
-<strong>Disclaimer</strong>
-</p>
-<p>
-This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
-</p>
-</div>
-<p>This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes unfeasible, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. In general, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.</p>
-<div id="objective" class="section level3 unnumbered">
-<h3>Objective</h3>
-<p>The objective of this book is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical software. It aims to simultaneously teach students key concepts in statistics and applications of those concepts using R.</p>
-<p>This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.</p>
-</div>
-<div id="style" class="section level3 unnumbered">
-<h3>Style</h3>
-<p>Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained.</p>
-<p>Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.</p>
-</div>
-<div id="structure" class="section level3 unnumbered">
-<h3>Structure</h3>
-<p>This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the <code>R Data</code> chapter corresponds to the <code>Data</code> chapter in the first track.</p>
-<p>The conceptual track is divided into four sections:</p>
-<ol style="list-style-type: decimal">
-<li>Data and description</li>
-<li>Regression models</li>
-<li>Inference</li>
-<li>Advanced topics</li>
-</ol>
-<p>Each chapter begins with learning objectives and ends with supplemental resources, such as additional readings or opportunities to practice using R.</p>
-</div>
-<div id="software-requirements" class="section level3 unnumbered">
-<h3>Software requirements</h3>
-<p>This book provides examples and exercises using R. Students who intend to use a personal computer must download and install the following software:</p>
+<div id="r-description" class="section level1">
+<h1><span class="header-section-number"> 19</span> R Description</h1>
+<div id="learning-objectives-4" class="section level2">
+<h2><span class="header-section-number">19.1</span> Learning Objectives</h2>
+<p>In this chapter, you will learn how to:</p>
 <ul>
-<li><a href="https://cloud.r-project.org">R</a></li>
-<li><a href="https://rstudio.com/products/rstudio/download/">RStudio</a></li>
+<li>Make a professional quality table of descriptive statistics</li>
 </ul>
 </div>
-<div id="supplemental-resources" class="section level3 unnumbered">
-<h3>Supplemental resources</h3>
-<p>There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.</p>
+<div id="set-up-2" class="section level2">
+<h2><span class="header-section-number">19.2</span> Set-up</h2>
+<p>To complete this chapter, you need to</p>
 <ul>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a> by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr</li>
-<li><a href="https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition">Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition</a> by Hank Jenkins-Smith and Joseph Ripberger</li>
-<li><a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham</li>
-<li><a href="https://moderndive.com/index.html">Statistical Inference via Data Science</a> by Chester Ismay and Albert Y. Kim</li>
-<li><a href="https://www.khanacademy.org/math/statistics-probability">Kahn Academy: Statistics and probability</a></li>
-<li><a href="https://socviz.co/index.html#preface">Data Visualization: A practical introduction</a> by Kieran Healy</li>
-<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown from RStudio</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
-<li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
+<li>Start a notebook</li>
+<li>Load the following packages</li>
 </ul>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="19-r-description.html#cb59-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb59-2"><a href="19-r-description.html#cb59-2"></a><span class="kw">library</span>(arsenal)</span>
+<span id="cb59-3"><a href="19-r-description.html#cb59-3"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb59-4"><a href="19-r-description.html#cb59-4"></a><span class="kw">library</span>(carData)</span></code></pre></div>
+</div>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">19.3</span> Introduction</h2>
+<p>Summary statistics tables are ubiquitous in reports and studies. Usually a project involves numerous variables that would require too many visualizations to summarize, though we should still consider visualizations for the most important variables. A standard summary stats table provides readers a reference for key measures pertaining to all our variables in a fairly compact form. They can even provide new insights in lieu of a visualization.</p>
+<p>In this chapter, we set out to summarize variables within the <code>States</code> dataset of the <code>carData</code> package.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 1:</strong> Use the <code>glimpse</code> function to examine the <code>States</code> dataset.
+</p>
+</div>
+<p><code>States</code> is a cross-section of the 50 states and D.C. containing education and related statistics. Be sure to read the help page for <code>States</code> to understand each variable. You can do that by typing <code>States</code> in the search bar of the bottom-right pane of RStudio or going to the <code>carData</code> package under the Packages tab and clicking on the <code>States</code> link.</p>
+</div>
+<div id="summary-table" class="section level2">
+<h2><span class="header-section-number">19.4</span> Summary Table</h2>
+<p>Summary tables come in many styles, so there is no way to cover everything. In most cases, a summary table includes the following descriptive measures depending on the type of variable:</p>
+<ul>
+<li>Numerical variables
+<ul>
+<li>Mean</li>
+<li>Standard deviation</li>
+<li>Minimum</li>
+<li>Maximum</li>
+</ul></li>
+<li>Categorical variables
+<ul>
+<li>Counts for each level, and/or</li>
+<li>Percentages for each level</li>
+</ul></li>
+</ul>
+<p>If a variable is skewed, then it may be wise to replace the mean and standard deviation with the median, first quartile, and third quartile. We will learn how to do this.</p>
+</div>
+<div id="using-arsenal" class="section level2">
+<h2><span class="header-section-number">19.5</span> Using Arsenal</h2>
+<p>Due to the many styles of summary tables, there are numerous R packages designed to produce summary tables. The best R package in terms of quickly getting the information to a nicely formatted table of which I am aware is Arsenal. Therefore, we will learn how to use Arsenal. I will demonstrate Arsenal using the <code>gapminder</code> data with which we are all familiar. Then, I will ask you to replicate those demonstrations using the <code>States</code> data.</p>
+<p>Producing a summary table with Arsenal involves at least two, probably three, steps.</p>
+<ul>
+<li>Create a new object containing the summary statistics we want to include in a table</li>
+<li>Relabel the variables to something appropriate for our audience</li>
+<li>Generating the summary table based on the new object we just created</li>
+</ul>
+<p>Here is an example using <code>gapminder</code> data without altering any of Aresenal’s default options that we will want to know how to alter in most cases.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="19-r-description.html#cb60-1"></a>sum.gapminder &lt;-<span class="st"> </span><span class="kw">tableby</span>(<span class="op">~</span><span class="st"> </span>continent <span class="op">+</span><span class="st"> </span>gdpPercap <span class="op">+</span><span class="st"> </span>lifeExp <span class="op">+</span><span class="st"> </span>pop, <span class="dt">data =</span> gapminder)</span>
+<span id="cb60-2"><a href="19-r-description.html#cb60-2"></a></span>
+<span id="cb60-3"><a href="19-r-description.html#cb60-3"></a><span class="kw">labels</span>(sum.gapminder) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="dt">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="dt">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="dt">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="19-r-description.html#cb61-1"></a><span class="kw">summary</span>(sum.gapminder, <span class="dt">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<table>
+<caption>Summary Stats for Gapminder Data</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Overall (N=1704)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Continent</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Africa</td>
+<td align="center">624 (36.6%)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Americas</td>
+<td align="center">300 (17.6%)</td>
+</tr>
+<tr class="even">
+<td align="left">   Asia</td>
+<td align="center">396 (23.2%)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Europe</td>
+<td align="center">360 (21.1%)</td>
+</tr>
+<tr class="even">
+<td align="left">   Oceania</td>
+<td align="center">24 (1.4%)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>GDP Per Capita</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Mean (SD)</td>
+<td align="center">7215.327 (9857.455)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Range</td>
+<td align="center">241.166 - 113523.133</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Life Expectancy</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Mean (SD)</td>
+<td align="center">59.474 (12.917)</td>
+</tr>
+<tr class="even">
+<td align="left">   Range</td>
+<td align="center">23.599 - 82.603</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Population</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Mean (SD)</td>
+<td align="center">29601212.325 (106157896.744)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Range</td>
+<td align="center">60011.000 - 1318683096.000</td>
+</tr>
+</tbody>
+</table>
+<p>The second code chunk above requires a specific code chunk option in order for the table to print correctly. The top line of a code chunk includes <code>{r}</code> by default. To print the summary table from the Arsenal package correctly using the <code>summary()</code> function, we need to add the code chunk option <code>results='asis'</code>. Therefore, the top line of the code chunk should be <code>{r, results='asis'}</code>.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 2:</strong> Replicate the code shown above to create a default summary table for the <code>States</code> data using the Arsenal package. Be sure to relabel the variables to something relatively understandable and brief. Labeling is tedious but you only need to do it once. You can run the code individually or knit your notebook to preview the table.
+</p>
+</div>
+<p>In three relatively short bits of code, we already have a decent summary table that would have taken excruciatingly long to input manually. But it can be made better.</p>
+<div id="adjustments" class="section level3">
+<h3><span class="header-section-number">19.5.1</span> Adjustments</h3>
+<div id="decimal-digits" class="section level4 unnumbered">
+<h4>Decimal digits</h4>
+<p>The biggest aesthetic issue with this table is including so many decimals. None of these variables have such a small range that rounding to integers masks useful information. Obviously, if a variable only ranges between 0 and 1, we would not want to round to an integer.</p>
+<p>Specifying the number of decimals is quite easy with Arsenal. Because arsenal tries to be as flexible as possible, we have to specify the number of decimals separately for numerical and percentage measures. The following code sets the number of decimals to zero for the gapminder data.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="19-r-description.html#cb62-1"></a>sum.gapminder2 &lt;-<span class="st"> </span><span class="kw">tableby</span>(<span class="op">~</span><span class="st"> </span>continent <span class="op">+</span><span class="st"> </span>gdpPercap <span class="op">+</span><span class="st"> </span>lifeExp <span class="op">+</span><span class="st"> </span>pop, <span class="dt">data =</span> gapminder, <span class="dt">digits =</span> <span class="dv">0</span>, <span class="dt">digits.pct =</span> <span class="dv">0</span>)</span>
+<span id="cb62-2"><a href="19-r-description.html#cb62-2"></a></span>
+<span id="cb62-3"><a href="19-r-description.html#cb62-3"></a><span class="kw">labels</span>(sum.gapminder2) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="dt">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="dt">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="dt">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="19-r-description.html#cb63-1"></a><span class="kw">summary</span>(sum.gapminder2, <span class="dt">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<table>
+<caption>Summary Stats for Gapminder Data</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Overall (N=1704)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Continent</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Africa</td>
+<td align="center">624 (37%)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Americas</td>
+<td align="center">300 (18%)</td>
+</tr>
+<tr class="even">
+<td align="left">   Asia</td>
+<td align="center">396 (23%)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Europe</td>
+<td align="center">360 (21%)</td>
+</tr>
+<tr class="even">
+<td align="left">   Oceania</td>
+<td align="center">24 (1%)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>GDP Per Capita</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Mean (SD)</td>
+<td align="center">7215 (9857)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Range</td>
+<td align="center">241 - 113523</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Life Expectancy</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Mean (SD)</td>
+<td align="center">59 (13)</td>
+</tr>
+<tr class="even">
+<td align="left">   Range</td>
+<td align="center">24 - 83</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Population</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Mean (SD)</td>
+<td align="center">29601212 (106157897)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Range</td>
+<td align="center">60011 - 1318683096</td>
+</tr>
+</tbody>
+</table>
+<div class="learncheck">
+<p>
+<strong>Exercise 3:</strong> Replicate the code shown above to create a summary table for the <code>States</code> data with no decimals. You will need to copy-and-paste the labels code.
+</p>
+</div>
+</div>
+<div id="reporting-median-and-iqr" class="section level4 unnumbered">
+<h4>Reporting median and IQR</h4>
+<p>Instead of the mean and standard deviation, we may want to report the median, first quartile, and third quartile for our numerical variables. We can control the descriptive measures using the following code.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="19-r-description.html#cb64-1"></a>sum.gapminder3 &lt;-<span class="st"> </span><span class="kw">tableby</span>(<span class="op">~</span><span class="st"> </span>continent <span class="op">+</span><span class="st"> </span>gdpPercap <span class="op">+</span><span class="st"> </span>lifeExp <span class="op">+</span><span class="st"> </span>pop, <span class="dt">data =</span> gapminder, <span class="dt">digits =</span> <span class="dv">0</span>, <span class="dt">digits.pct =</span> <span class="dv">0</span>, <span class="dt">numeric.stats =</span> <span class="kw">c</span>(<span class="st">&quot;median&quot;</span>, <span class="st">&quot;q1q3&quot;</span>, <span class="st">&quot;range&quot;</span>))</span>
+<span id="cb64-2"><a href="19-r-description.html#cb64-2"></a></span>
+<span id="cb64-3"><a href="19-r-description.html#cb64-3"></a><span class="kw">labels</span>(sum.gapminder3) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="dt">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="dt">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="dt">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="19-r-description.html#cb65-1"></a><span class="kw">summary</span>(sum.gapminder3, <span class="dt">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<table>
+<caption>Summary Stats for Gapminder Data</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Overall (N=1704)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Continent</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Africa</td>
+<td align="center">624 (37%)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Americas</td>
+<td align="center">300 (18%)</td>
+</tr>
+<tr class="even">
+<td align="left">   Asia</td>
+<td align="center">396 (23%)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Europe</td>
+<td align="center">360 (21%)</td>
+</tr>
+<tr class="even">
+<td align="left">   Oceania</td>
+<td align="center">24 (1%)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>GDP Per Capita</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Median</td>
+<td align="center">3532</td>
+</tr>
+<tr class="odd">
+<td align="left">   Q1, Q3</td>
+<td align="center">1202, 9325</td>
+</tr>
+<tr class="even">
+<td align="left">   Range</td>
+<td align="center">241 - 113523</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Life Expectancy</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Median</td>
+<td align="center">61</td>
+</tr>
+<tr class="odd">
+<td align="left">   Q1, Q3</td>
+<td align="center">48, 71</td>
+</tr>
+<tr class="even">
+<td align="left">   Range</td>
+<td align="center">24 - 83</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Population</strong></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Median</td>
+<td align="center">7023596</td>
+</tr>
+<tr class="odd">
+<td align="left">   Q1, Q3</td>
+<td align="center">2793664, 19585222</td>
+</tr>
+<tr class="even">
+<td align="left">   Range</td>
+<td align="center">60011 - 1318683096</td>
+</tr>
+</tbody>
+</table>
+<div class="learncheck">
+<p>
+<strong>Exercise 4:</strong> Replicate the code shown above to create a summary table for the <code>States</code> data that reports median and the first and third quartiles.
+</p>
+</div>
+</div>
+<div id="across-groups" class="section level4 unnumbered">
+<h4>Across groups</h4>
+<p>Finally, instead of reporting summary statistics for the entire sample, we may want to report them separately for each level of a categorical variable. This is a common way to make comparisons.</p>
+<p>We can have Arsenal report across groups by adding the categorical variable to the left side of the formula in the <code>tableby</code> code. The code below reports the <code>gapminder</code> data across continents. By default, Arsenal tests for correlations across groups and reports a p-value. This is not a common part of a summary table, so I turn this feature off with the <code>test = FALSE</code> within the code below.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="19-r-description.html#cb66-1"></a>sum.gapminder4 &lt;-<span class="st"> </span><span class="kw">tableby</span>(continent <span class="op">~</span><span class="st"> </span>gdpPercap <span class="op">+</span><span class="st"> </span>lifeExp <span class="op">+</span><span class="st"> </span>pop, <span class="dt">data =</span> gapminder, <span class="dt">digits =</span> <span class="dv">0</span>, <span class="dt">digits.pct =</span> <span class="dv">0</span>, <span class="dt">test =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb66-2"><a href="19-r-description.html#cb66-2"></a></span>
+<span id="cb66-3"><a href="19-r-description.html#cb66-3"></a><span class="kw">labels</span>(sum.gapminder4) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="dt">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="dt">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="dt">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="19-r-description.html#cb67-1"></a><span class="kw">summary</span>(sum.gapminder4, <span class="dt">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<table style="width:100%;">
+<caption>Summary Stats for Gapminder Data</caption>
+<colgroup>
+<col width="18%" />
+<col width="12%" />
+<col width="13%" />
+<col width="14%" />
+<col width="13%" />
+<col width="12%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">Africa (N=624)</th>
+<th align="center">Americas (N=300)</th>
+<th align="center">Asia (N=396)</th>
+<th align="center">Europe (N=360)</th>
+<th align="center">Oceania (N=24)</th>
+<th align="center">Total (N=1704)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>GDP Per Capita</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Mean (SD)</td>
+<td align="center">2194 (2828)</td>
+<td align="center">7136 (6397)</td>
+<td align="center">7902 (14045)</td>
+<td align="center">14469 (9355)</td>
+<td align="center">18622 (6359)</td>
+<td align="center">7215 (9857)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Range</td>
+<td align="center">241 - 21951</td>
+<td align="center">1202 - 42952</td>
+<td align="center">331 - 113523</td>
+<td align="center">974 - 49357</td>
+<td align="center">10040 - 34435</td>
+<td align="center">241 - 113523</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Life Expectancy</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Mean (SD)</td>
+<td align="center">49 (9)</td>
+<td align="center">65 (9)</td>
+<td align="center">60 (12)</td>
+<td align="center">72 (5)</td>
+<td align="center">74 (4)</td>
+<td align="center">59 (13)</td>
+</tr>
+<tr class="even">
+<td align="left">   Range</td>
+<td align="center">24 - 76</td>
+<td align="center">38 - 81</td>
+<td align="center">29 - 83</td>
+<td align="center">44 - 82</td>
+<td align="center">69 - 81</td>
+<td align="center">24 - 83</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Population</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">   Mean (SD)</td>
+<td align="center">9916003 (15490923)</td>
+<td align="center">24504795 (50979430)</td>
+<td align="center">77038722 (206885205)</td>
+<td align="center">17169765 (20519438)</td>
+<td align="center">8874672 (6506342)</td>
+<td align="center">29601212 (106157897)</td>
+</tr>
+<tr class="odd">
+<td align="left">   Range</td>
+<td align="center">60011 - 135031164</td>
+<td align="center">662850 - 301139947</td>
+<td align="center">120447 - 1318683096</td>
+<td align="center">147962 - 82400996</td>
+<td align="center">1994794 - 20434176</td>
+<td align="center">60011 - 1318683096</td>
+</tr>
+</tbody>
+</table>
+<div class="learncheck">
+<p>
+<strong>Exercise 5:</strong> Replicate the code shown above to create a summary table for the <code>States</code> data that reports across regions.
+</p>
+</div>
+</div>
+</div>
+<div id="export-to-csv" class="section level3">
+<h3><span class="header-section-number">19.5.2</span> Export to CSV</h3>
+<p>Knitting your notebook to HTML, Word, or PDF should produce a summary table in the appropriate format. Depending on our or others’ workflow, we may want to export our summary table to CSV in order to easily open in Excel or other spreadsheet software. Arsenal can easily handle this.</p>
+<p>To export my <code>gapminder</code> summary to CSV, I need to create a new object that contains the actual summary table. Below, I save the last summary to the object named <code>sum.table</code>.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="19-r-description.html#cb68-1"></a>sum.table &lt;-<span class="st"> </span><span class="kw">summary</span>(sum.gapminder4, <span class="dt">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<p>Next, I need to convert this table into a data frame using the <code>as.data.frame()</code> function like so.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="19-r-description.html#cb69-1"></a>sum.table &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(sum.table)</span></code></pre></div>
+<p>Lastly, I just need to save this data frame as a CSV file using the <code>write.csv()</code> function like so.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="19-r-description.html#cb70-1"></a><span class="kw">write.csv</span>(sum.table, <span class="dt">file =</span> <span class="st">&quot;sumtable.csv&quot;</span>)</span></code></pre></div>
+<p>R will save the CSV file to my project folder. Otherwise, R will save the file to my current working directory.</p>
+</div>
+</div>
+<div id="submit-3" class="section level2">
+<h2><span class="header-section-number">19.6</span> Submit</h2>
+<p>Arsenal has many more options. The help page and links to tutorials can help you generate various types of summary tables.</p>
+<p>Submit your notebook to eLC.</p>
 
 </div>
 </div>
@@ -494,8 +896,8 @@ This is a companion resource for PADP 7120: Data Applications in Public Administ
           </div>
         </div>
       </div>
-
-<a href="1-intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="18-r-missing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="20-r-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

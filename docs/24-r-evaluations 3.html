@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Applications in Public Administration</title>
+  <title> 24 R Evaluations | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data Applications in Public Administration" />
+  <meta property="og:title" content=" 24 R Evaluations | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alex-combs/data-apps-text" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 24 R Evaluations | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-intro.html"/>
+<link rel="prev" href="23-r-nonlinear-regression.html"/>
+<link rel="next" href="25-r-regression-diagnostics.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,67 +425,165 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Applications in Public Administration</h1>
-<h2 class="subtitle"><em>Using R to Learn Concepts and Skills</em></h2>
-<p class="author"><em>Alex Combs</em></p>
-<p class="date"><em>Last updated on 09 July 2020</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div class="announcement">
-<p>
-<strong>Disclaimer</strong>
-</p>
-<p>
-This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
-</p>
-</div>
-<p>This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes unfeasible, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. In general, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.</p>
-<div id="objective" class="section level3 unnumbered">
-<h3>Objective</h3>
-<p>The objective of this book is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical software. It aims to simultaneously teach students key concepts in statistics and applications of those concepts using R.</p>
-<p>This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.</p>
-</div>
-<div id="style" class="section level3 unnumbered">
-<h3>Style</h3>
-<p>Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained.</p>
-<p>Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.</p>
-</div>
-<div id="structure" class="section level3 unnumbered">
-<h3>Structure</h3>
-<p>This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the <code>R Data</code> chapter corresponds to the <code>Data</code> chapter in the first track.</p>
-<p>The conceptual track is divided into four sections:</p>
-<ol style="list-style-type: decimal">
-<li>Data and description</li>
-<li>Regression models</li>
-<li>Inference</li>
-<li>Advanced topics</li>
-</ol>
-<p>Each chapter begins with learning objectives and ends with supplemental resources, such as additional readings or opportunities to practice using R.</p>
-</div>
-<div id="software-requirements" class="section level3 unnumbered">
-<h3>Software requirements</h3>
-<p>This book provides examples and exercises using R. Students who intend to use a personal computer must download and install the following software:</p>
+<div id="r-evaluations" class="section level1">
+<h1><span class="header-section-number"> 24</span> R Evaluations</h1>
+<div id="learning-outcomes" class="section level2">
+<h2><span class="header-section-number">24.1</span> Learning Outcomes</h2>
+<p>In this chapter, you will learn how to:</p>
 <ul>
-<li><a href="https://cloud.r-project.org">R</a></li>
-<li><a href="https://rstudio.com/products/rstudio/download/">RStudio</a></li>
+<li>Conduct a chi-square test</li>
+<li>Conduct an independent t-test</li>
 </ul>
 </div>
-<div id="supplemental-resources" class="section level3 unnumbered">
-<h3>Supplemental resources</h3>
-<p>There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.</p>
+<div id="set-up-7" class="section level2">
+<h2><span class="header-section-number">24.2</span> Set-up</h2>
+<p>To complete this chapter, you need to</p>
 <ul>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a> by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr</li>
-<li><a href="https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition">Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition</a> by Hank Jenkins-Smith and Joseph Ripberger</li>
-<li><a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham</li>
-<li><a href="https://moderndive.com/index.html">Statistical Inference via Data Science</a> by Chester Ismay and Albert Y. Kim</li>
-<li><a href="https://www.khanacademy.org/math/statistics-probability">Kahn Academy: Statistics and probability</a></li>
-<li><a href="https://socviz.co/index.html#preface">Data Visualization: A practical introduction</a> by Kieran Healy</li>
-<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown from RStudio</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
-<li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
+<li>Open a script</li>
+<li>Load the following packages</li>
 </ul>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="24-r-evaluations.html#cb108-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb108-2"><a href="24-r-evaluations.html#cb108-2"></a><span class="kw">library</span>(carData)</span>
+<span id="cb108-3"><a href="24-r-evaluations.html#cb108-3"></a><span class="kw">library</span>(MASS)</span></code></pre></div>
+<p>For the chi-square test, we will use the <code>MplsStops</code> dataset within the <code>carData</code> package. For the t-tests, we will use the <code>UScrime</code> dataset within the <code>MASS</code> package. Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.</p>
+</div>
+<div id="chi-square-test-1" class="section level2">
+<h2><span class="header-section-number">24.3</span> Chi-square test</h2>
+<p>A chi-square test, like the one demonstrated in Chapter <a href="11-surveys-and-evaluations.html#surveys-and-evaluations">11</a>, requires two steps:</p>
+<ul>
+<li>Create a cross-tabulation table using the <code>table</code> function</li>
+<li>Run the chi-square on the cross-tabulation using the <code>chisq.test</code> function</li>
+</ul>
+<div id="cross-tab" class="section level3">
+<h3><span class="header-section-number">24.3.1</span> Cross-tab</h3>
+<p>Below is the code used to produce the cross-tab from Chapter <a href="11-surveys-and-evaluations.html#surveys-and-evaluations">11</a>. I save the new table as <code>polltable</code>. Using the <code>table</code> function, I tell R which two variables from the <code>poll</code> dataset to cross-tabulate. The <code>$</code> is how we identify a specific variable within a dataset. The levels of the first variable, <code>response</code>, will be tabulated by row, while the frequency of the levels of the second variable, <code>party</code>, will be tabulated by column.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="24-r-evaluations.html#cb109-1"></a>polltable &lt;-<span class="st"> </span><span class="kw">table</span>(poll<span class="op">$</span>response, poll<span class="op">$</span>party)</span></code></pre></div>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-181">Table 24.1: </span>Response by political party
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Republican
+</th>
+<th style="text-align:right;">
+Democrat
+</th>
+<th style="text-align:right;">
+Independent
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Apply for citizenship
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+101
+</td>
+<td style="text-align:right;">
+120
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Guest worker
+</td>
+<td style="text-align:right;">
+121
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+113
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Leave the country
+</td>
+<td style="text-align:right;">
+179
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+126
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="run-chi-square" class="section level3">
+<h3><span class="header-section-number">24.3.2</span> Run chi-square</h3>
+<p>Now that we have a cross-tabulation table, we can run the chi-square test. The code below demonstrates how.</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="24-r-evaluations.html#cb110-1"></a><span class="kw">chisq.test</span>(immigration_poll)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  immigration_poll
+## X-squared = 100.95, df = 4, p-value &lt; 0.00000000000000022</code></pre>
+<p>Then, it is simply a matter of interpreting the results.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 1:</strong> Using the <code>MplsStops</code> data, suppose we wanted to test whether receiving a citation after being stopped by the police, <code>citationIssued</code>, is independent of <code>race.</code> Both are nominal variables, so a chi-square test can be used. Run this chi-square test.
+</p>
+</div>
+<div class="learncheck">
+<p>
+<strong>Exercise 2:</strong> Are the two variables independent? Why?
+</p>
+</div>
+</div>
+</div>
+<div id="t-tests" class="section level2">
+<h2><span class="header-section-number">24.4</span> T-tests</h2>
+<p>To reiterate, if the two groups in a t-test are comprised of different subjects, we use an independent t-test. If they are comprised of the same subjects, then we use a dependent t-test.</p>
+<div id="independent-t-test" class="section level3">
+<h3><span class="header-section-number">24.4.1</span> Independent t-test</h3>
+<p>The code below demonstrates how the independent t-test from Chapter <a href="11-surveys-and-evaluations.html#surveys-and-evaluations">11</a> was conducted. The <code>t.test</code> function works a lot like the <code>lm</code> function in that the outcome is entered first, then we input the variable that identifies the groups, which is essentially an explanatory variable. The two variables are separated by <code>~</code>. Then, we tell R which dataset to use, which is called <code>jobtrain</code> in this case.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="24-r-evaluations.html#cb112-1"></a><span class="kw">t.test</span>(earnings <span class="op">~</span><span class="st"> </span>treatment, <span class="dt">data =</span> jobtrain)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  earnings by treatment
+## t = -1.1921, df = 275.58, p-value = 0.2342
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -11629.708   2856.939
+## sample estimates:
+## mean in group 0 mean in group 1 
+##        21645.10        26031.49</code></pre>
+<div class="learncheck">
+<p>
+<strong>Exercise 3:</strong> Using the <code>UScrimes</code> data, suppose we wanted to test whether the probability of imprisonment, <code>Prob</code>, is independent of between Southern and non-Southern states, <code>So</code>. The outcome is numerical and the explanatory is nominal. Therefore, a t-test can be used. Run this t-test.
+</p>
+</div>
+<div class="learncheck">
+<p>
+<strong>Exercise 4:</strong> Is there an association between the two variables? Why?
+</p>
+</div>
+</div>
+<div id="dependent-t-test" class="section level3">
+<h3><span class="header-section-number">24.4.2</span> Dependent t-test</h3>
+<p>To conduct a dependent t-test, add the option <code>paired=TRUE</code> inside the <code>t.test</code> code like so</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="24-r-evaluations.html#cb114-1"></a><span class="kw">t.test</span>(earnings <span class="op">~</span><span class="st"> </span>treatment, <span class="dt">data =</span> jobtrain, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p>However, this code will not work because the number of observations in the treatment and control groups are not equal. If we truly had a paired sample where the same subjects measured twice, then we should have the same number of observations in both groups.</p>
+</div>
+</div>
+<div id="submit-8" class="section level2">
+<h2><span class="header-section-number">24.5</span> Submit</h2>
+<p>Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.</p>
 
 </div>
 </div>
@@ -494,8 +592,8 @@ This is a companion resource for PADP 7120: Data Applications in Public Administ
           </div>
         </div>
       </div>
-
-<a href="1-intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="23-r-nonlinear-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="25-r-regression-diagnostics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Applications in Public Administration</title>
+  <title> 12 Regression Inference | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data Applications in Public Administration" />
+  <meta property="og:title" content=" 12 Regression Inference | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alex-combs/data-apps-text" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 12 Regression Inference | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-intro.html"/>
+<link rel="prev" href="11-surveys-and-evaluations.html"/>
+<link rel="next" href="13-regression-diagnostics.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,67 +425,213 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Applications in Public Administration</h1>
-<h2 class="subtitle"><em>Using R to Learn Concepts and Skills</em></h2>
-<p class="author"><em>Alex Combs</em></p>
-<p class="date"><em>Last updated on 09 July 2020</em></p>
+<div id="regression-inference" class="section level1">
+<h1><span class="header-section-number"> 12</span> Regression Inference</h1>
+<blockquote>
+<p><em>“One out of every four people is suffering from some form of mental illness. Check three friends. If they’re OK, then it’s you.”</em></p>
+<p>—Rita Mae Brown</p>
+</blockquote>
+<p>We can now apply our knowledge of inference to fully understand all of our regression results and extend our results to other questions. First, this chapter explains each column in a regression table as well as how to test additional hypotheses that standard regression results do not answer by default. Then, while inference is used to identify statistical significance, that does not necessarily mean our results are <em>practically</em> significant. This chapter ends with how to determine the latter.</p>
+<div id="regression-table" class="section level2">
+<h2><span class="header-section-number">12.1</span> Regression table</h2>
+<p>Chapters <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a>, <a href="7-categorical-variables-and-interactions.html#categorical-variables-and-interactions">7</a>, and <a href="8-nonlinear-variables.html#nonlinear-variables">8</a> presented numerous regression tables. These tables included the standard set of results that statistical programs provide by default. Below is one of the tables from Chapter <a href="7-categorical-variables-and-interactions.html#categorical-variables-and-interactions">7</a> for a regression to explain traffic fatalities as a function of miles driven and U.S. region.</p>
+<table>
+<caption>
+<span id="tab:extable">Table 12.1: </span>Parallel slopes for regions
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std_error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p_value
+</th>
+<th style="text-align:right;">
+lower_ci
+</th>
+<th style="text-align:right;">
+upper_ci
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+intercept
+</td>
+<td style="text-align:right;">
+0.260
+</td>
+<td style="text-align:right;">
+0.167
+</td>
+<td style="text-align:right;">
+1.553
+</td>
+<td style="text-align:right;">
+0.121
+</td>
+<td style="text-align:right;">
+-0.069
+</td>
+<td style="text-align:right;">
+0.589
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vmiles
+</td>
+<td style="text-align:right;">
+0.188
+</td>
+<td style="text-align:right;">
+0.021
+</td>
+<td style="text-align:right;">
+8.895
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.147
+</td>
+<td style="text-align:right;">
+0.230
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+regionN. East
+</td>
+<td style="text-align:right;">
+-0.076
+</td>
+<td style="text-align:right;">
+0.065
+</td>
+<td style="text-align:right;">
+-1.166
+</td>
+<td style="text-align:right;">
+0.245
+</td>
+<td style="text-align:right;">
+-0.204
+</td>
+<td style="text-align:right;">
+0.052
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+regionSouth
+</td>
+<td style="text-align:right;">
+0.519
+</td>
+<td style="text-align:right;">
+0.056
+</td>
+<td style="text-align:right;">
+9.283
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.409
+</td>
+<td style="text-align:right;">
+0.630
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+regionWest
+</td>
+<td style="text-align:right;">
+0.641
+</td>
+<td style="text-align:right;">
+0.062
+</td>
+<td style="text-align:right;">
+10.264
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.518
+</td>
+<td style="text-align:right;">
+0.763
+</td>
+</tr>
+</tbody>
+</table>
+<p>We have covered how to interpret the <code>estimate</code> column at length. This value is the sample estimate of our unobserved population parameter. Provided our model is unbiased, and because of the Central Limit Theorem, we assume that the value of our estimate was drawn from a sampling distribution that is approximately normal and a mean equal to the population parameter. We assume our estimate is the mean of that sampling distribution. For example, in Table <a href="12-regression-inference.html#tab:extable">12.1</a>, it is assumed the estimate for <code>vmiles</code> of 0.188 represents the mean of an unobserved sampling distribution comprised of numerous estimates for <code>vmiles</code> that would be obtained if we repeated the regression using numerous samples.</p>
+<p>The <code>std-error</code> column is the standard error of the regression estimate (aka coefficient) in the same row. This value is an approximation of the standard deviation of the sampling distribution from which the estimate was drawn. For example, the standard error for <code>vmiles</code> of 0.021 represents the standard deviation of its sampling distribution.</p>
+<p>We know the true population parameter is highly unlikely to exactly equal our estimate but is expected to fall somewhere within our sampling distribution. With our estimate assumed to be the center of the normal sampling distribution and the standard error its standard deviation, we can apply the 68-95-99 rule to construct a range of values that represent a percentage of the estimates within the sampling distribution. The common choices are 95% and 99%, with 95% being the default in statistical programs.</p>
+<p>The <code>lower_ci</code> and <code>upper_ci</code> columns provide the 95% confidence interval. This range represents our best guess of the plausible values for the unobserved population parameter. The population parameter either falls within our confidence interval or it does not. There is <em>not</em> a 95% probability that the parameter falls within our confidence interval. Rather, it is one range that if we were to repeat the analysis many times using different samples to construct many confidence intervals, we expect 95% of those ranges to successfully capture the population parameter. Therefore, the population parameter is no more likely to equal our estimate as it is to equal any value within our confidence interval.</p>
+<p>The values for the confidence interval are obtained by subtracting and adding 1.96 standard errors from the estimate. In Table <a href="12-regression-inference.html#tab:extable">12.1</a>, the 95% confidence interval for <code>vmiles</code> is 0.147 (<span class="math inline">\(0.188-2\times 0.021\)</span>) to 0.230 (<span class="math inline">\(0.188+2\times 0.021\)</span>). If we were to repeat this regression 20 or 100 times, we would expect 19 or 95 of the resulting confidence intervals to capture the population parameter for <code>vmiles</code>. Understanding this chosen rate of success/failure, 0.147-0.230 is our best guess of the range of plausible values for the true response in traffic fatalities to the average number of miles driven. It is just as likely that this true population parameter equals 0.147 or 0.230 as it is to equal 0.188.</p>
+<p>The <code>statistic</code> and <code>p_value</code> columns concern hypothesis testing. As a reminder, the regression model that produced Table <a href="12-regression-inference.html#tab:extable">12.1</a> was</p>
+<p><span class="math display" id="eq:exmodel">\[\begin{equation}
+mrall = \beta_0 + \beta_1vmiles + \beta_2region + \epsilon
+\tag{12.1}
+\end{equation}\]</span></p>
+<p>where <code>mrall</code> is the number of traffic fatalities in a state per 10,000 population.</p>
+<p>If the purpose of our regression is to <em>explain</em> traffic fatalities, then the inclusion of <code>vmiles</code> and <code>region</code> implies a research question along the lines of “Do distances driven and region in a state affect traffic fatalities?” Therefore, our regression model sets out to test whether <code>vmiles</code> and <code>region</code> has a statistically significant effect on <code>mrall</code>.</p>
+<p>The standard null hypothesis for a regression model is no effect, or</p>
+<p><span class="math inline">\(H_0: \beta=0\)</span></p>
+<p>and the alternative hypothesis is</p>
+<p><span class="math inline">\(H_A: \beta \neq 0\)</span></p>
+<p>for each of the explanatory variables we include in the model. As we now know, our results will lead us to either reject the null hypothesis or fail to reject the null hypothesis for each explanatory variable.</p>
+<p>If the null distribution were actually true, <span class="math inline">\(\beta=0\)</span>, for any of our explanatory variables, then its sampling distribution <em>should</em> be centered at 0, not centered at the value of our estimate. For example, if <span class="math inline">\(\beta_1=0\)</span> for <code>vmiles</code>, then its sampling distribution should have a mean of 0, not 0.188. This alternative distribution if the null were true is referred to as the <strong>null distribution</strong>. Just like the sampling distribution, we assume the null distribution is approximately normal.</p>
+<p>The <code>statistic</code> and <code>p_value</code> columns answer the following question: “If the null for my explanatory variable were true, thus my estimate having a null distribution with a mean equal to zero and a standard deviation equal to the standard error of my estimate, how likely is it that I got the estimate I got?”</p>
+<p>Specifically, the <code>statistic</code> column equals how many standard deviations or standard errors our estimate is away from the center of the null distribution, zero. The value is equal to the <code>estimate</code> divided by the <code>std_error</code>. For example, the estimate for <code>vmiles</code> is 8.895 standard errors away from 0 (<span class="math inline">\(\frac {0.188}{0.021}\)</span>). Assuming the null distribution is normal, how likely is it for us to get this estimate or one further away from 0 if the null were true? This is what the <code>p_value</code> provides us. If only 5% of the values in a normal distribution lie 3 standard deviations from the center, then an extremely small percentage of values must lie almost 9 standard deviations from the center. This is why the p-value for <code>vmiles</code> rounds to zero.</p>
+<p>Supposing we chose a 5% significance level prior to running the regression, our p-value for <code>vmiles</code> is statistically significant, meaning we reject the null hypothesis that <span class="math inline">\(\beta_1=0\)</span>. In other words, there is statistically significant evidence that the average number of miles driven by each driver in a state is associated (perhaps causes) with an increase in the state’s traffic fatality rate.</p>
+<p>Since <code>region</code> is a nominal variable with four categories, it results in three estimates as if each level was a separate dummy variable equal to 1 if a state is in that region and 0 otherwise. The three regions in Table <a href="12-regression-inference.html#tab:extable">12.1</a> are compared to the excluded region, Midwest. The null hypothesis is that there is no difference between the Midwest and another region of focus. Let us first focus on states in the West. On average, the traffic fatality rate for states in the West is 0.64 higher than states in the Midwest. The p-value is below 0.05, thus we can reject the null hypothesis and report this result as statistically significant.</p>
+<p>By contrast, the traffic fatality rate for states in the Northeast is 0.08 less than states in the Midwest. However, the p-value is greater than 0.05. Therefore, we fail to reject the null hypothesis, meaning we cannot conclude with reasonable confidence that <span class="math inline">\(\beta_{Northeast} \neq 0\)</span>.</p>
+<p>Note that every estimate for which the p-value is less than 0.05, its confidence interval does not contain zero. These two parts of the table will always agree because they answer the same question from slightly different angles. If we choose a 95% confidence interval as our best guess of the plausible ranges for the population parameter, and that interval does not contain 0, then we must have obtained an estimate that, if the null were true, is so far away from 0 that the likelihood of getting it is less than 5%. Had we chosen a 99% confidence interval, or 1% significance level, then for any interval that does not contain 0 the corresponding p-value is less than 0.01.</p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div class="announcement">
-<p>
-<strong>Disclaimer</strong>
-</p>
-<p>
-This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
-</p>
+<div id="other-hypotheses" class="section level2">
+<h2><span class="header-section-number">12.2</span> Other hypotheses</h2>
+<p>By default, the standard regression table addresses hypothesis tests of the form <span class="math inline">\(H_0: \beta=0\)</span> and <span class="math inline">\(H_A: \beta \neq 0\)</span>. If our null hypothesis is <span class="math inline">\(\beta\)</span> equals something other than 0, then we need to be careful because the <code>statistic</code> and <code>p_value</code> columns do not apply. However, the confidence interval can still be used. If the confidence interval does not contain the value used for our null hypothesis, then we can conclude with our chosen level of confidence that the population parameter does not equal that value.</p>
+<p>Comparing different levels within a categorical variable is slightly more complicated. In Table <a href="12-regression-inference.html#tab:extable">12.1</a>, we can conclude that states in the South and West are different than states in the Midwest, and we cannot conclude states in the Northeast are different than states in the Midwest. But, what if we wanted to compare states in the South to states in the West, or Northeast to South? Our regression and our results were not set-up to make such comparisons.</p>
+<p>A quick and dirty way to make various comparisons across levels is to examine their confidence intervals. If the confidence intervals do not overlap or do not come close to overlapping, then we can be reasonably certain the population parameters for the two levels are not equal to each other. For example, the <code>upper_ci</code> for Northeast is 0.052 and the <code>lower_ci</code> for South is 0.4. The two intervals are separated by multiple standard errors. Therefore, it is probably safe to conclude they are different. By contrast, the confidence intervals for South and West overlap substantially. Therefore, it is not safe to conclude that South and West are different. Alternatively, we can tell our statistical software to exclude a specific level, thereby allowing us to test our hypothesis without the guesswork. Setting the reference level is covered in this chapter’s corresponding R chapter.</p>
+<p>Finally, every regression result includes a global hypothesis test of the form</p>
+<p><span class="math inline">\(H_0: \beta_0 = \beta_1 = \cdots = \beta_k = 0\)</span></p>
+<p><span class="math inline">\(H_A\)</span>: at least one <span class="math inline">\(\beta \neq 0\)</span>.</p>
+<p>Keep in mind that all of our conclusions our probabilistic. There is always a chance of Type I and Type II error. Since the hypothesis test assumes a sampling distribution for each explanatory variable, each explanatory variable we add is like taking an additional sample from some underlying population relevant to our regression. At 95% confidence, we <em>expect</em> 1 out of every 20 intervals to fail at capturing the parameter, such as not including zero when the parameter is truly zero. The global hypothesis test above is a way of testing whether we got a significant result due to the random chance that 1 out of every 20 explanatory variables can be expected to be significant even if the null were true. This global hypothesis test is commonly referred to as an <strong>F-test</strong>. Its use and interpretation is covered in the R Chapter.</p>
 </div>
-<p>This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes unfeasible, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. In general, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.</p>
-<div id="objective" class="section level3 unnumbered">
-<h3>Objective</h3>
-<p>The objective of this book is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical software. It aims to simultaneously teach students key concepts in statistics and applications of those concepts using R.</p>
-<p>This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.</p>
-</div>
-<div id="style" class="section level3 unnumbered">
-<h3>Style</h3>
-<p>Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained.</p>
-<p>Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.</p>
-</div>
-<div id="structure" class="section level3 unnumbered">
-<h3>Structure</h3>
-<p>This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the <code>R Data</code> chapter corresponds to the <code>Data</code> chapter in the first track.</p>
-<p>The conceptual track is divided into four sections:</p>
-<ol style="list-style-type: decimal">
-<li>Data and description</li>
-<li>Regression models</li>
-<li>Inference</li>
-<li>Advanced topics</li>
-</ol>
-<p>Each chapter begins with learning objectives and ends with supplemental resources, such as additional readings or opportunities to practice using R.</p>
-</div>
-<div id="software-requirements" class="section level3 unnumbered">
-<h3>Software requirements</h3>
-<p>This book provides examples and exercises using R. Students who intend to use a personal computer must download and install the following software:</p>
+<div id="practical-significance" class="section level2">
+<h2><span class="header-section-number">12.3</span> Practical significance</h2>
+<p>It is easy to lose sight of the forest for the trees when focusing on statistical significance. Just because we find a statistically significant relationship does not mean that relationship is practically significant or economically meaningful. Also, obtaining insignificant results does not necessarily mean you have results that are not important or worth reporting. Such distinctions between statistical and practical significance require an analyst or manager to have a broader sense of the underlying data and the context of the results.</p>
+<p>After obtaining our results, asking ourselves three questions can help determine if our results are practically significant:</p>
 <ul>
-<li><a href="https://cloud.r-project.org">R</a></li>
-<li><a href="https://rstudio.com/products/rstudio/download/">RStudio</a></li>
+<li>What is the typical change in the explanatory variable associated with the statistically significant estimate?</li>
+<li>Is the predicted change in the outcome due to a typical change in the explanatory variable negligible or meaningful?</li>
+<li>If the explanatory variable is statistically significant, is its confidence interval so close to zero that using the upper or lower bound instead of the midpoint estimate would make the predicted change in the outcome negligible? If the explanatory variable is statistically insignificant, is its confidence interval so closely around zero that the entire range of plausible values of the parameter would lead to a negligible change in the outcome?</li>
 </ul>
-</div>
-<div id="supplemental-resources" class="section level3 unnumbered">
-<h3>Supplemental resources</h3>
-<p>There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.</p>
-<ul>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a> by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr</li>
-<li><a href="https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition">Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition</a> by Hank Jenkins-Smith and Joseph Ripberger</li>
-<li><a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham</li>
-<li><a href="https://moderndive.com/index.html">Statistical Inference via Data Science</a> by Chester Ismay and Albert Y. Kim</li>
-<li><a href="https://www.khanacademy.org/math/statistics-probability">Kahn Academy: Statistics and probability</a></li>
-<li><a href="https://socviz.co/index.html#preface">Data Visualization: A practical introduction</a> by Kieran Healy</li>
-<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown from RStudio</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
-<li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
-</ul>
+<p>The estimate in our regression table conveys the predicted change in the outcome given a 1-unit or percent change in the explanatory variable. Referring back to Table <a href="12-regression-inference.html#tab:extable">12.1</a>, as the average number of miles driven per driver increases by one mile, traffic fatality rate increases 0.188 per 10,000. Is a one-mile increase a realistic change in the average distances driven per driver? Is one mile representative of its typical variation?</p>
+<p>How do we get a sense of what is a typical change in the explanatory variable? The standard deviation of a variable tells us the average deviation from the variable’s mean. For example, the standard deviation of <code>vmiles</code> is 1.1, so a typical change in <code>vmiles</code> is quite close to one unit. Based on the estimate for <code>vmiles</code>, a 1.1 unit change is predicted to change the traffic fatality rate by 0.21 (<span class="math inline">\(0.188 \times 1.1\)</span>).</p>
+<p>Next, is a predicted change of 0.21 in the traffic fatality rate negligible or meaningful? Again, we can use descriptive measures to answer this question. The mean traffic fatality rate is 2.0 and its standard deviation is 0.6. Thus, the predicted change in <code>mrall</code> from a typical change in <code>vmiles</code> is about 10% of the mean and about one-third a standard deviation. Given the typical variation in traffic fatality rate is 0.6, is a change of 0.2 negligible or meaningful? This is where professional judgment and context plays a role, as there is no universal rule to determine what is a meaningful effect. Since the context is something as consequential as fatalities, perhaps any change is practically significant.</p>
+<p>Lastly, since the population parameter is just as likely to equal any value in the confidence interval as it is the estimate, we should check if the lower or upper bound of the confidence interval changes our answer regarding practical significance. Since the result for <code>vmiles</code> is positive, we should focus on how close the lower bound is to zero. The lower bound for <code>vmiles</code> equals 0.147. Repeating the calculations above using the lower bound indicates that a typical change of 1.1 in <code>vmiles</code> predicts a change in <code>mrall</code> of 0.16, which is about 8% of the mean fatality rate and one-fourth its standard deviation. Does this represent a negligible or meaningful change? Again, professional judgment and context is required.</p>
+<p>Students of statistics are taught to focus so much on the estimate and statistical significance that they understandably get the impression that insignificance implies the results are useless. This is not necessarily the case. Once again, the confidence interval is helpful to determine whether statistically insignificant results are still practically significant.</p>
+<p>Suppose the p-value for <code>vmiles</code> was equal to or greater than 0.05, thus leading us to fail to reject the null hypothesis. This would also mean that our 95% confidence interval contains 0. Whether the results are still useful depends on the precision of the confidence interval around 0 relative to what we consider a meaningful change in the fatality rate given a typical change in <code>vmiles</code>. For instance, if the confidence interval ranged between -10 and 10, then our best guess for the effect ranges between substantially negative to positive or possibly no effect. This sort of imprecision is useless. However, what if the confidence interval was -0.01 to 0.01? Then, assuming a change of 0.01 in the fatality rate is negligible, we could conclude the effect of <code>vmiles</code> is negligible with a reasonable level of confidence despite failing to reject the null hypothesis.</p>
 
 </div>
 </div>
@@ -494,8 +640,8 @@ This is a companion resource for PADP 7120: Data Applications in Public Administ
           </div>
         </div>
       </div>
-
-<a href="1-intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="11-surveys-and-evaluations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="13-regression-diagnostics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

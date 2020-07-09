@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Applications in Public Administration</title>
+  <title> 9 Causation and Bias | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data Applications in Public Administration" />
+  <meta property="og:title" content=" 9 Causation and Bias | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alex-combs/data-apps-text" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 9 Causation and Bias | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-intro.html"/>
+<link rel="prev" href="8-nonlinear-variables.html"/>
+<link rel="next" href="10-sampling.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,77 +425,207 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Applications in Public Administration</h1>
-<h2 class="subtitle"><em>Using R to Learn Concepts and Skills</em></h2>
-<p class="author"><em>Alex Combs</em></p>
-<p class="date"><em>Last updated on 09 July 2020</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div class="announcement">
-<p>
-<strong>Disclaimer</strong>
-</p>
-<p>
-This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
-</p>
-</div>
-<p>This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes unfeasible, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. In general, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.</p>
-<div id="objective" class="section level3 unnumbered">
-<h3>Objective</h3>
-<p>The objective of this book is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical software. It aims to simultaneously teach students key concepts in statistics and applications of those concepts using R.</p>
-<p>This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.</p>
-</div>
-<div id="style" class="section level3 unnumbered">
-<h3>Style</h3>
-<p>Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained.</p>
-<p>Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.</p>
-</div>
-<div id="structure" class="section level3 unnumbered">
-<h3>Structure</h3>
-<p>This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the <code>R Data</code> chapter corresponds to the <code>Data</code> chapter in the first track.</p>
-<p>The conceptual track is divided into four sections:</p>
-<ol style="list-style-type: decimal">
-<li>Data and description</li>
-<li>Regression models</li>
-<li>Inference</li>
-<li>Advanced topics</li>
-</ol>
-<p>Each chapter begins with learning objectives and ends with supplemental resources, such as additional readings or opportunities to practice using R.</p>
-</div>
-<div id="software-requirements" class="section level3 unnumbered">
-<h3>Software requirements</h3>
-<p>This book provides examples and exercises using R. Students who intend to use a personal computer must download and install the following software:</p>
+<div id="causation-and-bias" class="section level1">
+<h1><span class="header-section-number"> 9</span> Causation and Bias</h1>
+<blockquote>
+<p><em>“All models are wrong but some are useful.”</em></p>
+<p>—George Box</p>
+</blockquote>
+<p>Our regression toolbox has grown considerably over the previous three chapters. We can now set out to answer a multitude of research questions that require us to accommodate different types of variables that may share linear or nonlinear relationships. Nevertheless, a model is a simplified version of our complex world. In this sense, all models are wrong. The goal is to make modeling choices that prevent our model from being <em>so</em> wrong that they are useless for decision-making.</p>
+<p>First, let’s consider the two possible goals of regression:</p>
 <ul>
-<li><a href="https://cloud.r-project.org">R</a></li>
-<li><a href="https://rstudio.com/products/rstudio/download/">RStudio</a></li>
+<li><strong>Explain</strong> the change in an outcome due to a change in a set of explanatory variables</li>
+<li><strong>Predict</strong> the value of an outcome given values for a set of explanatory variables</li>
 </ul>
+<p>The usefulness of a model with the sole goal of prediction is how well it predicts the outcome. That may sound obvious and cyclical but it is an important point. Which variables we choose to include and their linear or nonlinear relationships is a secondary concern of prediction, if at all. If we don’t care <em>how</em> variables affect the outcome and only care about predicting the outcome with the greatest accuracy and precision possible, then we can throw together whatever model we want to achieve that without much concern for what the model actually means.</p>
+<p>Models with the goal of prediction are common within the field of forecasting, which will be introduced in Chapter <a href="#time-series"><strong>??</strong></a>. Sometimes, we care about good prediction and <em>how</em> some explanatory variables impact the outcome. Then we are back in the realm of explanation where we have to take special care about which variables are included and excluded from our model as well as how they relate with each other.</p>
+<p>The focus of this chapter is explanation using regression. Many scenarios within program evaluation or policy analysis involve explaining whether and to what extent one variable impacts another we care about changing. Ultimately, our concern is causality. It is one thing to conclude two variables are associated with each other; it is an entirely different thing to conclude that a change in one variable <em>causes</em> the other to change. If we propose to spend millions of dollars on a program to help people, or decide to cut a program that does not, we should be as certain as about this causal claim as statistics allows us to be.</p>
+<p>Sufficient understanding of causality or causal inference warrants its own course. It does not involve regression models that much different from what you have learned so far or will learn by the end of this book, but it does involve a broader and deeper understanding of research design and knowing how to identify threats to internal and external validity. Let us revisit the figure of credible analysis first shown in Chapter <a href="3-measurement-and-missing.html#measurement-and-missing">3</a>.</p>
+<center>
+<div class="figure"><span id="fig:credfigrepeat"></span>
+<img src="images/credible.png" alt="Components of credible analysis" width="489" />
+<p class="caption">
+Figure 9.1: Components of credible analysis
+</p>
 </div>
-<div id="supplemental-resources" class="section level3 unnumbered">
-<h3>Supplemental resources</h3>
-<p>There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.</p>
+</center>
+<p>Chapter <a href="3-measurement-and-missing.html#measurement-and-missing">3</a> covered measurement validity and measurement reliability. Now, let us define internal validity and external reliability.</p>
 <ul>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a> by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr</li>
-<li><a href="https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition">Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition</a> by Hank Jenkins-Smith and Joseph Ripberger</li>
-<li><a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham</li>
-<li><a href="https://moderndive.com/index.html">Statistical Inference via Data Science</a> by Chester Ismay and Albert Y. Kim</li>
-<li><a href="https://www.khanacademy.org/math/statistics-probability">Kahn Academy: Statistics and probability</a></li>
-<li><a href="https://socviz.co/index.html#preface">Data Visualization: A practical introduction</a> by Kieran Healy</li>
-<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown from RStudio</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
-<li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
+<li><strong>Internal validity:</strong> the credibility of the theoretical assumptions applied to the causal connection established between the explanatory variable(s) and its (their) effect on the outcome.</li>
+<li><strong>External validity:</strong> can results of the analysis be applied beyond the subjects included or context involved?</li>
 </ul>
+<p>In other words, is there reason to believe our results are critically mistaken and are those affected or the context in which they were affected so unique or limited that we can not generalize to other potential targets or contexts?</p>
+<div id="causality" class="section level2">
+<h2><span class="header-section-number">9.1</span> Causality</h2>
+<p>Three conditions must be met to credibly claim a causal relationship. We will address each in turn.</p>
+<ul>
+<li>The explanatory variable is correlated with the outcome</li>
+<li>The change in the explanatory variable occurred prior to the change in the outcome</li>
+<li>No alternative explanation exists to which the change in the outcome could be attributed instead of the explanatory variable</li>
+</ul>
+<p>Correlation between the explanatory and outcome variables is perhaps the most straightforward condition to satisfy. We have not yet covered inference and how to identify statistically significant results. For now, suffice it to say that if we run a regression and the estimate for our explanatory variable is statistically significant, then we have established correlation between the explanatory and outcome variables that is unlikely to be random.</p>
+<p>The second condition is succinctly referred to as <strong>temporal precedence</strong>. In order for something to be a cause, it must occur prior to its alleged effect. Otherwise, perhaps it is our supposed outcome that is having an effect on the cause, similar to what was considered in Chapter <a href="7-categorical-variables-and-interactions.html#categorical-variables-and-interactions">7</a> with the mandatory jail for drunk driving. This is also known as <strong>reverse causality</strong>.</p>
+<p>Reverse causality could still be argued even when it seems clear the cause occurred prior to the effect. For example, the mere availability of a scholarship may cause students to reach higher levels of academic achievement. If we were to claim receipt of the scholarship caused a rise in the likelihood of completing college, which obviously occurred prior to graduation, this may not be accurate. Perhaps by virtue of motivating oneself to perform better in school would result in a higher likelihood of graduation whether the scholarship was received or not. Then again, the student would not have been as motivated if not for the scholarship. Perhaps the <em>availability</em> of the scholarship would meet temporal precedence more convincingly.</p>
+<p>As may be evident by now, something as seemingly simple as before-and-after can become complex if the causal pathway is considered carefully. Credible causal claims require subject matter expertise as much as quantitative skills. For temporal precedence, do your best to ensure your explanatory variable was measured or occurred prior to when your outcome was measured or occurred.</p>
+<p>The remainder of this chapter concerns the third and most difficult condition to satisfy: no plausible rival or alternative explanation for our causal claim. Since we do not have the luxury of delving deep into causal modeling, what can MPA students learn that will serve them well when they need to consider whether the possibility of alternative explanations has been reasonably eliminated? My answer to this is the <strong>directed acyclical graph</strong>.</p>
+</div>
+<div id="directed-acyclical-graphs" class="section level2">
+<h2><span class="header-section-number">9.2</span> Directed acyclical graphs</h2>
+<p>Directed acyclical graphs (DAGs) are visual representations of causal pathways. Constructing a DAG involves theory, existing research, or theory. A DAG requires us to state our assumptions clearly, thus allowing us and others to evaluate the internal validity of our model.</p>
+<p>Figure <a href="9-causation-and-bias.html#fig:dagbasic">9.2</a> below shows a basic DAG. This model involves three variables, X, Y, and Z. Y denotes the outcome and X denotes the variable of primary interest for which we intend to estimate a causal effect. Z denotes any other variables in the model. The arrow from X to Y indicates our claim that X causes changes in Y. X also causes Z to change, and Z causes Y to change. In this example, the claim is that X has a direct effect on Y and an indirect (mediated) effect on Y through Z.</p>
+<center>
+<div class="figure"><span id="fig:dagbasic"></span>
+<img src="images/dag_basic.png" alt="A basic DAG" width="159" />
+<p class="caption">
+Figure 9.2: A basic DAG
+</p>
+</div>
+</center>
+<p>Any DAG follows a few rules and conventions:</p>
+<ul>
+<li>Only one-directional arrows (directed)</li>
+<li>No arrow from Y back to X (acyclical)</li>
+<li>Solid arrows used for relationships between observable variables or variables specifically observed in our data</li>
+<li>Dashed arrows used for relationships between unobservable variables (e.g. ability, attitudes, propensities for certain behaviors) or variables unobserved in our data</li>
+</ul>
+<p>Underlying every regression with the goal to explain a causal relationship is a DAG. Consider the following regression model</p>
+<p><span class="math display" id="eq:dagreg">\[\begin{equation}
+BMI = \beta_0 + \beta_1Exercise + \epsilon
+\tag{9.1}
+\end{equation}\]</span></p>
+<p>Figure <a href="9-causation-and-bias.html#fig:dagreg">9.3</a> below shows the DAG that corresponds with Equation <a href="9-causation-and-bias.html#eq:dagreg">(9.1)</a>. The central claim is that exercise causes BMI to change. Therefore, there is a solid arrow from exercise to BMI. Also, note that because <span class="math inline">\(\epsilon\)</span>, by definition, represents all other unobserved factors that affect BMI, there is a dashed line from <span class="math inline">\(\epsilon\)</span> to BMI. Lastly, this DAG makes the assumption that no variables contained in <span class="math inline">\(\epsilon\)</span> affects exercise, nor does exercise affect any variables contained in <span class="math inline">\(\epsilon\)</span></p>
+<center>
+<div class="figure"><span id="fig:dagreg"></span>
+<img src="images/dag_reg.png" alt="DAG representation of a regression model" width="259" />
+<p class="caption">
+Figure 9.3: DAG representation of a regression model
+</p>
+</div>
+</center>
+<p>With this basic set-up, we can begin to learn how to evaluate a DAG in order to determine if our regression model credibly eliminates alternative explanations of our causal claim.</p>
+<div id="evaluationg-dags" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> Evaluationg DAGs</h3>
+<p>We will review two aspects of evaluating DAGs for causal claims:</p>
+<ul>
+<li>Identifying backdoor paths</li>
+<li>Adjusting regression models based on the presence of confounding or colliding variables</li>
+</ul>
+<p>A backdoor path is any indirect path from X to Y no matter the direction of the arrows that connect it. For example, Figure <a href="9-causation-and-bias.html#fig:dagbasic">9.2</a> has one backdoor path: X –&gt; Z –&gt; Y. Figure <a href="9-causation-and-bias.html#fig:dagreg">9.3</a> has no backdoor paths between exercise and BMI.</p>
+<div id="confounders" class="section level4 unnumbered">
+<h4>Confounders</h4>
+<p>Identifying backdoor paths allow us to then identify whether confounding or colliding variables are present in our model. Figure <a href="9-causation-and-bias.html#fig:dagconf">9.4</a> below shows a variation on the simple DAG with one backdoor path. The backdoor path still runs from X to Z to Y, but now the direction of the arrows connecting this path are different. Specifically, the backdoor path is X &lt;– Z –&gt; Y.</p>
+<center>
+<div class="figure"><span id="fig:dagconf"></span>
+<img src="images/dag_confound.png" alt="Example of confounder variable" width="206" />
+<p class="caption">
+Figure 9.4: Example of confounder variable
+</p>
+</div>
+</center>
+<p>The variable Z in this case is a <strong>confounder</strong>. Any variable in a backdoor path with arrows directed away from it toward X and Y is a confounder. This representation means Z affects X and Y. If as Z changes, X and Y change, then we may incorrectly attribute the effect of Z on Y to the effect of X on Y because it appears to us that as X changes, Y changes. And it does, but it is really Z that is causing changes.</p>
+<p>This example of a confounder is sometimes referred to as spurious correlation. For example, ice cream sales and crime are spuriously correlated due to both increasing because of temperature. It would be mistake to claim an increase in ice cream sales causes an increase in crime.</p>
+</div>
+<div id="colliders" class="section level4 unnumbered">
+<h4>Colliders</h4>
+<p>Figure <a href="9-causation-and-bias.html#fig:dagcoll">9.5</a> below shows another variation of the simple DAG with one backdoor path between X and Y that goes through Z. The direction of the arrows are such that this backdoor path can be written as X –&gt; Z &lt;– Y. In this case, Z is a <strong>collider</strong>. Any variable on which the arrows connecting X and Y converge is a collider.</p>
+<center>
+<div class="figure"><span id="fig:dagcoll"></span>
+<img src="images/dag_collide.png" alt="Example of collider variable" width="195" />
+<p class="caption">
+Figure 9.5: Example of collider variable
+</p>
+</div>
+</center>
+<p>Z is just some variable that is affected by both X and Y. Changes in Z do not cause changes in X or Y. Therefore, if we estimate how much Y changes in response to a change in X, Z has nothing to do with that causal estimate.</p>
+</div>
+</div>
+<div id="backdoor-criterion" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Backdoor criterion</h3>
+<p>For any theoretical model we intend to estimate via regression, we can now identify backdoor paths and whether there are confounding or colliding variables along those backdoor paths. How do we use this information to eliminate plausible alternative explanations and confidently claim a one-unit change in X causes Y to change by <span class="math inline">\(\beta\)</span>? We need to satisfy the <strong>backdoor criterion</strong>.</p>
+<p>The backdoor criterion is satisfied if all backdoor paths between X and Y are closed. We know if a backdoor path is open or closed depending on the presence of confounding or colliding variables.</p>
+<ul>
+<li>A confounder variable opens a backdoor path</li>
+<li>A collider variable closes a backdoor path</li>
+</ul>
+<p>If a backdoor path is open, we can close it by controlling for the confounder variable or any other variable along the backdoor path between X and Y. For instance if were were to identify a backdoor path of the following form</p>
+<p>X &lt;– Z –&gt; A –&gt; Y</p>
+<p>where A is some fourth variable in our model, then controlling for Z or A will close this backdoor path. If a set of control variables in our regression model closes all backdoor paths, then we have satisfied the backdoor criterion and we can consider our estimate of X on Y to be a causal estimate.</p>
+<p>Consider the simple backdoor path again where Z is a collider variable.</p>
+<p>X –&gt; Z &lt;– Y</p>
+<p>This backdoor path is already closed. We don’t need to control for anything in our model because of this backdoor path. In fact, <strong>controlling for a collider opens a backdoor path</strong>. Therefore, we should not control for Z in our model, as doing so opens a backdoor that was already closed.</p>
+<p>This is a valuable insight provided by the use of DAGs. If we already have the data, it costs us virtually no time or effort to include a variable in our model we think may affect our outcome Y, and it can be quite tempting to throw variables into a regression model for not much more reason than we have it in our data. However, a DAG forces us to consider all of the relationships between the variables in our model. If an explanatory variable is a collider, then including it may threaten our ability to make causal claims. Sometimes, deliberately excluding a variable from a regression model is the right choice and DAGs give us a fairly simple way to make and explain that choice.</p>
+<p>Consider another backdoor path where Z is a collider and A is a confounder</p>
+<p>X –&gt; Z &lt;– A –&gt; Y</p>
+<p>A opens this backdoor path but Z blocks A’s confounding. Controlling for Z would open this backdoor path. We can control for A in our regression without reopening the backdoor path, but it is not necessary.</p>
+</div>
+<div id="dags-and-regression" class="section level3">
+<h3><span class="header-section-number">9.2.3</span> DAGs and regression</h3>
+<p>Let us relate this new information to making choices about regression models. Referring back to Equation <a href="9-causation-and-bias.html#eq:dagreg">(9.1)</a> and Figure <a href="9-causation-and-bias.html#fig:dagreg">9.3</a>, recall that <span class="math inline">\(\epsilon\)</span> represents all other variables we do not observe or cannot include in our regression model but affect our outcome, BMI. Based on the DAG for this regression model, there are no backdoor paths. Therefore, whatever estimate we get for <span class="math inline">\(\beta_1\)</span> is causal estimate.</p>
+<p>However, Figure <a href="9-causation-and-bias.html#fig:dagreg">9.3</a> is probably incorrect. There are likely variables contained in <span class="math inline">\(\epsilon\)</span> that affect exercise. If that is the case, then our DAG should be drawn like Figure <a href="9-causation-and-bias.html#fig:dagregovb">9.6</a> below. Now we have a backdoor path of the form</p>
+<p>Exercise &lt;– <span class="math inline">\(\epsilon\)</span> –&gt; BMI</p>
+<p>where <span class="math inline">\(\epsilon\)</span> is a confounder. Therefore, this backdoor path is open, and because we do not observe the variables in <span class="math inline">\(\epsilon\)</span>, we do not currently have the means to close it.</p>
+<center>
+<div class="figure"><span id="fig:dagregovb"></span>
+<img src="images/dag_regovb.png" alt="Counfounding error term" width="240" />
+<p class="caption">
+Figure 9.6: Counfounding error term
+</p>
+</div>
+</center>
+<p>The issue illustrated by Figure <a href="9-causation-and-bias.html#fig:dagregovb">9.6</a> is commonly referred to as <strong>omitted variable bias</strong> (OVB) and it is the bane of analysts’ attempts to estimate causal relationships. To have omitted variable bias means we have failed to satisfy the third criterion of causality. There is a variable out there we have not controlled for which causes our explanatory variable of interest and our outcome to change. Therefore, we cannot trust our estimate of the effect of our explanatory variable on our outcome because it may be due to the omitted variable. In other words, an omitted variable is biasing our estimate, <span class="math inline">\(b_1\)</span> to be systematically above or below the population parameter <span class="math inline">\(\beta_1\)</span>.</p>
+<p>Our next task then is to identify the set of variables that would eliminate the arrow from <span class="math inline">\(\epsilon\)</span> to exercise. If we can credibly break the link between <span class="math inline">\(\epsilon\)</span> and our explanatory variables, then we can credibly claim there is no omitted variable bias in our model.</p>
+<p>For the sake of this example, suppose healthy eating is the key omitted variable. Healthy nutrition gives us the energy to exercise and obviously affects our BMI. Suppose we collect a variable that measures the extent to which a person’s diet is healthy. Now, we have a new DAG, as depicted in Figure <a href="9-causation-and-bias.html#fig:dagregnut">9.7</a>.</p>
+<center>
+<div class="figure"><span id="fig:dagregnut"></span>
+<img src="images/dag_regnut.png" alt="Eliminating OVB" width="231" />
+<p class="caption">
+Figure 9.7: Eliminating OVB
+</p>
+</div>
+</center>
+<p>To close the backdoor path in this DAG, we need to control for nutrition in our regression model. Equation <a href="9-causation-and-bias.html#eq:dagreg2">(9.2)</a> shows our new regression model. If our theory informing our new DAG is correct, then our estimates of <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span> are unbiased.</p>
+<p><span class="math display" id="eq:dagreg2">\[\begin{equation}
+BMI = \beta_0 + \beta_1Exercise + \beta_2Nutrition + \epsilon
+\tag{9.2}
+\end{equation}\]</span></p>
+<p>The DAG in Figure <a href="9-causation-and-bias.html#fig:dagregnut">9.7</a> may still be fail to be sufficiently convincing to those who have expertise in public health or related fields. In that case, we would continue the process of identifying and controlling for variables until we credibly break the link between <span class="math inline">\(\epsilon\)</span> and all explanatory variables in our model.</p>
+<p>Isolating causal effects is hard, and careers can be made by successfully doing so. Regardless of whether an unbiased causal estimate can be obtained for a particular question, knowing whether or not threats exist and what could be done about it is valuable, especially for managers or consumers of statistical analyses who have expertise concerning the potential causal pathways involved.</p>
+</div>
+</div>
+<div id="direction-of-ovb" class="section level2">
+<h2><span class="header-section-number">9.3</span> Direction of OVB</h2>
+<p>Fortunately, we can salvage estimates that suffer from omitted variable bias to make causal conclusions in some cases. Again, doing so requires us to have knowledge about the variables involved and their causal pathways.</p>
+<p>We will cover this more thoroughly in the following chapters, but a statistically significant result means we can confidently conclude the association between X and Y is not equal to zero. In other words, our regression results provide an estimate so much less or greater than zero that it would be highly unlikely to see these results if the true association were equal to zero.</p>
+<p>That is the issue with OVB: it causes our estimate to be lower or higher than what it should be. Therefore, OVB may lead us to conclude statistically significant results when otherwise there would not be statistically significant results in the absence of OVB; our estimate would not be sufficiently far from zero to confidently conclude a relationship.</p>
+<p>However, if we can predict the direction of the OVB–whether it is pushing our estimate below or above what it should be–then we may be able to salvage our results. For instance, suppose we obtain a statistically significant estimate of 10 that we suspect is biased due to an omitted variable. If we can credibly claim the OVB causes our estimate to be lower than what it should be, then we still have useful results; our result would be even greater than 10 if not for OVB. Similarly, if our estimate were -10 and we suspect the OVB causes our estimate to be greater than what is should be, then we would have an even lower estimate in the absence of OVB.</p>
+<p>The moral of this section is that when you or someone identifies a variable that may cause OVB, all is not lost. If OVB works against the estimate’s value relative to zero, then it actually lowers the likelihood of significant results that you still obtained. However, if OVB works with the estimate’s value relative to zero, then it increases the likelihood of finding the significant results you found when there may not be a significant relationship.</p>
+<p>How can we postulate the direction of OVB? Figure <a href="9-causation-and-bias.html#fig:dagovbdirect">9.8</a> below shows a simple confounding scenario where our estimate of the effect of X on Y is biased due to an omitted variable Z. If X and Y move in the same direction because of a change in Z, then OVB is positive. If X and Y move in opposite direction because of a change if Z, then OVB is negative.</p>
+<center>
+<div class="figure"><span id="fig:dagovbdirect"></span>
+<img src="images/dag_ovbdirect.png" alt="Predicting direction of OVB" width="228" />
+<p class="caption">
+Figure 9.8: Predicting direction of OVB
+</p>
+</div>
+</center>
+</div>
+<div id="usefulness" class="section level2">
+<h2><span class="header-section-number">9.4</span> Usefulness</h2>
+<p>Just because you cannot claim a causal relationship does not mean you do not have useful results. It is worth reiterating the value of prediction. Regardless of whether we have a model that eliminates OVB, if it accurately predicts an outcome we would like to preempt, then it could be useful. Sure, we would like to know the underlying causes of an outcome, but the ability to accurately predict the likelihood of an outcome still allows policy or programs to intervene.</p>
+<p>If I have a model that is biased but accurately predicts students who will drop out of college, I will use that model to provide assistance to those likely to drop out. In addition to making a difference by helping my target population, perhaps I will gain insights into the underlying causes I have failed to include in my model.</p>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="1-intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="8-nonlinear-variables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="10-sampling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

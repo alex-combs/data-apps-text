@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Applications in Public Administration</title>
+  <title> 17 R Data | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data Applications in Public Administration" />
+  <meta property="og:title" content=" 17 R Data | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alex-combs/data-apps-text" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 17 R Data | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-intro.html"/>
+<link rel="prev" href="16-r-introduction.html"/>
+<link rel="next" href="18-r-missing-data.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,67 +425,120 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Applications in Public Administration</h1>
-<h2 class="subtitle"><em>Using R to Learn Concepts and Skills</em></h2>
-<p class="author"><em>Alex Combs</em></p>
-<p class="date"><em>Last updated on 09 July 2020</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div class="announcement">
-<p>
-<strong>Disclaimer</strong>
-</p>
-<p>
-This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
-</p>
-</div>
-<p>This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes unfeasible, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. In general, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.</p>
-<div id="objective" class="section level3 unnumbered">
-<h3>Objective</h3>
-<p>The objective of this book is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical software. It aims to simultaneously teach students key concepts in statistics and applications of those concepts using R.</p>
-<p>This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.</p>
-</div>
-<div id="style" class="section level3 unnumbered">
-<h3>Style</h3>
-<p>Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained.</p>
-<p>Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.</p>
-</div>
-<div id="structure" class="section level3 unnumbered">
-<h3>Structure</h3>
-<p>This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the <code>R Data</code> chapter corresponds to the <code>Data</code> chapter in the first track.</p>
-<p>The conceptual track is divided into four sections:</p>
-<ol style="list-style-type: decimal">
-<li>Data and description</li>
-<li>Regression models</li>
-<li>Inference</li>
-<li>Advanced topics</li>
-</ol>
-<p>Each chapter begins with learning objectives and ends with supplemental resources, such as additional readings or opportunities to practice using R.</p>
-</div>
-<div id="software-requirements" class="section level3 unnumbered">
-<h3>Software requirements</h3>
-<p>This book provides examples and exercises using R. Students who intend to use a personal computer must download and install the following software:</p>
+<div id="r-data" class="section level1">
+<h1><span class="header-section-number"> 17</span> R Data</h1>
+<div id="learning-objectives-2" class="section level2">
+<h2><span class="header-section-number">17.1</span> Learning Objectives</h2>
+<p>In this chapter, you will learn how to:</p>
 <ul>
-<li><a href="https://cloud.r-project.org">R</a></li>
-<li><a href="https://rstudio.com/products/rstudio/download/">RStudio</a></li>
+<li>Examine datasets to determine their units of analysis and structures</li>
+<li>Examine variables to determine their type</li>
+<li>Print a preview of the first or last few rows of a dataset</li>
 </ul>
 </div>
-<div id="supplemental-resources" class="section level3 unnumbered">
-<h3>Supplemental resources</h3>
-<p>There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.</p>
+<div id="set-up" class="section level2">
+<h2><span class="header-section-number">17.2</span> Set-up</h2>
+<p>You should by now know how to start a script and a notebook. For this chapter, use a script. As a reminder, everything you type in a script R will interpret as code to execute. You can add comments not meant as code by adding a hashtag # before the line of text. Use comments to answer any questions.</p>
+<p>To complete this R chapter, you need to load the following packages. Add this code to your script and run it.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="17-r-data.html#cb31-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb31-2"><a href="17-r-data.html#cb31-2"></a><span class="kw">library</span>(carData)  <span class="co">#if this fails, you need to install</span></span></code></pre></div>
+<p>Before we begin, go to the <code>Packages</code> tab in the bottom-right pane. Find <code>carData</code> in the list and click on the name. This should take you to the <code>Help</code> tab, which will contain the documentation for <code>carData</code>. This page serves as a directory to all of the datasets that come loaded with the package. We will be examining some of these datasets. If you want or need to learn more about a particular dataset, you can click on its name in this list.</p>
+</div>
+<div id="viewing-datasets" class="section level2">
+<h2><span class="header-section-number">17.3</span> Viewing datasets</h2>
+<p>It is assumed most readers are familiar with spreadsheets. Perhaps one of the first obstacles to using R is that you do not constantly stare at a spreadsheet, creating somewhat of a disconnect between what you do to data and seeing it done.</p>
+<p>You can examine a dataset in spreadsheet form using the following command:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="17-r-data.html#cb32-1"></a><span class="kw">View</span>(dataset)</span></code></pre></div>
+<p>where you replace <code>dataset</code> with the actual name of the dataset.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 1:</strong> In your script, use the <code>View</code> command on the <code>Arrests</code> dataset that should be available in your current R session.
+</p>
+</div>
+<p>A new tab should have appeared in the top-left pane containing the spreadsheet version of <code>Arrests</code>. This dataset contains information on arrests for possession of small amounts of marijuana in the city of Toronto.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 2</strong> Based on what you see, what is the structure of this dataset? What is the unit of analysis?
+</p>
+</div>
+<p>Let’s examine a new dataset called <code>Florida</code> which contains county voting results for the 2000 presidential election.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 3</strong> What is the structure and unit of analysis of the <code>Florida</code> dataset?
+</p>
+</div>
+<div class="learncheck">
+<p>
+<strong>Exercise 4</strong> Do the same thing one more time with the <code>USPop</code> dataset. What is its structure and unit of analysis?
+</p>
+</div>
+<div id="warning-about-view" class="section level3">
+<h3><span class="header-section-number">17.3.1</span> Warning about View</h3>
+<p><code>View</code> is useful but <strong>should not</strong> be included in a notebook that you plan to export to another document. This is because R will attempt to print the entire dataset to the export document. This is almost always a mistake.</p>
+<p>To avoid making this mistake, I suggest you not use the <code>View</code> function as code, but rather use a point-and-click alternative.</p>
+<p>Run the following code to save <code>Arrests</code> to your environment pane in the top-right.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="17-r-data.html#cb33-1"></a>arrests &lt;-<span class="st"> </span>Arrests</span></code></pre></div>
+<p>Now click on <code>arrests</code>. This should do the same thing as running <code>View</code>.</p>
+</div>
+</div>
+<div id="glimpsing-datasets" class="section level2">
+<h2><span class="header-section-number">17.4</span> Glimpsing Datasets</h2>
+<p>If your dataset is moderately large, <code>View</code> is an inefficient way to get a sense of your data. The <code>glimpse</code> function generates a compact printout providing key information about a dataset.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="17-r-data.html#cb34-1"></a><span class="kw">glimpse</span>(dataset)</span></code></pre></div>
+<div class="learncheck">
+<p>
+<strong>Exercise 5</strong> Use <code>glimpse</code> on <code>Arrests</code>.
+</p>
+</div>
+<p>Notice that the results show you the dimensions of the dataset–the number of rows (observation) and columns (variables). Next, it provides a vertical list of variables, with several of their values listed horizontally, that can export to documents more easily.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 6</strong> Having now examined <code>Arrests</code> using <code>View</code> and <code>glimpse</code>, what type are the following variables based on the taxonomy used in the chapter on data.
+</p>
 <ul>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a> by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr</li>
-<li><a href="https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition">Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition</a> by Hank Jenkins-Smith and Joseph Ripberger</li>
-<li><a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham</li>
-<li><a href="https://moderndive.com/index.html">Statistical Inference via Data Science</a> by Chester Ismay and Albert Y. Kim</li>
-<li><a href="https://www.khanacademy.org/math/statistics-probability">Kahn Academy: Statistics and probability</a></li>
-<li><a href="https://socviz.co/index.html#preface">Data Visualization: A practical introduction</a> by Kieran Healy</li>
-<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown from RStudio</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
-<li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
+<li>
+year
+</li>
+<li>
+age
+</li>
+<li>
+sex
+</li>
 </ul>
+</div>
+<p>The column immediately to the right of the variable name is also informative. It tells you how each variable is stored in R. A variable can be stored in several ways:</p>
+<ul>
+<li><strong>Integers:</strong> commonly used for discrete variables</li>
+<li><strong>Doubles/numerics:</strong> commonly used for continuous variabls but can also store discrete variables</li>
+<li><strong>Logicals:</strong> commonly used for categorical variables that are binary (i.e. 1 or 0). In R, logicals are assigned <code>TRUE</code>, if equal to 1, or <code>FALSE</code>, if equal to 0.</li>
+<li><strong>Factors:</strong> commonly used for categorical variables. Factors can store categorical variables with any number of levels. Therefore, a binary variable can be stored as a factor instead of a logical if you want the variable to be assigned different values like “Yes” or “No.”</li>
+<li><strong>Characters:</strong> commonly used for strings of text that don’t fit the other storage types well, such as open-ended responses in a survey. However, any variable can be stored as a character. A numerical variable can be stored as a character and R will not recognize its values as numbers. Character variables are often denoted with quotation marks "" around them.</li>
+</ul>
+<div class="learncheck">
+<p>
+<strong>Exercise 7</strong> Are the variables in exercise 6 stored in a way that makes sense given your answers?
+</p>
+</div>
+<p>Variables will not always be stored the way they should. Sometimes we have to tell R how to store a variable based on our own understanding of their type. This skill will be covered later.</p>
+</div>
+<div id="preview-first-or-last-few-rows" class="section level2">
+<h2><span class="header-section-number">17.5</span> Preview first or last few rows</h2>
+<p>Sometimes we want to show people what the data looks like in spreadsheet form, or we want to examine the first or last few rows in our dataset. As previously, mentioned the <code>View</code> function prints the entire dataset, which is almost always too much.</p>
+<p>We can preview the top few rows of a dataset using the <code>head</code> function like so</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="17-r-data.html#cb35-1"></a><span class="kw">head</span>(dataset, <span class="dt">n =</span> number_of_rows_you_want_to_print)</span></code></pre></div>
+<p>or the bottom few rows of a dataset with the <code>tail</code> function</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="17-r-data.html#cb36-1"></a><span class="kw">tail</span>(dataset, <span class="dt">n =</span> number_of_rows_you_want_to_print)</span></code></pre></div>
+<div class="learncheck">
+<p>
+<strong>Exercise 8</strong> Print the first and last 4 rows of the <code>USPop</code> dataset.
+</p>
+</div>
+<p>Note that R prints the rows in descending order according to how the dataset is ordered. For <code>tail</code> R went up 4 rows from the bottom and printed the 4 rows in descending order.</p>
+</div>
+<div id="submit-1" class="section level2">
+<h2><span class="header-section-number">17.6</span> Submit</h2>
+<p>Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.</p>
 
 </div>
 </div>
@@ -494,8 +547,8 @@ This is a companion resource for PADP 7120: Data Applications in Public Administ
           </div>
         </div>
       </div>
-
-<a href="1-intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="16-r-introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="18-r-missing-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

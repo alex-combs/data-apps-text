@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Applications in Public Administration</title>
+  <title> 18 R Missing Data | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data Applications in Public Administration" />
+  <meta property="og:title" content=" 18 R Missing Data | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alex-combs/data-apps-text" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 18 R Missing Data | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-intro.html"/>
+<link rel="prev" href="17-r-data.html"/>
+<link rel="next" href="19-r-description.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,67 +425,131 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Applications in Public Administration</h1>
-<h2 class="subtitle"><em>Using R to Learn Concepts and Skills</em></h2>
-<p class="author"><em>Alex Combs</em></p>
-<p class="date"><em>Last updated on 09 July 2020</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div class="announcement">
-<p>
-<strong>Disclaimer</strong>
-</p>
-<p>
-This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
-</p>
-</div>
-<p>This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes unfeasible, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. In general, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.</p>
-<div id="objective" class="section level3 unnumbered">
-<h3>Objective</h3>
-<p>The objective of this book is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical software. It aims to simultaneously teach students key concepts in statistics and applications of those concepts using R.</p>
-<p>This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.</p>
-</div>
-<div id="style" class="section level3 unnumbered">
-<h3>Style</h3>
-<p>Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained.</p>
-<p>Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.</p>
-</div>
-<div id="structure" class="section level3 unnumbered">
-<h3>Structure</h3>
-<p>This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the <code>R Data</code> chapter corresponds to the <code>Data</code> chapter in the first track.</p>
-<p>The conceptual track is divided into four sections:</p>
-<ol style="list-style-type: decimal">
-<li>Data and description</li>
-<li>Regression models</li>
-<li>Inference</li>
-<li>Advanced topics</li>
-</ol>
-<p>Each chapter begins with learning objectives and ends with supplemental resources, such as additional readings or opportunities to practice using R.</p>
-</div>
-<div id="software-requirements" class="section level3 unnumbered">
-<h3>Software requirements</h3>
-<p>This book provides examples and exercises using R. Students who intend to use a personal computer must download and install the following software:</p>
+<div id="r-missing-data" class="section level1">
+<h1><span class="header-section-number"> 18</span> R Missing Data</h1>
+<div id="learning-objectives-3" class="section level2">
+<h2><span class="header-section-number">18.1</span> Learning Objectives</h2>
+<p>In this chapter, you will learn how to:</p>
 <ul>
-<li><a href="https://cloud.r-project.org">R</a></li>
-<li><a href="https://rstudio.com/products/rstudio/download/">RStudio</a></li>
+<li>Determine if a dataset has missing values</li>
+<li>Determine which variables in a dataset have missing values and how many values are missing</li>
+<li>Run functions on variables that have missing values</li>
+<li>Replace all missing values with a non-missing value, such as 0, if doing so is advisable</li>
 </ul>
 </div>
-<div id="supplemental-resources" class="section level3 unnumbered">
-<h3>Supplemental resources</h3>
-<p>There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.</p>
+<div id="set-up-1" class="section level2">
+<h2><span class="header-section-number">18.2</span> Set-up</h2>
+<p>To complete this chapter, you need to</p>
 <ul>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a> by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr</li>
-<li><a href="https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition">Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition</a> by Hank Jenkins-Smith and Joseph Ripberger</li>
-<li><a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham</li>
-<li><a href="https://moderndive.com/index.html">Statistical Inference via Data Science</a> by Chester Ismay and Albert Y. Kim</li>
-<li><a href="https://www.khanacademy.org/math/statistics-probability">Kahn Academy: Statistics and probability</a></li>
-<li><a href="https://socviz.co/index.html#preface">Data Visualization: A practical introduction</a> by Kieran Healy</li>
-<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown from RStudio</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
-<li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
+<li>Open a script</li>
+<li>Load the following packages</li>
 </ul>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="18-r-missing-data.html#cb37-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb37-2"><a href="18-r-missing-data.html#cb37-2"></a><span class="kw">library</span>(carData)</span></code></pre></div>
+</div>
+<div id="data-1" class="section level2">
+<h2><span class="header-section-number">18.3</span> Data</h2>
+<p>We will be using the <code>SLID</code> data from the <code>carData</code> package to learn how to deal with missing data. Per its documentation,</p>
+<blockquote>
+<p>“The SLID data frame has 7425 rows and 5 columns. The data are from the 1994 wave of the Canadian Survey of Labour and Income Dynamics, for the province of Ontario. There are missing data, particularly for wages.”</p>
+</blockquote>
+<p>As is always the case when we begin working with new data, we want to get a sense of what it contains.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 1:</strong> Use <code>glimpse</code> to examine <code>SLID</code>.
+</p>
+</div>
+<p>This is a moderately large dataset with 7,425 observations. Obviously, it would be crazy to look for missing values by scrolling through a spreadsheet. We can see from the glimpse results that wages definitely has missing values.</p>
+</div>
+<div id="checking-for-missing-data" class="section level2">
+<h2><span class="header-section-number">18.4</span> Checking for missing data</h2>
+<p>We can tell R to check if an entire dataset has <em>any</em> missing data using the following function</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="18-r-missing-data.html#cb38-1"></a><span class="kw">anyNA</span>(dataset)</span></code></pre></div>
+<p>where we <code>dataset</code> with the name of the dataset. If the dataset has at least one missing value, then <code>anyNA</code> will return <code>TRUE</code>.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 2:</strong> Use <code>anyNA</code> to confirm <code>SLID</code> has missing values.
+</p>
+</div>
+<p>The <code>anyNA</code> hasn’t told us anything we didn’t already know given the obvious <code>NA</code>s present in wages. Next, we may want to know which variables have missing values.</p>
+<p>To determine which variables have missing values, we want to run <code>anyNA</code> repeatedly for each variable in our dataset. To run any function repeatedly on each row or column of a dataset, we can use the following function:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="18-r-missing-data.html#cb39-1"></a><span class="kw">apply</span>(dataset, <span class="dv">1</span> (<span class="cf">for</span> rows, or) <span class="dv">2</span> (<span class="cf">for</span> columns), <span class="cf">function</span>)</span></code></pre></div>
+<p>where we replace <code>dataset</code> with the name of our dataset, include either <code>1</code> or <code>2</code>, and replace <code>function</code> with the name of the function we want to repeat.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 3:</strong> Use <code>apply</code> to run the <code>anyNA</code> function repeatedly on each column.
+</p>
+</div>
+<p>Your results should tell you that wages, education, and language contain missing values.</p>
+</div>
+<div id="counting-missing-values" class="section level2">
+<h2><span class="header-section-number">18.5</span> Counting missing values</h2>
+<p>Once we know a variable has missing values, we typically want to know how many values are missing or what percentage of total observations are missing for that variable.</p>
+<p>The <code>is.na</code> function tests every value of a variable for whether it is missing. If a value is NA, <code>is.na</code> returns <code>TRUE</code>. To illustrate, the below code assigns a series of ten values to <code>v</code>, five of which are missing. This <code>v</code> object is no different from a variable in a dataset. Then, using the <code>is.na</code> function on <code>v</code> will return a list of values accordingly.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="18-r-missing-data.html#cb40-1"></a>v &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="dv">5</span>, <span class="ot">NA</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="ot">NA</span>, <span class="ot">NA</span>, <span class="dv">1</span>, <span class="ot">NA</span>)</span>
+<span id="cb40-2"><a href="18-r-missing-data.html#cb40-2"></a><span class="kw">is.na</span>(v)</span></code></pre></div>
+<pre><code>##  [1]  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE</code></pre>
+<p>Recall in Chapter <a href="17-r-data.html#r-data">17</a> that the logical value of <code>TRUE</code> equals 1 in R, while <code>FALSE</code> equals 0. This means we can do math on TRUE/FALSE values just like we would if they were coded as 1/0.</p>
+<p>If <code>is.na</code> gives us <code>TRUE</code> for every <code>NA</code>, then adding all the <code>TRUE</code>s will give us the total count of missing values.</p>
+<p>To sum all the values of any variable, we can use the <code>sum</code> function</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="18-r-missing-data.html#cb42-1"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(v))</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>The result tells us 5 of the 10 values in <code>v</code> are missing. We can easily determine that 50% of the data for <code>v</code> is missing. But what if we have some denominator that is not as easy as 10? We can quickly to determine the percent of missing values by taking the average of <code>TRUE</code>s and <code>FALSE</code>s from the <code>is.na</code> function because the average sums the values of the variable and divides by the number of values.</p>
+<p>We take the average of the <code>is.na</code> function using the <code>mean</code> function</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="18-r-missing-data.html#cb44-1"></a><span class="kw">mean</span>(<span class="kw">is.na</span>(v))</span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+<p>As expected, we get 0.5 or 50%. Building from this example, we can quantify the total and percent of missing values for wages like so</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="18-r-missing-data.html#cb46-1"></a><span class="kw">sum</span>(<span class="kw">is.na</span>(SLID<span class="op">$</span>wages))</span></code></pre></div>
+<pre><code>## [1] 3278</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="18-r-missing-data.html#cb48-1"></a><span class="kw">mean</span>(<span class="kw">is.na</span>(SLID<span class="op">$</span>wages))</span></code></pre></div>
+<pre><code>## [1] 0.4414815</code></pre>
+<p>Wages is missing 3,278 observations, or about 44% of all observations.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 4:</strong> Use the <code>sum</code> and <code>mean</code> function to determine the count and percent of missing values for the <code>education</code> and <code>language</code> variables.
+</p>
+</div>
+<p>If we had, say, 10 variables with missing values, the process above would be rather tedious. Like before, we can tell R to repeatedly quantify missing values for each variable using a slightly different function:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="18-r-missing-data.html#cb50-1"></a><span class="kw">sapply</span>(SLID, <span class="cf">function</span>(x) <span class="kw">sum</span>(<span class="kw">is.na</span>(x)))</span></code></pre></div>
+<pre><code>##     wages education       age       sex  language 
+##      3278       249         0         0       121</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="18-r-missing-data.html#cb52-1"></a><span class="kw">sapply</span>(SLID, <span class="cf">function</span>(x) <span class="kw">mean</span>(<span class="kw">is.na</span>(x)))</span></code></pre></div>
+<pre><code>##      wages  education        age        sex   language 
+## 0.44148148 0.03353535 0.00000000 0.00000000 0.01629630</code></pre>
+</div>
+<div id="bypassing-missing-values" class="section level2">
+<h2><span class="header-section-number">18.6</span> Bypassing missing values</h2>
+<p>Many functions that execute some kind of computation (e.g. sum, average) do not work if you execute them on variables that contain missing values. This is deliberate so users are notified of missing values.</p>
+<p>For instance, let’s try to calculate average years of education.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="18-r-missing-data.html#cb54-1"></a><span class="kw">mean</span>(SLID<span class="op">$</span>education)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>In order to have functions bypass missing values, we have to include the <code>na.rm=TRUE</code> option that tells R to skip <code>NA</code>s.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="18-r-missing-data.html#cb56-1"></a><span class="kw">mean</span>(SLID<span class="op">$</span>education, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 12.49608</code></pre>
+<p>Since education is missing only 3% of its values, this is probably a good approximation of what the average would be if there were no missing values.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 5:</strong> Compute the average for <code>wages</code>.
+</p>
+</div>
+<p>It is unclear what to do with average wages since almost half of its values is missing. At the very least, we can report something like, “Only 56% of respondents reported a wage. Of those who reported a wage, the average equals $15.55.”</p>
+</div>
+<div id="replacing-missing-values" class="section level2">
+<h2><span class="header-section-number">18.7</span> Replacing missing values</h2>
+<p>There are several reasons wages may be missing. The respondent could be unemployed, a student, or a stay-at-home parent. We don’t know exactly why wages is missing values.</p>
+<p>For the sake of this example, let’s assume all missing wages means the respondent is unemployed (a bad assumption since this would suggest an unemployment rate of about 44%). Suppose we wanted to know the average wages for our entire sample, regardless of whether they are employed. In that case, we want to replace the missing values with 0.</p>
+<p>To replace <code>NA</code>s with some other value, we can use the <code>replace_na</code> function like so</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="18-r-missing-data.html#cb58-1"></a>dataset_nomissing &lt;-<span class="st"> </span><span class="kw">replace_na</span>(dataset, <span class="kw">list</span>(<span class="dt">variable1 =</span> <span class="dv">0</span>, <span class="dt">variable2 =</span> <span class="dv">0</span>,...))</span></code></pre></div>
+<p>where we create a new dataset indicating we’ve replaced the missing values (we don’t want to overwrite the original data). Inside the <code>replace_na</code> function, we include the name of the <code>dataset</code> then list the names of the variables and the value we want to use to replace their missing values.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 6:</strong> Create a new dataset <code>SLID_nomissing</code> that replaces all missing values for <code>wages</code> with 0. Then, calculate the average wage for this new data.
+</p>
+</div>
+</div>
+<div id="submit-2" class="section level2">
+<h2><span class="header-section-number">18.8</span> Submit</h2>
+<p>Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.</p>
 
 </div>
 </div>
@@ -494,8 +558,8 @@ This is a companion resource for PADP 7120: Data Applications in Public Administ
           </div>
         </div>
       </div>
-
-<a href="1-intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="17-r-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="19-r-description.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

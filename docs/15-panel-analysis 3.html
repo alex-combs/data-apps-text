@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Applications in Public Administration</title>
+  <title> 15 Panel Analysis | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Data Applications in Public Administration" />
+  <meta property="og:title" content=" 15 Panel Analysis | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alex-combs/data-apps-text" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 15 Panel Analysis | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="1-intro.html"/>
+<link rel="prev" href="14-forecasting.html"/>
+<link rel="next" href="16-r-introduction.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -425,77 +425,413 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Applications in Public Administration</h1>
-<h2 class="subtitle"><em>Using R to Learn Concepts and Skills</em></h2>
-<p class="author"><em>Alex Combs</em></p>
-<p class="date"><em>Last updated on 09 July 2020</em></p>
+<div id="panel-analysis" class="section level1">
+<h1><span class="header-section-number"> 15</span> Panel Analysis</h1>
+<blockquote>
+<p><em>“The more things change, the more they are the same.”</em></p>
+<p>—Jean-Baptiste Alphonse Karr</p>
+</blockquote>
+<div id="panel-data" class="section level2">
+<h2><span class="header-section-number">15.1</span> Panel data</h2>
+<p>Recall from Chapter <a href="2-data.html#data">2</a> that panel data measures the <em>same</em> units over multiple time periods. Table <a href="15-panel-analysis.html#tab:panelrep">15.1</a> below provides an example of panel data. Panels for geographic or political areas such as counties, school or voting districts, states, and countries are common and easy to obtain. Due to privacy protections and challenges of following people over time, panels of individual people are somewhat more difficult to obtain but are quite common.</p>
+<table>
+<caption>
+<span id="tab:panelrep">Table 15.1: </span>Panel example
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:left;">
+continent
+</th>
+<th style="text-align:right;">
+year
+</th>
+<th style="text-align:right;">
+lifeExp
+</th>
+<th style="text-align:right;">
+pop
+</th>
+<th style="text-align:right;">
+gdpPercap
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:left;">
+Americas
+</td>
+<td style="text-align:right;">
+1997
+</td>
+<td style="text-align:right;">
+73.275
+</td>
+<td style="text-align:right;">
+36203463
+</td>
+<td style="text-align:right;">
+10967.282
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:left;">
+Americas
+</td>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:right;">
+74.340
+</td>
+<td style="text-align:right;">
+38331121
+</td>
+<td style="text-align:right;">
+8797.641
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:left;">
+Americas
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:right;">
+75.320
+</td>
+<td style="text-align:right;">
+40301927
+</td>
+<td style="text-align:right;">
+12779.380
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bolivia
+</td>
+<td style="text-align:left;">
+Americas
+</td>
+<td style="text-align:right;">
+1997
+</td>
+<td style="text-align:right;">
+62.050
+</td>
+<td style="text-align:right;">
+7693188
+</td>
+<td style="text-align:right;">
+3326.143
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bolivia
+</td>
+<td style="text-align:left;">
+Americas
+</td>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:right;">
+63.883
+</td>
+<td style="text-align:right;">
+8445134
+</td>
+<td style="text-align:right;">
+3413.263
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bolivia
+</td>
+<td style="text-align:left;">
+Americas
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:right;">
+65.554
+</td>
+<td style="text-align:right;">
+9119152
+</td>
+<td style="text-align:right;">
+3822.137
+</td>
+</tr>
+</tbody>
+</table>
+<p>Cross-sectional data is like having a single picture for each unit among multiple units. We use variation across those units with respect to some variable (e.g. income, unemployment rates) to explain or predict outcomes of interest. Time series is like having a video of one subject, following that subject over multiple time periods. We use variation over time to explain or predict outcomes of interest for that subject. Panel data is like having videos for multiple subjects. Therefore, we have variation across units <em>and</em> over time to use for explaining or predicting outcomes of interest.</p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div class="announcement">
-<p>
-<strong>Disclaimer</strong>
+<div id="fixed-effects" class="section level2">
+<h2><span class="header-section-number">15.2</span> Fixed effects</h2>
+<p>The additional information contained within panel data affords us a wide array of new analytic techniques that go far beyond the scope of this book. There is one technique or model, however, that is probably the most common and very easy to use: the fixed effects model.</p>
+<p>Recall the standard multiple regression model shown below. This model is slightly different from what you have seen before because it uses <em>indexing</em> to indicate that we have panel data. This indexing is done with the <em>i</em> and <em>t</em> subscripts, which represent subject and time, respectively. It is simply used to convey that we have multiple subjects <em>i</em> over multiple time periods <em>t</em>.</p>
+<p><span class="math display" id="eq:multregpan">\[\begin{equation}
+y_{it}=\beta_0+\beta_1x_{1it}+\beta_2x_{2it}+\cdots+\beta_kx_{kit}+\epsilon_{it}
+\tag{15.1}
+\end{equation}\]</span></p>
+<p>A fixed effects model is a slightly modified version of Equation <a href="15-panel-analysis.html#eq:multregpan">(15.1)</a> that represents an important conceptual leap. Recall that the <span class="math inline">\(\epsilon_{it}\)</span> term represents all the factors that are associated with or affect the outcome <span class="math inline">\(y_{it}\)</span> that we cannot include in our model for various reasons. This error term is inevitable and not a problem as long as there are no factors that also affect any of our explanatory variables. Otherwise, we have omitted variable bias in our model and may not be able to use our results.</p>
+<p>In most cases, someone can probably think of an omitted variable that is related to one or more of the explanatory variables. In other words, it is really difficult to convincingly guard against claims of omitted variable bias. However, having panel data allows us to guard against an important source of potential OVB by using a fixed effects model. Using a fixed effects model allows us to control for all of the omitted factors that do not change over time.</p>
+<p>The fixed effects model is represented in Equation <a href="15-panel-analysis.html#eq:femod">(15.2)</a> below. Note the new term (the Greek letter alpha) immediately to the right of the equal sign has replaced the usual y-intercept, <span class="math inline">\(\beta_0\)</span>, term. Also, note the index for this new term only includes <em>i</em>. Because our data contains a time series for each subject <em>i</em>, we can model a unique y-intercept for each subject. The unique y-intercepts represent all of the stuff that makes the subjects inherently different from each other and do not change over time, or at do not meaningfully change over the time span of our data.</p>
+<p><span class="math display" id="eq:femod">\[\begin{equation}
+y_{it}=\alpha_{i}+\beta_1x_{1it}+\beta_2x_{2it}+\cdots+\beta_kx_{kit}+\epsilon_{it}
+\tag{15.2}
+\end{equation}\]</span></p>
+<p>The fixed effect model is essentially identical to controlling for a categorical variable like we saw in Chapter <a href="7-categorical-variables-and-interactions.html#categorical-variables-and-interactions">7</a>. Recall the graph below where we controlled for the region each state is in when modeling the relationship between miles driven and traffic fatalities. We controlled for region not because we thought being in the West literally causes drivers to have more fatal accidents, but rather because regions might capture unobserved geographic or infrastructure characteristics that affect traffic fatalities.</p>
+<div class="figure"><span id="fig:pslopescatter3rep"></span>
+<img src="data-apps-text_files/figure-html/pslopescatter3rep-1.png" alt="Parallel slopes for 4 groups" width="672" />
+<p class="caption">
+Figure 15.1: Parallel slopes for 4 groups
 </p>
-<p>
-This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
+</div>
+<p>The fixed effect model takes this idea a little further, controlling for the unobserved characteristics of each unit–the state in this case–rather than some aggregated level like region. This produces a separate regression line for each unit, as seen in Figure <a href="15-panel-analysis.html#fig:feviz">15.2</a>. For unobserved reasons, states seem to have inherent differences with respect to miles driven and fatalities. Note how flat the common regression slope is for all of the states compared to the slope of the regression without fixed effects in Figure <a href="15-panel-analysis.html#fig:olsviz">15.3</a>. Ignoring the inherent differences between states leads to the conclusion that distance driven has a larger effect on the fatality rate than what the data actually suggests once we control for those differences. This is the primary reason for using a fixed effects model.</p>
+<div class="figure"><span id="fig:feviz"></span>
+<img src="data-apps-text_files/figure-html/feviz-1.png" alt="Visualizing fixed effects" width="672" />
+<p class="caption">
+Figure 15.2: Visualizing fixed effects
 </p>
 </div>
-<p>This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes unfeasible, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. In general, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.</p>
-<div id="objective" class="section level3 unnumbered">
-<h3>Objective</h3>
-<p>The objective of this book is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical software. It aims to simultaneously teach students key concepts in statistics and applications of those concepts using R.</p>
-<p>This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.</p>
+<div class="figure"><span id="fig:olsviz"></span>
+<img src="data-apps-text_files/figure-html/olsviz-1.png" alt="Ignoring fixed effects" width="672" />
+<p class="caption">
+Figure 15.3: Ignoring fixed effects
+</p>
 </div>
-<div id="style" class="section level3 unnumbered">
-<h3>Style</h3>
-<p>Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained.</p>
-<p>Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.</p>
-</div>
-<div id="structure" class="section level3 unnumbered">
-<h3>Structure</h3>
-<p>This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the <code>R Data</code> chapter corresponds to the <code>Data</code> chapter in the first track.</p>
-<p>The conceptual track is divided into four sections:</p>
-<ol style="list-style-type: decimal">
-<li>Data and description</li>
-<li>Regression models</li>
-<li>Inference</li>
-<li>Advanced topics</li>
-</ol>
-<p>Each chapter begins with learning objectives and ends with supplemental resources, such as additional readings or opportunities to practice using R.</p>
-</div>
-<div id="software-requirements" class="section level3 unnumbered">
-<h3>Software requirements</h3>
-<p>This book provides examples and exercises using R. Students who intend to use a personal computer must download and install the following software:</p>
-<ul>
-<li><a href="https://cloud.r-project.org">R</a></li>
-<li><a href="https://rstudio.com/products/rstudio/download/">RStudio</a></li>
-</ul>
-</div>
-<div id="supplemental-resources" class="section level3 unnumbered">
-<h3>Supplemental resources</h3>
-<p>There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.</p>
-<ul>
-<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a> by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr</li>
-<li><a href="https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition">Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition</a> by Hank Jenkins-Smith and Joseph Ripberger</li>
-<li><a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham</li>
-<li><a href="https://moderndive.com/index.html">Statistical Inference via Data Science</a> by Chester Ismay and Albert Y. Kim</li>
-<li><a href="https://www.khanacademy.org/math/statistics-probability">Kahn Academy: Statistics and probability</a></li>
-<li><a href="https://socviz.co/index.html#preface">Data Visualization: A practical introduction</a> by Kieran Healy</li>
-<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown from RStudio</a></li>
-<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
-<li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
-</ul>
+<p>There is one trade-off of using fixed effects that casual users should be aware of: using a fixed effect absorbs all constant variables. Variables that tend not to change over time such as race, sex, geography, membership to some higher-level unit (e.g. employee within an agency or union) all collapse into the fixed effect. This means that we will not obtain an estimate for these variables in a fixed effects model because they are also fixed. If we really care about getting an estimate from a time-invariant variable, then we cannot use a fixed effects model.</p>
+<p>For example, recall the regression results we obtained in Chapter <a href="7-categorical-variables-and-interactions.html#categorical-variables-and-interactions">7</a> for the following parallel slopes model.</p>
+<p><span class="math display" id="eq:pslopeexamp2rep">\[\begin{equation}
+mrall = \beta_0 + \beta_1vmiles + \beta_2region + \epsilon
+\tag{15.3}
+\end{equation}\]</span></p>
+<table>
+<caption>
+<span id="tab:psloperesults2rep">Table 15.2: </span>Parallel slopes for regions
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std_error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p_value
+</th>
+<th style="text-align:right;">
+lower_ci
+</th>
+<th style="text-align:right;">
+upper_ci
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+intercept
+</td>
+<td style="text-align:right;">
+0.260
+</td>
+<td style="text-align:right;">
+0.167
+</td>
+<td style="text-align:right;">
+1.553
+</td>
+<td style="text-align:right;">
+0.121
+</td>
+<td style="text-align:right;">
+-0.069
+</td>
+<td style="text-align:right;">
+0.589
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vmiles
+</td>
+<td style="text-align:right;">
+0.188
+</td>
+<td style="text-align:right;">
+0.021
+</td>
+<td style="text-align:right;">
+8.895
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.147
+</td>
+<td style="text-align:right;">
+0.230
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+regionN. East
+</td>
+<td style="text-align:right;">
+-0.076
+</td>
+<td style="text-align:right;">
+0.065
+</td>
+<td style="text-align:right;">
+-1.166
+</td>
+<td style="text-align:right;">
+0.245
+</td>
+<td style="text-align:right;">
+-0.204
+</td>
+<td style="text-align:right;">
+0.052
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+regionSouth
+</td>
+<td style="text-align:right;">
+0.519
+</td>
+<td style="text-align:right;">
+0.056
+</td>
+<td style="text-align:right;">
+9.283
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.409
+</td>
+<td style="text-align:right;">
+0.630
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+regionWest
+</td>
+<td style="text-align:right;">
+0.641
+</td>
+<td style="text-align:right;">
+0.062
+</td>
+<td style="text-align:right;">
+10.264
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.518
+</td>
+<td style="text-align:right;">
+0.763
+</td>
+</tr>
+</tbody>
+</table>
+<p>We got estimates for three of the regions, providing us average differences in the traffic fatality rate relative to the fourth excluded region.</p>
+<p>Running a fixed effects model for Equation <a href="15-panel-analysis.html#eq:pslopeexamp2rep">(15.3)</a> generates the following results. Note the absence of a single intercept because there is a separate intercept for each state that typically is not included in a table. More importantly, there is no estimate for the regions because a state’s region is absorbed by the state’s fixed effect.</p>
+<p>We are left with an estimate for the only variable in our model that differs across time within each state: <code>vmiles</code>. The estimate is statistically significant at the standard 5% significance level and is substantially less than the estimate in the model ignoring fixed effects. Here, as the average miles driven per driver <em>within</em> a state increases by 1 mile, the fatality rate increases by 0.057 deaths, all else equal.</p>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-69">Table 15.3: </span>Fixed effects results
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std.error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+vmiles
+</td>
+<td style="text-align:right;">
+0.057
+</td>
+<td style="text-align:right;">
+0.019
+</td>
+<td style="text-align:right;">
+2.956
+</td>
+<td style="text-align:right;">
+0.003
+</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="1-intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="14-forecasting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="16-r-introduction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
