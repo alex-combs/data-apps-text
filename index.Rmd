@@ -1,7 +1,7 @@
 --- 
 title: "Data Applications in Public Administration"
 subtitle: "Using R to Learn Concepts and Skills"
-author: "Alex E. Combs"
+author: "Alex Combs"
 date: "Last updated on `r format(Sys.time(), '%d %B %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -11,6 +11,8 @@ colorlinks: yes
 lot: false
 lof: false
 description: "Companion text for PADP 7120"
+url:  'https://alex-combs.github.io/data-apps-text/'
+github-repo: "alex-combs/data-apps-text"
 ---
 
 # Preface {-}

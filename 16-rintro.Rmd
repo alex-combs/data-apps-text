@@ -20,14 +20,14 @@ You should compare your work to that of your instructor, making note of any diff
 
 ## What is R and RStudio
 
-R is a programming language for statistical computing. RStudio is a user interface for R. These two programs are analogous to a smart phone. Your phone has base code you never interact with directly but is what allows your phone to work. You interact with this code, doing all the cool things it allows you to do through what you see on the screen. R is like the base code for your phone. RStudio is the screen.
+R is a programming language for statistical computing. RStudio is a user interface for R. These two programs are analogous to a smart phone. Your phone has base code you never interact with directly but is what allows your phone to work. You interact with this code, doing all the cool things it allows you to do through what you see on the screen. R is like the base code for your phone. RStudio is like the screen.
 
 ## Installing R and RStudio
 
 First, download and install R [here](https://cloud.r-project.org/).
 
-- If you are a Windows user, click on "Download R for Windows", then click on "base", then click on "Download R #.#.# for Windows."
-- If you are a macOS user, click on "Download R for (Mac) OS X." What you click on next depends on what version of macOS you are using. Under "Latest release," you will see a link such as "R-#.#.#.pkg" with a description to the right that indicates which versions of macOS it is compatible with, such as macOS 10.13 (High Sierra) and higher. If you are using an older version of macOS, scroll down to the header "Binaries for legacy OS X systems" where you can find the link that will work with your version. If you do not know which version of macOS you are using, click on the apple symbol in the top-left of your screen, then click on "About This Mac." The resulting window will display your version of macOS.
+- **Windows user:** click on "Download R for Windows", then click on "base", then click on "Download R #.#.# for Windows."
+- **MacOS user:**, click on "Download R for (Mac) OS X." What you click on next depends on what version of macOS you are using. Under "Latest release," you will see a link such as "R-#.#.#.pkg" with a description to the right that indicates which versions of macOS it is compatible with, such as macOS 10.13 (High Sierra) and higher. If you are using an older version of macOS, scroll down to the header "Binaries for legacy OS X systems" where you can find the link that will work with your version. If you do not know which version of macOS you are using, click on the apple symbol in the top-left of your screen, then click on "About This Mac." The resulting window will display your version of macOS.
 
 Second, download and install RStudio [here](https://www.rstudio.com/products/rstudio/download/).
 
@@ -58,23 +58,23 @@ You will usually see a fourth pane while working in RStudio -- the source editor
 
 ### R Packages
 
-Many tasks in R require you to install R packages that augment its functionality. Recall the analogy in Chapter 1 that R is like the base code of your phone and RStudio is the screen that allows you to interact with that code. Extending this analogy, your phone comes with base programs (e.g. calendar, weather), but others create third-party applications to augment the functionality of your phone. This is also the case with R, which has an active user community that develops useful third-party apps called packages.
+Many tasks in R require you to install R packages that augment its functionality. Extending the smartphone analogy from above, your phone comes with base programs (e.g. calendar, weather), but others create third-party applications to augment the functionality of your phone. This is also the case with R, which has an active user community that develops useful third-party apps called packages.
 
 #### Install {-}
-Just like your phone, you have to first install a R package to use it. We install packages by typing the following code **into the console pane**.
+Just like your phone, you have to first install a R package to use it. Install packages by typing the following code **into the console pane**.
 
 ```{r installdemo, eval=FALSE}
 install.packages("name_of_package")
 ```
 
-We only need to install a package once. The package is saved on your computer where R can find it.
+You only need to install a package once. The package is saved on your computer where R can find it.
 
 ```{block, type='learncheck', purl=FALSE}
 **Exercise 3** We will almost always need to use a package called `tidyverse`. In your console pane of RStudio, type `install.packages("tidyverse")`, then click `Enter` on your keyboard. This will begin the installation. Monitor the console while the package installs. RStudio may ask you some Yes/No questions during the process. Answer all questions in the affirmative by typing `Yes` then clicking `Enter`.
 ```
 
 #### Load {-}
-When an app is installed on our phone, we still have to launch it to use it. The same goes for using a R package. We use the following code to launch a package every time we need to use one of its functions.
+When an app is installed on our phone, you still have to launch it to use it. The same goes for using a R package. Each time you launch RStudio, you need to load the package(s) whose functions you plan to use. Therefore, loading packages should be done in the source editor. The following generic code is used to load a package.
 
 ```{r loaddemo, eval=FALSE}
 library(name_of_package)
@@ -83,7 +83,7 @@ library(name_of_package)
 Note that to load a package, we do not use quotation marks around the name like we do when installing.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 4**  You should have a script open in the upper-left pane. Type `library(tidyverse)` in the script. Click `Run` or `Cmd+Enter` to execute this line of code. The console pane will provide information about the loading.
+**Exercise 4**  You should have a script open in the source editor (upper-left) pane. Type `library(tidyverse)` in the script. Click `Run` or `Cmd+Enter` to execute this line of code. The console pane will provide information about the loading.
 ```
 
 You must load a package before using any functions included in that package or else you will receive the following error message, `Error: could not find function`. Remember this crucial fact. I will tell you what packages are needed for certain tasks, but remember that you need to install and load the package to use it.
@@ -94,7 +94,7 @@ Please save your script using your last name and submit to eLC. Once you submit,
 
 ## Additional Resources
 
-There are many resources available to learn R. Below are a few that offer a thorough and accessible introduction to R.
+There are many resources that provide orientations to R. Below are a few that offer a thorough and accessible introduction.
 
 - Chapters 1-3 of [Getting Used to R, RStudio, and R Markdown](https://rbasics.netlify.app/index.html)
 - [BasicBasics of RYouWithMe](https://rladiessydney.org/courses/ryouwithme/01-basicbasics-0/) by R-Ladies Sydney
