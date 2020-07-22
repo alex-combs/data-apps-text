@@ -20,6 +20,10 @@ include_graphics('images/normdist.png')
 ```
 </center>
 
+```{r, include=FALSE}
+options(scipen = 999)
+```
+
 Suppose we take a sample of 397 professor salaries in order to estimate the average salary of all professors at the university. From our sample, we calculate a mean of `r round(mean(Salaries$salary),0)` dollars and a standard deviation of `r round(sd(Salaries$salary),0)` dollars. Figure \@ref(fig:profsaldist) below shows the distribution of this sample of salaries.
 
 ```{r profsaldist, echo=FALSE, message=FALSE, fig.cap='Distribution of professor salaries'}

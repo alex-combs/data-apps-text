@@ -474,7 +474,7 @@ n=(\frac{sZ}{E})^2
 <p>Suppose a poll targeted to the general U.S. public asked if workers who have illegally entered the U.S. should be 1) allowed to keep their jobs and apply for citizenship, 2) allowed to keep their jobs as temporary guest workers but not allowed to apply for citizenship, and 3) lose their jobs and have to leave the country. The poll also asked for political party affiliation. A total of 890 responses were collected, generating the following results.</p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-54">Table 11.1: </span>Illegal immigration poll results
+<span id="tab:unnamed-chunk-55">Table 11.1: </span>Illegal immigration poll results
 </caption>
 <thead>
 <tr>
@@ -602,7 +602,7 @@ Leave the country
 <p>Then, we multiply the values by their corresponding weight. For example, applying the weight for Republicans results in 134 responses for “Leave the country” (<span class="math inline">\(179 \times 0.75\)</span>). This process gives us the following counts</p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-56">Table 11.3: </span>Weighted survey counts
+<span id="tab:unnamed-chunk-57">Table 11.3: </span>Weighted survey counts
 </caption>
 <thead>
 <tr>
@@ -854,7 +854,7 @@ Leave the country
 ## 	Pearson&#39;s Chi-squared test
 ## 
 ## data:  immigration_poll
-## X-squared = 100.95, df = 4, p-value &lt; 2.2e-16</code></pre>
+## X-squared = 100.95, df = 4, p-value &lt; 0.00000000000000022</code></pre>
 <p>This is one case where there are no confidence intervals to compute since our variables are not numerical. Instead, we rely on the p-value. Our p-value is less than 0.00000000000000022. More concisely, <span class="math inline">\(p&lt;0.05\)</span>. Therefore, we reject the null hypothesis that there is no association between the three illegal immigration opinions in the survey and political party affiliation. Furthermore, the probability for us to get the values in Table <a href="11-surveys-and-evaluations.html#tab:pollparty">11.2</a> or more extreme in a world where the null hypothesis is actually true is equal to an infinitesimal percent, not to suggest that such a small p-value is required to make inferences.</p>
 <p>Our results allow us to make inferences such as Republicans are more likely to believe illegal immigrants should lose their jobs and have to leave the country, while Democrats are more likely to believe they should be allowed to keep their jobs and apply for citizenship. Not a particularly surprising inference, but perhaps that is because many such inferences in the past have been made using similar techniques and reported many times.</p>
 </div>
