@@ -4,7 +4,18 @@
 >
 >---Rita Mae Brown
 
+<br>
+
 We can now apply our knowledge of inference to fully understand all of our regression results and extend our results to other questions. First, this chapter explains each column in a regression table as well as how to test additional hypotheses that standard regression results do not answer by default. Then, while inference is used to identify statistical significance, that does not necessarily mean our results are *practically* significant. This chapter ends with how to determine the latter.
+
+```{block, type='learncheck', purl=FALSE}
+- Explain and interpret the standard components in a table of regression results
+- Construct the null and alternative hypotheses of a variable in a regression model
+- Determine the outcome of the hypothesis test based on the regression results
+- Explain the consequence of choosing a significance level for a hypothesis test
+- Distinguish between statistical and practical significance
+- Determine whether results are practically significant
+```
 
 ## Regression table
 
@@ -46,7 +57,7 @@ $H_A: \beta \neq 0$
 
 for each of the explanatory variables we include in the model. As we now know, our results will lead us to either reject the null hypothesis or fail to reject the null hypothesis for each explanatory variable.
 
-If the null distribution were actually true, $\beta=0$, for any of our explanatory variables, then its sampling distribution *should* be centered at 0, not centered at the value of our estimate. For example, if $\beta_1=0$ for `vmiles`, then its sampling distribution should have a mean of 0, not 0.188. This alternative distribution if the null were true is referred to as the **null distribution**. Just like the sampling distribution, we assume the null distribution is approximately normal. 
+If the null hypothesis were actually true, $\beta=0$, for any of our explanatory variables, then its sampling distribution *should* be centered at 0, not centered at the value of our estimate. For example, if $\beta_1=0$ for `vmiles`, then its sampling distribution should have a mean of 0, not 0.188. This alternative distribution if the null were true is referred to as the **null distribution**. Just like the sampling distribution, we assume the null distribution is approximately normal. 
 
 The `statistic` and `p_value` columns answer the following question: "If the null for my explanatory variable were true, thus my estimate having a null distribution with a mean equal to zero and a standard deviation equal to the standard error of my estimate, how likely is it that I got the estimate I got?"
 
@@ -97,3 +108,16 @@ Lastly, since the population parameter is just as likely to equal any value in t
 Students of statistics are taught to focus so much on the estimate and statistical significance that they understandably get the impression that insignificance implies the results are useless. This is not necessarily the case. Once again, the confidence interval is helpful to determine whether statistically insignificant results are still practically significant.
 
 Suppose the p-value for `vmiles` was equal to or greater than 0.05, thus leading us to fail to reject the null hypothesis. This would also mean that our 95% confidence interval contains 0. Whether the results are still useful depends on the precision of the confidence interval around 0 relative to what we consider a meaningful change in the fatality rate given a typical change in `vmiles`. For instance, if the confidence interval ranged between -10 and 10, then our best guess for the effect ranges between substantially negative to positive or possibly no effect. This sort of imprecision is useless. However, what if the confidence interval was -0.01 to 0.01? Then, assuming a change of 0.01 in the fatality rate is negligible, we could conclude the effect of `vmiles` is negligible with a reasonable level of confidence despite failing to reject the null hypothesis.
+
+# Key terms and concepts
+
+```{block, type='learncheck', purl=FALSE}
+- Regression results
+  - estimate
+  - standard error
+  - statistic or t-statistic
+  - p-value
+  - lower and upper confidence intervals
+- Null distribution
+- Practical significance
+```

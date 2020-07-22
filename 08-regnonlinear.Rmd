@@ -11,6 +11,17 @@ In this chapter, we will cover two ways to incorporate nonlinear relationships:
 - Include a quadratic
 - Include a logarithmic transformation
 
+## Learning objectives
+
+```{block, type='learncheck', purl=FALSE}
+- Explain why and how to extend a regression model to include a quadratic relationship
+- Interpret the coefficients associated with a quadratic term in a regression model
+- Compute the value of the quadratic explanatory variable at which the outcome is at its maximum or minimum
+- Explain the difference between percent change and percentage point change
+- Explain why to log-transform variables in a regression model
+- Interpret results from log-log, log-level, and level-log models
+```
+
 ## Quadratic
 
 If we theorize or see visual evidence that the association between an explanatory variable and an outcome is such that the outcome initially increases or decreases as the explanatory variable increases, then, at some value of the explanatory variable, the outcome decreases, then we may want to include a quadratic term of that explanatory variable in our regression model. That long-winded statement warrants an immediate visualization provided by Figure \@ref(fig:quadscatter) below. 
@@ -336,6 +347,15 @@ Our log-log results indicate that life expectancy in Asia is 110% greater than l
 
 Our level-log results indicate that life expectancy in Asia is 5.9 years greater than life expectancy in Africa. Lastly, our log-level results indicate that life expectancy in Asia is 160% greater than life expectancy in Africa.
 
+<br>
+
 > **To learn how to include nonlinear variables in regression using R, proceed to Chapter \@ref(r-nonlinear-regression).**
 
-
+```{block, type='learncheck', purl=FALSE}
+- Marginal effect
+- Logarithmic scale
+- Percent change
+- Percentage point change
+- Natural log
+- Elasticity
+```

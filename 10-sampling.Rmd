@@ -6,13 +6,25 @@
 >
 >---Maya Angelou
 
-We now turn our attention to inference, which involves taking a sample from a population to make conclusions about the population with some degree of certainty. Specifically, when we calculate some estimate using a sample of data, we use inference to say whether that estimate is a good guess of the unobserved population parameter. Rather than focus on sampling techniques (e.g. random, clustered, stratified, convenience), this chapter focuses on the theory that allows us to use samples for inference as well as the potential limitations of doing so.
+We now turn our attention to inference, which involves taking a sample from a population to make conclusions about the population with some degree of certainty. At its foundation, inference is about the search for truth. Specifically, when we calculate some estimate using a sample of data, we use inference to say whether that estimate is a good guess of the unobserved population parameter. Rather than focus on sampling techniques (e.g. random, clustered, stratified, convenience), this chapter focuses on the theory that allows us to use samples for inference as well as the potential limitations of doing so.
+
+## Learning objectives
+
+```{block, type='learncheck', purl=FALSE}
+- Explain the 68-95-99 rule and apply it given the mean and standard deviation of a normal distribution
+- Explain how a sampling distribution is constructed
+- Explain why the Central Limit Theorem is needed to conduct inferential statistics and how it allows us to do so
+- Given an estimate and standard error, construct 95 and 99 percent confidence intervals
+- Interpret confidence intervals
+- Explain the effect of random or biased sampling on the accuracy and precision of a sample estimate and sampling distribution
+- Explain the effect of sample size on the accuracy and precision of a sample estimate and sampling distribution
+```
 
 ## Normal distribution
 
-When we calculate an estimate, the estimate is highly unlikely to be exactly equal to the population parameter it is intended to represent. But, given a sample and an estimate, we can calculate the range in which the parameter falls with a certain degree of confidence. If that range does not include zero, then we have reason to believe the parameter is positive or negative. A non-zero parameter may be cause for action. We are able to calculate a confidence interval because of the normal distribution.
+When we calculate an estimate, the estimate is highly unlikely to be exactly equal to the population parameter it is intended to represent. But, given a sample and an estimate, we can calculate the range in which the parameter falls with a certain degree of confidence. If that range does not include zero, then we have reason to believe the parameter is positive or negative. A non-zero parameter may be cause for action. Or, depending on the situation, a parameter of zero may be cause for action. We are able to calculate a confidence interval because of the normal distribution.
 
-Inference relies on the normal distribution introduced in \@ref(descriptive-statistics). The normal distribution has a unique and useful quality such that wherever the mean of a variable's distribution lies, if the distribution of the variable is normal, then 68% of the values lie within one standard deviation above and below that mean, 95% of the values lie within two standard deviations above and below, and 99% lie within three standard deviation. This quality of the normal distribution is sometimes called the **68-95-99 rule**, which is shown in Figure \@ref(fig:normdist) below. The Greek symbol $\mu$ (mû) denotes the mean and the symbol $\sigma$ (sigma) denotes the standard deviation. 
+Inference relies on the normal distribution introduced in Chapter \@ref(descriptive-statistics). The normal distribution has a unique and useful quality such that wherever the mean of a variable's distribution lies, if the distribution of the variable is normal, then 68% of the values lie within one standard deviation above and below that mean, 95% of the values lie within two standard deviations above and below, and 99% lie within three standard deviation. This quality of the normal distribution is sometimes called the **68-95-99 rule**, which is shown in Figure \@ref(fig:normdist) below. The Greek symbol $\mu$ (mû) denotes the mean and the symbol $\sigma$ (sigma) denotes the standard deviation. 
 
 <center>
 ```{r normdist, echo=FALSE, fig.cap='68-95-99 rule of normal distribution'}
@@ -244,3 +256,17 @@ The 95% confidence interval of this particular sample captures the population pa
 A common interpretation of, say, a 95% confidence interval is that our population parameter has a 95% probability of falling within our confidence interval. This is incorrect. A confidence interval either contains the population parameter or it does not. There is no 95% probability to speak of; only 0% or 100%. What a confidence interval conveys is that if we were to draw numerous samples from this population rather than just the one, then we would expect 95% of the confidence intervals constructed from all of our samples to capture the population parameter and 5% of the confidence intervals to fail. Our sample could be one of those 5% of samples for which the confidence intervals fail to capture the population parameter.
 
 One out of 20 samples are expected to fail to capture the population parameter that it was intended to estimate. This is why many have concerns regarding a crisis of replication in science. If only one study is published, and replications of a study are difficult to have published, then we do not know if the one that was published is the anomaly or not.
+
+## Key terms and concepts
+
+```{block, type='learncheck', purl=FALSE}
+- Normal distribution
+- 68-95-99 rule
+- Sampling distribution
+- Sample estimate
+- Central Limit Theorem
+- Confidence intervals
+- Standard error
+- Accuracy of sampling distribution and estimate
+- Precision of sampling distribution and estimate
+```

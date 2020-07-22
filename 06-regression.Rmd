@@ -6,6 +6,17 @@
 >
 >---John Cleese
 
+## Learning objectives
+
+```{block, type='learncheck', purl=FALSE}
+- Identify and explain the components of a population or sample regression model
+- Explain the difference between a deterministic equation of a line and a statistical, probabilistic equation of a line
+- Given regression results, provide the predicted change in the outcome given a change in the explanatory variable(s)
+- Given regression results, provide the predicted value of the outcome given a value of the explanatory variable(s)
+- Explain what the error term in a regression model represents
+- Interpret measures of fit in a regression model and explain their relative strengths and weaknesses
+```
+
 ## Basic idea
 
 The basic idea of regression is really quite simple. Regression calculates a line through a scatter plot of two variables so that we can summarize how much our variable on the y axis changes given a change in the variable on our x variable. Or, we can use a given value for our x variable to predict a value for our y variable. That's all it is--a line drawn to represent the association between two variables.
@@ -57,7 +68,7 @@ Equation \@ref(eq:simregsample) presents the sample regression equation.
 (\#eq:simregsample)
 \end{equation}
 
-The carrot symbol atop our outcome variable $y$ is called a hat, and so the term on the left-hand side is commonly referred to as "y-hat." This is used to denote the fact that any value we calculate from Equation \@ref(eq:simregsample) is an *estimate* of what has been or will be observed. Simlarly, the $b$ symbols are the sample estimate analogs of the $\beta$ population parameters in Equation \@ref(eq:simreg).
+The carrot symbol atop our outcome variable $y$ is called a hat, and so the term on the left-hand side is commonly referred to as "y-hat." This is used to denote the fact that any value we calculate from Equation \@ref(eq:simregsample) is an *estimate* of what has been or will be observed. Similarly, the $b$ symbols are the sample estimate analogs of the $\beta$ population parameters in Equation \@ref(eq:simreg).
 
 Equation \@ref(eq:simregsample) is the equation we use to interpret our regression results in the same way as was demonstrated using the mathematical equation of a line. Again, the only difference is that we are dealing with a statistical or probabilistic equation of a line--the outcome we calculate is a prediction based on observed data.
 
@@ -115,7 +126,7 @@ get_regression_table(fedpov) %>%
   kable(format = 'html', caption = 'Regression results of poverty on federal spending')
 ```
 
-With the excption of Chapter @\ref(causation), this section on regression models focuses on understanding the methods used to generate the values in the `estimate` column immediately to the right of the variable names as well as how to interpret and apply these values to any question. The remaining columns in the above table pertain to inference. The values in the `estimate` column are commonly referred to as **coefficients**, which were first mentioned in Chapter \@ref(descriptive-statistics). Regression coefficients measure the direction and magnitude of association between an explanatory variable and an outcome variable.
+With the exception of Chapter @\ref(causation), this section on regression models focuses on understanding the methods used to generate the values in the `estimate` column immediately to the right of the variable names as well as how to interpret and apply these values to any question. The remaining columns in the above table pertain to inference. The values in the `estimate` column are commonly referred to as **coefficients**, which were first mentioned in Chapter \@ref(descriptive-statistics). Regression coefficients measure the direction and magnitude of association between an explanatory variable and an outcome variable.
 
 Now that we have our results, we can plug them into our sample regression equation like so
 
@@ -132,10 +143,10 @@ As for a standard template to interpret regression results, we generally say or 
 
 A couple points about the above template:
 
-- We always qualify using "on average" because that is exactly what regression does. Drawing a line through a scatter plot results in points above and below that line. The line drawn by regession traces how $y$ responds to $x$ *on average*.
-- The standard change in $x$ to use when reporting results is one unit. Poverty is in units of percent. Therefore, a one-unit change in a variable measured in percentages is one percantage point (e.g. 10% to 11%).
+- We always qualify using "on average" because that is exactly what regression does. Drawing a line through a scatter plot results in points above and below that line. The line drawn by regression traces how $y$ responds to $x$ *on average*.
+- The standard change in $x$ to use when reporting results is one unit. Poverty is in units of percent. Therefore, a one-unit change in a variable measured in percentages is one percentage point (e.g. 10% to 11%).
 
-However, we could report these results using any change or particular value in poverty germaine to our original research question. For example, if we expected a county's poverty rate to be 30%, then we could report a predicted level of federal spending per capita equal to
+However, we could report these results using any change or particular value in poverty germane to our original research question. For example, if we expected a county's poverty rate to be 30%, then we could report a predicted level of federal spending per capita equal to
 
 ```{r}
 7.95+0.11*30
@@ -151,15 +162,15 @@ dollars per capita.
 
 ### The error term
 
-Back to theory. We need to address this $\epsilon$ present in the population regression model but that disappears in the sample regression model and results. What gives?
+Back to theory. We need to address this $\epsilon$ that is present in the population regression model but disappears in the sample regression model and results. What gives?
 
-The $\epsilon$ term is commonly referred to as the **error term** or, for those who don't like to incenuate some error was made in the regression, **statistical noise**. I prefer error term if for no other reason than to remind us to consider the myriad of errors we *may* be making in our regression model. 
+The $\epsilon$ term is commonly referred to as the **error term** or, for those who don't like to insinuate some error was made in the regression, **statistical noise**. I prefer error term if for no other reason than to remind us to consider the myriad of errors we *may* be making in our regression model. 
 
 As mentioned, the error term represents the inherent uncertainty of modeling an outcome based on a necessarily finite number of explanatory factors. Other factors affect our outcome. As a matter of principle, this does not prohibit our attempt to estimate the effect of a variable we care about or can alter with policy or programs on the outcome. 
 
 Could we account for multiple factors (i.e. multiple regression)? Absolutely. Can we control for *everything* that affects our outcome? Definitely not if you subscribe to chaos theory or David Hume's thoughts on causality. Even if not so extreme as to say our world is too complex to ever make decisions concerning one variable's effect on another, the plausibility for us to collect data on every relevant factor is highly unlikely.
 
-So, where did the error term go? It never really left; it simply is not used when calculating the predicted outcome based on our regression results. Like our $\beta$ terms, the error term is a population parameter. However, unlike the our $\beta$s, we do not have observed data that corresponds to its estimation. In fact, the concept of the error term exists on the basis that we do not observe it. Therefore, it is necessarily excluded when we predict an outcome based on observed data, all the while we are careful to remind readers that the numbers we report are estimates subject to error. 
+So, where did the error term go? It never really left; it simply is not used when calculating the predicted outcome based on our regression results. Like our $\beta$ terms, the error term is a population parameter. However, unlike the $\beta$s, we do not have observed data that corresponds to its estimation. In fact, the concept of the error term exists on the basis that we do not observe it. Therefore, it is necessarily excluded when we predict an outcome based on observed data, all the while we are careful to remind readers that the numbers we report are estimates subject to error. 
 
 If the error term never left, where is it? Its sample analog exists as the difference between our estimated regression line and the observed data. Figure \@ref(fig:povfedscatter2) below is the same as Figure \@ref(fig:povfedscatter) except that it displays the line based on our regression results in Table \@ref(tab:simpregextab).
 
@@ -193,7 +204,7 @@ e = y - \hat{y}
 (\#eq:simregresid)
 \end{equation}
 
-where $e$ is the sample analog of $\epsilon$. This is simply the equation behind the process of differncint the observed and predicted values of our outcome just described.
+where $e$ is the sample analog of $\epsilon$. This is simply the equation behind the process of differencing the observed and predicted values of our outcome just described.
 
 ### Goodness of fit
 
@@ -219,9 +230,13 @@ The $R^2$ and RMSE provide us the basis for choosing our preferred model. In gen
 
 #### Understanding fit {-}
 
+```{block, type='announcement', purl=FALSE}
+The material under this header is nonessential but is included because a deeper understanding of the mechanics of fit can be helpful.
+```
+
 Regression draws the *best* line through a set of data points of two or more variables. The best line in this case is the line with a slope and y-intercept that **minimizes the sum of squared residual** between the set of data points and said line. The procedure used to achieve such a line is called **ordinary least squares** (OLS). The type of regression covered in this book is sometimes referred to as OLS regression.
 
-Recall that the variance of a variable is the sum of squared deviations from the mean, as depicted in Equation \@ref(eq:variance). This should sound familiar. Instead of deviations from the mean, fitting the best line in regression concerns the deviations from the regression line, which by definition are the residuals. As with variance, we square the deviations (i.e. residuals) for the data used to estimate the regressin line, then we add these squared deviations together to obtain the sum of squared residual (SSR). Equation \@ref(eq:ssr) shows this process mathematically.
+Recall that the variance of a variable is the sum of squared deviations from the mean, as depicted in Equation \@ref(eq:variance). This should sound familiar. Instead of deviations from the mean, fitting the best line in regression concerns the deviations from the regression line, which by definition are the residuals. As with variance, we square the deviations (i.e. residuals) for the data used to estimate the regression line, then we add these squared deviations together to obtain the sum of squared residual (SSR). Equation \@ref(eq:ssr) shows this process mathematically.
 
 \begin{equation}
 SSR=\sum _{i=1}^{n}(y_{i}-\hat{y})^2= (y_{1}-\hat{y})^2+(y_{2}-\hat{y})^2+\cdots +(y_{n}-\hat{y})^2
@@ -383,5 +398,27 @@ Each explanatory variable we add to our regression model imposes a type of penal
 
 In case you were wondering why not simply add all the variables we can to a model rather than carefully consider which variables to include and exclude in a model, this penalty is one of the primary reasons. Fewer degrees of freedom jeopardizes our ability to make valid inference. It can also reduce the precision of our predictions. The goal is to maximize the explanatory or predictive power of our regression model at minimal cost (i.e. excluding superfluous variables). Choosing good regression models is where subject matter expertise plays a crucial role. Experience and knowledge within the context of the research question informs our choices. Statistics is the method by which we apply our expertise to data to make evidence-based decisions.
 
+<br>
+
 > **To learn how to run regression in R, proceed to Chapter \@ref(r-regression).**
 
+## Key terms and concepts
+
+```{block, type='learncheck', purl=FALSE}
+- Line concepts
+  - y-intercept
+  - slope
+  - change in y versus value of y
+- Regression model components
+  - outcome/dependent/response variable
+  - independent/explanatory variable
+  - error term/statistical noise
+  - residual
+  - population parameter
+  - sample coefficients/estimates
+- Goodness of fit
+  - R-squared
+  - Adjusted R-squared
+  - root mean squared error (RMSE)
+- Controlling for other factors in multiple regression
+```

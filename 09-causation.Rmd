@@ -6,6 +6,20 @@
 
 Our regression toolbox has grown considerably over the previous three chapters. We can now set out to answer a multitude of research questions that require us to accommodate different types of variables that may share linear or nonlinear relationships. Nevertheless, a model is a simplified version of our complex world. In this sense, all models are wrong. The goal is to make modeling choices that prevent our model from being *so* wrong that they are useless for decision-making.
 
+## Learning objectives
+
+```{block, type='learncheck', purl=FALSE}
+- Explain the difference between using regression to predict an outcome versus explain an outcome and the consequences each has on model choices
+- Explain internal and external validity
+- Explain the criteria to validly claim a causal relationship
+- Use a directed acyclical graph (DAG) to represent a regression model
+- Identify confounders and colliders in a DAG
+- Identify the number of backdoor paths in a DAG and each are open or closed
+- Given a DAG, identify the variables one would need to control for to close any backdoor paths
+- Determine whether a regression model plausibly eliminates omitted variable bias
+- Predict the direction of omitted variable bias
+```
+
 First, let's consider the two possible goals of regression:
 
 - **Explain** the change in an outcome due to a change in a set of explanatory variables
@@ -13,7 +27,7 @@ First, let's consider the two possible goals of regression:
 
 The usefulness of a model with the sole goal of prediction is how well it predicts the outcome. That may sound obvious and cyclical but it is an important point. Which variables we choose to include and their linear or nonlinear relationships is a secondary concern of prediction, if at all. If we don't care *how* variables affect the outcome and only care about predicting the outcome with the greatest accuracy and precision possible, then we can throw together whatever model we want to achieve that without much concern for what the model actually means.
 
-Models with the goal of prediction are common within the field of forecasting, which will be introduced in Chapter \@ref(time-series). Sometimes, we care about good prediction and *how* some explanatory variables impact the outcome. Then we are back in the realm of explanation where we have to take special care about which variables are included and excluded from our model as well as how they relate with each other.
+Models with the goal of prediction are common within the field of forecasting, which will be introduced in Chapter \@ref(forecasting). Sometimes, we care about good prediction and *how* some explanatory variables impact the outcome. Then we are back in the realm of explanation where we have to take special care about which variables are included and excluded from our model as well as how they relate with each other.
 
 The focus of this chapter is explanation using regression. Many scenarios within program evaluation or policy analysis involve explaining whether and to what extent one variable impacts another we care about changing. Ultimately, our concern is causality. It is one thing to conclude two variables are associated with each other; it is an entirely different thing to conclude that a change in one variable *causes* the other to change. If we propose to spend millions of dollars on a program to help people, or decide to cut a program that does not, we should be as certain as about this causal claim as statistics allows us to be.
 
@@ -214,3 +228,19 @@ include_graphics('images/dag_ovbdirect.png')
 Just because you cannot claim a causal relationship does not mean you do not have useful results. It is worth reiterating the value of prediction. Regardless of whether we have a model that eliminates OVB, if it accurately predicts an outcome we would like to preempt, then it could be useful. Sure, we would like to know the underlying causes of an outcome, but the ability to accurately predict the likelihood of an outcome still allows policy or programs to intervene. 
 
 If I have a model that is biased but accurately predicts students who will drop out of college, I will use that model to provide assistance to those likely to drop out. In addition to making a difference by helping my target population, perhaps I will gain insights into the underlying causes I have failed to include in my model.
+
+## Key terms and concepts
+
+```{block, type='learncheck', purl=FALSE}
+- Internal validity
+- External validity
+- Establishing correlation
+- Temporal precedence
+- Reverse causality
+- DAG
+  - confounder
+  - collider
+  - backdoor path
+  - backdoor criterion
+- Omitted variable bias
+```

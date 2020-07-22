@@ -4,6 +4,18 @@
 >
 >---John Steinbeck, Travels with Charley
 
+## Learning objectives
+
+```{block, type='learncheck', purl=FALSE}
+- Explain why and how to extend simple or multiple regression models to a parallel slopes model
+- Interpret results of a parallel slopes model
+- Explain why and how to extend regression models to an interaction model
+- Interpret results of an interaction model
+- Provide advice on choosing between parallel slopes and interaction model
+- Explain why and how to extend regression models to a linear probability model
+- Interpret results of a linear probability model
+```
+
 Chapter \@ref(simple-and-multiple-regression) introduced regression using models containing quantitative variables only. In this chapter, we build our regression toolbox to include models that contain qualitative variables. We will cover three models in particular:
 
 - Parallel slopes model: including a categorical explanatory variable
@@ -76,7 +88,7 @@ mrall = \beta_0 + \beta_1vmiles + \beta_2jaild + \epsilon
 (\#eq:pslopeexamp)
 \end{equation}
 
-First, let's visualize the relationship between these variables using a scatter plot with `vmiles` on the x axis and using color to differentiate states with and with and without mandatory jail sentences for drunk driving. Note in Figure \@ref(fig:pslopescatter) below there appears to be a positive relationship between the average miles people drive and the traffic fatalities. That makes sense.
+First, let's visualize the relationship between these variables using a scatter plot with `vmiles` on the x axis and using color to differentiate states with and without mandatory jail sentences for drunk driving. Note in Figure \@ref(fig:pslopescatter) below there appears to be a positive relationship between the average miles people drive and the traffic fatalities. That makes sense.
 
 Now, imagine drawing a straight line through the red points that denote states with no mandatory jail for drunk driving and a separate line through the blue dots denoting states with mandatory jail sentencing. Do not force your imaginary lines to be parallel just yet. How do your two lines compare? Based on the data, our blue line should be above our red line, as the group of blue dots appear to be systematically higher than the group of red dots. The slopes are less obvious. It *may* be the case that our red line should have a steeper slope than our *blue* line, but it is difficult to tell. 
 
@@ -112,7 +124,7 @@ I strongly recommend that you compare this equation to Equations 7.2-7.5. Otherw
 \hat{mrall} = -0.238 + 0.281\times vmiles
 \end{equation}
 
-and if a state does have a madatory jail sentence, then we have
+and if a state does have a mandatory jail sentence, then we have
 
 \begin{equation}
 \hat{mrall} = -0.238 + 0.281\times vmiles + 0.265\\
@@ -310,7 +322,7 @@ ggplot(trdeath2, aes(x = mrall, y = jaild)) +
   theme_minimal()
 ```
 
-Immediately, we should notice Figure \@ref(fig: lpmscatter) does not look like the typical scatter plots we have viewed thus far. This is because all observations fall into one of two values for `jaild`. It is also difficult to tell how our regression line is being drawn through the data.
+Immediately, we should notice Figure \@ref(fig:lpmscatter) does not look like the typical scatter plots we have viewed thus far. This is because all observations fall into one of two values for `jaild`. It is also difficult to tell how our regression line is being drawn through the data.
 
 The points along the x axis are states for which `jaild = 0`, meaning they do not impose mandatory jail sentencing for drunk driving. The points at the top are states for which `jaild = 1`. Compared to the points at the bottom, note the slight shift to the right the points at the top seem to have made. This shift is what informs the regression line to slope upward. The pattern of these data suggests there is a positive association between traffic fatality rate and passing a mandatory jail sentencing for drunk driving.
 
@@ -391,5 +403,17 @@ prop.table(confusion, 2) %>%
   kable(format = 'html', caption = 'Confusion matrix for LPM (in proportions)')
 ```
 
+<br>
+
 > **To Learn how to include interactions in a regression using R, proceed to Chapter \@ref(r-interactions).**
 
+## Key terms and concepts
+
+```{block, type='learncheck', purl=FALSE}
+- Dummy variable
+- Parallel slopes
+- Interaction
+- Difference between parallel slopes and interaction models
+- Linear probability model (LPM)
+- Confusion matrix
+```

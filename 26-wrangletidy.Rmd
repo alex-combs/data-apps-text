@@ -233,7 +233,7 @@ The `summarize` verb works with numerous summary functions listed on the second 
 
 #### Group_By {-}
 
-The `group_by` verb is most commonly used in tandem with `summarize`. If instead of calculating a summary stat for the entire dataset, you wanted to calculate the summary stat for each group of a categorical variable seperately, use `group_by` before using `summarize`.
+The `group_by` verb is most commonly used in tandem with `summarize`. If instead of calculating a summary stat for the entire dataset, you wanted to calculate the summary stat for each group of a categorical variable separately, use `group_by` before using `summarize`.
 
 Suppose I wanted average GDP per capita and life expectancy in 2007 for each continent. Then:
 

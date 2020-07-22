@@ -23,7 +23,9 @@ github-repo: "alex-combs/data-apps-text"
 This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
 ```
 
-This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes unfeasible, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. In general, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.
+<br>
+
+This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes untenable, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. Regardless of what happens to instruction during class, this book provides a one-way lesson on relevant topics directly from the person in charge of evaluating your understanding and performance. Secondarily, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.
 
 ### Objective {-}
 
@@ -31,13 +33,11 @@ The objective of this book is to help students in public administration be as co
 
 This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.
 
-### Style {-}
+### Style and Structure {-}
 
 Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained. 
 
 Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.
-
-### Structure {-}
 
 This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the `R Data` chapter corresponds to the `Data` chapter in the first track.
 
@@ -47,8 +47,6 @@ The conceptual track is divided into four sections:
 2. Regression models
 3. Inference
 4. Advanced topics
-
-Each chapter begins with learning objectives and ends with supplemental resources, such as additional readings or opportunities to practice using R.
 
 ### Software requirements {-}
 

@@ -4,6 +4,18 @@
 >
 >---Joe Friday, Dragnet
 
+## Learning objectives
+
+```{block, type='learncheck', purl=FALSE}
+- Explain how descriptive and inferential statistics differ in purpose and the information they provide
+- Identify and differentiate population, sample, parameter, statistic in a given research proposal or question
+- Explain what is a distribution of a random variable
+- Recall the descriptive measures of center, spread, and association
+- Choose the preferable measures of center and spread given a distribution and explain their strengths and weaknesses
+- Determine the direction and strength of association given a scatterplot or correlation coefficient
+- Explain the possible shortcomings of correlation
+```
+
 ## Two kinds of statistics
 
 There are two kinds of statistics, each having a specific goal:
@@ -179,7 +191,7 @@ For continuous variables reported at several decimal places, a value may not occ
 
 When choosing between mean and median, it usually comes down to the presence of extreme values or the extent to which a distribution is **skewed**. Skew pertains to the tails of a distribution--the taper to the left and right of its center. If the right or left tail extends far out from the center, we consider the distribution to be right- or left-skewed. Our distribution of infant mortality rates is right-skewed.
 
-When a distribution is skewed, the median is generally a better choice for reporting its center. This is because the mean is sensitive to extreme values. Note in Figure \@ref(fig:mortcenters) that the mean is being pulled to the right by the extreme values. As a result, the red line is to the right of the cluster of frequent values and may not be a good answer for the typical value of this distribution. The median is not sensitive to extreme values. No matter how far to the right the goes, the middle of the distribution stays put. If one were to use the median because of skew, one should also mention that in their report.
+When a distribution is skewed, the median is generally a better choice for reporting its center. This is because the mean is sensitive to extreme values. Note in Figure \@ref(fig:mortcenters) that the mean is being pulled to the right by the extreme values. As a result, the red line is to the right of the cluster of frequent values and may not be a good answer for the typical value of this distribution. The median is not sensitive to extreme values. No matter how far we stretch the values above the median to the right, the middle of the distribution stays put. If one were to use the median because of skew, one should also mention that in their report.
 
 ### Measures of spread
 
@@ -329,13 +341,13 @@ Again, we have several options to answer the above question.
 - **Regression coefficient:** measures the direction and magnitude of association between an explanatory variable and an outcome variable
 - **Coefficient of determination ($R^2$):** measures the strength of association between a set of one or more explanatory variables and an outcome variable
 
-The regression coefficient and coefficient of determination will be discussed in later chapter involving regression models. Let us briefly consider covariance and correlation.
+The regression coefficient and coefficient of determination are discussed in Chapter \@ref(r-simple-and-multiple-regression) involving regression models. Let us briefly consider covariance and correlation.
 
 #### Covariance {-}
 
 Covariance tells us when our x variable is above (below) its mean, whether our y variable tends to be above or below its mean. If our y variable tends to be above its mean when x is above its mean, then the two have a positive covariance and are positively associated. If our y variable tends to be below its mean when x is above its mean, then the two have a negative covariance and are negatively associated. A covariance of 0 indicates no association.
 
-Figure \@ref(fig:scattercovar) adds references lines for the mean of each variable. Note that when infant mortality is above its mean (to the right of the red line), life expectancy is below its mean (below the green line) in almost all cases. When infant mortality is below its mean, life expectancy is above its mean in almost all cases. Therefore, these two variables have a negative covariance and are negatively associated. In fact, the covariance between infant mortality rate and life expectancy is `r round(cov(gapdeath$inf_mort_rate, gapdeath$lifeExp, use='pairwise.complete.obs'),1)`
+Figure \@ref(fig:scattercovar) adds references lines for the mean of each variable. Note that when infant mortality is above its mean (to the right of the red line), life expectancy is below its mean (below the purple line) in almost all cases. When infant mortality is below its mean, life expectancy is above its mean in almost all cases. Therefore, these two variables have a negative covariance and are negatively associated. In fact, the covariance between infant mortality rate and life expectancy is `r round(cov(gapdeath$inf_mort_rate, gapdeath$lifeExp, use='pairwise.complete.obs'),1)`
 
 ```{r scattercovar, echo=FALSE, warning=FALSE, fig.cap='Visualizing covariance'}
 ggplot(gapdeath, aes(x = inf_mort_rate, y = lifeExp)) +
@@ -356,7 +368,7 @@ Correlation tells us how much the paired values of two variables exhibit a strai
 
 Based on the covariance and the scatter plot, we know to expect a negative correlation between infant mortality rate and life expectancy. We also know the correlation will not be -1 because the points do not form a perfect straight line. Nevertheless they do form a fairly tight negative path, so we should expect a correlation closer to -1 than 0. It turns out that the correlation is equal to `r round(cor(gapdeath$inf_mort_rate, gapdeath$lifeExp, use='pairwise.complete.obs'),1)`. Infant mortality rate and life expectancy exhibit a very strong, negative association.
 
-Another way to think about correlation is if we tried to draw a line through the data points on our scatter plot from left to right that could freely curve about however the data are scattered, would that line be a straight line and would it slope upward or downward? Figure \@ref(fig:scattercorr) does exactly that with our data. Note that the data lead the line to be essectially straight until the end when it appears the association turns positively. 
+Another way to think about correlation is if we tried to draw a line through the data points on our scatter plot from left to right that could freely curve about however the data are scattered, would that line be a straight line and would it slope upward or downward? Figure \@ref(fig:scattercorr) does exactly that with our data. Note that the data lead the line to be essentially straight until the end when it appears the association turns positively. 
 
 ```{r scattercorr, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Drawing a free line through the data'}
 ggplot(gapdeath, aes(x = inf_mort_rate, y = lifeExp)) +
@@ -372,5 +384,27 @@ ggplot(gapdeath, aes(x = inf_mort_rate, y = lifeExp)) +
 
 Correlation has three qualities that can lead to misunderstandings or mistakes, some of which may have become apparent to you in the above discussion. First, correlation is sensitive to extreme values. A few dots on a scatter plot can have a substantial impact on the line that is drawn through the data. Second, correlation measures only the **linear** association, thus the repeated mentioning of **straight** lines. If two variables formed a perfect U-shape, they are almost certainly strongly associated. However, their correlation would suggest a weaker relationship because a straight line does not fit a U-shape well. Third, **correlation is a necessary but not sufficient condition of causation**. In order to validly claim that a change in the value of one variable *causes* the values of another variable to change, they must be correlated, but a few more conditions must also be met. Those conditions are discussed in Chapter \@ref(causation-and-bias).
 
+<br>
+
 > **To learn how to produce a summary table for a publication, proceed to Chapter \@ref(r-description).**
 
+## Key terms and concepts
+
+```{block, type='learncheck', purl=FALSE}
+- Descriptive statistics
+- Inferential statistics
+- Population
+- Sample
+- Parameter
+- Statistic
+- Estimate
+- Distribution
+- Mean
+- Median
+- Mode
+- Skewed distribution
+- Standard deviation
+- Interquartile range
+- Range
+- Correlation
+```

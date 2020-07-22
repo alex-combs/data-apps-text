@@ -2,6 +2,13 @@
 
 > *"The pen is mightier than the sword, especially if it draws a graph."*
 
+## Learning objectives
+
+```{block, type='learncheck', purl=FALSE}
+- Interpret the six visualizations included in this chapter
+- Recommend an appropriate type of visualization given the intended message and data
+```
+
 ## So many choices
 
 The world of data visualization is incredibly diverse and detailed. You could spend a substantial amount of time learning how to construct the best visualization given particular data and the the intended message. Such depth is far beyond the scope of this book. For more coverage on data visualization, I recommend the following resources:
@@ -35,7 +42,7 @@ Sections that follow briefly explain each of these six visualizations.
 
 ### Histogram
 
-You have already seen several histograms. A histogram visualizes the the distribution of a single variable by counting the number of occurrences for values that fall within a certain range. The frequency of occurrences within each range is represented by a vertical rectangle. 
+You have already seen several histograms. A histogram visualizes the distribution of a single variable by counting the number of occurrences for values that fall within a certain range. The frequency of occurrences within each range is represented by a vertical rectangle. 
 
 Figure \@ref(fig:gradmedhist) shows the median earnings of those employed full time for different graduate degree majors. We can see that most graduate degrees result in a median pay for graduates of between 60 and 80 thousand dollars. There are a few graduate majors for which the median pay is above 100 thousand dollars.
 
@@ -263,5 +270,18 @@ ggplot(gradschool, aes(x = grad_median, y = grad_total)) +
   theme_minimal()
 ```
 
+<br>
+
 > **The logic of visualization choice discussed in this chapter applies regardless of what particular software one uses. To learn how to generate most of these graphs in R, proceed to Chapter \@ref(r-visualization).**
 
+## Key terms and concepts
+
+```{block, type='learncheck', purl=FALSE}
+- Uses of a histogram
+- Uses of a box plot
+- Uses of a bar chart
+- Uses of a scatter plot
+- Distribution of a numerical variable
+- Comparison of one variable between two or more units of analysis
+- Composition of a categorical variable
+```

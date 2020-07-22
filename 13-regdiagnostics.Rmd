@@ -18,6 +18,15 @@ include_graphics("images/credible.png")
 
 This chapter covers some remaining assumptions and diagnostics that a credible quantitative analysis should include. While running diagnostics may primarily fall within the role of an analyst, those managing an analysis can ask good questions or identify potential issues if they at least know what else can go wrong.
 
+## Learning objectives
+
+```{block, type='learncheck', purl=FALSE}
+- Determine whether and which classical regression assumptions may be violated based on a residual versus fitted plot (RVFP)
+- Explain why and when multicollinearity may be a problem and propose potential solutions
+- Distinguish between outlier, high-leverage, and high-influence observations in regression
+- Identify influential observations using a residual vs. fitted plot (RVLP)
+```
+
 ## Classical assumptions
 
 The estimates we obtain from regression are the best linear unbiased estimates possible *if* certain assumptions hold. If they do not, then our estimates could be biased or they could render our hypothesis tests invalid, creating a higher chance of Types I and II error than we chose that our significance level establishes. Fortunately, these assumptions can be remembered with an apt acronym: LINE.
@@ -98,7 +107,7 @@ include_graphics("images/influential.png")
 
 Figure \@ref(fig:influential) provides an obvious case. The primary question is how do we decide an observation is high-influence? As is the case when identifying outliers of a single distribution, there is no definitive rule for identifying high-influence observations in regression. Furthermore, whether to exclude a high-influence observation is subjective and depends on the context. Either way, influential observations should be noted in a report.
 
-A key tool used to invstigate possible high-influence observations is a residual vs. leverage plot (RVLP). This is similar to an RVFP in that it is a simple transformation of the standard regression scatter plot that allows us to identify outliers, high-leverage, and high-influence observations more effectively. Figure \@ref(fig:rvlp) below shows an RVLP for the regression of poverty and murder rates.  
+A key tool used to investigate possible high-influence observations is a residual vs. leverage plot (RVLP). This is similar to an RVFP in that it is a simple transformation of the standard regression scatter plot that allows us to identify outliers, high-leverage, and high-influence observations more effectively. Figure \@ref(fig:rvlp) below shows an RVLP for the regression of poverty and murder rates.  
 
 <center>
 ```{r rvlp, echo=FALSE, fig.cap="Residual vs. leverage plot"}
@@ -108,5 +117,15 @@ include_graphics("images/rvlp.png")
 
 The software used to produce this RVLP also adds something called Cook's distance to the plot, denoted by the red dashed line. Cook's distance is a measure commonly used to identify influential observations. One rule of thumb is that any observation with a Cook's distance greater than 1 should be investigated. Here, we see that observation 51 in our data has a Cook's distance greater than 1. This observation is D.C.
 
+<br>
+
 > **To learn how to run regression diagnostics in R, proceed to Chapter \@ref(r-regression-diagnostics).**
 
+```{block, type='learncheck', purl=FALSE}
+- Violations of regression assumptions
+- Multicollinearity
+- Regression outlier
+- High-leverage observation
+- High-influence observation
+- Excluding observations from a regression model
+```

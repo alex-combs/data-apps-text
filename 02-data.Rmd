@@ -12,10 +12,12 @@ We cannot effectively convert the raw material of knowledge into a useful produc
 
 ## Learning objectives
 
+```{block, type='learncheck', purl=FALSE}
 - Understand the organization of rectangular data
 - Identify the unit of analysis within a dataset
 - Identify and distinguish types of variables
 - Identify and distinguish types of dataset structures
+```
 
 ## Rectangular Data
 
@@ -57,8 +59,8 @@ include_graphics('images/variables.png')
 
 All variables belong to one of two broad types: qualitative (or categorical) and quantitative (or numeric).
 
-- **Qualitative** variables take on values that have no intrensic numerical meaning. They are exressed in words.
-- **Quantitative** variables take on values that do have intrensic numerical meaning.
+- **Qualitative** variables take on values that have no intrinsic numerical meaning. They are expressed in words.
+- **Quantitative** variables take on values that do have intrinsic numerical meaning.
 
 ### Qualitative variables
 
@@ -71,7 +73,7 @@ The values that categorical variables take on are commonly referred to as levels
 
 A variable such as sex contains two levels: male and female. The variable sex is nominal, as its values have no numerical meaning and the two levels have no ranking. Race, state, country, political party, and any variable coded as yes/no such as unemployed, married, and below the federal poverty line are all examples of nominal variables.
 
-If you have ever participated in a customer satisfaction survey, then you have almost surely contributed data to an ordinal variable. Those scales that provide some number of options from "disagree" to "agree" are called Likert scales. Your answer has no intrinsic numerical value but it can be ranked against the answers of others. One respondent can be said to be more satsfied than another but not by how much. Moreover, one can only trust the results insofar as responents have the same understanding or frame of reference--the service that satisfied one respondent may not have satisfied another. Other ordinal variables, such as education degree and income level do not have this issue.
+If you have ever participated in a customer satisfaction survey, then you have almost surely contributed data to an ordinal variable. Those scales that provide some number of options from "disagree" to "agree" are called Likert scales. Your answer has no intrinsic numerical value but it can be ranked against the answers of others. One respondent can be said to be more satisfied than another but not by how much. Moreover, one can only trust the results insofar as respondents have the same understanding or frame of reference--the service that satisfied one respondent may not have satisfied another. Other ordinal variables, such as education degree and income level do not have this issue.
 
 ### Quantitative variables
 
@@ -124,7 +126,7 @@ gapminder %>%
   kable(format = 'html', caption = "Pooled cross-section example")
 ```
 
-**Time series** data measures one unit over mulitple time periods. The unit of analysis in time series data is time, as it uniquely identifies each row. Notice in Table 2.4 that one country is tracked over multiple years.
+**Time series** data measures one unit over multiple time periods. The unit of analysis in time series data is time, as it uniquely identifies each row. Notice in Table 2.4 that one country is tracked over multiple years.
 
 ```{r timeseries, echo=FALSE}
 gapminder %>% 
@@ -142,11 +144,15 @@ gapminder %>%
   kable(format = 'html', caption = "Panel example")
 ```
 
+<br>
 
 > **To learn how to examine data in R, proceed to Chapter \@ref(r-data).**
 
+## Key terms and concepts
 
-## Additional Resources
-
-- [ModernDive Chapter 1](https://moderndive.com/1-getting-started.html)
-- Chapter 1 of OpenIntro Statistics
+```{block, type='learncheck', purl=FALSE}
+- Unit of analysis
+- Variable
+- Types of variables: qualitative, quantitative, nominal, ordinal, discrete, continuous, index
+- Data structures: cross-sectional, pooled cross-sectional, time series, panel
+```

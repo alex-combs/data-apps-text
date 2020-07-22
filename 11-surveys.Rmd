@@ -4,7 +4,21 @@
 >
 >---Hannibal Lecter
 
+<br>
+
 Before considering inference with respect to regression, this chapter covers two common concerns in sampling beyond question design or sampling method: sample power and weighting. Then, hypothesis testing is introduced, which applies to any sample estimate from which we wish to make inference. Lastly, using hypothesis testing for evaluations in their simplest forms is considered.
+
+## Learning objectives
+
+```{block, type='learncheck', purl=FALSE}
+- Apply the margin or error or the confidence interval of an estimate when making conclusions
+- Compute the sample size required to achieve a desired margin of error or precision around an estimate given the necessary information for such a computation
+- Weight survey results given sufficient information
+- Identify or construct the null and alternative hypotheses of a research question
+- Interpret a p-value and apply it to determine the outcome of a hypothesis test
+- Distinguish between types I and II error in a research scenario
+- Explain when a chi-square test or t-test is appropriate
+```
 
 ## Sample size
 
@@ -277,5 +291,20 @@ t.test(earnings ~ treatment, data = jobtrain)
 
 Our p-value is greater than our significance level, $0.23>0.05$. Therefore, we fail to reject the null hypothesis and conclude that there is not statistically significant evidence that participants earn more than non-participants, on average. Note that our 95% confidence interval ranges between -11,630 and 2,856. It includes zero, thus we cannot claim the difference between the means is not equal to zero with reasonable confidence.
 
+<br>
+
 > **To learn how to conduct chi-square and t-tests in R, proceed to Chapter \@ref(r-evaluations).**
 
+```{block, type='learncheck', purl=FALSE}
+- Margin of error
+- Survey weight
+- Null and alternative hypotheses
+- Rejecting the null
+- Failing to reject the null
+- Types I and II error
+- Confidence level
+- Significance level
+- P-value
+- Chi-square test
+- T-test
+```
