@@ -18,7 +18,7 @@ include_graphics("images/credible.png")
 
 This chapter covers some remaining assumptions and diagnostics that a credible quantitative analysis should include. While running diagnostics may primarily fall within the role of an analyst, those managing an analysis can ask good questions or identify potential issues if they at least know what else can go wrong.
 
-## Learning objectives
+## Learning objectives {#lo13}
 
 ```{block, type='learncheck', purl=FALSE}
 - Determine whether and which classical regression assumptions may be violated based on a residual versus fitted plot (RVFP)
@@ -120,6 +120,8 @@ The software used to produce this RVLP also adds something called Cook's distanc
 <br>
 
 > **To learn how to run regression diagnostics in R, proceed to Chapter \@ref(r-regression-diagnostics).**
+
+## Key terms and concepts {#kt13}
 
 ```{block, type='learncheck', purl=FALSE}
 - Violations of regression assumptions

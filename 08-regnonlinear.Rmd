@@ -11,7 +11,7 @@ In this chapter, we will cover two ways to incorporate nonlinear relationships:
 - Include a quadratic
 - Include a logarithmic transformation
 
-## Learning objectives
+## Learning objectives {#lo8}
 
 ```{block, type='learncheck', purl=FALSE}
 - Explain why and how to extend a regression model to include a quadratic relationship
@@ -350,6 +350,8 @@ Our level-log results indicate that life expectancy in Asia is 5.9 years greater
 <br>
 
 > **To learn how to include nonlinear variables in regression using R, proceed to Chapter \@ref(r-nonlinear-regression).**
+
+## Key terms and concepts {#kt8}
 
 ```{block, type='learncheck', purl=FALSE}
 - Marginal effect

@@ -10,7 +10,7 @@
 
 We cannot effectively convert the raw material of knowledge into a useful product without first understanding the raw material. Therefore, learning statistics naturally begins with learning the types and structures of data.
 
-## Learning objectives
+## Learning objectives {#lo2}
 
 ```{block, type='learncheck', purl=FALSE}
 - Understand the organization of rectangular data
@@ -148,7 +148,7 @@ gapminder %>%
 
 > **To learn how to examine data in R, proceed to Chapter \@ref(r-data).**
 
-## Key terms and concepts
+## Key terms and concepts {#kt1}
 
 ```{block, type='learncheck', purl=FALSE}
 - Unit of analysis

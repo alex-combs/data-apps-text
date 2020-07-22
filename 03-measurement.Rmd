@@ -8,7 +8,7 @@
 
 Once we know the types and structure of our data, we need to understand how the data relates to reality before drawing conclusions from it. Variables and the data they contain are measured representations of reality. They are shadows on the allegorical cave discussed in Plato's *Republic*. We should not immediately assume these shadows are good representations of reality.
 
-## Learning objectives
+## Learning objectives {#lo3}
 
 ```{block, type='learncheck', purl=FALSE}
 - Assess the measurement validity of variables
@@ -126,7 +126,7 @@ Note that the missing Bolivia observation was easy to spot because the dataset i
 
 > **To learn how to work with missing data in R, proceed to Chapter \@ref(r-missing-data).**
 
-## Key terms and concepts
+## Key terms and concepts {#kt2}
 
 ```{block, type='learncheck', purl=FALSE}
 - Measurement validity

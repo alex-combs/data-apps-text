@@ -8,7 +8,7 @@
 
 We now turn our attention to inference, which involves taking a sample from a population to make conclusions about the population with some degree of certainty. At its foundation, inference is about the search for truth. Specifically, when we calculate some estimate using a sample of data, we use inference to say whether that estimate is a good guess of the unobserved population parameter. Rather than focus on sampling techniques (e.g. random, clustered, stratified, convenience), this chapter focuses on the theory that allows us to use samples for inference as well as the potential limitations of doing so.
 
-## Learning objectives
+## Learning objectives {#lo10}
 
 ```{block, type='learncheck', purl=FALSE}
 - Explain the 68-95-99 rule and apply it given the mean and standard deviation of a normal distribution
@@ -257,7 +257,7 @@ A common interpretation of, say, a 95% confidence interval is that our populatio
 
 One out of 20 samples are expected to fail to capture the population parameter that it was intended to estimate. This is why many have concerns regarding a crisis of replication in science. If only one study is published, and replications of a study are difficult to have published, then we do not know if the one that was published is the anomaly or not.
 
-## Key terms and concepts
+## Key terms and concepts {#kt10}
 
 ```{block, type='learncheck', purl=FALSE}
 - Normal distribution

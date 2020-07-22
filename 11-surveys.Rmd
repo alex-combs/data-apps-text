@@ -8,7 +8,7 @@
 
 Before considering inference with respect to regression, this chapter covers two common concerns in sampling beyond question design or sampling method: sample power and weighting. Then, hypothesis testing is introduced, which applies to any sample estimate from which we wish to make inference. Lastly, using hypothesis testing for evaluations in their simplest forms is considered.
 
-## Learning objectives
+## Learning objectives {#lo11}
 
 ```{block, type='learncheck', purl=FALSE}
 - Apply the margin or error or the confidence interval of an estimate when making conclusions
@@ -294,6 +294,8 @@ Our p-value is greater than our significance level, $0.23>0.05$. Therefore, we f
 <br>
 
 > **To learn how to conduct chi-square and t-tests in R, proceed to Chapter \@ref(r-evaluations).**
+
+## Key terms and concepts {#kt11}
 
 ```{block, type='learncheck', purl=FALSE}
 - Margin of error

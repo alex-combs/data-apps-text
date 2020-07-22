@@ -6,7 +6,7 @@
 >
 >---John Cleese
 
-## Learning objectives
+## Learning objectives {#lo6}
 
 ```{block, type='learncheck', purl=FALSE}
 - Identify and explain the components of a population or sample regression model
@@ -402,7 +402,7 @@ In case you were wondering why not simply add all the variables we can to a mode
 
 > **To learn how to run regression in R, proceed to Chapter \@ref(r-regression).**
 
-## Key terms and concepts
+## Key terms and concepts {#kt6}
 
 ```{block, type='learncheck', purl=FALSE}
 - Line concepts

@@ -4,7 +4,7 @@
 >
 >---John Steinbeck, Travels with Charley
 
-## Learning objectives
+## Learning objectives {#lo7}
 
 ```{block, type='learncheck', purl=FALSE}
 - Explain why and how to extend simple or multiple regression models to a parallel slopes model
@@ -407,7 +407,7 @@ prop.table(confusion, 2) %>%
 
 > **To Learn how to include interactions in a regression using R, proceed to Chapter \@ref(r-interactions).**
 
-## Key terms and concepts
+## Key terms and concepts {#kt7}
 
 ```{block, type='learncheck', purl=FALSE}
 - Dummy variable

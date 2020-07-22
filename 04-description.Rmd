@@ -4,7 +4,7 @@
 >
 >---Joe Friday, Dragnet
 
-## Learning objectives
+## Learning objectives {#lo4}
 
 ```{block, type='learncheck', purl=FALSE}
 - Explain how descriptive and inferential statistics differ in purpose and the information they provide
@@ -388,7 +388,7 @@ Correlation has three qualities that can lead to misunderstandings or mistakes, 
 
 > **To learn how to produce a summary table for a publication, proceed to Chapter \@ref(r-description).**
 
-## Key terms and concepts
+## Key terms and concepts {#kt4}
 
 ```{block, type='learncheck', purl=FALSE}
 - Descriptive statistics

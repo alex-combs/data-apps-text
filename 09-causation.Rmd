@@ -6,7 +6,7 @@
 
 Our regression toolbox has grown considerably over the previous three chapters. We can now set out to answer a multitude of research questions that require us to accommodate different types of variables that may share linear or nonlinear relationships. Nevertheless, a model is a simplified version of our complex world. In this sense, all models are wrong. The goal is to make modeling choices that prevent our model from being *so* wrong that they are useless for decision-making.
 
-## Learning objectives
+## Learning objectives {#lo9}
 
 ```{block, type='learncheck', purl=FALSE}
 - Explain the difference between using regression to predict an outcome versus explain an outcome and the consequences each has on model choices
@@ -229,7 +229,7 @@ Just because you cannot claim a causal relationship does not mean you do not hav
 
 If I have a model that is biased but accurately predicts students who will drop out of college, I will use that model to provide assistance to those likely to drop out. In addition to making a difference by helping my target population, perhaps I will gain insights into the underlying causes I have failed to include in my model.
 
-## Key terms and concepts
+## Key terms and concepts {#kt9}
 
 ```{block, type='learncheck', purl=FALSE}
 - Internal validity

@@ -8,6 +8,8 @@
 
 We can now apply our knowledge of inference to fully understand all of our regression results and extend our results to other questions. First, this chapter explains each column in a regression table as well as how to test additional hypotheses that standard regression results do not answer by default. Then, while inference is used to identify statistical significance, that does not necessarily mean our results are *practically* significant. This chapter ends with how to determine the latter.
 
+## Learning objectives {#lo12}
+
 ```{block, type='learncheck', purl=FALSE}
 - Explain and interpret the standard components in a table of regression results
 - Construct the null and alternative hypotheses of a variable in a regression model
@@ -109,7 +111,7 @@ Students of statistics are taught to focus so much on the estimate and statistic
 
 Suppose the p-value for `vmiles` was equal to or greater than 0.05, thus leading us to fail to reject the null hypothesis. This would also mean that our 95% confidence interval contains 0. Whether the results are still useful depends on the precision of the confidence interval around 0 relative to what we consider a meaningful change in the fatality rate given a typical change in `vmiles`. For instance, if the confidence interval ranged between -10 and 10, then our best guess for the effect ranges between substantially negative to positive or possibly no effect. This sort of imprecision is useless. However, what if the confidence interval was -0.01 to 0.01? Then, assuming a change of 0.01 in the fatality rate is negligible, we could conclude the effect of `vmiles` is negligible with a reasonable level of confidence despite failing to reject the null hypothesis.
 
-# Key terms and concepts
+# Key terms and concepts {#kt12}
 
 ```{block, type='learncheck', purl=FALSE}
 - Regression results
