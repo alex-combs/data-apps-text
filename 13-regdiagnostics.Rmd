@@ -108,4 +108,5 @@ include_graphics("images/rvlp.png")
 
 The software used to produce this RVLP also adds something called Cook's distance to the plot, denoted by the red dashed line. Cook's distance is a measure commonly used to identify influential observations. One rule of thumb is that any observation with a Cook's distance greater than 1 should be investigated. Here, we see that observation 51 in our data has a Cook's distance greater than 1. This observation is D.C.
 
-To learn how to run regression diagnostics in R, proceed to Chapter \@ref(r-regression-diagnostics).
+> **To learn how to run regression diagnostics in R, proceed to Chapter \@ref(r-regression-diagnostics).**
+

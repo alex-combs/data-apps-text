@@ -17,12 +17,18 @@ The code used to make the above visualizations in \@ref(data-visualization) will
 To complete this chapter, you need to
 
 - Start a notebook
-- Load the following packages
+- Load the following packages and data
 
 ```{r, eval=FALSE}
 library(tidyverse)
-library(openintro)
+library(data.table) # contains fread function to import from URL
 library(fpp2)
+countyComplete <- fread('https://www.openintro.org/data/R/county_complete.R')
+```
+
+
+```{r, include=FALSE}
+countyComplete <- fread('https://www.openintro.org/data/csv/county_complete.csv')
 ```
 
 For everything but the line graph, we will use the `countyComplete` data within the `openintro` package. This dataset contains 3,143 counties and 53 variables. For the line graph, we will use the `prisonLF` data within the `fpp2` package. This dataset is a quarterly time series of prisoner numbers in Australia from 2005 to 2016, split by sex, state, and legal status.
@@ -91,11 +97,11 @@ ggplot(college_grad_students, aes(x = grad_median)) +
 ```
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 1:**  In the `countyComplete` dataset, there is a variable named `bachelors` that measures the percent of the county population with a bachelor's degree between 2006-2010. Suppose we want to visualize the distribution of `bachelors` with a histogram. Generate a simple, default histogram (no optional code unless you want to add it).
+**Exercise 1:**  In the `countyComplete` dataset, there is a variable named `bachelors_2010` that measures the percent of the county population with a bachelor's degree between 2006-2010. Suppose we want to visualize the distribution of `bachelors` with a histogram. Generate a simple, default histogram (no optional code unless you want to add it).
 ```
 
 ```{r, include=FALSE}
-ggplot(countyComplete, aes(x = bachelors)) +
+ggplot(countyComplete, aes(x = bachelors_2010)) +
   geom_histogram()
 ```
 
@@ -123,7 +129,7 @@ ggplot(college_grad_students, aes(y = grad_median)) +
 ```
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 2:**  Generate a simple, default box plot for `bachelors` (no optional code unless you want to add it).
+**Exercise 2:**  Generate a simple, default box plot for `bachelors_2010` (no optional code unless you want to add it).
 ```
 
 ## Bar chart

@@ -66,7 +66,7 @@ The distribution in Figure \@ref(fig:dieuniform) is decidedly not normal. Yet, t
 
 To see how the Central Limit Theorem works, we need a population we can observe but would not be able to in usual circumstances. Suppose we had a population comprised of 10,000 observations. Each observation is the result of rolling a six-sided die. This is obviously a play example for the sake of instruction, but one could imagine the six values of the die to be something more interesting and important, such as levels of education. Table \@ref(tab:diepop) below shows a preview of our simulated population.
 
-```{r, include=FALSE, cache=TRUE}
+```{r, include=FALSE}
 set.seed(383)
 diepop <- tibble(ID = 1:10000, education = ceiling(runif(10000, 0, 6)))
 
@@ -150,7 +150,7 @@ The centering of the sampling distribution at the population mean is due to havi
 
 Now let's take 10,000 samples with a size of 33 observations each, calculating the mean of each sample. The sampling distribution of the 10,000 sample means is shown in Figure \@ref(fig:diesampdist33) below. Note that it looks very similar to the normal distribution with a mean equal to 3.157. From a variable that is not normally distributed, we obtain a sampling distribution that is normal. No matter the distribution of the variable, the Central Limit Theorem assures us its sampling distribution will be normal, provided we have a large enough sample.
 
-```{r, include=FALSE, cache=TRUE}
+```{r, include=FALSE}
 set.seed(123)
 diesamples33 <- diepop %>% 
   rep_sample_n(size = 33, reps = 10000)
@@ -193,7 +193,7 @@ Equation \@ref(eq:semean) highlights one of the reasons sample size is a point o
 
 To demonstrate the effect of sample size on precision, suppose we drew 10,000 samples of size 1,000 instead of 33, as was done for the sampling distribution in Figure \@ref(fig:diesampdist33). Figure \@ref(fig:diesampdist1000) depicts the sampling distribution of this hypothetical scenario. Not that the distribution is virtually identical to normal. Of most importance is the spread of the sampling distribution. The standard deviation of the sampling distribution (or standard error) in Figure \@ref(fig:diesampdist33) is 0.26. The standard error of the sampling distribution in Figure \@ref(fig:diesampdist1000) is equal to 0.05.
 
-```{r, include=FALSE, cache=TRUE}
+```{r, include=FALSE}
 set.seed(123)
 diesamples1000 <- diepop %>% 
   rep_sample_n(size = 1000, reps = 10000)

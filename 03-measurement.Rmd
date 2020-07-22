@@ -123,4 +123,5 @@ gapminder %>%
 
 Note that the missing Bolivia observation was easy to spot because the dataset is extremely small. If we were dealing with a large dataset, this would not have been so obvious. A quick way to check whether there may be implicitly missing observations is to check the number of observations in your data. If you are under the impression that your data contains all 50 states for 10 years, then you should have 500 observations. If not, some states or years must be missing.
 
-To learn how to work with missing data in R, proceed to Chapter \@ref(r-missing-data).
+> **To learn how to work with missing data in R, proceed to Chapter \@ref(r-missing-data).**
+

@@ -77,6 +77,7 @@ library(fivethirtyeight)
 library(moderndive)
 library(DAAG)
 library(Stat2Data)
+library(data.table)
 ```
 
 ### Supplemental resources {-}

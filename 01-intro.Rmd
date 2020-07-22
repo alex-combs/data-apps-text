@@ -33,4 +33,5 @@ Demand for those competent in statistical software like R continues to rise. Eve
 
 In addition, R is free, comes with many free educational resources, and is popular across many disciplines. If you study statistics and data applications for a semester, you might as well spend part of that semester learning software like R. There is only upside in doing so with respect to employment prospects.
 
-For a brief orientation to R, proceed to Chapter \@ref(r-introduction).
+> **For a brief orientation to R, proceed to Chapter \@ref(r-introduction).**
+

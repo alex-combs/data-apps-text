@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 10 Sampling | Data Applications in Public Administration</title>
+  <meta name="description" content="Companion text for PADP 7120" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 10 Sampling | Data Applications in Public Administration" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
+  
+  <meta property="og:description" content="Companion text for PADP 7120" />
+  <meta name="github-repo" content="alex-combs/data-apps-text" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 10 Sampling | Data Applications in Public Administration" />
+  
+  <meta name="twitter:description" content="Companion text for PADP 7120" />
+  
+
+<meta name="author" content="Alex Combs" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="9-causation-and-bias.html"/>
+<link rel="next" href="11-surveys-and-evaluations.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.14/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Applications in PA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objective"><i class="fa fa-check"></i>Objective</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#style"><i class="fa fa-check"></i>Style</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software requirements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#supplemental-resources"><i class="fa fa-check"></i>Supplemental resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-intro.html"><a href="1-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-intro.html"><a href="1-intro.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why statistics</a></li>
+<li class="chapter" data-level="1.2" data-path="1-intro.html"><a href="1-intro.html#professional-standards"><i class="fa fa-check"></i><b>1.2</b> Professional standards</a></li>
+<li class="chapter" data-level="1.3" data-path="1-intro.html"><a href="1-intro.html#statistics-in-pa"><i class="fa fa-check"></i><b>1.3</b> Statistics in PA</a></li>
+<li class="chapter" data-level="1.4" data-path="1-intro.html"><a href="1-intro.html#using-r"><i class="fa fa-check"></i><b>1.4</b> Using R</a></li>
+</ul></li>
+<li class="part"><span><b>I Data and Description</b></span></li>
+<li class="chapter" data-level="2" data-path="2-data.html"><a href="2-data.html"><i class="fa fa-check"></i><b>2</b> Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-data.html"><a href="2-data.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="2-data.html"><a href="2-data.html#rectangular-data"><i class="fa fa-check"></i><b>2.2</b> Rectangular Data</a></li>
+<li class="chapter" data-level="2.3" data-path="2-data.html"><a href="2-data.html#types-of-variables"><i class="fa fa-check"></i><b>2.3</b> Types of variables</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="2-data.html"><a href="2-data.html#qualitative-variables"><i class="fa fa-check"></i><b>2.3.1</b> Qualitative variables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2-data.html"><a href="2-data.html#quantitative-variables"><i class="fa fa-check"></i><b>2.3.2</b> Quantitative variables</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2-data.html"><a href="2-data.html#index-variables"><i class="fa fa-check"></i><b>2.3.3</b> Index variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2-data.html"><a href="2-data.html#dataset-structures"><i class="fa fa-check"></i><b>2.4</b> Dataset structures</a></li>
+<li class="chapter" data-level="2.5" data-path="2-data.html"><a href="2-data.html#additional-resources"><i class="fa fa-check"></i><b>2.5</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html"><i class="fa fa-check"></i><b>3</b> Measurement and Missing</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#credible-analysis"><i class="fa fa-check"></i><b>3.2</b> Credible analysis</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#measurement-validity-reliability"><i class="fa fa-check"></i><b>3.2.1</b> Measurement validity &amp; reliability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#missing-data"><i class="fa fa-check"></i><b>3.3</b> Missing data</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#types-of-missing-data"><i class="fa fa-check"></i><b>3.3.1</b> Types of missing data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#two-kinds-of-statistics"><i class="fa fa-check"></i><b>4.1</b> Two kinds of statistics</a></li>
+<li class="chapter" data-level="4.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#distributions"><i class="fa fa-check"></i><b>4.2</b> Distributions</a></li>
+<li class="chapter" data-level="4.3" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#descriptive-measures"><i class="fa fa-check"></i><b>4.3</b> Descriptive Measures</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-center"><i class="fa fa-check"></i><b>4.3.1</b> Measures of center</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-spread"><i class="fa fa-check"></i><b>4.3.2</b> Measures of spread</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.3.3</b> The normal distribution</a></li>
+<li class="chapter" data-level="4.3.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-association"><i class="fa fa-check"></i><b>4.3.4</b> Measures of association</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-data-visualization.html"><a href="5-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#so-many-choices"><i class="fa fa-check"></i><b>5.1</b> So many choices</a></li>
+<li class="chapter" data-level="5.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#distribution"><i class="fa fa-check"></i><b>5.2</b> Distribution</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#histogram"><i class="fa fa-check"></i><b>5.2.1</b> Histogram</a></li>
+<li class="chapter" data-level="5.2.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#density"><i class="fa fa-check"></i><b>5.2.2</b> Density</a></li>
+<li class="chapter" data-level="5.2.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#box-plot"><i class="fa fa-check"></i><b>5.2.3</b> Box plot</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#compostion-of-a-category"><i class="fa fa-check"></i><b>5.3</b> Compostion of a category</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#pie-charts"><i class="fa fa-check"></i><b>5.3.1</b> Pie charts</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#bar-chart"><i class="fa fa-check"></i><b>5.3.2</b> Bar chart</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5-data-visualization.html"><a href="5-data-visualization.html#comparing-between-units"><i class="fa fa-check"></i><b>5.4</b> Comparing between units</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#bar-chart-1"><i class="fa fa-check"></i><b>5.4.1</b> Bar chart</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#dot-plot"><i class="fa fa-check"></i><b>5.4.2</b> Dot plot</a></li>
+<li class="chapter" data-level="5.4.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#line-graph"><i class="fa fa-check"></i><b>5.4.3</b> Line graph</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5-data-visualization.html"><a href="5-data-visualization.html#association"><i class="fa fa-check"></i><b>5.5</b> Association</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#categorical-and-numerical"><i class="fa fa-check"></i><b>5.5.1</b> Categorical and numerical</a></li>
+<li class="chapter" data-level="5.5.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>5.5.2</b> Scatter plot</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Regression Models</b></span></li>
+<li class="chapter" data-level="6" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html"><i class="fa fa-check"></i><b>6</b> Simple and Multiple Regression</a><ul>
+<li class="chapter" data-level="6.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#basic-idea"><i class="fa fa-check"></i><b>6.1</b> Basic idea</a></li>
+<li class="chapter" data-level="6.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>6.2</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#using-regression"><i class="fa fa-check"></i><b>6.2.1</b> Using regression</a></li>
+<li class="chapter" data-level="6.2.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#the-error-term"><i class="fa fa-check"></i><b>6.2.2</b> The error term</a></li>
+<li class="chapter" data-level="6.2.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#goodness-of-fit"><i class="fa fa-check"></i><b>6.2.3</b> Goodness of fit</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#multiple-regression"><i class="fa fa-check"></i><b>6.3</b> Multiple regression</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#using-multiple-regression"><i class="fa fa-check"></i><b>6.3.1</b> Using multiple regression</a></li>
+<li class="chapter" data-level="6.3.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#fit-and-adjusted-r-squared"><i class="fa fa-check"></i><b>6.3.2</b> Fit and adjusted R squared</a></li>
+<li class="chapter" data-level="6.3.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#explanatory-penalty"><i class="fa fa-check"></i><b>6.3.3</b> Explanatory penalty</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html"><i class="fa fa-check"></i><b>7</b> Categorical Variables and Interactions</a><ul>
+<li class="chapter" data-level="7.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#parallel-slopes-model"><i class="fa fa-check"></i><b>7.1</b> Parallel slopes model</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-parallel-slopes"><i class="fa fa-check"></i><b>7.1.1</b> Using parallel slopes</a></li>
+<li class="chapter" data-level="7.1.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations"><i class="fa fa-check"></i><b>7.1.2</b> Variations</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#interaction-model"><i class="fa fa-check"></i><b>7.2</b> Interaction model</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-an-interaction"><i class="fa fa-check"></i><b>7.2.1</b> Using an interaction</a></li>
+<li class="chapter" data-level="7.2.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations-1"><i class="fa fa-check"></i><b>7.2.2</b> Variations</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#linear-probability-model"><i class="fa fa-check"></i><b>7.3</b> Linear probability model</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-lpm"><i class="fa fa-check"></i><b>7.3.1</b> Using LPM</a></li>
+<li class="chapter" data-level="7.3.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#fit"><i class="fa fa-check"></i><b>7.3.2</b> Fit</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html"><i class="fa fa-check"></i><b>8</b> Nonlinear Variables</a><ul>
+<li class="chapter" data-level="8.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#quadratic"><i class="fa fa-check"></i><b>8.1</b> Quadratic</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#using-quadratics"><i class="fa fa-check"></i><b>8.1.1</b> Using quadratics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#log-models"><i class="fa fa-check"></i><b>8.2</b> Log models</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#logarithmic-scales"><i class="fa fa-check"></i><b>8.2.1</b> Logarithmic scales</a></li>
+<li class="chapter" data-level="8.2.2" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#percent-v-percentage-point-change"><i class="fa fa-check"></i><b>8.2.2</b> Percent v percentage point change</a></li>
+<li class="chapter" data-level="8.2.3" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#why-logs-in-regression"><i class="fa fa-check"></i><b>8.2.3</b> Why logs in regression</a></li>
+<li class="chapter" data-level="8.2.4" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#using-log-models"><i class="fa fa-check"></i><b>8.2.4</b> Using log models</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html"><i class="fa fa-check"></i><b>9</b> Causation and Bias</a><ul>
+<li class="chapter" data-level="9.1" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#causality"><i class="fa fa-check"></i><b>9.1</b> Causality</a></li>
+<li class="chapter" data-level="9.2" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#directed-acyclical-graphs"><i class="fa fa-check"></i><b>9.2</b> Directed acyclical graphs</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#evaluationg-dags"><i class="fa fa-check"></i><b>9.2.1</b> Evaluationg DAGs</a></li>
+<li class="chapter" data-level="9.2.2" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#backdoor-criterion"><i class="fa fa-check"></i><b>9.2.2</b> Backdoor criterion</a></li>
+<li class="chapter" data-level="9.2.3" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#dags-and-regression"><i class="fa fa-check"></i><b>9.2.3</b> DAGs and regression</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#direction-of-ovb"><i class="fa fa-check"></i><b>9.3</b> Direction of OVB</a></li>
+<li class="chapter" data-level="9.4" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#usefulness"><i class="fa fa-check"></i><b>9.4</b> Usefulness</a></li>
+</ul></li>
+<li class="part"><span><b>III Inference</b></span></li>
+<li class="chapter" data-level="10" data-path="10-sampling.html"><a href="10-sampling.html"><i class="fa fa-check"></i><b>10</b> Sampling</a><ul>
+<li class="chapter" data-level="10.1" data-path="10-sampling.html"><a href="10-sampling.html#normal-distribution"><i class="fa fa-check"></i><b>10.1</b> Normal distribution</a></li>
+<li class="chapter" data-level="10.2" data-path="10-sampling.html"><a href="10-sampling.html#sampling-distribution"><i class="fa fa-check"></i><b>10.2</b> Sampling Distribution</a></li>
+<li class="chapter" data-level="10.3" data-path="10-sampling.html"><a href="10-sampling.html#central-limit-theorem"><i class="fa fa-check"></i><b>10.3</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="10.4" data-path="10-sampling.html"><a href="10-sampling.html#confidence-intervals"><i class="fa fa-check"></i><b>10.4</b> Confidence intervals</a></li>
+<li class="chapter" data-level="10.5" data-path="10-sampling.html"><a href="10-sampling.html#conclusion"><i class="fa fa-check"></i><b>10.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html"><i class="fa fa-check"></i><b>11</b> Surveys and Evaluations</a><ul>
+<li class="chapter" data-level="11.1" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#sample-size"><i class="fa fa-check"></i><b>11.1</b> Sample size</a></li>
+<li class="chapter" data-level="11.2" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#survey-weights"><i class="fa fa-check"></i><b>11.2</b> Survey weights</a></li>
+<li class="chapter" data-level="11.3" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#hypothesis-testing"><i class="fa fa-check"></i><b>11.3</b> Hypothesis testing</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#null-and-alternative-hypos"><i class="fa fa-check"></i><b>11.3.1</b> Null and alternative hypos</a></li>
+<li class="chapter" data-level="11.3.2" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#conclusion-and-error-type"><i class="fa fa-check"></i><b>11.3.2</b> Conclusion and error type</a></li>
+<li class="chapter" data-level="11.3.3" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#decision-rule"><i class="fa fa-check"></i><b>11.3.3</b> Decision rule</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#chi-square-test"><i class="fa fa-check"></i><b>11.4</b> Chi-square test</a></li>
+<li class="chapter" data-level="11.5" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#t-test"><i class="fa fa-check"></i><b>11.5</b> T-test</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="12-regression-inference.html"><a href="12-regression-inference.html"><i class="fa fa-check"></i><b>12</b> Regression Inference</a><ul>
+<li class="chapter" data-level="12.1" data-path="12-regression-inference.html"><a href="12-regression-inference.html#regression-table"><i class="fa fa-check"></i><b>12.1</b> Regression table</a></li>
+<li class="chapter" data-level="12.2" data-path="12-regression-inference.html"><a href="12-regression-inference.html#other-hypotheses"><i class="fa fa-check"></i><b>12.2</b> Other hypotheses</a></li>
+<li class="chapter" data-level="12.3" data-path="12-regression-inference.html"><a href="12-regression-inference.html#practical-significance"><i class="fa fa-check"></i><b>12.3</b> Practical significance</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html"><i class="fa fa-check"></i><b>13</b> Regression Diagnostics</a><ul>
+<li class="chapter" data-level="13.1" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#classical-assumptions"><i class="fa fa-check"></i><b>13.1</b> Classical assumptions</a></li>
+<li class="chapter" data-level="13.2" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#multicollinearity"><i class="fa fa-check"></i><b>13.2</b> Multicollinearity</a></li>
+<li class="chapter" data-level="13.3" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#influential-data"><i class="fa fa-check"></i><b>13.3</b> Influential Data</a></li>
+</ul></li>
+<li class="part"><span><b>IV Advanced Topics</b></span></li>
+<li class="chapter" data-level="14" data-path="14-forecasting.html"><a href="14-forecasting.html"><i class="fa fa-check"></i><b>14</b> Forecasting</a><ul>
+<li class="chapter" data-level="14.1" data-path="14-forecasting.html"><a href="14-forecasting.html#what-is-forecasting"><i class="fa fa-check"></i><b>14.1</b> What is forecasting</a></li>
+<li class="chapter" data-level="14.2" data-path="14-forecasting.html"><a href="14-forecasting.html#patterns"><i class="fa fa-check"></i><b>14.2</b> Patterns</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="14-forecasting.html"><a href="14-forecasting.html#autocorrelation"><i class="fa fa-check"></i><b>14.2.1</b> Autocorrelation</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="14-forecasting.html"><a href="14-forecasting.html#forecasting-basics"><i class="fa fa-check"></i><b>14.3</b> Forecasting basics</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="14-forecasting.html"><a href="14-forecasting.html#evaluation"><i class="fa fa-check"></i><b>14.3.1</b> Evaluation</a></li>
+<li class="chapter" data-level="14.3.2" data-path="14-forecasting.html"><a href="14-forecasting.html#models"><i class="fa fa-check"></i><b>14.3.2</b> Models</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="14-forecasting.html"><a href="14-forecasting.html#recap"><i class="fa fa-check"></i><b>14.4</b> Recap</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html"><i class="fa fa-check"></i><b>15</b> Panel Analysis</a><ul>
+<li class="chapter" data-level="15.1" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html#panel-data"><i class="fa fa-check"></i><b>15.1</b> Panel data</a></li>
+<li class="chapter" data-level="15.2" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html#fixed-effects"><i class="fa fa-check"></i><b>15.2</b> Fixed effects</a></li>
+</ul></li>
+<li class="part"><span><b>V R Chapters</b></span></li>
+<li class="chapter" data-level="16" data-path="16-r-introduction.html"><a href="16-r-introduction.html"><i class="fa fa-check"></i><b>16</b> R Introduction</a><ul>
+<li class="chapter" data-level="16.1" data-path="16-r-introduction.html"><a href="16-r-introduction.html#r-chapter-structure"><i class="fa fa-check"></i><b>16.1</b> R chapter structure</a></li>
+<li class="chapter" data-level="16.2" data-path="16-r-introduction.html"><a href="16-r-introduction.html#r-chapter-feedback"><i class="fa fa-check"></i><b>16.2</b> R chapter feedback</a></li>
+<li class="chapter" data-level="16.3" data-path="16-r-introduction.html"><a href="16-r-introduction.html#what-is-r-and-rstudio"><i class="fa fa-check"></i><b>16.3</b> What is R and RStudio</a></li>
+<li class="chapter" data-level="16.4" data-path="16-r-introduction.html"><a href="16-r-introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>16.4</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="16.5" data-path="16-r-introduction.html"><a href="16-r-introduction.html#rstudio-orientation"><i class="fa fa-check"></i><b>16.5</b> RStudio orientation</a><ul>
+<li class="chapter" data-level="16.5.1" data-path="16-r-introduction.html"><a href="16-r-introduction.html#r-packages"><i class="fa fa-check"></i><b>16.5.1</b> R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="16.6" data-path="16-r-introduction.html"><a href="16-r-introduction.html#submit"><i class="fa fa-check"></i><b>16.6</b> Submit</a></li>
+<li class="chapter" data-level="16.7" data-path="16-r-introduction.html"><a href="16-r-introduction.html#additional-resources-1"><i class="fa fa-check"></i><b>16.7</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="17-r-data.html"><a href="17-r-data.html"><i class="fa fa-check"></i><b>17</b> R Data</a><ul>
+<li class="chapter" data-level="17.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives-2"><i class="fa fa-check"></i><b>17.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="17.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>17.2</b> Set-up</a></li>
+<li class="chapter" data-level="17.3" data-path="17-r-data.html"><a href="17-r-data.html#viewing-datasets"><i class="fa fa-check"></i><b>17.3</b> Viewing datasets</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="17-r-data.html"><a href="17-r-data.html#warning-about-view"><i class="fa fa-check"></i><b>17.3.1</b> Warning about View</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="17-r-data.html"><a href="17-r-data.html#glimpsing-datasets"><i class="fa fa-check"></i><b>17.4</b> Glimpsing Datasets</a></li>
+<li class="chapter" data-level="17.5" data-path="17-r-data.html"><a href="17-r-data.html#preview-first-or-last-few-rows"><i class="fa fa-check"></i><b>17.5</b> Preview first or last few rows</a></li>
+<li class="chapter" data-level="17.6" data-path="17-r-data.html"><a href="17-r-data.html#submit-1"><i class="fa fa-check"></i><b>17.6</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html"><i class="fa fa-check"></i><b>18</b> R Missing Data</a><ul>
+<li class="chapter" data-level="18.1" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#learning-objectives-3"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="18.2" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#set-up-1"><i class="fa fa-check"></i><b>18.2</b> Set-up</a></li>
+<li class="chapter" data-level="18.3" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#data-1"><i class="fa fa-check"></i><b>18.3</b> Data</a></li>
+<li class="chapter" data-level="18.4" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#checking-for-missing-data"><i class="fa fa-check"></i><b>18.4</b> Checking for missing data</a></li>
+<li class="chapter" data-level="18.5" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#counting-missing-values"><i class="fa fa-check"></i><b>18.5</b> Counting missing values</a></li>
+<li class="chapter" data-level="18.6" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#bypassing-missing-values"><i class="fa fa-check"></i><b>18.6</b> Bypassing missing values</a></li>
+<li class="chapter" data-level="18.7" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#replacing-missing-values"><i class="fa fa-check"></i><b>18.7</b> Replacing missing values</a></li>
+<li class="chapter" data-level="18.8" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#submit-2"><i class="fa fa-check"></i><b>18.8</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="19-r-description.html"><a href="19-r-description.html"><i class="fa fa-check"></i><b>19</b> R Description</a><ul>
+<li class="chapter" data-level="19.1" data-path="19-r-description.html"><a href="19-r-description.html#learning-objectives-4"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="19.2" data-path="19-r-description.html"><a href="19-r-description.html#set-up-2"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
+<li class="chapter" data-level="19.3" data-path="19-r-description.html"><a href="19-r-description.html#introduction"><i class="fa fa-check"></i><b>19.3</b> Introduction</a></li>
+<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.4</b> Summary Table</a></li>
+<li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#using-arsenal"><i class="fa fa-check"></i><b>19.5</b> Using Arsenal</a><ul>
+<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#adjustments"><i class="fa fa-check"></i><b>19.5.1</b> Adjustments</a></li>
+<li class="chapter" data-level="19.5.2" data-path="19-r-description.html"><a href="19-r-description.html#export-to-csv"><i class="fa fa-check"></i><b>19.5.2</b> Export to CSV</a></li>
+</ul></li>
+<li class="chapter" data-level="19.6" data-path="19-r-description.html"><a href="19-r-description.html#submit-3"><i class="fa fa-check"></i><b>19.6</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="20-r-visualization.html"><a href="20-r-visualization.html"><i class="fa fa-check"></i><b>20</b> R Visualization</a><ul>
+<li class="chapter" data-level="20.1" data-path="20-r-visualization.html"><a href="20-r-visualization.html#learning-objectives-5"><i class="fa fa-check"></i><b>20.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="20.2" data-path="20-r-visualization.html"><a href="20-r-visualization.html#set-up-3"><i class="fa fa-check"></i><b>20.2</b> Set-up</a></li>
+<li class="chapter" data-level="20.3" data-path="20-r-visualization.html"><a href="20-r-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>20.3</b> Grammar of graphics</a></li>
+<li class="chapter" data-level="20.4" data-path="20-r-visualization.html"><a href="20-r-visualization.html#histogram-1"><i class="fa fa-check"></i><b>20.4</b> Histogram</a></li>
+<li class="chapter" data-level="20.5" data-path="20-r-visualization.html"><a href="20-r-visualization.html#box-plot-1"><i class="fa fa-check"></i><b>20.5</b> Box plot</a></li>
+<li class="chapter" data-level="20.6" data-path="20-r-visualization.html"><a href="20-r-visualization.html#bar-chart-2"><i class="fa fa-check"></i><b>20.6</b> Bar chart</a></li>
+<li class="chapter" data-level="20.7" data-path="20-r-visualization.html"><a href="20-r-visualization.html#scatter-plot-1"><i class="fa fa-check"></i><b>20.7</b> Scatter plot</a></li>
+<li class="chapter" data-level="20.8" data-path="20-r-visualization.html"><a href="20-r-visualization.html#line-graph-1"><i class="fa fa-check"></i><b>20.8</b> Line graph</a></li>
+<li class="chapter" data-level="20.9" data-path="20-r-visualization.html"><a href="20-r-visualization.html#submit-4"><i class="fa fa-check"></i><b>20.9</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="21-r-regression.html"><a href="21-r-regression.html"><i class="fa fa-check"></i><b>21</b> R Regression</a><ul>
+<li class="chapter" data-level="21.1" data-path="21-r-regression.html"><a href="21-r-regression.html#learning-objectives-6"><i class="fa fa-check"></i><b>21.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="21.2" data-path="21-r-regression.html"><a href="21-r-regression.html#set-up-4"><i class="fa fa-check"></i><b>21.2</b> Set-up</a></li>
+<li class="chapter" data-level="21.3" data-path="21-r-regression.html"><a href="21-r-regression.html#running-regression"><i class="fa fa-check"></i><b>21.3</b> Running Regression</a></li>
+<li class="chapter" data-level="21.4" data-path="21-r-regression.html"><a href="21-r-regression.html#reporting-results"><i class="fa fa-check"></i><b>21.4</b> Reporting Results</a><ul>
+<li class="chapter" data-level="21.4.1" data-path="21-r-regression.html"><a href="21-r-regression.html#moderndive"><i class="fa fa-check"></i><b>21.4.1</b> Moderndive</a></li>
+<li class="chapter" data-level="21.4.2" data-path="21-r-regression.html"><a href="21-r-regression.html#base-r"><i class="fa fa-check"></i><b>21.4.2</b> Base R</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="21-r-regression.html"><a href="21-r-regression.html#submit-5"><i class="fa fa-check"></i><b>21.5</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="22-r-interactions.html"><a href="22-r-interactions.html"><i class="fa fa-check"></i><b>22</b> R Interactions</a><ul>
+<li class="chapter" data-level="22.1" data-path="22-r-interactions.html"><a href="22-r-interactions.html#learning-objectives-7"><i class="fa fa-check"></i><b>22.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="22.2" data-path="22-r-interactions.html"><a href="22-r-interactions.html#set-up-5"><i class="fa fa-check"></i><b>22.2</b> Set-up</a></li>
+<li class="chapter" data-level="22.3" data-path="22-r-interactions.html"><a href="22-r-interactions.html#including-an-interaction"><i class="fa fa-check"></i><b>22.3</b> Including an interaction</a></li>
+<li class="chapter" data-level="22.4" data-path="22-r-interactions.html"><a href="22-r-interactions.html#submit-6"><i class="fa fa-check"></i><b>22.4</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html"><i class="fa fa-check"></i><b>23</b> R Nonlinear Regression</a><ul>
+<li class="chapter" data-level="23.1" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#learning-objectives-8"><i class="fa fa-check"></i><b>23.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="23.2" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#set-up-6"><i class="fa fa-check"></i><b>23.2</b> Set-up</a></li>
+<li class="chapter" data-level="23.3" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#quadratic-term"><i class="fa fa-check"></i><b>23.3</b> Quadratic term</a></li>
+<li class="chapter" data-level="23.4" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#log-transformation"><i class="fa fa-check"></i><b>23.4</b> Log Transformation</a></li>
+<li class="chapter" data-level="23.5" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#submit-7"><i class="fa fa-check"></i><b>23.5</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html"><i class="fa fa-check"></i><b>24</b> R Evaluations</a><ul>
+<li class="chapter" data-level="24.1" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#learning-outcomes"><i class="fa fa-check"></i><b>24.1</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="24.2" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#set-up-7"><i class="fa fa-check"></i><b>24.2</b> Set-up</a></li>
+<li class="chapter" data-level="24.3" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#chi-square-test-1"><i class="fa fa-check"></i><b>24.3</b> Chi-square test</a><ul>
+<li class="chapter" data-level="24.3.1" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#cross-tab"><i class="fa fa-check"></i><b>24.3.1</b> Cross-tab</a></li>
+<li class="chapter" data-level="24.3.2" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#run-chi-square"><i class="fa fa-check"></i><b>24.3.2</b> Run chi-square</a></li>
+</ul></li>
+<li class="chapter" data-level="24.4" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#t-tests"><i class="fa fa-check"></i><b>24.4</b> T-tests</a><ul>
+<li class="chapter" data-level="24.4.1" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#independent-t-test"><i class="fa fa-check"></i><b>24.4.1</b> Independent t-test</a></li>
+<li class="chapter" data-level="24.4.2" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#dependent-t-test"><i class="fa fa-check"></i><b>24.4.2</b> Dependent t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="24.5" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#submit-8"><i class="fa fa-check"></i><b>24.5</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html"><i class="fa fa-check"></i><b>25</b> R Regression Diagnostics</a><ul>
+<li class="chapter" data-level="25.1" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#learning-outcomes-1"><i class="fa fa-check"></i><b>25.1</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="25.2" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#set-up-8"><i class="fa fa-check"></i><b>25.2</b> Set-up</a></li>
+<li class="chapter" data-level="25.3" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#rvf-and-rvl"><i class="fa fa-check"></i><b>25.3</b> RVF and RVL</a></li>
+<li class="chapter" data-level="25.4" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#vif"><i class="fa fa-check"></i><b>25.4</b> VIF</a></li>
+<li class="chapter" data-level="25.5" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#exclude-observations"><i class="fa fa-check"></i><b>25.5</b> Exclude observations</a></li>
+<li class="chapter" data-level="25.6" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#submit-9"><i class="fa fa-check"></i><b>25.6</b> Submit</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html"><i class="fa fa-check"></i><b>A</b> Wrangle and Tidy Reference</a><ul>
+<li class="chapter" data-level="A.1" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#cheatsheets"><i class="fa fa-check"></i><b>A.1</b> Cheatsheets</a></li>
+<li class="chapter" data-level="A.2" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#common-functions"><i class="fa fa-check"></i><b>A.2</b> Common functions</a><ul>
+<li class="chapter" data-level="A.2.1" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#wrangle-verbs"><i class="fa fa-check"></i><b>A.2.1</b> Wrangle Verbs</a></li>
+<li class="chapter" data-level="A.2.2" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#tidy-verbs"><i class="fa fa-check"></i><b>A.2.2</b> Tidy Verbs</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Applications in Public Administration</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sampling" class="section level1">
+<h1><span class="header-section-number"> 10</span> Sampling</h1>
+<blockquote>
+<p><em>“This is what I’m learning, at 82 years old: the main thing is to be in love with the search for truth.”</em></p>
+<p>—Maya Angelou</p>
+</blockquote>
+<p>We now turn our attention to inference, which involves taking a sample from a population to make conclusions about the population with some degree of certainty. Specifically, when we calculate some estimate using a sample of data, we use inference to say whether that estimate is a good guess of the unobserved population parameter. Rather than focus on sampling techniques (e.g. random, clustered, stratified, convenience), this chapter focuses on the theory that allows us to use samples for inference as well as the potential limitations of doing so.</p>
+<div id="normal-distribution" class="section level2">
+<h2><span class="header-section-number">10.1</span> Normal distribution</h2>
+<p>When we calculate an estimate, the estimate is highly unlikely to be exactly equal to the population parameter it is intended to represent. But, given a sample and an estimate, we can calculate the range in which the parameter falls with a certain degree of confidence. If that range does not include zero, then we have reason to believe the parameter is positive or negative. A non-zero parameter may be cause for action. We are able to calculate a confidence interval because of the normal distribution.</p>
+<p>Inference relies on the normal distribution introduced in <a href="4-descriptive-statistics.html#descriptive-statistics">4</a>. The normal distribution has a unique and useful quality such that wherever the mean of a variable’s distribution lies, if the distribution of the variable is normal, then 68% of the values lie within one standard deviation above and below that mean, 95% of the values lie within two standard deviations above and below, and 99% lie within three standard deviation. This quality of the normal distribution is sometimes called the <strong>68-95-99 rule</strong>, which is shown in Figure <a href="10-sampling.html#fig:normdist">10.1</a> below. The Greek symbol <span class="math inline">\(\mu\)</span> (mû) denotes the mean and the symbol <span class="math inline">\(\sigma\)</span> (sigma) denotes the standard deviation.</p>
+<center>
+<div class="figure"><span id="fig:normdist"></span>
+<img src="images/normdist.png" alt="68-95-99 rule of normal distribution" width="344" />
+<p class="caption">
+Figure 10.1: 68-95-99 rule of normal distribution
+</p>
+</div>
+</center>
+<p>Suppose we take a sample of 397 professor salaries in order to estimate the average salary of all professors at the university. From our sample, we calculate a mean of 1.1370610^{5} dollars and a standard deviation of 3.028910^{4} dollars. Figure <a href="10-sampling.html#fig:profsaldist">10.2</a> below shows the distribution of this sample of salaries.</p>
+<div class="figure"><span id="fig:profsaldist"></span>
+<img src="data-apps-text_files/figure-html/profsaldist-1.png" alt="Distribution of professor salaries" width="672" />
+<p class="caption">
+Figure 10.2: Distribution of professor salaries
+</p>
+</div>
+<p>Note that the distribution of salaries is roughly normal-looking, though it is skewed somewhat to the right. If the distribution of 397 salaries were perfectly normal, then 68% of those salaries fall between 8.341710^{4} and 1.4399510^{5}, 95% percent of the 397 salaries fall within 5.312810^{4} and 1.7428410^{5}, and 99% of the 397 salaries fall within 2.283910^{4} and 2.0457310^{5}. However, since we can observe the entire distribution, we can calculate the range in which 95% of values fall or any percentage of values. The exact 95% range for Figure <a href="10-sampling.html#fig:profsaldist">10.2</a> is 70,761 to 181,511.</p>
+<p>These ranges are merely descriptions of our sample just like the measures used in Chapter <a href="4-descriptive-statistics.html#descriptive-statistics">4</a>. We have not yet made any inference about the salaries of all professors at the university.</p>
+<p>Again, it is highly unlikely that the average salary of all professors at the university equals 1.1370610^{5} dollars exactly. Our estimate is a guess of something we do not directly observe. Naturally, we want to know a range in which we can be reasonably confident the average salary of all professors falls. This range is called a <strong>confidence interval</strong>. However, unlike the distribution of 397 salaries, we only have one estimate from our one sample of salaries. How can we calculate a confidence interval of something we do not observe? To construct a confidence interval, <strong>we <em>assume</em> the <em>sampling</em> distribution of the mean of salaries is normal</strong>.</p>
+</div>
+<div id="sampling-distribution" class="section level2">
+<h2><span class="header-section-number">10.2</span> Sampling Distribution</h2>
+<p>Distributions were covered in Chapter <a href="4-descriptive-statistics.html#descriptive-statistics">4</a>. A variable is comprised of multiple values that can be plotted along a number line or axis to form a distribution. This distribution can be described in terms of its center via the mean and its spread via the standard deviation.</p>
+<p>A sampling distribution is simply a distribution comprised of multiple estimates, each taken from a separate sample, instead of multiple values, each taken from a separate unit of analysis. Imagine if the distribution in Figure <a href="10-sampling.html#fig:profsaldist">10.2</a> were made of 397 averages from 397 samples of salaries. If we have no reason to suspect our estimates are systematically above or below the population mean (i.e. unbiased), then we have a distribution of guesses for the population mean, the center of which should approach the population mean given enough sample estimates. Assuming this sampling distribution is normally distributed, then we can construct an interval in which 95% of the estimates fall as a plausible range in which the unobserved population mean falls.</p>
+<p>This tends to be a large theoretical leap for many to make. To reiterate, we have only one sample, not 397. How do we construct a 95% confidence interval off of a sampling distribution we do not have the data to observe? We do so using theory and assumptions. Most importantly, we use the <strong>Central Limit Theorem</strong>.</p>
+</div>
+<div id="central-limit-theorem" class="section level2">
+<h2><span class="header-section-number">10.3</span> Central Limit Theorem</h2>
+<p>The Central Limit Theorem may seem like magic more than anything else in statistics, though it is scientifically sound. Given a sufficient sample size, the Central Limit Theorem allows us to assume sampling distributions are normally distributed even though we do not have data to observe the sampling distribution. Without it, we could not construct confidence intervals. Thus, we could not make inferences about a population.</p>
+<p>Seeing the Central Limit Theorem work is believing, especially when circumstances are set that would seem to work against it. To do this, let us revisit the distribution of a six-sided die discussed in Chapter <a href="4-descriptive-statistics.html#descriptive-statistics">4</a>. With each of the six values having an equal probability of occurring, we know each value has about a 17% chance of occurring. If we were to roll the die some number of times divisible by 6, then all values should occur the same number of times, resulting in a distribution like that depicted in Figure <a href="10-sampling.html#fig:dieuniform">10.3</a>.</p>
+<div class="figure"><span id="fig:dieuniform"></span>
+<img src="data-apps-text_files/figure-html/dieuniform-1.png" alt="Probability distribution of a six-sided die" width="672" />
+<p class="caption">
+Figure 10.3: Probability distribution of a six-sided die
+</p>
+</div>
+<p>The distribution in Figure <a href="10-sampling.html#fig:dieuniform">10.3</a> is decidedly not normal. Yet, the Central Limit Theorem states that if we took numerous samples from this distribution, each of sufficient sample size, then the sampling distribution will be normal. We typically do not know the distribution of a variable like we do with a six-sided die, thus we do not know where an important measure like the mean is in that distribution. However, if any estimate regarding any variable–no matter the distribution of the variable–is normally distributed, then we do not need to know the distribution of the variable. This is the power and importance of the Central Limit Theorem.</p>
+<p>To see how the Central Limit Theorem works, we need a population we can observe but would not be able to in usual circumstances. Suppose we had a population comprised of 10,000 observations. Each observation is the result of rolling a six-sided die. This is obviously a play example for the sake of instruction, but one could imagine the six values of the die to be something more interesting and important, such as levels of education. Table <a href="10-sampling.html#tab:diepop">10.1</a> below shows a preview of our simulated population.</p>
+<table>
+<caption>
+<span id="tab:diepop">Table 10.1: </span>Preview of simulated population from uniform distribution
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+ID
+</th>
+<th style="text-align:right;">
+education
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9998
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9999
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10000
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+</tbody>
+</table>
+<p>Since we have the entire population, we can calculate the population mean, which would typically be a population parameter we cannot calculate. The mean “education level” of this population is 3.518. This is almost exactly equal to the mean we should expect from many rolls of a six-sided die. The distribution of the population’s education is shown in Figure <a href="10-sampling.html#fig:diepophist">10.4</a>. The solid red line represents the population mean.</p>
+<div class="figure"><span id="fig:diepophist"></span>
+<img src="data-apps-text_files/figure-html/diepophist-1.png" alt="Distribution of simulated population" width="672" />
+<p class="caption">
+Figure 10.4: Distribution of simulated population
+</p>
+</div>
+<p>Suppose we were to draw one random sample of 20 from this population. The distribution of this sample is shown in Figure <a href="10-sampling.html#fig:diesamp201">10.5</a>. The mean of this sample is 3.65, represented by the purple dashed line. The red solid line represents the population mean of 3.518.</p>
+<div class="figure"><span id="fig:diesamp201"></span>
+<img src="data-apps-text_files/figure-html/diesamp201-1.png" alt="Distribution of sample of 20 from simulated population" width="672" />
+<p class="caption">
+Figure 10.5: Distribution of sample of 20 from simulated population
+</p>
+</div>
+<p>The sample mean of 3.65 may or may not be a good guess of the population mean of 3.518; such judgments depend on the context of the research question or the decision needing made. Suppose we take a second random sample of 20 from the population, as shown in Figure <a href="10-sampling.html#fig:diesamp202">10.6</a>. The mean of this second sample is 3.95.</p>
+<div class="figure"><span id="fig:diesamp202"></span>
+<img src="data-apps-text_files/figure-html/diesamp202-1.png" alt="Distribution of a second sample of 20 from simulated population" width="672" />
+<p class="caption">
+Figure 10.6: Distribution of a second sample of 20 from simulated population
+</p>
+</div>
+<p>Note that the distribution of the two samples are different and neither are uniform like the population distribution. This is the manifestation of randomness. Each sample gives us a different estimate of the population mean, both of which are too high. Estimates of other samples would fall below the population mean. With enough samples and sample estimates of the mean, we can construct a sampling distribution.</p>
+<p>Suppose we take 100 samples of 20 from the population, estimating the mean of each sample to construct a <em>sampling</em> distribution of the mean. This sampling distribution is shown in Figure <a href="10-sampling.html#fig:diesampdist20100">10.7</a>. Note that with only 100 samples of only 20 observations each, the sampling distribution roughly resembles the normal distribution. Also, the mean, or center, of the sampling distribution represented by the yellow line is very close to the population mean.</p>
+<div class="figure"><span id="fig:diesampdist20100"></span>
+<img src="data-apps-text_files/figure-html/diesampdist20100-1.png" alt="Sampling distribution of 100 sample means from samples of size 20" width="672" />
+<p class="caption">
+Figure 10.7: Sampling distribution of 100 sample means from samples of size 20
+</p>
+</div>
+<p>The centering of the sampling distribution at the population mean is due to having an unbiased estimate from random sampling. If our estimate is unbiased, then we expect it to equal the population parameter, <em>on average</em>. This applies to any estimate and its potential bias, including the estimates in regression. If our regression model is unbiased, then our estimate comes from a sampling distribution that centers at the population parameter.</p>
+<p>Now let’s take 10,000 samples with a size of 33 observations each, calculating the mean of each sample. The sampling distribution of the 10,000 sample means is shown in Figure <a href="10-sampling.html#fig:diesampdist33">10.8</a> below. Note that it looks very similar to the normal distribution with a mean equal to 3.157. From a variable that is not normally distributed, we obtain a sampling distribution that is normal. No matter the distribution of the variable, the Central Limit Theorem assures us its sampling distribution will be normal, provided we have a large enough sample.</p>
+<div class="figure"><span id="fig:diesampdist33"></span>
+<img src="data-apps-text_files/figure-html/diesampdist33-1.png" alt="Sampling distribution of 10,000 sample means from samples of size 33" width="672" />
+<p class="caption">
+Figure 10.8: Sampling distribution of 10,000 sample means from samples of size 33
+</p>
+</div>
+<p>In reality, we cannot draw 10,000 samples from the population. If we could, and calculated the mean of the sampling distribution, then we could be <em>extremely</em> confident that we have estimated the population parameter with virtually perfect accuracy. Alas, we have only one sample and no sampling distribution to observe. Though we can safely assume our one estimate comes from a normal sampling distribution that, if there is no bias, is centered at the population mean, we do not know where <em>our</em> sample falls within that distribution. Our one sample could be one with an estimate in or near the left or right tails of the sampling distribution in Figure <a href="10-sampling.html#fig:diesampdist33">10.8</a>. Therefore, we need a range of plausible values for the population parameter. For this range we need to measure the spread of the sampling distribution in terms of its standard deviation.</p>
+</div>
+<div id="confidence-intervals" class="section level2">
+<h2><span class="header-section-number">10.4</span> Confidence intervals</h2>
+<p>The standard error is used to construct confidence intervals. The standard error is essentially the same as the standard deviation. It is the name given to the standard deviation of a sampling distribution instead of a variable’s distribution. Now that we can safely assume our sample estimate comes from a normal sampling distribution, and given that we need to account for the randomness of any one sample, we can calculate the range of values within which 95% or 99% of the estimates in the sampling distribution falls. In short, we have returned to applying the 68-95-99 rule, only this time we use it to construct a confidence interval.</p>
+<p>The 95% confidence interval for any estimate is 2 standard errors (1.96, technically) below and above the estimate. The 99% confidence interval is about 3 standard errors below and above the estimate. Referring back to the sampling distribution in Figure <a href="10-sampling.html#fig:diesampdist33">10.8</a>, the standard deviation is equal to 0.26. Suppose we drew one sample that gave us an estimate of 4. Suppose the standard error of that estimate happened to equal 0.26. In that case, the 95% confidence interval is approximately 3.48 to 4.52. Since we know the population parameter equals 3.518, we know our confidence interval captures it, which is what we hope to be the case but cannot confirm in typical circumstances.</p>
+<p>How do we calculate the standard error to construct the 95% confidence interval or any confidence interval without observing the sampling distribution? Again, theory and assumptions. Throughout this running example, we have been trying to estimate the mean of the population. The standard error (SE) of a sample mean is calculated using the following equation</p>
+<p><span class="math display" id="eq:semean">\[\begin{equation}
+SE = \frac{s}{\sqrt{n}}
+\tag{10.1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(s\)</span> is the standard deviation of the variable in our sample data and <span class="math inline">\(n\)</span> is the number of observations in our sample.</p>
+<p>Equation <a href="10-sampling.html#eq:semean">(10.1)</a> highlights one of the reasons sample size is a point of interest in analysis. In addition to needing at least 33 observations for the Central Limit Theorem to work reliably, sample size affects the precision of our confidence interval. As <span class="math inline">\(n\)</span> increases, the denominator in Equation <a href="10-sampling.html#eq:semean">(10.1)</a> increases. Given a standard deviation, greater denominator results in a smaller SE than a lesser denominator. That is, as our sample size increases, the range of our confidence interval decreases.</p>
+<p>To demonstrate the effect of sample size on precision, suppose we drew 10,000 samples of size 1,000 instead of 33, as was done for the sampling distribution in Figure <a href="10-sampling.html#fig:diesampdist33">10.8</a>. Figure <a href="10-sampling.html#fig:diesampdist1000">10.9</a> depicts the sampling distribution of this hypothetical scenario. Not that the distribution is virtually identical to normal. Of most importance is the spread of the sampling distribution. The standard deviation of the sampling distribution (or standard error) in Figure <a href="10-sampling.html#fig:diesampdist33">10.8</a> is 0.26. The standard error of the sampling distribution in Figure <a href="10-sampling.html#fig:diesampdist1000">10.9</a> is equal to 0.05.</p>
+<div class="figure"><span id="fig:diesampdist1000"></span>
+<img src="data-apps-text_files/figure-html/diesampdist1000-1.png" alt="Sampling distribution of 10,000 sample means from samples of size 100" width="672" />
+<p class="caption">
+Figure 10.9: Sampling distribution of 10,000 sample means from samples of size 100
+</p>
+</div>
+<p>From a sample of size 1,000 it is much less likely that we would obtain a sample estimate as far from the parameter of 3.518 as 4. Moreover, whatever our estimate, we can construct a confidence interval with the same level of confidence that will be much smaller. A more precise confidence interval may allow for more confident decision-making.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2><span class="header-section-number">10.5</span> Conclusion</h2>
+<p>Though in reality we obtain only one estimate from one sample, we assume that estimate is one value of a normally distributed sampling distribution that is centered at the population parameter we intended to estimate. Our one sample estimate is highly unlikely to equal the population parameter because of randomness. Therefore, in addition to our specific estimate of the parameter, we construct a range of plausible values that captures that population parameter.</p>
+<p>To walk through the full process of estimation using one sample in this simulated data example, one of the 10,000 samples of size 1,000 (sample 379) had a mean education level of 3.552. The standard deviation of education in this sample was 1.53. Given 1,000 observations, then the standard error is equal to</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="10-sampling.html#cb21-1"></a><span class="fl">1.53</span><span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">1000</span>)</span></code></pre></div>
+<pre><code>## [1] 0.04838285</code></pre>
+<p>Therefore, assuming a normal sampling distribution and absence of bias, the 95% confidence interval for our estimate of the population mean of education is</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="10-sampling.html#cb23-1"></a><span class="fl">3.552</span><span class="op">-</span>(<span class="fl">1.96</span><span class="op">*</span><span class="fl">0.048</span>)</span></code></pre></div>
+<pre><code>## [1] 3.45792</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="10-sampling.html#cb25-1"></a><span class="fl">3.552</span><span class="op">+</span>(<span class="fl">1.96</span><span class="op">*</span><span class="fl">0.048</span>)</span></code></pre></div>
+<pre><code>## [1] 3.64608</code></pre>
+<p>The 95% confidence interval of this particular sample captures the population parameter of 3.518.</p>
+<p>A common interpretation of, say, a 95% confidence interval is that our population parameter has a 95% probability of falling within our confidence interval. This is incorrect. A confidence interval either contains the population parameter or it does not. There is no 95% probability to speak of; only 0% or 100%. What a confidence interval conveys is that if we were to draw numerous samples from this population rather than just the one, then we would expect 95% of the confidence intervals constructed from all of our samples to capture the population parameter and 5% of the confidence intervals to fail. Our sample could be one of those 5% of samples for which the confidence intervals fail to capture the population parameter.</p>
+<p>One out of 20 samples are expected to fail to capture the population parameter that it was intended to estimate. This is why many have concerns regarding a crisis of replication in science. If only one study is published, and replications of a study are difficult to have published, then we do not know if the one that was published is the anomaly or not.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="9-causation-and-bias.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="11-surveys-and-evaluations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -63,12 +63,18 @@ Equation \@ref(eq:simregsample) is the equation we use to interpret our regressi
 
 ### Using regression
 
+```{r importcounty, include=FALSE}
+load('_bookdown_files/county_complete.rda')
+```
+
 Let's pause the theory to consider a simple example using data for U.S. counties. Table \@ref(tab:countydata) provides a preview of the data
 
 ```{r countydata, echo=FALSE}
-selcounty <- county %>% 
-  select(name, state, fed_spend, poverty, homeownership, income) %>% 
-  filter(fed_spend < 50)
+selcounty <- county_complete %>% 
+  select(name, state, fed_spend = fed_spending_2009, poverty = poverty_2010, homeownership = homeownership_2010, income = median_household_income_2010, pop2010) %>% 
+  mutate(fed_spend = fed_spend/pop2010) %>% 
+  filter(fed_spend < 50) %>% 
+  select(-pop2010)
 
 selcounty %>% 
   sample_n(7) %>% 
@@ -377,4 +383,5 @@ Each explanatory variable we add to our regression model imposes a type of penal
 
 In case you were wondering why not simply add all the variables we can to a model rather than carefully consider which variables to include and exclude in a model, this penalty is one of the primary reasons. Fewer degrees of freedom jeopardizes our ability to make valid inference. It can also reduce the precision of our predictions. The goal is to maximize the explanatory or predictive power of our regression model at minimal cost (i.e. excluding superfluous variables). Choosing good regression models is where subject matter expertise plays a crucial role. Experience and knowledge within the context of the research question informs our choices. Statistics is the method by which we apply our expertise to data to make evidence-based decisions.
 
-To learn how to run regression in R, proceed to Chapter \@ref(r-regression).
+> **To learn how to run regression in R, proceed to Chapter \@ref(r-regression).**
+

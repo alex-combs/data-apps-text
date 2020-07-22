@@ -142,7 +142,9 @@ gapminder %>%
   kable(format = 'html', caption = "Panel example")
 ```
 
-To learn how to examine data in R, proceed to Chapter \@ref(r-data).
+
+> **To learn how to examine data in R, proceed to Chapter \@ref(r-data).**
+
 
 ## Additional Resources
 

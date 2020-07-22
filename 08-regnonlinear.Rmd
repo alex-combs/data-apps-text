@@ -336,4 +336,6 @@ Our log-log results indicate that life expectancy in Asia is 110% greater than l
 
 Our level-log results indicate that life expectancy in Asia is 5.9 years greater than life expectancy in Africa. Lastly, our log-level results indicate that life expectancy in Asia is 160% greater than life expectancy in Africa.
 
-To learn how to include nonlinear variables in regression using R, proceed to Chapter \@ref(r-nonlinear-regression).
+> **To learn how to include nonlinear variables in regression using R, proceed to Chapter \@ref(r-nonlinear-regression).**
+
+

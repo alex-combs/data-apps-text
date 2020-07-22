@@ -117,7 +117,7 @@ Descriptive measures help us summarize characteristics of distributions and some
 A die roll is uninteresting and unimportant. In our review of descriptive measures, let us consider them with respect to the distribution of the infant mortality rate across 222 countries in 2012. Infant mortality is the number deaths of infants under one year old per 1,000 live births. It is used as a measure of health in a country.
 
 ```{r, echo=FALSE, fig.cap='Infant Mortality Rates'}
-ggplot(infMortRate, aes(infMortRate)) +
+ggplot(infmortrate, aes(inf_mort_rate)) +
   geom_histogram(fill = 'steelblue', color = 'white', bins = 30) +
   labs(x = 'Infant deaths per 1,000 live births') +
   theme_classic() 
@@ -142,11 +142,11 @@ The mean or average takes the values of a variable, adds them, then divides that
 (\#eq:mean)
 \end{equation}
 
-Infant mortality has 222 values, so $n$ in equation \@ref(eq:mean) above would equal 222 in this case. If we were to pluck one country out of our pool of 222 countries at random, the mean tells us the infant mortality rate to expect. In other words, the mean tells us the typical infant mortality rate given our observed data. In this case, the average infant mortality rate is `r round(mean(infMortRate$infMortRate),1)`.
+Infant mortality has 222 values, so $n$ in equation \@ref(eq:mean) above would equal 222 in this case. If we were to pluck one country out of our pool of 222 countries at random, the mean tells us the infant mortality rate to expect. In other words, the mean tells us the typical infant mortality rate given our observed data. In this case, the average infant mortality rate is `r round(mean(infmortrate$inf_mort_rate),1)`.
 
 #### Median {-}
 
-If we took the 222 rates and listed them in ascending or descending numerical order, the median is the value that values exactly in the middle of that list. The median is also referred to as the 50th percentile because half of the values fall below it and half of the values fall above it. In the case of an even number of values, there is no naturally occurring middle value. In that case, we take the average of the two values in the middle. The median infant mortality rate is `r round(median(infMortRate$infMortRate),1)`.
+If we took the 222 rates and listed them in ascending or descending numerical order, the median is the value that values exactly in the middle of that list. The median is also referred to as the 50th percentile because half of the values fall below it and half of the values fall above it. In the case of an even number of values, there is no naturally occurring middle value. In that case, we take the average of the two values in the middle. The median infant mortality rate is `r round(median(infmortrate$inf_mort_rate),1)`.
 
 #### Mode {-}
 
@@ -164,7 +164,7 @@ The mode is the value that occurs most frequently. If all values occur only once
 As Figure 4.5 shows, three measures of center have provided us three different typical infant mortality rates. The mean is represented by the red line, the median by the purple line, and the mode by the green line. 
 
 ```{r mortcenters, echo=FALSE, fig.cap='Centers of infant mortality rates'}
-ggplot(infMortRate, aes(infMortRate)) +
+ggplot(infmortrate, aes(inf_mort_rate)) +
   geom_histogram(fill = 'steelblue', color = 'white', bins = 30) +
   geom_vline(xintercept = 26.7, color = 'red', linetype = 'dashed') +
   geom_vline(xintercept = 15.6, color = 'purple', linetype = 'dashed') +
@@ -194,12 +194,12 @@ Almost all values of our variable will not exactly equal the mean. This is refer
 (\#eq:variance)
 \end{equation}
 
-The mean infant mortality rate is 26.7. If we subtract this mean from each country's rate, we have each country's deviation from the mean, some of which is shown in Table \@ref(tab:varcalcs). Then, we square these deviations as is also shown in the table. We then sum the 222 squared deviations and divide by 221. The variance for our infant mortality rates is `r round(var(infMortRate$infMortRate),1)`.
+The mean infant mortality rate is 26.7. If we subtract this mean from each country's rate, we have each country's deviation from the mean, some of which is shown in Table \@ref(tab:varcalcs). Then, we square these deviations as is also shown in the table. We then sum the 222 squared deviations and divide by 221. The variance for our infant mortality rates is `r round(var(infmortrate$inf_mort_rate),1)`.
 
 ```{r varcalcs, echo=FALSE}
-infMortRate %>% 
+infmortrate %>% 
   head(n=5) %>% 
-  mutate(deviate = infMortRate - 26.7, sq_deviate = deviate^2) %>% 
+  mutate(deviate = inf_mort_rate - 26.7, sq_deviate = deviate^2) %>% 
   kable(format = 'html', caption = 'Excerpt of variance calculations')
 ```
 
@@ -214,15 +214,15 @@ The standard deviation is simply the square root of variance to return our units
 (\#eq:sd)
 \end{equation}
 
-The standard deviation of our infant mortality rates data is `r round(sd(infMortRate$infMortRate),1)`. This tells us that, on average, infant mortality rates are about 26 deaths above or below the mean.
+The standard deviation of our infant mortality rates data is `r round(sd(infmortrate$inf_mort_rate),1)`. This tells us that, on average, infant mortality rates are about 26 deaths above or below the mean.
 
 #### Interquartile range {-}
 
-Recall that the median is the 50th percentile of a distribution--half of the values fall below the median and half fall above it. The interquartile range (IQR) is equal to the 75th percentile minus the 25th percentile, thus providing the range that captures the middle 50% of the values in the distribution. The IQR is the spread analog of the median. The IQR for our distribution is `r round(IQR(infMortRate$infMortRate),1)`.
+Recall that the median is the 50th percentile of a distribution--half of the values fall below the median and half fall above it. The interquartile range (IQR) is equal to the 75th percentile minus the 25th percentile, thus providing the range that captures the middle 50% of the values in the distribution. The IQR is the spread analog of the median. The IQR for our distribution is `r round(IQR(infmortrate$inf_mort_rate),1)`.
 
 #### Range {-}
 
-The range is simply the maximum value in a distribution minus the minimum value of a distribution. Usually, the range is left implied in a table of summary statistics by reporting the maximum and minimum without differencing the two. The range of our distribution is `r round(max(infMortRate$infMortRate)-min(infMortRate$infMortRate),1)`.
+The range is simply the maximum value in a distribution minus the minimum value of a distribution. Usually, the range is left implied in a table of summary statistics by reporting the maximum and minimum without differencing the two. The range of our distribution is `r round(max(infmortrate$inf_mort_rate)-min(infmortrate$inf_mort_rate),1)`.
 
 #### Choosing a spread {-}
 
@@ -231,7 +231,7 @@ The same logic applies to choosing a measure of spread as choosing a measure of 
 Figure \@ref(fig:mortspread) displays the mean and plus-and-minus one standard deviation using red dashed and solid lines, respectively. The median and the IQR (25th and 75th percentiles) are represented by the purple dashed and solid lines, respectively. Note how wide the area contained by the standard deviation is--it contains most of the distribution. It is arguably not ideal for conveying the typical deviation from the center, as it contains plenty of values that are rather atypical deviations from the center. In the case of describing the distribution of infant mortality rates, the median and IQR are likely a better choice.
 
 ```{r mortspread, echo=FALSE, fig.cap='Center and spread of infant mortality rates'}
-ggplot(infMortRate, aes(infMortRate)) +
+ggplot(infmortrate, aes(inf_mort_rate)) +
   geom_histogram(fill = 'steelblue', color = 'white', bins = 30) +
   geom_vline(xintercept = 26.7, color = 'red', linetype = 'dashed') +
   geom_vline(xintercept = 0.7, color = 'red') +
@@ -245,7 +245,7 @@ ggplot(infMortRate, aes(infMortRate)) +
 
 In most cases, the range (or minimum and maximum values) should be reported along with either the mean and standard deviation or median and IQR (or 25th and 75th percentiles), especially when a distribution is skewed. In addition to signaling the skew of a distribution, the range helps convey what may be the possible values of a variable and how different the most different units in the data are with respect to that variable.
 
-In the case of infant mortality rates, we know the minimum possible value is 0 by definition, but the minimum value in our distribution is `r min(infMortRate$infMortRate)`. Perhaps 0 deaths is unrealistic for any country. Moreover, the maximum value is `r max(infMortRate$infMortRate)`. This range, along with the median and IQR, tells us the most different countries are *very* different.
+In the case of infant mortality rates, we know the minimum possible value is 0 by definition, but the minimum value in our distribution is `r min(infmortrate$inf_mort_rate)`. Perhaps 0 deaths is unrealistic for any country. Moreover, the maximum value is `r max(infmortrate$inf_mort_rate)`. This range, along with the median and IQR, tells us the most different countries are *very* different.
 
 ### The normal distribution
 
@@ -280,7 +280,7 @@ gap07 <- gapminder %>%
   filter(year==2007) %>% 
   select(country, lifeExp, gdpPercap)
 
-gapdeath <- left_join(infMortRate, gap07, by = 'country')
+gapdeath <- left_join(infmortrate, gap07, by = 'country')
 ```
 
 With association, we now consider the distributions of two variables at a time. That is, given the value within one variable's distribution, what does the distribution of another variable look like?
@@ -302,7 +302,7 @@ In fact, we know they do. Life expectancy in a given year is the average age at 
 As was the case with one variable, we want to visualize the distributions of two variables. When working with two continuous variables, the **scatter plot** is the most common choice to visualize association between two variables. Figure \@ref(fig:scatterlifedeath) plots the paired values of infant mortality rate and life expectancy for each country.
 
 ```{r scatterlifedeath, echo=FALSE, warning=FALSE, fig.cap='Visualizing association between two continuous variables'}
-ggplot(gapdeath, aes(x = infMortRate, y = lifeExp)) +
+ggplot(gapdeath, aes(x = inf_mort_rate, y = lifeExp)) +
   geom_point(color = 'steelblue', size = 2, alpha = 0.8) +
   labs(title = 'Infant mortality rates and life expectancy',
        x = 'Infant mortality rate',
@@ -335,10 +335,10 @@ The regression coefficient and coefficient of determination will be discussed in
 
 Covariance tells us when our x variable is above (below) its mean, whether our y variable tends to be above or below its mean. If our y variable tends to be above its mean when x is above its mean, then the two have a positive covariance and are positively associated. If our y variable tends to be below its mean when x is above its mean, then the two have a negative covariance and are negatively associated. A covariance of 0 indicates no association.
 
-Figure \@ref(fig:scattercovar) adds references lines for the mean of each variable. Note that when infant mortality is above its mean (to the right of the red line), life expectancy is below its mean (below the green line) in almost all cases. When infant mortality is below its mean, life expectancy is above its mean in almost all cases. Therefore, these two variables have a negative covariance and are negatively associated. In fact, the covariance between infant mortality rate and life expectancy is `r round(cov(gapdeath$infMortRate, gapdeath$lifeExp, use='pairwise.complete.obs'),1)`
+Figure \@ref(fig:scattercovar) adds references lines for the mean of each variable. Note that when infant mortality is above its mean (to the right of the red line), life expectancy is below its mean (below the green line) in almost all cases. When infant mortality is below its mean, life expectancy is above its mean in almost all cases. Therefore, these two variables have a negative covariance and are negatively associated. In fact, the covariance between infant mortality rate and life expectancy is `r round(cov(gapdeath$inf_mort_rate, gapdeath$lifeExp, use='pairwise.complete.obs'),1)`
 
 ```{r scattercovar, echo=FALSE, warning=FALSE, fig.cap='Visualizing covariance'}
-ggplot(gapdeath, aes(x = infMortRate, y = lifeExp)) +
+ggplot(gapdeath, aes(x = inf_mort_rate, y = lifeExp)) +
   geom_point(color = 'steelblue', size = 2, alpha = 0.8) +
   geom_vline(xintercept = 26.7, color = 'red', linetype = 'dashed') +
   geom_hline(yintercept = 66.9, color = 'purple', linetype = 'dashed') +
@@ -354,12 +354,12 @@ Covariance is the association analog of variance. It is an important building bl
 
 Correlation tells us how much the paired values of two variables exhibit a straight line and whether that straight line is sloped positively or negatively. Correlation ranges between -1 and 1. If it is negative, then the two variables are negatively associated. If it is positive, the two variables are positively associated. The closer correlation is to -1 or 1, the more the two variables exhibit a straight line. A correlation equal to -1 or 1 indicates the two variables form a perfect straight line. A correlation of 0 indicates no association.
 
-Based on the covariance and the scatter plot, we know to expect a negative correlation between infant mortality rate and life expectancy. We also know the correlation will not be -1 because the points do not form a perfect straight line. Nevertheless they do form a fairly tight negative path, so we should expect a correlation closer to -1 than 0. It turns out that the correlation is equal to `r round(cor(gapdeath$infMortRate, gapdeath$lifeExp, use='pairwise.complete.obs'),1)`. Infant mortality rate and life expectancy exhibit a very strong, negative association.
+Based on the covariance and the scatter plot, we know to expect a negative correlation between infant mortality rate and life expectancy. We also know the correlation will not be -1 because the points do not form a perfect straight line. Nevertheless they do form a fairly tight negative path, so we should expect a correlation closer to -1 than 0. It turns out that the correlation is equal to `r round(cor(gapdeath$inf_mort_rate, gapdeath$lifeExp, use='pairwise.complete.obs'),1)`. Infant mortality rate and life expectancy exhibit a very strong, negative association.
 
 Another way to think about correlation is if we tried to draw a line through the data points on our scatter plot from left to right that could freely curve about however the data are scattered, would that line be a straight line and would it slope upward or downward? Figure \@ref(fig:scattercorr) does exactly that with our data. Note that the data lead the line to be essectially straight until the end when it appears the association turns positively. 
 
 ```{r scattercorr, echo=FALSE, warning=FALSE, message=FALSE, fig.cap='Drawing a free line through the data'}
-ggplot(gapdeath, aes(x = infMortRate, y = lifeExp)) +
+ggplot(gapdeath, aes(x = inf_mort_rate, y = lifeExp)) +
   geom_point(color = 'steelblue', size = 2, alpha = 0.8) +
   geom_vline(xintercept = 26.7, color = 'red', linetype = 'dashed') +
   geom_hline(yintercept = 66.9, color = 'purple', linetype = 'dashed') +
@@ -372,4 +372,5 @@ ggplot(gapdeath, aes(x = infMortRate, y = lifeExp)) +
 
 Correlation has three qualities that can lead to misunderstandings or mistakes, some of which may have become apparent to you in the above discussion. First, correlation is sensitive to extreme values. A few dots on a scatter plot can have a substantial impact on the line that is drawn through the data. Second, correlation measures only the **linear** association, thus the repeated mentioning of **straight** lines. If two variables formed a perfect U-shape, they are almost certainly strongly associated. However, their correlation would suggest a weaker relationship because a straight line does not fit a U-shape well. Third, **correlation is a necessary but not sufficient condition of causation**. In order to validly claim that a change in the value of one variable *causes* the values of another variable to change, they must be correlated, but a few more conditions must also be met. Those conditions are discussed in Chapter \@ref(causation-and-bias).
 
-To learn how to produce a summary table for a publication, proceed to Chapter \@ref(r-description).
+> **To learn how to produce a summary table for a publication, proceed to Chapter \@ref(r-description).**
+

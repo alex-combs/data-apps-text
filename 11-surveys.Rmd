@@ -277,4 +277,5 @@ t.test(earnings ~ treatment, data = jobtrain)
 
 Our p-value is greater than our significance level, $0.23>0.05$. Therefore, we fail to reject the null hypothesis and conclude that there is not statistically significant evidence that participants earn more than non-participants, on average. Note that our 95% confidence interval ranges between -11,630 and 2,856. It includes zero, thus we cannot claim the difference between the means is not equal to zero with reasonable confidence.
 
-To learn how to conduct chi-square and t-tests in R, proceed to Chapter \@ref(r-evaluations).
+> **To learn how to conduct chi-square and t-tests in R, proceed to Chapter \@ref(r-evaluations).**
+

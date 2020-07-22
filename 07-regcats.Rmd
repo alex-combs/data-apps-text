@@ -391,4 +391,5 @@ prop.table(confusion, 2) %>%
   kable(format = 'html', caption = 'Confusion matrix for LPM (in proportions)')
 ```
 
-To Learn how to include interactions in a regression using R, proceed to Chapter \@ref(r-interactions).
+> **To Learn how to include interactions in a regression using R, proceed to Chapter \@ref(r-interactions).**
+

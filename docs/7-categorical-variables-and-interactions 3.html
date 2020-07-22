@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 7 Categorical Variables and Interactions | Data Applications in Public Administration</title>
+  <meta name="description" content="Companion text for PADP 7120" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 7 Categorical Variables and Interactions | Data Applications in Public Administration" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
+  
+  <meta property="og:description" content="Companion text for PADP 7120" />
+  <meta name="github-repo" content="alex-combs/data-apps-text" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 7 Categorical Variables and Interactions | Data Applications in Public Administration" />
+  
+  <meta name="twitter:description" content="Companion text for PADP 7120" />
+  
+
+<meta name="author" content="Alex Combs" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="6-simple-and-multiple-regression.html"/>
+<link rel="next" href="8-nonlinear-variables.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.14/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Applications in PA</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objective"><i class="fa fa-check"></i>Objective</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#style"><i class="fa fa-check"></i>Style</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software requirements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#supplemental-resources"><i class="fa fa-check"></i>Supplemental resources</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-intro.html"><a href="1-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-intro.html"><a href="1-intro.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why statistics</a></li>
+<li class="chapter" data-level="1.2" data-path="1-intro.html"><a href="1-intro.html#professional-standards"><i class="fa fa-check"></i><b>1.2</b> Professional standards</a></li>
+<li class="chapter" data-level="1.3" data-path="1-intro.html"><a href="1-intro.html#statistics-in-pa"><i class="fa fa-check"></i><b>1.3</b> Statistics in PA</a></li>
+<li class="chapter" data-level="1.4" data-path="1-intro.html"><a href="1-intro.html#using-r"><i class="fa fa-check"></i><b>1.4</b> Using R</a></li>
+</ul></li>
+<li class="part"><span><b>I Data and Description</b></span></li>
+<li class="chapter" data-level="2" data-path="2-data.html"><a href="2-data.html"><i class="fa fa-check"></i><b>2</b> Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-data.html"><a href="2-data.html#learning-objectives"><i class="fa fa-check"></i><b>2.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="2.2" data-path="2-data.html"><a href="2-data.html#rectangular-data"><i class="fa fa-check"></i><b>2.2</b> Rectangular Data</a></li>
+<li class="chapter" data-level="2.3" data-path="2-data.html"><a href="2-data.html#types-of-variables"><i class="fa fa-check"></i><b>2.3</b> Types of variables</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="2-data.html"><a href="2-data.html#qualitative-variables"><i class="fa fa-check"></i><b>2.3.1</b> Qualitative variables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2-data.html"><a href="2-data.html#quantitative-variables"><i class="fa fa-check"></i><b>2.3.2</b> Quantitative variables</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2-data.html"><a href="2-data.html#index-variables"><i class="fa fa-check"></i><b>2.3.3</b> Index variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2-data.html"><a href="2-data.html#dataset-structures"><i class="fa fa-check"></i><b>2.4</b> Dataset structures</a></li>
+<li class="chapter" data-level="2.5" data-path="2-data.html"><a href="2-data.html#additional-resources"><i class="fa fa-check"></i><b>2.5</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html"><i class="fa fa-check"></i><b>3</b> Measurement and Missing</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#learning-objectives-1"><i class="fa fa-check"></i><b>3.1</b> Learning objectives</a></li>
+<li class="chapter" data-level="3.2" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#credible-analysis"><i class="fa fa-check"></i><b>3.2</b> Credible analysis</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#measurement-validity-reliability"><i class="fa fa-check"></i><b>3.2.1</b> Measurement validity &amp; reliability</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#missing-data"><i class="fa fa-check"></i><b>3.3</b> Missing data</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#types-of-missing-data"><i class="fa fa-check"></i><b>3.3.1</b> Types of missing data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="4.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#two-kinds-of-statistics"><i class="fa fa-check"></i><b>4.1</b> Two kinds of statistics</a></li>
+<li class="chapter" data-level="4.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#distributions"><i class="fa fa-check"></i><b>4.2</b> Distributions</a></li>
+<li class="chapter" data-level="4.3" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#descriptive-measures"><i class="fa fa-check"></i><b>4.3</b> Descriptive Measures</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-center"><i class="fa fa-check"></i><b>4.3.1</b> Measures of center</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-spread"><i class="fa fa-check"></i><b>4.3.2</b> Measures of spread</a></li>
+<li class="chapter" data-level="4.3.3" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.3.3</b> The normal distribution</a></li>
+<li class="chapter" data-level="4.3.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-association"><i class="fa fa-check"></i><b>4.3.4</b> Measures of association</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-data-visualization.html"><a href="5-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#so-many-choices"><i class="fa fa-check"></i><b>5.1</b> So many choices</a></li>
+<li class="chapter" data-level="5.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#distribution"><i class="fa fa-check"></i><b>5.2</b> Distribution</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#histogram"><i class="fa fa-check"></i><b>5.2.1</b> Histogram</a></li>
+<li class="chapter" data-level="5.2.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#density"><i class="fa fa-check"></i><b>5.2.2</b> Density</a></li>
+<li class="chapter" data-level="5.2.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#box-plot"><i class="fa fa-check"></i><b>5.2.3</b> Box plot</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#compostion-of-a-category"><i class="fa fa-check"></i><b>5.3</b> Compostion of a category</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#pie-charts"><i class="fa fa-check"></i><b>5.3.1</b> Pie charts</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#bar-chart"><i class="fa fa-check"></i><b>5.3.2</b> Bar chart</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5-data-visualization.html"><a href="5-data-visualization.html#comparing-between-units"><i class="fa fa-check"></i><b>5.4</b> Comparing between units</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#bar-chart-1"><i class="fa fa-check"></i><b>5.4.1</b> Bar chart</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#dot-plot"><i class="fa fa-check"></i><b>5.4.2</b> Dot plot</a></li>
+<li class="chapter" data-level="5.4.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#line-graph"><i class="fa fa-check"></i><b>5.4.3</b> Line graph</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5-data-visualization.html"><a href="5-data-visualization.html#association"><i class="fa fa-check"></i><b>5.5</b> Association</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#categorical-and-numerical"><i class="fa fa-check"></i><b>5.5.1</b> Categorical and numerical</a></li>
+<li class="chapter" data-level="5.5.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>5.5.2</b> Scatter plot</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Regression Models</b></span></li>
+<li class="chapter" data-level="6" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html"><i class="fa fa-check"></i><b>6</b> Simple and Multiple Regression</a><ul>
+<li class="chapter" data-level="6.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#basic-idea"><i class="fa fa-check"></i><b>6.1</b> Basic idea</a></li>
+<li class="chapter" data-level="6.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>6.2</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#using-regression"><i class="fa fa-check"></i><b>6.2.1</b> Using regression</a></li>
+<li class="chapter" data-level="6.2.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#the-error-term"><i class="fa fa-check"></i><b>6.2.2</b> The error term</a></li>
+<li class="chapter" data-level="6.2.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#goodness-of-fit"><i class="fa fa-check"></i><b>6.2.3</b> Goodness of fit</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#multiple-regression"><i class="fa fa-check"></i><b>6.3</b> Multiple regression</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#using-multiple-regression"><i class="fa fa-check"></i><b>6.3.1</b> Using multiple regression</a></li>
+<li class="chapter" data-level="6.3.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#fit-and-adjusted-r-squared"><i class="fa fa-check"></i><b>6.3.2</b> Fit and adjusted R squared</a></li>
+<li class="chapter" data-level="6.3.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#explanatory-penalty"><i class="fa fa-check"></i><b>6.3.3</b> Explanatory penalty</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html"><i class="fa fa-check"></i><b>7</b> Categorical Variables and Interactions</a><ul>
+<li class="chapter" data-level="7.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#parallel-slopes-model"><i class="fa fa-check"></i><b>7.1</b> Parallel slopes model</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-parallel-slopes"><i class="fa fa-check"></i><b>7.1.1</b> Using parallel slopes</a></li>
+<li class="chapter" data-level="7.1.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations"><i class="fa fa-check"></i><b>7.1.2</b> Variations</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#interaction-model"><i class="fa fa-check"></i><b>7.2</b> Interaction model</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-an-interaction"><i class="fa fa-check"></i><b>7.2.1</b> Using an interaction</a></li>
+<li class="chapter" data-level="7.2.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations-1"><i class="fa fa-check"></i><b>7.2.2</b> Variations</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#linear-probability-model"><i class="fa fa-check"></i><b>7.3</b> Linear probability model</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-lpm"><i class="fa fa-check"></i><b>7.3.1</b> Using LPM</a></li>
+<li class="chapter" data-level="7.3.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#fit"><i class="fa fa-check"></i><b>7.3.2</b> Fit</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html"><i class="fa fa-check"></i><b>8</b> Nonlinear Variables</a><ul>
+<li class="chapter" data-level="8.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#quadratic"><i class="fa fa-check"></i><b>8.1</b> Quadratic</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#using-quadratics"><i class="fa fa-check"></i><b>8.1.1</b> Using quadratics</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#log-models"><i class="fa fa-check"></i><b>8.2</b> Log models</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#logarithmic-scales"><i class="fa fa-check"></i><b>8.2.1</b> Logarithmic scales</a></li>
+<li class="chapter" data-level="8.2.2" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#percent-v-percentage-point-change"><i class="fa fa-check"></i><b>8.2.2</b> Percent v percentage point change</a></li>
+<li class="chapter" data-level="8.2.3" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#why-logs-in-regression"><i class="fa fa-check"></i><b>8.2.3</b> Why logs in regression</a></li>
+<li class="chapter" data-level="8.2.4" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#using-log-models"><i class="fa fa-check"></i><b>8.2.4</b> Using log models</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html"><i class="fa fa-check"></i><b>9</b> Causation and Bias</a><ul>
+<li class="chapter" data-level="9.1" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#causality"><i class="fa fa-check"></i><b>9.1</b> Causality</a></li>
+<li class="chapter" data-level="9.2" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#directed-acyclical-graphs"><i class="fa fa-check"></i><b>9.2</b> Directed acyclical graphs</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#evaluationg-dags"><i class="fa fa-check"></i><b>9.2.1</b> Evaluationg DAGs</a></li>
+<li class="chapter" data-level="9.2.2" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#backdoor-criterion"><i class="fa fa-check"></i><b>9.2.2</b> Backdoor criterion</a></li>
+<li class="chapter" data-level="9.2.3" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#dags-and-regression"><i class="fa fa-check"></i><b>9.2.3</b> DAGs and regression</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#direction-of-ovb"><i class="fa fa-check"></i><b>9.3</b> Direction of OVB</a></li>
+<li class="chapter" data-level="9.4" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#usefulness"><i class="fa fa-check"></i><b>9.4</b> Usefulness</a></li>
+</ul></li>
+<li class="part"><span><b>III Inference</b></span></li>
+<li class="chapter" data-level="10" data-path="10-sampling.html"><a href="10-sampling.html"><i class="fa fa-check"></i><b>10</b> Sampling</a><ul>
+<li class="chapter" data-level="10.1" data-path="10-sampling.html"><a href="10-sampling.html#normal-distribution"><i class="fa fa-check"></i><b>10.1</b> Normal distribution</a></li>
+<li class="chapter" data-level="10.2" data-path="10-sampling.html"><a href="10-sampling.html#sampling-distribution"><i class="fa fa-check"></i><b>10.2</b> Sampling Distribution</a></li>
+<li class="chapter" data-level="10.3" data-path="10-sampling.html"><a href="10-sampling.html#central-limit-theorem"><i class="fa fa-check"></i><b>10.3</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="10.4" data-path="10-sampling.html"><a href="10-sampling.html#confidence-intervals"><i class="fa fa-check"></i><b>10.4</b> Confidence intervals</a></li>
+<li class="chapter" data-level="10.5" data-path="10-sampling.html"><a href="10-sampling.html#conclusion"><i class="fa fa-check"></i><b>10.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html"><i class="fa fa-check"></i><b>11</b> Surveys and Evaluations</a><ul>
+<li class="chapter" data-level="11.1" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#sample-size"><i class="fa fa-check"></i><b>11.1</b> Sample size</a></li>
+<li class="chapter" data-level="11.2" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#survey-weights"><i class="fa fa-check"></i><b>11.2</b> Survey weights</a></li>
+<li class="chapter" data-level="11.3" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#hypothesis-testing"><i class="fa fa-check"></i><b>11.3</b> Hypothesis testing</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#null-and-alternative-hypos"><i class="fa fa-check"></i><b>11.3.1</b> Null and alternative hypos</a></li>
+<li class="chapter" data-level="11.3.2" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#conclusion-and-error-type"><i class="fa fa-check"></i><b>11.3.2</b> Conclusion and error type</a></li>
+<li class="chapter" data-level="11.3.3" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#decision-rule"><i class="fa fa-check"></i><b>11.3.3</b> Decision rule</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#chi-square-test"><i class="fa fa-check"></i><b>11.4</b> Chi-square test</a></li>
+<li class="chapter" data-level="11.5" data-path="11-surveys-and-evaluations.html"><a href="11-surveys-and-evaluations.html#t-test"><i class="fa fa-check"></i><b>11.5</b> T-test</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="12-regression-inference.html"><a href="12-regression-inference.html"><i class="fa fa-check"></i><b>12</b> Regression Inference</a><ul>
+<li class="chapter" data-level="12.1" data-path="12-regression-inference.html"><a href="12-regression-inference.html#regression-table"><i class="fa fa-check"></i><b>12.1</b> Regression table</a></li>
+<li class="chapter" data-level="12.2" data-path="12-regression-inference.html"><a href="12-regression-inference.html#other-hypotheses"><i class="fa fa-check"></i><b>12.2</b> Other hypotheses</a></li>
+<li class="chapter" data-level="12.3" data-path="12-regression-inference.html"><a href="12-regression-inference.html#practical-significance"><i class="fa fa-check"></i><b>12.3</b> Practical significance</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html"><i class="fa fa-check"></i><b>13</b> Regression Diagnostics</a><ul>
+<li class="chapter" data-level="13.1" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#classical-assumptions"><i class="fa fa-check"></i><b>13.1</b> Classical assumptions</a></li>
+<li class="chapter" data-level="13.2" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#multicollinearity"><i class="fa fa-check"></i><b>13.2</b> Multicollinearity</a></li>
+<li class="chapter" data-level="13.3" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#influential-data"><i class="fa fa-check"></i><b>13.3</b> Influential Data</a></li>
+</ul></li>
+<li class="part"><span><b>IV Advanced Topics</b></span></li>
+<li class="chapter" data-level="14" data-path="14-forecasting.html"><a href="14-forecasting.html"><i class="fa fa-check"></i><b>14</b> Forecasting</a><ul>
+<li class="chapter" data-level="14.1" data-path="14-forecasting.html"><a href="14-forecasting.html#what-is-forecasting"><i class="fa fa-check"></i><b>14.1</b> What is forecasting</a></li>
+<li class="chapter" data-level="14.2" data-path="14-forecasting.html"><a href="14-forecasting.html#patterns"><i class="fa fa-check"></i><b>14.2</b> Patterns</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="14-forecasting.html"><a href="14-forecasting.html#autocorrelation"><i class="fa fa-check"></i><b>14.2.1</b> Autocorrelation</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="14-forecasting.html"><a href="14-forecasting.html#forecasting-basics"><i class="fa fa-check"></i><b>14.3</b> Forecasting basics</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="14-forecasting.html"><a href="14-forecasting.html#evaluation"><i class="fa fa-check"></i><b>14.3.1</b> Evaluation</a></li>
+<li class="chapter" data-level="14.3.2" data-path="14-forecasting.html"><a href="14-forecasting.html#models"><i class="fa fa-check"></i><b>14.3.2</b> Models</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="14-forecasting.html"><a href="14-forecasting.html#recap"><i class="fa fa-check"></i><b>14.4</b> Recap</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html"><i class="fa fa-check"></i><b>15</b> Panel Analysis</a><ul>
+<li class="chapter" data-level="15.1" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html#panel-data"><i class="fa fa-check"></i><b>15.1</b> Panel data</a></li>
+<li class="chapter" data-level="15.2" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html#fixed-effects"><i class="fa fa-check"></i><b>15.2</b> Fixed effects</a></li>
+</ul></li>
+<li class="part"><span><b>V R Chapters</b></span></li>
+<li class="chapter" data-level="16" data-path="16-r-introduction.html"><a href="16-r-introduction.html"><i class="fa fa-check"></i><b>16</b> R Introduction</a><ul>
+<li class="chapter" data-level="16.1" data-path="16-r-introduction.html"><a href="16-r-introduction.html#r-chapter-structure"><i class="fa fa-check"></i><b>16.1</b> R chapter structure</a></li>
+<li class="chapter" data-level="16.2" data-path="16-r-introduction.html"><a href="16-r-introduction.html#r-chapter-feedback"><i class="fa fa-check"></i><b>16.2</b> R chapter feedback</a></li>
+<li class="chapter" data-level="16.3" data-path="16-r-introduction.html"><a href="16-r-introduction.html#what-is-r-and-rstudio"><i class="fa fa-check"></i><b>16.3</b> What is R and RStudio</a></li>
+<li class="chapter" data-level="16.4" data-path="16-r-introduction.html"><a href="16-r-introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>16.4</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="16.5" data-path="16-r-introduction.html"><a href="16-r-introduction.html#rstudio-orientation"><i class="fa fa-check"></i><b>16.5</b> RStudio orientation</a><ul>
+<li class="chapter" data-level="16.5.1" data-path="16-r-introduction.html"><a href="16-r-introduction.html#r-packages"><i class="fa fa-check"></i><b>16.5.1</b> R Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="16.6" data-path="16-r-introduction.html"><a href="16-r-introduction.html#submit"><i class="fa fa-check"></i><b>16.6</b> Submit</a></li>
+<li class="chapter" data-level="16.7" data-path="16-r-introduction.html"><a href="16-r-introduction.html#additional-resources-1"><i class="fa fa-check"></i><b>16.7</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="17-r-data.html"><a href="17-r-data.html"><i class="fa fa-check"></i><b>17</b> R Data</a><ul>
+<li class="chapter" data-level="17.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives-2"><i class="fa fa-check"></i><b>17.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="17.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>17.2</b> Set-up</a></li>
+<li class="chapter" data-level="17.3" data-path="17-r-data.html"><a href="17-r-data.html#viewing-datasets"><i class="fa fa-check"></i><b>17.3</b> Viewing datasets</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="17-r-data.html"><a href="17-r-data.html#warning-about-view"><i class="fa fa-check"></i><b>17.3.1</b> Warning about View</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="17-r-data.html"><a href="17-r-data.html#glimpsing-datasets"><i class="fa fa-check"></i><b>17.4</b> Glimpsing Datasets</a></li>
+<li class="chapter" data-level="17.5" data-path="17-r-data.html"><a href="17-r-data.html#preview-first-or-last-few-rows"><i class="fa fa-check"></i><b>17.5</b> Preview first or last few rows</a></li>
+<li class="chapter" data-level="17.6" data-path="17-r-data.html"><a href="17-r-data.html#submit-1"><i class="fa fa-check"></i><b>17.6</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html"><i class="fa fa-check"></i><b>18</b> R Missing Data</a><ul>
+<li class="chapter" data-level="18.1" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#learning-objectives-3"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="18.2" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#set-up-1"><i class="fa fa-check"></i><b>18.2</b> Set-up</a></li>
+<li class="chapter" data-level="18.3" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#data-1"><i class="fa fa-check"></i><b>18.3</b> Data</a></li>
+<li class="chapter" data-level="18.4" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#checking-for-missing-data"><i class="fa fa-check"></i><b>18.4</b> Checking for missing data</a></li>
+<li class="chapter" data-level="18.5" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#counting-missing-values"><i class="fa fa-check"></i><b>18.5</b> Counting missing values</a></li>
+<li class="chapter" data-level="18.6" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#bypassing-missing-values"><i class="fa fa-check"></i><b>18.6</b> Bypassing missing values</a></li>
+<li class="chapter" data-level="18.7" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#replacing-missing-values"><i class="fa fa-check"></i><b>18.7</b> Replacing missing values</a></li>
+<li class="chapter" data-level="18.8" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#submit-2"><i class="fa fa-check"></i><b>18.8</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="19-r-description.html"><a href="19-r-description.html"><i class="fa fa-check"></i><b>19</b> R Description</a><ul>
+<li class="chapter" data-level="19.1" data-path="19-r-description.html"><a href="19-r-description.html#learning-objectives-4"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="19.2" data-path="19-r-description.html"><a href="19-r-description.html#set-up-2"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
+<li class="chapter" data-level="19.3" data-path="19-r-description.html"><a href="19-r-description.html#introduction"><i class="fa fa-check"></i><b>19.3</b> Introduction</a></li>
+<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.4</b> Summary Table</a></li>
+<li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#using-arsenal"><i class="fa fa-check"></i><b>19.5</b> Using Arsenal</a><ul>
+<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#adjustments"><i class="fa fa-check"></i><b>19.5.1</b> Adjustments</a></li>
+<li class="chapter" data-level="19.5.2" data-path="19-r-description.html"><a href="19-r-description.html#export-to-csv"><i class="fa fa-check"></i><b>19.5.2</b> Export to CSV</a></li>
+</ul></li>
+<li class="chapter" data-level="19.6" data-path="19-r-description.html"><a href="19-r-description.html#submit-3"><i class="fa fa-check"></i><b>19.6</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="20-r-visualization.html"><a href="20-r-visualization.html"><i class="fa fa-check"></i><b>20</b> R Visualization</a><ul>
+<li class="chapter" data-level="20.1" data-path="20-r-visualization.html"><a href="20-r-visualization.html#learning-objectives-5"><i class="fa fa-check"></i><b>20.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="20.2" data-path="20-r-visualization.html"><a href="20-r-visualization.html#set-up-3"><i class="fa fa-check"></i><b>20.2</b> Set-up</a></li>
+<li class="chapter" data-level="20.3" data-path="20-r-visualization.html"><a href="20-r-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>20.3</b> Grammar of graphics</a></li>
+<li class="chapter" data-level="20.4" data-path="20-r-visualization.html"><a href="20-r-visualization.html#histogram-1"><i class="fa fa-check"></i><b>20.4</b> Histogram</a></li>
+<li class="chapter" data-level="20.5" data-path="20-r-visualization.html"><a href="20-r-visualization.html#box-plot-1"><i class="fa fa-check"></i><b>20.5</b> Box plot</a></li>
+<li class="chapter" data-level="20.6" data-path="20-r-visualization.html"><a href="20-r-visualization.html#bar-chart-2"><i class="fa fa-check"></i><b>20.6</b> Bar chart</a></li>
+<li class="chapter" data-level="20.7" data-path="20-r-visualization.html"><a href="20-r-visualization.html#scatter-plot-1"><i class="fa fa-check"></i><b>20.7</b> Scatter plot</a></li>
+<li class="chapter" data-level="20.8" data-path="20-r-visualization.html"><a href="20-r-visualization.html#line-graph-1"><i class="fa fa-check"></i><b>20.8</b> Line graph</a></li>
+<li class="chapter" data-level="20.9" data-path="20-r-visualization.html"><a href="20-r-visualization.html#submit-4"><i class="fa fa-check"></i><b>20.9</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="21-r-regression.html"><a href="21-r-regression.html"><i class="fa fa-check"></i><b>21</b> R Regression</a><ul>
+<li class="chapter" data-level="21.1" data-path="21-r-regression.html"><a href="21-r-regression.html#learning-objectives-6"><i class="fa fa-check"></i><b>21.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="21.2" data-path="21-r-regression.html"><a href="21-r-regression.html#set-up-4"><i class="fa fa-check"></i><b>21.2</b> Set-up</a></li>
+<li class="chapter" data-level="21.3" data-path="21-r-regression.html"><a href="21-r-regression.html#running-regression"><i class="fa fa-check"></i><b>21.3</b> Running Regression</a></li>
+<li class="chapter" data-level="21.4" data-path="21-r-regression.html"><a href="21-r-regression.html#reporting-results"><i class="fa fa-check"></i><b>21.4</b> Reporting Results</a><ul>
+<li class="chapter" data-level="21.4.1" data-path="21-r-regression.html"><a href="21-r-regression.html#moderndive"><i class="fa fa-check"></i><b>21.4.1</b> Moderndive</a></li>
+<li class="chapter" data-level="21.4.2" data-path="21-r-regression.html"><a href="21-r-regression.html#base-r"><i class="fa fa-check"></i><b>21.4.2</b> Base R</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="21-r-regression.html"><a href="21-r-regression.html#submit-5"><i class="fa fa-check"></i><b>21.5</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="22-r-interactions.html"><a href="22-r-interactions.html"><i class="fa fa-check"></i><b>22</b> R Interactions</a><ul>
+<li class="chapter" data-level="22.1" data-path="22-r-interactions.html"><a href="22-r-interactions.html#learning-objectives-7"><i class="fa fa-check"></i><b>22.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="22.2" data-path="22-r-interactions.html"><a href="22-r-interactions.html#set-up-5"><i class="fa fa-check"></i><b>22.2</b> Set-up</a></li>
+<li class="chapter" data-level="22.3" data-path="22-r-interactions.html"><a href="22-r-interactions.html#including-an-interaction"><i class="fa fa-check"></i><b>22.3</b> Including an interaction</a></li>
+<li class="chapter" data-level="22.4" data-path="22-r-interactions.html"><a href="22-r-interactions.html#submit-6"><i class="fa fa-check"></i><b>22.4</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html"><i class="fa fa-check"></i><b>23</b> R Nonlinear Regression</a><ul>
+<li class="chapter" data-level="23.1" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#learning-objectives-8"><i class="fa fa-check"></i><b>23.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="23.2" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#set-up-6"><i class="fa fa-check"></i><b>23.2</b> Set-up</a></li>
+<li class="chapter" data-level="23.3" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#quadratic-term"><i class="fa fa-check"></i><b>23.3</b> Quadratic term</a></li>
+<li class="chapter" data-level="23.4" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#log-transformation"><i class="fa fa-check"></i><b>23.4</b> Log Transformation</a></li>
+<li class="chapter" data-level="23.5" data-path="23-r-nonlinear-regression.html"><a href="23-r-nonlinear-regression.html#submit-7"><i class="fa fa-check"></i><b>23.5</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html"><i class="fa fa-check"></i><b>24</b> R Evaluations</a><ul>
+<li class="chapter" data-level="24.1" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#learning-outcomes"><i class="fa fa-check"></i><b>24.1</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="24.2" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#set-up-7"><i class="fa fa-check"></i><b>24.2</b> Set-up</a></li>
+<li class="chapter" data-level="24.3" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#chi-square-test-1"><i class="fa fa-check"></i><b>24.3</b> Chi-square test</a><ul>
+<li class="chapter" data-level="24.3.1" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#cross-tab"><i class="fa fa-check"></i><b>24.3.1</b> Cross-tab</a></li>
+<li class="chapter" data-level="24.3.2" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#run-chi-square"><i class="fa fa-check"></i><b>24.3.2</b> Run chi-square</a></li>
+</ul></li>
+<li class="chapter" data-level="24.4" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#t-tests"><i class="fa fa-check"></i><b>24.4</b> T-tests</a><ul>
+<li class="chapter" data-level="24.4.1" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#independent-t-test"><i class="fa fa-check"></i><b>24.4.1</b> Independent t-test</a></li>
+<li class="chapter" data-level="24.4.2" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#dependent-t-test"><i class="fa fa-check"></i><b>24.4.2</b> Dependent t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="24.5" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#submit-8"><i class="fa fa-check"></i><b>24.5</b> Submit</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html"><i class="fa fa-check"></i><b>25</b> R Regression Diagnostics</a><ul>
+<li class="chapter" data-level="25.1" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#learning-outcomes-1"><i class="fa fa-check"></i><b>25.1</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="25.2" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#set-up-8"><i class="fa fa-check"></i><b>25.2</b> Set-up</a></li>
+<li class="chapter" data-level="25.3" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#rvf-and-rvl"><i class="fa fa-check"></i><b>25.3</b> RVF and RVL</a></li>
+<li class="chapter" data-level="25.4" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#vif"><i class="fa fa-check"></i><b>25.4</b> VIF</a></li>
+<li class="chapter" data-level="25.5" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#exclude-observations"><i class="fa fa-check"></i><b>25.5</b> Exclude observations</a></li>
+<li class="chapter" data-level="25.6" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#submit-9"><i class="fa fa-check"></i><b>25.6</b> Submit</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html"><i class="fa fa-check"></i><b>A</b> Wrangle and Tidy Reference</a><ul>
+<li class="chapter" data-level="A.1" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#cheatsheets"><i class="fa fa-check"></i><b>A.1</b> Cheatsheets</a></li>
+<li class="chapter" data-level="A.2" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#common-functions"><i class="fa fa-check"></i><b>A.2</b> Common functions</a><ul>
+<li class="chapter" data-level="A.2.1" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#wrangle-verbs"><i class="fa fa-check"></i><b>A.2.1</b> Wrangle Verbs</a></li>
+<li class="chapter" data-level="A.2.2" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#tidy-verbs"><i class="fa fa-check"></i><b>A.2.2</b> Tidy Verbs</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Applications in Public Administration</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="categorical-variables-and-interactions" class="section level1">
+<h1><span class="header-section-number"> 7</span> Categorical Variables and Interactions</h1>
+<blockquote>
+<p><em>“For how can one know color in perpetual green, and what good is warmth without the cold to give it sweetness?”</em></p>
+<p>—John Steinbeck, Travels with Charley</p>
+</blockquote>
+<p>Chapter <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a> introduced regression using models containing quantitative variables only. In this chapter, we build our regression toolbox to include models that contain qualitative variables. We will cover three models in particular:</p>
+<ul>
+<li>Parallel slopes model: including a categorical explanatory variable</li>
+<li>Interaction model: allowing the slope of the regression line for each level of a categorical variable to differ (i.e. not parallel)</li>
+<li>Linear probability model: including a two-level (binary) categorical outcome</li>
+</ul>
+<div id="parallel-slopes-model" class="section level2">
+<h2><span class="header-section-number">7.1</span> Parallel slopes model</h2>
+<p>To introduce the inclusion of categorical variables in regression, the simplest type of categorical variable will be used. The simplest categorical variable is commonly referred to as a <strong>dummy variable</strong>. A dummy variable is a two-level or binary categorical variable. It takes on values of either 1 or 0, where 1 corresponds to “yes” or “true” and 0 corresponds to “no” or “false”.</p>
+<p>For example, a common way to represent biological sex in data is to use a dummy variable where either male or female is coded as 1 and the other sex is coded as 0. It is common to name such a variable as the level coded as 1. For example, a dummy variable coded as 1 for male and 0 for female will often be named “male” in a dataset. A variable coded as 1 to denote a person attained a college degree and 0 to denote they did not might be named “college.”</p>
+<p>The parallel slopes model using a dummy variable is represented in Equation <a href="7-categorical-variables-and-interactions.html#eq:pslope">(7.1)</a>.</p>
+<p><span class="math display" id="eq:pslope">\[\begin{equation}
+y = \beta_0 + \beta_1x + \beta_2d + \epsilon
+\tag{7.1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(d\)</span> is simply used to distinguish the variable as a dummy variable from the quantitative <span class="math inline">\(x\)</span> variable. The sample regression equation for the parallel slopes model is represented by Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp">(7.2)</a>.</p>
+<p><span class="math display" id="eq:pslopesamp">\[\begin{equation}
+\hat{y} = b_0 + b_1x + b_2d
+\tag{7.2}
+\end{equation}\]</span></p>
+<p>Knowing that <span class="math inline">\(d\)</span> can equal only 1 or 0, we can plug these values into Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp">(7.2)</a> to understand the logic of the parallel slopes model before considering the results from an example. If <span class="math inline">\(d=0\)</span>, then <span class="math inline">\(b_2\)</span> drops out of the equation because anything multiplied by 0 equals 0. In that case, our regression equation is,</p>
+<p><span class="math display" id="eq:pslopesamp0">\[\begin{equation}
+\hat{y} = b_0 + b_1x
+\tag{7.3}
+\end{equation}\]</span></p>
+<p>and we can plug in our results to predict changes or values of <span class="math inline">\(y\)</span> just like before. If <span class="math inline">\(d=1\)</span>, then <span class="math inline">\(b_2\)</span> stays in the model. Anything multiplied by 1 is equal to itself, and since <span class="math inline">\(d\)</span> can only equal 1 if not equal to 0, we can drop <span class="math inline">\(d\)</span> out of the equation like so</p>
+<p><span class="math display" id="eq:pslopesamp1">\[\begin{equation}
+\hat{y} = b_0 + b_1x + b_2
+\tag{7.4}
+\end{equation}\]</span></p>
+<p>Note that <span class="math inline">\(b_2\)</span> is not multiplied by the value of another variable like <span class="math inline">\(b_1\)</span> is multiplied by some change or value of <span class="math inline">\(x\)</span>. Instead, it is a constant like the y-intercept <span class="math inline">\(b_0\)</span>. In fact, combining <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_2\)</span> gives us a new y-intercept as shown in Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp1alt">(7.5)</a>.</p>
+<p><span class="math display" id="eq:pslopesamp1alt">\[\begin{equation}
+\hat{y} = (b_0 + b_2) + b_1x
+\tag{7.5}
+\end{equation}\]</span></p>
+<p>This volley of equations is not to meant to repulse the math averse. Rather, it is meant to show you that the logic of the parallel slopes model is quite simple. Including a dummy variable <span class="math inline">\(d\)</span> is analogous to drawing two separate regression lines–one line through the observations for which <span class="math inline">\(d=0\)</span> and another line through the observations for which <span class="math inline">\(d=1\)</span>. The second line will be either above or below the first regression line by a constant amount equal to <span class="math inline">\(b_2\)</span>, resulting in two regression lines running parallel to each other.</p>
+<div id="using-parallel-slopes" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> Using parallel slopes</h3>
+<p>Suppose we are interested in whether state laws mandating a jail sentence for drunk driving affects traffic fatalities, presumably by deterring drunk driving. To investigate, we collect the following data, some of which is previewed in Table <a href="7-categorical-variables-and-interactions.html#tab:trdeath">7.1</a>.</p>
+<table>
+<caption>
+<span id="tab:trdeath">Table 7.1: </span>Sample of state traffic data
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+state
+</th>
+<th style="text-align:right;">
+year
+</th>
+<th style="text-align:right;">
+mrall
+</th>
+<th style="text-align:left;">
+jaild
+</th>
+<th style="text-align:right;">
+vmiles
+</th>
+<th style="text-align:right;">
+mlda
+</th>
+<th style="text-align:right;">
+unrate
+</th>
+<th style="text-align:left;">
+region
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+1987
+</td>
+<td style="text-align:right;">
+2.27606
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:right;">
+8.565328
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+6.2
+</td>
+<td style="text-align:left;">
+West
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+1982
+</td>
+<td style="text-align:right;">
+2.48916
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:right;">
+6.137799
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+10.3
+</td>
+<td style="text-align:left;">
+South
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1985
+</td>
+<td style="text-align:right;">
+2.80201
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:right;">
+6.771263
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+6.5
+</td>
+<td style="text-align:left;">
+West
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+1982
+</td>
+<td style="text-align:right;">
+1.46127
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:right;">
+6.733286
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+8.6
+</td>
+<td style="text-align:left;">
+N. East
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+1982
+</td>
+<td style="text-align:right;">
+1.38156
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+7.059264
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+7.8
+</td>
+<td style="text-align:left;">
+Midwest
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+1984
+</td>
+<td style="text-align:right;">
+1.90596
+</td>
+<td style="text-align:left;">
+no
+</td>
+<td style="text-align:right;">
+7.707853
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+5.6
+</td>
+<td style="text-align:left;">
+West
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+1984
+</td>
+<td style="text-align:right;">
+2.00692
+</td>
+<td style="text-align:left;">
+yes
+</td>
+<td style="text-align:right;">
+8.083908
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+6.1
+</td>
+<td style="text-align:left;">
+N. East
+</td>
+</tr>
+</tbody>
+</table>
+<p>where <code>mrall</code> is number of traffic deaths per 10,000 population, <code>jaild</code> is the dummy variable for whether the state has a mandatory jail sentence for drunk driving, <code>vmiles</code> is the average miles driven per driver in a state, <code>mlda</code> is the minimum legal drinking age at the time, and <code>unrate</code> is the state’s unemployment rate. There are 336 observations in this dataset (48 states from 1982 to 1988; panel data but used like a pooled cross-sectional for this example).</p>
+<p>Suppose we choose to use the following model</p>
+<p><span class="math display" id="eq:pslopeexamp">\[\begin{equation}
+mrall = \beta_0 + \beta_1vmiles + \beta_2jaild + \epsilon
+\tag{7.6}
+\end{equation}\]</span></p>
+<p>First, let’s visualize the relationship between these variables using a scatter plot with <code>vmiles</code> on the x axis and using color to differentiate states with and with and without mandatory jail sentences for drunk driving. Note in Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter">7.1</a> below there appears to be a positive relationship between the average miles people drive and the traffic fatalities. That makes sense.</p>
+<p>Now, imagine drawing a straight line through the red points that denote states with no mandatory jail for drunk driving and a separate line through the blue dots denoting states with mandatory jail sentencing. Do not force your imaginary lines to be parallel just yet. How do your two lines compare? Based on the data, our blue line should be above our red line, as the group of blue dots appear to be systematically higher than the group of red dots. The slopes are less obvious. It <em>may</em> be the case that our red line should have a steeper slope than our <em>blue</em> line, but it is difficult to tell.</p>
+<div class="figure"><span id="fig:pslopescatter"></span>
+<img src="data-apps-text_files/figure-html/pslopescatter-1.png" alt="Relationship between miles driven and traffic deaths by whether state has mandatory jail for drunk driving" width="672" />
+<p class="caption">
+Figure 7.1: Relationship between miles driven and traffic deaths by whether state has mandatory jail for drunk driving
+</p>
+</div>
+<p>The imaginary exercise you just went through is critical. Considering whether the slopes of our regression line to differ between the two groups is the difference between the parallel slopes model and the interaction model. Why not just add the interaction and if they are the same slope, so be it? Again, because we pay a penalty for adding superfluous explanatory variables. Moreover, an interaction model is more difficult to interpret and communicate to an audience. Most importantly, we should choose the model that reflects our theory that is based on our subject matter expertise. <strong>Choosing to use a parallel slopes model forces the slopes between the two groups to be drawn (i.e. estimated) as if they are parallel whether they actually are or not</strong>.</p>
+<p>Now having a sense of the relationship, we run our parallel slopes model, which generates the following results</p>
+<table>
+<caption>
+<span id="tab:psloperesults">Table 7.2: </span>Parallel slopes results
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std_error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p_value
+</th>
+<th style="text-align:right;">
+lower_ci
+</th>
+<th style="text-align:right;">
+upper_ci
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+intercept
+</td>
+<td style="text-align:right;">
+-0.238
+</td>
+<td style="text-align:right;">
+0.182
+</td>
+<td style="text-align:right;">
+-1.304
+</td>
+<td style="text-align:right;">
+0.193
+</td>
+<td style="text-align:right;">
+-0.597
+</td>
+<td style="text-align:right;">
+0.121
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vmiles
+</td>
+<td style="text-align:right;">
+0.281
+</td>
+<td style="text-align:right;">
+0.023
+</td>
+<td style="text-align:right;">
+12.107
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.236
+</td>
+<td style="text-align:right;">
+0.327
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jaildyes
+</td>
+<td style="text-align:right;">
+0.265
+</td>
+<td style="text-align:right;">
+0.056
+</td>
+<td style="text-align:right;">
+4.726
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.155
+</td>
+<td style="text-align:right;">
+0.376
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now we can plug our results into the sample regression equation to answer whatever questions we may have or encounter.</p>
+<p><span class="math display">\[\begin{equation}
+\hat{mrall} = -0.238 + 0.281\times vmiles + 0.265 \times jaild
+\end{equation}\]</span></p>
+<p>I strongly recommend that you compare this equation to Equations 7.2-7.5. Otherwise, the suffering was in vain. The <code>jaild</code> variable is the <span class="math inline">\(d\)</span> variable. It equals either 0 or 1. If a state does <strong>not</strong> have a mandatory jail sentence (jaild = 0), then we have</p>
+<p><span class="math display">\[\begin{equation}
+\hat{mrall} = -0.238 + 0.281\times vmiles
+\end{equation}\]</span></p>
+<p>and if a state does have a madatory jail sentence, then we have</p>
+<p><span class="math display">\[\begin{equation}
+\hat{mrall} = -0.238 + 0.281\times vmiles + 0.265\\
+\hat{mrall} = (-0.238 + 0.265) + 0.281\times vmiles\\
+\hat{mrall} = 0.027 + 0.281\times vmiles
+\end{equation}\]</span></p>
+<p>The results tell us that, on average, states with mandatory jail sentencing have a higher traffic fatality rate of 0.265 per 10,000, all else equal.</p>
+<p>We already know how to interpret the estimate for <code>vmiles</code> in Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults">7.2</a>: The results suggest that, on average, as the average miles driven per driver in a state increases 1 mile, traffic fatalities per 10,000 increase 0.281, all else equal.</p>
+<p>To help make this concrete, Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a> visualizes the results of our parallel slopes model. Note that, as expected, the blue line is above the red line. Based on the results, we know the blue line is above the red line by 0.265. We also know that the slope for both lines is 0.281.</p>
+<div class="figure"><span id="fig:pslopescatter2"></span>
+<img src="data-apps-text_files/figure-html/pslopescatter2-1.png" alt="Parallel slopes visualization" width="672" />
+<p class="caption">
+Figure 7.2: Parallel slopes visualization
+</p>
+</div>
+</div>
+<div id="variations" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> Variations</h3>
+<p>We can include a categorical variable with more than two levels. Suppose we were interested in whether traffic fatalities differ across U.S. regions. From the variables in Table <a href="7-categorical-variables-and-interactions.html#tab:trdeath">7.1</a>, we might choose to construct the following model.</p>
+<p><span class="math display" id="eq:pslopeexamp2">\[\begin{equation}
+mrall = \beta_0 + \beta_1vmiles + \beta_2region + \epsilon
+\tag{7.7}
+\end{equation}\]</span></p>
+<p>where region is a four-level categorical variable containing South, West, N. East, and Midwest. Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a> visualizes this model. Note that there are now four regression lines, each corresponding to one of the four regions. There are clear differences between the regions. It appears states in the West and South are somehow different than states in the Midwest and Northeast with respect to traffic fatality rates.</p>
+<div class="figure"><span id="fig:pslopescatter3"></span>
+<img src="data-apps-text_files/figure-html/pslopescatter3-1.png" alt="Parallel slopes for 4 groups" width="672" />
+<p class="caption">
+Figure 7.3: Parallel slopes for 4 groups
+</p>
+</div>
+<p>Running this model produces the following results.</p>
+<table>
+<caption>
+<span id="tab:psloperesults2">Table 7.3: </span>Parallel slopes for regions
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std_error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p_value
+</th>
+<th style="text-align:right;">
+lower_ci
+</th>
+<th style="text-align:right;">
+upper_ci
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+intercept
+</td>
+<td style="text-align:right;">
+0.260
+</td>
+<td style="text-align:right;">
+0.167
+</td>
+<td style="text-align:right;">
+1.553
+</td>
+<td style="text-align:right;">
+0.121
+</td>
+<td style="text-align:right;">
+-0.069
+</td>
+<td style="text-align:right;">
+0.589
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vmiles
+</td>
+<td style="text-align:right;">
+0.188
+</td>
+<td style="text-align:right;">
+0.021
+</td>
+<td style="text-align:right;">
+8.895
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.147
+</td>
+<td style="text-align:right;">
+0.230
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+regionN. East
+</td>
+<td style="text-align:right;">
+-0.076
+</td>
+<td style="text-align:right;">
+0.065
+</td>
+<td style="text-align:right;">
+-1.166
+</td>
+<td style="text-align:right;">
+0.245
+</td>
+<td style="text-align:right;">
+-0.204
+</td>
+<td style="text-align:right;">
+0.052
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+regionSouth
+</td>
+<td style="text-align:right;">
+0.519
+</td>
+<td style="text-align:right;">
+0.056
+</td>
+<td style="text-align:right;">
+9.283
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.409
+</td>
+<td style="text-align:right;">
+0.630
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+regionWest
+</td>
+<td style="text-align:right;">
+0.641
+</td>
+<td style="text-align:right;">
+0.062
+</td>
+<td style="text-align:right;">
+10.264
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.518
+</td>
+<td style="text-align:right;">
+0.763
+</td>
+</tr>
+</tbody>
+</table>
+<p>Note that Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults2">7.3</a> provides estimates for three of the four regions. This is no different from our previous model; <code>jaild</code> has two levels, yes and no, but Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults">7.2</a> provides only one estimate for <code>jaild=yes</code>. No matter how many levels in a categorical variable, one of the levels is set such that <span class="math inline">\(d=0\)</span> and so that level drops out of the equation. Just like with the previous model where the estimate for <code>jaild=yes</code>
+indicates how far above or below the regression line is relative to the line for <code>jaild=no</code>, the estimates for whatever levels remain in the equation indicate how far above or below the regression lines are relative to the excluded level.</p>
+<p>In Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults2">7.3</a>, Midwest is excluded. Look at Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a>, noting where the Midwest line is relative to the other regions. Northeast is below Midwest, while South and West are above it. The estimates for the three included regions in Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults2">7.3</a> tell us how far the regions are above and below Midwest. Therefore, we could report something like</p>
+<blockquote>
+<p>On average and controlling for average miles driven per driver, states in the Northeast region experience fewer traffic fatalities by approximately 0.08 per 10,000, while states in the South and West experience higher traffic fatality rates by 0.52 and 0.64, respectively.</p>
+</blockquote>
+</div>
+</div>
+<div id="interaction-model" class="section level2">
+<h2><span class="header-section-number">7.2</span> Interaction model</h2>
+<p>But what if we allowed the two slopes in Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a> to differ? If our expertise leads us to theorize the two slopes should differ between states with and without mandatory jail sentencing for drunk driving, and/or if the visualizing the data suggests they do, then we can choose to use an interaction model.</p>
+<p>To be clear, allowing the two slopes to differ means we allow the marginal effect of the average miles driven per driver to differ between the two groups of states. Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter3">7.3</a> visualizes this added flexibility. Note that the slope of the red line is indeed slightly steeper than the blue line. Thus, this visualization suggests that average miles driven per mile in states without mandatory jail sentences for drunk driving increases the traffic fatality rate by slightly more than it does in states with such laws.</p>
+<div class="figure"><span id="fig:interactscatter"></span>
+<img src="data-apps-text_files/figure-html/interactscatter-1.png" alt="Interaction model visualization" width="672" />
+<p class="caption">
+Figure 7.4: Interaction model visualization
+</p>
+</div>
+<p>This version of an interaction model involves interacting a categorical variable with a numerical variable. Equation <a href="7-categorical-variables-and-interactions.html#eq:interaction">(7.8)</a> represents this version of the interaction model.</p>
+<p><span class="math display" id="eq:interaction">\[\begin{equation}
+y = \beta_0 + \beta_1x + \beta_2d + \beta_3xd + \epsilon
+\tag{7.8}
+\end{equation}\]</span></p>
+<p>Equation <a href="7-categorical-variables-and-interactions.html#eq:interaction">(7.8)</a> is similar to Equation <a href="7-categorical-variables-and-interactions.html#eq:pslope">(7.1)</a> for the parallel slopes model. The difference in <span class="math inline">\(\beta_3xd\)</span>. This is the interaction–multiplying two of the explanatory variables in our regression model. Equation <a href="7-categorical-variables-and-interactions.html#eq:interactionsamp">(7.9)</a> provides the sample equation of this interaction model.</p>
+<p><span class="math display" id="eq:interactionsamp">\[\begin{equation}
+\hat{y} = b_0 + b_1x + b_2d + b_3xd
+\tag{7.9}
+\end{equation}\]</span></p>
+<p>Following the same process as with the parallel slopes model, we can rearrange Equation <a href="7-categorical-variables-and-interactions.html#eq:interactionsamp">(7.9)</a> to examine the logic of this interaction model. If <span class="math inline">\(d=0\)</span>, then <span class="math inline">\(b_2\)</span> and <span class="math inline">\(b_3x\)</span> drop out of the model because they are multiplied by 0. Thus, we have the same sample regression equation as Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp0">(7.3)</a>.</p>
+<p><span class="math display" id="eq:interactionsamp0">\[\begin{equation}
+\hat{y} = b_0 + b_1x
+\tag{7.10}
+\end{equation}\]</span></p>
+<p>If <span class="math inline">\(d=1\)</span>, then <span class="math inline">\(b_2\)</span> and <span class="math inline">\(b_3x\)</span> remain in our model. As with the parallel slopes model, <span class="math inline">\(b_2\)</span> combines with <span class="math inline">\(b_0\)</span>. This shifts the y-intercept for the group for which <span class="math inline">\(d=1\)</span> either above or below the group for which <span class="math inline">\(d=0\)</span> by the amount equal to <span class="math inline">\(b_2\)</span>. Because the lines are not parallel, just because a line starts above or below another does not mean it will stay above or below. It depends on the value of the <span class="math inline">\(b_3x\)</span>. The term <span class="math inline">\(b_3x\)</span> is combined with <span class="math inline">\(b_1x\)</span>. Thus, if <span class="math inline">\(d=1\)</span>, we have the following sample regression equation</p>
+<p><span class="math display" id="eq:interactionsamp1">\[\begin{equation}
+\hat{y} = b_0 + b_1x + b_2d + b_3xd\\
+\hat{y} = b_0 + b_1x + b_2 + b_3x\\
+\hat{y} = (b_0 + b_2) + (b_1 + b_3)x
+\tag{7.11}
+\end{equation}\]</span></p>
+<p>In addition to the regression line for which <span class="math inline">\(d=1\)</span> having an intercept above or below the regression line for which <span class="math inline">\(d=0\)</span> by the amount <span class="math inline">\(b_2\)</span>, it will have a slope greater or lesser by the amount <span class="math inline">\(b_3\)</span>. Hopefully, it is clear how these equations correspond with the lines in Figure <a href="7-categorical-variables-and-interactions.html#fig:interactscatter">7.4</a>.</p>
+<div id="using-an-interaction" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Using an interaction</h3>
+<p>Running this interaction model on these data produces the following results</p>
+<table>
+<caption>
+<span id="tab:interactionmod">Table 7.4: </span>Interaction model results
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std_error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p_value
+</th>
+<th style="text-align:right;">
+lower_ci
+</th>
+<th style="text-align:right;">
+upper_ci
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+intercept
+</td>
+<td style="text-align:right;">
+-0.384
+</td>
+<td style="text-align:right;">
+0.221
+</td>
+<td style="text-align:right;">
+-1.741
+</td>
+<td style="text-align:right;">
+0.083
+</td>
+<td style="text-align:right;">
+-0.819
+</td>
+<td style="text-align:right;">
+0.050
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vmiles
+</td>
+<td style="text-align:right;">
+0.300
+</td>
+<td style="text-align:right;">
+0.028
+</td>
+<td style="text-align:right;">
+10.634
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.245
+</td>
+<td style="text-align:right;">
+0.356
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jaildyes
+</td>
+<td style="text-align:right;">
+0.731
+</td>
+<td style="text-align:right;">
+0.399
+</td>
+<td style="text-align:right;">
+1.831
+</td>
+<td style="text-align:right;">
+0.068
+</td>
+<td style="text-align:right;">
+-0.054
+</td>
+<td style="text-align:right;">
+1.516
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+vmiles:jaildyes
+</td>
+<td style="text-align:right;">
+-0.058
+</td>
+<td style="text-align:right;">
+0.050
+</td>
+<td style="text-align:right;">
+-1.178
+</td>
+<td style="text-align:right;">
+0.240
+</td>
+<td style="text-align:right;">
+-0.156
+</td>
+<td style="text-align:right;">
+0.039
+</td>
+</tr>
+</tbody>
+</table>
+<p>Once again, we can plug these values into our generic sample regression equation to obtain the following equation.</p>
+<p><span class="math display" id="eq:interactionex">\[\begin{equation}
+\hat{mrall} = -0.38 + 0.3\times vmiles + 0.73\times jaild - 0.06\times vmiles \times jaild
+\tag{7.12}
+\end{equation}\]</span></p>
+<p>For states without mandatory jail sentencing (jaild = 0), the equation is</p>
+<p><span class="math display" id="eq:interactionex0">\[\begin{equation}
+\hat{mrall} = -0.38 + 0.3\times vmiles
+\tag{7.13}
+\end{equation}\]</span></p>
+<p>and for states with mandatory jail sentencing (jaild = 1), the equation is</p>
+<p><span class="math display" id="eq:interactionex1">\[\begin{equation}
+\hat{mrall} = -0.38 + 0.3\times vmiles + 0.73\times jaild - 0.06\times vmiles \times jaild\\
+\hat{mrall} = 0.35 + 0.24\times vmiles
+\tag{7.14}
+\end{equation}\]</span></p>
+</div>
+<div id="variations-1" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Variations</h3>
+<p>Variations on interaction models are beyond the scope of this book, but suffice it to say we can interact any two variables we deem necessary (or more). If you suspect that the effect of a variable on an outcome <em>depends</em> on the value of another variable, then an interaction is how to model such a relationship.</p>
+</div>
+</div>
+<div id="linear-probability-model" class="section level2">
+<h2><span class="header-section-number">7.3</span> Linear probability model</h2>
+<p>We have now covered the inclusion of categorical variables on the explanatory side of a regression model. We can also include categorical variables as an outcome. In fact, many interesting question involve outcomes of a categorical nature, particularly binary. For example,</p>
+<ul>
+<li>Did the person graduate from college (yes or no)?</li>
+<li>Did the government default on its bond payments?</li>
+<li>Did the program participant get a job afterward?</li>
+<li>Did the nonprofit receive the grant it applied for?</li>
+</ul>
+<p>As before, we may want to explain or predict such outcomes based on a set of explanatory variables.</p>
+<p>A <strong>linear probability model</strong> (LPM) is just a special name we give the kind of regression we have already covered when the outcome is a dummy variable. The key difference between an LPM and what we have already done concerns probability. Whereas regression with a numerical outcome explains or predicts changes or values of the outcome in terms of the outcome’s units, <strong>the LPM explains or predicts changes or values in the <em>probability</em> that the dummy outcome equals 1. If the dummy outcome is coded such that <span class="math inline">\(d=1\)</span> means the event did occur, then the LPM estimates the probability that the event in question occurs</strong>.</p>
+<p>Equation <a href="7-categorical-variables-and-interactions.html#eq:lpm">(7.15)</a> shows the generic population LPM, which is the same as the generic multiple regression population model except for the left-hand side. All this equation is trying to denote is that our estimates on the right-hand side pertain to the <em>probability</em> (Pr) that <span class="math inline">\(y=1\)</span>. Equation <a href="7-categorical-variables-and-interactions.html#eq:lpmsample">(7.16)</a> shows the sample LMP equation.</p>
+<p><span class="math display" id="eq:lpm">\[\begin{equation}
+Pr(y=1)=\beta_0+\beta_1x_1+\beta_2x_2+\cdots+\beta_kx_k+\epsilon
+\tag{7.15}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:lpmsample">\[\begin{equation}
+\hat{Pr(y=1)}=b_0+b_1x_1+b_2x_2+\cdots +b_kx_k
+\tag{7.16}
+\end{equation}\]</span></p>
+<p>Again, nothing is different with respect to how we use the above equations to answer questions concerning the predicted change or value of the outcome. We simply need to remember that those changes or values will be expressed as probabilities that <span class="math inline">\(y=1\)</span> and what it means for <span class="math inline">\(y\)</span> to equal 1 in the context of our particular question.</p>
+<div id="using-lpm" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Using LPM</h3>
+<p>What if instead of modeling traffic fatality rates as an outcome dependent on miles driven and mandatory jail sentencing for drunk driving, we modeled whether a state has mandatory sentencing as an outcome dependent on traffic fatality rates and region? Perhaps states passed such laws because they have high traffic fatality rates. Equation <a href="7-categorical-variables-and-interactions.html#eq:lpmex">(7.17)</a> represents our model in this case.</p>
+<p><span class="math display" id="eq:lpmex">\[\begin{equation}
+Pr(jaild=1)=\beta_0+\beta_1vmiles+\beta_2region+\epsilon
+\tag{7.17}
+\end{equation}\]</span></p>
+<p>Scatter plots for LPMs are not particularly useful for communicating to an audience, but they can provide insight to what it is we are trying to do with an LPM, if it is not yet clear. Figure <a href="#lpmscatter"><strong>??</strong></a> changes the coding of <code>jaild</code> from yes/no to 1/0 and plots it on the y axis against traffic fatality rates on the x axis. Regions are excluded for simplicity.</p>
+<div class="figure"><span id="fig:lpmscatter"></span>
+<img src="data-apps-text_files/figure-html/lpmscatter-1.png" alt="LPM visualization" width="672" />
+<p class="caption">
+Figure 7.5: LPM visualization
+</p>
+</div>
+<p>Immediately, we should notice Figure @ref(fig: lpmscatter) does not look like the typical scatter plots we have viewed thus far. This is because all observations fall into one of two values for <code>jaild</code>. It is also difficult to tell how our regression line is being drawn through the data.</p>
+<p>The points along the x axis are states for which <code>jaild = 0</code>, meaning they do not impose mandatory jail sentencing for drunk driving. The points at the top are states for which <code>jaild = 1</code>. Compared to the points at the bottom, note the slight shift to the right the points at the top seem to have made. This shift is what informs the regression line to slope upward. The pattern of these data suggests there is a positive association between traffic fatality rate and passing a mandatory jail sentencing for drunk driving.</p>
+<p>The values of <span class="math inline">\(y\)</span> along the regression line are the predicted probabilities that a state has a mandatory jail law given the corresponding values for traffic fatality rate. For example, states with a rate of 3 appear to have a probability of 0.5 or 50% of passing a mandatory jail law.</p>
+<p>Running this model produces the following results</p>
+<table>
+<caption>
+<span id="tab:lpmresults">Table 7.5: </span>LPM results
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:right;">
+estimate
+</th>
+<th style="text-align:right;">
+std_error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p_value
+</th>
+<th style="text-align:right;">
+lower_ci
+</th>
+<th style="text-align:right;">
+upper_ci
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+intercept
+</td>
+<td style="text-align:right;">
+-0.066
+</td>
+<td style="text-align:right;">
+0.102
+</td>
+<td style="text-align:right;">
+-0.645
+</td>
+<td style="text-align:right;">
+0.520
+</td>
+<td style="text-align:right;">
+-0.267
+</td>
+<td style="text-align:right;">
+0.135
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mrall
+</td>
+<td style="text-align:right;">
+0.117
+</td>
+<td style="text-align:right;">
+0.054
+</td>
+<td style="text-align:right;">
+2.171
+</td>
+<td style="text-align:right;">
+0.031
+</td>
+<td style="text-align:right;">
+0.011
+</td>
+<td style="text-align:right;">
+0.222
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+regionN. East
+</td>
+<td style="text-align:right;">
+0.064
+</td>
+<td style="text-align:right;">
+0.070
+</td>
+<td style="text-align:right;">
+0.913
+</td>
+<td style="text-align:right;">
+0.362
+</td>
+<td style="text-align:right;">
+-0.074
+</td>
+<td style="text-align:right;">
+0.202
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+regionSouth
+</td>
+<td style="text-align:right;">
+0.040
+</td>
+<td style="text-align:right;">
+0.068
+</td>
+<td style="text-align:right;">
+0.580
+</td>
+<td style="text-align:right;">
+0.562
+</td>
+<td style="text-align:right;">
+-0.094
+</td>
+<td style="text-align:right;">
+0.173
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+regionWest
+</td>
+<td style="text-align:right;">
+0.361
+</td>
+<td style="text-align:right;">
+0.078
+</td>
+<td style="text-align:right;">
+4.634
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+0.208
+</td>
+<td style="text-align:right;">
+0.514
+</td>
+</tr>
+</tbody>
+</table>
+<p>Plugging these results into our sample regression equation gives us</p>
+<p><span class="math display" id="eq:lpmexsample">\[\begin{equation}
+\hat{Pr(jaild=1)}= -0.07 + 0.12 \times vmiles + 0.06 \times neast + 0.04 \times south + 0.36 \times west
+\tag{7.18}
+\end{equation}\]</span></p>
+<p>Once again, we are back to plug-and-chug. What is the predicted probability that state in the Midwest with a traffic fatality rate of 2.5 has a mandatory jail sentence for drunk driving? Answer:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="7-categorical-variables-and-interactions.html#cb11-1"></a><span class="fl">-0.07</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.12</span><span class="op">*</span><span class="fl">2.5</span></span></code></pre></div>
+<pre><code>## [1] 0.23</code></pre>
+<p>there is a 23% likelihood that such a state has such a law. How would an increase of 2 fatalities per 10,000 affect the probability that a state imposes a mandatory jail law? Answer:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="7-categorical-variables-and-interactions.html#cb13-1"></a><span class="fl">0.12</span><span class="op">*</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 0.24</code></pre>
+<p>an increase in probability by about 24%. Furthermore, our results suggest states in the West are substantially more likely to have this law. Compared to the Midwest, the West is 36% more likely to have a law and about 30% more likely than states in the South and Northeast.</p>
+</div>
+<div id="fit" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Fit</h3>
+<p>Because our outcome is a dummy variable, it does not have the same kind of variation we need to assess model fit like before using <span class="math inline">\(R^2\)</span> or RMSE. Since we are explaining or predicting whether or not an outcome occurs, we can assess the fit of the model based on how well it predicts the observed outcomes.</p>
+<p>We could change this threshold, but suppose we decide that if our model predicts the likelihood an outcome at 50% or greater, then we say that our model predicts the outcome will occur <span class="math inline">\(y=1\)</span> and so <span class="math inline">\(y=0\)</span> otherwise. Table @ref(tab: lpmpointstab) shows a few rows applying this logic. Note that each row shows the observed data for each variable in our model, then the predicted probability in the <code>jaild_hat</code> column, then the rounding of that probability to 0 or 1 in the <code>prediction</code> column. Note the similarities and differences between the observed outcomes in <code>jaild</code> and the predicted outcomes <code>prediction</code>. Sometimes our model predicts correctly, and sometimes it does not.</p>
+<table>
+<caption>
+<span id="tab:lpmpointstab">Table 7.6: </span>Binary predictions from LPM
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+ID
+</th>
+<th style="text-align:right;">
+jaild
+</th>
+<th style="text-align:right;">
+mrall
+</th>
+<th style="text-align:left;">
+region
+</th>
+<th style="text-align:right;">
+jaild_hat
+</th>
+<th style="text-align:right;">
+prediction
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2.174
+</td>
+<td style="text-align:left;">
+West
+</td>
+<td style="text-align:right;">
+0.549
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+113
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.461
+</td>
+<td style="text-align:left;">
+N. East
+</td>
+<td style="text-align:right;">
+0.169
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+254
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.821
+</td>
+<td style="text-align:left;">
+N. East
+</td>
+<td style="text-align:right;">
+0.094
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+98
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.936
+</td>
+<td style="text-align:left;">
+Midwest
+</td>
+<td style="text-align:right;">
+0.160
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+68
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2.575
+</td>
+<td style="text-align:left;">
+West
+</td>
+<td style="text-align:right;">
+0.596
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+241
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2.080
+</td>
+<td style="text-align:left;">
+West
+</td>
+<td style="text-align:right;">
+0.538
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+182
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1.825
+</td>
+<td style="text-align:left;">
+N. East
+</td>
+<td style="text-align:right;">
+0.211
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<p>Table <a href="7-categorical-variables-and-interactions.html#tab:confumat">7.7</a> below is referred to as a <strong>confusion matrix</strong>. It is simply a cross-tabulation of the observed outcomes and the predicted outcomes with the predictions along the top as columns.</p>
+<table>
+<caption>
+<span id="tab:confumat">Table 7.7: </span>Confusion matrix for LPM
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+0
+</th>
+<th style="text-align:right;">
+1
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+210
+</td>
+<td style="text-align:right;">
+31
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+38
+</td>
+</tr>
+</tbody>
+</table>
+<p>We can see that there are 248 cases where our model correctly predicts the outcome (210 + 38). There are 87 cases where our model incorrectly predicts the outcome. Specifically, there are 31 cases where our model predicts a state has a law but doesn’t and 56 cases where our model predicts a state does not have a law but does. We can also convert these to percentages like the table below. These confusion matrices help us assess and communicate how accurate our model is.</p>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-37">Table 7.8: </span>Confusion matrix for LPM (in proportions)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+0
+</th>
+<th style="text-align:right;">
+1
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+0.7894737
+</td>
+<td style="text-align:right;">
+0.4492754
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+0.2105263
+</td>
+<td style="text-align:right;">
+0.5507246
+</td>
+</tr>
+</tbody>
+</table>
+<p>To Learn how to include interactions in a regression using R, proceed to Chapter <a href="22-r-interactions.html#r-interactions">22</a>.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="6-simple-and-multiple-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="8-nonlinear-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
