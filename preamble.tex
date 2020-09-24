@@ -1,0 +1,28 @@
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+
+\newenvironment{announcement}% environment name 
+{% begin code 
+  \par\vspace{\baselineskip}\noindent 
+  \color{Announcement}\begin{itshape}% 
+  \par\vspace{\baselineskip}\noindent\ignorespaces 
+}% 
+{% end code 
+  \end{itshape}\ignorespacesafterend 
+}
+\newenvironment{learncheck}% environment name 
+{% begin code 
+  \par\vspace{\baselineskip}\noindent 
+  \color{Exercise}\begin{itshape}% 
+  \par\vspace{\baselineskip}\noindent\ignorespaces 
+}% 
+{% end code 
+  \end{itshape}\ignorespacesafterend 
+}

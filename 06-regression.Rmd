@@ -44,7 +44,7 @@ Here are some questions we can now answer:
 
 If you understand how to answer the above questions, then you can interpret regression results for any given context because interpreting regression results involves either predicting the *change* in $y$ given a *change* in $x$ or predicting the *value* of $y$ given a *value* of $x$.
 
-What is different in regression is how the equation of line is presented because there are population and sample versions of the relationship between $x$ and $y$. And, unlike a deterministic mathematical equation like the one above, because we generally use regression to measure relationships between social phenomena, there is inherent uncertainty in the line we calculate. This adds some complexity beyond solving a line's equation, but the process of running a regression to estimate the slope and intercept of a line to then predict changes or values of an outcome is fundamentally the same as the simple equation above.
+What is different in regression is how the equation of the line is presented because there are population and sample versions of the relationship between $x$ and $y$. And, unlike a deterministic mathematical equation like the one above, because we generally use regression to measure relationships between social phenomena, there is inherent uncertainty in the line we calculate. This adds some complexity beyond solving a line's equation, but the process of running a regression to estimate the slope and intercept of a line to then predict changes or values of an outcome is fundamentally the same as the simple equation above.
 
 ## Simple linear regression
 
@@ -113,7 +113,7 @@ FedSpend = \beta_0+\beta_1Poverty + \epsilon
 (\#eq:simregexample)
 \end{equation}
 
-We are going to use observed values of poverty and federal spending to estimate $\beta_0$ and $beta_1$. Then, once we have those estimates, we can provide succinct answers regarding how federal spending tends to change given a change in poverty or a predicted level of federal spending given a particular level of poverty in a county. 
+We are going to use observed values of poverty and federal spending to estimate $\beta_0$ and $\beta_1$. Then, once we have those estimates, we can provide succinct answers regarding how federal spending tends to change given a change in poverty or a predicted level of federal spending given a particular level of poverty in a county. 
 
 The $\epsilon$ represents all the other factors that explain or predict federal spending that are not in our model. If our world were such that the points in \@ref(fig:povfedscatter) literally formed a straight line, we would not need an $\epsilon$, but this is never the case with interesting questions of complex phenomena. This may or may not be a problem for whatever story we intend to tell about the the relationship between poverty and federal spending (more on that later).
 
@@ -126,7 +126,7 @@ get_regression_table(fedpov) %>%
   kable(format = 'html', caption = 'Regression results of poverty on federal spending')
 ```
 
-With the exception of Chapter @\ref(causation), this section on regression models focuses on understanding the methods used to generate the values in the `estimate` column immediately to the right of the variable names as well as how to interpret and apply these values to any question. The remaining columns in the above table pertain to inference. The values in the `estimate` column are commonly referred to as **coefficients**, which were first mentioned in Chapter \@ref(descriptive-statistics). Regression coefficients measure the direction and magnitude of association between an explanatory variable and an outcome variable.
+With the exception of Chapter @\ref(causation-and-bias), this section on regression models focuses on understanding the methods used to generate the values in the `estimate` column immediately to the right of the variable names as well as how to interpret and apply these values to any question. The remaining columns in the above table pertain to inference. The values in the `estimate` column are commonly referred to as **coefficients**, which were first mentioned in Chapter \@ref(descriptive-statistics). Regression coefficients measure the direction and magnitude of association between an explanatory variable and an outcome variable.
 
 Now that we have our results, we can plug them into our sample regression equation like so
 
@@ -195,7 +195,7 @@ get_regression_points(fedpov) %>%
 
 Our regression model uses observed values of poverty and federal spending to estimate the parameters of the regression line, which produced Equation \@ref(eq:simregresults). We can then plug the observed values of poverty into the equation to compute a predicted level of federal spending--`fed_spend_hat`. But, we know this prediction is not perfect in most cases. The right-most column of Table \@ref(tab:simregexresid) shows the difference between *predicted* federal spending and *observed* federal spending. This difference is called the **residual**.
 
-Using the first row of Table \@ref(tab:simregexresid) as an example, our regression predicts a county with 16.9 percent poverty to receive 7.59 dollars per capita in federal spending. However, this county actually received 9.78 dollars per capita. Our regression underestimates federal spending for this county by 2.18 dollars. Thus, the residual for this county is -2.18. 
+Using the first row of Table \@ref(tab:simregexresid) as an example, our regression predicts a county with 16.9 percent poverty to receive 9.77 dollars per capita in federal spending. However, this county actually received 7.59 dollars per capita. Our regression over-estimates federal spending for this county by 2.18 dollars. Thus, the residual for this county is -2.18 because the observed outcome is 2.18 less than the estimated outcome. 
 
 The residual is represented mathematically by Equation \@ref(eq:simregresid)
 
