@@ -34,13 +34,13 @@ The estimates we obtain from regression are the best linear unbiased estimates p
 For the assumptions of regression to hold, the relationship between the outcome and explanatory variables must be **Linear** (or modeled correctly as nonlinear), the observations must be **Independent** of each other, the data points must be **Normally** distributed around the regression line, and the data points should have **Equal** variation around the regression line. A key tool used to evaluate these assumptions is a **Residual vs. Fitted Plot** (RVFP). An RVFP is a simple transformation of the regression line plot. Figure \@ref(fig:genericreg) below shows a generic regression line fit to data with the outcome and predicted outcome on the y axis. An RVFP rotates the predicted outcome to the x axis, resulting in a horizontal line. This allows the distance between the observed and the fitted outcome to be vertical. Thus, the residuals of the regression are plotted on the y axis. Figure \@ref(fig:genericrvfp) shows a generic RVFP.
 
 <center>
-```{r genericreg, echo=FALSE, fig.cap="Generic regression line through data"}
+```{r genericreg, echo=FALSE, fig.cap="Generic regression line through data", fig.width=5}
 include_graphics("images/genericreg.png")
 ```
 </center>
 
 <center>
-```{r genericrvfp, echo=FALSE, fig.cap="Generic residual vs. fitted plot"}
+```{r genericrvfp, echo=FALSE, fig.cap="Generic residual vs. fitted plot", fig.width=5}
 include_graphics("images/genericrvfp.png")
 ```
 </center>
@@ -50,7 +50,7 @@ Note that the residuals in the RVFP above appear to be randomly positioned; ther
 Certain patterns in the RVFP signal violations of certain assumptions. For example, Figure \@ref(fig:rvfplinear) below shows a clear case that the linear assumptions is violated due to age and wage sharing a quadratic relationship.
 
 <center>
-```{r rvfplinear, echo=FALSE, fig.cap="Fitting linear model to quadratic data"}
+```{r rvfplinear, echo=FALSE, fig.cap="Fitting linear model to quadratic data", fig.width=5}
 include_graphics("images/rvfp_linear.png")
 ```
 </center>
@@ -58,13 +58,13 @@ include_graphics("images/rvfp_linear.png")
 The RVFP can also be used to check whether residuals are normally distributed around the regression line and whether the residuals have equal variance. Figures \@ref(fig:rvfpnormal) and \@ref(fig:rvfpequal) below show examples where each is clearly violated.
 
 <center>
-```{r rvfpnormal, echo=FALSE, fig.cap="Violation of normally distributed risiduals"}
+```{r rvfpnormal, echo=FALSE, fig.cap="Violation of normally distributed risiduals", fig.width=5}
 include_graphics("images/rvfp_normal.png")
 ```
 </center>
 
 <center>
-```{r rvfpequal, echo=FALSE, fig.cap="Violation of equal variation"}
+```{r rvfpequal, echo=FALSE, fig.cap="Violation of equal variation", fig.width=5}
 include_graphics("images/rvfp_equal.png")
 ```
 </center>
@@ -97,10 +97,10 @@ One must be more specific when communicating extreme values in regression, as th
 - High-leverage observation: an observation with an extreme value with respect to a particular variable; an outlier in the distribution of the explanatory variable
 - High-influence: a regression outlier with high leverage
 
-Suppose we were interested in the relationship between poverty rate and murder rate among U.S. states and D.C. Figure \@ref(fig:influential) below provides a visual example of an influential observation in regression. Note the plot point in the far upper-right corner in the left panel. This plot point has an extreme positive residual and it imposes high positive leverage because it is positioned far from the center of the poverty distribution. As a result, this plot point pulls the slope of the regression line upward. The right panel visualizes the same regression with the influential observation removed. The regression line is noticeably flatter and fits the data better.
+Figure \@ref(fig:influential) below provides a visual example of an influential observation in regression. Note the plot point in the far upper-right corner in the left panel. This plot point has an extreme positive residual and it imposes high positive leverage because it is positioned far from the center of the poverty distribution. As a result, this plot point pulls the slope of the regression line upward. The right panel visualizes the same regression with the influential observation removed. The regression line is noticeably flatter and fits the data better.
 
 <center>
-```{r influential, echo=FALSE, fig.cap="Regression with and without a high-influence observation"}
+```{r influential, echo=FALSE, fig.cap="Regression with and without a high-influence observation", fig.width=5}
 include_graphics("images/influential.png")
 ```
 </center>
@@ -110,12 +110,12 @@ Figure \@ref(fig:influential) provides an obvious case. The primary question is 
 A key tool used to investigate possible high-influence observations is a residual vs. leverage plot (RVLP). This is similar to an RVFP in that it is a simple transformation of the standard regression scatter plot that allows us to identify outliers, high-leverage, and high-influence observations more effectively. Figure \@ref(fig:rvlp) below shows an RVLP for the regression of poverty and murder rates.  
 
 <center>
-```{r rvlp, echo=FALSE, fig.cap="Residual vs. leverage plot"}
+```{r rvlp, echo=FALSE, fig.cap="Residual vs. leverage plot", fig.width=5}
 include_graphics("images/rvlp.png")
 ```
 </center>
 
-The software used to produce this RVLP also adds something called Cook's distance to the plot, denoted by the red dashed line. Cook's distance is a measure commonly used to identify influential observations. One rule of thumb is that any observation with a Cook's distance greater than 1 should be investigated. Here, we see that observation 51 in our data has a Cook's distance greater than 1. This observation is D.C.
+The software used to produce this RVLP also adds something called Cook's distance to the plot, denoted by the red dashed line. Cook's distance is a measure commonly used to identify influential observations. One rule of thumb is that any observation with a Cook's distance greater than 1 should be investigated. Here, we see that observation 51 in our data has a Cook's distance greater than 1.
 
 <br>
 

@@ -413,10 +413,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="25" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html"><i class="fa fa-check"></i><b>25</b> R Regression Diagnostics</a><ul>
 <li class="chapter" data-level="25.1" data-path="24-r-evaluations.html"><a href="24-r-evaluations.html#learning-outcomes"><i class="fa fa-check"></i><b>25.1</b> Learning Outcomes</a></li>
 <li class="chapter" data-level="25.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>25.2</b> Set-up</a></li>
-<li class="chapter" data-level="25.3" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#rvf-and-rvl"><i class="fa fa-check"></i><b>25.3</b> RVF and RVL</a></li>
-<li class="chapter" data-level="25.4" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#vif"><i class="fa fa-check"></i><b>25.4</b> VIF</a></li>
-<li class="chapter" data-level="25.5" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#exclude-observations"><i class="fa fa-check"></i><b>25.5</b> Exclude observations</a></li>
-<li class="chapter" data-level="25.6" data-path="16-r-introduction.html"><a href="16-r-introduction.html#submit"><i class="fa fa-check"></i><b>25.6</b> Submit</a></li>
+<li class="chapter" data-level="25.3" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#diagnostic-plots"><i class="fa fa-check"></i><b>25.3</b> Diagnostic Plots</a></li>
+<li class="chapter" data-level="25.4" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#variance-inflation-factor"><i class="fa fa-check"></i><b>25.4</b> Variance Inflation Factor</a></li>
+<li class="chapter" data-level="25.5" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#statistical-test-on-assumption"><i class="fa fa-check"></i><b>25.5</b> Statistical test on assumption</a></li>
+<li class="chapter" data-level="25.6" data-path="25-r-regression-diagnostics.html"><a href="25-r-regression-diagnostics.html#excluding-observations"><i class="fa fa-check"></i><b>25.6</b> Excluding observations</a></li>
+<li class="chapter" data-level="25.7" data-path="16-r-introduction.html"><a href="16-r-introduction.html#submit"><i class="fa fa-check"></i><b>25.7</b> Submit</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html"><i class="fa fa-check"></i><b>A</b> Wrangle and Tidy Reference</a><ul>
@@ -502,12 +503,12 @@ n=p(1-p)({\frac{Z}{E}})^2
 <li>E is the desired margin of error</li>
 </ul>
 <p>It is important to point out that the calculation in Equation <a href="11-surveys-and-evaluations.html#eq:sampsizeprop">(11.1)</a> occurs <em>prior</em> to the poll. Therefore, we do not know the value of <span class="math inline">\(p\)</span>. Unless there is reason to expect <span class="math inline">\(p\)</span> to equal a particular proportion, it is customary to input 0.50. If we want to use a 95% confidence interval then we input 2 for <span class="math inline">\(Z\)</span>. Lastly, we replace <span class="math inline">\(E\)</span> with how far we want each side of our chosen confidence interval to be below and above our estimate.</p>
-<p>Suppose the primary purpose of the Fox News poll was to conclude a majority opinion. Then, a margin of error equal to 1 percentage point would allow a valid conclusion that a majority of voters support or oppose impeachment if the result of the poll were slightly below 49% or above 51% in favor. Choosing to use a 95% confidence interval, then the sample size necessary to achieve a margin of error equal to 1 percent (0.01) is</p>
+<p>Suppose the primary purpose of the Fox News poll was to conclude a majority opinion. Then, a margin of error equal to 1 percentage point would allow a valid conclusion that a majority of voters support or oppose impeachment if the result of the poll were slightly below 49% or above 51% in favor. Choosing to use a 95% confidence interval, then the sample size necessary to achieve a margin of error equal to 1 percentage point (0.01) is</p>
 <p><span class="math display">\[\begin{equation}
 n=0.5(1-0.5)({\frac{1.96}{0.01}})^2\\
 n=9,604
 \end{equation}\]</span></p>
-<p>which is likely impractical for the kind of flash or expedient polling that news organizations tend to conduct.</p>
+<p>which is likely impractical for the kind of polling that news organizations tend to conduct.</p>
 <p>If we wish to determine the sample size needed for estimating a 95% confidence interval within a certain distance from a continuous estimate, such as the mean, we can use the following equation</p>
 <p><span class="math display" id="eq:sampsizemean">\[\begin{equation}
 n=(\frac{sZ}{E})^2

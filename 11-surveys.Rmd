@@ -48,14 +48,14 @@ n=p(1-p)({\frac{Z}{E}})^2
 
 It is important to point out that the calculation in Equation \@ref(eq:sampsizeprop) occurs *prior* to the poll. Therefore, we do not know the value of $p$. Unless there is reason to expect $p$ to equal a particular proportion, it is customary to input 0.50. If we want to use a 95% confidence interval then we input 2 for $Z$. Lastly, we replace $E$ with how far we want each side of our chosen confidence interval to be below and above our estimate.
 
-Suppose the primary purpose of the Fox News poll was to conclude a majority opinion. Then, a margin of error equal to 1 percentage point would allow a valid conclusion that a majority of voters support or oppose impeachment if the result of the poll were slightly below 49% or above 51% in favor. Choosing to use a 95% confidence interval, then the sample size necessary to achieve a margin of error equal to 1 percent (0.01) is
+Suppose the primary purpose of the Fox News poll was to conclude a majority opinion. Then, a margin of error equal to 1 percentage point would allow a valid conclusion that a majority of voters support or oppose impeachment if the result of the poll were slightly below 49% or above 51% in favor. Choosing to use a 95% confidence interval, then the sample size necessary to achieve a margin of error equal to 1 percentage point (0.01) is
 
 \begin{equation}
 n=0.5(1-0.5)({\frac{1.96}{0.01}})^2\\
 n=9,604
 \end{equation}
 
-which is likely impractical for the kind of flash or expedient polling that news organizations tend to conduct.
+which is likely impractical for the kind of polling that news organizations tend to conduct.
 
 If we wish to determine the sample size needed for estimating a 95% confidence interval within a certain distance from a continuous estimate, such as the mean, we can use the following equation 
 

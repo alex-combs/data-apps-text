@@ -27,67 +27,162 @@ library(carData)
 
 We will use the `States` dataset within the `carData` package. Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.
 
-## RVF and RVL
+## Diagnostic Plots
 
-Producing RVF and RVL plots is very easy. In Chapter \@ref(regression-diagnostics), the following regression was run.
+Diagnostic plots provide us suggestive visual evidence that one or more regression assumptions have failed to hold in our model. Producing diagnostic plots is very easy. Chapters \@ref(simple-and-multiple-regression) and \@ref(r-regression), the following regression was run.
 
-```{r, results='hide'}
-murder_mod <- lm(murder ~ pctmetro + pcths + poverty, data = statecrime1997)
-get_regression_table(murder_mod)
+```{r}
+fedpov2 <- lm(fed_spend ~ poverty + homeownership + income, data = selcounty)
+
+get_regression_table(fedpov2)
 ```
 
 ```{r, echo=FALSE}
-get_regression_table(murder_mod) %>% 
+get_regression_table(fedpov2) %>% 
   kable(format = 'html')
 ```
 
-Once we have our regression results saved to an object, all we need to do is use the `plot` function, as shown in the code below. The `plot` function produces four plots. The first plot is the RVFP and the fourth plot is the RVLP. You do not need to concern yourself with the second and third plots.
+Once we have our regression results saved to an object, all we need to do is use the `plot` function, as shown in the code below. The `plot` function produces four plots. The first plot is the RVFP and the fourth plot is the RVLP. These two plots alone can be used to investigate your regression model's LINE assumptions and influential data, but the second and third plots are useful too.
 
 ```{r}
-plot(murder_mod)
+plot(fedpov2)
 ```
 
-In both plots, we see that observation 51 (D.C.) is particularly problematic.
+We want to see no obvious pattern in the RVF plot and a relatively straight line running along the 0 reference line. For this RVF plot, we can see an obvious pattern where the positive residuals are much greater than the negative residuals. This is a classic sign that the regression model violates assumption **N**. Whether the red line trends in one direction or another away from 0 tells us whether assumption **L** is violated. This assumption appears to be relatively OK.
+
+The second plot is the Normal Q-Q plot. As the name suggests, it is especially useful for checking assumption **N**, which was already a concern based on the RVF plot. We want the points of a Normal Q-Q plot to track along the straight, dotted line. We see clear evidence now that assumption **N** has failed. We will need to address this in our model in order to have valid estimates.
+
+The RVF plot did not exhibit an obvious fanning out that would indicate a violation of assumption **E** (i.e. heteroskedasticity). The third plot is the Scale-Location plot. It is especially useful for checking assumption **E**. We want to see a straight line. Here, we see some indication that the variance in our residuals is not equal as our fitted/predicted values increase.
+
+Finally, the RVL plot tells us whether any observations impose problematic influence on our regression results. As with all of the diagnostic plots produced by `plot`, the three most problematic observations are identified by their row number in the data. We can see that observation 2907 is the largest outlier (i.e. has the largest residual), but has only a moderate amount of leverage. The other two observations are not as much of outliers as other observations, but their leverage combined with their residual makes them more influential than the other outliers. It does not appear as though any observations have a Cook's distance high enough to warrant removal.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 1:** Using the `States` data, run a regression model where either `SATV` or `SATM` is the outcome. Once you have the model, produce the RVFP and RVLP. Do any observations appear problematic?
+**Exercise 1:** Using the `States` data, run a regression model where either `SATV` or `SATM` is the outcome. Once you have the model, produce its diagnostic plots. Do any assumptions appear to be a concern? Do any particular observations appear problematic?
 ```
 
-## VIF
+## Variance Inflation Factor
 
-VIF is a common way to check for excessive multicollinearity. There is no strict rule for identifying multicollinearity, but a VIF between 5 and 10 signals a potential problem. To obtain the VIF, we can use the `vif` function from the `car` package like so.
+VIF is a common way to check for excessive multicollinearity. There is no strict rule for identifying multicollinearity, but a VIF between 5 and 10 signals a potential problem with multicollinearity. A VIF greater than 10 is a strong indicator of multicollinearity. To obtain the VIF, we can use the `vif` function from the `car` package like so.
 
 ```{r}
-vif(murder_mod)
+vif(fedpov2)
 ```
 
 None of the VIF values for the explanatory variables come close to 5. Therefore, we can be confident that multicollinearity is not an issue.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 2:** Obtain VIF values for your regression model. Might multicollinearity be a concern?
+**Exercise 2:** Obtain VIF values for your regression model. Is multicollinearity a concern?
 ```
 
-## Exclude observations
+## Statistical test on assumption
 
-We should be judicious and transparent when deciding to exclude observations from an analysis. When in doubt, do not exclude observations. If we decide an exclusion is defensible, then we can exclude observations directly within the `lm` function to avoid the need to create a new dataset. In the code below, I exclude observation 51 from the regression model.
+Visuals may be all we want or need, but we can actually conduct hypothesis testing on the critical regression assumptions for linearity, normality, and equal variance. This is also quite easy to do with the `gvlma` function from the `gvlma` package (gvlma stands for global violation of linear model assumptions).
 
 ```{r}
-murder_mod2 <- lm(murder ~ pctmetro + pcths + poverty, data = statecrime1997[-51,])
+gvlma(fedpov2)
 ```
 
-Now I have different results that are more representative of state murder rates.
+Clearly, there are some serious issues with this model. That first `Global Stat` line is like a holistic judgment of the model based on the lower four tests. Sometimes, a model might slightly violate one assumption but not the others, resulting in a satisfied global stat.
+
+The `Skewness` and `Kurtosis` tests pertain to the normality of the residuals. As we already knew from the plots, our residuals are not normal. The `Link Function` pertains to the linearity of the model. This is a sign that our model is simply misspecified, perhaps requiring some nonlinear transformations or a more complicated model outside the scope of this chapter. Lastly, `Heteroscedasiticity` tests the assumption of equal variance in the residuals. This assumption wasn't quite as clear from the plot. Here we receive a clear message that this too is a problem.
+
+## Excluding observations
+
+We should be careful and transparent when deciding to exclude observations from an analysis. When in doubt, do not exclude observations. In this running example, I would not exclude any observations. The problems with the model are not due to one or a few observations. Sometimes, the diagnostic plots will provide clear evidence that removing a few observations will solve the problems.
+
+First, I may want to know which counties were identified in my diagnostic plots. The code below does this via subsetting.
 
 ```{r, eval=FALSE}
-get_regression_table(murder_mod)
+selcounty[c(2907, 2874, 1991, 2898, 2831),]
 ```
 
 ```{r, echo=FALSE}
-get_regression_table(murder_mod) %>% 
+selcounty[c(2907, 2874, 1991, 2898, 2831),] %>% 
+  kable()
+```
+
+Interesting that most of the most problematic counties come from Virginia. Perhaps something deeper is going on with Virginia, or perhaps this is a meaningless coincidence.
+
+If we decide an exclusion of observations is defensible, then we can exclude observations directly within the `lm` function to avoid the need to create a new dataset. In the code below, I exclude the observations in the above table from the regression model.
+
+```{r}
+fedpov3 <- lm(fed_spend ~ poverty + homeownership + income, 
+              data = selcounty[-c(2907, 2874, 1991, 2898, 2831),])
+```
+
+This data has over 3,000 observations, so it is unlikely that removing 5 will have any notable impact on the results, but let's check.
+
+```{r, eval=FALSE}
+get_regression_table(fedpov3)
+```
+
+```{r, echo=FALSE}
+get_regression_table(fedpov3) %>% 
   kable(format = 'html')
 ```
 
+The point estimates have changes a little, but the hypothesis tests are the same. Has this changed whether assumptions are violated?
+
+```{r}
+gvlma(fedpov3)
+```
+
+Globally, no, although heteroskedasticity appears to no longer be a problem. The other tests could be due to a variety of complicated issues. Perhaps the theoretical relationships implied by the model are totally wrong. Perhaps the residuals among counties within each state are strongly correlated, thus violating assumption **I**. 
+
+The most straightforward *potential* solution in this case is to try a log transformation the outcome at least and perhaps one or more explanatory variables. In the below model, I log-transform federal spending and income.
+
+```{r, eval=FALSE}
+fedpov4 <- lm(log(fed_spend) ~ poverty + homeownership + log(income), 
+              data = selcounty[-c(2907, 2874, 1991, 2898, 2831),])
+```
+
+`Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : NA/NaN/Inf in 'y'`
+
+It appears some counties have federal spending that is 0 or negative, which cannot cannot be log-transformed. Let's see what those are.
+
+```{r, eval=FALSE}
+selcounty[-c(2907, 2874, 1991, 2898, 2831),] %>% 
+  filter(fed_spend <= 0)
+```
+
+```{r, echo=FALSE}
+selcounty[-c(2907, 2874, 1991, 2898, 2831),] %>% 
+  filter(fed_spend <= 0) %>% 
+  kable()
+```
+
+Fortunately, only two counties were the problem. Now I'll go ahead create a separate dataset to keep things clear. 
+
+```{r}
+selcounty2 <- selcounty[-c(2907, 2874, 1991, 2898, 2831),] %>% 
+  filter(fed_spend > 0)
+```
+
+And rerun the regression.
+
+```{r}
+fedpov4 <- lm(log(fed_spend) ~ poverty + homeownership + log(income), 
+              data = selcounty2)
+```
+
+Does this fix our assumptions?
+
+```{r}
+gvlma(fedpov4)
+```
+
+This appears to have fixed the issue with linearity, but normality of the residuals is still an issue. Let's produce a new set of diagnostic plots to visualize the difference all this has made.
+
+```{r}
+plot(fedpov4)
+```
+
+With the exception of the Normal Q-Q plot, all of the plots look much better. Unfortunately, we have exhausted the options at our disposal for fixing our regression (insofar as this course is covers). 
+
+As you can see from this example, regression diagnostics can take you down some interesting paths of investigation. Sometimes the solution is obvious. Other times the solution still eludes you after several iterations. 
+
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 3:** Exclude one or more observations from your regression model.
+**Exercise 3:** Try to correct your regression model based on your diagnostic results. Maybe exclude one or more observations from your regression model.
 ```
 
 ## Submit
