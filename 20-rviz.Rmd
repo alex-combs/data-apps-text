@@ -23,7 +23,7 @@ To complete this chapter, you need to
 library(tidyverse)
 library(data.table) # contains fread function to import from URL
 library(fpp2)
-countyComplete <- fread('https://www.openintro.org/data/R/county_complete.R')
+countyComplete <- fread('http://openintro.org/data/tab-delimited/county_complete.txt')
 ```
 
 

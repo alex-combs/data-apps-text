@@ -146,6 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#style-and-structure"><i class="fa fa-check"></i>Style and Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-requirements"><i class="fa fa-check"></i>Software requirements</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#supplemental-resources"><i class="fa fa-check"></i>Supplemental resources</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-package-references"><i class="fa fa-check"></i>R Package References</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="1-intro.html"><a href="1-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="1-intro.html"><a href="1-intro.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why statistics</a></li>
@@ -422,10 +423,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html"><i class="fa fa-check"></i><b>A</b> Wrangle and Tidy Reference</a><ul>
 <li class="chapter" data-level="A.1" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#cheatsheets"><i class="fa fa-check"></i><b>A.1</b> Cheatsheets</a></li>
-<li class="chapter" data-level="A.2" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#common-functions"><i class="fa fa-check"></i><b>A.2</b> Common functions</a><ul>
-<li class="chapter" data-level="A.2.1" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#wrangle-verbs"><i class="fa fa-check"></i><b>A.2.1</b> Wrangle Verbs</a></li>
-<li class="chapter" data-level="A.2.2" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#tidy-verbs"><i class="fa fa-check"></i><b>A.2.2</b> Tidy Verbs</a></li>
+<li class="chapter" data-level="A.2" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#wrangle-verbs"><i class="fa fa-check"></i><b>A.2</b> Wrangle Verbs</a><ul>
+<li class="chapter" data-level="" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#filter"><i class="fa fa-check"></i>Filter</a></li>
+<li class="chapter" data-level="" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#select"><i class="fa fa-check"></i>Select</a></li>
+<li class="chapter" data-level="" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#mutate"><i class="fa fa-check"></i>Mutate</a></li>
+<li class="chapter" data-level="" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#combining-filter-select-and-mutate"><i class="fa fa-check"></i>Combining filter, select, and mutate</a></li>
+<li class="chapter" data-level="" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#arrange"><i class="fa fa-check"></i>Arrange</a></li>
+<li class="chapter" data-level="" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#headtail"><i class="fa fa-check"></i>Head/Tail</a></li>
+<li class="chapter" data-level="" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#summarize"><i class="fa fa-check"></i>Summarize</a></li>
+<li class="chapter" data-level="" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#group_by"><i class="fa fa-check"></i>Group_By</a></li>
 </ul></li>
+<li class="chapter" data-level="A.3" data-path="A-wrangle-and-tidy-reference.html"><a href="A-wrangle-and-tidy-reference.html#tidy-verbs"><i class="fa fa-check"></i><b>A.3</b> Tidy Verbs</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -455,26 +463,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
-<div class="announcement">
-<p>
-<strong>Disclaimer</strong>
+<p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text">
+<span rel="dct:title">Data Applications in Public Administration</span> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://alex-combs.github.io/web-work/index.html">Alex Combs</a> is licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" /><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" /></a>
 </p>
-<p>
-This is a companion resource for PADP 7120: Data Applications in Public Administration. This resource is not peer-reviewed nor is it intended to supplant published textbooks. It is meant for distribution only to those enrolled in PADP 7120. I chose not to adopt a textbook for the course and offer a written version of lecture and presentation notes instead. I do not benefit monetarily from this resource in any way.
-</p>
-</div>
-<p><br></p>
-<p>This resource was developed primarily out of uncertainty regarding the future of in-person vs. online teaching. If in-person instruction becomes untenable, then this resource provides an imperfect substitute for the time in class spent converting content from other textbooks into what I want and expect students to know. Regardless of what happens to instruction during class, this book provides a one-way lesson on relevant topics directly from the person in charge of evaluating your understanding and performance. Secondarily, I have harbored some disappointment with existing texts used to teach MPA students statistics and statistical software for several years. Curating sections and subsections of chapters from numerous sources in order to provide partially relevant information presented with inconsistent levels of rigor has proven counterproductive to teaching and learning. This book aims to provide a standalone resource that is appropriate and relevant for students in PADP 7120.</p>
+<p>This is a collection of lecture and presentation notes compiled into a format that could be mistaken as a textbook. It is not a textbook nor is it intended to supplant published textbooks. It is a resource for students enrolled in my sections of PADP 7120: Data Applications in Public Administration. Wider distribution is discouraged. This resource is not peer-reviewed. All subjective takes and errors are my own. I do not benefit monetarily from this resource in any way.</p>
+<p>This resource was primarily developed out of uncertainty regarding the future of in-person teaching. If in-person instruction were to become untenable due to COVID-19, my thinking was that this resource would offer a substitute for the time spent in class converting readings into what I want students to know. This resource provides one-way lessons from the person in charge of evaluating your understanding and application of key concepts and skills.</p>
 <div id="objective" class="section level3 unnumbered">
 <h3>Objective</h3>
-<p>The objective of this book is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical software. It aims to simultaneously teach students key concepts in statistics and applications of those concepts using R.</p>
-<p>This book is intended for students with minimal background in statistics or interest in pursuing a career in academic research. For students wanting to learn core statistical concepts and skills that are applicable to careers in public, non-profit, and health sectors with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.</p>
+<p>The objective of this resource is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical programming software. It aims to teach students key concepts in statistics and applications of those concepts using R with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.</p>
 </div>
 <div id="style-and-structure" class="section level3 unnumbered">
 <h3>Style and Structure</h3>
-<p>Since this book is based on my lecture notes, most of the material is presented in a conversational tone. I have basically taken the core pieces of what I would say in class, adding examples and other supporting material so the content is self-contained.</p>
 <p>Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option.</p>
-<p>This book is organized along two parallel tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the <code>R Data</code> chapter corresponds to the <code>Data</code> chapter in the first track.</p>
+<p>Chapters are organized along two tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the <code>R Data</code> chapter corresponds to the <code>Data</code> chapter in the first track.</p>
 <p>The conceptual track is divided into four sections:</p>
 <ol style="list-style-type: decimal">
 <li>Data and description</li>
@@ -485,7 +486,7 @@ This is a companion resource for PADP 7120: Data Applications in Public Administ
 </div>
 <div id="software-requirements" class="section level3 unnumbered">
 <h3>Software requirements</h3>
-<p>This book provides examples and exercises using R. Students who intend to use a personal computer must download and install the following software:</p>
+<p>This resource presents examples and exercises using R. Students who intend to use a personal computer must download and install the following software:</p>
 <ul>
 <li><a href="https://cloud.r-project.org">R</a></li>
 <li><a href="https://rstudio.com/products/rstudio/download/">RStudio</a></li>
@@ -493,7 +494,7 @@ This is a companion resource for PADP 7120: Data Applications in Public Administ
 </div>
 <div id="supplemental-resources" class="section level3 unnumbered">
 <h3>Supplemental resources</h3>
-<p>There are numerous free materials that teach statistics and R. The below list includes a few books and websites that offer broader and deeper treatments of some concepts and skills covered in this book.</p>
+<p>There are numerous free materials that teach statistics and R. Below is a list of books and websites that offer broader and deeper treatments of some concepts and skills covered in this resource.</p>
 <ul>
 <li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a> by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr</li>
 <li><a href="https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition">Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition</a> by Hank Jenkins-Smith and Joseph Ripberger</li>
@@ -504,6 +505,31 @@ This is a companion resource for PADP 7120: Data Applications in Public Administ
 <li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown from RStudio</a></li>
 <li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
 <li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
+</ul>
+</div>
+<div id="r-package-references" class="section level3 unnumbered">
+<h3>R Package References</h3>
+<p>The following list cites the creators and authors of the packages used in this resource.</p>
+<ul>
+<li><code>arsenal</code> Ethan Heinzen [aut, cre], Jason Sinnwell [aut], Elizabeth Atkinson [aut], Tina Gunderson [aut], Gregory Dougherty [aut]</li>
+<li><code>broom</code> David Robinson and Simon Couch</li>
+<li><code>car</code> and <code>carData</code> John Fox [aut, cre], Sanford Weisberg [aut], Brad Price [aut]</li>
+<li><code>DAAG</code> John H. Maindonald and W. John Braun</li>
+<li><code>data.table</code> Matt Dowle [aut, cre], Arun Srinivasan [aut]</li>
+<li><code>Ecdat</code> Yves Croissant and Spencer Graves</li>
+<li><code>fivethirtyeight</code> Albert Y. Kim [aut, cre], Chester Ismay [aut], Jennifer Chunn [aut]</li>
+<li><code>forecast</code> Rob J Hyndman</li>
+<li><code>fpp2</code> Hyndman, R.J., and Athanasopoulos, G. (2017). Forecasting: principles and practice, OTexts: Melbourne, Australia. <a href="https://OTexts.org/fpp2/">https://OTexts.org/fpp2/</a></li>
+<li><code>gapminder</code> Jennifer Bryan</li>
+<li><code>gvlma</code> Pena, EA and Slate, EH (2006). “Global validation of linear model assumptions,” J. Amer. Statist. Assoc., 101(473):341-354.</li>
+<li><code>knitr</code> Yihui Xie</li>
+<li><code>lubridate</code> Garrett Grolemund and Hadley Wickham</li>
+<li><code>moderndive</code> Albert Y. Kim [aut, cre], Chester Ismay [aut]</li>
+<li><code>openintro</code> Mine Çetinkaya-Rundel [aut, cre], David Diez [aut], Andrew Bray [aut], Albert Kim [aut], Ben Baumer [aut], Chester Ismay [aut], Christopher Barr [aut]</li>
+<li><code>plm</code> Yves Croissant [aut, cre], Giovanni Millo [aut], Kevin Tappe [aut]</li>
+<li><code>readxl</code> Hadley Wickham</li>
+<li><code>Stat2Data</code> Ann Cannon, George Cobb, Bradley Hartlaub, Julie Legler, Robin Lock, Thomas Moore, Al- lan Rossman, Jeffrey Witmer</li>
+<li><code>tidyverse</code> Hadley Wickham</li>
 </ul>
 
 </div>

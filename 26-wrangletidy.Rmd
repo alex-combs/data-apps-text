@@ -18,8 +18,6 @@ Here are some more that are less relevant:
 - [Working with string variables](https://github.com/rstudio/cheatsheets/raw/master/strings.pdf)
 - [Dates and times](https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf)
 
-## Common functions
-
 Knowing just a handful of functions can help you make considerable progress in many situations. The remainder of this chapter serves as a sort of cheatsheet that distills some of the most common and relevant functions useful for problems you may encounter during the course. Functions are demonstrated using the friendly `gapminder` data.
 
 The `tidyverse` package is actually a collection of several `packages` designed to make the wrangle, tidy, and data exploration process as intuitive and consistent as possible. You should almost always load `tidyverse`, as it contains every function you may need to wrangle and tidy data.
@@ -28,7 +26,7 @@ The `tidyverse` package is actually a collection of several `packages` designed 
 library(tidyverse)
 ```
 
-### Wrangle Verbs
+## Wrangle Verbs
 
 - filter: extract rows/cases
 - select: extract columns/variables
@@ -38,7 +36,7 @@ library(tidyverse)
 - summarize: collapses data into a table of summary statistics
 - group_by: tells R to apply functions to each group separately; common to use with summarize
 
-#### Filter {-}
+### Filter {-}
 
 Use `filter` to extract rows from a dataset. Inversely, one can think of `filter` as a way to remove rows. However, remember that `filter` keeps the rows that meet the condition on which you filter. Therefore, you want to use a condition that keeps the rows you want.
 
@@ -99,7 +97,7 @@ gapminder %>%
   glimpse()
 ```
 
-#### Select {-}
+### Select {-}
 
 Suppose I want a dataset that contains only country, continent, year, and life expectancy. There are multiple options. Which is more efficient depends on the specific case. In this case:
 
@@ -125,7 +123,7 @@ gapminder %>%
   glimpse()
 ```
 
-#### Mutate {-}
+### Mutate {-}
 
 The `mutate` function allows you to mutate your dataset by either changing an existing variable or creating a new one.
 
@@ -162,7 +160,7 @@ gapminder %>%
 
 The period `.` inside `funs` is a generic placeholder, telling R to multiply each of the variables inside `vars` by 100.
 
-#### Combining filter, select, and mutate {-}
+### Combining filter, select, and mutate {-}
 
 You can do some serious wrangling efficiently with filter, select, and mutate. Suppose I wanted a new dataset of GDP (in billions) for European countries in 2007.
 
@@ -175,7 +173,7 @@ euro_gdp07 <- gapminder %>%
 glimpse(euro_gdp07)
 ```
 
-#### Arrange {-}
+### Arrange {-}
 
 The `arrange` verb is useful if you want to identify cases that have the highest or lowest values for one or more variables. By default, `arrange` reorders rows in ascending order (i.e. lowest to highest). In the previous glimpse, countries are arranged in alphabetical order. Suppose I wanted them arranged based on GDP.
 
@@ -195,7 +193,7 @@ euro_gdp07 %>%
 
 Now we see some of the wealthiest European countries.
 
-#### Head/Tail {-}
+### Head/Tail {-}
 
 By default, the `head` and `tail` verbs extract the top and bottom 6 rows of a dataset, respectively. These verbs are useful if we want to show a reader a sample of the data in a familiar spreadsheet form, which can be useful. Though the output from `glimpse` is very useful, it does not look good in a report. The `head` and `tail` verbs allow us to provide similar information in a much more presentable format.
 
@@ -215,7 +213,7 @@ euro_gdp07 %>%
   kable(format = 'html')
 ```
 
-#### Summarize {-}
+### Summarize {-}
 
 Summarize creates a new dataset by collapsing all of the cases of a dataset into one or more summary statistics. It is useful for providing quick summary stat calculations in a somewhat presentable format. I do not recommend using `summarize` to produce the kind of summary stats table commonly found in reports because it can become tedious and the formatting is not good enough. I recommend using the `arsenal` package instead.
 
@@ -231,7 +229,7 @@ gapminder %>%
 
 The `summarize` verb works with numerous summary functions listed on the second page of the [Data transformation](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) cheatsheet under the heading "Summary Functions."
 
-#### Group_By {-}
+### Group_By {-}
 
 The `group_by` verb is most commonly used in tandem with `summarize`. If instead of calculating a summary stat for the entire dataset, you wanted to calculate the summary stat for each group of a categorical variable separately, use `group_by` before using `summarize`.
 
@@ -257,7 +255,7 @@ gapminder %>%
   kable(format = 'html')
 ```
 
-### Tidy Verbs
+## Tidy Verbs
 
 As with wrangling, one can encounter numerous different tidying scenarios. However, most of the time tidying involves converting a wide dataset to a long dataset. The most common untidy data one encounters is a time series or panel data where each time period is stored across columns (i.e. wide) rather than down rows (i.e. long).
 
