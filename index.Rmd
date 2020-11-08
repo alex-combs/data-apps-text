@@ -23,9 +23,6 @@ This is a collection of lecture and presentation notes compiled into a format th
 
 This resource was primarily developed out of uncertainty regarding the future of in-person teaching. If in-person instruction were to become untenable due to COVID-19, my thinking was that this resource would offer a substitute for the time spent in class converting readings into what I want students to know. This resource provides one-way lessons from the person in charge of evaluating your understanding and application of key concepts and skills.
 
-
-### Objective {-}
-
 The objective of this resource is to help students in public administration be as competitive as possible in their desired job markets via competency in statistics and statistical programming software. It aims to teach students key concepts in statistics and applications of those concepts using R with minimal need to sift through excessively theoretical or technical material, this book was developed with you in mind.
 
 ### Style and Structure {-}
@@ -41,9 +38,7 @@ The conceptual track is divided into four sections:
 3. Inference
 4. Advanced topics
 
-### Software requirements {-}
-
-This resource presents examples and exercises using R. Students who intend to use a personal computer must download and install the following software:
+Examples and exercises are presented using R. Students who intend to use a personal computer to complete exercises in the R chapters need to download and install the following software:
 
 - [R](https://cloud.r-project.org)
 - [RStudio](https://rstudio.com/products/rstudio/download/)

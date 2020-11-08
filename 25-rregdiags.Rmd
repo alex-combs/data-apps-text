@@ -33,7 +33,9 @@ Diagnostic plots provide us suggestive visual evidence that one or more regressi
 
 ```{r}
 fedpov2 <- lm(fed_spend ~ poverty + homeownership + income, data = selcounty)
+```
 
+```{r, eval=FALSE}
 get_regression_table(fedpov2)
 ```
 
