@@ -8,7 +8,6 @@ Our regression toolbox has grown considerably over the previous three chapters. 
 
 ## Learning objectives {#lo9}
 
-```{block, type='learncheck', purl=FALSE}
 - Explain the difference between using regression to predict an outcome versus explain an outcome and the consequences each has on model choices
 - Explain internal and external validity
 - Explain the criteria to validly claim a causal relationship
@@ -18,7 +17,6 @@ Our regression toolbox has grown considerably over the previous three chapters. 
 - Given a DAG, identify the variables one would need to control for to close any backdoor paths
 - Determine whether a regression model plausibly eliminates omitted variable bias
 - Predict the direction of omitted variable bias
-```
 
 First, let's consider the two possible goals of regression:
 
@@ -231,7 +229,6 @@ If I have a model that is biased but accurately predicts students who will drop 
 
 ## Key terms and concepts {#kt9}
 
-```{block, type='learncheck', purl=FALSE}
 - Internal validity
 - External validity
 - Establishing correlation
@@ -243,4 +240,3 @@ If I have a model that is biased but accurately predicts students who will drop 
   - backdoor path
   - backdoor criterion
 - Omitted variable bias
-```

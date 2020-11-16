@@ -35,5 +35,5 @@ In addition, R is free, comes with many free educational resources, and is popul
 
 <br>
 
-> **For a brief orientation to R, proceed to Chapter \@ref(r-introduction).**
+> **Proceed to Chapter \@ref(r-introduction) for an orientation to R.**
 

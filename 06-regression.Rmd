@@ -8,14 +8,12 @@
 
 ## Learning objectives {#lo6}
 
-```{block, type='learncheck', purl=FALSE}
 - Identify and explain the components of a population or sample regression model
 - Explain the difference between a deterministic equation of a line and a statistical, probabilistic equation of a line
 - Given regression results, provide the predicted change in the outcome given a change in the explanatory variable(s)
 - Given regression results, provide the predicted value of the outcome given a value of the explanatory variable(s)
 - Explain what the error term in a regression model represents
 - Interpret measures of fit in a regression model and explain their relative strengths and weaknesses
-```
 
 ## Basic idea
 
@@ -404,7 +402,6 @@ In case you were wondering why not simply add all the variables we can to a mode
 
 ## Key terms and concepts {#kt6}
 
-```{block, type='learncheck', purl=FALSE}
 - Line concepts
   - y-intercept
   - slope
@@ -421,4 +418,3 @@ In case you were wondering why not simply add all the variables we can to a mode
   - Adjusted R-squared
   - root mean squared error (RMSE)
 - Controlling for other factors in multiple regression
-```

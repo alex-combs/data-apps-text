@@ -6,7 +6,6 @@
 
 ## Learning objectives {#lo4}
 
-```{block, type='learncheck', purl=FALSE}
 - Explain how descriptive and inferential statistics differ in purpose and the information they provide
 - Identify and differentiate population, sample, parameter, statistic in a given research proposal or question
 - Explain what is a distribution of a random variable
@@ -14,7 +13,6 @@
 - Choose the preferable measures of center and spread given a distribution and explain their strengths and weaknesses
 - Determine the direction and strength of association given a scatterplot or correlation coefficient
 - Explain the possible shortcomings of correlation
-```
 
 ## Two kinds of statistics
 

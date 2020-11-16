@@ -10,7 +10,6 @@ We now turn our attention to inference, which involves taking a sample from a po
 
 ## Learning objectives {#lo10}
 
-```{block, type='learncheck', purl=FALSE}
 - Explain the 68-95-99 rule and apply it given the mean and standard deviation of a normal distribution
 - Explain how a sampling distribution is constructed
 - Explain why the Central Limit Theorem is needed to conduct inferential statistics and how it allows us to do so
@@ -18,7 +17,6 @@ We now turn our attention to inference, which involves taking a sample from a po
 - Interpret confidence intervals
 - Explain the effect of random or biased sampling on the accuracy and precision of a sample estimate and sampling distribution
 - Explain the effect of sample size on the accuracy and precision of a sample estimate and sampling distribution
-```
 
 ## Normal distribution
 
@@ -259,7 +257,6 @@ One out of 20 samples are expected to fail to capture the population parameter t
 
 ## Key terms and concepts {#kt10}
 
-```{block, type='learncheck', purl=FALSE}
 - Normal distribution
 - 68-95-99 rule
 - Sampling distribution
@@ -269,4 +266,3 @@ One out of 20 samples are expected to fail to capture the population parameter t
 - Standard error
 - Accuracy of sampling distribution and estimate
 - Precision of sampling distribution and estimate
-```

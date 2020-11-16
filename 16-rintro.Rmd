@@ -1,26 +1,16 @@
 # (PART) R Chapters {-}
 
-# R Introduction
+# R Chapter Introduction
 
-This part of the book contains what are referred to as R chapters that correspond to chapters in previous parts of the book. Though previous chapters use R to present information, they focus on concepts that are applicable regardless of statistical software. R chapters take those concepts and present ways to practically apply them via a short series of exercises using R.
+This section contains what are referred to as R Chapters, each of which corresponds to a chapter in the previous section. Chapters in the previous section focus on concepts that are applicable regardless of statistical software. R Chapters present those concepts in ways to practically apply them via a short series of exercises using R.
 
-## R chapter structure
+Each R Chapter begins with a list of learning objectives followed by a what you need to set up in terms of packages and data to complete the chapter. Each chapter then guides you through a few exercises that require you to operate R. Periodically, they will ask you to interpret your results and/or connect what you have done to the concept it was meant to help you understand. By the end of each chapter, you will have at least one document to save and upload to eLC. That document will contain code and answers to questions. 
 
-Each R chapter begins with a list of learning objectives followed by a what you need to set up in terms of packages and datasets to complete the chapter.
-
-Each chapter then guides you through a few exercises that require you to operate R. Periodically, they will ask you to interpret your results or connect what you have done to the concept it was meant to help you understand.
-
-By the end of each chapter, you will have at least one document to save and submit. That document will contain code and answers to questions. Some chapters may ask you to generate an output document such as PDF, Word, or HTML. 
-
-## R chapter feedback
-
-Once you submit your work to the course site on eLC, a document will become available that contains answers prepared by your instructor. This document is meant to provide nearly immediate feedback.
-
-You should compare your work to that of your instructor, making note of any differences and attempting to make sense of them. At the beginning of each class, we will review the corresponding R chapter if students have questions.
+Once you upload your R Chapter work to eLC, a document will become available that contains my answers to those same exercises. My answers are not necessarily definitive; they are intended to provide almost immediate feedback. You should compare your work to my own, making note of any differences and attempting to make sense of them. R Chapters will sometimes be incorporated into class discussion, but feel free to ask specific questions about your R Chapter during class too.
 
 ## What is R and RStudio
 
-R is a programming language for statistical computing. RStudio is a user interface for R. These two programs are analogous to a smart phone. Your phone has base code you never interact with directly but is what allows your phone to work. You interact with this code, doing all the cool things it allows you to do through what you see on the screen. R is like the base code for your phone. RStudio is like the screen.
+R is a programming language for statistical computing. RStudio is a user interface for R. These two programs are analogous to a smart phone. Your phone has base code you never interact with directly but is what allows your phone to work. Similarly, you should never have to launch and interact with R on your computer. Instead, you interact with this code, doing all the cool things it allows you to do through what you see on the screen. RStudio is like the screen of your phone.
 
 ## Installing R and RStudio
 
@@ -53,48 +43,58 @@ include_graphics('images/rstudio_sshot.png')
 You will usually see a fourth pane while working in RStudio -- the source editor pane. 
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 2** In the RStudio menu bar at the top of your screen, go to `File -> New File -> R Script`. A new pane will open. **This is the pane where you will tell R what to do 99% of the time because it allows you to do so while creating a document you can save.**
+**Exercise 2** You have two options here: 1) See that plus sign (+) icon in the very top left of RStudio? Click on that and you will see a list of options. In this course, we will use either R Scripts or R Markdown documents. For this R Chapter, select R Script. 2) In the RStudio menu bar at the top of your screen, go to `File -> New File -> R Script`. Either way, a new pane will open. **This is the pane where you will tell R what to do 99% of the time because it allows you to write code that you can save.**
 ```
 
 ### R Packages
 
-Many tasks in R require you to install R packages that augment its functionality. Extending the smartphone analogy from above, your phone comes with base programs (e.g. calendar, weather), but others create third-party applications to augment the functionality of your phone. This is also the case with R, which has an active user community that develops useful third-party apps called packages.
+Many tasks in R require you to install R packages that augment its functionality. Extending the smartphone analogy from before, your phone comes with base programs (e.g. calendar, weather), but others develop third-party applications to augment the functionality of your phone. This is also the case with R, which has an active community that develops useful third-party apps called packages.
 
-#### Install {-}
-Just like your phone, you have to first install a R package to use it. Install packages by typing the following code **into the console pane**.
+#### Install Packages{-}
+
+Just like your phone, you have to first install a R package to use it. In your phone's case, you go to your app store and download an application that will then show up on your screen. 
+
+Installing packages via RStudio is essentially the same. To install R packages, we type the following generic code **into the console pane** (bottom-left).
 
 ```{r installdemo, eval=FALSE}
 install.packages("name_of_package")
 ```
 
-You only need to install a package once. The package is saved on your computer where R can find it.
+Where `"name_of_package"` is replaced with the actual name of the R package we want to install. This code accesses R's "app store" and downloads it to your computer. You only need to install a R package once. The package is saved on your computer where R can find it.
+
+> Remember to include quotes around the name of the R package when installing it.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 3** We will almost always need to use a package called `tidyverse`. In your console pane of RStudio, type `install.packages("tidyverse")`, then click `Enter` on your keyboard. This will begin the installation. Monitor the console while the package installs. RStudio may ask you some Yes/No questions during the process. Answer all questions in the affirmative by typing `Yes` then clicking `Enter`.
+**Exercise 3** We will almost always need to use a package called `tidyverse`. In your **console pane** (bottom-left) of RStudio, type `install.packages("tidyverse")`, then click `Enter` on your keyboard. This will begin the installation. Monitor the console pane while `tidyverse` installs. RStudio may ask you some Yes/No questions during the process. Answer all questions in the affirmative by typing `Yes` then clicking `Enter`.
 ```
 
-#### Load {-}
-When an app is installed on our phone, you still have to launch it to use it. The same goes for using a R package. Each time you launch RStudio, you need to load the package(s) whose functions you plan to use. Therefore, loading packages should be done in the source editor. The following generic code is used to load a package.
+#### Load Packages {-}
+
+When an application is installed on your phone, you still have to launch it (i.e. click on it) to use it. The same goes for using a R package. Each time you launch RStudio, you need to load the package(s) that contain the functions you plan to use. Closing RStudio is like shutting off your phone. When you open your phone, an application isn't running in the background unless you previously launched it. 
+
+Therefore, you should load needed R packages each time you open RStudio. And because you want your code to work each time you or someone else tries to run it, you should include this in your saved code. This means you should load R packages in the source editor pane (top-left) whether it be an R script of R markdown document. The following generic code is used to load a package.
 
 ```{r loaddemo, eval=FALSE}
 library(name_of_package)
 ```
 
-Note that to load a package, we do not use quotation marks around the name like we do when installing.
+> You need not use quotes around the name of the R package when loading it. Quotes are only needed to install.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 4**  You should have a script open in the source editor (upper-left) pane. Type `library(tidyverse)` in the script. Click `Run` or `Cmd+Enter` to execute this line of code. The console pane will provide information about the loading.
+**Exercise 4**  You should have a script open in the source editor (upper-left) pane. Type `library(tidyverse)` in the script. Click `Run` or `Cmd+Enter` to execute this line of code. The console pane (bottom-left) will provide information about the loading.
 ```
 
-You must load a package before using any functions included in that package or else you will receive the following error message, `Error: could not find function`. Remember this crucial fact. I will tell you what packages are needed for certain tasks, but remember that you need to install and load the package to use it.
+> You must load a package before using any functions included in that package or else you will receive the following error message, `Error: could not find function`. Remember this crucial fact. 
 
-## Submit
+I will tell you what packages are needed for certain tasks, but remember that you need to install and load the package to use it.
 
-Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.
+## Save and Upload
+
+Save your R script using your last name (`lastname_rch16.R`) and upload to eLC. You can save an R file like any other software. Either click on the floppy disk icon in the menu at the top or use the navigate the menu bar to `File -> Save As`. Once you upload, answers will become available on eLC.
 
 ## Additional Resources
 
-There are many resources that provide orientations to R. Below are a few that offer a thorough and accessible introduction.
+There are many resources that provide orientations to R. Below are a two that I consider particularly helpful and accessible.
 
 - Chapters 1-3 of [Getting Used to R, RStudio, and R Markdown](https://rbasics.netlify.app/index.html)
 - [BasicBasics of RYouWithMe](https://rladiessydney.org/courses/ryouwithme/01-basicbasics-0/) by R-Ladies Sydney

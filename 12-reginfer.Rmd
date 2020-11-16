@@ -10,14 +10,12 @@ We can now apply our knowledge of inference to fully understand all of our regre
 
 ## Learning objectives {#lo12}
 
-```{block, type='learncheck', purl=FALSE}
 - Explain and interpret the standard components in a table of regression results
 - Construct the null and alternative hypotheses of a variable in a regression model
 - Determine the outcome of the hypothesis test based on the regression results
 - Explain the consequence of choosing a significance level for a hypothesis test
 - Distinguish between statistical and practical significance
 - Determine whether results are practically significant
-```
 
 ## Regression table
 
@@ -113,7 +111,6 @@ Suppose the p-value for `vmiles` was equal to or greater than 0.05, thus leading
 
 ## Key terms and concepts {#kt12}
 
-```{block, type='learncheck', purl=FALSE}
 - Regression results
   - estimate
   - standard error
@@ -122,4 +119,3 @@ Suppose the p-value for `vmiles` was equal to or greater than 0.05, thus leading
   - lower and upper confidence intervals
 - Null distribution
 - Practical significance
-```

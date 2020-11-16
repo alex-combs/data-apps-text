@@ -6,7 +6,6 @@
 
 ## Learning objectives {#lo7}
 
-```{block, type='learncheck', purl=FALSE}
 - Explain why and how to extend simple or multiple regression models to a parallel slopes model
 - Interpret results of a parallel slopes model
 - Explain why and how to extend regression models to an interaction model
@@ -14,7 +13,6 @@
 - Provide advice on choosing between parallel slopes and interaction model
 - Explain why and how to extend regression models to a linear probability model
 - Interpret results of a linear probability model
-```
 
 Chapter \@ref(simple-and-multiple-regression) introduced regression using models containing quantitative variables only. In this chapter, we build our regression toolbox to include models that contain qualitative variables. We will cover three models in particular:
 
@@ -409,11 +407,9 @@ prop.table(confusion, 2) %>%
 
 ## Key terms and concepts {#kt7}
 
-```{block, type='learncheck', purl=FALSE}
 - Dummy variable
 - Parallel slopes
 - Interaction
 - Difference between parallel slopes and interaction models
 - Linear probability model (LPM)
 - Confusion matrix
-```

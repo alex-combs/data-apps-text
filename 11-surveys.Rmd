@@ -10,7 +10,6 @@ Before considering inference with respect to regression, this chapter covers two
 
 ## Learning objectives {#lo11}
 
-```{block, type='learncheck', purl=FALSE}
 - Apply the margin or error or the confidence interval of an estimate when making conclusions
 - Compute the sample size required to achieve a desired margin of error or precision around an estimate given the necessary information for such a computation
 - Weight survey results given sufficient information
@@ -18,7 +17,6 @@ Before considering inference with respect to regression, this chapter covers two
 - Interpret a p-value and apply it to determine the outcome of a hypothesis test
 - Distinguish between types I and II error in a research scenario
 - Explain when a chi-square test or t-test is appropriate
-```
 
 ## Sample size
 
@@ -297,7 +295,6 @@ Our p-value is greater than our significance level, $0.23>0.05$. Therefore, we f
 
 ## Key terms and concepts {#kt11}
 
-```{block, type='learncheck', purl=FALSE}
 - Margin of error
 - Survey weight
 - Null and alternative hypotheses
@@ -309,4 +306,3 @@ Our p-value is greater than our significance level, $0.23>0.05$. Therefore, we f
 - P-value
 - Chi-square test
 - T-test
-```

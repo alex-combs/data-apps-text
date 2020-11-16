@@ -10,11 +10,9 @@ Once we know the types and structure of our data, we need to understand how the 
 
 ## Learning objectives {#lo3}
 
-```{block, type='learncheck', purl=FALSE}
 - Assess the measurement validity of variables
 - Assess the measurement reliability of variables
 - Explain the difference between accuracy and precision
-```
 
 ## Credible analysis
 
@@ -128,10 +126,8 @@ Note that the missing Bolivia observation was easy to spot because the dataset i
 
 ## Key terms and concepts {#kt2}
 
-```{block, type='learncheck', purl=FALSE}
 - Measurement validity
 - Measurement reliability
 - Measurement precision
 - Implicitly missing data
 - Explicitly missing data
-```

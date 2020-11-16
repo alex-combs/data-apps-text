@@ -13,14 +13,12 @@ In this chapter, we will cover two ways to incorporate nonlinear relationships:
 
 ## Learning objectives {#lo8}
 
-```{block, type='learncheck', purl=FALSE}
 - Explain why and how to extend a regression model to include a quadratic relationship
 - Interpret the coefficients associated with a quadratic term in a regression model
 - Compute the value of the quadratic explanatory variable at which the outcome is at its maximum or minimum
 - Explain the difference between percent change and percentage point change
 - Explain why to log-transform variables in a regression model
 - Interpret results from log-log, log-level, and level-log models
-```
 
 ## Quadratic
 
@@ -353,11 +351,9 @@ Our level-log results indicate that life expectancy in Asia is 5.9 years greater
 
 ## Key terms and concepts {#kt8}
 
-```{block, type='learncheck', purl=FALSE}
 - Marginal effect
 - Logarithmic scale
 - Percent change
 - Percentage point change
 - Natural log
 - Elasticity
-```

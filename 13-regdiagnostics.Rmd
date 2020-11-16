@@ -20,12 +20,10 @@ This chapter covers some remaining assumptions and diagnostics that a credible q
 
 ## Learning objectives {#lo13}
 
-```{block, type='learncheck', purl=FALSE}
 - Determine whether and which classical regression assumptions may be violated based on a residual versus fitted plot (RVFP)
 - Explain why and when multicollinearity may be a problem and propose potential solutions
 - Distinguish between outlier, high-leverage, and high-influence observations in regression
 - Identify influential observations using a residual vs. fitted plot (RVLP)
-```
 
 ## Classical assumptions
 
@@ -123,11 +121,9 @@ The software used to produce this RVLP also adds something called Cook's distanc
 
 ## Key terms and concepts {#kt13}
 
-```{block, type='learncheck', purl=FALSE}
 - Violations of regression assumptions
 - Multicollinearity
 - Regression outlier
 - High-leverage observation
 - High-influence observation
 - Excluding observations from a regression model
-```

@@ -12,12 +12,10 @@ We cannot effectively convert the raw material of knowledge into a useful produc
 
 ## Learning objectives {#lo2}
 
-```{block, type='learncheck', purl=FALSE}
 - Understand the organization of rectangular data
 - Identify the unit of analysis within a dataset
 - Identify and distinguish types of variables
 - Identify and distinguish types of dataset structures
-```
 
 ## Rectangular Data
 
@@ -150,9 +148,7 @@ gapminder %>%
 
 ## Key terms and concepts {#kt1}
 
-```{block, type='learncheck', purl=FALSE}
 - Unit of analysis
 - Variable
 - Types of variables: qualitative, quantitative, nominal, ordinal, discrete, continuous, index
 - Data structures: cross-sectional, pooled cross-sectional, time series, panel
-```

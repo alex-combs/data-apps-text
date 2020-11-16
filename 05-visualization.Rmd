@@ -4,10 +4,9 @@
 
 ## Learning objectives {#lo5}
 
-```{block, type='learncheck', purl=FALSE}
 - Interpret the six visualizations included in this chapter
 - Recommend an appropriate type of visualization given the intended message and data
-```
+
 
 ## So many choices
 
@@ -276,7 +275,6 @@ ggplot(gradschool, aes(x = grad_median, y = grad_total)) +
 
 ## Key terms and concepts {#kt5}
 
-```{block, type='learncheck', purl=FALSE}
 - Uses of a histogram
 - Uses of a box plot
 - Uses of a bar chart
@@ -284,4 +282,3 @@ ggplot(gradschool, aes(x = grad_median, y = grad_total)) +
 - Distribution of a numerical variable
 - Comparison of one variable between two or more units of analysis
 - Composition of a categorical variable
-```
