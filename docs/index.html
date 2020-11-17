@@ -166,17 +166,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html"><i class="fa fa-check"></i><b>3</b> Measurement and Missing</a><ul>
 <li class="chapter" data-level="3.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#lo3"><i class="fa fa-check"></i><b>3.1</b> Learning objectives</a></li>
-<li class="chapter" data-level="3.2" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#credible-analysis"><i class="fa fa-check"></i><b>3.2</b> Credible analysis</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#measurement-validity-reliability"><i class="fa fa-check"></i><b>3.2.1</b> Measurement validity &amp; reliability</a></li>
+<li class="chapter" data-level="3.2" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#measurement-validity"><i class="fa fa-check"></i><b>3.2</b> Measurement validity</a></li>
+<li class="chapter" data-level="3.3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#measurement-reliability"><i class="fa fa-check"></i><b>3.3</b> Measurement reliability</a></li>
+<li class="chapter" data-level="3.4" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#missing-data"><i class="fa fa-check"></i><b>3.4</b> Missing data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#types-of-missing-data"><i class="fa fa-check"></i><b>3.4.1</b> Types of missing data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#missing-data"><i class="fa fa-check"></i><b>3.3</b> Missing data</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#types-of-missing-data"><i class="fa fa-check"></i><b>3.3.1</b> Types of missing data</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#kt2"><i class="fa fa-check"></i><b>3.4</b> Key terms and concepts</a></li>
+<li class="chapter" data-level="3.5" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#kt2"><i class="fa fa-check"></i><b>3.5</b> Key terms and concepts</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#lo4"><i class="fa fa-check"></i><b>4.1</b> Learning objectives</a></li>
-<li class="chapter" data-level="4.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#two-kinds-of-statistics"><i class="fa fa-check"></i><b>4.2</b> Two kinds of statistics</a></li>
+<li class="chapter" data-level="4.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#two-goals-of-statistics"><i class="fa fa-check"></i><b>4.2</b> Two goals of statistics</a></li>
 <li class="chapter" data-level="4.3" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#distributions"><i class="fa fa-check"></i><b>4.3</b> Distributions</a></li>
 <li class="chapter" data-level="4.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#descriptive-measures"><i class="fa fa-check"></i><b>4.4</b> Descriptive Measures</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-center"><i class="fa fa-check"></i><b>4.4.1</b> Measures of center</a></li>
@@ -455,7 +454,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1 class="title">Data Applications in Public Administration</h1>
 <h2 class="subtitle"><em>Using R to Learn Concepts and Skills</em></h2>
 <p class="author"><em>Alex Combs</em></p>
-<p class="date"><em>Last updated on 16 November 2020</em></p>
+<p class="date"><em>Last updated on 17 November 2020</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
@@ -481,17 +480,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="supplemental-resources" class="section level3 unnumbered">
 <h3>Supplemental resources</h3>
-<p>There are numerous free materials that teach statistics and R. Below is a list of books and websites that offer broader and deeper treatments of some concepts and skills covered in this resource.</p>
+<p>There are numerous free materials that teach statistics and R.</p>
+<ul>
+<li><strong>Traditional statistics texts</strong>
 <ul>
 <li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a> by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr</li>
 <li><a href="https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition">Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition</a> by Hank Jenkins-Smith and Joseph Ripberger</li>
-<li><a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham</li>
+</ul></li>
+<li><strong>R-centric statistics texts</strong>
+<ul>
 <li><a href="https://moderndive.com/index.html">Statistical Inference via Data Science</a> by Chester Ismay and Albert Y. Kim</li>
-<li><a href="https://www.khanacademy.org/math/statistics-probability">Kahn Academy: Statistics and probability</a></li>
+<li><a href="https://r4ds.had.co.nz">R for Data Science</a> by Garrett Grolemund and Hadley Wickham</li>
 <li><a href="https://socviz.co/index.html#preface">Data Visualization: A practical introduction</a> by Kieran Healy</li>
+<li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
+</ul></li>
+<li><strong>Other R resources</strong>
+<ul>
 <li><a href="https://rmarkdown.rstudio.com/lesson-1.html">R Markdown from RStudio</a></li>
 <li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a> by Yihui Xie, J.J. Allaire, and Garrett Grolemund</li>
-<li><a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a> by Rob J. Hyndman and George Athanasopoulos</li>
+<li><a href="https://holtzy.github.io/Pimp-my-rmd/#text_formating">Pimp my RMD</a> by Yan Holtz</li>
+<li><a href="https://datacarpentry.org/r-socialsci/">Data Carpentry: R for Social Scientists</a></li>
+</ul></li>
 </ul>
 </div>
 <div id="r-package-references" class="section level3 unnumbered">

@@ -166,17 +166,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html"><i class="fa fa-check"></i><b>3</b> Measurement and Missing</a><ul>
 <li class="chapter" data-level="3.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#lo3"><i class="fa fa-check"></i><b>3.1</b> Learning objectives</a></li>
-<li class="chapter" data-level="3.2" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#credible-analysis"><i class="fa fa-check"></i><b>3.2</b> Credible analysis</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#measurement-validity-reliability"><i class="fa fa-check"></i><b>3.2.1</b> Measurement validity &amp; reliability</a></li>
+<li class="chapter" data-level="3.2" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#measurement-validity"><i class="fa fa-check"></i><b>3.2</b> Measurement validity</a></li>
+<li class="chapter" data-level="3.3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#measurement-reliability"><i class="fa fa-check"></i><b>3.3</b> Measurement reliability</a></li>
+<li class="chapter" data-level="3.4" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#missing-data"><i class="fa fa-check"></i><b>3.4</b> Missing data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#types-of-missing-data"><i class="fa fa-check"></i><b>3.4.1</b> Types of missing data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#missing-data"><i class="fa fa-check"></i><b>3.3</b> Missing data</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#types-of-missing-data"><i class="fa fa-check"></i><b>3.3.1</b> Types of missing data</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#kt2"><i class="fa fa-check"></i><b>3.4</b> Key terms and concepts</a></li>
+<li class="chapter" data-level="3.5" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#kt2"><i class="fa fa-check"></i><b>3.5</b> Key terms and concepts</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
 <li class="chapter" data-level="4.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#lo4"><i class="fa fa-check"></i><b>4.1</b> Learning objectives</a></li>
-<li class="chapter" data-level="4.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#two-kinds-of-statistics"><i class="fa fa-check"></i><b>4.2</b> Two kinds of statistics</a></li>
+<li class="chapter" data-level="4.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#two-goals-of-statistics"><i class="fa fa-check"></i><b>4.2</b> Two goals of statistics</a></li>
 <li class="chapter" data-level="4.3" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#distributions"><i class="fa fa-check"></i><b>4.3</b> Distributions</a></li>
 <li class="chapter" data-level="4.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#descriptive-measures"><i class="fa fa-check"></i><b>4.4</b> Descriptive Measures</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-center"><i class="fa fa-check"></i><b>4.4.1</b> Measures of center</a></li>
@@ -469,39 +468,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Explain the possible shortcomings of correlation</li>
 </ul>
 </div>
-<div id="two-kinds-of-statistics" class="section level2">
-<h2><span class="header-section-number">4.2</span> Two kinds of statistics</h2>
-<p>There are two kinds of statistics, each having a specific goal:</p>
+<div id="two-goals-of-statistics" class="section level2">
+<h2><span class="header-section-number">4.2</span> Two goals of statistics</h2>
+<p>The discipline of statistics has one or both of the following goals:</p>
+<blockquote>
 <ul>
-<li><p><strong>Descriptive statistics</strong> summarizes the qualities of observed data, typically describing distributions of variables or the relationship between two variables.</p></li>
-<li><p><strong>Inferential statistics</strong> uses observed data in a sample to make inferences/conclusions about an unobserved population.</p></li>
+<li><strong>Descriptive statistics:</strong> summarizes the qualities of observed data in a sample or population, describing distributions of variables or the relationship between two or more variables.</li>
+<li><strong>Inferential statistics:</strong> uses observed data in a sample to make inferences/conclusions about an unobserved population.</li>
 </ul>
-<p>Descriptive statistics concerns just the facts. Inferential statistics uses those facts to make educated, scientific guesses about a group of people, places, or things for which we don’t have data.</p>
-<p>The above definitions include some terms that warrant further explanation.</p>
+</blockquote>
+<p>The descriptive or inferential statistics we produce or consume concern one or both of the following groups:</p>
+<blockquote>
 <ul>
 <li><strong>Population:</strong> all members of a specified group pertaining to a research question</li>
 <li><strong>Sample:</strong> a subset of that population</li>
 </ul>
-<p>In many cases, we cannot study an entire population because of logistics or cost. Instead, we take a sample of that population to make inferences about it.</p>
-<p>Sometimes our population is small or accessible enough to observe. If I wanted to know the average GPA of students in my class, my population is the students in my class, and I could compute the exact average for the entire population. Or if I worked in HR for an agency and wanted to know the racial diversity of a department, I could calculate percentages of each race for the population.</p>
-<p>We can describe a sample or a population. Inference is specifically using a sample to describe a population. When we compute measures of a population or sample, these measures have specific names:</p>
+</blockquote>
+<p>Descriptive statistics concerns just the facts. Inferential statistics uses those facts to make educated, scientific guesses about a group of people, places, or things we cannot observe. In many cases, we cannot study an entire population because of logistics or cost. Instead, we take a sample of that population to make inferences about it. If my research question was, “What is the average GPA of all MPA students in United States?”, then the population is all MPA students in the United States. It is unlikely I could obtain the GPA of every student. Therefore, I may take a sample of MPA students instead and use inferential statistics to make conclusions about the population of all MPA students.</p>
+<p>Sometimes the population is small or accessible enough to observe. If my research question was instead, “What is the average GPA of students in my class?”, then the population includes the students in my class. In this case, I could easily compute the average for the entire population.</p>
+<blockquote>
+<p>We can describe a sample or a population as long as we have the data to do so. Inference is specifically using a sample we observe to describe a population we do not observe.</p>
+</blockquote>
+<p>When we compute measures of a population or sample, these measures have specific names:</p>
+<blockquote>
 <ul>
 <li><strong>Parameter:</strong> a measure pertaining to a population</li>
 <li><strong>Statistic:</strong> a measure pertaining to a sample</li>
 </ul>
-<p>If my population is students in my class, and I compute the average GPA for all of the students in my class, that measure is a population parameter. If my population is all students at a university, and I use the students in my class as a sample, then the average GPA of the students in my class is a sample statistic. In inference, a statistic is often referred to as an <strong>estimate</strong> because it is used to estimate a population parameter. The parameter in this example would be the average GPA of all students at the university.</p>
+</blockquote>
+<p>If my population is students in my class, and I compute the average GPA for all of the students in my class, that measure is a population parameter. If my population is all MPA students in the U.S., and I use the students in my class as a sample, then the average GPA of the students in my class is a sample statistic. In inference, a statistic is often referred to as an <strong>estimate</strong> because it is used to estimate a population parameter. The parameter in this example would be the actual average GPA of all MPA students in the U.S.; a value we cannot directly calculate.</p>
 </div>
 <div id="distributions" class="section level2">
 <h2><span class="header-section-number">4.3</span> Distributions</h2>
 <p>The goal of descriptive statistics is to summarize characteristics of variable distributions. Before reviewing the measures used to summarize distributions, we should understand what a distribution is.</p>
+<blockquote>
 <p>A <strong>distribution</strong> tells us the (possible) values of a variable and the frequency at which those values occur.</p>
+</blockquote>
 <p>The values of a variable are the result of some random data-generating process. If it wasn’t random, and instead deterministic, then there would be no uncertainty in the world. You do not know if you will get a job that requires your degree before you get the degree. An HR department does not know if an implicit bias workshop will reduce the number of racial insensitivity complaints before providing the workshop and measuring the number of complaints, nor does it know how many complaints occur at all before they are made. All of these are variables with some range of possible values, each of which occurs at some frequency. These frequencies are revealed to us when we take measures of the variable.</p>
 <p>Sometimes we know all the possible values of a variable, or at least the range of possible values. We know a variable for biological sex has possible values of male or female. We know a variable for GPA has a possible range of 0 to 4, in most cases.</p>
 <p>Sometimes we know what the frequency of values for a variable should be. Genetics tells us to expect 50% males and females. Most of the time we don’t know the function that determines frequency, or it is too complex. For example, we have some idea of the factors that influence GPAs, but there will always be some randomness that goes unaccounted.</p>
 <p>This somewhat esoteric exposition underlies the main focus here: the distribution of a variable. To make this as concrete as possible, let’s consider a variable of something that is simple and familiar to all of us: a roll of a six-sided die.</p>
 <p>We know a roll of a six-sided die can take on a range of integers between 1 and 6. We also know the frequency of each value is the same at 1 in 6, or about 17%. Therefore, we <em>know</em> the distribution of this variable, which is depicted below in Figure 4.1.</p>
-<div class="figure"><span id="fig:unnamed-chunk-8"></span>
-<img src="data-apps-text_files/figure-html/unnamed-chunk-8-1.png" alt="Probability distribution of a six-sided die" width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<img src="data-apps-text_files/figure-html/unnamed-chunk-4-1.png" alt="Probability distribution of a six-sided die" width="672" />
 <p class="caption">
 Figure 4.1: Probability distribution of a six-sided die
 </p>
@@ -509,7 +518,7 @@ Figure 4.1: Probability distribution of a six-sided die
 <p>Therefore, if we were to roll the die six times, we would <em>expect</em> the following data in Table 4.1.</p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-9">Table 4.1: </span>Expected results of 6 rolls
+<span id="tab:unnamed-chunk-5">Table 4.1: </span>Expected results of 6 rolls
 </caption>
 <thead>
 <tr>
@@ -573,8 +582,8 @@ value
 </tbody>
 </table>
 <p>And we could represent this distribution by counting the number of times each value occurred using a histogram as shown in Figure 4.2.</p>
-<div class="figure"><span id="fig:unnamed-chunk-10"></span>
-<img src="data-apps-text_files/figure-html/unnamed-chunk-10-1.png" alt="Expected distribution of 6 rolls" width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-6"></span>
+<img src="data-apps-text_files/figure-html/unnamed-chunk-6-1.png" alt="Expected distribution of 6 rolls" width="672" />
 <p class="caption">
 Figure 4.2: Expected distribution of 6 rolls
 </p>
@@ -583,7 +592,7 @@ Figure 4.2: Expected distribution of 6 rolls
 <p>Suppose we roll 12 times and record the value of each roll, as is shown in Table 4.2.</p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-12">Table 4.2: </span>Observed results of 12 rolls
+<span id="tab:unnamed-chunk-8">Table 4.2: </span>Observed results of 12 rolls
 </caption>
 <thead>
 <tr>
@@ -695,8 +704,8 @@ value
 </tbody>
 </table>
 <p>We can visualize the distribution of these 12 rolls, as is done in Figure 4.3.</p>
-<div class="figure"><span id="fig:unnamed-chunk-13"></span>
-<img src="data-apps-text_files/figure-html/unnamed-chunk-13-1.png" alt="Observed distribution of 12 die rolls" width="672" />
+<div class="figure"><span id="fig:obsdieroll"></span>
+<img src="data-apps-text_files/figure-html/obsdieroll-1.png" alt="Observed distribution of 12 die rolls" width="672" />
 <p class="caption">
 Figure 4.3: Observed distribution of 12 die rolls
 </p>
@@ -708,19 +717,21 @@ Figure 4.3: Observed distribution of 12 die rolls
 <div id="descriptive-measures" class="section level2">
 <h2><span class="header-section-number">4.4</span> Descriptive Measures</h2>
 <p>A die roll is uninteresting and unimportant. In our review of descriptive measures, let us consider them with respect to the distribution of the infant mortality rate across 222 countries in 2012. Infant mortality is the number deaths of infants under one year old per 1,000 live births. It is used as a measure of health in a country.</p>
-<div class="figure"><span id="fig:unnamed-chunk-14"></span>
-<img src="data-apps-text_files/figure-html/unnamed-chunk-14-1.png" alt="Infant Mortality Rates" width="672" />
+<div class="figure"><span id="fig:infmort"></span>
+<img src="data-apps-text_files/figure-html/infmort-1.png" alt="Infant Mortality Rates" width="672" />
 <p class="caption">
 Figure 4.4: Infant Mortality Rates
 </p>
 </div>
-<p>We could simply show this distribution, but it is usually helpful to summarize key characteristics of it, as doing so help answer some specific questions. Distributions are typically described in one of three ways:</p>
+<p>We could simply show the entire distribution of values, but it is usually helpful to summarize key characteristics of it. We can describe distributions along three dimensions:</p>
+<blockquote>
 <ul>
 <li><strong>Center:</strong> what is the typical value of this variable?</li>
 <li><strong>Spread:</strong> how far away are values typically from the center?</li>
 <li><strong>Association:</strong> what is the typical value or spread of the distribution given a value of another variable?</li>
 </ul>
-<p>The three types of descriptive measures above are defined using questions because there are multiple options for each, and which one is more appropriate to use depends on which one answers the question best given the shape of the distribution.</p>
+</blockquote>
+<p>Multiple descriptive measures can answer the three questions above. Which measure is more appropriate to use largely depends on the shape of the distribution.</p>
 <div id="measures-of-center" class="section level3">
 <h3><span class="header-section-number">4.4.1</span> Measures of center</h3>
 <div id="mean" class="section level4 unnumbered">
@@ -730,37 +741,43 @@ Figure 4.4: Infant Mortality Rates
 {\displaystyle \bar{x}={\frac {1}{n}}\sum _{i=1}^{n}x_{i}={\frac {x_{1}+x_{2}+\cdots +x_{n}}{n}}}
 \tag{4.1}
 \end{equation}\]</span></p>
-<p>Infant mortality has 222 values, so <span class="math inline">\(n\)</span> in equation <a href="4-descriptive-statistics.html#eq:mean">(4.1)</a> above would equal 222 in this case. If we were to pluck one country out of our pool of 222 countries at random, the mean tells us the infant mortality rate to expect. In other words, the mean tells us the typical infant mortality rate given our observed data. In this case, the average infant mortality rate is 26.7.</p>
+<p>Infant mortality has 222 values, so <span class="math inline">\(n\)</span> in equation <a href="4-descriptive-statistics.html#eq:mean">(4.1)</a> above would equal 222 in this case. If we were to pluck one country out of our pool of 222 countries at random, the mean tells us the infant mortality rate to expect. In other words, the mean tells us the typical infant mortality rate in our observed data. In this case, the average infant mortality rate is 26.7 per 1,000 live births.</p>
 </div>
 <div id="median" class="section level4 unnumbered">
 <h4>Median</h4>
-<p>If we took the 222 rates and listed them in ascending or descending numerical order, the median is the value that values exactly in the middle of that list. The median is also referred to as the 50th percentile because half of the values fall below it and half of the values fall above it. In the case of an even number of values, there is no naturally occurring middle value. In that case, we take the average of the two values in the middle. The median infant mortality rate is 15.6.</p>
+<p>If we took the 222 infant mortality rates and listed them in ascending or descending numerical order, the median is the value that sits at the middle of the ordered list. The median is also referred to as the 50th percentile because half of the values fall below it and half of the values fall above it. In the case of an even number of values, there is no naturally occurring middle value. In that case, we take the average of the two values in the middle. The median infant mortality rate is 15.6.</p>
 </div>
 <div id="mode" class="section level4 unnumbered">
 <h4>Mode</h4>
-<p>The mode is the value that occurs most frequently. If all values occur only once, then a variable has no mode. If two or more values occur an equal number of times and it is more than other values, then a variable has two or more modes. For instance, the modes for our 12 die rolls from before are 1, 2, and 5. The mode for infant mortality rates is 11.6.</p>
+<p>The mode is the value that occurs most frequently. If all values occur only once, then a variable has no mode. If two or more values occur an equal number of times and it is more than other values, then a variable has two or more modes. For instance, the modes for our 12 die rolls in Figure <a href="4-descriptive-statistics.html#fig:obsdieroll">4.3</a> are 1, 2, and 5. The mode for infant mortality rates is 11.6.</p>
 </div>
 <div id="choosing-a-center" class="section level4 unnumbered">
 <h4>Choosing a center</h4>
-<p>As Figure 4.5 shows, three measures of center have provided us three different typical infant mortality rates. The mean is represented by the red line, the median by the purple line, and the mode by the green line.</p>
+<p>As Figure <a href="4-descriptive-statistics.html#fig:infmort">4.4</a> shows, three measures of center have provided us three different typical infant mortality rates. The mean is represented by the red line, the median by the purple line, and the mode by the green line.</p>
 <div class="figure"><span id="fig:mortcenters"></span>
 <img src="data-apps-text_files/figure-html/mortcenters-1.png" alt="Centers of infant mortality rates" width="672" />
 <p class="caption">
 Figure 4.5: Centers of infant mortality rates
 </p>
 </div>
-<p>Which should we choose to report? We could report all three, but let us apply some professional judgment to this dilemma. After all, people generally do not like nuance and prefer one best number instead of deciphering the meaning from three, assuming they understand all three measures in the first place.</p>
-<p>For continuous variables reported at several decimal places, a value may not occur more than once because of the precision. More importantly, because of this low probability of repeat values, the mode is not guaranteed to represent a typical value. If it only takes two occurrences to qualify as the mode, that second occurrence could be an extreme value. Therefore, the mode is more commonly used to report frequencies of categorical or discrete variables for which there are relatively few possible values.</p>
+<p>Which should we choose to report? We could report all three, but we should apply some professional judgment to this dilemma. After all, people generally do not like nuance and prefer one best number instead of deciphering the meaning from three, assuming they understand all three measures in the first place.</p>
+<p>For continuous variables reported at several decimal places, a value may not occur more than once because of the precision. More importantly, because of this low probability of repeat values, the mode is not guaranteed to represent a typical value. If it only takes two occurrences to qualify as the mode, that second occurrence could be an extreme value.</p>
+<blockquote>
+<p>The mode is rarely used to describe continuous variables. The mode is commonly used to report the most frequent value of categorical or discrete variables with relatively few possible values, such as race, sex, political party, or number of TVs in a household.</p>
+</blockquote>
 <p>When choosing between mean and median, it usually comes down to the presence of extreme values or the extent to which a distribution is <strong>skewed</strong>. Skew pertains to the tails of a distribution–the taper to the left and right of its center. If the right or left tail extends far out from the center, we consider the distribution to be right- or left-skewed. Our distribution of infant mortality rates is right-skewed.</p>
-<p>When a distribution is skewed, the median is generally a better choice for reporting its center. This is because the mean is sensitive to extreme values. Note in Figure <a href="4-descriptive-statistics.html#fig:mortcenters">4.5</a> that the mean is being pulled to the right by the extreme values. As a result, the red line is to the right of the cluster of frequent values and may not be a good answer for the typical value of this distribution. The median is not sensitive to extreme values. No matter how far we stretch the values above the median to the right, the middle of the distribution stays put. If one were to use the median because of skew, one should also mention that in their report.</p>
+<blockquote>
+<p>When a distribution is skewed, the median is generally a better choice for reporting its center than the mean. This is because the mean is sensitive to extreme values.</p>
+</blockquote>
+<p>Note in Figure <a href="4-descriptive-statistics.html#fig:mortcenters">4.5</a> that the mean is pulled to the right by the right-skew of extreme values. The red line representing the mean is to the right of the cluster of frequent values and may not be a good answer for the typical value of this distribution. The median is not sensitive to extreme values. No matter how far the values above the median were to stretch to the right, the median of the distribution would not change.</p>
 </div>
 </div>
 <div id="measures-of-spread" class="section level3">
 <h3><span class="header-section-number">4.4.2</span> Measures of spread</h3>
-<p>Reporting the center of a distribution does not tell us how tightly values are grouped around the mean. Put differently, if the center is a good guess of the value for a unit drawn randomly from our data, the measure of spread is a good guess of how far off that guess will be from the random draw.</p>
+<p>Measures of center convey the typical value of a distribution. The typical infant mortality rate is 26.7 or 15.6 depending on whether we choose to use mean or median, respectively. If we only had this measure, we would have no idea how far away the values are from the center. Are the infant mortality rates of most countries close to this center, or is the typical value not representative of most countries’ infant mortality rates? Measures of spread provide us this information.</p>
 <div id="variance" class="section level4 unnumbered">
 <h4>Variance</h4>
-<p>Almost all values of our variable will not exactly equal the mean. This is referred to as <strong>deviation from the mean</strong>. The variance squares each observation’s deviation from the mean, sums all the deviations, and divides this sum by the total count of observations minus one. Equation <a href="4-descriptive-statistics.html#eq:variance">(4.2)</a> displays this process mathematically.</p>
+<p>Almost all values of a numerical variable, especially a continuous variable, do not equal the mean. The difference between a particular value and the mean of the variable is often referred to as <strong>deviation from the mean</strong>. The variance squares each observation’s deviation from the mean, sums all the deviations, and divides this sum by the total count of observations minus one. Equation <a href="4-descriptive-statistics.html#eq:variance">(4.2)</a> displays this process using mathematical notation.</p>
 <p><span class="math display" id="eq:variance">\[\begin{equation}
 {\displaystyle S^2={\frac {1}{n-1}}\sum _{i=1}^{n}(x_{i}-\bar{x})^2={\frac {(x_{1}-\bar{x})^2+(x_{2}-\bar{x})^2+\cdots +(x_{n}-\bar{x})^2}{n-1}}}
 \tag{4.2}
@@ -862,24 +879,28 @@ Central African Republic
 </div>
 <div id="standard-deviation" class="section level4 unnumbered">
 <h4>Standard deviation</h4>
-<p>Variance is an important building block for inference, but it is virtually useless as a descriptive measure because it is in squared units. If someone asks how far values are spread out from the mean, it would not help much to report values deviate from the mean by 672 squared-deaths.</p>
-<p>The standard deviation is simply the square root of variance to return our units to their original meaning.</p>
+<p>Variance is an important building block for inference, but it is essentially useless as a descriptive measure because it is in squared units. If someone asks how far values are spread out from the mean, it would not help much to report values deviate from the mean by 672 squared-deaths.</p>
+<p>The standard deviation is simply the square root of variance, which returns our units to their original meaning.</p>
 <p><span class="math display" id="eq:sd">\[\begin{equation}
 {\displaystyle s = \sqrt{S^2}}
 \tag{4.3}
 \end{equation}\]</span></p>
-<p>The standard deviation of our infant mortality rates data is 25.9. This tells us that, on average, infant mortality rates are about 26 deaths above or below the mean.</p>
+<p>The standard deviation in the infant mortality rates data is 25.9. This tells us that, on average, infant mortality rates are about 26 deaths above or below the mean.</p>
+<blockquote>
+<p>The inuition of the mean and standard deviation is useful for understanding probability and inferential statistics. The mean is the typical value of a variable. The standard deviation is the typical deviation from the mean. If we had to guess a value drawn randomly from a variable, our best guess is the mean as long as the variable is not highly skewed. If we had to guess how far off that randomly drawn value will be from the mean, our best guess is the standard deviation.</p>
+</blockquote>
 </div>
 <div id="interquartile-range" class="section level4 unnumbered">
 <h4>Interquartile range</h4>
-<p>Recall that the median is the 50th percentile of a distribution–half of the values fall below the median and half fall above it. The interquartile range (IQR) is equal to the 75th percentile minus the 25th percentile, thus providing the range that captures the middle 50% of the values in the distribution. The IQR is the spread analog of the median. The IQR for our distribution is 35.6.</p>
+<p>Recall that the median is the 50th percentile of a distribution–half of the values fall below the median and half fall above it. Two additional percentiles sometimes reported are the 75th and 25th percentiles. The 75th percentile is the value at which 75% of values fall below and 25% fall above it, while the 25th percentile is the value at which 25% of values fall below and 75% fall above it.</p>
+<p>The IQR is equal to the 75th percentile minus the 25th percentile, thus providing the range that captures the middle 50% of the values in the distribution. The IQR for infant mortality rates is 35.6.</p>
 </div>
 <div id="range" class="section level4 unnumbered">
 <h4>Range</h4>
 <p>The range is simply the maximum value in a distribution minus the minimum value of a distribution. Usually, the range is left implied in a table of summary statistics by reporting the maximum and minimum without differencing the two. The range of our distribution is 119.8.</p>
 </div>
-<div id="choosing-a-spread" class="section level4 unnumbered">
-<h4>Choosing a spread</h4>
+<div id="choosing-a-measure-of-spread" class="section level4 unnumbered">
+<h4>Choosing a measure of spread</h4>
 <p>The same logic applies to choosing a measure of spread as choosing a measure of center. The standard deviation is based on the mean, and so it is also sensitive to extreme values that, if present, could exaggerate the typical spread of the distribution. The IQR is based on percentiles just like the median. Therefore, IQR is not sensitive to extreme values.</p>
 <p>Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> displays the mean and plus-and-minus one standard deviation using red dashed and solid lines, respectively. The median and the IQR (25th and 75th percentiles) are represented by the purple dashed and solid lines, respectively. Note how wide the area contained by the standard deviation is–it contains most of the distribution. It is arguably not ideal for conveying the typical deviation from the center, as it contains plenty of values that are rather atypical deviations from the center. In the case of describing the distribution of infant mortality rates, the median and IQR are likely a better choice.</p>
 <div class="figure"><span id="fig:mortspread"></span>
@@ -1067,18 +1088,20 @@ Figure 4.8: Visualizing association between two continuous variables
 <li><strong>Strength:</strong> how much do the variables seem to be tied together?</li>
 <li><strong>Magnitude:</strong> given an specific increase or decrease in one variable, by how much does the other variable increase or decrease?</li>
 </ul>
-<p>Again, we have several options to answer the above question.</p>
+<p>There are several measures one can use to answer the above question.</p>
+<blockquote>
 <ul>
 <li><strong>Covariance:</strong> measures direction of association between between two variables</li>
 <li><strong>Correlation:</strong> measures direction and strength of association between two variables</li>
 <li><strong>Regression coefficient:</strong> measures the direction and magnitude of association between an explanatory variable and an outcome variable</li>
-<li><strong>Coefficient of determination (<span class="math inline">\(R^2\)</span>):</strong> measures the strength of association between a set of one or more explanatory variables and an outcome variable</li>
+<li><strong>Coefficient of determination ( <span class="math inline">\(R^2\)</span> ):</strong> measures the strength of association between a set of one or more explanatory variables and an outcome variable</li>
 </ul>
-<p>The regression coefficient and coefficient of determination are discussed in Chapter <a href="#r-simple-and-multiple-regression"><strong>??</strong></a> involving regression models. Let us briefly consider covariance and correlation.</p>
+</blockquote>
+<p>The regression coefficient and coefficient of determination are discussed in Chapter <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a> involving regression models. Let us briefly consider covariance and correlation.</p>
 </div>
 <div id="covariance" class="section level4 unnumbered">
 <h4>Covariance</h4>
-<p>Covariance tells us when our x variable is above (below) its mean, whether our y variable tends to be above or below its mean. If our y variable tends to be above its mean when x is above its mean, then the two have a positive covariance and are positively associated. If our y variable tends to be below its mean when x is above its mean, then the two have a negative covariance and are negatively associated. A covariance of 0 indicates no association.</p>
+<p>Covariance tells us when one variable, <span class="math inline">\(X\)</span>, is above or below its mean, whether another variable, <span class="math inline">\(Y\)</span>, tends to be above or below its mean. If <span class="math inline">\(Y\)</span> tends to be above (below) its mean when <span class="math inline">\(X\)</span> is above (below) its mean, then the two have a positive covariance and are positively associated. If <span class="math inline">\(Y\)</span> tends to be below (above) its mean when <span class="math inline">\(X\)</span> is above (below) its mean, then the two have a negative covariance and are negatively associated. If the two variables exhibit no tendencies, they have a covariance of 0 and thus no association.</p>
 <p>Figure <a href="4-descriptive-statistics.html#fig:scattercovar">4.9</a> adds references lines for the mean of each variable. Note that when infant mortality is above its mean (to the right of the red line), life expectancy is below its mean (below the purple line) in almost all cases. When infant mortality is below its mean, life expectancy is above its mean in almost all cases. Therefore, these two variables have a negative covariance and are negatively associated. In fact, the covariance between infant mortality rate and life expectancy is -312.7</p>
 <div class="figure"><span id="fig:scattercovar"></span>
 <img src="data-apps-text_files/figure-html/scattercovar-1.png" alt="Visualizing covariance" width="672" />
@@ -1086,20 +1109,21 @@ Figure 4.8: Visualizing association between two continuous variables
 Figure 4.9: Visualizing covariance
 </p>
 </div>
-<p>Covariance is the association analog of variance. It is an important building block of other measures of association, but it is virtually useless for description because it only tells us direction. Correlation tells us direction and strength. Therefore, covariance is never used for description because correlation tells us twice as much information.</p>
+<p>Covariance is the association analog of variance. It is an important building block of other measures of association, but it is essentially useless for description because it only tells us the direction of association. Correlation tells us the direction and strength of association. Therefore, covariance is never used for description because correlation provides us twice as much information.</p>
 </div>
 <div id="correlation" class="section level4 unnumbered">
 <h4>Correlation</h4>
-<p>Correlation tells us how much the paired values of two variables exhibit a straight line and whether that straight line is sloped positively or negatively. Correlation ranges between -1 and 1. If it is negative, then the two variables are negatively associated. If it is positive, the two variables are positively associated. The closer correlation is to -1 or 1, the more the two variables exhibit a straight line. A correlation equal to -1 or 1 indicates the two variables form a perfect straight line. A correlation of 0 indicates no association.</p>
-<p>Based on the covariance and the scatter plot, we know to expect a negative correlation between infant mortality rate and life expectancy. We also know the correlation will not be -1 because the points do not form a perfect straight line. Nevertheless they do form a fairly tight negative path, so we should expect a correlation closer to -1 than 0. It turns out that the correlation is equal to -0.9. Infant mortality rate and life expectancy exhibit a very strong, negative association.</p>
-<p>Another way to think about correlation is if we tried to draw a line through the data points on our scatter plot from left to right that could freely curve about however the data are scattered, would that line be a straight line and would it slope upward or downward? Figure <a href="4-descriptive-statistics.html#fig:scattercorr">4.10</a> does exactly that with our data. Note that the data lead the line to be essentially straight until the end when it appears the association turns positively.</p>
+<p>If <span class="math inline">\(Y\)</span> tends to increase (decrease) as <span class="math inline">\(X\)</span> increases (decreases), then the two are positively correlated. That is, the two variables tend to move in the same direction. If <span class="math inline">\(Y\)</span> tends to increase (decrease) as <span class="math inline">\(X\)</span> decreases (increases), then the two are negatively correlated. That is, the two variables tend to move in opposite directions. Correlation tells us how much the paired values of two variables in a scatterplot exhibit a straight line and whether that straight line is positively or negatively sloped.</p>
+<p>The correlation coefficient ranges between -1 and 1. If it is negative, then the two variables are negatively associated. If it is positive, the two variables are positively associated. The closer the correlation coefficient of two variables is to -1 or 1, the stronger their correlation and the more the two variables exhibit a straight line in a scatterplot. A correlation equal to -1 or 1 indicates the two variables form a perfect straight line. If two variables exhibit no shared tendencies and form what appears to be a random scattering of plot points, than their correlation will be close or equal to 0.</p>
+<p>Based on the covariance and Figure <a href="4-descriptive-statistics.html#fig:scattercovar">4.9</a>, we know to expect a negative correlation between infant mortality rate and life expectancy. We also know the correlation will not be -1 because the points do not form a perfect straight line. Nevertheless, they do form a fairly tight downward path, so we should expect a correlation closer to -1 than 0. It turns out that the correlation is equal to -0.9. Infant mortality rate and life expectancy exhibit a strong, negative association.</p>
+<p>If we imagined drawing a line through the data points on our scatterplot from left to right that could freely curve according to however the data are scattered, would that line be a straight line and would it slope upward or downward? Figure <a href="4-descriptive-statistics.html#fig:scattercorr">4.10</a> does exactly that with our data. Note that the data points lead the line to slope downward almost throughout the range of observed values. In the upper-left quadrant, the data points are tightly clustered around the line, indicating a strong correlation. In the bottom-right quadrant, the data points begin to spread further away from the line, indicating a weaker correlation. The line also begins to turn in the positive direction, which lowers the correlation coefficient.</p>
 <div class="figure"><span id="fig:scattercorr"></span>
 <img src="data-apps-text_files/figure-html/scattercorr-1.png" alt="Drawing a free line through the data" width="672" />
 <p class="caption">
 Figure 4.10: Drawing a free line through the data
 </p>
 </div>
-<p>Correlation has three qualities that can lead to misunderstandings or mistakes, some of which may have become apparent to you in the above discussion. First, correlation is sensitive to extreme values. A few dots on a scatter plot can have a substantial impact on the line that is drawn through the data. Second, correlation measures only the <strong>linear</strong> association, thus the repeated mentioning of <strong>straight</strong> lines. If two variables formed a perfect U-shape, they are almost certainly strongly associated. However, their correlation would suggest a weaker relationship because a straight line does not fit a U-shape well. Third, <strong>correlation is a necessary but not sufficient condition of causation</strong>. In order to validly claim that a change in the value of one variable <em>causes</em> the values of another variable to change, they must be correlated, but a few more conditions must also be met. Those conditions are discussed in Chapter <a href="9-causation-and-bias.html#causation-and-bias">9</a>.</p>
+<p>The correlation coefficient has three qualities that can lead to misunderstandings or mistakes. First, <strong>correlation is sensitive to extreme values</strong>. A few points on a scatterplot can impose undue influence on the line that is drawn through the data, causing the correlation coefficient to increase or decrease dramatically. Second, <strong>correlation measures only the linear association</strong>. If two variables formed a perfect U-shape in a scatterplot, they are strongly associated. However, their correlation coefficient would suggest a weaker relationship because a straight line does not fit a U-shape well. Third, <strong>correlation is a necessary but not sufficient condition for causality</strong>. In order to validly claim that a change in the value of one variable <em>causes</em> the values of another variable to change, they must be correlated, but a few more conditions must also be met. Those conditions are discussed in Chapter <a href="9-causation-and-bias.html#causation-and-bias">9</a>.</p>
 <p><br></p>
 <blockquote>
 <p><strong>To learn how to produce a summary table for a publication, proceed to Chapter <a href="19-r-description.html#r-description">19</a>.</strong></p>
@@ -1109,58 +1133,24 @@ Figure 4.10: Drawing a free line through the data
 </div>
 <div id="kt4" class="section level2">
 <h2><span class="header-section-number">4.5</span> Key terms and concepts</h2>
-<div class="learncheck">
 <ul>
-<li>
-Descriptive statistics
-</li>
-<li>
-Inferential statistics
-</li>
-<li>
-Population
-</li>
-<li>
-Sample
-</li>
-<li>
-Parameter
-</li>
-<li>
-Statistic
-</li>
-<li>
-Estimate
-</li>
-<li>
-Distribution
-</li>
-<li>
-Mean
-</li>
-<li>
-Median
-</li>
-<li>
-Mode
-</li>
-<li>
-Skewed distribution
-</li>
-<li>
-Standard deviation
-</li>
-<li>
-Interquartile range
-</li>
-<li>
-Range
-</li>
-<li>
-Correlation
-</li>
+<li>Descriptive statistics</li>
+<li>Inferential statistics</li>
+<li>Population</li>
+<li>Sample</li>
+<li>Parameter</li>
+<li>Statistic</li>
+<li>Estimate</li>
+<li>Distribution</li>
+<li>Mean</li>
+<li>Median</li>
+<li>Mode</li>
+<li>Skewed distribution</li>
+<li>Standard deviation</li>
+<li>Interquartile range</li>
+<li>Range</li>
+<li>Correlation</li>
 </ul>
-</div>
 
 </div>
 </div>

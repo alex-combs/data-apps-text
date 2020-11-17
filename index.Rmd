@@ -66,17 +66,23 @@ library(data.table)
 
 ### Supplemental resources {-}
 
-There are numerous free materials that teach statistics and R. Below is a list of books and websites that offer broader and deeper treatments of some concepts and skills covered in this resource.
+There are numerous free materials that teach statistics and R.
 
-- [OpenIntro Statistics](https://www.openintro.org/book/os/) by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr
-- [Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition](https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition) by Hank Jenkins-Smith and Joseph Ripberger
-- [R for Data Science](https://r4ds.had.co.nz) by Garrett Grolemund and Hadley Wickham
-- [Statistical Inference via Data Science](https://moderndive.com/index.html) by Chester Ismay and Albert Y. Kim
-- [Kahn Academy: Statistics and probability](https://www.khanacademy.org/math/statistics-probability)
-- [Data Visualization: A practical introduction](https://socviz.co/index.html#preface) by Kieran Healy
-- [R Markdown from RStudio](https://rmarkdown.rstudio.com/lesson-1.html)
-- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) by Yihui Xie, J.J. Allaire, and Garrett Grolemund
-- [Forecasting: Principles and Practice](https://otexts.com/fpp2/) by Rob J. Hyndman and George Athanasopoulos
+- **Traditional statistics texts**
+  - [OpenIntro Statistics](https://www.openintro.org/book/os/) by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr
+  - [Quantitative Research Methods for Political Science, Public Policy and Public Administration (With Applications in R) - 3rd Edition](https://open.umn.edu/opentextbooks/textbooks/quantitative-research-methods-for-political-science-public-policy-and-public-administration-with-applications-in-r-3rd-edition) by Hank Jenkins-Smith and Joseph Ripberger
+  
+- **R-centric statistics texts**
+  - [Statistical Inference via Data Science](https://moderndive.com/index.html) by Chester Ismay and Albert Y. Kim
+  - [R for Data Science](https://r4ds.had.co.nz) by Garrett Grolemund and Hadley Wickham
+  - [Data Visualization: A practical introduction](https://socviz.co/index.html#preface) by Kieran Healy
+  - [Forecasting: Principles and Practice](https://otexts.com/fpp2/) by Rob J. Hyndman and George Athanasopoulos
+  
+- **Other R resources**
+  - [R Markdown from RStudio](https://rmarkdown.rstudio.com/lesson-1.html)
+  - [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) by Yihui Xie, J.J. Allaire, and Garrett Grolemund
+  - [Pimp my RMD](https://holtzy.github.io/Pimp-my-rmd/#text_formating) by Yan Holtz
+  - [Data Carpentry: R for Social Scientists](https://datacarpentry.org/r-socialsci/)
 
 ### R Package References {-}
 
