@@ -230,11 +230,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#lo7"><i class="fa fa-check"></i><b>7.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="7.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#parallel-slopes-model"><i class="fa fa-check"></i><b>7.2</b> Parallel slopes model</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-parallel-slopes"><i class="fa fa-check"></i><b>7.2.1</b> Using parallel slopes</a></li>
-<li class="chapter" data-level="7.2.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations"><i class="fa fa-check"></i><b>7.2.2</b> Variations</a></li>
+<li class="chapter" data-level="7.2.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#beyond-dummies"><i class="fa fa-check"></i><b>7.2.2</b> Beyond dummies</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#interaction-model"><i class="fa fa-check"></i><b>7.3</b> Interaction model</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-an-interaction"><i class="fa fa-check"></i><b>7.3.1</b> Using an interaction</a></li>
-<li class="chapter" data-level="7.3.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations-1"><i class="fa fa-check"></i><b>7.3.2</b> Variations</a></li>
+<li class="chapter" data-level="7.3.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations"><i class="fa fa-check"></i><b>7.3.2</b> Variations</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#linear-probability-model"><i class="fa fa-check"></i><b>7.4</b> Linear probability model</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-lpm"><i class="fa fa-check"></i><b>7.4.1</b> Using LPM</a></li>
@@ -469,9 +469,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Open a script</li>
 <li>Load the following packages</li>
 </ul>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="22-r-interactions.html#cb113-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb113-2"><a href="22-r-interactions.html#cb113-2"></a><span class="kw">library</span>(moderndive)</span>
-<span id="cb113-3"><a href="22-r-interactions.html#cb113-3"></a><span class="kw">library</span>(carData)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="22-r-interactions.html#cb109-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb109-2"><a href="22-r-interactions.html#cb109-2"></a><span class="kw">library</span>(moderndive)</span>
+<span id="cb109-3"><a href="22-r-interactions.html#cb109-3"></a><span class="kw">library</span>(carData)</span></code></pre></div>
 <p>We will use the <code>Salaries</code> dataset within the <code>carData</code> package. Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.</p>
 </div>
 <div id="including-an-interaction" class="section level2">
@@ -482,10 +482,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 mrall = \beta_0 + \beta_1 vmiles + \beta_2 jaild + \beta_3 vmiles \times jaild + \epsilon
 \end{equation}\]</span></p>
 <p>We can run this regression using the following code</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="22-r-interactions.html#cb114-1"></a>interactmod &lt;-<span class="st"> </span><span class="kw">lm</span>(mrall <span class="op">~</span><span class="st"> </span>vmiles <span class="op">+</span><span class="st"> </span>jaild <span class="op">+</span><span class="st"> </span>vmiles<span class="op">*</span>jaild, <span class="dt">data =</span> trdeath)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="22-r-interactions.html#cb110-1"></a>interactmod &lt;-<span class="st"> </span><span class="kw">lm</span>(mrall <span class="op">~</span><span class="st"> </span>vmiles <span class="op">+</span><span class="st"> </span>jaild <span class="op">+</span><span class="st"> </span>vmiles<span class="op">*</span>jaild, <span class="dt">data =</span> trdeath)</span></code></pre></div>
 <p>Note that the only difference from the code in the previous chapter is <code>vmiles*jaild</code>, which tells R to interact the two variables. Once again, the code reflects the equation.</p>
 <p>We can obtain the results of this regression using the functions we learned in the previous chapter.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="22-r-interactions.html#cb115-1"></a><span class="kw">get_regression_table</span>(interactmod)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="22-r-interactions.html#cb111-1"></a><span class="kw">get_regression_table</span>(interactmod)</span></code></pre></div>
 <table>
 <thead>
 <tr>

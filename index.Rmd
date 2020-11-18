@@ -25,7 +25,7 @@ Ultimately, the objective of this resource is to help students in PA7120 be as c
 
 ### Style and Structure {-}
 
-Rather than provide thorough coverage of complex statistical concepts, I take some liberties in presenting stylized facts for the benefit of the reader. When using statistical software, there are multiple options to achieve an intended outcome. I provide what I consider or understand to be the best option. You may already be aware of or discover what you consider a better approach. I welcome such suggestions for improvement!
+Rather than provide thorough coverage of complex statistical concepts, I take some liberty to present stylized facts for the benefit of the reader. When using R, multiple options exist to achieve an outcome. I provide what I consider or understand to be the best option. You may be aware of or discover what you consider a better approach. I welcome such suggestions for improvement!
 
 Chapters are organized along two tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the `R Data` chapter corresponds to the `Data` chapter in the first track.
 

@@ -1,5 +1,7 @@
 # Goodness of Fit {#appendixB}
 
+> The discussion below is an extension of Chapter \@ref(simple-and-multiple-regression)'s coverage of goodness-of-fit.
+
 Regression draws the *best* line through a set of data points of two or more variables. The best line in this case is the line with a slope and y-intercept that **minimizes the sum of squared residual** between the set of data points and said line. The procedure used to achieve such a line is called **ordinary least squares** (OLS). The type of regression covered in this book is sometimes referred to as OLS regression.
 
 Recall that the variance of a variable is the sum of squared deviations from the mean, as depicted in Equation \@ref(eq:variance). This should sound familiar. Instead of deviations from the mean, fitting the best line in regression concerns the deviations from the regression line, which by definition are the residuals. As with variance, we square the deviations (i.e. residuals) for the data used to estimate the regression line, then we add these squared deviations together to obtain the sum of squared residual (SSR). Equation \@ref(eq:ssr) shows this process mathematically.

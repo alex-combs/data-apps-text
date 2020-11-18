@@ -230,11 +230,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#lo7"><i class="fa fa-check"></i><b>7.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="7.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#parallel-slopes-model"><i class="fa fa-check"></i><b>7.2</b> Parallel slopes model</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-parallel-slopes"><i class="fa fa-check"></i><b>7.2.1</b> Using parallel slopes</a></li>
-<li class="chapter" data-level="7.2.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations"><i class="fa fa-check"></i><b>7.2.2</b> Variations</a></li>
+<li class="chapter" data-level="7.2.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#beyond-dummies"><i class="fa fa-check"></i><b>7.2.2</b> Beyond dummies</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#interaction-model"><i class="fa fa-check"></i><b>7.3</b> Interaction model</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-an-interaction"><i class="fa fa-check"></i><b>7.3.1</b> Using an interaction</a></li>
-<li class="chapter" data-level="7.3.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations-1"><i class="fa fa-check"></i><b>7.3.2</b> Variations</a></li>
+<li class="chapter" data-level="7.3.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations"><i class="fa fa-check"></i><b>7.3.2</b> Variations</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#linear-probability-model"><i class="fa fa-check"></i><b>7.4</b> Linear probability model</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-lpm"><i class="fa fa-check"></i><b>7.4.1</b> Using LPM</a></li>
@@ -470,9 +470,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Open a script</li>
 <li>Load the following packages</li>
 </ul>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="24-r-evaluations.html#cb122-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb122-2"><a href="24-r-evaluations.html#cb122-2"></a><span class="kw">library</span>(carData)</span>
-<span id="cb122-3"><a href="24-r-evaluations.html#cb122-3"></a><span class="kw">library</span>(MASS)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="24-r-evaluations.html#cb118-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb118-2"><a href="24-r-evaluations.html#cb118-2"></a><span class="kw">library</span>(carData)</span>
+<span id="cb118-3"><a href="24-r-evaluations.html#cb118-3"></a><span class="kw">library</span>(MASS)</span></code></pre></div>
 <p>For the chi-square test, we will use the <code>MplsStops</code> dataset within the <code>carData</code> package. For the t-tests, we will use the <code>UScrime</code> dataset within the <code>MASS</code> package. Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.</p>
 </div>
 <div id="chi-square-test" class="section level2">
@@ -485,10 +485,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="cross-tab" class="section level3">
 <h3><span class="header-section-number">24.3.1</span> Cross-tab</h3>
 <p>Below is the code used to produce the cross-tab from Chapter <a href="11-surveys-and-evaluations.html#surveys-and-evaluations">11</a>. I save the new table as <code>polltable</code>. Using the <code>table</code> function, I tell R which two variables from the <code>poll</code> dataset to cross-tabulate. The <code>$</code> is how we identify a specific variable within a dataset. The levels of the first variable, <code>response</code>, will be tabulated by row, while the frequency of the levels of the second variable, <code>party</code>, will be tabulated by column.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="24-r-evaluations.html#cb123-1"></a>polltable &lt;-<span class="st"> </span><span class="kw">table</span>(poll<span class="op">$</span>response, poll<span class="op">$</span>party)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="24-r-evaluations.html#cb119-1"></a>polltable &lt;-<span class="st"> </span><span class="kw">table</span>(poll<span class="op">$</span>response, poll<span class="op">$</span>party)</span></code></pre></div>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-185">Table 24.1: </span>Response by political party
+<span id="tab:unnamed-chunk-183">Table 24.1: </span>Response by political party
 </caption>
 <thead>
 <tr>
@@ -554,7 +554,7 @@ Leave the country
 <div id="run-chi-square" class="section level3">
 <h3><span class="header-section-number">24.3.2</span> Run chi-square</h3>
 <p>Now that we have a cross-tabulation table, we can run the chi-square test. The code below demonstrates how.</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="24-r-evaluations.html#cb124-1"></a><span class="kw">chisq.test</span>(immigration_poll)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="24-r-evaluations.html#cb120-1"></a><span class="kw">chisq.test</span>(immigration_poll)</span></code></pre></div>
 <pre><code>## 
 ## 	Pearson&#39;s Chi-squared test
 ## 
@@ -579,7 +579,7 @@ Leave the country
 <div id="independent-t-test" class="section level3">
 <h3><span class="header-section-number">24.4.1</span> Independent t-test</h3>
 <p>The code below demonstrates how the independent t-test from Chapter <a href="11-surveys-and-evaluations.html#surveys-and-evaluations">11</a> was conducted. The <code>t.test</code> function works a lot like the <code>lm</code> function in that the outcome is entered first, then we input the variable that identifies the groups, which is essentially an explanatory variable. The two variables are separated by <code>~</code>. Then, we tell R which dataset to use, which is called <code>jobtrain</code> in this case.</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="24-r-evaluations.html#cb126-1"></a><span class="kw">t.test</span>(earnings <span class="op">~</span><span class="st"> </span>treatment, <span class="dt">data =</span> jobtrain)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="24-r-evaluations.html#cb122-1"></a><span class="kw">t.test</span>(earnings <span class="op">~</span><span class="st"> </span>treatment, <span class="dt">data =</span> jobtrain)</span></code></pre></div>
 <pre><code>## 
 ## 	Welch Two Sample t-test
 ## 
@@ -605,7 +605,7 @@ Leave the country
 <div id="dependent-t-test" class="section level3">
 <h3><span class="header-section-number">24.4.2</span> Dependent t-test</h3>
 <p>To conduct a dependent t-test, add the option <code>paired=TRUE</code> inside the <code>t.test</code> code like so</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="24-r-evaluations.html#cb128-1"></a><span class="kw">t.test</span>(earnings <span class="op">~</span><span class="st"> </span>treatment, <span class="dt">data =</span> jobtrain, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="24-r-evaluations.html#cb124-1"></a><span class="kw">t.test</span>(earnings <span class="op">~</span><span class="st"> </span>treatment, <span class="dt">data =</span> jobtrain, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p>However, this code will not work because the number of observations in the treatment and control groups are not equal. If we truly had a paired sample where the same subjects measured twice, then we should have the same number of observations in both groups.</p>
 </div>
 </div>

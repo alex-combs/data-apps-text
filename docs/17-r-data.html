@@ -230,11 +230,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#lo7"><i class="fa fa-check"></i><b>7.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="7.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#parallel-slopes-model"><i class="fa fa-check"></i><b>7.2</b> Parallel slopes model</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-parallel-slopes"><i class="fa fa-check"></i><b>7.2.1</b> Using parallel slopes</a></li>
-<li class="chapter" data-level="7.2.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations"><i class="fa fa-check"></i><b>7.2.2</b> Variations</a></li>
+<li class="chapter" data-level="7.2.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#beyond-dummies"><i class="fa fa-check"></i><b>7.2.2</b> Beyond dummies</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#interaction-model"><i class="fa fa-check"></i><b>7.3</b> Interaction model</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-an-interaction"><i class="fa fa-check"></i><b>7.3.1</b> Using an interaction</a></li>
-<li class="chapter" data-level="7.3.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations-1"><i class="fa fa-check"></i><b>7.3.2</b> Variations</a></li>
+<li class="chapter" data-level="7.3.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations"><i class="fa fa-check"></i><b>7.3.2</b> Variations</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#linear-probability-model"><i class="fa fa-check"></i><b>7.4</b> Linear probability model</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-lpm"><i class="fa fa-check"></i><b>7.4.1</b> Using LPM</a></li>
@@ -468,15 +468,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">17.2</span> Set-up</h2>
 <p>You should by now know how to start a script and a notebook. For this chapter, use a script. As a reminder, everything you type in a script R will interpret as code to execute. You can add comments not meant as code by adding a hashtag # before the line of text. Use comments to answer any questions.</p>
 <p>To complete this R chapter, you need to load the following packages. Add this code to your script and run it.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="17-r-data.html#cb45-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb45-2"><a href="17-r-data.html#cb45-2"></a><span class="kw">library</span>(carData)  <span class="co">#if this fails, you need to install</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="17-r-data.html#cb41-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb41-2"><a href="17-r-data.html#cb41-2"></a><span class="kw">library</span>(carData)  <span class="co">#if this fails, you need to install</span></span></code></pre></div>
 <p>Before we begin, go to the <code>Packages</code> tab in the bottom-right pane. Find <code>carData</code> in the list and click on the name. This should take you to the <code>Help</code> tab, which will contain the documentation for <code>carData</code>. This page serves as a directory to all of the datasets that come loaded with the package. We will be examining some of these datasets. If you want or need to learn more about a particular dataset, you can click on its name in this list.</p>
 </div>
 <div id="viewing-datasets" class="section level2">
 <h2><span class="header-section-number">17.3</span> Viewing datasets</h2>
 <p>It is assumed most readers are familiar with spreadsheets. Perhaps one of the first obstacles to using R is that you do not constantly stare at a spreadsheet, creating somewhat of a disconnect between what you do to data and seeing it done.</p>
 <p>You can examine a dataset in spreadsheet form using the following command:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="17-r-data.html#cb46-1"></a><span class="kw">View</span>(dataset)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="17-r-data.html#cb42-1"></a><span class="kw">View</span>(dataset)</span></code></pre></div>
 <p>where you replace <code>dataset</code> with the actual name of the dataset.</p>
 <div class="learncheck">
 <p>
@@ -505,14 +505,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>View</code> is useful but <strong>should not</strong> be included in a notebook that you plan to export to another document. This is because R will attempt to print the entire dataset to the export document. This is almost always a mistake.</p>
 <p>To avoid making this mistake, I suggest you not use the <code>View</code> function as code, but rather use a point-and-click alternative.</p>
 <p>Run the following code to save <code>Arrests</code> to your environment pane in the top-right.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="17-r-data.html#cb47-1"></a>arrests &lt;-<span class="st"> </span>Arrests</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="17-r-data.html#cb43-1"></a>arrests &lt;-<span class="st"> </span>Arrests</span></code></pre></div>
 <p>Now click on <code>arrests</code>. This should do the same thing as running <code>View</code>.</p>
 </div>
 </div>
 <div id="glimpsing-datasets" class="section level2">
 <h2><span class="header-section-number">17.4</span> Glimpsing Datasets</h2>
 <p>If your dataset is moderately large, <code>View</code> is an inefficient way to get a sense of your data. The <code>glimpse</code> function generates a compact printout providing key information about a dataset.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="17-r-data.html#cb48-1"></a><span class="kw">glimpse</span>(dataset)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="17-r-data.html#cb44-1"></a><span class="kw">glimpse</span>(dataset)</span></code></pre></div>
 <div class="learncheck">
 <p>
 <strong>Exercise 5</strong> Use <code>glimpse</code> on <code>Arrests</code>.
@@ -554,9 +554,9 @@ sex
 <h2><span class="header-section-number">17.5</span> Preview first or last few rows</h2>
 <p>Sometimes we want to show people what the data looks like in spreadsheet form, or we want to examine the first or last few rows in our dataset. As previously, mentioned the <code>View</code> function prints the entire dataset, which is almost always too much.</p>
 <p>We can preview the top few rows of a dataset using the <code>head</code> function like so</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="17-r-data.html#cb49-1"></a><span class="kw">head</span>(dataset, <span class="dt">n =</span> number_of_rows_you_want_to_print)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="17-r-data.html#cb45-1"></a><span class="kw">head</span>(dataset, <span class="dt">n =</span> number_of_rows_you_want_to_print)</span></code></pre></div>
 <p>or the bottom few rows of a dataset with the <code>tail</code> function</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="17-r-data.html#cb50-1"></a><span class="kw">tail</span>(dataset, <span class="dt">n =</span> number_of_rows_you_want_to_print)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="17-r-data.html#cb46-1"></a><span class="kw">tail</span>(dataset, <span class="dt">n =</span> number_of_rows_you_want_to_print)</span></code></pre></div>
 <div class="learncheck">
 <p>
 <strong>Exercise 8</strong> Print the first and last 4 rows of the <code>USPop</code> dataset.

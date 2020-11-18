@@ -230,11 +230,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#lo7"><i class="fa fa-check"></i><b>7.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="7.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#parallel-slopes-model"><i class="fa fa-check"></i><b>7.2</b> Parallel slopes model</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-parallel-slopes"><i class="fa fa-check"></i><b>7.2.1</b> Using parallel slopes</a></li>
-<li class="chapter" data-level="7.2.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations"><i class="fa fa-check"></i><b>7.2.2</b> Variations</a></li>
+<li class="chapter" data-level="7.2.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#beyond-dummies"><i class="fa fa-check"></i><b>7.2.2</b> Beyond dummies</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#interaction-model"><i class="fa fa-check"></i><b>7.3</b> Interaction model</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-an-interaction"><i class="fa fa-check"></i><b>7.3.1</b> Using an interaction</a></li>
-<li class="chapter" data-level="7.3.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations-1"><i class="fa fa-check"></i><b>7.3.2</b> Variations</a></li>
+<li class="chapter" data-level="7.3.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations"><i class="fa fa-check"></i><b>7.3.2</b> Variations</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#linear-probability-model"><i class="fa fa-check"></i><b>7.4</b> Linear probability model</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-lpm"><i class="fa fa-check"></i><b>7.4.1</b> Using LPM</a></li>
@@ -459,6 +459,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>“For how can one know color in perpetual green, and what good is warmth without the cold to give it sweetness?”</em></p>
 <p>—John Steinbeck, Travels with Charley</p>
 </blockquote>
+<p>Chapter <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a> introduced regression models that contain only continuous variables. In this chapter, we build our regression toolbox to include models that contain categorical variables. We will cover three models in particular:</p>
+<blockquote>
+<ul>
+<li>Parallel slopes model: including a categorical explanatory variable</li>
+<li>Interaction model: allowing the slope of the regression line for each level of a categorical variable to differ (i.e. not parallel)</li>
+<li>Linear probability model: including a two-level (binary) categorical outcome</li>
+</ul>
+</blockquote>
 <div id="lo7" class="section level2">
 <h2><span class="header-section-number">7.1</span> Learning objectives</h2>
 <ul>
@@ -470,46 +478,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Explain why and how to extend regression models to a linear probability model</li>
 <li>Interpret results of a linear probability model</li>
 </ul>
-<p>Chapter <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a> introduced regression using models containing quantitative variables only. In this chapter, we build our regression toolbox to include models that contain qualitative variables. We will cover three models in particular:</p>
-<ul>
-<li>Parallel slopes model: including a categorical explanatory variable</li>
-<li>Interaction model: allowing the slope of the regression line for each level of a categorical variable to differ (i.e. not parallel)</li>
-<li>Linear probability model: including a two-level (binary) categorical outcome</li>
-</ul>
 </div>
 <div id="parallel-slopes-model" class="section level2">
 <h2><span class="header-section-number">7.2</span> Parallel slopes model</h2>
-<p>To introduce the inclusion of categorical variables in regression, the simplest type of categorical variable will be used. The simplest categorical variable is commonly referred to as a <strong>dummy variable</strong>. A dummy variable is a two-level or binary categorical variable. It takes on values of either 1 or 0, where 1 corresponds to “yes” or “true” and 0 corresponds to “no” or “false”.</p>
-<p>For example, a common way to represent biological sex in data is to use a dummy variable where either male or female is coded as 1 and the other sex is coded as 0. It is common to name such a variable as the level coded as 1. For example, a dummy variable coded as 1 for male and 0 for female will often be named “male” in a dataset. A variable coded as 1 to denote a person attained a college degree and 0 to denote they did not might be named “college.”</p>
+<p>To introduce the inclusion of categorical variables in regression, the simplest type of categorical variable will be used. The simplest categorical variable is commonly referred to as a <strong>dummy variable</strong>.</p>
+<blockquote>
+<p>A dummy variable is a two-level or binary categorical variable. It takes on values of either 1 or 0, where 1 corresponds to “yes” or “true” and 0 corresponds to “no” or “false”.</p>
+</blockquote>
+<p>For example, a common way to represent biological sex in data is to use a dummy variable where either male or female is coded as 1 and the other sex is coded as 0 (it remains uncommon to find data that codes gender as non-binary either). The convention is to name such a variable whatever level is coded as 1. For example, a dummy variable coded as 1 for male and 0 for female will often be named “male” in a dataset. A variable coded as 1 to denote a person attained a college degree and 0 to denote they did not might be named something like “college.”</p>
 <p>The parallel slopes model using a dummy variable is represented in Equation <a href="7-categorical-variables-and-interactions.html#eq:pslope">(7.1)</a>.</p>
 <p><span class="math display" id="eq:pslope">\[\begin{equation}
 y = \beta_0 + \beta_1x + \beta_2d + \epsilon
 \tag{7.1}
 \end{equation}\]</span></p>
-<p>where <span class="math inline">\(d\)</span> is simply used to distinguish the variable as a dummy variable from the quantitative <span class="math inline">\(x\)</span> variable. The sample regression equation for the parallel slopes model is represented by Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp">(7.2)</a>.</p>
+<p>where <span class="math inline">\(d\)</span> is simply used to distinguish the variable as a dummy variable whereas <span class="math inline">\(x\)</span> represents a numerical variable as introduced in Chapter <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a>. The sample regression equation for the parallel slopes model is represented by Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp">(7.2)</a>.</p>
 <p><span class="math display" id="eq:pslopesamp">\[\begin{equation}
 \hat{y} = b_0 + b_1x + b_2d
 \tag{7.2}
 \end{equation}\]</span></p>
-<p>Knowing that <span class="math inline">\(d\)</span> can equal only 1 or 0, we can plug these values into Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp">(7.2)</a> to understand the logic of the parallel slopes model before considering the results from an example. If <span class="math inline">\(d=0\)</span>, then <span class="math inline">\(b_2\)</span> drops out of the equation because anything multiplied by 0 equals 0. In that case, our regression equation is,</p>
+<p>Knowing that <span class="math inline">\(d\)</span> can equal only 1 or 0, we can plug these values into Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp">(7.2)</a> to understand the logic of the parallel slopes model before considering an example. If <span class="math inline">\(d=0\)</span>, then <span class="math inline">\(b_2\)</span> drops out of the equation because anything multiplied by 0 equals 0. In that case, our regression equation is,</p>
 <p><span class="math display" id="eq:pslopesamp0">\[\begin{equation}
 \hat{y} = b_0 + b_1x
 \tag{7.3}
 \end{equation}\]</span></p>
-<p>and we can plug in our results to predict changes or values of <span class="math inline">\(y\)</span> just like before. If <span class="math inline">\(d=1\)</span>, then <span class="math inline">\(b_2\)</span> stays in the model. Anything multiplied by 1 is equal to itself, and since <span class="math inline">\(d\)</span> can only equal 1 if not equal to 0, we can drop <span class="math inline">\(d\)</span> out of the equation like so</p>
+<p>and we can plug in our results to predict changes in or values of <span class="math inline">\(y\)</span> given changes or values in <span class="math inline">\(x\)</span> just like in Chapter <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a>. Whatever <span class="math inline">\(d=0\)</span> represents–females, non-college educated, southern states, etc.–Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp0">(7.3)</a> represents <em>that group’s</em> regression line.</p>
+<p>If <span class="math inline">\(d=1\)</span>, then <span class="math inline">\(b_2\)</span> stays in the model. Anything multiplied by 1 is equal to itself. That is, <span class="math inline">\(b_2 \times 1\)</span> simplifies to <span class="math inline">\(b_2\)</span>. Since <span class="math inline">\(d\)</span> can only equal 1 if not equal to 0, we can drop <span class="math inline">\(d\)</span> from the equation.</p>
 <p><span class="math display" id="eq:pslopesamp1">\[\begin{equation}
 \hat{y} = b_0 + b_1x + b_2
 \tag{7.4}
 \end{equation}\]</span></p>
-<p>Note that <span class="math inline">\(b_2\)</span> is not multiplied by the value of another variable like <span class="math inline">\(b_1\)</span> is multiplied by some change or value of <span class="math inline">\(x\)</span>. Instead, it is a constant like the y-intercept <span class="math inline">\(b_0\)</span>. In fact, combining <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_2\)</span> gives us a new y-intercept as shown in Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp1alt">(7.5)</a>.</p>
+<p>Whatever <span class="math inline">\(d=1\)</span> represents–males, college educated, northern states, etc.–Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp1">(7.4)</a> represents <em>that group’s</em> regression line. Note that <span class="math inline">\(b_2\)</span> is not multiplied by the value of another variable like <span class="math inline">\(b_1\)</span> is multiplied by some change or value of <span class="math inline">\(x\)</span>. Instead, it is a constant number just like the y-intercept, <span class="math inline">\(b_0\)</span>. In fact, combining <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_2\)</span> gives us a new y-intercept for the group represented by <span class="math inline">\(d=1\)</span> as shown in Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp1alt">(7.5)</a>.</p>
 <p><span class="math display" id="eq:pslopesamp1alt">\[\begin{equation}
 \hat{y} = (b_0 + b_2) + b_1x
 \tag{7.5}
 \end{equation}\]</span></p>
-<p>This volley of equations is not to meant to repulse the math averse. Rather, it is meant to show you that the logic of the parallel slopes model is quite simple. Including a dummy variable <span class="math inline">\(d\)</span> is analogous to drawing two separate regression lines–one line through the observations for which <span class="math inline">\(d=0\)</span> and another line through the observations for which <span class="math inline">\(d=1\)</span>. The second line will be either above or below the first regression line by a constant amount equal to <span class="math inline">\(b_2\)</span>, resulting in two regression lines running parallel to each other.</p>
+<p>The logic of the parallel slopes model is simple. Including a dummy variable <span class="math inline">\(d\)</span> draws two separate regression lines–one line through the observations for which <span class="math inline">\(d=0\)</span> and another line through the observations for which <span class="math inline">\(d=1\)</span>.</p>
+<blockquote>
+<p>Regression lines for both groups have the same slope because both equations include the same <span class="math inline">\(b_1x\)</span>. The regression line for the <span class="math inline">\(d=1\)</span> group will be above or below the first regression line by a constant amount equal to <span class="math inline">\(b_2\)</span>, resulting in two regression lines running parallel to each other.</p>
+</blockquote>
 <div id="using-parallel-slopes" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Using parallel slopes</h3>
-<p>Suppose we are interested in whether state laws mandating a jail sentence for drunk driving affects traffic fatalities, presumably by deterring drunk driving. To investigate, we collect the following data, some of which is previewed in Table <a href="7-categorical-variables-and-interactions.html#tab:trdeath">7.1</a>.</p>
+<p>Suppose we were interested in whether state laws mandating a jail sentence for drunk driving affects traffic fatalities, presumably by deterring drunk driving. To investigate, we collect the following data, some of which is previewed in Table <a href="7-categorical-variables-and-interactions.html#tab:trdeath">7.1</a>.</p>
 <table>
 <caption>
 <span id="tab:trdeath">Table 7.1: </span>Sample of state traffic data
@@ -727,22 +736,32 @@ N. East
 </tr>
 </tbody>
 </table>
-<p>where <code>mrall</code> is number of traffic deaths per 10,000 population, <code>jaild</code> is the dummy variable for whether the state has a mandatory jail sentence for drunk driving, <code>vmiles</code> is the average miles driven per driver in a state, <code>mlda</code> is the minimum legal drinking age at the time, and <code>unrate</code> is the state’s unemployment rate. There are 336 observations in this dataset (48 states from 1982 to 1988; panel data but used like a pooled cross-sectional for this example).</p>
+<p><br></p>
+<p>where <code>mrall</code> is number of traffic deaths per 10,000 population, <code>jaild</code> is the dummy variable for whether the state has a mandatory jail sentence for drunk driving, <code>vmiles</code> is the average miles driven per driver in a state, <code>mlda</code> is the minimum legal drinking age at the time, and <code>unrate</code> is the state’s unemployment rate. There are 336 observations in this dataset (48 states from 1982 to 1988, making it panel data but here it is used like a pooled cross-sectional).</p>
 <p>Suppose we choose to use the following model</p>
 <p><span class="math display" id="eq:pslopeexamp">\[\begin{equation}
 mrall = \beta_0 + \beta_1vmiles + \beta_2jaild + \epsilon
 \tag{7.6}
 \end{equation}\]</span></p>
-<p>First, let’s visualize the relationship between these variables using a scatter plot with <code>vmiles</code> on the x axis and using color to differentiate states with and without mandatory jail sentences for drunk driving. Note in Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter">7.1</a> below there appears to be a positive relationship between the average miles people drive and the traffic fatalities. That makes sense.</p>
-<p>Now, imagine drawing a straight line through the red points that denote states with no mandatory jail for drunk driving and a separate line through the blue dots denoting states with mandatory jail sentencing. Do not force your imaginary lines to be parallel just yet. How do your two lines compare? Based on the data, our blue line should be above our red line, as the group of blue dots appear to be systematically higher than the group of red dots. The slopes are less obvious. It <em>may</em> be the case that our red line should have a steeper slope than our <em>blue</em> line, but it is difficult to tell.</p>
+<p>Note that Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopeexamp">(7.6)</a> has the exact same structure as Equation <a href="7-categorical-variables-and-interactions.html#eq:pslope">(7.1)</a>. In Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopeexamp">(7.6)</a>, <code>vmiles</code> is the <span class="math inline">\(x\)</span> variable and <code>jaild</code> is the <span class="math inline">\(d\)</span> variable. States for which <code>jaild = no</code> represent the group where <span class="math inline">\(d=0\)</span> and states for which <code>jaild = yes</code> represent the group where <span class="math inline">\(d=1\)</span>.</p>
+<p>Let us visualize the relationship between these variables using a scatter plot with <code>vmiles</code> on the x axis and using color to differentiate states with and without mandatory jail sentences for drunk driving. Note in Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter">7.1</a> below there appears to be a positive relationship between the average miles people drive and the rate of traffic fatalities. This makes intuitive sense.</p>
+<p>Now, imagine drawing a straight line through the red points that denote states with no mandatory jail for drunk driving and a separate line through the blue dots denoting states with mandatory jail sentencing. Do not force your imaginary lines to be parallel just yet. How do your two lines compare?</p>
+<p>Based on the plot points, our blue line should be above our red line, as the group of blue dots appear to be systematically higher than the group of red dots. Whether the slopes between red and blue lines are similar is less obvious. The red points suggest it <em>may</em> be the case that our red line should have a steeper slope than our <em>blue</em> line, but it is difficult to tell.</p>
 <div class="figure"><span id="fig:pslopescatter"></span>
-<img src="data-apps-text_files/figure-html/pslopescatter-1.png" alt="Relationship between miles driven and traffic deaths by whether state has mandatory jail for drunk driving" width="672" />
+<img src="data-apps-text_files/figure-html/pslopescatter-1.png" alt="Relationship between miles driven and traffic fatalities" width="672" />
 <p class="caption">
-Figure 7.1: Relationship between miles driven and traffic deaths by whether state has mandatory jail for drunk driving
+Figure 7.1: Relationship between miles driven and traffic fatalities
 </p>
 </div>
-<p>The imaginary exercise you just went through is critical. Considering whether the slopes of our regression line to differ between the two groups is the difference between the parallel slopes model and the interaction model. Why not just add the interaction and if they are the same slope, so be it? Again, because we pay a penalty for adding superfluous explanatory variables. Moreover, an interaction model is more difficult to interpret and communicate to an audience. Most importantly, we should choose the model that reflects our theory that is based on our subject matter expertise. <strong>Choosing to use a parallel slopes model forces the slopes between the two groups to be drawn (i.e. estimated) as if they are parallel whether they actually are or not</strong>.</p>
-<p>Now having a sense of the relationship, we run our parallel slopes model, which generates the following results</p>
+<p><br></p>
+<blockquote>
+<p>The exercise we just thought through is critical. Considering whether the slopes of our regression line should or do differ between categorical groups determines whether we should use the parallel slopes model or the interaction model. Which model is best to use is up to us to determine.</p>
+</blockquote>
+<p>Why not simply add the interaction and if they are the same slope, so be it? Again, because we pay a penalty for adding superfluous explanatory variables. Also, an interaction model is more difficult to interpret and communicate to an audience. Most importantly, we should choose the model that reflects our theory based on our subject matter expertise.</p>
+<blockquote>
+<p>Remember, choosing to use a parallel slopes model forces the slopes between groups to be drawn (i.e. estimated) as if they are parallel whether they actually are or not.</p>
+</blockquote>
+<p>Let us now run the parallel slopes model, which generates the following results</p>
 <table>
 <caption>
 <span id="tab:psloperesults">Table 7.2: </span>Parallel slopes results
@@ -844,44 +863,76 @@ jaildyes
 </tr>
 </tbody>
 </table>
+<p><br></p>
+<blockquote>
+<p>Notice the variable name for the bottom row is <code>jaildyes</code> and the estimate equals 0.265. This is the estimate for when <code>jaild = yes</code>. There is no estimate for <code>jaild = no</code> because when <code>jaild = no</code>, that is the same as <span class="math inline">\(d=0\)</span> and so the estimate would simply be 0. The <code>jaildyes</code> estimate is how states with a mandatory jail sentence compare to states without one.</p>
+</blockquote>
 <p>Now we can plug our results into the sample regression equation to answer whatever questions we may have or encounter.</p>
 <p><span class="math display">\[\begin{equation}
 \hat{mrall} = -0.238 + 0.281\times vmiles + 0.265 \times jaild
 \end{equation}\]</span></p>
-<p>I strongly recommend that you compare this equation to Equations 7.2-7.5. Otherwise, the suffering was in vain. The <code>jaild</code> variable is the <span class="math inline">\(d\)</span> variable. It equals either 0 or 1. If a state does <strong>not</strong> have a mandatory jail sentence (jaild = 0), then we have</p>
-<p><span class="math display">\[\begin{equation}
-\hat{mrall} = -0.238 + 0.281\times vmiles
-\end{equation}\]</span></p>
-<p>and if a state does have a mandatory jail sentence, then we have</p>
-<p><span class="math display">\[\begin{equation}
-\hat{mrall} = -0.238 + 0.281\times vmiles + 0.265\\
-\hat{mrall} = (-0.238 + 0.265) + 0.281\times vmiles\\
-\hat{mrall} = 0.027 + 0.281\times vmiles
-\end{equation}\]</span></p>
-<p>The results tell us that, on average, states with mandatory jail sentencing have a higher traffic fatality rate of 0.265 per 10,000, all else equal.</p>
-<p>We already know how to interpret the estimate for <code>vmiles</code> in Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults">7.2</a>: The results suggest that, on average, as the average miles driven per driver in a state increases 1 mile, traffic fatalities per 10,000 increase 0.281, all else equal.</p>
-<p>To help make this concrete, Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a> visualizes the results of our parallel slopes model. Note that, as expected, the blue line is above the red line. Based on the results, we know the blue line is above the red line by 0.265. We also know that the slope for both lines is 0.281.</p>
+<p>Compare this equation to Equations <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp">(7.2)</a>-<a href="7-categorical-variables-and-interactions.html#eq:pslopesamp1alt">(7.5)</a>. The <code>jaild</code> variable is the <span class="math inline">\(d\)</span> variable. It equals either 0 or 1. If a state does not have a mandatory jail sentence, then <code>jaild = 0</code>, and so we we would have as our regression equation</p>
+<p><span class="math display">\[\hat{mrall} = -0.238 + (0.281\times vmiles) + (jaild \times 0)\]</span></p>
+<p><span class="math display">\[\hat{mrall} = -0.238 + (0.281\times vmiles)\]</span></p>
+<p>because, again, 0 multiplied by anything equals 0.</p>
+<p>For states with a mandatory jail sentence, <span class="math inline">\(d=1\)</span>, and so we have as our regression equation</p>
+<p><span class="math display">\[\hat{mrall} = -0.238 + (0.281 \times vmiles) + (0.265 \times 1)\]</span></p>
+<p>Anything multiplied by 1 is equal to itself, so the above equation simplifies to</p>
+<p><span class="math display">\[\hat{mrall} = -0.238 + (0.281 \times vmiles) + 0.265\]</span></p>
+<p>And 0.265 is a constant number just like -0.238. These values can be combined.</p>
+<p><span class="math display">\[\hat{mrall} = (-0.238 + 0.265) + (0.281\times vmiles)\]</span></p>
+<p>And we can finally simplify the equation to look like the standard regression equation of <span class="math inline">\(\hat{y} = b_0 + b_1x\)</span>, but remember this is the equation for states with a mandatory jail sentence.</p>
+<p><span class="math display">\[\hat{mrall} = 0.027 + (0.281\times vmiles)\]</span></p>
+<p>And as a reminder, the equation for states without a mandatory jail sentence is</p>
+<p><span class="math display">\[\hat{mrall} = -0.238 + (0.281\times vmiles)\]</span></p>
+<blockquote>
+<p>The two regression lines have the same slope because we forced them to have the same slope. The only difference between the two regression lines is the y-intercept. Because <span class="math inline">\(b_2\)</span>, which in this example was <code>jaildyes</code>, equals 0.265 as shown in Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults">7.2</a>, the intercept for states with a mandatory jail sentence is 0.265 higher than the intercept for states.</p>
+</blockquote>
+<p>Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a> provides the same scatterplot but adds our parallel regression lines. Note that, as expected, the blue line is above the red line. Based on the results, we know the blue line is above the red line by 0.265. We also know that the slope for both lines is 0.281.</p>
 <div class="figure"><span id="fig:pslopescatter2"></span>
 <img src="data-apps-text_files/figure-html/pslopescatter2-1.png" alt="Parallel slopes visualization" width="672" />
 <p class="caption">
 Figure 7.2: Parallel slopes visualization
 </p>
 </div>
+<p><br></p>
+<p>When communicating an interpretation of the results for a parallel slopes model, we can write something like the following:</p>
+<blockquote>
+<p>Controlling for whether a state has a mandatory jail sentence for drunk driving, the results indicate that as the average miles driven per driver in a state increases 1 mile, traffic fatalities per 10,000 increase 0.281, on average.</p>
+</blockquote>
+<blockquote>
+<p>On average, states with mandatory jail sentencing have a higher traffic fatality rate of 0.265 per 10,000, controlling for average miles driven per driver.</p>
+</blockquote>
 </div>
-<div id="variations" class="section level3">
-<h3><span class="header-section-number">7.2.2</span> Variations</h3>
-<p>We can include a categorical variable with more than two levels. Suppose we were interested in whether traffic fatalities differ across U.S. regions. From the variables in Table <a href="7-categorical-variables-and-interactions.html#tab:trdeath">7.1</a>, we might choose to construct the following model.</p>
-<p><span class="math display" id="eq:pslopeexamp2">\[\begin{equation}
-mrall = \beta_0 + \beta_1vmiles + \beta_2region + \epsilon
+<div id="beyond-dummies" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Beyond dummies</h3>
+<p>What if we want to include a categorical explanatory variable that has more than two levels? Doing so is easy and the logic works exactly the same as before. The only difference is that we use multiple dummy variables to represent the multiple levels of a categorical variable.</p>
+<p>Suppose we included an explanatory variable with four levels instead of two. Such a variable can be represented in the regression equation like so:</p>
+<p><span class="math display" id="eq:pslopemultd">\[\begin{equation}
+y = \beta_0 + \beta_1x + \beta_2d_1 + \beta_3d_2 + \beta_4d_3 + \epsilon
 \tag{7.7}
 \end{equation}\]</span></p>
-<p>where region is a four-level categorical variable containing South, West, N. East, and Midwest. Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a> visualizes this model. Note that there are now four regression lines, each corresponding to one of the four regions. There are clear differences between the regions. It appears states in the West and South are somehow different than states in the Midwest and Northeast with respect to traffic fatality rates.</p>
+<p>Just as we used one dummy variable to represent a categorical variable with two levels, we use three dummy variables to represent a categorical variable with four levels. There is always one fewer dummy variables than there are levels of a categorical variable because one level must be used as the reference/base level to which all other levels are compared.</p>
+<p>This model represented by Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopemultd">(7.7)</a> draws four regression lines. One line for the group represented when <span class="math inline">\(d_1=0\)</span>, <span class="math inline">\(d_2=0\)</span>, and <span class="math inline">\(d_3=0\)</span>; a second line for the group represented when <span class="math inline">\(d_1=1\)</span>; a third line for the group represented when <span class="math inline">\(d_2=1\)</span>; and a fourth line for the group when <span class="math inline">\(d_3=1\)</span>. All the math demonstrated in the two-level case with Equations <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp">(7.2)</a>-<a href="7-categorical-variables-and-interactions.html#eq:pslopesamp1alt">(7.5)</a> works exactly the same way.</p>
+<p>Let us apply this to our example. Suppose we were interested in whether traffic fatalities differ across U.S. regions. From the variables in Table <a href="7-categorical-variables-and-interactions.html#tab:trdeath">7.1</a>, we might choose to construct the following model.</p>
+<p><span class="math display" id="eq:pslopemultd" id="eq:pslopeexamp2">\[\begin{equation}
+mrall = \beta_0 + \beta_1vmiles + \beta_2region + \epsilon
+\tag{7.8}
+\end{equation}\]</span></p>
+<p>where region is a four-level categorical variable containing South, West, N.East, and Midwest. Note that Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopeexamp2">(7.8)</a> looks different than Equation \tag{7.7}. This is because Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopeexamp2">(7.8)</a> leaves the various levels implied within the <code>region</code> variable. We can explicitly state the levels of <code>region</code> in our regression model instead, giving us</p>
+<p><span class="math display" id="eq:pslopemultd" id="eq:pslopeexamp3">\[\begin{equation}
+mrall = \beta_0 + \beta_1vmiles + \beta_2d_{neast} + \beta_3d_{south} + \beta_4d_{west} + \epsilon
+\tag{7.9}
+\end{equation}\]</span></p>
+<p>which now has the exact same structure as Equation \tag{7.7}. In this case, the Midwest level is excluded as the reference/base level. This is an arbitrary choice; we could choose to exclude any one of the levels to which all other levels are compared. Statistical software will automatically choose a default level. If the categorical variable is coded using text, then R excludes the level that comes first alphabetically. If coded numerically, one level should be coded as equal to 0 and will be the level that R excludes.</p>
+<p>Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a> visualizes this model. Note that there are four regression lines, each corresponding to one of the four regions. There are clear differences between the regions. It appears states in the West and South are somehow different than states in the Midwest and Northeast with respect to traffic fatality rates.</p>
 <div class="figure"><span id="fig:pslopescatter3"></span>
 <img src="data-apps-text_files/figure-html/pslopescatter3-1.png" alt="Parallel slopes for 4 groups" width="672" />
 <p class="caption">
 Figure 7.3: Parallel slopes for 4 groups
 </p>
 </div>
+<p><br></p>
 <p>Running this model produces the following results.</p>
 <table>
 <caption>
@@ -1032,48 +1083,66 @@ regionWest
 </table>
 <p>Note that Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults2">7.3</a> provides estimates for three of the four regions. This is no different from our previous model; <code>jaild</code> has two levels, yes and no, but Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults">7.2</a> provides only one estimate for <code>jaild=yes</code>. No matter how many levels in a categorical variable, one of the levels is set such that <span class="math inline">\(d=0\)</span> and so that level drops out of the equation. Just like with the previous model where the estimate for <code>jaild=yes</code>
 indicates how far above or below the regression line is relative to the line for <code>jaild=no</code>, the estimates for whatever levels remain in the equation indicate how far above or below the regression lines are relative to the excluded level.</p>
-<p>In Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults2">7.3</a>, Midwest is excluded. Look at Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a>, noting where the Midwest line is relative to the other regions. Northeast is below Midwest, while South and West are above it. The estimates for the three included regions in Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults2">7.3</a> tell us how far the regions are above and below Midwest. Therefore, we could report something like</p>
+<p>In Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults2">7.3</a>, Midwest is excluded as expected. We can plug our estimates into the sample version of Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopeexamp3">(7.9)</a>.</p>
+<p><span class="math display">\[\hat{mrall} = 0.26 + (0.188 \times vmiles) + (-0.076 \times d_{neast}) + (0.519 \times d_{south}) + (0.641 \times d_{west})\]</span></p>
+<p>For states in the Midwest, all three rightmost terms drop from the model because all of the <span class="math inline">\(d\)</span> variables equal 0, leaving us with</p>
+<p><span class="math display">\[\hat{mrall} = 0.26 + (0.188 \times vmiles)\]</span></p>
+<p>For states in the N.East, <span class="math inline">\(d_{neast}=1\)</span> and the other <span class="math inline">\(d\)</span> variables equal 0, giving us</p>
+<p><span class="math display">\[\hat{mrall} = 0.26 + (0.188 \times vmiles) + (-0.076 \times 1)\]</span></p>
+<p><span class="math display">\[\hat{mrall} = (0.26 - 0.076) + (0.188 \times vmiles)\]</span></p>
+<p><span class="math display">\[\hat{mrall} = 0.184 + (0.188 \times vmiles)\]</span></p>
+<p>This means that states in the N.East have a lower traffic fatality rate than states in the Midwest, on average. How much lower? By the amount of the estimate associated with $d_{neast}: 0.076. This same process can be applied to the other two regions.</p>
+<p>Look back at Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a>, noting where the Midwest line is relative to the other regions. Northeast is below Midwest, while South and West are above it.</p>
 <blockquote>
-<p>On average and controlling for average miles driven per driver, states in the Northeast region experience fewer traffic fatalities by approximately 0.08 per 10,000, while states in the South and West experience higher traffic fatality rates by 0.52 and 0.64, respectively.</p>
+<p>The estimates for the three included regions in Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults2">7.3</a> tell us how far the regions are above and below Midwest. Again, all regions have the same slope with respect to average miles driven because we forced them to be the same by using the parallel slopes model.</p>
+</blockquote>
+<p>When communicating our results, we could write something like the following:</p>
+<blockquote>
+<p>On average and controlling for average miles driven per driver, states in the Northeast region experience fewer traffic fatalities then state in the Midwest by approximately 0.08 per 10,000, while states in the South and West experience higher traffic fatality rates than states in the Midwest by 0.52 and 0.64, respectively.</p>
 </blockquote>
 </div>
 </div>
 <div id="interaction-model" class="section level2">
 <h2><span class="header-section-number">7.3</span> Interaction model</h2>
-<p>But what if we allowed the two slopes in Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a> to differ? If our expertise leads us to theorize the two slopes should differ between states with and without mandatory jail sentencing for drunk driving, and/or if the visualizing the data suggests they do, then we can choose to use an interaction model.</p>
-<p>To be clear, allowing the two slopes to differ means we allow the marginal effect of the average miles driven per driver to differ between the two groups of states. Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter3">7.3</a> visualizes this added flexibility. Note that the slope of the red line is indeed slightly steeper than the blue line. Thus, this visualization suggests that average miles driven per mile in states without mandatory jail sentences for drunk driving increases the traffic fatality rate by slightly more than it does in states with such laws.</p>
+<p>What if we allowed the two slopes in Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a> to differ? If our expertise leads us to theorize the two slopes should differ between states with and without mandatory jail sentencing for drunk driving, and/or if visualizing the data suggests they do, then we can choose to use an interaction model.</p>
+<blockquote>
+<p>Allowing the two slopes to differ means we allow the marginal effect of the average miles driven per driver to differ between the two groups of states.</p>
+</blockquote>
+<p>Figure <a href="7-categorical-variables-and-interactions.html#fig:interactscatter">7.4</a> visualizes this additional flexibility. Note that the slope of the red line is indeed slightly steeper than the blue line. Thus, this visualization suggests that average miles driven per mile in states without mandatory jail sentences for drunk driving increases the traffic fatality rate by slightly more than it does in states with a mandatory jail sentence.</p>
 <div class="figure"><span id="fig:interactscatter"></span>
 <img src="data-apps-text_files/figure-html/interactscatter-1.png" alt="Interaction model visualization" width="672" />
 <p class="caption">
 Figure 7.4: Interaction model visualization
 </p>
 </div>
-<p>This version of an interaction model involves interacting a categorical variable with a numerical variable. Equation <a href="7-categorical-variables-and-interactions.html#eq:interaction">(7.8)</a> represents this version of the interaction model.</p>
+<p><br></p>
+<p>This version of an interaction model involves interacting (i.e. multiplying) a categorical variable with a numerical variable. Equation <a href="7-categorical-variables-and-interactions.html#eq:interaction">(7.10)</a> represents this version of the interaction model.</p>
 <p><span class="math display" id="eq:interaction">\[\begin{equation}
 y = \beta_0 + \beta_1x + \beta_2d + \beta_3xd + \epsilon
-\tag{7.8}
-\end{equation}\]</span></p>
-<p>Equation <a href="7-categorical-variables-and-interactions.html#eq:interaction">(7.8)</a> is similar to Equation <a href="7-categorical-variables-and-interactions.html#eq:pslope">(7.1)</a> for the parallel slopes model. The difference in <span class="math inline">\(\beta_3xd\)</span>. This is the interaction–multiplying two of the explanatory variables in our regression model. Equation <a href="7-categorical-variables-and-interactions.html#eq:interactionsamp">(7.9)</a> provides the sample equation of this interaction model.</p>
-<p><span class="math display" id="eq:interactionsamp">\[\begin{equation}
-\hat{y} = b_0 + b_1x + b_2d + b_3xd
-\tag{7.9}
-\end{equation}\]</span></p>
-<p>Following the same process as with the parallel slopes model, we can rearrange Equation <a href="7-categorical-variables-and-interactions.html#eq:interactionsamp">(7.9)</a> to examine the logic of this interaction model. If <span class="math inline">\(d=0\)</span>, then <span class="math inline">\(b_2\)</span> and <span class="math inline">\(b_3x\)</span> drop out of the model because they are multiplied by 0. Thus, we have the same sample regression equation as Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp0">(7.3)</a>.</p>
-<p><span class="math display" id="eq:interactionsamp0">\[\begin{equation}
-\hat{y} = b_0 + b_1x
 \tag{7.10}
 \end{equation}\]</span></p>
+<p>Equation <a href="7-categorical-variables-and-interactions.html#eq:interaction">(7.10)</a> is similar to Equation <a href="7-categorical-variables-and-interactions.html#eq:pslope">(7.1)</a> for the parallel slopes model. The difference is <span class="math inline">\(\beta_3xd\)</span>. This is the interaction–multiplying two of the explanatory variables in our regression model. Equation <a href="7-categorical-variables-and-interactions.html#eq:interactionsamp">(7.11)</a> provides the sample equation of this interaction model.</p>
+<p><span class="math display" id="eq:interactionsamp">\[\begin{equation}
+\hat{y} = b_0 + b_1x + b_2d + b_3xd
+\tag{7.11}
+\end{equation}\]</span></p>
+<p>Following the same process as with the parallel slopes model, we can rearrange Equation <a href="7-categorical-variables-and-interactions.html#eq:interactionsamp">(7.11)</a> to examine the logic of this interaction model. If <span class="math inline">\(d=0\)</span>, then <span class="math inline">\(b_2\)</span> and <span class="math inline">\(b_3x\)</span> drop out of the model because they are multiplied by 0. Thus, we have the same sample regression equation as Equation <a href="7-categorical-variables-and-interactions.html#eq:pslopesamp0">(7.3)</a>.</p>
+<p><span class="math display" id="eq:interactionsamp0">\[\begin{equation}
+\hat{y} = b_0 + b_1x
+\tag{7.12}
+\end{equation}\]</span></p>
+<p>Equation <a href="7-categorical-variables-and-interactions.html#eq:interactionsamp0">(7.12)</a> is the regression line for whatever group is represented when <span class="math inline">\(d=0\)</span>.</p>
 <p>If <span class="math inline">\(d=1\)</span>, then <span class="math inline">\(b_2\)</span> and <span class="math inline">\(b_3x\)</span> remain in our model. As with the parallel slopes model, <span class="math inline">\(b_2\)</span> combines with <span class="math inline">\(b_0\)</span>. This shifts the y-intercept for the group for which <span class="math inline">\(d=1\)</span> either above or below the group for which <span class="math inline">\(d=0\)</span> by the amount equal to <span class="math inline">\(b_2\)</span>. Because the lines are not parallel, just because a line starts above or below another does not mean it will stay above or below. It depends on the value of the <span class="math inline">\(b_3x\)</span>. The term <span class="math inline">\(b_3x\)</span> is combined with <span class="math inline">\(b_1x\)</span>. Thus, if <span class="math inline">\(d=1\)</span>, we have the following sample regression equation</p>
 <p><span class="math display" id="eq:interactionsamp1">\[\begin{equation}
 \hat{y} = b_0 + b_1x + b_2d + b_3xd\\
 \hat{y} = b_0 + b_1x + b_2 + b_3x\\
 \hat{y} = (b_0 + b_2) + (b_1 + b_3)x
-\tag{7.11}
+\tag{7.13}
 \end{equation}\]</span></p>
-<p>In addition to the regression line for which <span class="math inline">\(d=1\)</span> having an intercept above or below the regression line for which <span class="math inline">\(d=0\)</span> by the amount <span class="math inline">\(b_2\)</span>, it will have a slope greater or lesser by the amount <span class="math inline">\(b_3\)</span>. Hopefully, it is clear how these equations correspond with the lines in Figure <a href="7-categorical-variables-and-interactions.html#fig:interactscatter">7.4</a>.</p>
+<p>Equation <a href="7-categorical-variables-and-interactions.html#eq:interactionsamp1">(7.13)</a> is the regression line for whatever group is represented when <span class="math inline">\(d=1\)</span>. This regression line will have an intercept above or below the regression line for which <span class="math inline">\(d=0\)</span> by the amount <span class="math inline">\(b_2\)</span>, similar to the parallel slopes model. Critically, this regression line will also have a slope greater or lesser than the regression line for which <span class="math inline">\(d=0\)</span> by the amount <span class="math inline">\(b_3\)</span>.</p>
 <div id="using-an-interaction" class="section level3">
 <h3><span class="header-section-number">7.3.1</span> Using an interaction</h3>
-<p>Running this interaction model on these data produces the following results</p>
+<p>Running this interaction model in our example produces the following results</p>
 <table>
 <caption>
 <span id="tab:interactionmod">Table 7.4: </span>Interaction model results
@@ -1198,24 +1267,32 @@ vmiles:jaildyes
 </tr>
 </tbody>
 </table>
-<p>Once again, we can plug these values into our generic sample regression equation to obtain the following equation.</p>
-<p><span class="math display" id="eq:interactionex">\[\begin{equation}
-\hat{mrall} = -0.38 + 0.3\times vmiles + 0.73\times jaild - 0.06\times vmiles \times jaild
-\tag{7.12}
-\end{equation}\]</span></p>
-<p>For states without mandatory jail sentencing (jaild = 0), the equation is</p>
-<p><span class="math display" id="eq:interactionex0">\[\begin{equation}
-\hat{mrall} = -0.38 + 0.3\times vmiles
-\tag{7.13}
-\end{equation}\]</span></p>
-<p>and for states with mandatory jail sentencing (jaild = 1), the equation is</p>
-<p><span class="math display" id="eq:interactionex1">\[\begin{equation}
-\hat{mrall} = -0.38 + 0.3\times vmiles + 0.73\times jaild - 0.06\times vmiles \times jaild\\
-\hat{mrall} = 0.35 + 0.24\times vmiles
-\tag{7.14}
-\end{equation}\]</span></p>
+<p><br></p>
+<p>Once again, we can plug these values into Equation <a href="7-categorical-variables-and-interactions.html#eq:interactionsamp">(7.11)</a> to obtain the following regression equation</p>
+<p><span class="math display">\[\hat{mrall} = -0.384 + (0.3\times vmiles) + (0.731\times jaild) + (-0.058\times vmiles \times jaild)\]</span></p>
+<p>For states without mandatory jail sentencing (jaild = 0), the equation simplifies to</p>
+<p><span class="math display">\[\hat{mrall} = -0.384 + 0.3\times vmiles\]</span></p>
+<p>When communicating an interpretation of this equation, we might write something like:</p>
+<blockquote>
+<p>For states that do not have a mandatory jail sentence for drunk driving, as the average miles driven per mile increases by 1 mile, traffic fatalities per 10,000 increases by 0.3, on average.</p>
+</blockquote>
+<p>For states with mandatory jail sentencing (jaild = 1), the equation is</p>
+<p><span class="math display">\[\hat{mrall} = -0.384 + (0.3\times vmiles) + (0.731\times jaild) + (-0.058\times vmiles \times jaild)\]</span></p>
+<p>which simplifies to</p>
+<p><span class="math display">\[\hat{mrall} = -0.384 + (0.3\times vmiles) + 0.731 + (-0.058\times vmiles)\]</span></p>
+<p>which simplifies further to</p>
+<p><span class="math display">\[\hat{mrall} = (-0.384 + 0.731) + (0.3-0.058)\times vmiles\]</span></p>
+<p>and finally to</p>
+<p><span class="math display">\[\hat{mrall} = 0.347 + 0.242\times vmiles\]</span></p>
+<p>When communicating an interpretation of this equation, we might write something like:</p>
+<blockquote>
+<p>For states that have a mandatory jail sentence for drunk driving, as the average miles driven per mile increases by 1 mile, traffic fatalities per 10,000 increases by 0.242, on average.</p>
+</blockquote>
+<p>Look back at Figure <a href="7-categorical-variables-and-interactions.html#fig:interactscatter">7.4</a>. As we suspected the slope of the blue line that represents states with a mandatory jail sentence is less than the slope of the red line representing states without a mandatory jail sentence. How much less? By the amount of the estimate associated with the interaction term, <code>vmiles:jaildyes</code> in Table <a href="7-categorical-variables-and-interactions.html#tab:interactionmod">7.4</a>: 0.058.</p>
+<p>The intercepts of the two lines are also different. If the x-axis in Figure <a href="7-categorical-variables-and-interactions.html#fig:interactscatter">7.4</a> were extended to 0 and the regression lines were extrapolated to the left until they intersect the y-axis, the blue line would intersect at 0.347, while the red line would intersect at -0.384. Note that the difference between these two intercepts is the estimate associated with the dummy variable <code>jaildyes</code> in Table <a href="7-categorical-variables-and-interactions.html#tab:interactionmod">7.4</a>: 0.731.</p>
+<p>This is a case where the intercept does not have a practical application because <code>vmiles</code> never equals 0, and even if it did, the predicted traffic fatality rate cannot be negative like the regression for states without mandatory sentencing would predict.</p>
 </div>
-<div id="variations-1" class="section level3">
+<div id="variations" class="section level3">
 <h3><span class="header-section-number">7.3.2</span> Variations</h3>
 <p>Variations on interaction models are beyond the scope of this book, but suffice it to say we can interact any two variables we deem necessary (or more). If you suspect that the effect of a variable on an outcome <em>depends</em> on the value of another variable, then an interaction is how to model such a relationship.</p>
 </div>
@@ -1230,25 +1307,28 @@ vmiles:jaildyes
 <li>Did the nonprofit receive the grant it applied for?</li>
 </ul>
 <p>As before, we may want to explain or predict such outcomes based on a set of explanatory variables.</p>
-<p>A <strong>linear probability model</strong> (LPM) is just a special name we give the kind of regression we have already covered when the outcome is a dummy variable. The key difference between an LPM and what we have already done concerns probability. Whereas regression with a numerical outcome explains or predicts changes or values of the outcome in terms of the outcome’s units, <strong>the LPM explains or predicts changes or values in the <em>probability</em> that the dummy outcome equals 1. If the dummy outcome is coded such that <span class="math inline">\(d=1\)</span> means the event did occur, then the LPM estimates the probability that the event in question occurs</strong>.</p>
-<p>Equation <a href="7-categorical-variables-and-interactions.html#eq:lpm">(7.15)</a> shows the generic population LPM, which is the same as the generic multiple regression population model except for the left-hand side. All this equation is trying to denote is that our estimates on the right-hand side pertain to the <em>probability</em> (Pr) that <span class="math inline">\(y=1\)</span>. Equation <a href="7-categorical-variables-and-interactions.html#eq:lpmsample">(7.16)</a> shows the sample LMP equation.</p>
+<p>A <strong>linear probability model</strong> (LPM) is just a special name we give the kind of regression we have already covered but when the outcome is a dummy variable instead of continuous. The key difference between an LPM and what we have already done concerns probability. Regression with a numerical outcome explains or predicts changes or values of the outcome in terms of the outcome’s units.</p>
+<blockquote>
+<p>The LPM explains or predicts changes or values in the <em>probability</em> that the dummy outcome equals 1. If the dummy outcome is coded such that <span class="math inline">\(d=1\)</span> means the event did occur, then the LPM estimates the change in or value of the probability that the event in question occurs given a change or value for the explanatory variable(s).</p>
+</blockquote>
+<p>Equation <a href="7-categorical-variables-and-interactions.html#eq:lpm">(7.14)</a> shows the generic population LPM, which is the same as the generic multiple regression population model except for the left-hand side. All this equation is trying to denote is that our estimates on the right-hand side pertain to the <em>probability</em> (Pr) that <span class="math inline">\(y=1\)</span>. Equation <a href="7-categorical-variables-and-interactions.html#eq:lpmsample">(7.15)</a> shows the sample LMP equation.</p>
 <p><span class="math display" id="eq:lpm">\[\begin{equation}
 Pr(y=1)=\beta_0+\beta_1x_1+\beta_2x_2+\cdots+\beta_kx_k+\epsilon
-\tag{7.15}
+\tag{7.14}
 \end{equation}\]</span></p>
 <p><span class="math display" id="eq:lpmsample">\[\begin{equation}
 \hat{Pr(y=1)}=b_0+b_1x_1+b_2x_2+\cdots +b_kx_k
-\tag{7.16}
+\tag{7.15}
 \end{equation}\]</span></p>
 <p>Again, nothing is different with respect to how we use the above equations to answer questions concerning the predicted change or value of the outcome. We simply need to remember that those changes or values will be expressed as probabilities that <span class="math inline">\(y=1\)</span> and what it means for <span class="math inline">\(y\)</span> to equal 1 in the context of our particular question.</p>
 <div id="using-lpm" class="section level3">
 <h3><span class="header-section-number">7.4.1</span> Using LPM</h3>
-<p>What if instead of modeling traffic fatality rates as an outcome dependent on miles driven and mandatory jail sentencing for drunk driving, we modeled whether a state has mandatory sentencing as an outcome dependent on traffic fatality rates and region? Perhaps states passed such laws because they have high traffic fatality rates. Equation <a href="7-categorical-variables-and-interactions.html#eq:lpmex">(7.17)</a> represents our model in this case.</p>
+<p>What if instead of modeling traffic fatality rates as an outcome dependent on miles driven and mandatory jail sentencing for drunk driving, we modeled whether a state has mandatory sentencing as an outcome dependent on traffic fatality rates and region? Perhaps states passed such laws because they have high traffic fatality rates. Equation <a href="7-categorical-variables-and-interactions.html#eq:lpmex">(7.16)</a> represents our model in this case.</p>
 <p><span class="math display" id="eq:lpmex">\[\begin{equation}
 Pr(jaild=1)=\beta_0+\beta_1vmiles+\beta_2region+\epsilon
-\tag{7.17}
+\tag{7.16}
 \end{equation}\]</span></p>
-<p>Scatter plots for LPMs are not particularly useful for communicating to an audience, but they can provide insight to what it is we are trying to do with an LPM, if it is not yet clear. Figure <a href="#lpmscatter"><strong>??</strong></a> changes the coding of <code>jaild</code> from yes/no to 1/0 and plots it on the y axis against traffic fatality rates on the x axis. Regions are excluded for simplicity.</p>
+<p>Scatter plots for LPMs are not particularly useful for communicating to an audience, but they can provide insight to what it is we are trying to do with an LPM, if it is not yet clear. Figure <a href="7-categorical-variables-and-interactions.html#fig:lpmscatter">7.5</a> changes the coding of <code>jaild</code> from yes/no to 1/0 and plots it on the y axis against traffic fatality rates on the x axis. Regions are excluded for simplicity.</p>
 <div class="figure"><span id="fig:lpmscatter"></span>
 <img src="data-apps-text_files/figure-html/lpmscatter-1.png" alt="LPM visualization" width="672" />
 <p class="caption">
@@ -1406,18 +1486,18 @@ regionWest
 </tr>
 </tbody>
 </table>
+<p><br></p>
 <p>Plugging these results into our sample regression equation gives us</p>
-<p><span class="math display" id="eq:lpmexsample">\[\begin{equation}
-\hat{Pr(jaild=1)}= -0.07 + 0.12 \times vmiles + 0.06 \times neast + 0.04 \times south + 0.36 \times west
-\tag{7.18}
-\end{equation}\]</span></p>
-<p>Once again, we are back to plug-and-chug. What is the predicted probability that state in the Midwest with a traffic fatality rate of 2.5 has a mandatory jail sentence for drunk driving? Answer:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="7-categorical-variables-and-interactions.html#cb25-1"></a><span class="fl">-0.07</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.12</span><span class="op">*</span><span class="fl">2.5</span></span></code></pre></div>
-<pre><code>## [1] 0.23</code></pre>
-<p>there is a 23% likelihood that such a state has such a law. How would an increase of 2 fatalities per 10,000 affect the probability that a state imposes a mandatory jail law? Answer:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="7-categorical-variables-and-interactions.html#cb27-1"></a><span class="fl">0.12</span><span class="op">*</span><span class="dv">2</span></span></code></pre></div>
-<pre><code>## [1] 0.24</code></pre>
-<p>an increase in probability by about 24%. Furthermore, our results suggest states in the West are substantially more likely to have this law. Compared to the Midwest, the West is 36% more likely to have a law and about 30% more likely than states in the South and Northeast.</p>
+<p><span class="math display">\[\hat{Pr(jaild=1)}= -0.07 + (0.12 \times vmiles) + (0.06 \times d_{neast}) + (0.04 \times d_{south}) + (0.36 \times d_{west})\]</span></p>
+<p>Once again, we are back to plug-and-chug. For example, what is the predicted probability that a state in the Midwest with a traffic fatality rate of 2.5 has a mandatory jail sentence for drunk driving?</p>
+<p><span class="math display">\[\hat{Pr(jaild=1)}= -0.07 + (0.12 \times 2.5)\]</span></p>
+<p><span class="math display">\[\hat{Pr(jaild=1)}=0.23\]</span></p>
+<p>There is a 23% likelihood that such a state has such a law.</p>
+<p>How would an increase of 2 fatalities per 10,000 affect the probability that a state imposes a mandatory jail law?</p>
+<p><span class="math display">\[\Delta \hat{Pr(jaild=1)}=0.12 \times 2\]</span></p>
+<p><span class="math display">\[\Delta \hat{Pr(jaild=1)}=0.24\]</span></p>
+<p>An increase in the traffic fatality rate of 2 is predicted to increase the probability that a state passes a mandatory jail sentence for drunk driving by about 24 <em>percentage points</em>.</p>
+<p>Furthermore, our results suggest states in the West are substantially more likely to have this law. Compared to the Midwest, the West is 36 percentage points more likely to have a law and about 30 percentage points more likely than states in the South and Northeast.</p>
 </div>
 <div id="fit" class="section level3">
 <h3><span class="header-section-number">7.4.2</span> Fit</h3>
@@ -1637,7 +1717,7 @@ N. East
 <p>We can see that there are 248 cases where our model correctly predicts the outcome (210 + 38). There are 87 cases where our model incorrectly predicts the outcome. Specifically, there are 31 cases where our model predicts a state has a law but doesn’t and 56 cases where our model predicts a state does not have a law but does. We can also convert these to percentages like the table below. These confusion matrices help us assess and communicate how accurate our model is.</p>
 <table>
 <caption>
-<span id="tab:unnamed-chunk-39">Table 7.8: </span>Confusion matrix for LPM (in proportions)
+<span id="tab:unnamed-chunk-37">Table 7.8: </span>Confusion matrix for LPM (in proportions)
 </caption>
 <thead>
 <tr>
@@ -1657,10 +1737,10 @@ N. East
 0
 </td>
 <td style="text-align:right;">
-0.7894737
+0.79
 </td>
 <td style="text-align:right;">
-0.4492754
+0.45
 </td>
 </tr>
 <tr>
@@ -1668,10 +1748,10 @@ N. East
 1
 </td>
 <td style="text-align:right;">
-0.2105263
+0.21
 </td>
 <td style="text-align:right;">
-0.5507246
+0.55
 </td>
 </tr>
 </tbody>
