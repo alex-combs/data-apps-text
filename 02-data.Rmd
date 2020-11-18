@@ -19,8 +19,6 @@ We cannot effectively convert the raw material of knowledge into a useful produc
 
 ## Rectangular Data
 
-Most data are rectangular, often represented using a standard spreadsheet organized by rows and columns. A rectangle of data is commonly referred to as a **dataset**.
-
 ```{r generic-table, include=FALSE}
 generic <- tibble(ID = c("Unit of Analysis", "Unit of Analysis", "Unit of Analysis"),
                   Variable_1 = c("Datum", "Datum", "Datum"),
@@ -33,8 +31,9 @@ kable(generic, format = 'html', caption = "Generic rectangular data")
 
 <br>
 
-A rectangular dataset has three components. Not all datasets will fit the below description because many datasets are not organized in a tidy manner. The elements of tidy data will be covered in a later chapter.
+Rectangular data organized by rows and columns. A rectangular dataset has three components. Not all datasets will match the below description because many datasets are not organized correctly.
 
+>
 - **Unit of analysis or observation:** The generic entity or subject a row of data refers to. The unit of analysis uniquely identifies each row of a dataset. If we have a dataset of 50 states and some variables measured in 2020, then our unit of analysis is states. If you were told a specific state, then you could find the row in the dataset. If we have 50 states measured in 2019 and 2020, then the unit of analysis is state-year because you will need to know the state and year to find a specific row.
 - **Variable:** A measured characteristic of the unit of analysis. State unemployment rate is a variable for a state unit of analysis.
 - **Datum:** The intersection of a variable (column) and a unit of analysis (row) resulting in a cell. The datum is a particular piece of information. A cell could contain something like 4.8 as the unemployment rate for Georgia in 2020.
@@ -57,6 +56,7 @@ include_graphics('images/variables.png')
 
 All variables belong to one of two broad types: qualitative (or categorical) and quantitative (or numeric).
 
+>
 - **Qualitative** variables take on values that have no intrinsic numerical meaning. They are expressed in words.
 - **Quantitative** variables take on values that do have intrinsic numerical meaning.
 
@@ -64,10 +64,11 @@ All variables belong to one of two broad types: qualitative (or categorical) and
 
 Qualitative variables can be further differentiated into two types: nominal and ordinal.
 
+>
 - **Nominal** variables take on values that differ in name only.
 - **Ordinal** variables take on values that can be ranked relative to each other but the difference between rankings has no numerical value.
 
-The values that categorical variables take on are commonly referred to as levels. Categorical variables can contain virtually any number of levels, though the number of levels is usually limited. 
+The values that categorical variables take on are commonly referred to as **levels**. Categorical variables can contain virtually any number of levels, though the number of levels is usually limited. 
 
 A variable such as sex contains two levels: male and female. The variable sex is nominal, as its values have no numerical meaning and the two levels have no ranking. Race, state, country, political party, and any variable coded as yes/no such as unemployed, married, and below the federal poverty line are all examples of nominal variables.
 
@@ -77,24 +78,23 @@ If you have ever participated in a customer satisfaction survey, then you have a
 
 Quantitative variables can be further differentiated into two types: discrete and continuous.
 
+>
 - **Discrete** variables take on countable or indivisible values.
 - **Continuous** variables take on infinitely divisible values (at least in theory).
 
-The distinction between discrete and continuous can be more difficult to discern but also less consequential for analysis. It is often the case that analytical models treat the two variables the same. However, for a purpose such as data visualization, the distinction can be informative.
+Any variable that is a count of persons, places, events, or things is a discrete variable, taking on integer values (e.g. 0, 1, 2, 3,...). The count of homeless people in a city, students in a classroom, hospital beds, or nonprofit volunteers are all discrete variables. When should we care that a variable is discrete? Chapter \@ref(descriptive-statistics) and chapters on inference will discuss how statistics relies heavily on the **normal distribution**, also referred to as a bell curve. If a discrete variable can take on integer values only, and especially if only a few values are possible, then that variable is unlikely to be normally distributed. Rare discrete events, such as plane crashes or government defaults are not normally distributed. Application of basic statistical procedures to such variables may be inappropriate, requiring more advanced methods outside to scope of this course.
 
-Any variable that is a count of persons, places, events, or things is a discrete variable, usually taking on integer values (e.g. 0, 1, 2, 3,...). By contrast, a continuous variable can contain values with an infinite number of decimal places. Even so, continuous variables take on a limited number of decimal places because either we measure phenomena with finite precision or it simply becomes impractical to include so many decimal places.
+In many cases, if a variable is numeric, then it is continuous or can be treated as such. Continuous variables can contain values with an infinite number of decimal places. Still, continuous variables are recorded in data with a limited number of decimal places because either we measure phenomena with finite precision or it simply becomes impractical to include so many decimal places. For example, age is usually recorded in discrete years, but we could record continuously to the zeptosecond (a trillionth of a billionth of a second). 
+
+Many discrete variables become continuous because we calculate averages, proportions, or rates from them. The number of students in the classroom is discrete (e.g. 20, 25, etc.), but the average number of students in classrooms (i.e. total students/number of classrooms) is continuous. This is how we can have values such as 22.5 for pupil-to-teacher ratio. The number of homeless people in a city is discrete but the proportion of the city's population that is homeless (count of homeless/population) is continuous. 
 
 ### Index variables
 
-Index variables are continuous variables but warrant separate discussion. An index variable is a composite measure of multiple variables. They can be used to make a continuous variable out of multiple categorical variables or simplify multiple quantitative variables into one. Purposes such as ranking colleges, measuring poverty beyond income, and determining political ideology make use of index variables.
+Index variables are usually continuous but warrant separate discussion. An index variable is a composite measure of multiple variables. They can be used to make a continuous variable out of multiple categorical variables or simplify multiple quantitative variables into one quantitative measure. Purposes such as ranking colleges, measuring multidimensional poverty (i.e. factors beyond income), and determining political ideology make use of index variables.
 
-Index variables mask underlying information. This can be helpful or harmful. In either case, it is important to consider how an index variable is constructed. Doing so can offer insight or uncover problems.
+Index variables mask underlying information. This can be helpful or harmful. In either case, it is important to consider how an index variable is constructed. Doing so can offer insight or uncover problems. An instructive example familiar to readers is college rankings. U.S. News and World Report [describes](https://www.usnews.com/education/best-colleges/articles/ranking-criteria-and-weights) how rankings are determined. 
 
-An instructive example familiar to readers is college rankings. U.S. News and World Report [describes](https://www.usnews.com/education/best-colleges/articles/ranking-criteria-and-weights) how rankings are determined. 
-
-What makes a college good? According to these rankings, five percent of what makes a college good is the percent of undergraduate alumni giving a donation as a proxy of student satisfaction. Another 20% is based on the opinions of administrators at peer institutions.
-
-Are these choices wise? This is difficult to say and besides the point. The point is that index variables involve choices made by people and are not naturally occurring data. They are synthetic materials of knowledge and worthy of our discernment. 
+What makes a college good? According to these rankings, five percent of what makes a college good is the percent of undergraduate alumni giving a donation as a proxy of student satisfaction. Another 20% is based on the opinions of administrators at peer institutions. Are these choices wise? This is difficult to say and besides the point. The point is that index variables involve choices made by people and are not data that are observed directly. They are synthetic materials of knowledge and warrant careful consideration.
 
 ## Dataset structures
 
@@ -114,6 +114,8 @@ gapminder %>%
   kable(format = 'html', caption = "Cross-section example")
 ```
 
+<br>
+
 **Pooled cross-sectional** data could be considered a fourth structure but is simply multiple cross-sections stacked atop each other. The critical quality of pooled cross-sectional data is that each cross-section contains *different* units measured at different times, not the same units measured at different times. Notice in Table 2.3 that the countries included from 2002 are not the same as those included from 2007.
 
 ```{r pooled, echo=FALSE}
@@ -124,6 +126,8 @@ gapminder %>%
   kable(format = 'html', caption = "Pooled cross-section example")
 ```
 
+<br>
+
 **Time series** data measures one unit over multiple time periods. The unit of analysis in time series data is time, as it uniquely identifies each row. Notice in Table 2.4 that one country is tracked over multiple years.
 
 ```{r timeseries, echo=FALSE}
@@ -132,6 +136,8 @@ gapminder %>%
   tail(n=7) %>% 
   kable(format = 'html', caption = "Time series example")
 ```
+
+<br>
 
 **Panel** (or longitudinal) data measures the same units over multiple time periods. The unit of analysis is pair of unit and time period. Notice in Table 2.5 that in order to identify a specific row, you would need to know the country *and* year. One could also think of panel data as numerous time series.
 

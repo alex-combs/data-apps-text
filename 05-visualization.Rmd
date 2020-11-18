@@ -2,14 +2,6 @@
 
 > *"The pen is mightier than the sword, especially if it draws a graph."*
 
-## Learning objectives {#lo5}
-
-- Interpret the six visualizations included in this chapter
-- Recommend an appropriate type of visualization given the intended message and data
-
-
-## So many choices
-
 The world of data visualization is incredibly diverse and detailed. You could spend a substantial amount of time learning how to construct the best visualization given particular data and the the intended message. Such depth is far beyond the scope of this book. For more coverage on data visualization, I recommend the following resources:
 
 - [Flowing Data](https://flowingdata.com)
@@ -17,25 +9,25 @@ The world of data visualization is incredibly diverse and detailed. You could sp
 
 At a basic level, most choices of visualization can be determined based on:
 
-- The kind of description we want to convey, and
-- the kinds of variables we are working with.
+- The kind of description or comparison we want to visualize, and
+- the kinds of variables involved in the visualization.
 
-This decision tree for visualizations is depicted in Figure \@ref(fig:vizflow) below.
+Figure \@ref(fig:vizflow) below provides a decision tree organized by according to these two considerations.
 
 ```{r vizflow, echo=FALSE, fig.cap='Basic data viz decisions'}
 include_graphics('images/vizflow.png')
 ```
 
-The above flowchart contains variations on six visualizations that cover most needs:
+## Learning objectives {#lo5}
 
-- Histogram or density plot
-- Box plot
-- Pie chart
-- Bar chart or dot plot
-- Line graph
-- Scatter plot
-
-Sections that follow briefly explain each of these six visualizations.
+- Interpret the six common visualizations from Figure \@ref(fig:vizflow)
+  - Histogram or density plot
+  - Box plot
+  - Pie chart
+  - Bar chart or dot plot
+  - Line graph
+  - Scatter plot
+- Recommend an appropriate type of visualization given the intended message and data
 
 ## Distribution
 
@@ -51,7 +43,6 @@ ggplot(college_grad_students, aes(x = grad_median)) +
   labs(x = 'Median earnings', y = 'Count of graduate majors') +
   theme_classic()
 ```
-
 
 These rectangles are called `bins` and the range each rectangle covers is called a `binwidth`. We can specify the number of bins and/or the binwidth. If we have more than 150 observations of a continuous variable, we may want to specify as many as 100 bins but should experiment with this number depending on the particular distribution of the variable. If we have less than 30 observations, we should not use a histogram. If we have more than 30 but less than 150 observations, we should experiment with some number of bins between 30 and 100. Regarding binwidth, if our variable is discrete, then our binwidth should equal the natural integer width. For example, if our variable is a count of weeks, then our binwidth should equal 1 so that each bin contains one week.
 
@@ -218,9 +209,7 @@ ggplot(gradschool_spia, aes(x = grad_unemployment_rate, y = reorder(major, -grad
 
 ### Line graph
 
-If we want to compare values of a variable across units of time (i.e. change over time), then a line graph is probably the most common choice, though a bar chart or dot plot work too. 
-
-The graduate degree data is cross-sectional, so there is no good way to make a line graph. I trust you have seen one before.
+If we want to compare values of a variable across units of time (i.e. change over time), then a line graph is probably the most common choice, though a bar chart or dot plot can work too. The graduate degree data is cross-sectional, so there is no good way to make a line graph using these data. I trust you have seen a line graph before. We will cover how to make line graphs using panel data in Chapter \@ref(r-visualization).
 
 ## Association
 
