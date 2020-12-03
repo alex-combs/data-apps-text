@@ -4,29 +4,34 @@
 
 In this chapter, you will learn how to:
 
-- Run a regression model
-- Have R report key results
+- Run the following regression models:
+  - Continuous outcome and explanatory variable(s)
+  - Categorical explanatory variable
+  - Binary categorical (i.e. dummy) outcome (linear probability model)
+  - Interaction of two explanatory variables
+- Generate tables of key results
 
 ## Set-up
 
 To complete this chapter, you need to
 
-- Open a script
+- Start a R Markdown document
 - Load the following packages
 
 ```{r, eval=FALSE}
 library(tidyverse)
 library(moderndive)
 library(Stat2Data)
+library(carData)
 ```
 
-We will use the `TeenPregnancy` dataset within the `Stat2Data` package. We need to manually load specific datasets from `Stat2Data` in order to use them. Therefore, run the following code, and the dataset should show up in your `Environment` pane in the top-right.
+We will use the `TeenPregnancy` dataset within the `Stat2Data` package and the `Salaries` dataset within the `carData` package. While data in most packages is available in the background once the package is loaded, we need to manually load datasets from `Stat2Data` in order to use them. Run the following code, and the dataset should show up in your Environment pane in the top-right.
 
 ```{r}
 data("TeenPregnancy")
 ```
 
-Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.
+Be sure to view the documentation for these data by clicking on the package name under the packages tab in the bottom-right pane, then click on the dataset.
 
 ## Running Regression
 
@@ -38,7 +43,11 @@ Chapters \@ref(simple-and-multiple-regression) and \@ref(categorical-variables-a
 - Regression with a categorical explanatory interacted with a numerical variable
 - Regression with a binary categorical outcome (linear probability model)
 
-While our interpretation of results changes depending on the kind of regression model we use, the code to run a standard linear regression is the same regardless of the number and type of explanatory variables and whether the outcome variable is numerical or binary. With the exception of including an interaction, running the regression models listed above can be done with the same code structure shown below.
+While our interpretation of results may need to adjust according to which of the above regression models we run, 
+
+> the code to run a linear regression is the same regardless of the number and type of explanatory variables we include and whether the outcome variable is continuous or a binary categorical variable. With the exception of including an interaction, running the regression models listed above can be done with the same code structure shown below.
+
+### General Syntax
 
 ```{r, eval=FALSE}
 new_object_name <- lm(outcome ~ exp_1 + exp_2 + ... + exp_k, data = name_of_dataset)
@@ -47,9 +56,11 @@ new_object_name <- lm(outcome ~ exp_1 + exp_2 + ... + exp_k, data = name_of_data
 - We name a new object that will hold the results of our regression 
 - `lm` is the function for linear regression (acronym for linear model) 
 - We replace `outcome` with the name of our outcome variable that should be either numerical or binary
-- The tilde `~` separates the outcome from the explanatory variables
-- We replace the `exp_1` to `exp_k` with the names of how ever many explanatory variables we wish to include, each separated by a plus sign `+`
+- The tilde `~` separates the outcome on the left-hand side of the regression equation from the explanatory variables on the right-hand side
+- We replace the `exp_1` to `exp_k` with the names of however many explanatory variables we wish to include, each separated by a plus sign `+`
 - We replace `name_of_dataset` with the name of the dataset that contains the variables for the regression model.
+
+### Continuous outcome and continuous or categorical explanatory variables
 
 Recall the following multiple regression model from Chapter \@ref(simple-and-multiple-regression).
 
@@ -66,8 +77,15 @@ fedpov2 <- lm(fed_spend ~ poverty + homeownership + income, data = selcounty)
 
 That's all there is to it. I named the model `fedpov2` to remind myself it was the second model I ran to examine the relationship between federal spending and poverty rate. Note that the code within the `lm` function mimics Equation \@ref(eq:multregexrep). No matter if the explanatory variables happen to be numerical or categorical, the regression works the same in R. Lastly, I did some behind-the-scenes cleaning of the original `county` data discussed in Chapter \@ref(simple-and-multiple-regression) and named it `selcounty`. Therefore, I told R to use that dataset when running the regression.
 
+`TeenPregnancy` is a dataset with 50 observations on the following 4 variables.
+
+- `State` State abbreviation
+- `CivilWar` Role in Civil War (B=border, C=Confederate, O=other, or U=union)
+- `Church` Percentage who attended church in previous week (from a state survey)
+- `Teen` Number of pregnancies per 1,000 teenage girls in state
+
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 1:** Suppose we want to use the `TeenPregnancy` dataset to examine whether state teen pregnancy rates are associated with church attendance and a state's role in the Civil War (admittedly an odd variable to include but let's think of it as a proxy for region). The model would be represented using the following formula
+**Exercise 1:** Suppose we want to use the `TeenPregnancy` dataset to examine whether state teen pregnancy rates are associated with church attendance and a state's role in the Civil War, which is a categorical variable with four levels (admittedly an odd variable to include but let's think of it as a proxy for region). The model would be represented using the following formula:
 
 \begin{equation}
 Teen = \beta_0 + \beta_1Church + \beta_2CivilWar + \epsilon
@@ -80,13 +98,79 @@ Run this regression model.
 teenpreg <- lm(Teen ~ Church + CivilWar, data = TeenPregnancy)
 ```
 
-## Reporting Results
+### Interactions
+
+Though we only cover interacting a numerical variable with a categorical variable in this course, we can interact two variables of any type using the same code. In theory, we can interact more than two variables. In any case, an interaction requires us to multiply the variables within the `lm` function.
+
+Recall the regression model from Chapter \@ref(categorical-variables-and-interactions) where `mrall` is traffic fatality rate, `vmiles` is the average miles driven, and `jaild` is whether a state imposes mandatory jail for drunk driving.
+
+\begin{equation}
+mrall = \beta_0 + \beta_1 vmiles + \beta_2 jaild + \beta_3 vmiles \times jaild + \epsilon
+\end{equation}
+
+I ran this regression using the following code
+
+```{r, results='hide'}
+interactmod <- lm(mrall ~ vmiles + jaild + vmiles*jaild, data = trdeath)
+```
+
+> Note that the only difference from the code in the previous example is `vmiles*jaild`, which tells R to interact the two variables by multiplying them together. Once again, the code reflects the equation.
+
+`Salaries` is a dataset with 397 observations recording rank (AsstProf, AssocProf, Prof), discipline (A = theoretical, B = applied), years since their Ph.D., years of experience, sex, and salary.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 2:** Suppose we want to use the `Salaries` dataset to examine whether professor salary is associated with their sex and how long they have worked at the institution. Furthermore, suppose we theorize that the association between salary and how long they have worked at the insitution differs by sex, thus warranting an interaction. Therefore, we have the following model:
+
+\begin{equation}
+salary = \beta_0 + \beta_1sex + \beta_2yrs.service + \beta_3 sex \times yrs.service + \epsilon
+\end{equation}
+
+Run this regression model.
+```
+
+
+### Dummy outcome
+
+While a regression with a dummy variable as the outcome does not require any special coding, we do need to make sure the dummy variable is coded as 1/0 in the data. Sometimes a dummy variable will be coded like this already in which case we don't need to do anything to run the regression. Other times, the dummy variable will be coded using text like "yes" and "no" or "Male" and "Female" in the case of a dummy variable for sex.
+
+Recall in Table \@ref(tab:trdeath) the coding for `jaild` is yes/no. Also recall the regression equation \@ref(eq:lpmex) for the linear probability model example restated below:
+
+$$Pr(jaild=1)=\beta_0+\beta_1vmiles+\beta_2region+\epsilon$$
+
+I ran this regression using the following code:
+
+```{r}
+lpm_mod <- lm(jaild ~ mrall + region, data = trdeath2)
+```
+
+But this won't work if we include `jaild` in our regression code without recoding it to 1/0. This can be done using the following code.
+
+```{r, include=FALSE}
+trdeath2 <- trdeath %>% 
+  mutate(jaild = if_else(jaild == 'yes', 1, 0))
+```
+
+This code creates a new dataset named `trdeath2` which is a copy of the `trdeath` dataset except for changing the values for `jaild` using the `mutate` verb. Inside `mutate`, I name the "new" variable `jaild`, which overwrites the existing `jaild` variable based on what follows the equal sign.
+
+The `if_else` function can be used for a variety of purposes, but it is the simplest way to recode a dummy variable in text to 1/0. The first argument is the conditional. Observations that meet this conditional receive the second argument, while observations that do not receive the third argument. Using natural language, I'm telling R, "If `jaild` equals "yes", then code it as 1 or else code it as 0."
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 3:** Let's keep using this `Salaries` data. Suppose we wanted to predict `discipline`, which again is coded as A = theoretical or B = applied. Suppose we wanted to predict discipline using the following model:
+
+\begin{equation}
+Discipline = \beta_0 + \beta_1Sex + \beta_2YrsSincePhD + \epsilon
+\end{equation}
+
+Run this regression model.
+```
+
+## Reporting Regression Estimates
 
 This section presents two ways to obtain results after running a regression. The first uses functions that load with the `moderndive` package and the second uses functions that load with R by default (i.e. Base R). The `moderndive` functions are somewhat more intuitive and produce results that look nicer, but the base R functions are more robust to any variety of regression model.
 
 ### Moderndive
 
-To get a standard table of regression results from using `moderndive`, we can use the `get_regression_table` function on our saved regression model results like so
+To get a standard table of regression estimates using `moderndive`, we can use the `get_regression_table` function on our saved regression model results like so
 
 ```{r, eval=FALSE}
 get_regression_table(fedpov2)
@@ -97,7 +181,7 @@ get_regression_table(fedpov2) %>%
   kable(format = 'html')
 ```
 
-And to get goodness-of-fit measures, we can use the `get_regression_summaries` function like so
+To get goodness-of-fit measures, we can use the `get_regression_summaries` function like so
 
 ```{r, eval=FALSE}
 get_regression_summaries(fedpov2)
@@ -122,7 +206,7 @@ get_regression_summaries(fedpov2) %>%
 ```
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 2:** Produce a standard table of regression results and goodness-of-fit measures for your regression model for teen pregnancy rates using the `moderndive` functions.
+**Exercise 4:** Produce a standard table of regression estimates and goodness-of-fit measures for each of your three regression models using the `moderndive` functions.
 ```
 
 ### Base R
@@ -130,11 +214,12 @@ get_regression_summaries(fedpov2) %>%
 A comprehensive set of regression results can be obtained using the `summary` function on our regression model like so
 
 ```{r}
-options(scipen = 999) # turns off scientific notation if necessary
 summary(fedpov2)
 ```
 
-which gives us most of the information from `get_regression_table` except for the confidence intervals as well as R-squared and Adjusted R-squared. The Residual standard error is not exactly the same as the RMSE above--it is actually equal to `sigma` in the full table from `get_regression_summaries`--but you can treat them the same. The difference between the two is statistically technical and obtaining the same RMSE as the table above requires too much new code.
+which gives us most of the information from `get_regression_table` except for the confidence intervals. 
+
+The `summary` function also reports the R-squared and Adjusted R-squared at the bottom. The `esidual standard error` at the bottom is not *exactly* the same as the RMSE above--it is actually equal to `sigma` in the full table from `get_regression_summaries`--but you can treat them the same.
 
 To get the confidence intervals, we can use the `confint` function like so, 
 
@@ -145,9 +230,9 @@ confint(fedpov2)
 which uses the 95% confidence level by default.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 3:** Generate the key regression results and goodness-of-fit measures for your regression model for teen pregnancy rates using the Base R functions.
+**Exercise 5:** Produce a comprehensive set of results for each of your three regression models using the Base R functions.
 ```
 
 ## Submit
 
-Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.
+Save your Rmd file and upload to eLC. Once you upload, answers will become available for download.

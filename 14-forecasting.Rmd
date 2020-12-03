@@ -29,17 +29,7 @@ Analyses can seek to predict, to explain, or both. Keep in mind that forecasting
 
 If the focus is solely prediction, then we do not need to concern ourselves with internal validity or omitted variable bias. Frankly, we do not care if our model makes theoretical sense as long as its predictions are accurate. While this frees us from many constraints, it makes goodness-of-fit even more important. Therefore, the primary focus of this chapter is how to identify a good forecast model and how to choose the best model among multiple good models.
 
-Lastly, keep in mind that a forecast involves confidence intervals. Whereas explanatory regression produces confidence intervals around the estimated effect of an explanatory variable on an outcome, forecasts produce confidence intervals around the predicted value of a future outcome. These confidence intervals convey the range of values that our forecast model expects the future outcome to fall within some percentage of simulated futures. 
-
-Figure \@ref(fig:futures) shows one forecast model of Australian tourism with 10 simulated futures based on resampling. This is not a typical way to show a forecast. Instead, forecasts are usually shown with a shaded confidence interval as in Figure \@ref(fig:ci). The darker region represents an 80% confidence interval and the lighter region represents a 95% confidence interval. These confidence intervals are based on the simulated futures.
-
-```{r futures, echo=FALSE, fig.cap='Simulated futures of a forecast'}
-include_graphics('images/forecast_futures.png')
-```
-
-```{r ci, echo=FALSE, fig.cap='Confidence intervals based on simultated futures'}
-include_graphics('images/forecast_ci.png')
-```
+Lastly, keep in mind that a forecasting also relies on confidence intervals. Whereas explanatory regression places focus on the confidence intervals around the estimated effect of an explanatory variable on an outcome, forecasts focus on the confidence intervals around the predicted value of the outcome. These confidence intervals convey the range of values that our forecast model expects the future outcome to fall within some percentage of simulated futures. 
 
 ## Patterns
 

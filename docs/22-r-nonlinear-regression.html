@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 11 Surveys and Evaluations | Data Applications in Public Administration</title>
+  <title> 22 R Nonlinear Regression | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 11 Surveys and Evaluations | Data Applications in Public Administration" />
+  <meta property="og:title" content=" 22 R Nonlinear Regression | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alex-combs/data-apps-text" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 11 Surveys and Evaluations | Data Applications in Public Administration" />
+  <meta name="twitter:title" content=" 22 R Nonlinear Regression | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="10-sampling.html"/>
-<link rel="next" href="12-regression-inference.html"/>
+<link rel="prev" href="21-r-regression.html"/>
+<link rel="next" href="23-r-evaluations.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -452,596 +452,372 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="surveys-and-evaluations" class="section level1">
-<h1><span class="header-section-number"> 11</span> Surveys and Evaluations</h1>
-<blockquote>
-<p><em>“A census taker once tried to test me. I ate his liver with some fava beans and a nice chianti.”</em></p>
-<p>—Hannibal Lecter</p>
-</blockquote>
-<p><br></p>
-<p>Before considering inference with respect to regression, this chapter covers two common concerns in sampling beyond question design or sampling method: sample power and weighting. Then, hypothesis testing is introduced, which applies to any sample estimate from which we wish to make inference. Lastly, using hypothesis testing for evaluations in their simplest forms is considered.</p>
-<div id="lo11" class="section level2">
-<h2><span class="header-section-number">11.1</span> Learning objectives</h2>
+<div id="r-nonlinear-regression" class="section level1">
+<h1><span class="header-section-number"> 22</span> R Nonlinear Regression</h1>
+<div id="learning-objectives" class="section level2">
+<h2><span class="header-section-number">22.1</span> Learning Objectives</h2>
+<p>In this chapter, you will learn how to:</p>
 <ul>
-<li>Apply the margin or error or the confidence interval of an estimate when making conclusions</li>
-<li>Compute the sample size required to achieve a desired margin of error or precision around an estimate given the necessary information for such a computation</li>
-<li>Weight survey results given sufficient information</li>
-<li>Identify or construct the null and alternative hypotheses of a research question</li>
-<li>Interpret a p-value and apply it to determine the outcome of a hypothesis test</li>
-<li>Distinguish between types I and II error in a research scenario</li>
-<li>Explain when a chi-square test or t-test is appropriate</li>
+<li>Run a regression with a quadratic term</li>
+<li>Run a regression with log transformations</li>
 </ul>
 </div>
-<div id="sample-size" class="section level2">
-<h2><span class="header-section-number">11.2</span> Sample size</h2>
-<p>Now that we understand how a sample of relatively small size allows us to make inferences about the population with a reasonable degree of confidence, let us next consider how to determine the size of sample we need to achieve a confidence interval with a specific degree of precision.</p>
-<p>When President Trump’s impeachment inquiry was in progress, numerous polls were conducted to gauge the sentiment of the U.S. electorate as to whether Trump should be impeached. One poll conducted by Fox News, using a sample of 1,000 voters, reported that 51% of voters support impeaching Trump with a margin of error of 3 percentage points. These results garnered national attention as the first time a majority of U.S. voters supported the impeachment of Trump. Regardless of one’s opinion on the matter or whether a national majority persuades elected officials, the claim that a majority of voters supported impeachment based on this poll is dubious.</p>
-<p>A sample of U.S. voters was taken. From this sample, the proportion of voters in support of impeachment was calculated to serve as an estimate of the population parameter. This sample produced an estimate of 51 percent. The margin or error in surveys or polls, unless noted otherwise, refers to one-half of the 95% confidence interval, or roughly two standard errors. Therefore, the 95% confidence interval of the polling results was 48 to 54 percent. The confidence interval used to capture the unobserved population parameter includes a minority of voters supporting impeachment.</p>
-<p>A common mistake made when interpreting estimates and confidence intervals is that the estimate is the most likely value within the confidence interval for the population parameter. <strong>The population parameter is no more likely to equal the estimate than any other value within the confidence interval</strong>. A confidence interval either captures the population parameter or it does not. Therefore, it was just as likely that 48 percent of voters supported the impeachment as it was 54 percent did or any percentage in between.</p>
-<p>As long as our estimate is unbiased, we cannot influence its value. Any attempt to do so would be bias by definition. Thus, the pollsters were stuck with an estimate of 51 percent. The estimate of 51 percent was not the issue for making the conclusion that a majority of voters supported impeachment. The issue was the critical lack of precision around the estimate. Unlike the estimate, we <em>can</em> influence the precision of the confidence interval.</p>
-<p>How many voters would the pollsters have had to survey in order to achieve a margin of error of 1 percentage point and conclude a majority of voters support impeachment?</p>
-<p>If the outcome is dichotomous or binary, such as whether or not a respondent supports impeachment, then the equation for determining the desired sample size is as follows</p>
-<p><span class="math display" id="eq:sampsizeprop">\[\begin{equation}
-n=p(1-p)({\frac{Z}{E}})^2
-\tag{11.1}
-\end{equation}\]</span></p>
+<div id="set-up" class="section level2">
+<h2><span class="header-section-number">22.2</span> Set-up</h2>
+<p>To complete this chapter, you need to</p>
 <ul>
-<li>n is the sample size</li>
-<li>p is the proportion of yes/true/success</li>
-<li>Z is the number of standard deviations we set according to what confidence interval is desired</li>
-<li>E is the desired margin of error</li>
+<li>Open a script</li>
+<li>Load the following packages</li>
 </ul>
-<p>It is important to point out that the calculation in Equation <a href="11-surveys-and-evaluations.html#eq:sampsizeprop">(11.1)</a> occurs <em>prior</em> to the poll. Therefore, we do not know the value of <span class="math inline">\(p\)</span>. Unless there is reason to expect <span class="math inline">\(p\)</span> to equal a particular proportion, it is customary to input 0.50. If we want to use a 95% confidence interval then we input 2 for <span class="math inline">\(Z\)</span>. Lastly, we replace <span class="math inline">\(E\)</span> with how far we want each side of our chosen confidence interval to be below and above our estimate.</p>
-<p>Suppose the primary purpose of the Fox News poll was to conclude a majority opinion. Then, a margin of error equal to 1 percentage point would allow a valid conclusion that a majority of voters support or oppose impeachment if the result of the poll were slightly below 49% or above 51% in favor. Choosing to use a 95% confidence interval, then the sample size necessary to achieve a margin of error equal to 1 percentage point (0.01) is</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="22-r-nonlinear-regression.html#cb111-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb111-2"><a href="22-r-nonlinear-regression.html#cb111-2"></a><span class="kw">library</span>(moderndive)</span>
+<span id="cb111-3"><a href="22-r-nonlinear-regression.html#cb111-3"></a><span class="kw">library</span>(carData)</span></code></pre></div>
+<p>We will use the <code>Mroz</code> dataset within the <code>carData</code> package. Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.</p>
+</div>
+<div id="quadratic-term" class="section level2">
+<h2><span class="header-section-number">22.3</span> Quadratic term</h2>
+<p>Recall the below regression model from Chapter <a href="8-nonlinear-variables.html#nonlinear-variables">8</a> that includes a squared term for <code>Age</code>, which allows our regression line to change directions once as <code>Age</code> changes. We included this term because Figure <a href="8-nonlinear-variables.html#fig:quadscatter">8.1</a> suggested wages initially increase with age, then decreases.</p>
 <p><span class="math display">\[\begin{equation}
-n=0.5(1-0.5)({\frac{1.96}{0.01}})^2\\
-n=9,604
+Wage = \beta_0 + \beta_1Age + \beta_2Age^2 + \beta_3Educ + \epsilon
 \end{equation}\]</span></p>
-<p>which is likely impractical for the kind of polling that news organizations tend to conduct.</p>
-<p>If we wish to determine the sample size needed for estimating a 95% confidence interval within a certain distance from a continuous estimate, such as the mean, we can use the following equation</p>
-<p><span class="math display" id="eq:sampsizemean">\[\begin{equation}
-n=(\frac{sZ}{E})^2
-\tag{11.2}
-\end{equation}\]</span></p>
-<p>where <span class="math inline">\(s\)</span> is the sample standard deviation. Again, we do not have the sample standard deviation prior to obtaining the sample. We must rely on past analyses of the variable in question or a pilot study with a small sample in order to input the sample standard deviation.</p>
-</div>
-<div id="survey-weights" class="section level2">
-<h2><span class="header-section-number">11.3</span> Survey weights</h2>
-<p>Ideally, the demographic composition of survey respondents should match the demographic composition of the survey’s intended population. Thanks to Census data, we have a reasonably accurate understanding of population demographics such as age, sex, race, and ethnicity for multiple geographic areas and government jurisdictions. Other organizations like Pew Research Center and Gallup provide population proportions of other various ways to form groups, such as political party or religious affiliation.</p>
-<p>Unfortunately, it is unlikely for the demographic composition of survey respondents to match the population. Recipients choose not to respond and surveys tend to reach some demographics disproportionately more than others. This results in over- or under-representation of certain demographic groups in our survey, which limits our ability to generalize survey results and threatens the internal validity of any estimate.</p>
-<p>Weighting is a way to correct for a demographic mismatch between the composition of respondents and the intended population. There are multiple methods of weighting, some of which are complex, but the basic method described below can work for most cases where maximum correction is not necessary or feasible.</p>
-<p>Suppose a poll targeted to the general U.S. public asked if workers who have illegally entered the U.S. should be 1) allowed to keep their jobs and apply for citizenship, 2) allowed to keep their jobs as temporary guest workers but not allowed to apply for citizenship, and 3) lose their jobs and have to leave the country. The poll also asked for political party affiliation. A total of 890 responses were collected, generating the following results.</p>
+<p>The below code demonstrates how to include a quadratic term within the <code>lm</code> function.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="22-r-nonlinear-regression.html#cb112-1"></a>quad_mod &lt;-<span class="st"> </span><span class="kw">lm</span>(Wage <span class="op">~</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(Age<span class="op">^</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>Educ, <span class="dt">data =</span> wages)</span></code></pre></div>
+<p>In this case, the code reflects the equation only somewhat; the <code>I()</code> is necessary to tell R that <code>Age^2</code> is the squared version of <code>Age</code>. Otherwise, R would not recognize <code>Age^2</code> in the data, thus excluding it from the regression.</p>
+<p>Now we can obtain results in the usual manner.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="22-r-nonlinear-regression.html#cb113-1"></a><span class="kw">get_regression_table</span>(quad_mod)</span></code></pre></div>
 <table>
-<caption>
-<span id="tab:unnamed-chunk-55">Table 11.1: </span>Illegal immigration poll results
-</caption>
 <thead>
 <tr>
 <th style="text-align:left;">
+term
 </th>
-<th style="text-align:left;">
-response
+<th style="text-align:right;">
+estimate
 </th>
-<th style="text-align:left;">
-party
+<th style="text-align:right;">
+std_error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p_value
+</th>
+<th style="text-align:right;">
+lower_ci
+</th>
+<th style="text-align:right;">
+upper_ci
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Apply for citizenship:278
-</td>
-<td style="text-align:left;">
-Republican :357
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Guest worker :262
-</td>
-<td style="text-align:left;">
-Democrat :174
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-</td>
-<td style="text-align:left;">
-Leave the country :350
-</td>
-<td style="text-align:left;">
-Independent:359
-</td>
-</tr>
-</tbody>
-</table>
-<p>Based on the results, a plurality of 39% of the U.S. public believes illegal immigrants should leave the country and 31% believe they should be allowed to apply for citizenship. The question these estimates are biased by the composition of political party affiliation. About 40% of the respondents are Republican and Independent, while about 20% are Democrat. Suppose we find a national survey reporting that the U.S. is 30% Republican, 36% Independent, and 31% Democrat. Therefore, Republicans and Independents are over-represented in our survey, while Democrats are under-represented. We need to correct for this using weights.</p>
-<p>To calculate weights, we can use the following formula.</p>
-<p><span class="math display" id="eq:weight">\[\begin{equation}
-Weight = \frac{Population}{Sample}
-\tag{11.3}
-\end{equation}\]</span></p>
-<p>Using Equation <a href="11-surveys-and-evaluations.html#eq:weight">(11.3)</a>, we obtain the following weights for our survey</p>
-<ul>
-<li>Republican: 30/40 = 0.75</li>
-<li>Independent: 36/40 = 0.9</li>
-<li>Democrats: 31/20 = 1.55</li>
-</ul>
-<p>These weights mean that each Republican response counts as only three-quarters of a response and each Democrat response counts as about 1.5 responses.</p>
-<p>Next, we need to tabulate how many of each response was made by the three parties.</p>
-<table>
-<caption>
-<span id="tab:pollparty">Table 11.2: </span>Response by political party
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-Republican
-</th>
-<th style="text-align:right;">
-Democrat
-</th>
-<th style="text-align:right;">
-Independent
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Apply for citizenship
+intercept
 </td>
 <td style="text-align:right;">
-57
+-22.722
 </td>
 <td style="text-align:right;">
-101
+3.023
 </td>
 <td style="text-align:right;">
-120
+-7.517
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Guest worker
-</td>
-<td style="text-align:right;">
-121
-</td>
-<td style="text-align:right;">
-28
-</td>
-<td style="text-align:right;">
-113
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Leave the country
-</td>
-<td style="text-align:right;">
-179
-</td>
-<td style="text-align:right;">
-45
-</td>
-<td style="text-align:right;">
-126
-</td>
-</tr>
-</tbody>
-</table>
-<p>Then, we multiply the values by their corresponding weight. For example, applying the weight for Republicans results in 134 responses for “Leave the country” (<span class="math inline">\(179 \times 0.75\)</span>). This process gives us the following counts</p>
-<table>
-<caption>
-<span id="tab:unnamed-chunk-57">Table 11.3: </span>Weighted survey counts
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-party
-</th>
-<th style="text-align:left;">
-response
-</th>
-<th style="text-align:right;">
-total
-</th>
-<th style="text-align:right;">
-weight
-</th>
-<th style="text-align:right;">
-w.total
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Republican
-</td>
-<td style="text-align:left;">
-Apply for citizenship
-</td>
-<td style="text-align:right;">
-57
-</td>
-<td style="text-align:right;">
-0.75
-</td>
-<td style="text-align:right;">
-43
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Republican
-</td>
-<td style="text-align:left;">
-Guest worker
-</td>
-<td style="text-align:right;">
-121
-</td>
-<td style="text-align:right;">
-0.75
-</td>
-<td style="text-align:right;">
-91
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Republican
-</td>
-<td style="text-align:left;">
-Leave the country
-</td>
-<td style="text-align:right;">
-179
-</td>
-<td style="text-align:right;">
-0.75
-</td>
-<td style="text-align:right;">
-134
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Democrat
-</td>
-<td style="text-align:left;">
-Apply for citizenship
-</td>
-<td style="text-align:right;">
-101
-</td>
-<td style="text-align:right;">
-1.55
-</td>
-<td style="text-align:right;">
-157
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Democrat
-</td>
-<td style="text-align:left;">
-Guest worker
-</td>
-<td style="text-align:right;">
-28
-</td>
-<td style="text-align:right;">
-1.55
-</td>
-<td style="text-align:right;">
-43
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Democrat
-</td>
-<td style="text-align:left;">
-Leave the country
-</td>
-<td style="text-align:right;">
-45
-</td>
-<td style="text-align:right;">
-1.55
-</td>
-<td style="text-align:right;">
-70
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Independent
-</td>
-<td style="text-align:left;">
-Apply for citizenship
-</td>
-<td style="text-align:right;">
-120
-</td>
-<td style="text-align:right;">
-0.90
-</td>
-<td style="text-align:right;">
-108
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Independent
-</td>
-<td style="text-align:left;">
-Guest worker
-</td>
-<td style="text-align:right;">
-113
-</td>
-<td style="text-align:right;">
-0.90
-</td>
-<td style="text-align:right;">
-102
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Independent
-</td>
-<td style="text-align:left;">
-Leave the country
-</td>
-<td style="text-align:right;">
-126
-</td>
-<td style="text-align:right;">
-0.90
-</td>
-<td style="text-align:right;">
-113
-</td>
-</tr>
-</tbody>
-</table>
-<p>According to our weighted counts, 36% of the U.S. believes illegal immigrants should leave the country, while 35% believe they should be allowed to apply for citizenship. Weighting has changed a 8 percentage point gap in these two responses to a 1 point gap.</p>
-<p>In case it was not obvious in the example, we have to ask survey recipients to provide the demographic information upon which we plan to weight. Survey administrators must consider what variables might bias the response(s) of interest if there is a mismatch between the sample and population. Wisely, the designers of the survey above suspected if a disproportionate number of Republicans or any other political party responded, this would bias their estimates. Presumably, race and ethnicity are correlated with this response, but we do not have this information to construct a weight.</p>
-</div>
-<div id="hypothesis-testing" class="section level2">
-<h2><span class="header-section-number">11.4</span> Hypothesis testing</h2>
-<p>At its foundation, hypothesis testing is a simple procedural process. It does involve some application of statistical theory, the most fascinating and misunderstood aspect of which is the p-value. This section covers how to set up and use a hypothesis test to determine if an estimate is statistically significant.</p>
-<div id="null-and-alternative-hypos" class="section level3">
-<h3><span class="header-section-number">11.4.1</span> Null and alternative hypos</h3>
-<p>Setting up a hypothesis test first involves establishing two mutually exclusive, competing statements:</p>
-<ul>
-<li>Null hypothesis: the condition I intend to test for is not true, not the case</li>
-<li>Alternative hypothesis: the condition I intend to test for is true, is the case</li>
-</ul>
-<p>The condition is based on our research question that warranted the analysis in the first place. For example, is the average age of MPA students less than the average age of all graduate students? Are females more likely to enroll in an MPA program than males? Does obtaining an MPA increase earnings?</p>
-<p>Based on our question, we make a hypothesis <em>before</em> computing an estimate that would answer the question. For example, the average age of MPA students is less than the average age of all graduate students. Females are more likely to enroll in an MPA program than males. The effect of attaining an MPA increases earnings. These examples are alternative hypotheses; the affirmative of the condition we set out to test. The null hypothesis is the negative of the condition. For example, average age of MPA students is equal to graduate students. The likelihood of enrolling in an MPA program are equal between males and females. An MPA degree does not increase earnings.</p>
-<p>Note that the examples of alternative hypotheses were all directional. They used words like less/more than or increase/decrease. An alternative hypothesis need not be directional even though we may expect one direction over the other. For example, our alternative hypotheses could be that average age differs between MPA students and other grad students, the likelihood of enrolling differs between males and females, and attaining an MPA effects income.</p>
-<p>I encourage students to stick with non-directional hypotheses. In additional to simplifying the analysis, doing so reduces the likelihood that we report a statistically significant result when in fact there is not one (i.e. false positive). A strong case can be and is made that the statistical analyses allow too high of a likelihood for false positives. Claiming a direction means we have theoretically ruled out half of the possible results of our analysis before we even conduct the test, thereby increasing the likelihood we get the results we expected. If we are able to do this, one might wonder why conduct the test in the first place.</p>
-<p>Translating the above into more mathematical concepts, most research questions involve differences: the difference in mean age between MPA students and other grad students, the difference in the proportions of female and male MPA graduates, the difference in the slopes of regression lines drawn through data points for income and education level or degree type.</p>
-<p>Thus, the null hypothesis states that any of these differences equals zero. The alternative hypothesis states that any of these differences does not equal zero. The null hypothesis is denoted by <span class="math inline">\(H_0\)</span> and the alternative hypothesis is denoted by <span class="math inline">\(H_A\)</span>.</p>
-<ul>
-<li><span class="math inline">\(H_0: \mu_{MPA}-\mu_{grad} = 0\)</span> or <span class="math inline">\(H_A: \mu_{MPA}-\mu_{grad} \neq 0\)</span></li>
-<li><span class="math inline">\(H_0: \rho_{female}-\rho_{male} = 0\)</span> or <span class="math inline">\(H_A: \rho_{female}-\rho_{male} \neq 0\)</span></li>
-<li><span class="math inline">\(H_0: \beta_{MPA} = 0\)</span> or <span class="math inline">\(H_A: \beta_{MPA} \neq 0\)</span></li>
-</ul>
-<p>Note the use of population parameters above. Again, inference computes a sample estimate to make inferences about a population. Therefore, our hypotheses include the unobserved population parameter. Our estimate and confidence interval represents our best guess of that population parameter. The purpose of the hypothesis test is to establish a threshold at which we are sufficiently confident in our results to make a conclusion concerning our hypotheses <em>prior</em> to viewing the results.</p>
-</div>
-<div id="conclusion-and-error-type" class="section level3">
-<h3><span class="header-section-number">11.4.2</span> Conclusion and error type</h3>
-<p>There are two possible outcomes of a hypothesis test. We either</p>
-<ul>
-<li>reject the null hypothesis, or</li>
-<li>fail to reject the null hypothesis.</li>
-</ul>
-<p>We never accept the null hypothesis or reject the alternative hypothesis. This may seem like semantics, but it actually has important implications for our conclusions.</p>
-<p>Suppose our results do not meet the threshold to reject the hypothesis, thus leading us to fail to reject the null hypothesis. This does not mean the null hypothesis is true. Our null hypothesis states whatever parameter of interest in our study equals zero. We do not observe the population parameter. Therefore, we cannot say that our null hypothesis is true. Instead, we say that we do not have sufficient evidence to reject the null. It may be true or false, but we cannot determine which based on our particular estimate from our particular sample.</p>
-<p>Conversely, if we reject the null, then our conclusion is that the null hypothesis is false. We can rule out with reasonable confidence that the population parameter does not equal zero because doing so does not require us to claim a particular value for the population parameter; just that it is not equal to zero.</p>
-<p>A popular example of hypothesis testing is a jury decision in a court case. A defendant is accused of committing a crime. In truth, the defendant is either innocent or guilty of that crime. Ideally, the defendant is presumed innocent until proven guilty according to a jury of their peers. Therefore, the null hypothesis is that the defendant is innocent and the alternative hypothesis is that the defendant is guilty. The jury decides either that the defendant is guilty or not guilty. If guilty, then the jury has rejected the null hypothesis of innocence. If not guilty, then the jury has failed to reject the null hypothesis. Note that the jury does not decide the defendant is innocent, which would be equivalent to accepting the null or rejecting the alternative.</p>
-<p>Despite our best efforts, there always remains some chance that we have reached the wrong conclusion with our hypothesis test. We can make one of two possible errors:</p>
-<ul>
-<li>Type I error or false positive: rejecting the null when the null is actually true</li>
-<li>Type II error or false negative: failing to reject the null when the null is actually false</li>
-</ul>
-<p>For instance, Type I error is finding an innocent defendant guilty, a healthy patient sick, or an ineffective program effective. Type II error is finding a guilty defendant not guilty, no evidence of illness in a sick patient, or no evidence of efficacy in an effective program. Again, the null hypothesis involves the population parameter, so we do not <em>know</em> if it is actually true or not. The null must be true or false, and the outcome of our hypothesis test claims whether the null does not appear to be false or is false. Therefore, there is a probability that we have reached the incorrect conclusion.</p>
-<p>It is impossible to eliminate the chance of Types I and II errors, though it is possible to increase or decrease their likelihoods. However, the two share an inverse relationship; as we reduce the chance of one type of error, we increase the chance of the other type of error. Depending on the context of our research question, we may be more or less concerned about Type II error, but the focus of a hypothesis test is placed on Type I error, which serves as the threshold for our decision.</p>
-</div>
-<div id="decision-rule" class="section level3">
-<h3><span class="header-section-number">11.4.3</span> Decision rule</h3>
-<p>Before testing our hypothesis, we ask ourselves the following question: “What is the maximum probability of Type I error that I or others should be willing to tolerate?” Actually, this question has been answered for us in most disciplines. The common threshold for this tolerance is 5% or 1% probability of rejecting the null hypothesis when the null is actually true. Social sciences typically use 5%.</p>
-<p>With our threshold set, we can now test our hypothesis. We calculate the sample estimate and the standard error of our estimate, which are used to calculate the confidence interval. The confidence level of our confidence interval depends on our chosen threshold for Type I error. If our threshold for Type I error is 5%, then we calculate the 95% confidence interval. If our threshold is 1%, we use a 99% confidence interval.</p>
-<p>Our confidence interval is our best guess of the plausible range of values for the population parameter. We have decided to tolerate the chance that our confidence interval is one of the five out of 100 confidence intervals–or 1 out of 100–expected to fail to capture the parameter. Our null hypothesis states that the parameter equals zero. Therefore, if our confidence interval does not contain zero, we reject the null hypothesis. If our confidence interval does contain zero, then we have failed to reject the null hypothesis because the parameter <em>might</em> equal zero with a higher probability than we decided to tolerate.</p>
-<p>In most cases, we do not need more information than the estimate, standard error, and confidence interval to make a decision regarding our hypothesis test. However, an analysis provides us an additional piece of information that allows us to arrive at the same conclusion but from a different perspective called the <strong>p-value</strong>.</p>
-<blockquote>
-<p>The p-value tells us the probability of obtaining the estimate we did, or an estimate further away from the null hypothesis, if the null hypothesis were actually true.</p>
-</blockquote>
-<p>The p-value provides us a concise decision rule. The tolerance threshold we set is often referred to as the significance level and denoted by the Greek letter <span class="math inline">\(\alpha\)</span> (alpha).</p>
-<ul>
-<li>If <span class="math inline">\(p&lt;\alpha\)</span>, reject the null hypothesis.</li>
-<li>If <span class="math inline">\(p\geq \alpha\)</span>, fail to reject the null hypothesis.</li>
-</ul>
-<p>Again, a typical value for <span class="math inline">\(\alpha\)</span> is 5%, or 0.05. Having chosen a 5% significance level, if our results generate a p-value of 0.04, for instance, then the likelihood of obtaining our result in a world where the null is true is 4%. Therefore, we reject the null hypothesis. If our p-value were equal to 0.06, then the likelihood of obtaining our result in a world where the null is true is 6%. This exceeds our maximum tolerance, thus we fail to reject the null hypothesis.</p>
-</div>
-</div>
-<div id="chi-square-test" class="section level2">
-<h2><span class="header-section-number">11.5</span> Chi-square test</h2>
-<p>The Chi-square (<span class="math inline">\(\chi^2\)</span>) test is a common choice for introducing the application of hypothesis testing. Chi-square is used to test whether two <em>nominal</em> variables are associated to a statistically significant extent. A nominal variable, such as race, sex, or political party affiliation, has two or more of levels. If one wanted to test if, given the level for a unit of analysis in one nominal variable (e.g. male), there is a higher likelihood for a particular level in another nominal variable to occur (e.g. Republican), a Chi-square test is an appropriate choice.</p>
-<p>For an example, let us return to the immigration survey. We saw in <a href="11-surveys-and-evaluations.html#tab:pollparty">11.2</a> that 179 out of 357 Republicans (50%) responded that illegal immigrants should be forced to leave the country, while 101 out of 174 Democrats (58%) responded that illegal immigrants should be allowed to apply for citizenship. Is there a statistically significant pattern in responses conditional on political party affiliation, or are these differences due to random noise?</p>
-<p>The null hypothesis for this question is that there is no association between the opinion on illegal immigration and political party affiliation. That is to say, if we chose any of the three political party levels in our data, the probability of an individual providing one of the three opinions is equal the other opinions, or</p>
-<p><span class="math inline">\(H_0: P_{leave} = P_{guest} = P_{citizen}\)</span></p>
-<p>The alternative hypothesis is that there is an association between opinion on illegal immigration and political party affiliation, or</p>
-<p><span class="math inline">\(H_A\)</span>: at least one <span class="math inline">\(P\)</span> is not equal to the others</p>
-<p>Next, suppose we chose to use the customary 5% statistical significance level, or <span class="math inline">\(\alpha=0.05\)</span>. Now we are ready to test our hypothesis using a Chi-square test. Doing so generates the following results.</p>
-<pre><code>## 
-## 	Pearson&#39;s Chi-squared test
-## 
-## data:  immigration_poll
-## X-squared = 100.95, df = 4, p-value &lt; 0.00000000000000022</code></pre>
-<p>This is one case where there are no confidence intervals to compute since our variables are not numerical. Instead, we rely on the p-value. Our p-value is less than 0.00000000000000022. More concisely, <span class="math inline">\(p&lt;0.05\)</span>. Therefore, we reject the null hypothesis that there is no association between the three illegal immigration opinions in the survey and political party affiliation. Furthermore, the probability for us to get the values in Table <a href="11-surveys-and-evaluations.html#tab:pollparty">11.2</a> or more extreme in a world where the null hypothesis is actually true is equal to an infinitesimal percent, not to suggest that such a small p-value is required to make inferences.</p>
-<p>Our results allow us to make inferences such as Republicans are more likely to believe illegal immigrants should lose their jobs and have to leave the country, while Democrats are more likely to believe they should be allowed to keep their jobs and apply for citizenship. Not a particularly surprising inference, but perhaps that is because many such inferences in the past have been made using similar techniques and reported many times.</p>
-</div>
-<div id="t-test" class="section level2">
-<h2><span class="header-section-number">11.6</span> T-test</h2>
-<p>The t-test is another common introductory application of hypothesis testing. A t-test is used to test the association between a nominal variable with two levels and a numerical variable. It is frequently used in simple program evaluations with a pre/post or treatment/control design. Both involve a nominal variable with two levels. If one want to test if a numerical outcome is different between the two levels, then a t-test is an appropriation choice.</p>
-<p>There are two varieties of the t-test. To test if an average of a numerical outcome is different between two groups, such as a treatment and control group, then we use an <strong>independent t-test</strong>. To test if an average numerical outcome is different before and after a treatment for the <em>same</em> units of analysis, we use a <strong>dependent t-test</strong>. The difference between the two t-tests concerns how we approximate the sampling distributions and confidence intervals, but their use for hypothesis testing is essentially the same.</p>
-<p>Suppose we work for a nonprofit that provides job training workshops and want to evaluate their effectiveness. One way to go about such a task is to compare the earnings of participants (i.e. treatment group) to the earnings of non-participants (i.e. control group). We have earnings data for 185 participants and 128 non-participants, some of which is previewed in the table below.</p>
-<table>
-<caption>
-<span id="tab:jobtraindata">Table 11.4: </span>Preview of job training data
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-treatment
-</th>
-<th style="text-align:right;">
-earnings
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-66493.964
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-</tr>
-<tr>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-46651.829
+-28.742
+</td>
+<td style="text-align:right;">
+-16.701
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
+<td style="text-align:left;">
+Age
 </td>
 <td style="text-align:right;">
-10070.227
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
+1.350
 </td>
 <td style="text-align:right;">
-0.000
+0.134
 </td>
-</tr>
-<tr>
+<td style="text-align:right;">
+10.077
+</td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-1211.736
+1.083
+</td>
+<td style="text-align:right;">
+1.617
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+I(Age^2)
+</td>
+<td style="text-align:right;">
+-0.013
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+-9.840
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+-0.016
+</td>
+<td style="text-align:right;">
+-0.011
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Educ
+</td>
+<td style="text-align:right;">
+1.254
+</td>
+<td style="text-align:right;">
+0.090
+</td>
+<td style="text-align:right;">
+13.990
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1.075
+</td>
+<td style="text-align:right;">
+1.432
 </td>
 </tr>
 </tbody>
 </table>
-<p>Before constructing the null and alternative hypotheses, a note about the population in this example. In program evaluations or generally any analysis aimed toward testing whether some event caused an effect on an outcome of interest, there are two populations. There is the entire population of units of analysis (e.g. all people, all nations, all dogs) and the subset of that population for whom/which the program, policy, or intervention is intended.</p>
-<p>The choice of population leads to two slightly different questions. If the entire population is our research population, then our intent is to estimate the average effect of the program on a randomly chosen unit from the entire population. This is referred to as the <strong>average treatment effect</strong> (ATE). If the subset that the program targets is our research population, then our intent is to report the average effect of a randomly chosen targeted unit. This is referred to as the <strong>average treatment on the treated</strong> (ATT). The detailed differences between the two are beyond the scope of this book and more appropriate for a class in program evaluation or causal inference, but the existence of this difference is worth being aware of.</p>
-<p>Given that job training programs are not intended for all people, the presumption is that we want to estimate the average effect on those the program targets. Of course, we could choose as our population only those who participated in the program. In that case, we need not bother with hypothesis tests, as we would be calculating the population parameters directly from the observed data. However, we would not be able to generalize the results.</p>
-<p>With the population in mind, our null hypothesis is that the average earnings of participants is equal to the average earnings of non-participants, or</p>
-<p><span class="math inline">\(H_0: \mu_{treated} = \mu_{untreated}\)</span></p>
-<p>Our alternative hypothesis is that the average earnings of participants is not equal to the average earnings of non-participants, or</p>
-<p><span class="math inline">\(H_A: \mu_{treated} \neq \mu_{untreated}\)</span></p>
-<p>Choosing a significance level of 5%, we are ready to test our hypothesis.</p>
-<p>A simple computation of the average earnings between the two groups provides the following information.</p>
+<p>We need to alter the <code>Mroz</code> data slightly before running a regression. Run the following code that creates a new variable that equals 1 if <code>lfp</code> equals “yes” and 0 if <code>lfp</code> equals “no.” This is necessary because our outcome variable–even though categorical–must be represented numerically in order for the regression to work.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="22-r-nonlinear-regression.html#cb114-1"></a>my_Mroz &lt;-<span class="st"> </span>Mroz <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb114-2"><a href="22-r-nonlinear-regression.html#cb114-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lfp_numeric =</span> <span class="kw">if_else</span>(lfp <span class="op">==</span><span class="st"> &quot;yes&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
+<div class="learncheck">
+<p>
+<strong>Exercise 1:</strong> Suppose we want to examine factors that explain whether married women participate in the labor force, which is a binary outcome. We use the following model:
+</p>
+<p>
+<span class="math display"><span class="math display">\[\begin{equation}
+lfp = \beta_0 + \beta_1k5 + \beta_2age + \beta_3age^2 + \beta_4wc + \beta_5lwg + \beta_6inc + \epsilon
+\end{equation}\]</span></span>
+</p>
+<p>
+Run this regression model and obtain the results.
+</p>
+</div>
+</div>
+<div id="log-transformation" class="section level2">
+<h2><span class="header-section-number">22.4</span> Log Transformation</h2>
+<p>In Chapter <a href="8-nonlinear-variables.html#nonlinear-variables">8</a>, the following log-log regression model was run.</p>
+<p><span class="math display">\[\begin{equation}
+ln(LifeExp)=\beta_0 + \beta_1ln(GDPpercap) + \beta_2Continent + \epsilon
+\end{equation}\]</span></p>
+<p>The below code demonstrates how to transform a variable into its natural log within the <code>lm</code> function.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="22-r-nonlinear-regression.html#cb115-1"></a>loglog &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(lifeExp) <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(gdpPercap) <span class="op">+</span><span class="st"> </span>continent, <span class="dt">data =</span> gapminder)</span></code></pre></div>
+<p>Note that all we need to do is place the appropriate variables within the <code>log()</code> function, which R interprets as the natural log. This <em>temporarily</em> transforms the variables; it does not create new variables in the dataset equal to the natural log of the variables.</p>
+<p>Now we can obtain results in the usual manner.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="22-r-nonlinear-regression.html#cb116-1"></a><span class="kw">get_regression_table</span>(loglog)</span></code></pre></div>
 <table>
-<caption>
-<span id="tab:jobtrainsum">Table 11.5: </span>Comparison of means between treated and untreated
-</caption>
 <thead>
 <tr>
-<th style="text-align:right;">
-treatment
+<th style="text-align:left;">
+term
 </th>
 <th style="text-align:right;">
-Average Earnings
+estimate
+</th>
+<th style="text-align:right;">
+std_error
+</th>
+<th style="text-align:right;">
+statistic
+</th>
+<th style="text-align:right;">
+p_value
+</th>
+<th style="text-align:right;">
+lower_ci
+</th>
+<th style="text-align:right;">
+upper_ci
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td style="text-align:left;">
+intercept
+</td>
+<td style="text-align:right;">
+3.062
+</td>
+<td style="text-align:right;">
+0.026
+</td>
+<td style="text-align:right;">
+117.692
+</td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-21645.10
+3.011
+</td>
+<td style="text-align:right;">
+3.113
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
+<td style="text-align:left;">
+log(gdpPercap)
 </td>
 <td style="text-align:right;">
-26031.49
+0.112
+</td>
+<td style="text-align:right;">
+0.004
+</td>
+<td style="text-align:right;">
+31.843
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.105
+</td>
+<td style="text-align:right;">
+0.119
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+continentAmericas
+</td>
+<td style="text-align:right;">
+0.133
+</td>
+<td style="text-align:right;">
+0.011
+</td>
+<td style="text-align:right;">
+12.519
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.112
+</td>
+<td style="text-align:right;">
+0.154
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+continentAsia
+</td>
+<td style="text-align:right;">
+0.110
+</td>
+<td style="text-align:right;">
+0.009
+</td>
+<td style="text-align:right;">
+12.037
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.092
+</td>
+<td style="text-align:right;">
+0.128
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+continentEurope
+</td>
+<td style="text-align:right;">
+0.166
+</td>
+<td style="text-align:right;">
+0.012
+</td>
+<td style="text-align:right;">
+14.357
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.143
+</td>
+<td style="text-align:right;">
+0.189
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+continentOceania
+</td>
+<td style="text-align:right;">
+0.152
+</td>
+<td style="text-align:right;">
+0.029
+</td>
+<td style="text-align:right;">
+5.187
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.095
+</td>
+<td style="text-align:right;">
+0.210
 </td>
 </tr>
 </tbody>
 </table>
-<p>Participants have a higher average earnings than non-participants, but is this difference statistically significant? For that, we should use an <em>independent</em> t-test because participants and non-participants are two different groups. Running the t-test provides the following results</p>
-<pre><code>## 
-## 	Welch Two Sample t-test
-## 
-## data:  earnings by treatment
-## t = -1.1921, df = 275.58, p-value = 0.2342
-## alternative hypothesis: true difference in means is not equal to 0
-## 95 percent confidence interval:
-##  -11629.708   2856.939
-## sample estimates:
-## mean in group 0 mean in group 1 
-##        21645.10        26031.49</code></pre>
-<p>Our p-value is greater than our significance level, <span class="math inline">\(0.23&gt;0.05\)</span>. Therefore, we fail to reject the null hypothesis and conclude that there is not statistically significant evidence that participants earn more than non-participants, on average. Note that our 95% confidence interval ranges between -11,630 and 2,856. It includes zero, thus we cannot claim the difference between the means is not equal to zero with reasonable confidence.</p>
-<p><br></p>
-<blockquote>
-<p><strong>To learn how to conduct chi-square and t-tests in R, proceed to Chapter <a href="23-r-evaluations.html#r-evaluations">23</a>.</strong></p>
-</blockquote>
+<div class="learncheck">
+<p>
+<strong>Exercise 2:</strong> Suppose we decide we want to use the natural log of family income exclusive of wife’s income, <code>inc</code>, resulting in the following model
+</p>
+<p>
+<span class="math display"><span class="math display">\[\begin{equation}
+lfp = \beta_0 + \beta_1k5 + \beta_2age + \beta_3age^2 + \beta_4wc + \beta_5lwg + \beta_6ln(inc) + \epsilon
+\end{equation}\]</span></span>
+</p>
+<p>
+Run this regression model and obtain the results.
+</p>
 </div>
-<div id="kt11" class="section level2">
-<h2><span class="header-section-number">11.7</span> Key terms and concepts</h2>
-<ul>
-<li>Margin of error</li>
-<li>Survey weight</li>
-<li>Null and alternative hypotheses</li>
-<li>Rejecting the null</li>
-<li>Failing to reject the null</li>
-<li>Types I and II error</li>
-<li>Confidence level</li>
-<li>Significance level</li>
-<li>P-value</li>
-<li>Chi-square test</li>
-<li>T-test</li>
-</ul>
+</div>
+<div id="submit" class="section level2">
+<h2><span class="header-section-number">22.5</span> Submit</h2>
+<p>Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.</p>
 
 </div>
 </div>
@@ -1050,8 +826,8 @@ Average Earnings
           </div>
         </div>
       </div>
-<a href="10-sampling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="12-regression-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="21-r-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="23-r-evaluations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

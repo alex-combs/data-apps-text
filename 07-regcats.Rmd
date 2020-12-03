@@ -524,8 +524,6 @@ prop.table(confusion, 2) %>%
 
 <br>
 
-> **To Learn how to include interactions in a regression using R, proceed to Chapter \@ref(r-interactions).**
-
 ## Key terms and concepts {#kt7}
 
 - Dummy variable
