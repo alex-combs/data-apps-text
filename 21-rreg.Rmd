@@ -145,7 +145,7 @@ lpm_mod <- lm(jaild ~ mrall + region, data = trdeath2)
 
 But this won't work if we include `jaild` in our regression code without recoding it to 1/0. This can be done using the following code.
 
-```{r, include=FALSE}
+```{r}
 trdeath2 <- trdeath %>% 
   mutate(jaild = if_else(jaild == 'yes', 1, 0))
 ```

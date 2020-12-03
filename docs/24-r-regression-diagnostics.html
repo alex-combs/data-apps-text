@@ -470,16 +470,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Open a script</li>
 <li>Load the following packages</li>
 </ul>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="24-r-regression-diagnostics.html#cb124-1"></a><span class="kw">library</span>(car)</span>
-<span id="cb124-2"><a href="24-r-regression-diagnostics.html#cb124-2"></a><span class="kw">library</span>(gvlma)</span>
-<span id="cb124-3"><a href="24-r-regression-diagnostics.html#cb124-3"></a><span class="kw">library</span>(carData)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="24-r-regression-diagnostics.html#cb125-1"></a><span class="kw">library</span>(car)</span>
+<span id="cb125-2"><a href="24-r-regression-diagnostics.html#cb125-2"></a><span class="kw">library</span>(gvlma)</span>
+<span id="cb125-3"><a href="24-r-regression-diagnostics.html#cb125-3"></a><span class="kw">library</span>(carData)</span></code></pre></div>
 <p>We will use the <code>States</code> dataset within the <code>carData</code> package. Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.</p>
 </div>
 <div id="diagnostic-plots" class="section level2">
 <h2><span class="header-section-number">24.3</span> Diagnostic Plots</h2>
 <p>Diagnostic plots provide us suggestive visual evidence that one or more regression assumptions have failed to hold in our model. Producing diagnostic plots is very easy. Chapters <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a> and <a href="21-r-regression.html#r-regression">21</a>, the following regression was run.</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="24-r-regression-diagnostics.html#cb125-1"></a>fedpov2 &lt;-<span class="st"> </span><span class="kw">lm</span>(fed_spend <span class="op">~</span><span class="st"> </span>poverty <span class="op">+</span><span class="st"> </span>homeownership <span class="op">+</span><span class="st"> </span>income, <span class="dt">data =</span> selcounty)</span></code></pre></div>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="24-r-regression-diagnostics.html#cb126-1"></a><span class="kw">get_regression_table</span>(fedpov2)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="24-r-regression-diagnostics.html#cb126-1"></a>fedpov2 &lt;-<span class="st"> </span><span class="kw">lm</span>(fed_spend <span class="op">~</span><span class="st"> </span>poverty <span class="op">+</span><span class="st"> </span>homeownership <span class="op">+</span><span class="st"> </span>income, <span class="dt">data =</span> selcounty)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="24-r-regression-diagnostics.html#cb127-1"></a><span class="kw">get_regression_table</span>(fedpov2)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -602,7 +602,7 @@ income
 </tbody>
 </table>
 <p>Once we have our regression results saved to an object, all we need to do is use the <code>plot</code> function, as shown in the code below. The <code>plot</code> function produces four plots. The first plot is the RVFP and the fourth plot is the RVLP. These two plots alone can be used to investigate your regression model’s LINE assumptions and influential data, but the second and third plots are useful too.</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="24-r-regression-diagnostics.html#cb127-1"></a><span class="kw">plot</span>(fedpov2)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="24-r-regression-diagnostics.html#cb128-1"></a><span class="kw">plot</span>(fedpov2)</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-196-1.png" width="672" /><img src="data-apps-text_files/figure-html/unnamed-chunk-196-2.png" width="672" /><img src="data-apps-text_files/figure-html/unnamed-chunk-196-3.png" width="672" /><img src="data-apps-text_files/figure-html/unnamed-chunk-196-4.png" width="672" /></p>
 <p>We want to see no obvious pattern in the RVF plot and a relatively straight line running along the 0 reference line. For this RVF plot, we can see an obvious pattern where the positive residuals are much greater than the negative residuals. This is a classic sign that the regression model violates assumption <strong>N</strong>. Whether the red line trends in one direction or another away from 0 tells us whether assumption <strong>L</strong> is violated. This assumption appears to be relatively OK.</p>
 <p>The second plot is the Normal Q-Q plot. As the name suggests, it is especially useful for checking assumption <strong>N</strong>, which was already a concern based on the RVF plot. We want the points of a Normal Q-Q plot to track along the straight, dotted line. We see clear evidence now that assumption <strong>N</strong> has failed. We will need to address this in our model in order to have valid estimates.</p>
@@ -617,7 +617,7 @@ income
 <div id="variance-inflation-factor" class="section level2">
 <h2><span class="header-section-number">24.4</span> Variance Inflation Factor</h2>
 <p>VIF is a common way to check for excessive multicollinearity. There is no strict rule for identifying multicollinearity, but a VIF between 5 and 10 signals a potential problem with multicollinearity. A VIF greater than 10 is a strong indicator of multicollinearity. To obtain the VIF, we can use the <code>vif</code> function from the <code>car</code> package like so.</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="24-r-regression-diagnostics.html#cb128-1"></a><span class="kw">vif</span>(fedpov2)</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="24-r-regression-diagnostics.html#cb129-1"></a><span class="kw">vif</span>(fedpov2)</span></code></pre></div>
 <pre><code>##       poverty homeownership        income 
 ##        2.6846        1.2016        2.4083</code></pre>
 <p>None of the VIF values for the explanatory variables come close to 5. Therefore, we can be confident that multicollinearity is not an issue.</p>
@@ -630,7 +630,7 @@ income
 <div id="statistical-test-on-assumption" class="section level2">
 <h2><span class="header-section-number">24.5</span> Statistical test on assumption</h2>
 <p>Visuals may be all we want or need, but we can actually conduct hypothesis testing on the critical regression assumptions for linearity, normality, and equal variance. This is also quite easy to do with the <code>gvlma</code> function from the <code>gvlma</code> package (gvlma stands for global violation of linear model assumptions).</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="24-r-regression-diagnostics.html#cb130-1"></a><span class="kw">gvlma</span>(fedpov2)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="24-r-regression-diagnostics.html#cb131-1"></a><span class="kw">gvlma</span>(fedpov2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = fed_spend ~ poverty + homeownership + income, data = selcounty)
@@ -660,7 +660,7 @@ income
 <h2><span class="header-section-number">24.6</span> Excluding observations</h2>
 <p>We should be careful and transparent when deciding to exclude observations from an analysis. When in doubt, do not exclude observations. In this running example, I would not exclude any observations. The problems with the model are not due to one or a few observations. Sometimes, the diagnostic plots will provide clear evidence that removing a few observations will solve the problems.</p>
 <p>First, I may want to know which counties were identified in my diagnostic plots. The code below does this via subsetting.</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="24-r-regression-diagnostics.html#cb132-1"></a>selcounty[<span class="kw">c</span>(<span class="dv">2907</span>, <span class="dv">2874</span>, <span class="dv">1991</span>, <span class="dv">2898</span>, <span class="dv">2831</span>),]</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="24-r-regression-diagnostics.html#cb133-1"></a>selcounty[<span class="kw">c</span>(<span class="dv">2907</span>, <span class="dv">2874</span>, <span class="dv">1991</span>, <span class="dv">2898</span>, <span class="dv">2831</span>),]</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -723,10 +723,10 @@ income
 </table>
 <p>Interesting that most of the most problematic counties come from Virginia. Perhaps something deeper is going on with Virginia, or perhaps this is a meaningless coincidence.</p>
 <p>If we decide an exclusion of observations is defensible, then we can exclude observations directly within the <code>lm</code> function to avoid the need to create a new dataset. In the code below, I exclude the observations in the above table from the regression model.</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="24-r-regression-diagnostics.html#cb133-1"></a>fedpov3 &lt;-<span class="st"> </span><span class="kw">lm</span>(fed_spend <span class="op">~</span><span class="st"> </span>poverty <span class="op">+</span><span class="st"> </span>homeownership <span class="op">+</span><span class="st"> </span>income, </span>
-<span id="cb133-2"><a href="24-r-regression-diagnostics.html#cb133-2"></a>              <span class="dt">data =</span> selcounty[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2907</span>, <span class="dv">2874</span>, <span class="dv">1991</span>, <span class="dv">2898</span>, <span class="dv">2831</span>),])</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="24-r-regression-diagnostics.html#cb134-1"></a>fedpov3 &lt;-<span class="st"> </span><span class="kw">lm</span>(fed_spend <span class="op">~</span><span class="st"> </span>poverty <span class="op">+</span><span class="st"> </span>homeownership <span class="op">+</span><span class="st"> </span>income, </span>
+<span id="cb134-2"><a href="24-r-regression-diagnostics.html#cb134-2"></a>              <span class="dt">data =</span> selcounty[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2907</span>, <span class="dv">2874</span>, <span class="dv">1991</span>, <span class="dv">2898</span>, <span class="dv">2831</span>),])</span></code></pre></div>
 <p>This data has over 3,000 observations, so it is unlikely that removing 5 will have any notable impact on the results, but let’s check.</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="24-r-regression-diagnostics.html#cb134-1"></a><span class="kw">get_regression_table</span>(fedpov3)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="24-r-regression-diagnostics.html#cb135-1"></a><span class="kw">get_regression_table</span>(fedpov3)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -849,7 +849,7 @@ income
 </tbody>
 </table>
 <p>The point estimates have changes a little, but the hypothesis tests are the same. Has this changed whether assumptions are violated?</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="24-r-regression-diagnostics.html#cb135-1"></a><span class="kw">gvlma</span>(fedpov3)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="24-r-regression-diagnostics.html#cb136-1"></a><span class="kw">gvlma</span>(fedpov3)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = fed_spend ~ poverty + homeownership + income, data = selcounty[-c(2907, 
@@ -875,12 +875,12 @@ income
 ## Heteroscedasticity     2.457 0.11699    Assumptions acceptable.</code></pre>
 <p>Globally, no, although heteroskedasticity appears to no longer be a problem. The other tests could be due to a variety of complicated issues. Perhaps the theoretical relationships implied by the model are totally wrong. Perhaps the residuals among counties within each state are strongly correlated, thus violating assumption <strong>I</strong>.</p>
 <p>The most straightforward <em>potential</em> solution in this case is to try a log transformation the outcome at least and perhaps one or more explanatory variables. In the below model, I log-transform federal spending and income.</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="24-r-regression-diagnostics.html#cb137-1"></a>fedpov4 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(fed_spend) <span class="op">~</span><span class="st"> </span>poverty <span class="op">+</span><span class="st"> </span>homeownership <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(income), </span>
-<span id="cb137-2"><a href="24-r-regression-diagnostics.html#cb137-2"></a>              <span class="dt">data =</span> selcounty[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2907</span>, <span class="dv">2874</span>, <span class="dv">1991</span>, <span class="dv">2898</span>, <span class="dv">2831</span>),])</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="24-r-regression-diagnostics.html#cb138-1"></a>fedpov4 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(fed_spend) <span class="op">~</span><span class="st"> </span>poverty <span class="op">+</span><span class="st"> </span>homeownership <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(income), </span>
+<span id="cb138-2"><a href="24-r-regression-diagnostics.html#cb138-2"></a>              <span class="dt">data =</span> selcounty[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2907</span>, <span class="dv">2874</span>, <span class="dv">1991</span>, <span class="dv">2898</span>, <span class="dv">2831</span>),])</span></code></pre></div>
 <p><code>Error in lm.fit(x, y, offset = offset, singular.ok = singular.ok, ...) : NA/NaN/Inf in 'y'</code></p>
 <p>It appears some counties have federal spending that is 0 or negative, which cannot cannot be log-transformed. Let’s see what those are.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="24-r-regression-diagnostics.html#cb138-1"></a>selcounty[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2907</span>, <span class="dv">2874</span>, <span class="dv">1991</span>, <span class="dv">2898</span>, <span class="dv">2831</span>),] <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb138-2"><a href="24-r-regression-diagnostics.html#cb138-2"></a><span class="st">  </span><span class="kw">filter</span>(fed_spend <span class="op">&lt;=</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="24-r-regression-diagnostics.html#cb139-1"></a>selcounty[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2907</span>, <span class="dv">2874</span>, <span class="dv">1991</span>, <span class="dv">2898</span>, <span class="dv">2831</span>),] <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb139-2"><a href="24-r-regression-diagnostics.html#cb139-2"></a><span class="st">  </span><span class="kw">filter</span>(fed_spend <span class="op">&lt;=</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -912,13 +912,13 @@ income
 </tbody>
 </table>
 <p>Fortunately, only two counties were the problem. Now I’ll go ahead create a separate dataset to keep things clear.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="24-r-regression-diagnostics.html#cb139-1"></a>selcounty2 &lt;-<span class="st"> </span>selcounty[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2907</span>, <span class="dv">2874</span>, <span class="dv">1991</span>, <span class="dv">2898</span>, <span class="dv">2831</span>),] <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb139-2"><a href="24-r-regression-diagnostics.html#cb139-2"></a><span class="st">  </span><span class="kw">filter</span>(fed_spend <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="24-r-regression-diagnostics.html#cb140-1"></a>selcounty2 &lt;-<span class="st"> </span>selcounty[<span class="op">-</span><span class="kw">c</span>(<span class="dv">2907</span>, <span class="dv">2874</span>, <span class="dv">1991</span>, <span class="dv">2898</span>, <span class="dv">2831</span>),] <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb140-2"><a href="24-r-regression-diagnostics.html#cb140-2"></a><span class="st">  </span><span class="kw">filter</span>(fed_spend <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</span></code></pre></div>
 <p>And rerun the regression.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="24-r-regression-diagnostics.html#cb140-1"></a>fedpov4 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(fed_spend) <span class="op">~</span><span class="st"> </span>poverty <span class="op">+</span><span class="st"> </span>homeownership <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(income), </span>
-<span id="cb140-2"><a href="24-r-regression-diagnostics.html#cb140-2"></a>              <span class="dt">data =</span> selcounty2)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="24-r-regression-diagnostics.html#cb141-1"></a>fedpov4 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log</span>(fed_spend) <span class="op">~</span><span class="st"> </span>poverty <span class="op">+</span><span class="st"> </span>homeownership <span class="op">+</span><span class="st"> </span><span class="kw">log</span>(income), </span>
+<span id="cb141-2"><a href="24-r-regression-diagnostics.html#cb141-2"></a>              <span class="dt">data =</span> selcounty2)</span></code></pre></div>
 <p>Does this fix our assumptions?</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="24-r-regression-diagnostics.html#cb141-1"></a><span class="kw">gvlma</span>(fedpov4)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="24-r-regression-diagnostics.html#cb142-1"></a><span class="kw">gvlma</span>(fedpov4)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(fed_spend) ~ poverty + homeownership + log(income), 
@@ -943,7 +943,7 @@ income
 ## Link Function         0.1076608  0.7428    Assumptions acceptable.
 ## Heteroscedasticity    0.0001948  0.9889    Assumptions acceptable.</code></pre>
 <p>This appears to have fixed the issue with linearity, but normality of the residuals is still an issue. Let’s produce a new set of diagnostic plots to visualize the difference all this has made.</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="24-r-regression-diagnostics.html#cb143-1"></a><span class="kw">plot</span>(fedpov4)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="24-r-regression-diagnostics.html#cb144-1"></a><span class="kw">plot</span>(fedpov4)</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-213-1.png" width="672" /><img src="data-apps-text_files/figure-html/unnamed-chunk-213-2.png" width="672" /><img src="data-apps-text_files/figure-html/unnamed-chunk-213-3.png" width="672" /><img src="data-apps-text_files/figure-html/unnamed-chunk-213-4.png" width="672" /></p>
 <p>With the exception of the Normal Q-Q plot, all of the plots look much better. Unfortunately, we have exhausted the options at our disposal for fixing our regression (insofar as this course is covers).</p>
 <p>As you can see from this example, regression diagnostics can take you down some interesting paths of investigation. Sometimes the solution is obvious. Other times the solution still eludes you after several iterations.</p>
