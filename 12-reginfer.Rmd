@@ -1,4 +1,4 @@
-# Regression Inference
+# Significance
 
 > *"One out of every four people is suffering from some form of mental illness. Check three friends. If they're OK, then it's you."* 
 >
@@ -77,7 +77,7 @@ By default, the standard regression table addresses hypothesis tests of the form
 
 Comparing different levels within a categorical variable is slightly more complicated. In Table \@ref(tab:extable), we can conclude that states in the South and West are different than states in the Midwest, and we cannot conclude states in the Northeast are different than states in the Midwest. But, what if we wanted to compare states in the South to states in the West, or Northeast to South? Our regression and our results were not set-up to make such comparisons.
 
-A quick and dirty way to make various comparisons across levels is to examine their confidence intervals. If the confidence intervals do not overlap or do not come close to overlapping, then we can be reasonably certain the population parameters for the two levels are not equal to each other. For example, the `upper_ci` for Northeast is 0.052 and the `lower_ci` for South is 0.4. The two intervals are separated by multiple standard errors. Therefore, it is probably safe to conclude they are different. By contrast, the confidence intervals for South and West overlap substantially. Therefore, it is not safe to conclude that South and West are different. Alternatively, we can tell our statistical software to exclude a specific level, thereby allowing us to test our hypothesis without the guesswork. Setting the reference level is covered in this chapter's corresponding R chapter.
+A quick and dirty way to make various comparisons across levels is to examine their confidence intervals. If the confidence intervals do not overlap or do not come close to overlapping, then we can be reasonably certain the population parameters for the two levels are not equal to each other. For example, the `upper_ci` for Northeast is 0.052 and the `lower_ci` for South is 0.4. The two intervals are separated by multiple standard errors. Therefore, it is probably safe to conclude they are different. By contrast, the confidence intervals for South and West overlap substantially. Therefore, it is not safe to conclude that South and West are different. Alternatively, we can tell our statistical software to exclude a specific level, thereby allowing us to test our hypothesis without the guesswork.
 
 Finally, every regression result includes a global hypothesis test of the form
 
@@ -85,7 +85,7 @@ $H_0: \beta_0 = \beta_1 = \cdots = \beta_k = 0$
 
 $H_A$: at least one $\beta \neq 0$.
 
-Keep in mind that all of our conclusions our probabilistic. There is always a chance of Type I and Type II error. Since the hypothesis test assumes a sampling distribution for each explanatory variable, each explanatory variable we add is like taking an additional sample from some underlying population relevant to our regression. At 95% confidence, we *expect* 1 out of every 20 intervals to fail at capturing the parameter, such as not including zero when the parameter is truly zero. The global hypothesis test above is a way of testing whether we got a significant result due to the random chance that 1 out of every 20 explanatory variables can be expected to be significant even if the null were true. This global hypothesis test is commonly referred to as an **F-test**. Its use and interpretation is covered in the R Chapter.
+Keep in mind that all of our conclusions are probabilistic. There is always a chance of Type I and Type II error. Since the hypothesis test assumes a sampling distribution for each explanatory variable, each explanatory variable we add is like taking an additional sample from some underlying population relevant to our regression. At 95% confidence, we *expect* 1 out of every 20 intervals to fail at capturing the parameter, such as not including zero when the parameter is truly zero. The global hypothesis test above is a way of testing whether we got a significant result due to the random chance that 1 out of every 20 explanatory variables can be expected to be significant even if the null were true. This global hypothesis test is commonly referred to as an **F-test**. Its use and interpretation is covered in the R Chapter.
 
 ## Practical significance
 

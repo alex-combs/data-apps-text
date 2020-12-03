@@ -93,7 +93,7 @@ ggAcf(sales_ts[,1]) +
   labs(title = "")
 ```
 
-In each of the examples above, we can use information from the past to predict the future. A time series that shows no autocorrelation is called **white noise**. White noise provides us no significant information about predicting the future. Figures \@ref(fig:wn) and \@ref(fig:acfwn) below is an example of white noise. Note there is no discernible pattern in the time series plot and no autocorrelations are statistically significant.
+In each of the examples above, we can use information from the past to predict the future. A time series that shows no autocorrelation is called **white noise**. White noise provides us no significant information about predicting the future. Figures \@ref(fig:wn) and \@ref(fig:acfwn) below provide an example of white noise. Note there is no discernible pattern in the time series plot and no autocorrelations are statistically significant.
 
 ```{r, include=FALSE}
 set.seed(383)
@@ -124,9 +124,9 @@ The central goal of a forecast is to provide the most accurate prediction. How c
 
 #### Residuals {-}
 
-Figure \@ref(fig:compare) shows a forecast model denoted by the red line that simply uses the previous GDP measure to predict current GDP, compared to observed GDP denoted by the blue line. Recall how strongly lagged GDP was correlated with current GDP. This results in a forecast that appears to fit the trend fairly well. Nevertheless, there is error for almost every year, and since GDP in this time window exhibits a consistent upward trend, using last year's GDP causes a consistent underestimation.
+Figure \@ref(fig:lagtime) shows a forecast model denoted by the red line that simply uses the previous GDP measure to predict current GDP, compared to observed GDP denoted by the blue line. Recall how strongly lagged GDP was correlated with current GDP. This results in a forecast that appears to fit the trend fairly well. Nevertheless, there is error for almost every year, and since GDP in this time window exhibits a consistent upward trend, using last year's GDP causes a consistent underestimation.
 
-```{r compare, echo=FALSE}
+```{r lagtime, echo=FALSE}
 usgdp %>% 
   mutate(newdate = DATE + months(3)) %>% 
   ggplot() +
@@ -137,7 +137,7 @@ usgdp %>%
   theme(axis.title.x = element_blank())
 ```
 
-Figure \@ref(fig:residcheck) below plots the residuals between observed and predicted GDP--the vertical distance between blue and red lines--in the top panel. The bottom-left panel is a autocorrelation plot for the residuals--computing the correlation between current residuals and lagged residuals--and the bottom-right panel shows the histogram of the residuals.
+Figure \@ref(fig:checkresidual) below plots the residuals between observed and predicted GDP--the vertical distance between blue and red lines--in the top panel. The bottom-left panel is a autocorrelation plot for the residuals--computing the correlation between current residuals and lagged residuals--and the bottom-right panel shows the histogram of the residuals.
 
 ```{r, include=FALSE}
 ts.usgdp <- ts(usgdp[,-1], frequency = 4, start = c(1974,4))
@@ -145,16 +145,16 @@ ts.usgdp <- ts(usgdp[,-1], frequency = 4, start = c(1974,4))
 gdp_naive <- naive(ts.usgdp)
 ```
 
-```{r residcheck, echo=FALSE}
+```{r checkresidual, echo=FALSE}
 checkresiduals(gdp_naive, test = FALSE)
 ```
 
-Figure \@ref(fig:residcheck) provides a lot of useful information related to the central goal of forecasting. In order for us to conclude we have a good forecast, two goals must be met:
+Figure \@ref(fig:checkresidual) provides a lot of useful information related to the central goal of forecasting. In order for us to conclude we have a good forecast, two goals must be met:
 
 - The time series of residuals should be white noise, and
 - the residuals should have a mean approximately equal to zero.
 
-It is difficult to tell from the top panel of Figure \@ref(fig:residcheck) whether these goals are met. However, notice that the residuals are almost always positive, which we would expect since we know our forecast almost always underestimates GDP. Therefore, the mean is certainly greater than zero, as can be seen in the histogram.
+It is difficult to tell from the top panel of Figure \@ref(fig:checkresidual) whether these goals are met. However, notice that the residuals are almost always positive, which we would expect since we know our forecast almost always underestimates GDP. Therefore, the mean is certainly greater than zero, as can be seen in the histogram.
 
 The autocorrelation plot of the residuals suggests that residuals lagged up to six time periods is significantly correlated with current residuals. This is further evidence that the time series of our residuals is not white noise.
 
@@ -185,17 +185,21 @@ gdp_meanf <- meanf(ts.usgdp)
 gdp_drift <- rwf(ts.usgdp, drift = TRUE)
 ```
 
-Figure \@ref(fig:fcompare) below applies the mean, naive, and drift forecast models to U.S. GDP. It should be obvious that using the mean is a poor choice and will be for any time series with a strong trend pattern. Under normal circumstances absent of an impending economic shutdown, we would likely conclude that the drift model provides a more accurate forecast than the naive model.
+Figures \@ref(fig:formean), \@ref(fig:fornaive), and \@ref(fig:fordrift) below demonstrate the mean, naive, and drift forecast models applied to U.S. GDP, respectively. It should be obvious that using the mean is a poor choice and will be for any time series with a strong trend pattern. Under normal circumstances absent of an impending economic shutdown, we would likely conclude that the drift model provides a more accurate forecast than the naive model.
 
-```{r fcompare, echo=FALSE, fig.cap='Comparison of forecast models to trend data'}
+```{r formean, echo=FALSE, fig.cap='Mean Forecast'}
 autoplot(gdp_meanf) +
   theme_minimal() +
   labs(y = "GDP")
+```
 
+```{r fornaive, echo=FALSE, fig.cap='Naive Forecast'}
 autoplot(gdp_naive) +
   theme_minimal() +
   labs(y = "GDP")
+```
 
+```{r fordrift, echo=FALSE, fig.cap='Drift Forecast'}
 autoplot(gdp_drift) +
   theme_minimal() +
   labs(title = "Forecasts from Drift method", y = "GDP")
@@ -203,7 +207,7 @@ autoplot(gdp_drift) +
 
 According to the drift model, predicted GDP for the next ten time periods is shown in Table \@ref(tab:gdpdrift). Again, this is not a sophisticated model, and some may be alarmed by making predictions based on simply connecting the first and last observations, then extending the line into the future. It is important to keep in mind that the utility of a forecast is not the exact point forecasts in Table \@ref(tab:gdpdrift). In fact, it would be misleading to report GDP in Q2 of 2020 is predicted to be 21.65 trillion dollars. The utility of a forecast is the corresponding confidence interval. If this is our best model, then we can report that GDP in Q2 of 2020 is predicted to be between 21.48 and 21.81 trillion dollars with 95% confidence.
 
-```{r, echo=FALSE}
+```{r gdpdrift, echo=FALSE}
 forecast(gdp_drift) %>% 
   kable(format = 'html', caption = 'Forecast values')
 ```

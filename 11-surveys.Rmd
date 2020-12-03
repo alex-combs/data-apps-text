@@ -1,136 +1,11 @@
-# Surveys and Evaluations
-
-> *"A census taker once tried to test me. I ate his liver with some fava beans and a nice chianti."*
->
->---Hannibal Lecter
-
-<br>
-
-Before considering inference with respect to regression, this chapter covers two common concerns in sampling beyond question design or sampling method: sample power and weighting. Then, hypothesis testing is introduced, which applies to any sample estimate from which we wish to make inference. Lastly, using hypothesis testing for evaluations in their simplest forms is considered.
+# Hypothesis Testing
 
 ## Learning objectives {#lo11}
 
-- Apply the margin or error or the confidence interval of an estimate when making conclusions
-- Compute the sample size required to achieve a desired margin of error or precision around an estimate given the necessary information for such a computation
-- Weight survey results given sufficient information
 - Identify or construct the null and alternative hypotheses of a research question
 - Interpret a p-value and apply it to determine the outcome of a hypothesis test
 - Distinguish between types I and II error in a research scenario
 - Explain when a chi-square test or t-test is appropriate
-
-## Sample size
-
-Now that we understand how a sample of relatively small size allows us to make inferences about the population with a reasonable degree of confidence, let us next consider how to determine the size of sample we need to achieve a confidence interval with a specific degree of precision.
-
-When President Trump's impeachment inquiry was in progress, numerous polls were conducted to gauge the sentiment of the U.S. electorate as to whether Trump should be impeached. One poll conducted by Fox News, using a sample of 1,000 voters, reported that 51% of voters support impeaching Trump with a margin of error of 3 percentage points. These results garnered national attention as the first time a majority of U.S. voters supported the impeachment of Trump. Regardless of one's opinion on the matter or whether a national majority persuades elected officials, the claim that a majority of voters supported impeachment based on this poll is dubious. 
-
-A sample of U.S. voters was taken. From this sample, the proportion of voters in support of impeachment was calculated to serve as an estimate of the population parameter. This sample produced an estimate of 51 percent. The margin or error in surveys or polls, unless noted otherwise, refers to one-half of the 95% confidence interval, or roughly two standard errors. Therefore, the 95% confidence interval of the polling results was 48 to 54 percent. The confidence interval used to capture the unobserved population parameter includes a minority of voters supporting impeachment.
-
-A common mistake made when interpreting estimates and confidence intervals is that the estimate is the most likely value within the confidence interval for the population parameter. **The population parameter is no more likely to equal the estimate than any other value within the confidence interval**. A confidence interval either captures the population parameter or it does not. Therefore, it was just as likely that 48 percent of voters supported the impeachment as it was 54 percent did or any percentage in between.
-
-As long as our estimate is unbiased, we cannot influence its value. Any attempt to do so would be bias by definition. Thus, the pollsters were stuck with an estimate of 51 percent. The estimate of 51 percent was not the issue for making the conclusion that a majority of voters supported impeachment. The issue was the critical lack of precision around the estimate. Unlike the estimate, we *can* influence the precision of the confidence interval.
-
-How many voters would the pollsters have had to survey in order to achieve a margin of error of 1 percentage point and conclude a majority of voters support impeachment?
-
-If the outcome is dichotomous or binary, such as whether or not a respondent supports impeachment, then the equation for determining the desired sample size is as follows
-
-\begin{equation}
-n=p(1-p)({\frac{Z}{E}})^2
-(\#eq:sampsizeprop)
-\end{equation}
-
-- n is the sample size
-- p is the proportion of yes/true/success
-- Z is the number of standard deviations we set according to what confidence interval is desired
-- E is the desired margin of error
-
-It is important to point out that the calculation in Equation \@ref(eq:sampsizeprop) occurs *prior* to the poll. Therefore, we do not know the value of $p$. Unless there is reason to expect $p$ to equal a particular proportion, it is customary to input 0.50. If we want to use a 95% confidence interval then we input 2 for $Z$. Lastly, we replace $E$ with how far we want each side of our chosen confidence interval to be below and above our estimate.
-
-Suppose the primary purpose of the Fox News poll was to conclude a majority opinion. Then, a margin of error equal to 1 percentage point would allow a valid conclusion that a majority of voters support or oppose impeachment if the result of the poll were slightly below 49% or above 51% in favor. Choosing to use a 95% confidence interval, then the sample size necessary to achieve a margin of error equal to 1 percentage point (0.01) is
-
-\begin{equation}
-n=0.5(1-0.5)({\frac{1.96}{0.01}})^2\\
-n=9,604
-\end{equation}
-
-which is likely impractical for the kind of polling that news organizations tend to conduct.
-
-If we wish to determine the sample size needed for estimating a 95% confidence interval within a certain distance from a continuous estimate, such as the mean, we can use the following equation 
-
-\begin{equation}
-n=(\frac{sZ}{E})^2
-(\#eq:sampsizemean)
-\end{equation}
-
-where $s$ is the sample standard deviation. Again, we do not have the sample standard deviation prior to obtaining the sample. We must rely on past analyses of the variable in question or a pilot study with a small sample in order to input the sample standard deviation. 
-
-## Survey weights
-
-Ideally, the demographic composition of survey respondents should match the demographic composition of the survey's intended population. Thanks to Census data, we have a reasonably accurate understanding of population demographics such as age, sex, race, and ethnicity for multiple geographic areas and government jurisdictions. Other organizations like Pew Research Center and Gallup provide population proportions of other various ways to form groups, such as political party or religious affiliation. 
-
-Unfortunately, it is unlikely for the demographic composition of survey respondents to match the population. Recipients choose not to respond and surveys tend to reach some demographics disproportionately more than others. This results in over- or under-representation of certain demographic groups in our survey, which limits our ability to generalize survey results and threatens the internal validity of any estimate.
-
-Weighting is a way to correct for a demographic mismatch between the composition of respondents and the intended population. There are multiple methods of weighting, some of which are complex, but the basic method described below can work for most cases where maximum correction is not necessary or feasible.
-
-Suppose a poll targeted to the general U.S. public asked if workers who have illegally entered the U.S. should be 1) allowed to keep their jobs and apply for citizenship, 2) allowed to keep their jobs as temporary guest workers but not allowed to apply for citizenship, and 3) lose their jobs and have to leave the country. The poll also asked for political party affiliation. A total of 890 responses were collected, generating the following results.
-
-```{r, include=FALSE}
-poll <- immigration
-poll <- rename(poll, party = political)
-poll$party <- fct_recode(poll$party, Republican = "conservative", Democrat = "liberal", Independent = "moderate")
-poll <- filter(poll, response != "Not sure")
-poll$response <- fct_drop(poll$response)
-```
-
-```{r, echo=FALSE}
-summary(poll) %>% 
-  kable(format = 'html', caption = 'Illegal immigration poll results')
-```
-
-Based on the results, a plurality of 39% of the U.S. public believes illegal immigrants should leave the country and 31% believe they should be allowed to apply for citizenship. The question these estimates are biased by the composition of political party affiliation. About 40% of the respondents are Republican and Independent, while about 20% are Democrat. Suppose we find a national survey reporting that the U.S. is 30% Republican, 36% Independent, and 31% Democrat. Therefore, Republicans and Independents are over-represented in our survey, while Democrats are under-represented. We need to correct for this using weights.
-
-To calculate weights, we can use the following formula.
-
-\begin{equation}
-Weight = \frac{Population}{Sample}
-(\#eq:weight)
-\end{equation}
-
-Using Equation \@ref(eq:weight), we obtain the following weights for our survey
-
-- Republican:  30/40 = 0.75
-- Independent: 36/40 = 0.9
-- Democrats: 31/20 = 1.55
-
-These weights mean that each Republican response counts as only three-quarters of a response and each Democrat response counts as about 1.5 responses.
-
-Next, we need to tabulate how many of each response was made by the three parties. 
-
-```{r pollparty, echo=FALSE}
-polltab <- table(poll$response, poll$party)
-kable(polltab, format = 'html', caption = 'Response by political party')
-```
-
-Then, we multiply the values by their corresponding weight. For example, applying the weight for Republicans results in 134 responses for "Leave the country" ($179 \times 0.75$). This process gives us the following counts
-
-```{r, include=FALSE}
-pollsum <- poll %>% 
-  group_by(party, response) %>% 
-  summarize(total = n()) 
-
-pollsum <- pollsum %>% 
-  mutate(weight = if_else(party == "Republican", 0.75, 
-                          if_else(party == "Democrat", 1.55, 0.9)),
-         w.total = round(total*weight, 0))
-```
-
-```{r, echo=FALSE}
-kable(pollsum, format = 'html', caption = 'Weighted survey counts')
-```
-
-According to our weighted counts, 36% of the U.S. believes illegal immigrants should leave the country, while 35% believe they should be allowed to apply for citizenship. Weighting has changed a 8 percentage point gap in these two responses to a 1 point gap.
-
-In case it was not obvious in the example, we have to ask survey recipients to provide the demographic information upon which we plan to weight. Survey administrators must consider what variables might bias the response(s) of interest if there is a mismatch between the sample and population. Wisely, the designers of the survey above suspected if a disproportionate number of Republicans or any other political party responded, this would bias their estimates. Presumably, race and ethnicity are correlated with this response, but we do not have this information to construct a weight.
 
 ## Hypothesis testing
 
@@ -147,7 +22,7 @@ The condition is based on our research question that warranted the analysis in t
 
 Based on our question, we make a hypothesis *before* computing an estimate that would answer the question. For example, the average age of MPA students is less than the average age of all graduate students. Females are more likely to enroll in an MPA program than males. The effect of attaining an MPA increases earnings. These examples are alternative hypotheses; the affirmative of the condition we set out to test. The null hypothesis is the negative of the condition. For example, average age of MPA students is equal to graduate students. The likelihood of enrolling in an MPA program are equal between males and females. An MPA degree does not increase earnings.
 
-Note that the examples of alternative hypotheses were all directional. They used words like less/more than or increase/decrease. An alternative hypothesis need not be directional even though we may expect one direction over the other. For example, our alternative hypotheses could be that average age differs between MPA students and other grad students, the likelihood of enrolling differs between males and females, and attaining an MPA effects income.
+Note that the examples of alternative hypotheses were all directional. They used words like less/more than or increase/decrease. An alternative hypothesis need not be directional even though we may expect one direction over the other. For example, our alternative hypotheses could be that average age differs between MPA students and other grad students, the likelihood of enrolling differs between males and females, and attaining an MPA affects income.
 
 I encourage students to stick with non-directional hypotheses. In additional to simplifying the analysis, doing so reduces the likelihood that we report a statistically significant result when in fact there is not one (i.e. false positive). A strong case can be and is made that the statistical analyses allow too high of a likelihood for false positives. Claiming a direction means we have theoretically ruled out half of the possible results of our analysis before we even conduct the test, thereby increasing the likelihood we get the results we expected. If we are able to do this, one might wonder why conduct the test in the first place.
 
@@ -208,7 +83,22 @@ Again, a typical value for $\alpha$ is 5%, or 0.05. Having chosen a 5% significa
 
 The Chi-square ($\chi^2$) test is a common choice for introducing the application of hypothesis testing. Chi-square is used to test whether two *nominal* variables are associated to a statistically significant extent. A nominal variable, such as race, sex, or political party affiliation, has two or more of levels. If one wanted to test if, given the level for a unit of analysis in one nominal variable (e.g. male), there is a higher likelihood for a particular level in another nominal variable to occur (e.g. Republican), a Chi-square test is an appropriate choice.
 
-For an example, let us return to the immigration survey. We saw in \@ref(tab:pollparty) that 179 out of 357 Republicans (50%) responded that illegal immigrants should be forced to leave the country, while 101 out of 174 Democrats (58%) responded that illegal immigrants should be allowed to apply for citizenship. Is there a statistically significant pattern in responses conditional on political party affiliation, or are these differences due to random noise?
+For an example, consider a poll targeted to the general U.S. public asking if workers who have illegally entered the U.S. should be 1) allowed to keep their jobs and apply for citizenship, 2) allowed to keep their jobs as temporary guest workers but not allowed to apply for citizenship, and 3) lose their jobs and have to leave the country. The poll also asked for political party affiliation. A total of 890 responses were collected, generating the following results.
+
+```{r, include=FALSE}
+poll <- immigration
+poll <- rename(poll, party = political)
+poll$party <- fct_recode(poll$party, Republican = "conservative", Democrat = "liberal", Independent = "moderate")
+poll <- filter(poll, response != "Not sure")
+poll$response <- fct_drop(poll$response)
+```
+
+```{r pollparty, echo=FALSE}
+polltab <- table(poll$response, poll$party)
+kable(polltab, format = 'html', caption = 'Response by political party')
+```
+
+We see in \@ref(tab:pollparty) that 179 out of 357 Republicans (50%) responded that illegal immigrants should be forced to leave the country, while 101 out of 174 Democrats (58%) responded that illegal immigrants should be allowed to apply for citizenship. Is there a statistically significant pattern in responses conditional on political party affiliation, or are these differences due to random noise?
 
 The null hypothesis for this question is that there is no association between the opinion on illegal immigration and political party affiliation. That is to say, if we chose any of the three political party levels in our data, the probability of an individual providing one of the three opinions is equal the other opinions, or
 
