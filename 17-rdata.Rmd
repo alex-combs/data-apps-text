@@ -4,26 +4,26 @@
 
 In this chapter, you will learn how to:
 
-- Examine datasets to determine their units of analysis and structures
+- Examine datasets to determine their dimensions, unit of analysis, and structure
 - Examine variables to determine their type
-- Print a preview of the first or last few rows of a dataset
 
 ## Set-up
 
-You should by now know how to start a script and a notebook. For this chapter, use a script. As a reminder, everything you type in a script R will interpret as code to execute. You can add comments not meant as code by adding a hashtag # before the line of text. Use comments to answer any questions.
+To complete this chapter, you need to
 
-To complete this R chapter, you need to load the following packages. Add this code to your script and run it.
+- Start a R Markdown document. Keep the YAML and delete the default content in the body.
+- Load the following packages. This requires you to start a code chunk `Cmd+Option+I` or `Ctrl+Option+I` on PC. Or use the Insert menu in the top right of the source editor pane.
 
 ```{r, eval=FALSE}
 library(tidyverse)
 library(carData)  #if this fails, you need to install
 ```
 
-Before we begin, go to the `Packages` tab in the bottom-right pane. Find `carData` in the list and click on the name. This should take you to the `Help` tab, which will contain the documentation for `carData`. This page serves as a directory to all of the datasets that come loaded with the package. We will be examining some of these datasets. If you want or need to learn more about a particular dataset, you can click on its name in this list. 
+Before you begin, go to the `Packages` tab in the bottom-right pane. Find `carData` in the list and click on the name. This should take you to the `Help` tab, which will contain the documentation for `carData`. This page serves as a directory to all of the datasets that come loaded with the package. We will be examining some of these datasets. If you want or need to learn more about a particular dataset, you can click on its name in this list. 
 
 ## Viewing datasets
 
-It is assumed most readers are familiar with spreadsheets. Perhaps one of the first obstacles to using R is that you do not constantly stare at a spreadsheet, creating somewhat of a disconnect between what you do to data and seeing it done.
+Perhaps one of the first obstacles to using R is that you do not constantly stare at a spreadsheet, creating somewhat of a disconnect between what you do to data and seeing it done.
 
 You can examine a dataset in spreadsheet form using the following command:
 
@@ -34,13 +34,13 @@ View(dataset)
 where you replace `dataset` with the actual name of the dataset.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 1:**  In your script, use the `View` command on the `Arrests` dataset that should be available in your current R session.
+**Exercise 1:**  In your document, start a new code chunk to use the `View` command on the `Arrests` dataset that should be available in your current R session.
 ```
 
-A new tab should have appeared in the top-left pane containing the spreadsheet version of `Arrests`. This dataset contains information on arrests for possession of small amounts of marijuana in the city of Toronto. 
+A new tab should have appeared in the top-left pane containing the spreadsheet of `Arrests`. This dataset contains information on arrests for possession of small amounts of marijuana in the city of Toronto. 
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 2**  Based on what you see, what is the structure of this dataset? What is the unit of analysis? 
+**Exercise 2**  Based on what you see in the spreadsheet of `Arrests`, what is the structure of this dataset? What is the unit of analysis? Remember to write your answer outside of a code chunk.
 ```
 
 Let's examine a new dataset called `Florida` which contains county voting results for the 2000 presidential election.
@@ -55,76 +55,59 @@ Let's examine a new dataset called `Florida` which contains county voting result
 
 ### Warning about View
 
-`View` is useful but **should not** be included in a notebook that you plan to export to another document. This is because R will attempt to print the entire dataset to the export document. This is almost always a mistake. 
+> `View` is useful but **should not** be included in a document that you plan to export. This is because R will attempt to print the entire dataset to the export document. This is almost always a mistake. 
 
 To avoid making this mistake, I suggest you not use the `View` function as code, but rather use a point-and-click alternative.
 
-Run the following code to save `Arrests` to your environment pane in the top-right.
+```{block, type='learncheck', purl=FALSE}
+**Exercise 5**  In an existing or new code chunk, run the following code, which saves `Arrests` to your environment pane in the top-right. Then click on `arrests`. This should do the same thing as running `View`. If you find yourself needing to see the spreadsheet, use this point-and-click method.
+```
 
 ```{r, eval=FALSE}
 arrests <- Arrests
 ```
 
-Now click on `arrests`. This should do the same thing as running `View`.
+## Glimpse Data
 
-## Glimpsing Datasets
-
-If your dataset is moderately large, `View` is an inefficient way to get a sense of your data. The `glimpse` function generates a compact printout providing key information about a dataset.
+If your dataset is moderately large, `View` is an inefficient way to get a sense of your data. The `glimpse` function generates a compact printout providing key information about a dataset. The general syntax is as follows:
 
 ```{r, eval=FALSE}
 glimpse(dataset)
 ```
 
+where we replace `dataset` with the name of the `dataset`.
+
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 5**  Use `glimpse` on `Arrests`. 
+**Exercise 6**  In an existing or new code chunk, use `glimpse` on `Arrests`. 
 ```
 
-Notice that the results show you the dimensions of the dataset--the number of rows (observation) and columns (variables). Next, it provides a vertical list of variables, with several of their values listed horizontally, that can export to documents more easily. 
+Notice that the results show you the **dimensions** of the dataset--the number of rows (observation) and columns (variables). Next, it provides a vertical list of variables, with several of their values listed horizontally. This allows a very wide dataset with many variables to export to documents more easily. 
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 6**  Having now examined `Arrests` using `View` and `glimpse`, what type are the following variables based on the taxonomy used in the chapter on data. 
+**Exercise 7**  Having now examined `Arrests` using `View` and `glimpse`, what type are the following variables based on the taxonomy used in Chapter \@ref(data). 
 
 - year
 - age
 - sex
 ```
 
-The column immediately to the right of the variable name is also informative. It tells you how each variable is stored in R. A variable can be stored in several ways:
+
+## Variable Types in R
+
+The column immediately to the right of the variable name in the `glimpse` printout is also informative. It tells you how each variable is stored in R. A variable can be stored in several ways:
 
 - **Integers:** commonly used for discrete variables
 - **Doubles/numerics:** commonly used for continuous variabls but can also store discrete variables
 - **Logicals:** commonly used for categorical variables that are binary (i.e. 1 or 0). In R, logicals are assigned `TRUE`, if equal to 1, or `FALSE`, if equal to 0.
 - **Factors:** commonly used for categorical variables. Factors can store categorical variables with any number of levels. Therefore, a binary variable can be stored as a factor instead of a logical if you want the variable to be assigned different values like "Yes" or "No."
-- **Characters:** commonly used for strings of text that don't fit the other storage types well, such as open-ended responses in a survey. However, any variable can be stored as a character. A numerical variable can be stored as a character and R will not recognize its values as numbers. Character variables are often denoted with quotation marks "" around them.
+- **Characters:** commonly used for strings of text that don't fit the other storage types well, such as open-ended responses in a survey. However, any variable can be stored as a character. A numerical variable can be stored as a character and R will not recognize its values as numbers.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 7**  Are the variables in exercise 6 stored in a way that makes sense given your answers?
+**Exercise 8**  Are the variables in exercise 7 stored in a way that makes sense given your answers?
 ```
 
-Variables will not always be stored the way they should. Sometimes we have to tell R how to store a variable based on our own understanding of their type. This skill will be covered later.
+Variables will not always be stored in R the way they should. Sometimes we have to tell R how to store a variable based on our own understanding of their type. This skill will be covered later.
 
-## Preview first or last few rows
+## Save and Upload
 
-Sometimes we want to show people what the data looks like in spreadsheet form, or we want to examine the first or last few rows in our dataset. As previously, mentioned the `View` function prints the entire dataset, which is almost always too much. 
-
-We can preview the top few rows of a dataset using the `head` function like so
-
-```{r, eval=FALSE}
-head(dataset, n = number_of_rows_you_want_to_print)
-```
-
-or the bottom few rows of a dataset with the `tail` function
-
-```{r, eval=FALSE}
-tail(dataset, n = number_of_rows_you_want_to_print)
-```
-
-```{block, type='learncheck', purl=FALSE}
-**Exercise 8**  Print the first and last 4 rows of the `USPop` dataset.
-```
-
-Note that R prints the rows in descending order according to how the dataset is ordered. For `tail` R went up 4 rows from the bottom and printed the 4 rows in descending order. 
-
-## Submit
-
-Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.
+Change the title in the YAML to "R Chapter 2". Knit your Rmd to save it and check for errors. If you are satisfied with your work, upload to eLC. Once you upload, answers will become available for download.

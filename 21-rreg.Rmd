@@ -16,6 +16,19 @@ In this chapter, you will learn how to:
 To complete this chapter, you need to
 
 - Start a R Markdown document
+- Change the YAML to at least the following. Feel free to add arguments.
+
+```{r, eval=FALSE}
+---
+title: 'R Chapter 6'
+author: 'Your name'
+output: 
+  html_document:
+    theme: spacelab
+    df_print: paged
+---
+```
+
 - Load the following packages
 
 ```{r, eval=FALSE}
@@ -233,6 +246,6 @@ which uses the 95% confidence level by default.
 **Exercise 5:** Produce a comprehensive set of results for each of your three regression models using the Base R functions.
 ```
 
-## Submit
+## Save and Upload
 
-Save your Rmd file and upload to eLC. Once you upload, answers will become available for download.
+Knit your Rmd to save it and check for errors. If you are satisfied with your work, upload to eLC. Once you upload, answers will become available for download.

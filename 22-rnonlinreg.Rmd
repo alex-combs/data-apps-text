@@ -11,7 +11,19 @@ In this chapter, you will learn how to:
 
 To complete this chapter, you need to
 
-- Open a script
+- Start a R Markdown document
+- Change the YAML to at least the following. Feel free to add arguments.
+
+```{r, eval=FALSE}
+---
+title: 'R Chapter 7'
+author: 'Your name'
+output: 
+  html_document:
+    theme: spacelab
+    df_print: paged
+---
+```
 - Load the following packages
 
 ```{r, eval=FALSE}
@@ -102,6 +114,6 @@ lfp = \beta_0 + \beta_1k5 + \beta_2age + \beta_3age^2 + \beta_4wc + \beta_5lwg +
 Run this regression model and obtain the results.
 ```
 
-## Submit
+## Save and Upload
 
-Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.
+Knit your Rmd to save it and check for errors. If you are satisfied with your work, upload to eLC. Once you upload, answers will become available for download.

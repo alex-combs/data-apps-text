@@ -11,7 +11,20 @@ In this chapter, you will learn how to:
 
 To complete this chapter, you need to
 
-- Open a script
+- Start a R Markdown document
+- Change the YAML to at least the following. Feel free to add arguments.
+
+```{r, eval=FALSE}
+---
+title: 'R Chapter 8'
+author: 'Your name'
+output: 
+  html_document:
+    theme: spacelab
+    df_print: paged
+---
+```
+
 - Load the following packages
 
 ```{r, eval=FALSE}
@@ -90,6 +103,6 @@ t.test(earnings ~ treatment, data = jobtrain, paired = TRUE)
 
 However, this code will not work because the number of observations in the treatment and control groups are not equal. If we truly had a paired sample where the same subjects measured twice, then we should have the same number of observations in both groups.
 
-## Submit
+## Save and Upload
 
-Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.
+Knit your Rmd to save it and check for errors. If you are satisfied with your work, upload to eLC. Once you upload, answers will become available for download.

@@ -347,7 +347,7 @@ There are several measures one can use to answer the above question.
 
 >
 - **Covariance:** measures direction of association between between two variables
-- **Correlation:** measures direction and strength of association between two variables
+- **Correlation coefficient:** measures direction and strength of association between two variables
 - **Regression coefficient:** measures the direction and magnitude of association between an explanatory variable and an outcome variable
 - **Coefficient of determination ( $R^2$ ):** measures the strength of association between a set of one or more explanatory variables and an outcome variable
 

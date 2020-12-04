@@ -234,7 +234,7 @@ euro_gdp07 %>%
 
 Now we see some of the wealthiest European countries.
 
-### Head/Tail {-}
+### Head/Tail
 
 By default, the `head` and `tail` verbs extract the top and bottom 6 rows of a dataset, respectively. These verbs are useful if we want to show a reader a sample of the data in a familiar spreadsheet form, which can be useful. Though the output from `glimpse` is very useful, it does not look good in a report. The `head` and `tail` verbs allow us to provide similar information in a much more presentable format.
 
@@ -256,7 +256,7 @@ euro_gdp07 %>%
   kable(digits = 0)
 ```
 
-### Summarize {-}
+### Summarize
 
 Summarize creates a new dataset by collapsing all of the cases of a dataset into one or more summary statistics. It is useful for providing quick summary stat calculations in a somewhat presentable format. I do not recommend using `summarize` to produce the kind of summary stats table commonly found in reports because it can become tedious and the formatting is not good enough. I recommend using the `arsenal` package instead.
 
@@ -272,7 +272,7 @@ gapminder %>%
 
 The `summarize` verb works with numerous summary functions listed on the second page of the [Data transformation](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) cheatsheet under the heading "Summary Functions."
 
-### Group_By {-}
+### Group_By
 
 The `group_by` verb is most commonly used in tandem with `summarize`. If instead of calculating a summary stat for the entire dataset, you wanted to calculate the summary stat for each group of a categorical variable separately, use `group_by` before using `summarize`.
 

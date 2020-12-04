@@ -16,7 +16,28 @@ The code used to make the above visualizations in \@ref(data-visualization) will
 
 To complete this chapter, you need to
 
-- Start a notebook
+- Start a R Markdown document
+- Change the YAML to the following:
+
+```{r, eval=FALSE}
+---
+title: 'R Chapter 5'
+author: 'Your name'
+output: 
+  html_document:
+    theme: spacelab
+    df_print: paged
+    toc: true
+    toc_float:
+      toc_collapsed: false
+    fig_width: 6
+    fig_height: 4
+    fig_align: "center"
+---
+```
+
+The newest additions to the YAML header are worth explaining. The `toc` stands for table of contents, which works really well for HTML output but not so much Word or PDF. Each level of the table of contents is dictated by the headings you include in your document. The arguments beginning with `fig` dictate the size and alignment of each figure your code produces. You can override these global arguments by including with code chunk options.
+
 - Load the following packages and data
 
 ```{r, eval=FALSE}
@@ -48,7 +69,7 @@ ggplot(data, aes(x = variable, ...)) +
   geom_type()
 ```
 
-For example, the below code takes the variable `gdpPercap` from the dataset `gapminder` and maps it to the horizontal x axis of a chosen `geom`etric object called a histogram.
+For example, the below code takes the variable `gdpPercap` from the dataset `gapminder` and maps it to the x axis `aes`thetic of a chosen `geom`etric object called a histogram.
 
 ```{r, message=FALSE, warning=FALSE}
 ggplot(gapminder, aes(x = gdpPercap)) +
@@ -59,21 +80,30 @@ Data, aesthetics, and geometries are the essential elements needed to generate a
 
 Aesthetics take variables in your data and assign them to attributes that correspond to the geometric object you intend to use. That is, `aes` and `geom` work together and must be compatible. 
 
-For example, you can't generate a scatter plot--`geom_point`--if you only define an `x` aesthetic. You must define an `x` and `y` aesthetic for a scatter plot. The figure below lists various aesthetic attributes. 
+For example, you can't generate a scatter plot--`geom_point`--if you only define an `x` aesthetic. You must define an `x` and `y` aesthetic for a scatter plot. Below is a list of available aesthetics and what they control:
 
-```{r, echo=FALSE}
-include_graphics('images/ggaes.png')
-```
+- `x`: x axis
+- `y`: y axis
+- `color`: differentiate groups by color; change color of outlines of shapes
+- `size`: diameter of points based on values of a variable; static size of points or thickness of lines
+- `fill`: fill a shape with color
+- `alpha`: transparency
+- `linetype`: line pattern
+- `labels`: uses text instead of plot points; adds text to axes
+- `shape`: differentiate groups by shape of plot points
 
-The type of your variable also informs which aesthetic(s) to use. The following work well with visualizing continuous variables:
+The type of your variable also informs which aesthetic(s) to use. 
+
+Continuous variables:
 
 - x and y
 - size
+- fill
 
- The following aesthetics work well with visualizing categorical variables:
+Categorical variables:
 
 - labels
-- color and fill
+- color and/or fill
 - shape
 - linetype
 - size
@@ -97,7 +127,7 @@ ggplot(college_grad_students, aes(x = grad_median)) +
 ```
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 1:**  In the `countyComplete` dataset, there is a variable named `bachelors_2010` that measures the percent of the county population with a bachelor's degree between 2006-2010. Suppose we want to visualize the distribution of `bachelors` with a histogram. Generate a simple, default histogram (no optional code unless you want to add it).
+**Exercise 1:**  Add a heading `# Histogram`. In the `countyComplete` dataset, there is a variable named `bachelors_2010` that measures the percent of the county population with a bachelor's degree between 2006-2010. Suppose we want to visualize the distribution of `bachelors` with a histogram. Generate a simple, default histogram (no optional code unless you want to add it).
 ```
 
 ```{r, include=FALSE}
@@ -129,7 +159,7 @@ ggplot(college_grad_students, aes(y = grad_median)) +
 ```
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 2:**  Generate a simple, default box plot for `bachelors_2010` (no optional code unless you want to add it).
+**Exercise 2:**  Add another heading `# Boxplot`. Generate a simple, default box plot for `bachelors_2010` (no optional code unless you want to add it).
 ```
 
 ## Bar chart
@@ -201,7 +231,7 @@ ggplot(gradschool, aes(x = "", fill = unemp_cat)) +
 ```
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 3:**  Suppose we want to visualize how many counties each state has. That is, we want to count how many rows belong to each `state` in the `countyComplete` data using a bar chart. Generate a bar chart that achieves this. Choose the type of bar chart you deem best.
+**Exercise 3:**  Add a heading `# Bar Chart`. Suppose we want to visualize how many counties each state has. That is, we want to count how many rows belong to each `state` in the `countyComplete` data using a bar chart. Generate a bar chart that achieves this. Choose the type of bar chart you deem best.
 ```
 
 When should we use `geom_col` instead? When our counts are already aggregated in our data. Refer back to the table above. Note that `grad_total` and `grad_median` contain the count of graduates within each major and their median pay, respectively. Therefore, we do not need R to count the number of rows in our data, but rather report each number already included in the data. The `geom_col` function takes these counts and visualizes them using a bar (or column) chart.
@@ -252,7 +282,7 @@ ggplot(gradschool, aes(x = grad_median, y = grad_total)) +
 ```
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 4:**  Pick two variables in the `countyComplete` data and plot their relationship using a simple scatter plot.
+**Exercise 4:**  Add a heading `# Scatterplot`. Pick two variables in the `countyComplete` data and plot their relationship using a simple scatter plot.
 ```
 
 ## Line graph
@@ -271,9 +301,9 @@ prisonLF %>%
 ```
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 5:**  Create a line graph for male prisoners who were sentenced by state.
+**Exercise 5:**  Add a heading `# Linegraph`. Create a line graph for male prisoners who were sentenced by state.
 ```
 
-## Submit
+## Save and Upload
 
-Save your notebook and submit to eLC. Once you submit, answers will become available for download.
+Knit your Rmd to save it and check for errors. If you are satisfied with your work, upload to eLC. Once you upload, answers will become available for download.

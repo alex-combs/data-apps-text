@@ -6,7 +6,7 @@ This section contains what are referred to as R Chapters, each of which correspo
 
 Each R Chapter begins with a list of learning objectives followed by a what you need to set up in terms of packages and data to complete the chapter. Each chapter then guides you through a few exercises that require you to operate R. Periodically, they will ask you to interpret your results and/or connect what you have done to the concept it was meant to help you understand. By the end of each chapter, you will have at least one document to save and upload to eLC. That document will contain code and answers to questions. 
 
-Once you upload your R Chapter work to eLC, a document will become available that contains my answers to those same exercises. My answers are not necessarily definitive; they are intended to provide almost immediate feedback. You should compare your work to my own, making note of any differences and attempting to make sense of them. R Chapters will sometimes be incorporated into class discussion, but feel free to ask specific questions about your R Chapter during class too.
+Once you upload your R Chapter work to eLC, a document will become available that contains my answers to those same exercises. This is meant to provide almost immediate feedback. You should compare your work to my own, making note of any differences and attempting to make sense of them. Keep in mind that my answers are not necessarily definitive. R Chapters will be incorporated into class discussion when possible, but feel free to ask specific questions about each R Chapter during class.
 
 ## What is R and RStudio
 
@@ -30,20 +30,38 @@ Second, download and install RStudio [here](https://www.rstudio.com/products/rst
 **Exercise 1**  Launch RStudio
 ```
 
-Upon launch, you should see three panes:
+Upon launch, you should see three sections regerred to as panes:
 
 ```{r, echo=FALSE}
 include_graphics('images/rstudio_sshot.png')
 ```
 
-- Console pane (left) is where you can tell R what to do. It also displays the results of commands. **Only use the console for installing packages.**
+- Console pane (left) is where you can tell R what to do. It also displays the results of commands and any messages, warnings, and errors. You will rarely need to use the console except when installing a package. **Only install a package via the console, never as code you would save and (re)run.**
 - Environment pane (top right) displays all the data in your current R session. A session is the time between launching and closing R.
 - Files pane (bottom right) allows you to navigate your files, displays plots, provides a list of installed packages, allows you to search for help, and displays file exports.
 
-You will usually see a fourth pane while working in RStudio -- the source editor pane. 
+You will usually see a fourth pane in the upper-left, with the console in the bottom-left, while working in RStudio -- the source editor pane. 
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 2** You have two options here: 1) See that plus sign (+) icon in the very top left of RStudio? Click on that and you will see a list of options. In this course, we will use either R Scripts or R Markdown documents. For this R Chapter, select R Script. 2) In the RStudio menu bar at the top of your screen, go to `File -> New File -> R Script`. Either way, a new pane will open. **This is the pane where you will tell R what to do 99% of the time because it allows you to write code that you can save.**
+**Exercise 2** Two options: 1) See that plus sign (+) icon with a piece of paper in the very top left of RStudio? Click on that and you will see a list of options. In this course, we will always use R Markdown documents. Select R Markdown. 2) In the RStudio menu bar at the top of your screen, go to `File -> New File -> R Markdown`. Either way, a dialog box will appear. You do not need to do anything other than click `OK`. A new pane should appear with some default content in it. **This is the pane where you will tell R what to do 99% of the time because it allows you to write code that you can save.**
+```
+
+### R Markdown
+
+An R Markdown document allows you to fluidly combine prose that you would write for a report and R code that produces the tables and graphs you wish to incorporate. It can do much more than this, as outlined by this brief [video](https://rmarkdown.rstudio.com/lesson-1.html). In this course, we will use R Markdown for R Labs and Problem Sets in addition to these R Chapters.
+
+An R Markdown file consists of two parts:
+- YAML Header: at the top contained within three dashes, `---`. The YAML sets the global options for the document and how it exports; typically used to adjust the formatting of the export document
+- Body: where you write prose and code
+
+Be sure to read the default content, as it is informative.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 3** In the YAML, change the title to "R Chapter 1".
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 4** Click on the `Knit` button at the top of the source editor pane (looks like a ball of yarn with a needle stuck in it. A drop down menu will appear. Click on HTML. RStudio will then prompt you to save your document. Save your R Markdown file using your last name (`lastname_rch16`) wherever on your computer you prefer. R will start to process your document and a new window will appear that contains your export document. Feel free to test knitting to Word if your computer has Word installed. PDF will not yet work. RStudio saves your document every time you knit.
 ```
 
 ### R Packages
@@ -62,10 +80,14 @@ install.packages("name_of_package")
 
 Where `"name_of_package"` is replaced with the actual name of the R package we want to install. This code accesses R's "app store" and downloads it to your computer. You only need to install a R package once. The package is saved on your computer where R can find it.
 
+<br>
+
 > Remember to include quotes around the name of the R package when installing it.
 
+<br>
+
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 3** We will almost always need to use a package called `tidyverse`. In your **console pane** (bottom-left) of RStudio, type `install.packages("tidyverse")`, then click `Enter` on your keyboard. This will begin the installation. Monitor the console pane while `tidyverse` installs. RStudio may ask you some Yes/No questions during the process. Answer all questions in the affirmative by typing `Yes` then clicking `Enter`.
+**Exercise 5** We will almost always need to use a package called `tidyverse`. In your **console pane** (bottom-left) of RStudio, type `install.packages("tidyverse")`, then click `Enter` on your keyboard. This will begin the installation. Monitor the console pane while `tidyverse` installs. RStudio may ask you some Yes/No questions during the process. Answer all questions in the affirmative by typing `Yes` then clicking `Enter`.
 ```
 
 #### Load Packages {-}
@@ -78,19 +100,19 @@ Therefore, you should load needed R packages each time you open RStudio. And bec
 library(name_of_package)
 ```
 
-> You need not use quotes around the name of the R package when loading it. Quotes are only needed to install.
+> You need not use quotes around the name of the R package when loading it. Quotes are only needed to install, not load.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 4**  You should have a script open in the source editor (upper-left) pane. Type `library(tidyverse)` in the script. Click `Run` or `Cmd+Enter` to execute this line of code. The console pane (bottom-left) will provide information about the loading.
+**Exercise 6**  Near the top of your document, you should see a code chunk named `setup` containing the code `knitr::opts_chunk$set(echo = TRUE)`. Start a new line *inside* of this code chunk. Type `library(tidyverse)` on the new script. Next, run this code chunk either by clicking on the little sideways arrow at the right of the code chunk, or by using the keyboard shortcut `Cmd+Enter` on Mac or `Ctrl+Enter` or `Window+Enter` on PC. This shortcut only executes the line of code on which your cursor (the blinking vertical line) is. The console pane (bottom-left) will provide information about the loading.
 ```
 
-> You must load a package before using any functions included in that package or else you will receive the following error message, `Error: could not find function`. Remember this crucial fact. 
+<br>
 
-I will tell you what packages are needed for certain tasks, but remember that you need to install and load the package to use it.
+> Remember, you must load a package before using any functions included in that package or else you will receive the following error message, `Error: could not find function`. I will tell you what packages are needed to complete all assignments, but remember that you need to install and load the package to use it.
 
 ## Save and Upload
 
-Save your R script using your last name (`lastname_rch16.R`) and upload to eLC. You can save an R file like any other software. Either click on the floppy disk icon in the menu at the top or use the navigate the menu bar to `File -> Save As`. Once you upload, answers will become available on eLC.
+Save your document once more either by knitting again or like any other software -- clicking on the floppy disk icon in the menu at the top or using the menu bar `File -> Save As`. Then upload your .Rmd document to eLC. Once you upload, answers will become available on the Welcome module of eLC.
 
 ## Additional Resources
 

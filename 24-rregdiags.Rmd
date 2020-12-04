@@ -16,7 +16,20 @@ In this chapter, you will learn how to:
 
 To complete this chapter, you need to
 
-- Open a script
+- Start a R Markdown document
+- Change the YAML to at least the following. Feel free to add arguments.
+
+```{r, eval=FALSE}
+---
+title: 'R Chapter 9'
+author: 'Your name'
+output: 
+  html_document:
+    theme: spacelab
+    df_print: paged
+---
+```
+
 - Load the following packages
 
 ```{r, eval=FALSE}
@@ -187,6 +200,6 @@ As you can see from this example, regression diagnostics can take you down some 
 **Exercise 3:** Try to correct your regression model based on your diagnostic results. Maybe exclude one or more observations from your regression model.
 ```
 
-## Submit
+## Save and Upload
 
-Please save your script using your last name and submit to eLC. Once you submit, answers will become available for download.
+Knit your Rmd to save it and check for errors. If you are satisfied with your work, upload to eLC. Once you upload, answers will become available for download.

@@ -126,7 +126,7 @@ The central goal of a forecast is to provide the most accurate prediction. How c
 
 Figure \@ref(fig:lagtime) shows a forecast model denoted by the red line that simply uses the previous GDP measure to predict current GDP, compared to observed GDP denoted by the blue line. Recall how strongly lagged GDP was correlated with current GDP. This results in a forecast that appears to fit the trend fairly well. Nevertheless, there is error for almost every year, and since GDP in this time window exhibits a consistent upward trend, using last year's GDP causes a consistent underestimation.
 
-```{r lagtime, echo=FALSE}
+```{r lagtime, echo=FALSE, fig.cap='Comparing observed to predicted'}
 usgdp %>% 
   mutate(newdate = DATE + months(3)) %>% 
   ggplot() +
@@ -145,7 +145,7 @@ ts.usgdp <- ts(usgdp[,-1], frequency = 4, start = c(1974,4))
 gdp_naive <- naive(ts.usgdp)
 ```
 
-```{r checkresidual, echo=FALSE}
+```{r checkresidual, echo=FALSE, fig.cap='Residual diagnostics'}
 checkresiduals(gdp_naive, test = FALSE)
 ```
 

@@ -4,13 +4,27 @@
 
 In this chapter, you will learn how to:
 
-- Make a professional quality table of descriptive statistics
+- Calculate descriptive statistics individually
+- Automate a professional-quality table of descriptive statistics
 
 ## Set-up
 
 To complete this chapter, you need to
 
-- Start a notebook
+- Start a R Markdown document
+- Change the YAML to the following:
+
+```{r, eval=FALSE}
+---
+title: 'R Chapter 4'
+author: 'Your name'
+output: 
+  html_document:
+    theme: spacelab
+    df_print: paged
+---
+```
+
 - Load the following packages
 
 ```{r, eval=FALSE}
@@ -22,7 +36,7 @@ library(carData)
 
 ## Introduction
 
-Summary statistics tables are ubiquitous in reports and studies. Usually a project involves numerous variables that would require too many visualizations to summarize, though we should still consider visualizations for the most important variables. A standard summary stats table provides readers a reference for key measures pertaining to all our variables in a fairly compact form. They can even provide new insights in lieu of a visualization.
+Summary statistics tables are ubiquitous in reports and studies. Usually a project involves numerous variables that would require too many visualizations, though we should still consider visualizations for the most important variables. A standard table of summary stats provides readers a reference for key measures pertaining to all our variables in a fairly compact form.
 
 In this chapter, we set out to summarize variables within the `States` dataset of the `carData` package.
 
@@ -34,7 +48,27 @@ In this chapter, we set out to summarize variables within the `States` dataset o
 glimpse(States)
 ```
 
-`States` is a cross-section of the 50 states and D.C. containing education and related statistics. Be sure to read the help page for `States` to understand each variable. You can do that by typing `States` in the search bar of the bottom-right pane of RStudio or going to the `carData` package under the Packages tab and clicking on the `States` link.
+`States` is a cross-section of the 50 states and D.C. containing education and related statistics. Be sure to skim the documentation for `States` to understand each variable. You can do that by clicking on the `carData` package under the Packages tab then clicking on the `States` link.
+
+## Individual Stats
+
+Before producing a table of descriptive statistics, it is helpful to review how one would tell R to compute each statistic covered in Chapter \@ref(descriptive-statistics) individually.
+
+> Because R can hold many datasets/objects at once, we need to tell it which dataset/object to apply a given function. We have had to do this many times already. Similarly, if we want R to apply a function to a *specific variable* within a dataset, we need to tell which variable in which dataset. This is done using the `$` operator.
+
+Below are all of the useful descriptive measures of center and spread applied to the `pay` (i.e. average teacher's salary in 1,000s) variable in the `States` dataset.
+
+```{r}
+mean(States$pay)
+median(States$pay)
+sd(States$pay)
+IQR(States$pay)
+range(States$pay)
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 2:**  Calculate the average and standard deviation for state spending on public education in \$1000s per student.
+```
 
 ## Summary Table
 
@@ -49,11 +83,25 @@ Summary tables come in many styles, so there is no way to cover everything. In m
   - Counts for each level, and/or
   - Percentages for each level
 
-If a variable is skewed, then it may be wise to replace the mean and standard deviation with the median, first quartile, and third quartile. We will learn how to do this.
+If a variable is skewed, then it may be wise to replace the mean and standard deviation with the median and IQR. We will learn how to do this.
 
-## Using Arsenal
+### Background Table
 
-Due to the many styles of summary tables, there are numerous R packages designed to produce summary tables. The best R package in terms of quickly getting the information to a nicely formatted table of which I am aware is Arsenal. Therefore, we will learn how to use Arsenal. I will demonstrate Arsenal using the `gapminder` data with which we are all familiar. Then, I will ask you to replicate those demonstrations using the `States` data.
+Sometimes we do not want to print a fancy table. Rather, we may want to quickly see a full set of descriptive statistics for ourselves that our reader will never see. This can be done using the `summary` function on our dataset like so:
+
+```{r}
+summary(gapminder)
+```
+
+We would almost certainly want to suppress this code and output (i.e. `include=FALSE` code chunk option) if preparing a report for an external audience.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 3:**  Generate a background table of descriptive statistics for all of the variables in `States`. Suppress the code and output.
+```
+
+### Using Arsenal
+
+Due to the many styles of summary tables, there are numerous R packages designed to produce summary tables. The best R package in terms of quickly getting the information to a nicely formatted table of which I am aware is Arsenal. Therefore, we will learn how to use Arsenal. I will demonstrate Arsenal using the `gapminder` dataset. Then, I will ask you to replicate those demonstrations using the `States` data.
 
 Producing a summary table with Arsenal involves at least two, probably three, steps.
 
@@ -61,31 +109,41 @@ Producing a summary table with Arsenal involves at least two, probably three, st
 - Relabel the variables to something appropriate for our audience
 - Generating the summary table based on the new object we just created
 
-Here is an example using `gapminder` data without altering any of Aresenal's default options that we will want to know how to alter in most cases.
+Here is an example following the steps above using `gapminder` data without altering any of Aresenal's default options that we will want to know how to alter in some cases.
 
 ```{r, results='hide'}
 sum.gapminder <- tableby(~ continent + gdpPercap + lifeExp + pop, data = gapminder)
+```
 
+The above code is what actually creates the table I want to export. First, I name the object whatever I want. Then I use the `tableby` function. We will learn what the tilde, `~`, does later. For now, know that it is required. Then, I list the variable I want included in the table, separating each with a plus sign. Lastly, I tell R which dataset to apply this function.
+
+```{r, results='hide'}
 labels(sum.gapminder) <- c(continent = "Continent", gdpPercap = "GDP Per Capita", lifeExp = "Life Expectancy", pop = "Population")
 ```
+
+Most datasets do not use variable names that would be appropriate for an external audience. The names in `gapminder` are not bad; most readers could make sense of what the names imply about the data, but it is simple enough (though tedious) to provide a more polished look.
+
+Therefore, in the above code I use the `labels` function on the `sum.gapminder` table I just created, then assign each variable I told R to include in the table a label that will replace the name when it prints.
 
 ```{r, results='asis'}
 summary(sum.gapminder, title = "Summary Stats for Gapminder Data")
 ```
 
-The second code chunk above requires a specific code chunk option in order for the table to print correctly. The top line of a code chunk includes `{r}` by default. To print the summary table from the Arsenal package correctly using the `summary()` function, we need to add the code chunk option `results='asis'`. Therefore, the top line of the code chunk should be `{r, results='asis'}`.
+This last line of code actually prints the summary table when I knit my document. The previous two steps can be included in the same code chunk, but **this function needs to have its own code chunk because**
+
+> you need to include a specific code chunk option, `results='asis'`, in order for the table to export properly. To be clear, in the top line of a code chunk that contains `{r}` by default, you need to change it to `{r, results='asis', echo=FALSE}`. I also include the `echo=FALSE` option assuming we do not want our reader to see our code.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 2:**  Replicate the code shown above to create a default summary table for the `States` data using the Arsenal package. Be sure to relabel the variables to something relatively understandable and brief. Labeling is tedious but you only need to do it once. You can run the code individually or knit your notebook to preview the table.
+**Exercise 4:**  Replicate the code shown above to create a summary table for the `States` data using the Arsenal package. Be sure to relabel the variables to something relatively understandable and brief. Labeling is tedious but you only need to do it once. I suggest you knit your document now to see what you just made.
 ```
 
 In three relatively short bits of code, we already have a decent summary table that would have taken excruciatingly long to input manually. But it can be made better.
 
-### Adjustments
+### Adjustments to Arsenal
 
-#### Decimal digits {-}
+#### Decimal digits
 
-The biggest aesthetic issue with this table is including so many decimals. None of these variables have such a small range that rounding to integers masks useful information. Obviously, if a variable only ranges between 0 and 1, we would not want to round to an integer.
+The biggest aesthetic issue with my table is that it includes so many decimals. None of these variables have such a small range that rounding to integers masks useful information. Obviously, if a variable only ranges between 0 and 1, we would not want to round to an integer.
 
 Specifying the number of decimals is quite easy with Arsenal. Because arsenal tries to be as flexible as possible, we have to specify the number of decimals separately for numerical and percentage measures. The following code sets the number of decimals to zero for the gapminder data.
 
@@ -100,10 +158,10 @@ summary(sum.gapminder2, title = "Summary Stats for Gapminder Data")
 ```
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 3:**  Replicate the code shown above to create a  summary table for the `States` data with no decimals. You will need to copy-and-paste the labels code.
+**Exercise 5:**  Replicate the code shown above to create a second summary table for the `States` data with no decimals. Note that you can simply copy-and-paste the labels code.
 ```
 
-#### Reporting median and IQR {-}
+#### Reporting median and IQR
 
 Instead of the mean and standard deviation, we may want to report the median, first quartile, and third quartile for our numerical variables. We can control the descriptive measures using the following code.
 
@@ -118,14 +176,16 @@ summary(sum.gapminder3, title = "Summary Stats for Gapminder Data")
 ```
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 4:**  Replicate the code shown above to create a  summary table for the `States` data that reports median and the first and third quartiles.
+**Exercise 6:**  Replicate the code shown above to create a  summary table for the `States` data that reports median and the first and third quartiles.
 ```
 
-#### Across groups {-}
+#### Across groups
 
 Finally, instead of reporting summary statistics for the entire sample, we may want to report them separately for each level of a categorical variable. This is a common way to make comparisons.
 
-We can have Arsenal report across groups by adding the categorical variable to the left side of the formula in the `tableby` code. The code below reports the `gapminder` data across continents. By default, Arsenal tests for correlations across groups and reports a p-value. This is not a common part of a summary table, so I turn this feature off with the `test = FALSE` within the code below.
+We can have Arsenal report across groups by adding the categorical variable to the left side of the formula in the `tableby` code. The code below reports the `gapminder` data across continents. Note that the tilde `~` is used to separate grouping variables on the left side from the variables we wish to summarize on the right side.
+
+By default, Arsenal tests for correlations across groups and reports a p-value. This is not a common part of a summary table (at least for fields in which I am familiar), so I turn this feature off with the `test = FALSE` within the code below.
 
 ```{r}
 sum.gapminder4 <- tableby(continent ~ gdpPercap + lifeExp + pop, data = gapminder, digits = 0, digits.pct = 0, test = FALSE)
@@ -138,12 +198,12 @@ summary(sum.gapminder4, title = "Summary Stats for Gapminder Data")
 ```
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 5:**  Replicate the code shown above to create a  summary table for the `States` data that reports across regions.
+**Exercise 7:**  Replicate the code shown above to create a  summary table for the `States` data that reports across regions.
 ```
 
 ### Export to CSV
 
-Knitting your notebook to HTML, Word, or PDF should produce a summary table in the appropriate format. Depending on our or others' workflow, we may want to export our summary table to CSV in order to easily open in Excel or other spreadsheet software. Arsenal can easily handle this.
+Knitting your notebook to HTML, Word, or PDF should produce a summary table in the appropriate format. Depending on our or others' workflow, we may want to export our summary table to CSV in order to open in Excel or other spreadsheet software. Arsenal can easily handle this.
 
 To export my `gapminder` summary to CSV, I need to create a new object that contains the actual summary table. Below, I save the last summary to the object named `sum.table`.
 
@@ -165,8 +225,30 @@ write.csv(sum.table, file = "sumtable.csv")
 
 R will save the CSV file to my project folder. Otherwise, R will save the file to my current working directory.
 
-## Submit
+## Correlation Coefficient
 
-Arsenal has many more options. The help page and links to tutorials can help you generate various types of summary tables.
+As mentioned in Chapter \@ref(descriptive-statistics), the correlation coefficient quantifies the direction and strength of association between two numerical variables. It is rare to see correlations used in any table. Instead, correlations are typically used as an exploratory tool to inform a more advanced analysis like regression. Nevertheless, we may want to report a specific correlation coefficient in our prose.
 
-Submit your notebook to eLC.
+To calculate the correlation coefficient between two variables, we can use the `cor()` function like so:
+
+```{r}
+cor(gapminder$gdpPercap, gapminder$lifeExp)
+```
+
+where I include two variables from the `gapminder` dataset.
+
+To calculate correlation coefficient between all numerical variables in a dataset, we can simply include the dataset in `cor` without specifying any variable. Note that I must first remove the variables that are not numeric.
+
+```{r}
+gapminder %>% 
+  select(-country, -continent) %>% 
+  cor()
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 8:**  Calculate the correlation coefficients between all the variables in `States`. Which two variables have the stongest correlation? What is the direction?
+```
+
+## Save and Upload
+
+Knit your Rmd to save it and check for errors. If you are satisfied with your work, upload to eLC. Once you upload, answers will become available for download.
