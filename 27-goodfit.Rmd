@@ -1,4 +1,4 @@
-# Goodness of Fit {#appendixB}
+# Goodness of Fit {#appendixC}
 
 > The discussion below is an extension of Chapter \@ref(simple-and-multiple-regression)'s coverage of goodness-of-fit.
 

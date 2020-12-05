@@ -1,0 +1,99 @@
+# (APPENDIX) Appendix {-} 
+
+# Coding Tips
+
+## Keyboard Shortcuts
+
+There are three things you will do often in this course for which there are keyboard shortcuts that will save you time and energy over the long term.
+
+- Insert a code chunk: `Cmd+Opt+I` on Mac or `Ctrl+Alt+I` on Windows
+- Run the current line or selection of code: `Cmd+Return` on Mac or `Ctrl+Enter` on Windows
+- Knit document: `Cmd+Shift+K` on Mac or `Ctrl+Shift+K` on Windows
+
+There are many more keyboard shortcuts. Accessing keyboard shortcuts has a keyboard shortcut! It is `Opt+Shift+K` on Mac or `Alt+Shift+K` on Windows.
+
+## Specifying Datasets and Variables
+
+R can store multiple datasets or objects at a time for you to work with. Therefore, you must tell R the dataset on which to run a function. Suppose I want R to provide a quick preview of a dataset named `gapminder`. I can use the `glimpse()` function for this like so:
+
+```{r}
+glimpse(gapminder)
+```
+
+Some functions pertain not to an entire dataset but to a specific variable within a dataset. Suppose I wanted to compute an average using the `mean()` function. Only specifying the dataset results in an error because the mean of a dataset makes no sense.
+
+```{r, eval=FALSE}
+mean(gapminder)
+
+argument is not numeric or logical: returning NA[1] NA
+```
+
+Instead, I need to specify a variable for which I want the average. To specify a variable within a dataset, we use the `$` operator. Suppose I want to compute the average life expectancy, `lifeExp`, in the `gapminder` dataset.
+
+```{r}
+mean(gapminder$lifeExp)
+```
+
+## Assignment and Pipe Operators
+
+### Assignment Operator
+
+Whenever we run a function we have the option of saving the result as a new object to reference for future use. To save a the result of anything to a new object, we use the assignment operator, `<-`. Whatever happens on the left side of `<-` is assigned to whatever name we give the new object.
+
+I just computed average life expectancy. Suppose I want to save that result. In that case, I would use the following code:
+
+```{r}
+avg_lifeExp <- mean(gapminder$lifeExp)
+```
+
+This `avg_lifeExp` will now show up in my environment pane (top-right) as a single value. This works not just for specific values but for *anything* we want to save to use later in our code.
+
+You will use the assignment operator often in this course. The keyboard shortcut for it is `Opt + -`, that is option and the minus sign key on Mac, or `Alt + -` on Windows.
+
+### Pipe Operator
+
+We do not have to do one thing at a time in a code chunk, nor do we need to save a new object with each function we apply to an existing object.
+
+Suppose I want a dataset that includes only 1952 as well as country and life expectancy. I could use code like so (this involves functions you may not know yet):
+
+```{r}
+gap_1952 <- filter(gapminder, year == 1952)
+gap_1952_lifeExp <- select(gap_1952, country, lifeExp)
+```
+
+The first line of the above code uses the `filter` function to save a new object named `gap_1952` that contains `gapminder` obeservations only for which `year` equals 1952. The second line of the above code uses the `select` function to save a new object named `gap_1952_lifeExp` that includes only the `country` and `lifeExp` variables from the `gap_1952` dataset.
+
+That is a lot of code that includes an unnecessary intermediate object/dataset. It is also difficult to read and follow. The pipe operator makes this sort of iterative process much easier to code and read.
+
+```{r}
+gap_1952_lifeExp <- gapminder %>% 
+  filter(year == 1952) %>% 
+  select(country, lifeExp)
+```
+
+The pipe operator pipes/feeds the result of what precedes it to the next line and so on. In the code above, I start by naming an new object, `gap_1952_lifeExp`. This new object is determined by taking the `gapminder` dataset, then piping it to the `filter` function that removes all observations for which year does not equal 1952, then piping the result to the `select` function that keeps only the `country` and `lifeExp` variables.
+
+Now we can compute the average life expectancy in 1952 like so:
+
+```{r}
+mean(gap_1952_lifeExp$lifeExp)
+```
+
+Note how much easier it is to read the code using the pipe operator compared to the code that does not. With the pipe operator, you can read code from left-to-right to understand what is being done. Also, recall that you must specify the dataset for any function.
+
+>  If you use the pipe operator, you do not need to specify the dataset in the function because you will have already fed the dataset to the next line containing the function.
+
+For example, the `filter` function by default requires us to specify the object like so
+
+```{r, results='hide'}
+filter(gapminder, year == 1952)
+```
+
+This is the same code that produced the above intermediate dataset, `gap_1952`. But note how when using pipes, one does not need to specify the dataset within the `filter` function. This is because the pipe operator already feeds the `gapminder` dataset to the `filter` function.
+
+```{r}
+gap_1952_lifeExp <- gapminder %>% 
+  filter(year == 1952)
+```
+
+The keyboard shortcut for the pipe operator is `Cmd+Shift+M` for Mac or `Ctrl+Shift+M` for Windows.

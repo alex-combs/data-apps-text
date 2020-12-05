@@ -33,6 +33,8 @@ output:
 - Load the following packages
 
 ```{r, eval=FALSE}
+library(tidyverse)
+library(moderndive)
 library(car)
 library(gvlma)
 library(carData)

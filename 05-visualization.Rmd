@@ -21,7 +21,7 @@ include_graphics('images/vizflow.png')
 ## Learning objectives {#lo5}
 
 - Interpret the six common visualizations from Figure \@ref(fig:vizflow)
-  - Histogram or density plot
+  - Histogram
   - Box plot
   - Pie chart
   - Bar chart or dot plot
@@ -45,19 +45,6 @@ ggplot(college_grad_students, aes(x = grad_median)) +
 ```
 
 These rectangles are called `bins` and the range each rectangle covers is called a `binwidth`. We can specify the number of bins and/or the binwidth. If we have more than 150 observations of a continuous variable, we may want to specify as many as 100 bins but should experiment with this number depending on the particular distribution of the variable. If we have less than 30 observations, we should not use a histogram. If we have more than 30 but less than 150 observations, we should experiment with some number of bins between 30 and 100. Regarding binwidth, if our variable is discrete, then our binwidth should equal the natural integer width. For example, if our variable is a count of weeks, then our binwidth should equal 1 so that each bin contains one week.
-
-### Density
-
-A density plot is simply a variation of the histogram that requires many observations to work well. We should not use a density plot unless we have at least 1,000 observations. Instead of rectangular representations of the frequency of values, the density plot uses a smooth line, as if one traces a line over the tops of the rectangles of a histogram. One key difference between a density plot and histogram is that the height of a density plot is based on proportions of occurrences for values relative to the total number of observations, whereas a histogram counts the number of occurrences of values. 
-
-Figure \@ref(fig:gradmeddens) is a density of the same data as in the histogram. These data have only 173 observations. This is why the proportions on the y axis are so small. Nevertheless, the density provides us the shape of the distribution.
-
-```{r gradmeddens, echo=FALSE, fig.cap='Density of full-time median earnings for different graduate school majors'}
-ggplot(college_grad_students, aes(x = grad_median)) +
-  geom_density(fill = 'steelblue', color = 'white') +
-  labs(x = 'Median earnings', y = 'Proportions of college majors') +
-  theme_classic()
-```
 
 ### Box plot
 

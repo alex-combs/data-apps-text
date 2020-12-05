@@ -37,14 +37,14 @@ For the chi-square test, we will use the `MplsStops` dataset within the `carData
 
 ## Chi-square test
 
-A chi-square test, like the one demonstrated in Chapter \@ref(surveys-and-evaluations), requires two steps:
+A chi-square test, like the one demonstrated in Chapter \@ref(hypothesis-testing), requires two steps:
 
 - Create a cross-tabulation table using the `table` function
 - Run the chi-square on the cross-tabulation using the `chisq.test` function
 
 ### Cross-tab
 
-Below is the code used to produce the cross-tab from Chapter \@ref(surveys-and-evaluations). I save the new table as `polltable`. Using the `table` function, I tell R which two variables from the `poll` dataset to cross-tabulate. The `$` is how we identify a specific variable within a dataset. The levels of the first variable, `response`, will be tabulated by row, while the frequency of the levels of the second variable, `party`, will be tabulated by column. 
+Below is the code used to produce the cross-tab from Chapter \@ref(hypothesis-testing). I save the new table as `polltable`. Using the `table` function, I tell R which two variables from the `poll` dataset to cross-tabulate. The `$` is how we identify a specific variable within a dataset. The levels of the first variable, `response`, will be tabulated by row, while the frequency of the levels of the second variable, `party`, will be tabulated by column. 
 
 ```{r, eval=FALSE}
 polltable <- table(poll$response, poll$party)
@@ -79,7 +79,7 @@ To reiterate, if the two groups in a t-test are comprised of different subjects,
 
 ### Independent t-test
 
-The code below demonstrates how the independent t-test from Chapter \@ref(surveys-and-evaluations) was conducted. The `t.test` function works a lot like the `lm` function in that the outcome is entered first, then we input the variable that identifies the groups, which is essentially an explanatory variable. The two variables are separated by `~`. Then, we tell R which dataset to use, which is called `jobtrain` in this case.
+The code below demonstrates how the independent t-test from Chapter \@ref(hypothesis-testing) was conducted. The `t.test` function works a lot like the `lm` function in that the outcome is entered first, then we input the variable that identifies the groups, which is essentially an explanatory variable. The two variables are separated by `~`. Then, we tell R which dataset to use, which is called `jobtrain` in this case.
 
 ```{r}
 t.test(earnings ~ treatment, data = jobtrain)

@@ -1,6 +1,4 @@
-# (APPENDIX) Appendix {-} 
-
-# Wrangle and Tidy Reference
+# Wrangle and Tidy Reference {#appendixB}
 
 Unless data are already perfectly prepared, the most time consuming part of data analysis is wrangling and tidying data. It is impossible to cover all scenarios one may encounter when preparing raw data for an analysis. Even for advanced users of R, it is not uncommon to search for an unknown solution to a new problem via the web, texts, or manuals. Attempting to memorize the plethora of functions in R that could serve as solutions would quickly result in diminishing returns. Instead, it is more realistic to obtain enough familiarity with basic wrangle and tidy problems and solutions that one knows how and where to effectively search for the solution.
 

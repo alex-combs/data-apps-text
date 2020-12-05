@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 17 R Data | Data Applications in Public Administration</title>
+  <title>A Coding Tips | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 17 R Data | Data Applications in Public Administration" />
+  <meta property="og:title" content="A Coding Tips | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="alex-combs/data-apps-text" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 17 R Data | Data Applications in Public Administration" />
+  <meta name="twitter:title" content="A Coding Tips | Data Applications in Public Administration" />
   
   <meta name="twitter:description" content="Companion text for PADP 7120" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="16-r-chapter-introduction.html"/>
-<link rel="next" href="18-r-missing-data.html"/>
+<link rel="prev" href="24-r-regression-diagnostics.html"/>
+<link rel="next" href="B-appendixB.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -466,118 +466,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="r-data" class="section level1">
-<h1><span class="header-section-number"> 17</span> R Data</h1>
-<div id="learning-objectives" class="section level2">
-<h2><span class="header-section-number">17.1</span> Learning Objectives</h2>
-<p>In this chapter, you will learn how to:</p>
+<div id="coding-tips" class="section level1">
+<h1><span class="header-section-number">A</span> Coding Tips</h1>
+<div id="keyboard-shortcuts" class="section level2">
+<h2><span class="header-section-number">A.1</span> Keyboard Shortcuts</h2>
+<p>There are three things you will do often in this course for which there are keyboard shortcuts that will save you time and energy over the long term.</p>
 <ul>
-<li>Examine datasets to determine their dimensions, unit of analysis, and structure</li>
-<li>Examine variables to determine their type</li>
+<li>Insert a code chunk: <code>Cmd+Opt+I</code> on Mac or <code>Ctrl+Alt+I</code> on Windows</li>
+<li>Run the current line or selection of code: <code>Cmd+Return</code> on Mac or <code>Ctrl+Enter</code> on Windows</li>
+<li>Knit document: <code>Cmd+Shift+K</code> on Mac or <code>Ctrl+Shift+K</code> on Windows</li>
 </ul>
+<p>There are many more keyboard shortcuts. Accessing keyboard shortcuts has a keyboard shortcut! It is <code>Opt+Shift+K</code> on Mac or <code>Alt+Shift+K</code> on Windows.</p>
 </div>
-<div id="set-up" class="section level2">
-<h2><span class="header-section-number">17.2</span> Set-up</h2>
-<p>To complete this chapter, you need to</p>
-<ul>
-<li>Start a R Markdown document. Keep the YAML and delete the default content in the body.</li>
-<li>Load the following packages. This requires you to start a code chunk <code>Cmd+Option+I</code> or <code>Ctrl+Option+I</code> on PC. Or use the Insert menu in the top right of the source editor pane.</li>
-</ul>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="17-r-data.html#cb41-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb41-2"><a href="17-r-data.html#cb41-2"></a><span class="kw">library</span>(carData)  <span class="co">#if this fails, you need to install</span></span></code></pre></div>
-<p>Before you begin, go to the <code>Packages</code> tab in the bottom-right pane. Find <code>carData</code> in the list and click on the name. This should take you to the <code>Help</code> tab, which will contain the documentation for <code>carData</code>. This page serves as a directory to all of the datasets that come loaded with the package. We will be examining some of these datasets. If you want or need to learn more about a particular dataset, you can click on its name in this list.</p>
+<div id="specifying-datasets-and-variables" class="section level2">
+<h2><span class="header-section-number">A.2</span> Specifying Datasets and Variables</h2>
+<p>R can store multiple datasets or objects at a time for you to work with. Therefore, you must tell R the dataset on which to run a function. Suppose I want R to provide a quick preview of a dataset named <code>gapminder</code>. I can use the <code>glimpse()</code> function for this like so:</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="A-coding-tips.html#cb167-1"></a><span class="kw">glimpse</span>(gapminder)</span></code></pre></div>
+<pre><code>## Rows: 1,704
+## Columns: 6
+## $ country   &lt;fct&gt; Afghanistan, Afghanistan, Afghanistan, Afghanistan, Afghani…
+## $ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia,…
+## $ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997,…
+## $ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.…
+## $ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 1…
+## $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134,…</code></pre>
+<p>Some functions pertain not to an entire dataset but to a specific variable within a dataset. Suppose I wanted to compute an average using the <code>mean()</code> function. Only specifying the dataset results in an error because the mean of a dataset makes no sense.</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="A-coding-tips.html#cb169-1"></a><span class="kw">mean</span>(gapminder)</span>
+<span id="cb169-2"><a href="A-coding-tips.html#cb169-2"></a></span>
+<span id="cb169-3"><a href="A-coding-tips.html#cb169-3"></a>argument is not numeric or logical<span class="op">:</span><span class="st"> </span>returning <span class="ot">NA</span>[<span class="dv">1</span>] <span class="ot">NA</span></span></code></pre></div>
+<p>Instead, I need to specify a variable for which I want the average. To specify a variable within a dataset, we use the <code>$</code> operator. Suppose I want to compute the average life expectancy, <code>lifeExp</code>, in the <code>gapminder</code> dataset.</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="A-coding-tips.html#cb170-1"></a><span class="kw">mean</span>(gapminder<span class="op">$</span>lifeExp)</span></code></pre></div>
+<pre><code>## [1] 59.47444</code></pre>
 </div>
-<div id="viewing-datasets" class="section level2">
-<h2><span class="header-section-number">17.3</span> Viewing datasets</h2>
-<p>Perhaps one of the first obstacles to using R is that you do not constantly stare at a spreadsheet, creating somewhat of a disconnect between what you do to data and seeing it done.</p>
-<p>You can examine a dataset in spreadsheet form using the following command:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="17-r-data.html#cb42-1"></a><span class="kw">View</span>(dataset)</span></code></pre></div>
-<p>where you replace <code>dataset</code> with the actual name of the dataset.</p>
-<div class="learncheck">
-<p>
-<strong>Exercise 1:</strong> In your document, start a new code chunk to use the <code>View</code> command on the <code>Arrests</code> dataset that should be available in your current R session.
-</p>
+<div id="assignment-and-pipe-operators" class="section level2">
+<h2><span class="header-section-number">A.3</span> Assignment and Pipe Operators</h2>
+<div id="assignment-operator" class="section level3">
+<h3><span class="header-section-number">A.3.1</span> Assignment Operator</h3>
+<p>Whenever we run a function we have the option of saving the result as a new object to reference for future use. To save a the result of anything to a new object, we use the assignment operator, <code>&lt;-</code>. Whatever happens on the left side of <code>&lt;-</code> is assigned to whatever name we give the new object.</p>
+<p>I just computed average life expectancy. Suppose I want to save that result. In that case, I would use the following code:</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="A-coding-tips.html#cb172-1"></a>avg_lifeExp &lt;-<span class="st"> </span><span class="kw">mean</span>(gapminder<span class="op">$</span>lifeExp)</span></code></pre></div>
+<p>This <code>avg_lifeExp</code> will now show up in my environment pane (top-right) as a single value. This works not just for specific values but for <em>anything</em> we want to save to use later in our code.</p>
+<p>You will use the assignment operator often in this course. The keyboard shortcut for it is <code>Opt + -</code>, that is option and the minus sign key on Mac, or <code>Alt + -</code> on Windows.</p>
 </div>
-<p>A new tab should have appeared in the top-left pane containing the spreadsheet of <code>Arrests</code>. This dataset contains information on arrests for possession of small amounts of marijuana in the city of Toronto.</p>
-<div class="learncheck">
-<p>
-<strong>Exercise 2</strong> Based on what you see in the spreadsheet of <code>Arrests</code>, what is the structure of this dataset? What is the unit of analysis? Remember to write your answer outside of a code chunk.
-</p>
-</div>
-<p>Let’s examine a new dataset called <code>Florida</code> which contains county voting results for the 2000 presidential election.</p>
-<div class="learncheck">
-<p>
-<strong>Exercise 3</strong> What is the structure and unit of analysis of the <code>Florida</code> dataset?
-</p>
-</div>
-<div class="learncheck">
-<p>
-<strong>Exercise 4</strong> Do the same thing one more time with the <code>USPop</code> dataset. What is its structure and unit of analysis?
-</p>
-</div>
-<div id="warning-about-view" class="section level3">
-<h3><span class="header-section-number">17.3.1</span> Warning about View</h3>
+<div id="pipe-operator" class="section level3">
+<h3><span class="header-section-number">A.3.2</span> Pipe Operator</h3>
+<p>We do not have to do one thing at a time in a code chunk, nor do we need to save a new object with each function we apply to an existing object.</p>
+<p>Suppose I want a dataset that includes only 1952 as well as country and life expectancy. I could use code like so (this involves functions you may not know yet):</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="A-coding-tips.html#cb173-1"></a>gap_<span class="dv">1952</span> &lt;-<span class="st"> </span><span class="kw">filter</span>(gapminder, year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>)</span>
+<span id="cb173-2"><a href="A-coding-tips.html#cb173-2"></a>gap_<span class="dv">1952</span>_lifeExp &lt;-<span class="st"> </span><span class="kw">select</span>(gap_<span class="dv">1952</span>, country, lifeExp)</span></code></pre></div>
+<p>The first line of the above code uses the <code>filter</code> function to save a new object named <code>gap_1952</code> that contains <code>gapminder</code> obeservations only for which <code>year</code> equals 1952. The second line of the above code uses the <code>select</code> function to save a new object named <code>gap_1952_lifeExp</code> that includes only the <code>country</code> and <code>lifeExp</code> variables from the <code>gap_1952</code> dataset.</p>
+<p>That is a lot of code that includes an unnecessary intermediate object/dataset. It is also difficult to read and follow. The pipe operator makes this sort of iterative process much easier to code and read.</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="A-coding-tips.html#cb174-1"></a>gap_<span class="dv">1952</span>_lifeExp &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb174-2"><a href="A-coding-tips.html#cb174-2"></a><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb174-3"><a href="A-coding-tips.html#cb174-3"></a><span class="st">  </span><span class="kw">select</span>(country, lifeExp)</span></code></pre></div>
+<p>The pipe operator pipes/feeds the result of what precedes it to the next line and so on. In the code above, I start by naming an new object, <code>gap_1952_lifeExp</code>. This new object is determined by taking the <code>gapminder</code> dataset, then piping it to the <code>filter</code> function that removes all observations for which year does not equal 1952, then piping the result to the <code>select</code> function that keeps only the <code>country</code> and <code>lifeExp</code> variables.</p>
+<p>Now we can compute the average life expectancy in 1952 like so:</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="A-coding-tips.html#cb175-1"></a><span class="kw">mean</span>(gap_<span class="dv">1952</span>_lifeExp<span class="op">$</span>lifeExp)</span></code></pre></div>
+<pre><code>## [1] 49.05762</code></pre>
+<p>Note how much easier it is to read the code using the pipe operator compared to the code that does not. With the pipe operator, you can read code from left-to-right to understand what is being done. Also, recall that you must specify the dataset for any function.</p>
 <blockquote>
-<p><code>View</code> is useful but <strong>should not</strong> be included in a document that you plan to export. This is because R will attempt to print the entire dataset to the export document. This is almost always a mistake.</p>
+<p>If you use the pipe operator, you do not need to specify the dataset in the function because you will have already fed the dataset to the next line containing the function.</p>
 </blockquote>
-<p>To avoid making this mistake, I suggest you not use the <code>View</code> function as code, but rather use a point-and-click alternative.</p>
-<div class="learncheck">
-<p>
-<strong>Exercise 5</strong> In an existing or new code chunk, run the following code, which saves <code>Arrests</code> to your environment pane in the top-right. Then click on <code>arrests</code>. This should do the same thing as running <code>View</code>. If you find yourself needing to see the spreadsheet, use this point-and-click method.
-</p>
-</div>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="17-r-data.html#cb43-1"></a>arrests &lt;-<span class="st"> </span>Arrests</span></code></pre></div>
-</div>
-</div>
-<div id="glimpse-data" class="section level2">
-<h2><span class="header-section-number">17.4</span> Glimpse Data</h2>
-<p>If your dataset is moderately large, <code>View</code> is an inefficient way to get a sense of your data. The <code>glimpse</code> function generates a compact printout providing key information about a dataset. The general syntax is as follows:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="17-r-data.html#cb44-1"></a><span class="kw">glimpse</span>(dataset)</span></code></pre></div>
-<p>where we replace <code>dataset</code> with the name of the <code>dataset</code>.</p>
-<div class="learncheck">
-<p>
-<strong>Exercise 6</strong> In an existing or new code chunk, use <code>glimpse</code> on <code>Arrests</code>.
-</p>
-</div>
-<p>Notice that the results show you the <strong>dimensions</strong> of the dataset–the number of rows (observation) and columns (variables). Next, it provides a vertical list of variables, with several of their values listed horizontally. This allows a very wide dataset with many variables to export to documents more easily.</p>
-<div class="learncheck">
-<p>
-<strong>Exercise 7</strong> Having now examined <code>Arrests</code> using <code>View</code> and <code>glimpse</code>, what type are the following variables based on the taxonomy used in Chapter <span class="citation">@ref</span>(data).
-</p>
-<ul>
-<li>
-year
-</li>
-<li>
-age
-</li>
-<li>
-sex
-</li>
-</ul>
-</div>
-</div>
-<div id="variable-types-in-r" class="section level2">
-<h2><span class="header-section-number">17.5</span> Variable Types in R</h2>
-<p>The column immediately to the right of the variable name in the <code>glimpse</code> printout is also informative. It tells you how each variable is stored in R. A variable can be stored in several ways:</p>
-<ul>
-<li><strong>Integers:</strong> commonly used for discrete variables</li>
-<li><strong>Doubles/numerics:</strong> commonly used for continuous variabls but can also store discrete variables</li>
-<li><strong>Logicals:</strong> commonly used for categorical variables that are binary (i.e. 1 or 0). In R, logicals are assigned <code>TRUE</code>, if equal to 1, or <code>FALSE</code>, if equal to 0.</li>
-<li><strong>Factors:</strong> commonly used for categorical variables. Factors can store categorical variables with any number of levels. Therefore, a binary variable can be stored as a factor instead of a logical if you want the variable to be assigned different values like “Yes” or “No.”</li>
-<li><strong>Characters:</strong> commonly used for strings of text that don’t fit the other storage types well, such as open-ended responses in a survey. However, any variable can be stored as a character. A numerical variable can be stored as a character and R will not recognize its values as numbers.</li>
-</ul>
-<div class="learncheck">
-<p>
-<strong>Exercise 8</strong> Are the variables in exercise 7 stored in a way that makes sense given your answers?
-</p>
-</div>
-<p>Variables will not always be stored in R the way they should. Sometimes we have to tell R how to store a variable based on our own understanding of their type. This skill will be covered later.</p>
-</div>
-<div id="save-and-upload" class="section level2">
-<h2><span class="header-section-number">17.6</span> Save and Upload</h2>
-<p>Change the title in the YAML to “R Chapter 2”. Knit your Rmd to save it and check for errors. If you are satisfied with your work, upload to eLC. Once you upload, answers will become available for download.</p>
+<p>For example, the <code>filter</code> function by default requires us to specify the object like so</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="A-coding-tips.html#cb177-1"></a><span class="kw">filter</span>(gapminder, year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>)</span></code></pre></div>
+<p>This is the same code that produced the above intermediate dataset, <code>gap_1952</code>. But note how when using pipes, one does not need to specify the dataset within the <code>filter</code> function. This is because the pipe operator already feeds the <code>gapminder</code> dataset to the <code>filter</code> function.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="A-coding-tips.html#cb178-1"></a>gap_<span class="dv">1952</span>_lifeExp &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb178-2"><a href="A-coding-tips.html#cb178-2"></a><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>)</span></code></pre></div>
+<p>The keyboard shortcut for the pipe operator is <code>Cmd+Shift+M</code> for Mac or <code>Ctrl+Shift+M</code> for Windows.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -585,8 +542,8 @@ sex
           </div>
         </div>
       </div>
-<a href="16-r-chapter-introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="18-r-missing-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="24-r-regression-diagnostics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="B-appendixB.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

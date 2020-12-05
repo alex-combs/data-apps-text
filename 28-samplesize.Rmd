@@ -1,4 +1,4 @@
-# Survey Sample Size and Weighting {#appendixC}
+# Survey Sample Size and Weighting {#appendixD}
 
 Appendix C covers the following topics:
 
