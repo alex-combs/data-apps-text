@@ -420,7 +420,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="A-coding-tips.html"><a href="A-coding-tips.html"><i class="fa fa-check"></i><b>A</b> Coding Tips</a><ul>
 <li class="chapter" data-level="A.1" data-path="A-coding-tips.html"><a href="A-coding-tips.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>A.1</b> Keyboard Shortcuts</a></li>
-<li class="chapter" data-level="A.2" data-path="A-coding-tips.html"><a href="A-coding-tips.html#specifying-datasets-and-variables"><i class="fa fa-check"></i><b>A.2</b> Specifying Datasets and Variables</a></li>
+<li class="chapter" data-level="A.2" data-path="A-coding-tips.html"><a href="A-coding-tips.html#specifying-datasets-and-variables"><i class="fa fa-check"></i><b>A.2</b> Specifying Datasets and Variables</a><ul>
+<li class="chapter" data-level="A.2.1" data-path="A-coding-tips.html"><a href="A-coding-tips.html#datasets"><i class="fa fa-check"></i><b>A.2.1</b> Datasets</a></li>
+<li class="chapter" data-level="A.2.2" data-path="A-coding-tips.html"><a href="A-coding-tips.html#variables"><i class="fa fa-check"></i><b>A.2.2</b> Variables</a></li>
+</ul></li>
 <li class="chapter" data-level="A.3" data-path="A-coding-tips.html"><a href="A-coding-tips.html#assignment-and-pipe-operators"><i class="fa fa-check"></i><b>A.3</b> Assignment and Pipe Operators</a><ul>
 <li class="chapter" data-level="A.3.1" data-path="A-coding-tips.html"><a href="A-coding-tips.html#assignment-operator"><i class="fa fa-check"></i><b>A.3.1</b> Assignment Operator</a></li>
 <li class="chapter" data-level="A.3.2" data-path="A-coding-tips.html"><a href="A-coding-tips.html#pipe-operator"><i class="fa fa-check"></i><b>A.3.2</b> Pipe Operator</a></li>
@@ -470,7 +473,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">A</span> Coding Tips</h1>
 <div id="keyboard-shortcuts" class="section level2">
 <h2><span class="header-section-number">A.1</span> Keyboard Shortcuts</h2>
-<p>There are three things you will do often in this course for which there are keyboard shortcuts that will save you time and energy over the long term.</p>
+<p>There are three things you will do often in this course for which there are keyboard shortcuts that will save you time and energy over the long run.</p>
 <ul>
 <li>Insert a code chunk: <code>Cmd+Opt+I</code> on Mac or <code>Ctrl+Alt+I</code> on Windows</li>
 <li>Run the current line or selection of code: <code>Cmd+Return</code> on Mac or <code>Ctrl+Enter</code> on Windows</li>
@@ -480,6 +483,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="specifying-datasets-and-variables" class="section level2">
 <h2><span class="header-section-number">A.2</span> Specifying Datasets and Variables</h2>
+<div id="datasets" class="section level3">
+<h3><span class="header-section-number">A.2.1</span> Datasets</h3>
 <p>R can store multiple datasets or objects at a time for you to work with. Therefore, you must tell R the dataset on which to run a function. Suppose I want R to provide a quick preview of a dataset named <code>gapminder</code>. I can use the <code>glimpse()</code> function for this like so:</p>
 <div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="A-coding-tips.html#cb167-1"></a><span class="kw">glimpse</span>(gapminder)</span></code></pre></div>
 <pre><code>## Rows: 1,704
@@ -490,49 +495,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.…
 ## $ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 1…
 ## $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134,…</code></pre>
-<p>Some functions pertain not to an entire dataset but to a specific variable within a dataset. Suppose I wanted to compute an average using the <code>mean()</code> function. Only specifying the dataset results in an error because the mean of a dataset makes no sense.</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="A-coding-tips.html#cb169-1"></a><span class="kw">mean</span>(gapminder)</span>
+<p>Failure to tell R a dataset that has been loaded in your environment will result in an error. For example, suppose I misspell the dataset so that R looks for an object that does not exist.</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="A-coding-tips.html#cb169-1"></a><span class="kw">glimpse</span>(gasminder)</span>
 <span id="cb169-2"><a href="A-coding-tips.html#cb169-2"></a></span>
-<span id="cb169-3"><a href="A-coding-tips.html#cb169-3"></a>argument is not numeric or logical<span class="op">:</span><span class="st"> </span>returning <span class="ot">NA</span>[<span class="dv">1</span>] <span class="ot">NA</span></span></code></pre></div>
+<span id="cb169-3"><a href="A-coding-tips.html#cb169-3"></a>Error <span class="cf">in</span> <span class="kw">glimpse</span>(gasminder) <span class="op">:</span><span class="st"> </span>object <span class="st">&#39;gasminder&#39;</span> not found</span></code></pre></div>
+</div>
+<div id="variables" class="section level3">
+<h3><span class="header-section-number">A.2.2</span> Variables</h3>
+<p>Some functions pertain not to an entire dataset but to a specific variable within a dataset. Suppose I wanted to compute an average using the <code>mean()</code> function. Only specifying the dataset results in an error because the mean of a dataset makes no sense.</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="A-coding-tips.html#cb170-1"></a><span class="kw">mean</span>(gapminder)</span>
+<span id="cb170-2"><a href="A-coding-tips.html#cb170-2"></a></span>
+<span id="cb170-3"><a href="A-coding-tips.html#cb170-3"></a>argument is not numeric or logical<span class="op">:</span><span class="st"> </span>returning <span class="ot">NA</span>[<span class="dv">1</span>] <span class="ot">NA</span></span></code></pre></div>
 <p>Instead, I need to specify a variable for which I want the average. To specify a variable within a dataset, we use the <code>$</code> operator. Suppose I want to compute the average life expectancy, <code>lifeExp</code>, in the <code>gapminder</code> dataset.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="A-coding-tips.html#cb170-1"></a><span class="kw">mean</span>(gapminder<span class="op">$</span>lifeExp)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="A-coding-tips.html#cb171-1"></a><span class="kw">mean</span>(gapminder<span class="op">$</span>lifeExp)</span></code></pre></div>
 <pre><code>## [1] 59.47444</code></pre>
+</div>
 </div>
 <div id="assignment-and-pipe-operators" class="section level2">
 <h2><span class="header-section-number">A.3</span> Assignment and Pipe Operators</h2>
 <div id="assignment-operator" class="section level3">
 <h3><span class="header-section-number">A.3.1</span> Assignment Operator</h3>
-<p>Whenever we run a function we have the option of saving the result as a new object to reference for future use. To save a the result of anything to a new object, we use the assignment operator, <code>&lt;-</code>. Whatever happens on the left side of <code>&lt;-</code> is assigned to whatever name we give the new object.</p>
+<p>Whenever we run a function we have the option of saving the result as a new object to reference for future use. To save a the result of anything to a new object, we use the assignment operator, <code>&lt;-</code>. Whatever happens on the right side of <code>&lt;-</code> is assigned to whatever name we give the new object on the left side.</p>
 <p>I just computed average life expectancy. Suppose I want to save that result. In that case, I would use the following code:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="A-coding-tips.html#cb172-1"></a>avg_lifeExp &lt;-<span class="st"> </span><span class="kw">mean</span>(gapminder<span class="op">$</span>lifeExp)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="A-coding-tips.html#cb173-1"></a>avg_lifeExp &lt;-<span class="st"> </span><span class="kw">mean</span>(gapminder<span class="op">$</span>lifeExp)</span></code></pre></div>
 <p>This <code>avg_lifeExp</code> will now show up in my environment pane (top-right) as a single value. This works not just for specific values but for <em>anything</em> we want to save to use later in our code.</p>
+<p>Note that R did not print out the result like it did when I ran <code>mean(gapminder$lifeExp)</code> above. This is because R assumes I do not want the printout because I am saving it. If I want R to print the result, I can simply run the object name like so</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="A-coding-tips.html#cb174-1"></a>avg_lifeExp</span></code></pre></div>
+<pre><code>## [1] 59.47444</code></pre>
+<p>or I can wrap the code originally assigning the new object in parentheses</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="A-coding-tips.html#cb176-1"></a>(avg_lifeExp &lt;-<span class="st"> </span><span class="kw">mean</span>(gapminder<span class="op">$</span>lifeExp))</span></code></pre></div>
+<pre><code>## [1] 59.47444</code></pre>
 <p>You will use the assignment operator often in this course. The keyboard shortcut for it is <code>Opt + -</code>, that is option and the minus sign key on Mac, or <code>Alt + -</code> on Windows.</p>
 </div>
 <div id="pipe-operator" class="section level3">
 <h3><span class="header-section-number">A.3.2</span> Pipe Operator</h3>
 <p>We do not have to do one thing at a time in a code chunk, nor do we need to save a new object with each function we apply to an existing object.</p>
 <p>Suppose I want a dataset that includes only 1952 as well as country and life expectancy. I could use code like so (this involves functions you may not know yet):</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="A-coding-tips.html#cb173-1"></a>gap_<span class="dv">1952</span> &lt;-<span class="st"> </span><span class="kw">filter</span>(gapminder, year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>)</span>
-<span id="cb173-2"><a href="A-coding-tips.html#cb173-2"></a>gap_<span class="dv">1952</span>_lifeExp &lt;-<span class="st"> </span><span class="kw">select</span>(gap_<span class="dv">1952</span>, country, lifeExp)</span></code></pre></div>
-<p>The first line of the above code uses the <code>filter</code> function to save a new object named <code>gap_1952</code> that contains <code>gapminder</code> obeservations only for which <code>year</code> equals 1952. The second line of the above code uses the <code>select</code> function to save a new object named <code>gap_1952_lifeExp</code> that includes only the <code>country</code> and <code>lifeExp</code> variables from the <code>gap_1952</code> dataset.</p>
-<p>That is a lot of code that includes an unnecessary intermediate object/dataset. It is also difficult to read and follow. The pipe operator makes this sort of iterative process much easier to code and read.</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="A-coding-tips.html#cb174-1"></a>gap_<span class="dv">1952</span>_lifeExp &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb174-2"><a href="A-coding-tips.html#cb174-2"></a><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb174-3"><a href="A-coding-tips.html#cb174-3"></a><span class="st">  </span><span class="kw">select</span>(country, lifeExp)</span></code></pre></div>
-<p>The pipe operator pipes/feeds the result of what precedes it to the next line and so on. In the code above, I start by naming an new object, <code>gap_1952_lifeExp</code>. This new object is determined by taking the <code>gapminder</code> dataset, then piping it to the <code>filter</code> function that removes all observations for which year does not equal 1952, then piping the result to the <code>select</code> function that keeps only the <code>country</code> and <code>lifeExp</code> variables.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="A-coding-tips.html#cb178-1"></a>gap_<span class="dv">1952</span> &lt;-<span class="st"> </span><span class="kw">filter</span>(gapminder, year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>)</span>
+<span id="cb178-2"><a href="A-coding-tips.html#cb178-2"></a>gap_<span class="dv">1952</span>_lifeExp &lt;-<span class="st"> </span><span class="kw">select</span>(gap_<span class="dv">1952</span>, country, lifeExp)</span></code></pre></div>
+<p>The first line of the above code uses the <code>filter</code> function to save a new object named <code>gap_1952</code> that contains <code>gapminder</code> observations only for which <code>year</code> equals 1952. The second line of the above code uses the <code>select</code> function to save a new object named <code>gap_1952_lifeExp</code> that includes only the <code>country</code> and <code>lifeExp</code> variables from the <code>gap_1952</code> dataset.</p>
+<p>That code includes unnecessary intermediate object/dataset. It is also difficult to read and follow because you have to track which datasets are used in each step. The pipe operator makes this sort of iterative process much easier to code and read.</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="A-coding-tips.html#cb179-1"></a>gap_<span class="dv">1952</span>_lifeExp &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb179-2"><a href="A-coding-tips.html#cb179-2"></a><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb179-3"><a href="A-coding-tips.html#cb179-3"></a><span class="st">  </span><span class="kw">select</span>(country, lifeExp)</span></code></pre></div>
+<p>The pipe operator pipes/feeds the result of what precedes it to the next line and so on. In the code above, I start by naming a new object, <code>gap_1952_lifeExp</code>. This new object is determined by taking the <code>gapminder</code> dataset, then piping it to the <code>filter</code> function that keeps observations for which year equals 1952, then piping the result of that – which is equivalent to the intermediate <code>gap_1952</code> dataset from before – to the <code>select</code> function that keeps only the <code>country</code> and <code>lifeExp</code> variables.</p>
 <p>Now we can compute the average life expectancy in 1952 like so:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="A-coding-tips.html#cb175-1"></a><span class="kw">mean</span>(gap_<span class="dv">1952</span>_lifeExp<span class="op">$</span>lifeExp)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="A-coding-tips.html#cb180-1"></a><span class="kw">mean</span>(gap_<span class="dv">1952</span>_lifeExp<span class="op">$</span>lifeExp)</span></code></pre></div>
 <pre><code>## [1] 49.05762</code></pre>
 <p>Note how much easier it is to read the code using the pipe operator compared to the code that does not. With the pipe operator, you can read code from left-to-right to understand what is being done. Also, recall that you must specify the dataset for any function.</p>
 <blockquote>
-<p>If you use the pipe operator, you do not need to specify the dataset in the function because you will have already fed the dataset to the next line containing the function.</p>
+<p>If you use the pipe operator, you do not need to specify the dataset in every function included in the pipe because you will have already fed the dataset to the next line containing the function.</p>
 </blockquote>
 <p>For example, the <code>filter</code> function by default requires us to specify the object like so</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="A-coding-tips.html#cb177-1"></a><span class="kw">filter</span>(gapminder, year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="A-coding-tips.html#cb182-1"></a><span class="kw">filter</span>(gapminder, year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>)</span></code></pre></div>
 <p>This is the same code that produced the above intermediate dataset, <code>gap_1952</code>. But note how when using pipes, one does not need to specify the dataset within the <code>filter</code> function. This is because the pipe operator already feeds the <code>gapminder</code> dataset to the <code>filter</code> function.</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="A-coding-tips.html#cb178-1"></a>gap_<span class="dv">1952</span>_lifeExp &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb178-2"><a href="A-coding-tips.html#cb178-2"></a><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="A-coding-tips.html#cb183-1"></a>gap_<span class="dv">1952</span> &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb183-2"><a href="A-coding-tips.html#cb183-2"></a><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>)</span></code></pre></div>
+<p>Forgetting to exclude the dataset from a function when using the pipe operator will result in an error.</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="A-coding-tips.html#cb184-1"></a>gap_<span class="dv">1952</span> &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb184-2"><a href="A-coding-tips.html#cb184-2"></a><span class="st">  </span><span class="kw">filter</span>(gapminder, year <span class="op">==</span><span class="st"> </span><span class="dv">1952</span>)</span>
+<span id="cb184-3"><a href="A-coding-tips.html#cb184-3"></a></span>
+<span id="cb184-4"><a href="A-coding-tips.html#cb184-4"></a>Error<span class="op">:</span><span class="st"> </span>Problem with <span class="st">`</span><span class="dt">filter()</span><span class="st">`</span> input <span class="st">`</span><span class="dt">..1</span><span class="st">`</span>.</span>
+<span id="cb184-5"><a href="A-coding-tips.html#cb184-5"></a>x Input <span class="st">`</span><span class="dt">..1$country</span><span class="st">`</span> must be a logical vector, not a factor<span class="op">&lt;</span>bf6dc<span class="op">&gt;</span>.</span></code></pre></div>
 <p>The keyboard shortcut for the pipe operator is <code>Cmd+Shift+M</code> for Mac or <code>Ctrl+Shift+M</code> for Windows.</p>
+<p><br></p>
 
 </div>
 </div>
