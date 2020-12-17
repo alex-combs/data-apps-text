@@ -17,11 +17,9 @@ github-repo: "alex-combs/data-apps-text"
 
 # Preface {-}
 
-This is a collection of lecture and presentation notes compiled into a format that resembles a textbook. It is a resource for students enrolled in my sections of PADP 7120: Data Applications in Public Administration. Distribution beyond that is discouraged. This resource is not peer-reviewed. All opinions and errors are my own. I do not benefit monetarily from this resource in any way.
+This is a collection of lecture and presentation notes intended as a resource for students enrolled in my sections of PADP 7120: Data Applications in Public Administration. Distribution beyond that is discouraged. This resource is not peer-reviewed. All opinions and errors are my own. I do not benefit monetarily from this resource in any way.
 
-This resource was primarily developed out of uncertainty regarding the future of in-person teaching. If in-person instruction were to become untenable due to COVID-19, my thinking was that this resource would offer a substitute for the time spent in class distilling readings into what I want students to know. This resource provides one-way lessons from the person in charge of evaluating your understanding and application of key concepts and skills.
-
-Ultimately, the objective of this resource is to help students in PADP7120 become as competitive as possible in their desired job markets via competency in statistics and statistical programming software. It aims to teach students key concepts in statistics and applications of those concepts using R with minimal need to sift through excessively theoretical or technical material.
+The objective of this resource is to help students in PADP7120 become as competitive as possible in their desired job markets via competency in statistics and statistical programming software. It aims to teach students key concepts in statistics and applications of those concepts using R with a level of theoretical and technical detail that is accessible for MPA students.
 
 ### Style and Structure {-}
 

@@ -142,19 +142,19 @@ The backdoor criterion is satisfied if all backdoor paths between X and Y are cl
 - A confounder variable opens a backdoor path
 - A collider variable closes a backdoor path
 
-If a backdoor path is open, we can close it by controlling for the confounder variable or any other variable along the backdoor path between X and Y. For instance if were were to identify a backdoor path of the following form
+If a backdoor path is open, we can close it by controlling for the confounder variable or any other variable along the backdoor path between X and Y. For instance, if we were to identify a backdoor path of the following form
 
 X <-- Z --> A --> Y
 
 where A is some fourth variable in our model, then controlling for Z or A will close this backdoor path. If a set of control variables in our regression model closes all backdoor paths, then we have satisfied the backdoor criterion and we can consider our estimate of X on Y to be a causal estimate.
 
-Consider the simple backdoor path again where Z is a collider variable.
+Consider the simple backdoor path again where Z is a **collider** variable.
 
 X --> Z <-- Y
 
 This backdoor path is already closed. We don't need to control for anything in our model because of this backdoor path. In fact, **controlling for a collider opens a backdoor path**. Therefore, we should not control for Z in our model, as doing so opens a backdoor that was already closed. 
 
-This is a valuable insight provided by the use of DAGs. If we already have the data, it costs us virtually no time or effort to include a variable in our model we think may affect our outcome Y, and it can be quite tempting to throw variables into a regression model for not much more reason than we have it in our data. However, a DAG forces us to consider all of the relationships between the variables in our model. If an explanatory variable is a collider, then including it may threaten our ability to make causal claims. Sometimes, deliberately excluding a variable from a regression model is the right choice and DAGs give us a fairly simple way to make and explain that choice.
+This is a valuable insight provided by the use of DAGs. If we already have the data, it costs us virtually no time or effort to include a variable in our model we think may affect our outcome Y, and it can be quite tempting to throw variables into a regression model for not much more reason than we have it in our data. However, a DAG helps us consider all of the relationships between the variables in our model. If an explanatory variable is a collider, then including it may threaten our ability to make causal claims. Sometimes, deliberately excluding a variable from a regression model is the right choice and DAGs give us a fairly simple way to make and explain that choice.
 
 Consider another backdoor path where Z is a collider and A is a confounder
 
@@ -221,7 +221,7 @@ include_graphics('images/dag_ovbdirect.png')
 ```
 </center>
 
-## Usefulness
+<br>
 
 Just because you cannot claim a causal relationship does not mean you do not have useful results. It is worth reiterating the value of prediction. Regardless of whether we have a model that eliminates OVB, if it accurately predicts an outcome we would like to preempt, then it could be useful. Sure, we would like to know the underlying causes of an outcome, but the ability to accurately predict the likelihood of an outcome still allows policy or programs to intervene. 
 

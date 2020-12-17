@@ -6,11 +6,11 @@
 
 ## Learning objectives {#lo4}
 
-- Explain how descriptive and inferential statistics differ in purpose and the information they provide
-- Identify and differentiate population, sample, parameter, statistic in a given research proposal or question
-- Explain what is a distribution of a random variable
-- Recall the descriptive measures of center, spread, and association
-- Choose the preferable measures of center and spread given a distribution and explain their strengths and weaknesses
+- Explain the difference between descriptive and inferential statistics
+- Explain the difference between a population and sample; parameter and statistic
+- Understand a distribution of a random variable
+- Explain and apply the descriptive measures of center, spread, and association
+- Choose the preferable measures of center and spread given a distribution and explain why
 - Determine the direction and strength of association given a scatterplot or correlation coefficient
 - Explain the possible shortcomings of correlation
 
@@ -28,19 +28,23 @@ The descriptive or inferential statistics we produce or consume concern one or b
 - **Population:** all members of a specified group pertaining to a research question
 - **Sample:** a subset of that population
 
-Descriptive statistics concerns just the facts. Inferential statistics uses those facts to make educated, scientific guesses about a group of people, places, or things we cannot observe. In many cases, we cannot study an entire population because of logistics or cost. Instead, we take a sample of that population to make inferences about it. If my research question was, "What is the average GPA of all MPA students in United States?", then the population is all MPA students in the United States. It is unlikely I could obtain the GPA of every student. Therefore, I may take a sample of MPA students instead and use inferential statistics to make conclusions about the population of all MPA students.
+Descriptive statistics provides information about the data we have. Inferential statistics uses that information to make educated, scientific guesses about a larger group of people, places, or things we do not directly observe. In many cases, we cannot study an entire population because of logistics or cost. Instead, we take a sample of that population to make inferences about it. 
 
-Sometimes the population is small or accessible enough to observe. If my research question was instead, "What is the average GPA of students in my class?", then the population includes the students in my class. In this case, I could easily compute the average for the entire population.
+If my research question was, "What is the average GPA of all MPA students in the United States?", then the population is all MPA students in the United States. It is unlikely I could obtain the GPA of every MPA student. Therefore, I may take a sample of MPA students instead and use inferential statistics to make conclusions about the population of all MPA students.
+
+Sometimes the population is small or accessible enough to observe, though it is probably uninteresting as a result. If my research question was instead, "What is the average GPA of students in my class?", then the population is the students in my class. In this case, I could easily compute the average for the entire population.
 
 > We can describe a sample or a population as long as we have the data to do so. Inference is specifically using a sample we observe to describe a population we do not observe. 
 
-When we compute measures of a population or sample, these measures have specific names:
+When we compute statistical measures of a population or sample, those measures have specific names:
 
 >
 - **Parameter:** a measure pertaining to a population
 - **Statistic:** a measure pertaining to a sample
 
-If my population is students in my class, and I compute the average GPA for all of the students in my class, that measure is a population parameter. If my population is all MPA students in the U.S., and I use the students in my class as a sample, then the average GPA of the students in my class is a sample statistic. In inference, a statistic is often referred to as an **estimate** because it is used to estimate a population parameter. The parameter in this example would be the actual average GPA of all MPA students in the U.S.; a value we cannot directly calculate.
+Whether my statistical measure is a population parameter or sample statistic depends on whether my measure is computed from a population or a sample. If my population is students in my class, and I compute the average GPA for all of the students in my class, that measure is a population parameter. If my population is all MPA students in the U.S., and I use the students in my class as a sample, then the average GPA of the students in my class is a sample statistic. 
+
+In inference, a sample statistic is often referred to as an **estimate** because it is used to estimate a population parameter. The parameter in this example would be the actual average GPA of all MPA students in the U.S.; a value I cannot directly calculate.
 
 ## Distributions
 
@@ -56,14 +60,14 @@ Sometimes we know what the frequency of values for a variable should be. Genetic
 
 This somewhat esoteric exposition underlies the main focus here: the distribution of a variable. To make this as concrete as possible, let's consider a variable of something that is simple and familiar to all of us: a roll of a six-sided die.
 
-We know a roll of a six-sided die can take on a range of integers between 1 and 6. We also know the frequency of each value is the same at 1 in 6, or about 17%. Therefore, we *know* the distribution of this variable, which is depicted below in Figure 4.1.
+We know a roll of a six-sided die can take on a range of integers between 1 and 6. We also know the frequency of each value is the same at 1 in 6, or about 17%. Therefore, we *know* the distribution of this variable, which is depicted below in Figure \@ref(fig:diedist).
 
 ```{r, include=FALSE}
 diedist <- tibble(roll = c(1,2,3,4,5,6), value = c(1,2,3,4,5,6), dieprob = c(0.166,0.166,0.166,0.166,0.166,0.166))
 ```
 
 
-```{r, echo=FALSE, fig.cap='Probability distribution of a six-sided die'}
+```{r diedist, echo=FALSE, fig.cap='Probability distribution of a six-sided die'}
 ggplot(diedist, aes(value, dieprob)) +
   geom_col(fill = 'steelblue') +
   labs(y = 'Probability') +
@@ -73,17 +77,17 @@ ggplot(diedist, aes(value, dieprob)) +
 ```
 
 
-Therefore, if we were to roll the die six times, we would *expect* the following data in Table 4.1.
+Therefore, if we were to roll the die six times, we would *expect* the following data in Table \@ref(tab:dietable), though not necessarily in this order.
 
-```{r, echo=FALSE}
+```{r dietable, echo=FALSE}
 diedist %>% 
   select(-dieprob) %>% 
-  kable(format = 'html', caption = 'Expected results of 6 rolls')
+  kable(caption = 'Expected results of 6 rolls')
 ```
 
-And we could represent this distribution by counting the number of times each value occurred using a histogram as shown in Figure 4.2.
+And we could represent this distribution by counting the number of times each value occurred using a histogram as shown in Figure \@ref(fig:diehisto), which is the essentially the samce as Figure \@ref(fig:diedist).
 
-```{r, echo=FALSE, fig.cap='Expected distribution of 6 rolls'}
+```{r diehisto, echo=FALSE, fig.cap='Expected distribution of 6 rolls'}
 ggplot(diedist, aes(value)) +
   geom_histogram(fill = 'steelblue', bins = 6, color = 'white') +
   labs(y = 'Count') +
@@ -95,19 +99,19 @@ ggplot(diedist, aes(value)) +
 
 Of course, this is just what is expected to happen, on average, given many rolls of a die. Anyone who has played a board game knows streaks can occur. Given a number or rolls, we probably will not observe a uniform number of values.
 
-Suppose we roll 12 times and record the value of each roll, as is shown in Table 4.2. 
+Suppose we roll 12 times and record the value of each roll, as is shown in Table \@ref(tab:obsdietable). 
 
 ```{r, include=FALSE}
 set.seed(551)
 dierolls <- tibble(roll = 1:12, value = round(runif(12, 1, 6),0))
 ```
 
-```{r, echo=FALSE}
+```{r obsdietable, echo=FALSE}
 dierolls %>% 
-  kable(format = 'html', caption = 'Observed results of 12 rolls')
+  kable(caption = 'Observed results of 12 rolls')
 ```
 
-We can visualize the distribution of these 12 rolls, as is done in Figure 4.3.
+We can visualize the distribution of these 12 rolls, as is done in Figure \@ref(fig:obsdieroll).
 
 ```{r obsdieroll, echo=FALSE, fig.cap='Observed distribution of 12 die rolls'}
 ggplot(dierolls, aes(value)) +
@@ -179,9 +183,9 @@ As Figure \@ref(fig:infmort) shows, three measures of center have provided us th
 ```{r mortcenters, echo=FALSE, fig.cap='Centers of infant mortality rates'}
 ggplot(infmortrate, aes(inf_mort_rate)) +
   geom_histogram(fill = 'steelblue', color = 'white', bins = 30) +
-  geom_vline(xintercept = 26.7, color = 'red', linetype = 'dashed', size = 2) +
-  geom_vline(xintercept = 15.6, color = 'purple', linetype = 'dashed', size = 2) +
-  geom_vline(xintercept = 11.6, color = 'green', linetype = 'dashed', size = 2) +
+  geom_vline(xintercept = 26.7, color = 'red', linetype = 'dashed') +
+  geom_vline(xintercept = 15.6, color = 'purple', linetype = 'dashed') +
+  geom_vline(xintercept = 11.6, color = 'green', linetype = 'dashed') +
   labs(x = 'Infant deaths per 1,000 live births') +
   theme_classic() 
 ```
@@ -217,7 +221,7 @@ The mean infant mortality rate is 26.7. If we subtract this mean from each count
 infmortrate %>% 
   head(n=5) %>% 
   mutate(deviate = inf_mort_rate - 26.7, sq_deviate = deviate^2) %>% 
-  kable(format = 'html', caption = 'Excerpt of variance calculations')
+  kable(caption = 'Excerpt of variance calculations')
 ```
 
 #### Standard deviation {-}
@@ -239,17 +243,19 @@ The standard deviation in the infant mortality rates data is `r round(sd(infmort
 
 Recall that the median is the 50th percentile of a distribution--half of the values fall below the median and half fall above it. Two additional percentiles sometimes reported are the 75th and 25th percentiles. The 75th percentile is the value at which 75% of values fall below and 25% fall above it, while the 25th percentile is the value at which 25% of values fall below and 75% fall above it. 
 
-The IQR is equal to the 75th percentile minus the 25th percentile, thus providing the range that captures the middle 50% of the values in the distribution. The IQR for infant mortality rates is `r round(IQR(infmortrate$inf_mort_rate),1)`. 
+The IQR is equal to the 75th percentile minus the 25th percentile, thus providing the range that captures the middle 50% of the values in the distribution. The IQR for infant mortality rates is `r round(IQR(infmortrate$inf_mort_rate),1)`. Alternatively, the IQR can be reported by specifying the 75th and 25th percentiles, leaving the consumer to compute the difference between the two. The 75th percentile for infant mortality rates is 42.1, while the 25th percentile is 6.5. 
 
 #### Range {-}
 
-The range is simply the maximum value in a distribution minus the minimum value of a distribution. Usually, the range is left implied in a table of summary statistics by reporting the maximum and minimum without differencing the two. The range of our distribution is `r round(max(infmortrate$inf_mort_rate)-min(infmortrate$inf_mort_rate),1)`.
+The range is the maximum value in a distribution minus the minimum value of a distribution. Usually, the range is left implied in a table of summary statistics by reporting the maximum and minimum without differencing the two. The minimum of infant mortality rates is `r min(infmortrate$inf_mort_rate)`, and the maximum is `r max(infmortrate$inf_mort_rate)`. Therefore, the range of the distribution is `r round(max(infmortrate$inf_mort_rate)-min(infmortrate$inf_mort_rate),1)`.
 
 #### Choosing a measure of spread {-}
 
 The same logic applies to choosing a measure of spread as choosing a measure of center. The standard deviation is based on the mean, and so it is also sensitive to extreme values that, if present, could exaggerate the typical spread of the distribution. The IQR is based on percentiles just like the median. Therefore, IQR is not sensitive to extreme values.
 
-Figure \@ref(fig:mortspread) displays the mean and plus-and-minus one standard deviation using red dashed and solid lines, respectively. The median and the IQR (25th and 75th percentiles) are represented by the purple dashed and solid lines, respectively. Note how wide the area contained by the standard deviation is--it contains most of the distribution. It is arguably not ideal for conveying the typical deviation from the center, as it contains plenty of values that are rather atypical deviations from the center. In the case of describing the distribution of infant mortality rates, the median and IQR are likely a better choice.
+Figure \@ref(fig:mortspread) displays the mean and plus-and-minus one standard deviation using red dashed and solid lines, respectively. The median and the IQR (25th and 75th percentiles) are represented by the purple dashed and solid lines, respectively. Note how wide the area contained by the standard deviation is--it contains most of the distribution and the lower bound of 0.7 is lower than the minimum observed value of `r min(infmortrate$inf_mort_rate)`. 
+
+Standard deviation is arguably not good for conveying the typical deviation from the center, as it contains plenty of values that are rather atypical deviations from the center. In the case of describing the distribution of infant mortality rates, the median and IQR are probably a better choice.
 
 ```{r mortspread, echo=FALSE, fig.cap='Center and spread of infant mortality rates'}
 ggplot(infmortrate, aes(inf_mort_rate)) +
@@ -267,6 +273,17 @@ ggplot(infmortrate, aes(inf_mort_rate)) +
 In most cases, the range (or minimum and maximum values) should be reported along with either the mean and standard deviation or median and IQR (or 25th and 75th percentiles), especially when a distribution is skewed. In addition to signaling the skew of a distribution, the range helps convey what may be the possible values of a variable and how different the most different units in the data are with respect to that variable.
 
 In the case of infant mortality rates, we know the minimum possible value is 0 by definition, but the minimum value in our distribution is `r min(infmortrate$inf_mort_rate)`. Perhaps 0 deaths is unrealistic for any country. Moreover, the maximum value is `r max(infmortrate$inf_mort_rate)`. This range, along with the median and IQR, tells us the most different countries are *very* different.
+
+### Outliers
+
+Outliers refer to weird observations in our data whose inclusion may affect the conclusions we draw from our analysis. There are at least two points about outliers that can cause confusion and mistakes:
+
+- There is no definitive threshold at which an observation can becomes an outlier. 
+- Outliers should not necessarily be excluded from an analysis. It depends on the context. We may only care about making conclusions for typical cases. If so, removing outliers may be warranted. However, atypical cases may be an important part of the story.
+
+While there is no single definition of an outlier, the most common definition uses $1.5 \times IQR$. Values that are more than $1.5 \times IQR$ below the 25th percentile are outliers on the left side of the distribution. Values that are more than $1.5 \times IQR$ above the 75th percentile are outliers on the right side of the distribution. 
+
+Recall that the IQR of infant mortality rates depicted in Figure \@ref(fig:mortspread) was `r round(IQR(infmortrate$inf_mort_rate),1)` with 25th and 75th percentiles of 6.5 and 42.1, respectively. Applying the above definition, 1.5 times `r round(IQR(infmortrate$inf_mort_rate),1)` equals `r round(1.5*IQR(infmortrate$inf_mort_rate),1)`. Therefore, values that fall below -46.9 ( $6.5 - 53.4$ ) are outliers, but this is impossible given our variable is infant mortality rates. Values above 95.5 ( $42.1 + 53.4$ ) are outliers on the right end of the distribution. Figure \@ref(fig:mortspread) indicates there are a few outliers in our data based on this definition.
 
 ### The normal distribution
 
@@ -289,10 +306,10 @@ Table \@ref(tab:normratesum) confirms the similarity between measures of center 
 ```{r normratesum, echo=FALSE}
 normdf %>% 
   summarise(Mean = round(mean(rates),1), Median = round(median(rates),1), Mode = round(mode(rates),1), SD = round(sd(rates),1), IQR = round(IQR(rates),1)) %>% 
-  kable(format = 'html', caption = 'Center and spread measures of simulated data')
+  kable(caption = 'Center and spread measures of simulated data')
 ```
 
-Again, the normal distribution has several desirable features that will be discussed further in the chapters pertaining to inference. However, you now know one desirable feature. If a distribution is approximately normal, then extreme values are not a concern and the mean and standard deviation are good measures of center and spread, respectively. Besides making our choice of measures convenient, why is this worth repeating? Because the mean and standard deviation are building blocks to the next category of descriptive measures: association. 
+Again, the normal distribution has several desirable features that will be discussed further in the chapters pertaining to inference. One is that if a distribution is approximately normal, then extreme values are not a concern and the mean and standard deviation are good measures of center and spread, respectively. Besides making our choice of measures convenient, why is this worth repeating? Because the mean and standard deviation are building blocks to the next category of descriptive measures: association. If mean and standard deviation are bad choices of center and spread, then our measures of association will be negatively affected.
 
 ### Measures of association
 
@@ -311,7 +328,7 @@ We need a second variable to continue our example involving infant mortality rat
 ```{r gapdeathtab, echo=FALSE}
 gapdeath %>% 
   head(n=5) %>% 
-  kable(format = 'html', caption = 'First five rows of country data')
+  kable(caption = 'First five rows of country data')
 ```
 
 Recalling that the mean infant mortality rate is about 26, the five countries included are in the right tail of the distribution. Also, you probably know enough about life expectancy to know that the values for these countries are quite low. Perhaps these two variables share a relationship?

@@ -32,6 +32,7 @@
   
 <link rel="prev" href="3-measurement-and-missing.html"/>
 <link rel="next" href="5-data-visualization.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,7 +50,8 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
 <script src="libs/datatables-binding-0.14/datatables.js"></script>
@@ -61,18 +63,17 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -92,7 +93,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -141,22 +142,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Data Applications in PA</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#style-and-structure"><i class="fa fa-check"></i>Style and Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#supplemental-resources"><i class="fa fa-check"></i>Supplemental resources</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-package-references"><i class="fa fa-check"></i>R Package References</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="1-intro.html"><a href="1-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="1-intro.html"><a href="1-intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="1-intro.html"><a href="1-intro.html#why-statistics"><i class="fa fa-check"></i><b>1.1</b> Why statistics</a></li>
 <li class="chapter" data-level="1.2" data-path="1-intro.html"><a href="1-intro.html#professional-standards"><i class="fa fa-check"></i><b>1.2</b> Professional standards</a></li>
 <li class="chapter" data-level="1.3" data-path="1-intro.html"><a href="1-intro.html#statistics-in-pa"><i class="fa fa-check"></i><b>1.3</b> Statistics in PA</a></li>
 <li class="chapter" data-level="1.4" data-path="1-intro.html"><a href="1-intro.html#using-r"><i class="fa fa-check"></i><b>1.4</b> Using R</a></li>
 </ul></li>
 <li class="part"><span><b>I Data and Description</b></span></li>
-<li class="chapter" data-level="2" data-path="2-data.html"><a href="2-data.html"><i class="fa fa-check"></i><b>2</b> Data</a><ul>
+<li class="chapter" data-level="2" data-path="2-data.html"><a href="2-data.html"><i class="fa fa-check"></i><b>2</b> Data</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="2-data.html"><a href="2-data.html#lo2"><i class="fa fa-check"></i><b>2.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="2.2" data-path="2-data.html"><a href="2-data.html#rectangular-data"><i class="fa fa-check"></i><b>2.2</b> Rectangular Data</a></li>
-<li class="chapter" data-level="2.3" data-path="2-data.html"><a href="2-data.html#types-of-variables"><i class="fa fa-check"></i><b>2.3</b> Types of variables</a><ul>
+<li class="chapter" data-level="2.3" data-path="2-data.html"><a href="2-data.html#types-of-variables"><i class="fa fa-check"></i><b>2.3</b> Types of variables</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="2-data.html"><a href="2-data.html#qualitative-variables"><i class="fa fa-check"></i><b>2.3.1</b> Qualitative variables</a></li>
 <li class="chapter" data-level="2.3.2" data-path="2-data.html"><a href="2-data.html#quantitative-variables"><i class="fa fa-check"></i><b>2.3.2</b> Quantitative variables</a></li>
 <li class="chapter" data-level="2.3.3" data-path="2-data.html"><a href="2-data.html#index-variables"><i class="fa fa-check"></i><b>2.3.3</b> Index variables</a></li>
@@ -164,53 +169,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4" data-path="2-data.html"><a href="2-data.html#dataset-structures"><i class="fa fa-check"></i><b>2.4</b> Dataset structures</a></li>
 <li class="chapter" data-level="2.5" data-path="2-data.html"><a href="2-data.html#kt1"><i class="fa fa-check"></i><b>2.5</b> Key terms and concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html"><i class="fa fa-check"></i><b>3</b> Measurement and Missing</a><ul>
+<li class="chapter" data-level="3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html"><i class="fa fa-check"></i><b>3</b> Measurement and Missing</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#lo3"><i class="fa fa-check"></i><b>3.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="3.2" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#measurement-validity"><i class="fa fa-check"></i><b>3.2</b> Measurement validity</a></li>
 <li class="chapter" data-level="3.3" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#measurement-reliability"><i class="fa fa-check"></i><b>3.3</b> Measurement reliability</a></li>
-<li class="chapter" data-level="3.4" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#missing-data"><i class="fa fa-check"></i><b>3.4</b> Missing data</a><ul>
+<li class="chapter" data-level="3.4" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#missing-data"><i class="fa fa-check"></i><b>3.4</b> Missing data</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#types-of-missing-data"><i class="fa fa-check"></i><b>3.4.1</b> Types of missing data</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="3-measurement-and-missing.html"><a href="3-measurement-and-missing.html#kt2"><i class="fa fa-check"></i><b>3.5</b> Key terms and concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a><ul>
+<li class="chapter" data-level="4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html"><i class="fa fa-check"></i><b>4</b> Descriptive Statistics</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#lo4"><i class="fa fa-check"></i><b>4.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="4.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#two-goals-of-statistics"><i class="fa fa-check"></i><b>4.2</b> Two goals of statistics</a></li>
 <li class="chapter" data-level="4.3" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#distributions"><i class="fa fa-check"></i><b>4.3</b> Distributions</a></li>
-<li class="chapter" data-level="4.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#descriptive-measures"><i class="fa fa-check"></i><b>4.4</b> Descriptive Measures</a><ul>
+<li class="chapter" data-level="4.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#descriptive-measures"><i class="fa fa-check"></i><b>4.4</b> Descriptive Measures</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-center"><i class="fa fa-check"></i><b>4.4.1</b> Measures of center</a></li>
 <li class="chapter" data-level="4.4.2" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-spread"><i class="fa fa-check"></i><b>4.4.2</b> Measures of spread</a></li>
-<li class="chapter" data-level="4.4.3" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.4.3</b> The normal distribution</a></li>
-<li class="chapter" data-level="4.4.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-association"><i class="fa fa-check"></i><b>4.4.4</b> Measures of association</a></li>
+<li class="chapter" data-level="4.4.3" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#outliers"><i class="fa fa-check"></i><b>4.4.3</b> Outliers</a></li>
+<li class="chapter" data-level="4.4.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.4.4</b> The normal distribution</a></li>
+<li class="chapter" data-level="4.4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-association"><i class="fa fa-check"></i><b>4.4.5</b> Measures of association</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.5</b> Key terms and concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="5-data-visualization.html"><a href="5-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a><ul>
+<li class="chapter" data-level="5" data-path="5-data-visualization.html"><a href="5-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#lo5"><i class="fa fa-check"></i><b>5.1</b> Learning objectives</a></li>
-<li class="chapter" data-level="5.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#distribution"><i class="fa fa-check"></i><b>5.2</b> Distribution</a><ul>
+<li class="chapter" data-level="5.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#distribution"><i class="fa fa-check"></i><b>5.2</b> Distribution</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#histogram"><i class="fa fa-check"></i><b>5.2.1</b> Histogram</a></li>
 <li class="chapter" data-level="5.2.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#box-plot"><i class="fa fa-check"></i><b>5.2.2</b> Box plot</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#compostion-of-a-category"><i class="fa fa-check"></i><b>5.3</b> Compostion of a category</a><ul>
+<li class="chapter" data-level="5.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#compostion-of-a-category"><i class="fa fa-check"></i><b>5.3</b> Compostion of a category</a>
+<ul>
 <li class="chapter" data-level="5.3.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#pie-charts"><i class="fa fa-check"></i><b>5.3.1</b> Pie charts</a></li>
 <li class="chapter" data-level="5.3.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#bar-chart"><i class="fa fa-check"></i><b>5.3.2</b> Bar chart</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="5-data-visualization.html"><a href="5-data-visualization.html#comparing-between-units"><i class="fa fa-check"></i><b>5.4</b> Comparing between units</a><ul>
+<li class="chapter" data-level="5.4" data-path="5-data-visualization.html"><a href="5-data-visualization.html#comparing-between-units"><i class="fa fa-check"></i><b>5.4</b> Comparing between units</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#bar-chart-1"><i class="fa fa-check"></i><b>5.4.1</b> Bar chart</a></li>
 <li class="chapter" data-level="5.4.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#dot-plot"><i class="fa fa-check"></i><b>5.4.2</b> Dot plot</a></li>
 <li class="chapter" data-level="5.4.3" data-path="5-data-visualization.html"><a href="5-data-visualization.html#line-graph"><i class="fa fa-check"></i><b>5.4.3</b> Line graph</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="5-data-visualization.html"><a href="5-data-visualization.html#association"><i class="fa fa-check"></i><b>5.5</b> Association</a><ul>
+<li class="chapter" data-level="5.5" data-path="5-data-visualization.html"><a href="5-data-visualization.html#association"><i class="fa fa-check"></i><b>5.5</b> Association</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="5-data-visualization.html"><a href="5-data-visualization.html#categorical-and-numerical"><i class="fa fa-check"></i><b>5.5.1</b> Categorical and numerical</a></li>
 <li class="chapter" data-level="5.5.2" data-path="5-data-visualization.html"><a href="5-data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>5.5.2</b> Scatter plot</a></li>
 </ul></li>
 <li class="chapter" data-level="5.6" data-path="5-data-visualization.html"><a href="5-data-visualization.html#kt5"><i class="fa fa-check"></i><b>5.6</b> Key terms and concepts</a></li>
 </ul></li>
 <li class="part"><span><b>II Regression Models</b></span></li>
-<li class="chapter" data-level="6" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html"><i class="fa fa-check"></i><b>6</b> Simple and Multiple Regression</a><ul>
+<li class="chapter" data-level="6" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html"><i class="fa fa-check"></i><b>6</b> Simple and Multiple Regression</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#lo6"><i class="fa fa-check"></i><b>6.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="6.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#basic-idea"><i class="fa fa-check"></i><b>6.2</b> Basic idea</a></li>
-<li class="chapter" data-level="6.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>6.3</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="6.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#simple-linear-regression"><i class="fa fa-check"></i><b>6.3</b> Simple linear regression</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#using-regression"><i class="fa fa-check"></i><b>6.3.1</b> Using regression</a></li>
 <li class="chapter" data-level="6.3.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#predicted-change"><i class="fa fa-check"></i><b>6.3.2</b> Predicted change</a></li>
 <li class="chapter" data-level="6.3.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#predicted-value"><i class="fa fa-check"></i><b>6.3.3</b> Predicted value</a></li>
@@ -218,35 +235,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.5" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#the-error-term"><i class="fa fa-check"></i><b>6.3.5</b> The error term</a></li>
 <li class="chapter" data-level="6.3.6" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#goodness-of-fit"><i class="fa fa-check"></i><b>6.3.6</b> Goodness of fit</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#multiple-regression"><i class="fa fa-check"></i><b>6.4</b> Multiple regression</a><ul>
+<li class="chapter" data-level="6.4" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#multiple-regression"><i class="fa fa-check"></i><b>6.4</b> Multiple regression</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#using-multiple-regression"><i class="fa fa-check"></i><b>6.4.1</b> Using multiple regression</a></li>
 <li class="chapter" data-level="6.4.2" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#fit-and-adjusted-r-squared"><i class="fa fa-check"></i><b>6.4.2</b> Fit and adjusted R squared</a></li>
 <li class="chapter" data-level="6.4.3" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#explanatory-penalty"><i class="fa fa-check"></i><b>6.4.3</b> Explanatory penalty</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="6-simple-and-multiple-regression.html"><a href="6-simple-and-multiple-regression.html#kt6"><i class="fa fa-check"></i><b>6.5</b> Key terms and concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html"><i class="fa fa-check"></i><b>7</b> Categorical Variables and Interactions</a><ul>
+<li class="chapter" data-level="7" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html"><i class="fa fa-check"></i><b>7</b> Categorical Variables and Interactions</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#lo7"><i class="fa fa-check"></i><b>7.1</b> Learning objectives</a></li>
-<li class="chapter" data-level="7.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#parallel-slopes-model"><i class="fa fa-check"></i><b>7.2</b> Parallel slopes model</a><ul>
+<li class="chapter" data-level="7.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#parallel-slopes-model"><i class="fa fa-check"></i><b>7.2</b> Parallel slopes model</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-parallel-slopes"><i class="fa fa-check"></i><b>7.2.1</b> Using parallel slopes</a></li>
 <li class="chapter" data-level="7.2.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#beyond-dummies"><i class="fa fa-check"></i><b>7.2.2</b> Beyond dummies</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#interaction-model"><i class="fa fa-check"></i><b>7.3</b> Interaction model</a><ul>
+<li class="chapter" data-level="7.3" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#interaction-model"><i class="fa fa-check"></i><b>7.3</b> Interaction model</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-an-interaction"><i class="fa fa-check"></i><b>7.3.1</b> Using an interaction</a></li>
 <li class="chapter" data-level="7.3.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#variations"><i class="fa fa-check"></i><b>7.3.2</b> Variations</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#linear-probability-model"><i class="fa fa-check"></i><b>7.4</b> Linear probability model</a><ul>
+<li class="chapter" data-level="7.4" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#linear-probability-model"><i class="fa fa-check"></i><b>7.4</b> Linear probability model</a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#using-lpm"><i class="fa fa-check"></i><b>7.4.1</b> Using LPM</a></li>
 <li class="chapter" data-level="7.4.2" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#fit"><i class="fa fa-check"></i><b>7.4.2</b> Fit</a></li>
 </ul></li>
 <li class="chapter" data-level="7.5" data-path="7-categorical-variables-and-interactions.html"><a href="7-categorical-variables-and-interactions.html#kt7"><i class="fa fa-check"></i><b>7.5</b> Key terms and concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html"><i class="fa fa-check"></i><b>8</b> Nonlinear Variables</a><ul>
+<li class="chapter" data-level="8" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html"><i class="fa fa-check"></i><b>8</b> Nonlinear Variables</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#lo8"><i class="fa fa-check"></i><b>8.1</b> Learning objectives</a></li>
-<li class="chapter" data-level="8.2" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#quadratic"><i class="fa fa-check"></i><b>8.2</b> Quadratic</a><ul>
+<li class="chapter" data-level="8.2" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#quadratic"><i class="fa fa-check"></i><b>8.2</b> Quadratic</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#using-quadratics"><i class="fa fa-check"></i><b>8.2.1</b> Using quadratics</a></li>
 </ul></li>
-<li class="chapter" data-level="8.3" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#log-models"><i class="fa fa-check"></i><b>8.3</b> Log models</a><ul>
+<li class="chapter" data-level="8.3" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#log-models"><i class="fa fa-check"></i><b>8.3</b> Log models</a>
+<ul>
 <li class="chapter" data-level="8.3.1" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#logarithmic-scales"><i class="fa fa-check"></i><b>8.3.1</b> Logarithmic scales</a></li>
 <li class="chapter" data-level="8.3.2" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#percent-v-percentage-point-change"><i class="fa fa-check"></i><b>8.3.2</b> Percent v percentage point change</a></li>
 <li class="chapter" data-level="8.3.3" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#why-logs-in-regression"><i class="fa fa-check"></i><b>8.3.3</b> Why logs in regression</a></li>
@@ -254,20 +279,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="8-nonlinear-variables.html"><a href="8-nonlinear-variables.html#kt8"><i class="fa fa-check"></i><b>8.4</b> Key terms and concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html"><i class="fa fa-check"></i><b>9</b> Causation and Bias</a><ul>
+<li class="chapter" data-level="9" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html"><i class="fa fa-check"></i><b>9</b> Causation and Bias</a>
+<ul>
 <li class="chapter" data-level="9.1" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#lo9"><i class="fa fa-check"></i><b>9.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="9.2" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#causality"><i class="fa fa-check"></i><b>9.2</b> Causality</a></li>
-<li class="chapter" data-level="9.3" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#directed-acyclical-graphs"><i class="fa fa-check"></i><b>9.3</b> Directed acyclical graphs</a><ul>
+<li class="chapter" data-level="9.3" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#directed-acyclical-graphs"><i class="fa fa-check"></i><b>9.3</b> Directed acyclical graphs</a>
+<ul>
 <li class="chapter" data-level="9.3.1" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#evaluationg-dags"><i class="fa fa-check"></i><b>9.3.1</b> Evaluationg DAGs</a></li>
 <li class="chapter" data-level="9.3.2" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#backdoor-criterion"><i class="fa fa-check"></i><b>9.3.2</b> Backdoor criterion</a></li>
 <li class="chapter" data-level="9.3.3" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#dags-and-regression"><i class="fa fa-check"></i><b>9.3.3</b> DAGs and regression</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#direction-of-ovb"><i class="fa fa-check"></i><b>9.4</b> Direction of OVB</a></li>
-<li class="chapter" data-level="9.5" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#usefulness"><i class="fa fa-check"></i><b>9.5</b> Usefulness</a></li>
-<li class="chapter" data-level="9.6" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#kt9"><i class="fa fa-check"></i><b>9.6</b> Key terms and concepts</a></li>
+<li class="chapter" data-level="9.5" data-path="9-causation-and-bias.html"><a href="9-causation-and-bias.html#kt9"><i class="fa fa-check"></i><b>9.5</b> Key terms and concepts</a></li>
 </ul></li>
 <li class="part"><span><b>III Inference</b></span></li>
-<li class="chapter" data-level="10" data-path="10-sampling.html"><a href="10-sampling.html"><i class="fa fa-check"></i><b>10</b> Sampling</a><ul>
+<li class="chapter" data-level="10" data-path="10-sampling.html"><a href="10-sampling.html"><i class="fa fa-check"></i><b>10</b> Sampling</a>
+<ul>
 <li class="chapter" data-level="10.1" data-path="10-sampling.html"><a href="10-sampling.html#lo10"><i class="fa fa-check"></i><b>10.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="10.2" data-path="10-sampling.html"><a href="10-sampling.html#normal-distribution"><i class="fa fa-check"></i><b>10.2</b> Normal distribution</a></li>
 <li class="chapter" data-level="10.3" data-path="10-sampling.html"><a href="10-sampling.html#sampling-distribution"><i class="fa fa-check"></i><b>10.3</b> Sampling Distribution</a></li>
@@ -276,9 +303,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.6" data-path="10-sampling.html"><a href="10-sampling.html#conclusion"><i class="fa fa-check"></i><b>10.6</b> Conclusion</a></li>
 <li class="chapter" data-level="10.7" data-path="10-sampling.html"><a href="10-sampling.html#kt10"><i class="fa fa-check"></i><b>10.7</b> Key terms and concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html"><i class="fa fa-check"></i><b>11</b> Hypothesis Testing</a><ul>
+<li class="chapter" data-level="11" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html"><i class="fa fa-check"></i><b>11</b> Hypothesis Testing</a>
+<ul>
 <li class="chapter" data-level="11.1" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html#lo11"><i class="fa fa-check"></i><b>11.1</b> Learning objectives</a></li>
-<li class="chapter" data-level="11.2" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>11.2</b> Hypothesis testing</a><ul>
+<li class="chapter" data-level="11.2" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>11.2</b> Hypothesis testing</a>
+<ul>
 <li class="chapter" data-level="11.2.1" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html#null-and-alternative-hypos"><i class="fa fa-check"></i><b>11.2.1</b> Null and alternative hypos</a></li>
 <li class="chapter" data-level="11.2.2" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html#conclusion-and-error-type"><i class="fa fa-check"></i><b>11.2.2</b> Conclusion and error type</a></li>
 <li class="chapter" data-level="11.2.3" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html#decision-rule"><i class="fa fa-check"></i><b>11.2.3</b> Decision rule</a></li>
@@ -287,14 +316,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.4" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html#t-test"><i class="fa fa-check"></i><b>11.4</b> T-test</a></li>
 <li class="chapter" data-level="11.5" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html#kt11"><i class="fa fa-check"></i><b>11.5</b> Key terms and concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="12-significance.html"><a href="12-significance.html"><i class="fa fa-check"></i><b>12</b> Significance</a><ul>
+<li class="chapter" data-level="12" data-path="12-significance.html"><a href="12-significance.html"><i class="fa fa-check"></i><b>12</b> Significance</a>
+<ul>
 <li class="chapter" data-level="12.1" data-path="12-significance.html"><a href="12-significance.html#lo12"><i class="fa fa-check"></i><b>12.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="12.2" data-path="12-significance.html"><a href="12-significance.html#regression-table"><i class="fa fa-check"></i><b>12.2</b> Regression table</a></li>
 <li class="chapter" data-level="12.3" data-path="12-significance.html"><a href="12-significance.html#other-hypotheses"><i class="fa fa-check"></i><b>12.3</b> Other hypotheses</a></li>
 <li class="chapter" data-level="12.4" data-path="12-significance.html"><a href="12-significance.html#practical-significance"><i class="fa fa-check"></i><b>12.4</b> Practical significance</a></li>
 <li class="chapter" data-level="12.5" data-path="12-significance.html"><a href="12-significance.html#kt12"><i class="fa fa-check"></i><b>12.5</b> Key terms and concepts</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html"><i class="fa fa-check"></i><b>13</b> Regression Diagnostics</a><ul>
+<li class="chapter" data-level="13" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html"><i class="fa fa-check"></i><b>13</b> Regression Diagnostics</a>
+<ul>
 <li class="chapter" data-level="13.1" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#lo13"><i class="fa fa-check"></i><b>13.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="13.2" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#classical-assumptions"><i class="fa fa-check"></i><b>13.2</b> Classical assumptions</a></li>
 <li class="chapter" data-level="13.3" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#multicollinearity"><i class="fa fa-check"></i><b>13.3</b> Multicollinearity</a></li>
@@ -302,43 +333,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html#kt13"><i class="fa fa-check"></i><b>13.5</b> Key terms and concepts</a></li>
 </ul></li>
 <li class="part"><span><b>IV Advanced Topics</b></span></li>
-<li class="chapter" data-level="14" data-path="14-forecasting.html"><a href="14-forecasting.html"><i class="fa fa-check"></i><b>14</b> Forecasting</a><ul>
+<li class="chapter" data-level="14" data-path="14-forecasting.html"><a href="14-forecasting.html"><i class="fa fa-check"></i><b>14</b> Forecasting</a>
+<ul>
 <li class="chapter" data-level="14.1" data-path="14-forecasting.html"><a href="14-forecasting.html#what-is-forecasting"><i class="fa fa-check"></i><b>14.1</b> What is forecasting</a></li>
-<li class="chapter" data-level="14.2" data-path="14-forecasting.html"><a href="14-forecasting.html#patterns"><i class="fa fa-check"></i><b>14.2</b> Patterns</a><ul>
+<li class="chapter" data-level="14.2" data-path="14-forecasting.html"><a href="14-forecasting.html#patterns"><i class="fa fa-check"></i><b>14.2</b> Patterns</a>
+<ul>
 <li class="chapter" data-level="14.2.1" data-path="14-forecasting.html"><a href="14-forecasting.html#autocorrelation"><i class="fa fa-check"></i><b>14.2.1</b> Autocorrelation</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="14-forecasting.html"><a href="14-forecasting.html#forecasting-basics"><i class="fa fa-check"></i><b>14.3</b> Forecasting basics</a><ul>
+<li class="chapter" data-level="14.3" data-path="14-forecasting.html"><a href="14-forecasting.html#forecasting-basics"><i class="fa fa-check"></i><b>14.3</b> Forecasting basics</a>
+<ul>
 <li class="chapter" data-level="14.3.1" data-path="14-forecasting.html"><a href="14-forecasting.html#evaluation"><i class="fa fa-check"></i><b>14.3.1</b> Evaluation</a></li>
 <li class="chapter" data-level="14.3.2" data-path="14-forecasting.html"><a href="14-forecasting.html#models"><i class="fa fa-check"></i><b>14.3.2</b> Models</a></li>
 </ul></li>
 <li class="chapter" data-level="14.4" data-path="14-forecasting.html"><a href="14-forecasting.html#recap"><i class="fa fa-check"></i><b>14.4</b> Recap</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html"><i class="fa fa-check"></i><b>15</b> Panel Analysis</a><ul>
+<li class="chapter" data-level="15" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html"><i class="fa fa-check"></i><b>15</b> Panel Analysis</a>
+<ul>
 <li class="chapter" data-level="15.1" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html#panel-data"><i class="fa fa-check"></i><b>15.1</b> Panel data</a></li>
 <li class="chapter" data-level="15.2" data-path="15-panel-analysis.html"><a href="15-panel-analysis.html#fixed-effects"><i class="fa fa-check"></i><b>15.2</b> Fixed effects</a></li>
 </ul></li>
 <li class="part"><span><b>V R Chapters</b></span></li>
-<li class="chapter" data-level="16" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html"><i class="fa fa-check"></i><b>16</b> R Chapter Introduction</a><ul>
+<li class="chapter" data-level="16" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html"><i class="fa fa-check"></i><b>16</b> R Chapter Introduction</a>
+<ul>
 <li class="chapter" data-level="16.1" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#what-is-r-and-rstudio"><i class="fa fa-check"></i><b>16.1</b> What is R and RStudio</a></li>
 <li class="chapter" data-level="16.2" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>16.2</b> Installing R and RStudio</a></li>
-<li class="chapter" data-level="16.3" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#rstudio-orientation"><i class="fa fa-check"></i><b>16.3</b> RStudio orientation</a><ul>
+<li class="chapter" data-level="16.3" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#rstudio-orientation"><i class="fa fa-check"></i><b>16.3</b> RStudio orientation</a>
+<ul>
 <li class="chapter" data-level="16.3.1" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#r-markdown"><i class="fa fa-check"></i><b>16.3.1</b> R Markdown</a></li>
 <li class="chapter" data-level="16.3.2" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#r-packages"><i class="fa fa-check"></i><b>16.3.2</b> R Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="16.4" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>16.4</b> Save and Upload</a></li>
 <li class="chapter" data-level="16.5" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#additional-resources"><i class="fa fa-check"></i><b>16.5</b> Additional Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="17-r-data.html"><a href="17-r-data.html"><i class="fa fa-check"></i><b>17</b> R Data</a><ul>
+<li class="chapter" data-level="17" data-path="17-r-data.html"><a href="17-r-data.html"><i class="fa fa-check"></i><b>17</b> R Data</a>
+<ul>
 <li class="chapter" data-level="17.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>17.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="17.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>17.2</b> Set-up</a></li>
-<li class="chapter" data-level="17.3" data-path="17-r-data.html"><a href="17-r-data.html#viewing-datasets"><i class="fa fa-check"></i><b>17.3</b> Viewing datasets</a><ul>
+<li class="chapter" data-level="17.3" data-path="17-r-data.html"><a href="17-r-data.html#viewing-datasets"><i class="fa fa-check"></i><b>17.3</b> Viewing datasets</a>
+<ul>
 <li class="chapter" data-level="17.3.1" data-path="17-r-data.html"><a href="17-r-data.html#warning-about-view"><i class="fa fa-check"></i><b>17.3.1</b> Warning about View</a></li>
 </ul></li>
 <li class="chapter" data-level="17.4" data-path="17-r-data.html"><a href="17-r-data.html#glimpse-data"><i class="fa fa-check"></i><b>17.4</b> Glimpse Data</a></li>
 <li class="chapter" data-level="17.5" data-path="17-r-data.html"><a href="17-r-data.html#variable-types-in-r"><i class="fa fa-check"></i><b>17.5</b> Variable Types in R</a></li>
 <li class="chapter" data-level="17.6" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>17.6</b> Save and Upload</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html"><i class="fa fa-check"></i><b>18</b> R Missing Data</a><ul>
+<li class="chapter" data-level="18" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html"><i class="fa fa-check"></i><b>18</b> R Missing Data</a>
+<ul>
 <li class="chapter" data-level="18.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="18.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>18.2</b> Set-up</a></li>
 <li class="chapter" data-level="18.3" data-path="2-data.html"><a href="2-data.html#data"><i class="fa fa-check"></i><b>18.3</b> Data</a></li>
@@ -348,12 +388,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.7" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#drop-all-missing-cases"><i class="fa fa-check"></i><b>18.7</b> Drop all missing cases</a></li>
 <li class="chapter" data-level="18.8" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>18.8</b> Save and Upload</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="19-r-description.html"><a href="19-r-description.html"><i class="fa fa-check"></i><b>19</b> R Description</a><ul>
+<li class="chapter" data-level="19" data-path="19-r-description.html"><a href="19-r-description.html"><i class="fa fa-check"></i><b>19</b> R Description</a>
+<ul>
 <li class="chapter" data-level="19.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="19.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
 <li class="chapter" data-level="19.3" data-path="19-r-description.html"><a href="19-r-description.html#introduction"><i class="fa fa-check"></i><b>19.3</b> Introduction</a></li>
 <li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#individual-stats"><i class="fa fa-check"></i><b>19.4</b> Individual Stats</a></li>
-<li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.5</b> Summary Table</a><ul>
+<li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.5</b> Summary Table</a>
+<ul>
 <li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#background-table"><i class="fa fa-check"></i><b>19.5.1</b> Background Table</a></li>
 <li class="chapter" data-level="19.5.2" data-path="19-r-description.html"><a href="19-r-description.html#using-arsenal"><i class="fa fa-check"></i><b>19.5.2</b> Using Arsenal</a></li>
 <li class="chapter" data-level="19.5.3" data-path="19-r-description.html"><a href="19-r-description.html#adjustments-to-arsenal"><i class="fa fa-check"></i><b>19.5.3</b> Adjustments to Arsenal</a></li>
@@ -362,7 +404,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.6" data-path="19-r-description.html"><a href="19-r-description.html#correlation-coefficient"><i class="fa fa-check"></i><b>19.6</b> Correlation Coefficient</a></li>
 <li class="chapter" data-level="19.7" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>19.7</b> Save and Upload</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="20-r-visualization.html"><a href="20-r-visualization.html"><i class="fa fa-check"></i><b>20</b> R Visualization</a><ul>
+<li class="chapter" data-level="20" data-path="20-r-visualization.html"><a href="20-r-visualization.html"><i class="fa fa-check"></i><b>20</b> R Visualization</a>
+<ul>
 <li class="chapter" data-level="20.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>20.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="20.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>20.2</b> Set-up</a></li>
 <li class="chapter" data-level="20.3" data-path="20-r-visualization.html"><a href="20-r-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>20.3</b> Grammar of graphics</a></li>
@@ -373,42 +416,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.8" data-path="5-data-visualization.html"><a href="5-data-visualization.html#line-graph"><i class="fa fa-check"></i><b>20.8</b> Line graph</a></li>
 <li class="chapter" data-level="20.9" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>20.9</b> Save and Upload</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="21-r-regression.html"><a href="21-r-regression.html"><i class="fa fa-check"></i><b>21</b> R Regression</a><ul>
+<li class="chapter" data-level="21" data-path="21-r-regression.html"><a href="21-r-regression.html"><i class="fa fa-check"></i><b>21</b> R Regression</a>
+<ul>
 <li class="chapter" data-level="21.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>21.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="21.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>21.2</b> Set-up</a></li>
-<li class="chapter" data-level="21.3" data-path="21-r-regression.html"><a href="21-r-regression.html#running-regression"><i class="fa fa-check"></i><b>21.3</b> Running Regression</a><ul>
+<li class="chapter" data-level="21.3" data-path="21-r-regression.html"><a href="21-r-regression.html#running-regression"><i class="fa fa-check"></i><b>21.3</b> Running Regression</a>
+<ul>
 <li class="chapter" data-level="21.3.1" data-path="21-r-regression.html"><a href="21-r-regression.html#general-syntax"><i class="fa fa-check"></i><b>21.3.1</b> General Syntax</a></li>
 <li class="chapter" data-level="21.3.2" data-path="21-r-regression.html"><a href="21-r-regression.html#continuous-outcome-and-continuous-or-categorical-explanatory-variables"><i class="fa fa-check"></i><b>21.3.2</b> Continuous outcome and continuous or categorical explanatory variables</a></li>
 <li class="chapter" data-level="21.3.3" data-path="21-r-regression.html"><a href="21-r-regression.html#interactions"><i class="fa fa-check"></i><b>21.3.3</b> Interactions</a></li>
 <li class="chapter" data-level="21.3.4" data-path="21-r-regression.html"><a href="21-r-regression.html#dummy-outcome"><i class="fa fa-check"></i><b>21.3.4</b> Dummy outcome</a></li>
 </ul></li>
-<li class="chapter" data-level="21.4" data-path="21-r-regression.html"><a href="21-r-regression.html#reporting-regression-estimates"><i class="fa fa-check"></i><b>21.4</b> Reporting Regression Estimates</a><ul>
+<li class="chapter" data-level="21.4" data-path="21-r-regression.html"><a href="21-r-regression.html#reporting-regression-estimates"><i class="fa fa-check"></i><b>21.4</b> Reporting Regression Estimates</a>
+<ul>
 <li class="chapter" data-level="21.4.1" data-path="21-r-regression.html"><a href="21-r-regression.html#moderndive"><i class="fa fa-check"></i><b>21.4.1</b> Moderndive</a></li>
 <li class="chapter" data-level="21.4.2" data-path="21-r-regression.html"><a href="21-r-regression.html#base-r"><i class="fa fa-check"></i><b>21.4.2</b> Base R</a></li>
 </ul></li>
 <li class="chapter" data-level="21.5" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>21.5</b> Save and Upload</a></li>
 </ul></li>
-<li class="chapter" data-level="22" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html"><i class="fa fa-check"></i><b>22</b> R Nonlinear Regression</a><ul>
+<li class="chapter" data-level="22" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html"><i class="fa fa-check"></i><b>22</b> R Nonlinear Regression</a>
+<ul>
 <li class="chapter" data-level="22.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>22.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="22.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>22.2</b> Set-up</a></li>
 <li class="chapter" data-level="22.3" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#quadratic-term"><i class="fa fa-check"></i><b>22.3</b> Quadratic term</a></li>
 <li class="chapter" data-level="22.4" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#log-transformation"><i class="fa fa-check"></i><b>22.4</b> Log Transformation</a></li>
 <li class="chapter" data-level="22.5" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>22.5</b> Save and Upload</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html"><i class="fa fa-check"></i><b>23</b> R Evaluations</a><ul>
+<li class="chapter" data-level="23" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html"><i class="fa fa-check"></i><b>23</b> R Evaluations</a>
+<ul>
 <li class="chapter" data-level="23.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#learning-outcomes"><i class="fa fa-check"></i><b>23.1</b> Learning Outcomes</a></li>
 <li class="chapter" data-level="23.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>23.2</b> Set-up</a></li>
-<li class="chapter" data-level="23.3" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html#chi-square-test"><i class="fa fa-check"></i><b>23.3</b> Chi-square test</a><ul>
+<li class="chapter" data-level="23.3" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html#chi-square-test"><i class="fa fa-check"></i><b>23.3</b> Chi-square test</a>
+<ul>
 <li class="chapter" data-level="23.3.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#cross-tab"><i class="fa fa-check"></i><b>23.3.1</b> Cross-tab</a></li>
 <li class="chapter" data-level="23.3.2" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#run-chi-square"><i class="fa fa-check"></i><b>23.3.2</b> Run chi-square</a></li>
 </ul></li>
-<li class="chapter" data-level="23.4" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#t-tests"><i class="fa fa-check"></i><b>23.4</b> T-tests</a><ul>
+<li class="chapter" data-level="23.4" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#t-tests"><i class="fa fa-check"></i><b>23.4</b> T-tests</a>
+<ul>
 <li class="chapter" data-level="23.4.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#independent-t-test"><i class="fa fa-check"></i><b>23.4.1</b> Independent t-test</a></li>
 <li class="chapter" data-level="23.4.2" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#dependent-t-test"><i class="fa fa-check"></i><b>23.4.2</b> Dependent t-test</a></li>
 </ul></li>
 <li class="chapter" data-level="23.5" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>23.5</b> Save and Upload</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html"><i class="fa fa-check"></i><b>24</b> R Regression Diagnostics</a><ul>
+<li class="chapter" data-level="24" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html"><i class="fa fa-check"></i><b>24</b> R Regression Diagnostics</a>
+<ul>
 <li class="chapter" data-level="24.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#learning-outcomes"><i class="fa fa-check"></i><b>24.1</b> Learning Outcomes</a></li>
 <li class="chapter" data-level="24.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>24.2</b> Set-up</a></li>
 <li class="chapter" data-level="24.3" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#diagnostic-plots"><i class="fa fa-check"></i><b>24.3</b> Diagnostic Plots</a></li>
@@ -418,20 +469,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="24.7" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>24.7</b> Save and Upload</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="A-coding-tips.html"><a href="A-coding-tips.html"><i class="fa fa-check"></i><b>A</b> Coding Tips</a><ul>
+<li class="chapter" data-level="A" data-path="A-coding-tips.html"><a href="A-coding-tips.html"><i class="fa fa-check"></i><b>A</b> Coding Tips</a>
+<ul>
 <li class="chapter" data-level="A.1" data-path="A-coding-tips.html"><a href="A-coding-tips.html#keyboard-shortcuts"><i class="fa fa-check"></i><b>A.1</b> Keyboard Shortcuts</a></li>
-<li class="chapter" data-level="A.2" data-path="A-coding-tips.html"><a href="A-coding-tips.html#specifying-datasets-and-variables"><i class="fa fa-check"></i><b>A.2</b> Specifying Datasets and Variables</a><ul>
+<li class="chapter" data-level="A.2" data-path="A-coding-tips.html"><a href="A-coding-tips.html#specifying-datasets-and-variables"><i class="fa fa-check"></i><b>A.2</b> Specifying Datasets and Variables</a>
+<ul>
 <li class="chapter" data-level="A.2.1" data-path="A-coding-tips.html"><a href="A-coding-tips.html#datasets"><i class="fa fa-check"></i><b>A.2.1</b> Datasets</a></li>
 <li class="chapter" data-level="A.2.2" data-path="A-coding-tips.html"><a href="A-coding-tips.html#variables"><i class="fa fa-check"></i><b>A.2.2</b> Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="A.3" data-path="A-coding-tips.html"><a href="A-coding-tips.html#assignment-and-pipe-operators"><i class="fa fa-check"></i><b>A.3</b> Assignment and Pipe Operators</a><ul>
+<li class="chapter" data-level="A.3" data-path="A-coding-tips.html"><a href="A-coding-tips.html#assignment-and-pipe-operators"><i class="fa fa-check"></i><b>A.3</b> Assignment and Pipe Operators</a>
+<ul>
 <li class="chapter" data-level="A.3.1" data-path="A-coding-tips.html"><a href="A-coding-tips.html#assignment-operator"><i class="fa fa-check"></i><b>A.3.1</b> Assignment Operator</a></li>
 <li class="chapter" data-level="A.3.2" data-path="A-coding-tips.html"><a href="A-coding-tips.html#pipe-operator"><i class="fa fa-check"></i><b>A.3.2</b> Pipe Operator</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="B-appendixB.html"><a href="B-appendixB.html"><i class="fa fa-check"></i><b>B</b> Wrangle and Tidy Reference</a><ul>
+<li class="chapter" data-level="B" data-path="B-appendixB.html"><a href="B-appendixB.html"><i class="fa fa-check"></i><b>B</b> Wrangle and Tidy Reference</a>
+<ul>
 <li class="chapter" data-level="B.1" data-path="B-appendixB.html"><a href="B-appendixB.html#cheatsheets"><i class="fa fa-check"></i><b>B.1</b> Cheatsheets</a></li>
-<li class="chapter" data-level="B.2" data-path="B-appendixB.html"><a href="B-appendixB.html#wrangle-verbs"><i class="fa fa-check"></i><b>B.2</b> Wrangle Verbs</a><ul>
+<li class="chapter" data-level="B.2" data-path="B-appendixB.html"><a href="B-appendixB.html#wrangle-verbs"><i class="fa fa-check"></i><b>B.2</b> Wrangle Verbs</a>
+<ul>
 <li class="chapter" data-level="B.2.1" data-path="B-appendixB.html"><a href="B-appendixB.html#filter"><i class="fa fa-check"></i><b>B.2.1</b> Filter</a></li>
 <li class="chapter" data-level="B.2.2" data-path="B-appendixB.html"><a href="B-appendixB.html#select"><i class="fa fa-check"></i><b>B.2.2</b> Select</a></li>
 <li class="chapter" data-level="B.2.3" data-path="B-appendixB.html"><a href="B-appendixB.html#mutate"><i class="fa fa-check"></i><b>B.2.3</b> Mutate</a></li>
@@ -445,7 +501,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="B.3" data-path="B-appendixB.html"><a href="B-appendixB.html#tidy-verbs"><i class="fa fa-check"></i><b>B.3</b> Tidy Verbs</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="C-appendixC.html"><a href="C-appendixC.html"><i class="fa fa-check"></i><b>C</b> Goodness of Fit</a></li>
-<li class="chapter" data-level="D" data-path="D-appendixD.html"><a href="D-appendixD.html"><i class="fa fa-check"></i><b>D</b> Survey Sample Size and Weighting</a><ul>
+<li class="chapter" data-level="D" data-path="D-appendixD.html"><a href="D-appendixD.html"><i class="fa fa-check"></i><b>D</b> Survey Sample Size and Weighting</a>
+<ul>
 <li class="chapter" data-level="D.1" data-path="D-appendixD.html"><a href="D-appendixD.html#sample-size"><i class="fa fa-check"></i><b>D.1</b> Sample size</a></li>
 <li class="chapter" data-level="D.2" data-path="D-appendixD.html"><a href="D-appendixD.html#survey-weights"><i class="fa fa-check"></i><b>D.2</b> Survey weights</a></li>
 </ul></li>
@@ -469,25 +526,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="descriptive-statistics" class="section level1">
+<div id="descriptive-statistics" class="section level1" number="4">
 <h1><span class="header-section-number"> 4</span> Descriptive Statistics</h1>
 <blockquote>
 <p><em>"Just the facts, ma’am.</em></p>
 <p>—Joe Friday, Dragnet</p>
 </blockquote>
-<div id="lo4" class="section level2">
+<div id="lo4" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Learning objectives</h2>
 <ul>
-<li>Explain how descriptive and inferential statistics differ in purpose and the information they provide</li>
-<li>Identify and differentiate population, sample, parameter, statistic in a given research proposal or question</li>
-<li>Explain what is a distribution of a random variable</li>
-<li>Recall the descriptive measures of center, spread, and association</li>
-<li>Choose the preferable measures of center and spread given a distribution and explain their strengths and weaknesses</li>
+<li>Explain the difference between descriptive and inferential statistics</li>
+<li>Explain the difference between a population and sample; parameter and statistic</li>
+<li>Understand a distribution of a random variable</li>
+<li>Explain and apply the descriptive measures of center, spread, and association</li>
+<li>Choose the preferable measures of center and spread given a distribution and explain why</li>
 <li>Determine the direction and strength of association given a scatterplot or correlation coefficient</li>
 <li>Explain the possible shortcomings of correlation</li>
 </ul>
 </div>
-<div id="two-goals-of-statistics" class="section level2">
+<div id="two-goals-of-statistics" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Two goals of statistics</h2>
 <p>The discipline of statistics has one or both of the following goals:</p>
 <blockquote>
@@ -503,21 +560,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Sample:</strong> a subset of that population</li>
 </ul>
 </blockquote>
-<p>Descriptive statistics concerns just the facts. Inferential statistics uses those facts to make educated, scientific guesses about a group of people, places, or things we cannot observe. In many cases, we cannot study an entire population because of logistics or cost. Instead, we take a sample of that population to make inferences about it. If my research question was, “What is the average GPA of all MPA students in United States?”, then the population is all MPA students in the United States. It is unlikely I could obtain the GPA of every student. Therefore, I may take a sample of MPA students instead and use inferential statistics to make conclusions about the population of all MPA students.</p>
-<p>Sometimes the population is small or accessible enough to observe. If my research question was instead, “What is the average GPA of students in my class?”, then the population includes the students in my class. In this case, I could easily compute the average for the entire population.</p>
+<p>Descriptive statistics provides information about the data we have. Inferential statistics uses that information to make educated, scientific guesses about a larger group of people, places, or things we do not directly observe. In many cases, we cannot study an entire population because of logistics or cost. Instead, we take a sample of that population to make inferences about it.</p>
+<p>If my research question was, “What is the average GPA of all MPA students in the United States?”, then the population is all MPA students in the United States. It is unlikely I could obtain the GPA of every MPA student. Therefore, I may take a sample of MPA students instead and use inferential statistics to make conclusions about the population of all MPA students.</p>
+<p>Sometimes the population is small or accessible enough to observe, though it is probably uninteresting as a result. If my research question was instead, “What is the average GPA of students in my class?”, then the population is the students in my class. In this case, I could easily compute the average for the entire population.</p>
 <blockquote>
 <p>We can describe a sample or a population as long as we have the data to do so. Inference is specifically using a sample we observe to describe a population we do not observe.</p>
 </blockquote>
-<p>When we compute measures of a population or sample, these measures have specific names:</p>
+<p>When we compute statistical measures of a population or sample, those measures have specific names:</p>
 <blockquote>
 <ul>
 <li><strong>Parameter:</strong> a measure pertaining to a population</li>
 <li><strong>Statistic:</strong> a measure pertaining to a sample</li>
 </ul>
 </blockquote>
-<p>If my population is students in my class, and I compute the average GPA for all of the students in my class, that measure is a population parameter. If my population is all MPA students in the U.S., and I use the students in my class as a sample, then the average GPA of the students in my class is a sample statistic. In inference, a statistic is often referred to as an <strong>estimate</strong> because it is used to estimate a population parameter. The parameter in this example would be the actual average GPA of all MPA students in the U.S.; a value we cannot directly calculate.</p>
+<p>Whether my statistical measure is a population parameter or sample statistic depends on whether my measure is computed from a population or a sample. If my population is students in my class, and I compute the average GPA for all of the students in my class, that measure is a population parameter. If my population is all MPA students in the U.S., and I use the students in my class as a sample, then the average GPA of the students in my class is a sample statistic.</p>
+<p>In inference, a sample statistic is often referred to as an <strong>estimate</strong> because it is used to estimate a population parameter. The parameter in this example would be the actual average GPA of all MPA students in the U.S.; a value I cannot directly calculate.</p>
 </div>
-<div id="distributions" class="section level2">
+<div id="distributions" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Distributions</h2>
 <p>The goal of descriptive statistics is to summarize characteristics of variable distributions. Before reviewing the measures used to summarize distributions, we should understand what a distribution is.</p>
 <blockquote>
@@ -527,202 +586,118 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Sometimes we know all the possible values of a variable, or at least the range of possible values. We know a variable for biological sex has possible values of male or female. We know a variable for GPA has a possible range of 0 to 4, in most cases.</p>
 <p>Sometimes we know what the frequency of values for a variable should be. Genetics tells us to expect 50% males and females. Most of the time we don’t know the function that determines frequency, or it is too complex. For example, we have some idea of the factors that influence GPAs, but there will always be some randomness that goes unaccounted.</p>
 <p>This somewhat esoteric exposition underlies the main focus here: the distribution of a variable. To make this as concrete as possible, let’s consider a variable of something that is simple and familiar to all of us: a roll of a six-sided die.</p>
-<p>We know a roll of a six-sided die can take on a range of integers between 1 and 6. We also know the frequency of each value is the same at 1 in 6, or about 17%. Therefore, we <em>know</em> the distribution of this variable, which is depicted below in Figure 4.1.</p>
-<div class="figure"><span id="fig:unnamed-chunk-4"></span>
-<img src="data-apps-text_files/figure-html/unnamed-chunk-4-1.png" alt="Probability distribution of a six-sided die" width="672" />
+<p>We know a roll of a six-sided die can take on a range of integers between 1 and 6. We also know the frequency of each value is the same at 1 in 6, or about 17%. Therefore, we <em>know</em> the distribution of this variable, which is depicted below in Figure <a href="4-descriptive-statistics.html#fig:diedist">4.1</a>.</p>
+<div class="figure"><span id="fig:diedist"></span>
+<img src="data-apps-text_files/figure-html/diedist-1.png" alt="Probability distribution of a six-sided die" width="672" />
 <p class="caption">
 Figure 4.1: Probability distribution of a six-sided die
 </p>
 </div>
-<p>Therefore, if we were to roll the die six times, we would <em>expect</em> the following data in Table 4.1.</p>
+<p>Therefore, if we were to roll the die six times, we would <em>expect</em> the following data in Table <a href="4-descriptive-statistics.html#tab:dietable">4.1</a>, though not necessarily in this order.</p>
 <table>
-<caption>
-<span id="tab:unnamed-chunk-5">Table 4.1: </span>Expected results of 6 rolls
-</caption>
+<caption><span id="tab:dietable">Table 4.1: </span>Expected results of 6 rolls</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-roll
-</th>
-<th style="text-align:right;">
-value
-</th>
+<tr class="header">
+<th align="right">roll</th>
+<th align="right">value</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3
-</td>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">3</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-4
-</td>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">4</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-5
-</td>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">5</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-6
-</td>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">6</td>
 </tr>
 </tbody>
 </table>
-<p>And we could represent this distribution by counting the number of times each value occurred using a histogram as shown in Figure 4.2.</p>
-<div class="figure"><span id="fig:unnamed-chunk-6"></span>
-<img src="data-apps-text_files/figure-html/unnamed-chunk-6-1.png" alt="Expected distribution of 6 rolls" width="672" />
+<p>And we could represent this distribution by counting the number of times each value occurred using a histogram as shown in Figure <a href="4-descriptive-statistics.html#fig:diehisto">4.2</a>, which is the essentially the samce as Figure <a href="4-descriptive-statistics.html#fig:diedist">4.1</a>.</p>
+<div class="figure"><span id="fig:diehisto"></span>
+<img src="data-apps-text_files/figure-html/diehisto-1.png" alt="Expected distribution of 6 rolls" width="672" />
 <p class="caption">
 Figure 4.2: Expected distribution of 6 rolls
 </p>
 </div>
 <p>Of course, this is just what is expected to happen, on average, given many rolls of a die. Anyone who has played a board game knows streaks can occur. Given a number or rolls, we probably will not observe a uniform number of values.</p>
-<p>Suppose we roll 12 times and record the value of each roll, as is shown in Table 4.2.</p>
+<p>Suppose we roll 12 times and record the value of each roll, as is shown in Table <a href="4-descriptive-statistics.html#tab:obsdietable">4.2</a>.</p>
 <table>
-<caption>
-<span id="tab:unnamed-chunk-8">Table 4.2: </span>Observed results of 12 rolls
-</caption>
+<caption><span id="tab:obsdietable">Table 4.2: </span>Observed results of 12 rolls</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-roll
-</th>
-<th style="text-align:right;">
-value
-</th>
+<tr class="header">
+<th align="right">roll</th>
+<th align="right">value</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-5
-</td>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">5</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4
-</td>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">4</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2
-</td>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-5
-</td>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">5</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-4
-</td>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">4</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-3
-</td>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">3</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-2
-</td>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-5
-</td>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">5</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-12
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="even">
+<td align="right">12</td>
+<td align="right">1</td>
 </tr>
 </tbody>
 </table>
-<p>We can visualize the distribution of these 12 rolls, as is done in Figure 4.3.</p>
+<p>We can visualize the distribution of these 12 rolls, as is done in Figure <a href="4-descriptive-statistics.html#fig:obsdieroll">4.3</a>.</p>
 <div class="figure"><span id="fig:obsdieroll"></span>
 <img src="data-apps-text_files/figure-html/obsdieroll-1.png" alt="Observed distribution of 12 die rolls" width="672" />
 <p class="caption">
@@ -733,7 +708,7 @@ Figure 4.3: Observed distribution of 12 die rolls
 <p>This is exactly the point of descriptive statistics: whether or not we know what to expect in terms of a variable’s distribution, we want to know the characteristics of the distribution for a variable from a particular sample or population. When we ask for, say, a variable’s average, we are asking for the approximate midpoint of that variable’s distribution.</p>
 <p>Descriptive measures help us summarize characteristics of distributions and some serve as the building blocks for other descriptive measures as well as inferential statistics.</p>
 </div>
-<div id="descriptive-measures" class="section level2">
+<div id="descriptive-measures" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Descriptive Measures</h2>
 <p>A die roll is uninteresting and unimportant. In our review of descriptive measures, let us consider them with respect to the distribution of the infant mortality rate across 222 countries in 2012. Infant mortality is the number deaths of infants under one year old per 1,000 live births. It is used as a measure of health in a country.</p>
 <div class="figure"><span id="fig:infmort"></span>
@@ -751,7 +726,7 @@ Figure 4.4: Infant Mortality Rates
 </ul>
 </blockquote>
 <p>Multiple descriptive measures can answer the three questions above. Which measure is more appropriate to use largely depends on the shape of the distribution.</p>
-<div id="measures-of-center" class="section level3">
+<div id="measures-of-center" class="section level3" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> Measures of center</h3>
 <div id="mean" class="section level4 unnumbered">
 <h4>Mean</h4>
@@ -791,7 +766,7 @@ Figure 4.5: Centers of infant mortality rates
 <p>Note in Figure <a href="4-descriptive-statistics.html#fig:mortcenters">4.5</a> that the mean is pulled to the right by the right-skew of extreme values. The red line representing the mean is to the right of the cluster of frequent values and may not be a good answer for the typical value of this distribution. The median is not sensitive to extreme values. No matter how far the values above the median were to stretch to the right, the median of the distribution would not change.</p>
 </div>
 </div>
-<div id="measures-of-spread" class="section level3">
+<div id="measures-of-spread" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Measures of spread</h3>
 <p>Measures of center convey the typical value of a distribution. The typical infant mortality rate is 26.7 or 15.6 depending on whether we choose to use mean or median, respectively. If we only had this measure, we would have no idea how far away the values are from the center. Are the infant mortality rates of most countries close to this center, or is the typical value not representative of most countries’ infant mortality rates? Measures of spread provide us this information.</p>
 <div id="variance" class="section level4 unnumbered">
@@ -803,95 +778,45 @@ Figure 4.5: Centers of infant mortality rates
 \end{equation}\]</span></p>
 <p>The mean infant mortality rate is 26.7. If we subtract this mean from each country’s rate, we have each country’s deviation from the mean, some of which is shown in Table <a href="4-descriptive-statistics.html#tab:varcalcs">4.3</a>. Then, we square these deviations as is also shown in the table. We then sum the 222 squared deviations and divide by 221. The variance for our infant mortality rates is 672.6.</p>
 <table>
-<caption>
-<span id="tab:varcalcs">Table 4.3: </span>Excerpt of variance calculations
-</caption>
+<caption><span id="tab:varcalcs">Table 4.3: </span>Excerpt of variance calculations</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:right;">
-inf_mort_rate
-</th>
-<th style="text-align:right;">
-deviate
-</th>
-<th style="text-align:right;">
-sq_deviate
-</th>
+<tr class="header">
+<th align="left">country</th>
+<th align="right">inf_mort_rate</th>
+<th align="right">deviate</th>
+<th align="right">sq_deviate</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Afghanistan
-</td>
-<td style="text-align:right;">
-121.63
-</td>
-<td style="text-align:right;">
-94.93
-</td>
-<td style="text-align:right;">
-9011.705
-</td>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="right">121.63</td>
+<td align="right">94.93</td>
+<td align="right">9011.705</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Niger
-</td>
-<td style="text-align:right;">
-109.98
-</td>
-<td style="text-align:right;">
-83.28
-</td>
-<td style="text-align:right;">
-6935.558
-</td>
+<tr class="even">
+<td align="left">Niger</td>
+<td align="right">109.98</td>
+<td align="right">83.28</td>
+<td align="right">6935.558</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Mali
-</td>
-<td style="text-align:right;">
-109.08
-</td>
-<td style="text-align:right;">
-82.38
-</td>
-<td style="text-align:right;">
-6786.464
-</td>
+<tr class="odd">
+<td align="left">Mali</td>
+<td align="right">109.08</td>
+<td align="right">82.38</td>
+<td align="right">6786.464</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Somalia
-</td>
-<td style="text-align:right;">
-103.72
-</td>
-<td style="text-align:right;">
-77.02
-</td>
-<td style="text-align:right;">
-5932.080
-</td>
+<tr class="even">
+<td align="left">Somalia</td>
+<td align="right">103.72</td>
+<td align="right">77.02</td>
+<td align="right">5932.080</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Central African Republic
-</td>
-<td style="text-align:right;">
-97.17
-</td>
-<td style="text-align:right;">
-70.47
-</td>
-<td style="text-align:right;">
-4966.021
-</td>
+<tr class="odd">
+<td align="left">Central African Republic</td>
+<td align="right">97.17</td>
+<td align="right">70.47</td>
+<td align="right">4966.021</td>
 </tr>
 </tbody>
 </table>
@@ -912,16 +837,17 @@ Central African Republic
 <div id="interquartile-range" class="section level4 unnumbered">
 <h4>Interquartile range</h4>
 <p>Recall that the median is the 50th percentile of a distribution–half of the values fall below the median and half fall above it. Two additional percentiles sometimes reported are the 75th and 25th percentiles. The 75th percentile is the value at which 75% of values fall below and 25% fall above it, while the 25th percentile is the value at which 25% of values fall below and 75% fall above it.</p>
-<p>The IQR is equal to the 75th percentile minus the 25th percentile, thus providing the range that captures the middle 50% of the values in the distribution. The IQR for infant mortality rates is 35.6.</p>
+<p>The IQR is equal to the 75th percentile minus the 25th percentile, thus providing the range that captures the middle 50% of the values in the distribution. The IQR for infant mortality rates is 35.6. Alternatively, the IQR can be reported by specifying the 75th and 25th percentiles, leaving the consumer to compute the difference between the two. The 75th percentile for infant mortality rates is 42.1, while the 25th percentile is 6.5.</p>
 </div>
 <div id="range" class="section level4 unnumbered">
 <h4>Range</h4>
-<p>The range is simply the maximum value in a distribution minus the minimum value of a distribution. Usually, the range is left implied in a table of summary statistics by reporting the maximum and minimum without differencing the two. The range of our distribution is 119.8.</p>
+<p>The range is the maximum value in a distribution minus the minimum value of a distribution. Usually, the range is left implied in a table of summary statistics by reporting the maximum and minimum without differencing the two. The minimum of infant mortality rates is 1.8, and the maximum is 121.63. Therefore, the range of the distribution is 119.8.</p>
 </div>
 <div id="choosing-a-measure-of-spread" class="section level4 unnumbered">
 <h4>Choosing a measure of spread</h4>
 <p>The same logic applies to choosing a measure of spread as choosing a measure of center. The standard deviation is based on the mean, and so it is also sensitive to extreme values that, if present, could exaggerate the typical spread of the distribution. The IQR is based on percentiles just like the median. Therefore, IQR is not sensitive to extreme values.</p>
-<p>Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> displays the mean and plus-and-minus one standard deviation using red dashed and solid lines, respectively. The median and the IQR (25th and 75th percentiles) are represented by the purple dashed and solid lines, respectively. Note how wide the area contained by the standard deviation is–it contains most of the distribution. It is arguably not ideal for conveying the typical deviation from the center, as it contains plenty of values that are rather atypical deviations from the center. In the case of describing the distribution of infant mortality rates, the median and IQR are likely a better choice.</p>
+<p>Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> displays the mean and plus-and-minus one standard deviation using red dashed and solid lines, respectively. The median and the IQR (25th and 75th percentiles) are represented by the purple dashed and solid lines, respectively. Note how wide the area contained by the standard deviation is–it contains most of the distribution and the lower bound of 0.7 is lower than the minimum observed value of 1.8.</p>
+<p>Standard deviation is arguably not good for conveying the typical deviation from the center, as it contains plenty of values that are rather atypical deviations from the center. In the case of describing the distribution of infant mortality rates, the median and IQR are probably a better choice.</p>
 <div class="figure"><span id="fig:mortspread"></span>
 <img src="data-apps-text_files/figure-html/mortspread-1.png" alt="Center and spread of infant mortality rates" width="672" />
 <p class="caption">
@@ -932,8 +858,18 @@ Figure 4.6: Center and spread of infant mortality rates
 <p>In the case of infant mortality rates, we know the minimum possible value is 0 by definition, but the minimum value in our distribution is 1.8. Perhaps 0 deaths is unrealistic for any country. Moreover, the maximum value is 121.63. This range, along with the median and IQR, tells us the most different countries are <em>very</em> different.</p>
 </div>
 </div>
-<div id="the-normal-distribution" class="section level3">
-<h3><span class="header-section-number">4.4.3</span> The normal distribution</h3>
+<div id="outliers" class="section level3" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Outliers</h3>
+<p>Outliers refer to weird observations in our data whose inclusion may affect the conclusions we draw from our analysis. There are at least two points about outliers that can cause confusion and mistakes:</p>
+<ul>
+<li>There is no definitive threshold at which an observation can becomes an outlier.</li>
+<li>Outliers should not necessarily be excluded from an analysis. It depends on the context. We may only care about making conclusions for typical cases. If so, removing outliers may be warranted. However, atypical cases may be an important part of the story.</li>
+</ul>
+<p>While there is no single definition of an outlier, the most common definition uses <span class="math inline">\(1.5 \times IQR\)</span>. Values that are more than <span class="math inline">\(1.5 \times IQR\)</span> below the 25th percentile are outliers on the left side of the distribution. Values that are more than <span class="math inline">\(1.5 \times IQR\)</span> above the 75th percentile are outliers on the right side of the distribution.</p>
+<p>Recall that the IQR of infant mortality rates depicted in Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> was 35.6 with 25th and 75th percentiles of 6.5 and 42.1, respectively. Applying the above definition, 1.5 times 35.6 equals 53.5. Therefore, values that fall below -46.9 ( <span class="math inline">\(6.5 - 53.4\)</span> ) are outliers, but this is impossible given our variable is infant mortality rates. Values above 95.5 ( <span class="math inline">\(42.1 + 53.4\)</span> ) are outliers on the right end of the distribution. Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> indicates there are a few outliers in our data based on this definition.</p>
+</div>
+<div id="the-normal-distribution" class="section level3" number="4.4.4">
+<h3><span class="header-section-number">4.4.4</span> The normal distribution</h3>
 <p>As a brief aside, it should be mentioned that if a distribution is <strong>normal</strong>, then measures of center and spread will be similar to each other. This is one of several desirable features of the normal distribution.</p>
 <p>Figure <a href="4-descriptive-statistics.html#fig:normrates">4.7</a> shows a simulated scenario in which the infant mortality rates in our 222 countries exhibit a normal distribution. Note the peaks in the center and symmetry. There is no skew.</p>
 <div class="figure"><span id="fig:normrates"></span>
@@ -944,144 +880,72 @@ Figure 4.7: Simulated normal distribution of infant mortality rates
 </div>
 <p>Table <a href="4-descriptive-statistics.html#tab:normratesum">4.4</a> confirms the similarity between measures of center and spread for this simulated distribution. This is one reason it is important to visualize your distribution. If it appears approximately normal, then you should report the mean and standard deviation (along with minimum and maximum values), as the are more widely understood.</p>
 <table>
-<caption>
-<span id="tab:normratesum">Table 4.4: </span>Center and spread measures of simulated data
-</caption>
+<caption><span id="tab:normratesum">Table 4.4: </span>Center and spread measures of simulated data</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-Mean
-</th>
-<th style="text-align:right;">
-Median
-</th>
-<th style="text-align:right;">
-Mode
-</th>
-<th style="text-align:right;">
-SD
-</th>
-<th style="text-align:right;">
-IQR
-</th>
+<tr class="header">
+<th align="right">Mean</th>
+<th align="right">Median</th>
+<th align="right">Mode</th>
+<th align="right">SD</th>
+<th align="right">IQR</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-26
-</td>
-<td style="text-align:right;">
-25.5
-</td>
-<td style="text-align:right;">
-22.1
-</td>
-<td style="text-align:right;">
-6.6
-</td>
-<td style="text-align:right;">
-8.4
-</td>
+<tr class="odd">
+<td align="right">26</td>
+<td align="right">25.5</td>
+<td align="right">22.1</td>
+<td align="right">6.6</td>
+<td align="right">8.4</td>
 </tr>
 </tbody>
 </table>
-<p>Again, the normal distribution has several desirable features that will be discussed further in the chapters pertaining to inference. However, you now know one desirable feature. If a distribution is approximately normal, then extreme values are not a concern and the mean and standard deviation are good measures of center and spread, respectively. Besides making our choice of measures convenient, why is this worth repeating? Because the mean and standard deviation are building blocks to the next category of descriptive measures: association.</p>
+<p>Again, the normal distribution has several desirable features that will be discussed further in the chapters pertaining to inference. One is that if a distribution is approximately normal, then extreme values are not a concern and the mean and standard deviation are good measures of center and spread, respectively. Besides making our choice of measures convenient, why is this worth repeating? Because the mean and standard deviation are building blocks to the next category of descriptive measures: association. If mean and standard deviation are bad choices of center and spread, then our measures of association will be negatively affected.</p>
 </div>
-<div id="measures-of-association" class="section level3">
-<h3><span class="header-section-number">4.4.4</span> Measures of association</h3>
+<div id="measures-of-association" class="section level3" number="4.4.5">
+<h3><span class="header-section-number">4.4.5</span> Measures of association</h3>
 <p>With association, we now consider the distributions of two variables at a time. That is, given the value within one variable’s distribution, what does the distribution of another variable look like?</p>
 <p>We need a second variable to continue our example involving infant mortality rates. Table <a href="4-descriptive-statistics.html#tab:gapdeathtab">4.5</a> shows a preview of a dataset that adds two more variables to our previous infant mortality data.</p>
 <table>
-<caption>
-<span id="tab:gapdeathtab">Table 4.5: </span>First five rows of country data
-</caption>
+<caption><span id="tab:gapdeathtab">Table 4.5: </span>First five rows of country data</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:right;">
-inf_mort_rate
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
+<tr class="header">
+<th align="left">country</th>
+<th align="right">inf_mort_rate</th>
+<th align="right">lifeExp</th>
+<th align="right">gdpPercap</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Afghanistan
-</td>
-<td style="text-align:right;">
-121.63
-</td>
-<td style="text-align:right;">
-43.828
-</td>
-<td style="text-align:right;">
-974.5803
-</td>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="right">121.63</td>
+<td align="right">43.828</td>
+<td align="right">974.5803</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Niger
-</td>
-<td style="text-align:right;">
-109.98
-</td>
-<td style="text-align:right;">
-56.867
-</td>
-<td style="text-align:right;">
-619.6769
-</td>
+<tr class="even">
+<td align="left">Niger</td>
+<td align="right">109.98</td>
+<td align="right">56.867</td>
+<td align="right">619.6769</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Mali
-</td>
-<td style="text-align:right;">
-109.08
-</td>
-<td style="text-align:right;">
-54.467
-</td>
-<td style="text-align:right;">
-1042.5816
-</td>
+<tr class="odd">
+<td align="left">Mali</td>
+<td align="right">109.08</td>
+<td align="right">54.467</td>
+<td align="right">1042.5816</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Somalia
-</td>
-<td style="text-align:right;">
-103.72
-</td>
-<td style="text-align:right;">
-48.159
-</td>
-<td style="text-align:right;">
-926.1411
-</td>
+<tr class="even">
+<td align="left">Somalia</td>
+<td align="right">103.72</td>
+<td align="right">48.159</td>
+<td align="right">926.1411</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Central African Republic
-</td>
-<td style="text-align:right;">
-97.17
-</td>
-<td style="text-align:right;">
-44.741
-</td>
-<td style="text-align:right;">
-706.0165
-</td>
+<tr class="odd">
+<td align="left">Central African Republic</td>
+<td align="right">97.17</td>
+<td align="right">44.741</td>
+<td align="right">706.0165</td>
 </tr>
 </tbody>
 </table>
@@ -1150,7 +1014,7 @@ Figure 4.10: Drawing a free line through the data
 </div>
 </div>
 </div>
-<div id="kt4" class="section level2">
+<div id="kt4" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Key terms and concepts</h2>
 <ul>
 <li>Descriptive statistics</li>

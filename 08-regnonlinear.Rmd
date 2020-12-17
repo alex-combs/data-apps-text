@@ -341,9 +341,9 @@ Our log-level results indicate that a one dollar increase in GDP per capita is a
 
 The continent estimates can be interpreted in similar fashion, remembering that with categorical variables, the estimate of each level of the variable is relative to the base comparison excluded from the equation. In this example, Africa is the base comparison. Let's focus on Asia for interpretation.
 
-Our log-log results indicate that life expectancy in Asia is 110% greater than life expectancy in Africa. Since a dummy variable can only change from 0 to 1, this is equivalent to a 100 percent change. Therefore, we must multiply our estimate by 100.
+Our log-log results indicate that life expectancy in Asia is 11% greater than life expectancy in Africa. Since a dummy variable can only change from 0 to 1, this is equivalent to a 100 percent change. Therefore, we must multiply our estimate by 100.
 
-Our level-log results indicate that life expectancy in Asia is 5.9 years greater than life expectancy in Africa. Lastly, our log-level results indicate that life expectancy in Asia is 160% greater than life expectancy in Africa.
+Our level-log results indicate that life expectancy in Asia is 5.9 years greater than life expectancy in Africa. Lastly, our log-level results indicate that life expectancy in Asia is 16% greater than life expectancy in Africa.
 
 <br>
 
