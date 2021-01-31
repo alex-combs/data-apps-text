@@ -601,66 +601,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The Chi-square (<span class="math inline">\(\chi^2\)</span>) test is a common choice for introducing the application of hypothesis testing. Chi-square is used to test whether two <em>nominal</em> variables are associated to a statistically significant extent. A nominal variable, such as race, sex, or political party affiliation, has two or more of levels. If one wanted to test if, given the level for a unit of analysis in one nominal variable (e.g. male), there is a higher likelihood for a particular level in another nominal variable to occur (e.g. Republican), a Chi-square test is an appropriate choice.</p>
 <p>For an example, consider a poll targeted to the general U.S. public asking if workers who have illegally entered the U.S. should be 1) allowed to keep their jobs and apply for citizenship, 2) allowed to keep their jobs as temporary guest workers but not allowed to apply for citizenship, and 3) lose their jobs and have to leave the country. The poll also asked for political party affiliation. A total of 890 responses were collected, generating the following results.</p>
 <table>
-<caption>
-<span id="tab:pollparty">Table 11.1: </span>Response by political party
-</caption>
+<caption><span id="tab:pollparty">Table 11.1: </span>Response by political party</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-Republican
-</th>
-<th style="text-align:right;">
-Democrat
-</th>
-<th style="text-align:right;">
-Independent
-</th>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Republican</th>
+<th align="right">Democrat</th>
+<th align="right">Independent</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Apply for citizenship
-</td>
-<td style="text-align:right;">
-57
-</td>
-<td style="text-align:right;">
-101
-</td>
-<td style="text-align:right;">
-120
-</td>
+<tr class="odd">
+<td align="left">Apply for citizenship</td>
+<td align="right">57</td>
+<td align="right">101</td>
+<td align="right">120</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Guest worker
-</td>
-<td style="text-align:right;">
-121
-</td>
-<td style="text-align:right;">
-28
-</td>
-<td style="text-align:right;">
-113
-</td>
+<tr class="even">
+<td align="left">Guest worker</td>
+<td align="right">121</td>
+<td align="right">28</td>
+<td align="right">113</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Leave the country
-</td>
-<td style="text-align:right;">
-179
-</td>
-<td style="text-align:right;">
-45
-</td>
-<td style="text-align:right;">
-126
-</td>
+<tr class="odd">
+<td align="left">Leave the country</td>
+<td align="right">179</td>
+<td align="right">45</td>
+<td align="right">126</td>
 </tr>
 </tbody>
 </table>
@@ -670,11 +637,11 @@ Leave the country
 <p>The alternative hypothesis is that there is an association between opinion on illegal immigration and political party affiliation, or</p>
 <p><span class="math inline">\(H_A\)</span>: at least one <span class="math inline">\(P\)</span> is not equal to the others</p>
 <p>Next, suppose we chose to use the customary 5% statistical significance level, or <span class="math inline">\(\alpha=0.05\)</span>. Now we are ready to test our hypothesis using a Chi-square test. Doing so generates the following results.</p>
-<pre><code>## 
-## 	Pearson&#39;s Chi-squared test
-## 
-## data:  immigration_poll
-## X-squared = 100.95, df = 4, p-value &lt; 0.00000000000000022</code></pre>
+<pre><code>
+	Pearson&#39;s Chi-squared test
+
+data:  immigration_poll
+X-squared = 100.95, df = 4, p-value &lt; 0.00000000000000022</code></pre>
 <p>This is one case where there are no confidence intervals to compute since our variables are not numerical. Instead, we rely on the p-value. Our p-value is less than 0.00000000000000022. More concisely, <span class="math inline">\(p&lt;0.05\)</span>. Therefore, we reject the null hypothesis that there is no association between the three illegal immigration opinions in the survey and political party affiliation. Furthermore, the probability for us to get the values in Table <a href="11-hypothesis-testing.html#tab:pollparty">11.1</a> or more extreme in a world where the null hypothesis is actually true is equal to an infinitesimal percent, not to suggest that such a small p-value is required to make inferences.</p>
 <p>Our results allow us to make inferences such as Republicans are more likely to believe illegal immigrants should lose their jobs and have to leave the country, while Democrats are more likely to believe they should be allowed to keep their jobs and apply for citizenship. Not a particularly surprising inference, but perhaps that is because many such inferences in the past have been made using similar techniques and reported many times.</p>
 </div>
@@ -684,67 +651,37 @@ Leave the country
 <p>There are two varieties of the t-test. To test if an average of a numerical outcome is different between two groups, such as a treatment and control group, then we use an <strong>independent t-test</strong>. To test if an average numerical outcome is different before and after a treatment for the <em>same</em> units of analysis, we use a <strong>dependent t-test</strong>. The difference between the two t-tests concerns how we approximate the sampling distributions and confidence intervals, but their use for hypothesis testing is essentially the same.</p>
 <p>Suppose we work for a nonprofit that provides job training workshops and want to evaluate their effectiveness. One way to go about such a task is to compare the earnings of participants (i.e. treatment group) to the earnings of non-participants (i.e. control group). We have earnings data for 185 participants and 128 non-participants, some of which is previewed in the table below.</p>
 <table>
-<caption>
-<span id="tab:jobtraindata">Table 11.2: </span>Preview of job training data
-</caption>
+<caption><span id="tab:jobtraindata">Table 11.2: </span>Preview of job training data</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-treatment
-</th>
-<th style="text-align:right;">
-earnings
-</th>
+<tr class="header">
+<th align="right">treatment</th>
+<th align="right">earnings</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-66493.964
-</td>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">66493.964</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.000
-</td>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">0.000</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-46651.829
-</td>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">46651.829</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-10070.227
-</td>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">10070.227</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.000
-</td>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">0.000</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1211.736
-</td>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">1211.736</td>
 </tr>
 </tbody>
 </table>
@@ -758,50 +695,36 @@ earnings
 <p>Choosing a significance level of 5%, we are ready to test our hypothesis.</p>
 <p>A simple computation of the average earnings between the two groups provides the following information.</p>
 <table>
-<caption>
-<span id="tab:jobtrainsum">Table 11.3: </span>Comparison of means between treated and untreated
-</caption>
+<caption><span id="tab:jobtrainsum">Table 11.3: </span>Comparison of means between treated and untreated</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-treatment
-</th>
-<th style="text-align:right;">
-Average Earnings
-</th>
+<tr class="header">
+<th align="right">treatment</th>
+<th align="right">Average Earnings</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-21645.10
-</td>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">21645.10</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-26031.49
-</td>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">26031.49</td>
 </tr>
 </tbody>
 </table>
 <p>Participants have a higher average earnings than non-participants, but is this difference statistically significant? For that, we should use an <em>independent</em> t-test because participants and non-participants are two different groups. Running the t-test provides the following results</p>
-<pre><code>## 
-## 	Welch Two Sample t-test
-## 
-## data:  earnings by treatment
-## t = -1.1921, df = 275.58, p-value = 0.2342
-## alternative hypothesis: true difference in means is not equal to 0
-## 95 percent confidence interval:
-##  -11629.708   2856.939
-## sample estimates:
-## mean in group 0 mean in group 1 
-##        21645.10        26031.49</code></pre>
+<pre><code>
+	Welch Two Sample t-test
+
+data:  earnings by treatment
+t = -1.1921, df = 275.58, p-value = 0.2342
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -11629.708   2856.939
+sample estimates:
+mean in group 0 mean in group 1 
+       21645.10        26031.49 </code></pre>
 <p>Our p-value is greater than our significance level, <span class="math inline">\(0.23&gt;0.05\)</span>. Therefore, we fail to reject the null hypothesis and conclude that there is not statistically significant evidence that participants earn more than non-participants, on average. Note that our 95% confidence interval ranges between -11,630 and 2,856. It includes zero, thus we cannot claim the difference between the means is not equal to zero with reasonable confidence.</p>
 <p><br></p>
 <blockquote>
@@ -865,7 +788,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

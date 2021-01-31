@@ -81,7 +81,7 @@ load('_bookdown_files/trdeath.RData')
 ```{r trdeath, echo=FALSE}
 trdeath %>% 
   sample_n(7) %>% 
-  kable(format = 'html', caption = 'Sample of state traffic data')
+  kable(caption = 'Sample of state traffic data')
 ```
 
 <br>
@@ -126,7 +126,7 @@ Let us now run the parallel slopes model, which generates the following results
 pslopemod <- lm(mrall ~ vmiles + jaild, data = trdeath)
 
 get_regression_table(pslopemod) %>% 
-  kable(format = 'html', caption = 'Parallel slopes results')
+  kable(caption = 'Parallel slopes results')
 ```
 
 <br>
@@ -241,7 +241,7 @@ Running this model produces the following results.
 pslopemod2 <- lm(mrall ~ vmiles + region, data = trdeath)
 
 get_regression_table(pslopemod2) %>% 
-  kable(format = 'html', caption = 'Parallel slopes for regions')
+  kable(caption = 'Parallel slopes for regions')
 ```
 
 Note that Table \@ref(tab:psloperesults2) provides estimates for three of the four regions. This is no different from our previous model; `jaild` has two levels, yes and no, but Table \@ref(tab:psloperesults) provides only one estimate for `jaild=yes`. No matter how many levels in a categorical variable, one of the levels is set such that $d=0$ and so that level drops out of the equation. Just like with the previous model where the estimate for `jaild=yes`
@@ -335,7 +335,7 @@ Running this interaction model in our example produces the following results
 interactmod <- lm(mrall ~ vmiles + jaild + vmiles*jaild, data = trdeath)
 
 get_regression_table(interactmod) %>% 
-  kable(format = 'html', caption = 'Interaction model results')
+  kable(caption = 'Interaction model results')
 ```
 
 <br>
@@ -449,7 +449,7 @@ Running this model produces the following results
 lpm_mod <- lm(jaild ~ mrall + region, data = trdeath2)
 
 get_regression_table(lpm_mod) %>% 
-  kable(format = 'html', caption = 'LPM results')
+  kable(caption = 'LPM results')
 ```
 
 <br>
@@ -502,7 +502,7 @@ lpm_points <- get_regression_points(lpm_mod) %>%
 set.seed(383)
 lpm_points %>% 
   sample_n(7) %>% 
-  kable(format = 'html', caption = 'Binary predictions from LPM')
+  kable(caption = 'Binary predictions from LPM')
 ```
 
 Table \@ref(tab:confumat) below is referred to as a **confusion matrix**. It is simply a cross-tabulation of the observed outcomes and the predicted outcomes with the predictions along the top as columns.
@@ -512,17 +512,19 @@ confusion <- table(lpm_points$jaild, lpm_points$prediction)
 ```
 
 ```{r confumat, echo=FALSE}
-kable(confusion, format = 'html', caption = 'Confusion matrix for LPM')
+kable(confusion, caption = 'Confusion matrix for LPM')
 ```
 
 We can see that there are 248 cases where our model correctly predicts the outcome (210 + 38). There are 87 cases where our model incorrectly predicts the outcome. Specifically, there are 31 cases where our model predicts a state has a law but doesn't and 56 cases where our model predicts a state does not have a law but does. We can also convert these to percentages like the table below. These confusion matrices help us assess and communicate how accurate our model is. 
 
 ```{r, echo=FALSE}
 prop.table(confusion, 2) %>% 
-  kable(format = 'html', digits = 2, caption = 'Confusion matrix for LPM (in proportions)')
+  kable(digits = 2, caption = 'Confusion matrix for LPM (in proportions)')
 ```
 
 <br>
+
+> **To learn how to run the regression models from in this and Chapter \@ref(regression) in R, proceed to Chapter \@ref(r-regression).**
 
 ## Key terms and concepts {#kt7}
 

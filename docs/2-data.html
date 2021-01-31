@@ -546,55 +546,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="rectangular-data" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Rectangular Data</h2>
 <table>
-<caption>
-<span id="tab:print-generic">Table 2.1: </span>Generic rectangular data
-</caption>
+<caption><span id="tab:print-generic">Table 2.1: </span>Generic rectangular data</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-ID
-</th>
-<th style="text-align:left;">
-Variable_1
-</th>
-<th style="text-align:left;">
-Variable_2
-</th>
+<tr class="header">
+<th align="left">ID</th>
+<th align="left">Variable_1</th>
+<th align="left">Variable_2</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Unit of Analysis
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-<td style="text-align:left;">
-Datum
-</td>
+<tr class="odd">
+<td align="left">Unit of Analysis</td>
+<td align="left">Datum</td>
+<td align="left">Datum</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unit of Analysis
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-<td style="text-align:left;">
-Datum
-</td>
+<tr class="even">
+<td align="left">Unit of Analysis</td>
+<td align="left">Datum</td>
+<td align="left">Datum</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Unit of Analysis
-</td>
-<td style="text-align:left;">
-Datum
-</td>
-<td style="text-align:left;">
-Datum
-</td>
+<tr class="odd">
+<td align="left">Unit of Analysis</td>
+<td align="left">Datum</td>
+<td align="left">Datum</td>
 </tr>
 </tbody>
 </table>
@@ -615,8 +589,8 @@ Datum
 <p>For example, suppose you ask two strangers to report their annual income. What options do they have for answers? If virtually any value, then you know to a precise degree the income each earns and can compute the precise difference between the two incomes. What if their choices are either more or less than $50,000? Then, you have a coarse understanding of how much they earn. If they provide different answers, you can only conclude whether one makes more than the other but not by how much. If they provide the same answer, then the two are grouped together even though it is highly unlikely they earn equal incomes. This makes a serious difference for statistical analysis.</p>
 <br>
 <center>
-<div class="figure"><span id="fig:vartypefig"></span>
-<img src="images/variables.png" alt="Variable Types" width="504" />
+<div class="figure" style="text-align: center"><span id="fig:vartypefig"></span>
+<img src="images/variables.png" alt="Variable Types" width="\textwidth" />
 <p class="caption">
 Figure 2.1: Variable Types
 </p>
@@ -676,584 +650,252 @@ Figure 2.1: Variable Types
 </ul>
 <p><strong>Cross-sectional</strong> data is a snapshot in time measuring some size sample of units. One column serves as the identifier of the unit of analysis, such as the name or ID number of the unit. Notice in Table 2.2 that all one needs to know is the country in order to identify a specific row.</p>
 <table>
-<caption>
-<span id="tab:cross-sec-fig">Table 2.2: </span>Cross-section example
-</caption>
+<caption><span id="tab:cross-sec-fig">Table 2.2: </span>Cross-section example</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
+<tr class="header">
+<th align="left">country</th>
+<th align="left">continent</th>
+<th align="right">year</th>
+<th align="right">lifeExp</th>
+<th align="right">pop</th>
+<th align="right">gdpPercap</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">75.320</td>
+<td align="right">40301927</td>
+<td align="right">12779.380</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
+<tr class="even">
+<td align="left">Bolivia</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">65.554</td>
+<td align="right">9119152</td>
+<td align="right">3822.137</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Brazil
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-72.390
-</td>
-<td style="text-align:right;">
-190010647
-</td>
-<td style="text-align:right;">
-9065.801
-</td>
+<tr class="odd">
+<td align="left">Brazil</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">72.390</td>
+<td align="right">190010647</td>
+<td align="right">9065.801</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
 <p><strong>Pooled cross-sectional</strong> data could be considered a fourth structure but is simply multiple cross-sections stacked atop each other. The critical quality of pooled cross-sectional data is that each cross-section contains <em>different</em> units measured at different times, not the same units measured at different times. Notice in Table 2.3 that the countries included from 2002 are not the same as those included from 2007.</p>
 <table>
-<caption>
-<span id="tab:pooled">Table 2.3: </span>Pooled cross-section example
-</caption>
+<caption><span id="tab:pooled">Table 2.3: </span>Pooled cross-section example</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
+<tr class="header">
+<th align="left">country</th>
+<th align="left">continent</th>
+<th align="right">year</th>
+<th align="right">lifeExp</th>
+<th align="right">pop</th>
+<th align="right">gdpPercap</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Algeria
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-70.994
-</td>
-<td style="text-align:right;">
-31287142
-</td>
-<td style="text-align:right;">
-5288.040
-</td>
+<tr class="odd">
+<td align="left">Algeria</td>
+<td align="left">Africa</td>
+<td align="right">2002</td>
+<td align="right">70.994</td>
+<td align="right">31287142</td>
+<td align="right">5288.040</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Angola
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-41.003
-</td>
-<td style="text-align:right;">
-10866106
-</td>
-<td style="text-align:right;">
-2773.287
-</td>
+<tr class="even">
+<td align="left">Angola</td>
+<td align="left">Africa</td>
+<td align="right">2002</td>
+<td align="right">41.003</td>
+<td align="right">10866106</td>
+<td align="right">2773.287</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Benin
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-54.406
-</td>
-<td style="text-align:right;">
-7026113
-</td>
-<td style="text-align:right;">
-1372.878
-</td>
+<tr class="odd">
+<td align="left">Benin</td>
+<td align="left">Africa</td>
+<td align="right">2002</td>
+<td align="right">54.406</td>
+<td align="right">7026113</td>
+<td align="right">1372.878</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Botswana
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-46.634
-</td>
-<td style="text-align:right;">
-1630347
-</td>
-<td style="text-align:right;">
-11003.605
-</td>
+<tr class="even">
+<td align="left">Botswana</td>
+<td align="left">Africa</td>
+<td align="right">2002</td>
+<td align="right">46.634</td>
+<td align="right">1630347</td>
+<td align="right">11003.605</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">75.320</td>
+<td align="right">40301927</td>
+<td align="right">12779.380</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
+<tr class="even">
+<td align="left">Bolivia</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">65.554</td>
+<td align="right">9119152</td>
+<td align="right">3822.137</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Brazil
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-72.390
-</td>
-<td style="text-align:right;">
-190010647
-</td>
-<td style="text-align:right;">
-9065.801
-</td>
+<tr class="odd">
+<td align="left">Brazil</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">72.390</td>
+<td align="right">190010647</td>
+<td align="right">9065.801</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
 <p><strong>Time series</strong> data measures one unit over multiple time periods. The unit of analysis in time series data is time, as it uniquely identifies each row. Notice in Table 2.4 that one country is tracked over multiple years.</p>
 <table>
-<caption>
-<span id="tab:timeseries">Table 2.4: </span>Time series example
-</caption>
+<caption><span id="tab:timeseries">Table 2.4: </span>Time series example</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
+<tr class="header">
+<th align="left">country</th>
+<th align="left">continent</th>
+<th align="right">year</th>
+<th align="right">lifeExp</th>
+<th align="right">pop</th>
+<th align="right">gdpPercap</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1977
-</td>
-<td style="text-align:right;">
-68.481
-</td>
-<td style="text-align:right;">
-26983828
-</td>
-<td style="text-align:right;">
-10079.027
-</td>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">1977</td>
+<td align="right">68.481</td>
+<td align="right">26983828</td>
+<td align="right">10079.027</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1982
-</td>
-<td style="text-align:right;">
-69.942
-</td>
-<td style="text-align:right;">
-29341374
-</td>
-<td style="text-align:right;">
-8997.897
-</td>
+<tr class="even">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">1982</td>
+<td align="right">69.942</td>
+<td align="right">29341374</td>
+<td align="right">8997.897</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1987
-</td>
-<td style="text-align:right;">
-70.774
-</td>
-<td style="text-align:right;">
-31620918
-</td>
-<td style="text-align:right;">
-9139.671
-</td>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">1987</td>
+<td align="right">70.774</td>
+<td align="right">31620918</td>
+<td align="right">9139.671</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1992
-</td>
-<td style="text-align:right;">
-71.868
-</td>
-<td style="text-align:right;">
-33958947
-</td>
-<td style="text-align:right;">
-9308.419
-</td>
+<tr class="even">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">1992</td>
+<td align="right">71.868</td>
+<td align="right">33958947</td>
+<td align="right">9308.419</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-73.275
-</td>
-<td style="text-align:right;">
-36203463
-</td>
-<td style="text-align:right;">
-10967.282
-</td>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">1997</td>
+<td align="right">73.275</td>
+<td align="right">36203463</td>
+<td align="right">10967.282</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-74.340
-</td>
-<td style="text-align:right;">
-38331121
-</td>
-<td style="text-align:right;">
-8797.641
-</td>
+<tr class="even">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">2002</td>
+<td align="right">74.340</td>
+<td align="right">38331121</td>
+<td align="right">8797.641</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">75.320</td>
+<td align="right">40301927</td>
+<td align="right">12779.380</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
 <p><strong>Panel</strong> (or longitudinal) data measures the same units over multiple time periods. The unit of analysis is pair of unit and time period. Notice in Table 2.5 that in order to identify a specific row, you would need to know the country <em>and</em> year. One could also think of panel data as numerous time series.</p>
 <table>
-<caption>
-<span id="tab:panel">Table 2.5: </span>Panel example
-</caption>
+<caption><span id="tab:panel">Table 2.5: </span>Panel example</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
+<tr class="header">
+<th align="left">country</th>
+<th align="left">continent</th>
+<th align="right">year</th>
+<th align="right">lifeExp</th>
+<th align="right">pop</th>
+<th align="right">gdpPercap</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-73.275
-</td>
-<td style="text-align:right;">
-36203463
-</td>
-<td style="text-align:right;">
-10967.282
-</td>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">1997</td>
+<td align="right">73.275</td>
+<td align="right">36203463</td>
+<td align="right">10967.282</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-74.340
-</td>
-<td style="text-align:right;">
-38331121
-</td>
-<td style="text-align:right;">
-8797.641
-</td>
+<tr class="even">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">2002</td>
+<td align="right">74.340</td>
+<td align="right">38331121</td>
+<td align="right">8797.641</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">75.320</td>
+<td align="right">40301927</td>
+<td align="right">12779.380</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-62.050
-</td>
-<td style="text-align:right;">
-7693188
-</td>
-<td style="text-align:right;">
-3326.143
-</td>
+<tr class="even">
+<td align="left">Bolivia</td>
+<td align="left">Americas</td>
+<td align="right">1997</td>
+<td align="right">62.050</td>
+<td align="right">7693188</td>
+<td align="right">3326.143</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-63.883
-</td>
-<td style="text-align:right;">
-8445134
-</td>
-<td style="text-align:right;">
-3413.263
-</td>
+<tr class="odd">
+<td align="left">Bolivia</td>
+<td align="left">Americas</td>
+<td align="right">2002</td>
+<td align="right">63.883</td>
+<td align="right">8445134</td>
+<td align="right">3413.263</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
+<tr class="even">
+<td align="left">Bolivia</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">65.554</td>
+<td align="right">9119152</td>
+<td align="right">3822.137</td>
 </tr>
 </tbody>
 </table>
@@ -1312,7 +954,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

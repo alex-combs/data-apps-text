@@ -1,28 +1,28 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.8.17)  17 AUG 2020 11:07
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2021.1.3)  5 JAN 2021 16:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **data-apps-text.tex
 (./data-apps-text.tex
-LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-08-07> (/Users/alexcombs/Library/TinyTeX/texmf-dist/
-tex/latex/base/book.cls
-Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
+LaTeX2e <2020-10-01> patch level 3
+L3 programming layer <2020-12-07> xparse <2020-03-03> (/Users/alexcombs/Library
+/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2020/04/10 v1.4m Standard LaTeX document class
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
-File: bk10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+File: bk10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\c@part=\count164
-\c@chapter=\count165
-\c@section=\count166
-\c@subsection=\count167
-\c@subsubsection=\count168
-\c@paragraph=\count169
-\c@subparagraph=\count170
-\c@figure=\count171
-\c@table=\count172
+\c@part=\count173
+\c@chapter=\count174
+\c@section=\count175
+\c@subsection=\count176
+\c@subsubsection=\count177
+\c@paragraph=\count178
+\c@subparagraph=\count179
+\c@figure=\count180
+\c@table=\count181
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
-\bibindent=\dimen134
+\bibindent=\dimen138
 ) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -57,69 +57,59 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
-(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks15
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2020/01/20 v2.17e AMS math features
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/09/23 v2.17i AMS math features
 \@mathmargin=\skip49
 For additional information on amsmath, use the `?' option.
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks16
-\ex@=\dimen135
+\@emptytoks=\toks15
+\ex@=\dimen139
 )) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen136
+\pmbraise@=\dimen140
 ) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count173
-LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count174
-\leftroot@=\count175
-LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count176
-\DOTSCASE@=\count177
-LaTeX Info: Redefining \ldots on input line 486.
-LaTeX Info: Redefining \dots on input line 489.
-LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box45
-\strutbox@=\box46
-\big@size=\dimen137
-LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count178
-\c@MaxMatrixCols=\count179
+\inf@bad=\count182
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count183
+\leftroot@=\count184
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count185
+\DOTSCASE@=\count186
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box47
+\strutbox@=\box48
+\big@size=\dimen141
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count187
+\c@MaxMatrixCols=\count188
 \dotsspace@=\muskip16
-\c@parentequation=\count180
-\dspbrk@lvl=\count181
-\tag@help=\toks17
-\row@=\count182
-\column@=\count183
-\maxfields@=\count184
-\andhelp@=\toks18
-\eqnshift@=\dimen138
-\alignsep@=\dimen139
-\tagshift@=\dimen140
-\tagwidth@=\dimen141
-\totwidth@=\dimen142
-\lineht@=\dimen143
-\@envbody=\toks19
+\c@parentequation=\count189
+\dspbrk@lvl=\count190
+\tag@help=\toks16
+\row@=\count191
+\column@=\count192
+\maxfields@=\count193
+\andhelp@=\toks17
+\eqnshift@=\dimen142
+\alignsep@=\dimen143
+\tagshift@=\dimen144
+\tagwidth@=\dimen145
+\totwidth@=\dimen146
+\lineht@=\dimen147
+\@envbody=\toks18
 \multlinegap=\skip50
 \multlinetaggap=\skip51
-\mathdisplay@stack=\toks20
-LaTeX Info: Redefining \[ on input line 2859.
-LaTeX Info: Redefining \] on input line 2860.
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
 ) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
@@ -129,15 +119,15 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-mat
 h.sty (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2020-08-07 L3 programming layer (loader) 
+Package: expl3 2020-12-07 L3 programming layer (loader) 
 
-(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xdvi
-pdfmx.def
-File: l3backend-xdvipdfmx.def 2020-08-07 L3 backend support: xdvipdfmx
-\g__graphics_track_int=\count185
-\l__pdf_internal_box=\box47
-\g__pdf_backend_object_int=\count186
-\g__pdf_backend_annotation_int=\count187
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xete
+x.def
+File: l3backend-xetex.def 2020-09-24 L3 backend support: XeTeX
+\g__graphics_track_int=\count194
+\l__pdf_internal_box=\box49
+\g__pdf_backend_object_int=\count195
+\g__pdf_backend_annotation_int=\count196
 ))
 Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
 
@@ -148,18 +138,13 @@ TeX
 
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse
 .sty
-Package: xparse 2020-05-15 L3 Experimental document command parser
+Package: xparse 2020-10-27 L3 Experimental document command parser
 
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse
--generic.tex
-\l__xparse_current_arg_int=\count188
-\g__xparse_grabber_int=\count189
-\l__xparse_m_args_int=\count190
-\l__xparse_v_nesting_int=\count191
-))
+-generic.tex))
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3ke
 ys2e.sty
-Package: l3keys2e 2020-05-15 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2020-10-27 LaTeX2e option processing using LaTeX3 keys
 ) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
 Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
 
@@ -167,22 +152,22 @@ Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
 sty
 Package: fontspec-xetex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTe
 X
-\l__fontspec_script_int=\count192
-\l__fontspec_language_int=\count193
-\l__fontspec_strnum_int=\count194
-\l__fontspec_tmp_int=\count195
-\l__fontspec_tmpa_int=\count196
-\l__fontspec_tmpb_int=\count197
-\l__fontspec_tmpc_int=\count198
-\l__fontspec_em_int=\count199
-\l__fontspec_emdef_int=\count266
-\l__fontspec_strong_int=\count267
-\l__fontspec_strongdef_int=\count268
-\l__fontspec_tmpa_dim=\dimen144
-\l__fontspec_tmpb_dim=\dimen145
-\l__fontspec_tmpc_dim=\dimen146
+\l__fontspec_script_int=\count197
+\l__fontspec_language_int=\count198
+\l__fontspec_strnum_int=\count199
+\l__fontspec_tmp_int=\count266
+\l__fontspec_tmpa_int=\count267
+\l__fontspec_tmpb_int=\count268
+\l__fontspec_tmpc_int=\count269
+\l__fontspec_em_int=\count270
+\l__fontspec_emdef_int=\count271
+\l__fontspec_strong_int=\count272
+\l__fontspec_strongdef_int=\count273
+\l__fontspec_tmpa_dim=\dimen148
+\l__fontspec_tmpb_dim=\dimen149
+\l__fontspec_tmpc_dim=\dimen150
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
 ) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.cfg)
 )) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/base/fix-cm.sty
 Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
@@ -190,18 +175,29 @@ Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 ))
-\g__um_fam_int=\count269
-\g__um_fonts_used_int=\count270
-\l__um_primecount_int=\count271
+\g__um_fam_int=\count274
+\g__um_fonts_used_int=\count275
+\l__um_primecount_int=\count276
 \g__um_primekern_muskip=\muskip17
 
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-mat
-h-table.tex))) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/upquote/u
-pquote.sty
-Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
-tim
-(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+h-table.tex))) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/parskip/p
+arskip.sty
+Package: parskip 2020-06-15 v2.0f non-zero parskip adjustments
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks20
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.st
+y
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count277
 )) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -209,7 +205,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: xetex.def on input line 225.
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/xetex.def
-File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+File: xetex.def 2020/08/26 v5.0i Graphics/color driver for xetex
 )
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -227,9 +223,7 @@ File: svgnam.def 2016/05/11 v2.12 Predefined colors according to SVG 1.1 (UK)
 File: x11nam.def 2016/05/11 v2.12 Predefined colors according to Unix/X11 (UK)
 )) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
-(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
-)
+
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.
 sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
@@ -242,13 +236,6 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
-) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks21
-)
-(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.st
-y
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinek
 eys.sty
@@ -265,13 +252,10 @@ sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 ) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.st
-y
-Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
-\@linkdim=\dimen147
-\Hy@linkcounter=\count272
-\Hy@pagecounter=\count273
+\@linkdim=\dimen151
+\Hy@linkcounter=\count278
+\Hy@pagecounter=\count279
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 ) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
@@ -280,7 +264,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 y
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count274
+\Hy@SavedSpaceFactor=\count280
 Package hyperref Info: Option `unicode' set `true' on input line 4338.
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
@@ -292,13 +276,13 @@ Package hyperref Info: Plain pages OFF on input line 4479.
 Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4717.
-\c@Hy@tempcnt=\count275
+\c@Hy@tempcnt=\count281
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5076.
-\XeTeXLinkMargin=\dimen148
+\XeTeXLinkMargin=\dimen152
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 
@@ -307,9 +291,9 @@ sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count276
-\Field@Width=\dimen149
-\Fld@charsize=\dimen150
+\Fld@menulength=\count282
+\Field@Width=\dimen153
+\Fld@charsize=\dimen154
 Package hyperref Info: Hyper figures OFF on input line 6347.
 Package hyperref Info: Link nesting OFF on input line 6352.
 Package hyperref Info: Hyper index ON on input line 6355.
@@ -319,12 +303,14 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6372.
 Package hyperref Info: PDF/A mode OFF on input line 6377.
 LaTeX Info: Redefining \ref on input line 6417.
 LaTeX Info: Redefining \pageref on input line 6421.
-(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/atbegshi/atbegshi.sty
-Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
+ge
+with kernel methods
 )
-\Hy@abspage=\count277
-\c@Item=\count278
-\c@Hfootnote=\count279
+\Hy@abspage=\count283
+\c@Item=\count284
+\c@Hfootnote=\count285
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
@@ -335,18 +321,19 @@ y
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\pdfm@box=\box48
-\c@Hy@AnnotLevel=\count280
-\HyField@AnnotCount=\count281
-\Fld@listcount=\count282
-\c@bookmark@seq@number=\count283
+\pdfm@box=\box50
+\c@Hy@AnnotLevel=\count286
+\HyField@AnnotCount=\count287
+\Fld@listcount=\count288
+\c@bookmark@seq@number=\count289
 
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfile
 check.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
-(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/atveryend/atveryend.sty
-Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
-Package atveryend Info: \enddocument detected (standard20110627).
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
+e
+with kernel methods
 )
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniqueco
 unter.sty
@@ -357,69 +344,78 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip52
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 47.
+Package hyperref Info: Option `colorlinks' set `true' on input line 48.
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2020/05/03 v3.6 verbatim text (tvz,hv)
-\FV@CodeLineNo=\count284
+\FV@CodeLineNo=\count290
 \FV@InFile=\read2
-\FV@TabBox=\box49
-\c@FancyVerbLine=\count285
-\FV@StepNumber=\count286
+\FV@TabBox=\box51
+\c@FancyVerbLine=\count291
+\FV@StepNumber=\count292
 \FV@OutFile=\write3
 ) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip53
-\fb@frw=\dimen151
-\fb@frh=\dimen152
-\FrameRule=\dimen153
-\FrameSep=\dimen154
+\fb@frw=\dimen155
+\fb@frh=\dimen156
+\FrameRule=\dimen157
+\FrameSep=\dimen158
 ) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTleft=\skip54
 \LTright=\skip55
 \LTpre=\skip56
 \LTpost=\skip57
-\LTchunksize=\count287
-\LTcapwidth=\dimen155
-\LT@head=\box50
-\LT@firsthead=\box51
-\LT@foot=\box52
-\LT@lastfoot=\box53
-\LT@cols=\count288
-\LT@rows=\count289
-\c@LT@tables=\count290
-\c@LT@chunks=\count291
-\LT@p@ftn=\toks22
+\LTchunksize=\count293
+\LTcapwidth=\dimen159
+\LT@head=\box52
+\LT@firsthead=\box53
+\LT@foot=\box54
+\LT@lastfoot=\box55
+\LT@cols=\count294
+\LT@rows=\count295
+\c@LT@tables=\count296
+\c@LT@chunks=\count297
+\LT@p@ftn=\toks21
 ) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen156
-\lightrulewidth=\dimen157
-\cmidrulewidth=\dimen158
-\belowrulesep=\dimen159
-\belowbottomsep=\dimen160
-\aboverulesep=\dimen161
-\abovetopsep=\dimen162
-\cmidrulesep=\dimen163
-\cmidrulekern=\dimen164
-\defaultaddspace=\dimen165
-\@cmidla=\count292
-\@cmidlb=\count293
-\@aboverulesep=\dimen166
-\@belowrulesep=\dimen167
-\@thisruleclass=\count294
-\@lastruleclass=\count295
-\@thisrulewidth=\dimen168
-) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/07/15 v2.5i e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count296
+\heavyrulewidth=\dimen160
+\lightrulewidth=\dimen161
+\cmidrulewidth=\dimen162
+\belowrulesep=\dimen163
+\belowbottomsep=\dimen164
+\aboverulesep=\dimen165
+\abovetopsep=\dimen166
+\cmidrulesep=\dimen167
+\cmidrulekern=\dimen168
+\defaultaddspace=\dimen169
+\@cmidla=\count298
+\@cmidlb=\count299
+\@aboverulesep=\dimen170
+\@belowrulesep=\dimen171
+\@thisruleclass=\count300
+\@lastruleclass=\count301
+\@thisrulewidth=\dimen172
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count302
+\calc@Bcount=\count303
+\calc@Adimen=\dimen173
+\calc@Bdimen=\dimen174
+\calc@Askip=\skip58
+\calc@Bskip=\skip59
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count304
+\calc@Cskip=\skip60
 ) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
-\fn@notes=\box54
-\fn@width=\dimen169
+\fn@notes=\box56
+\fn@width=\dimen175
 ) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
@@ -429,68 +425,352 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 105.
 )
-\Gin@req@height=\dimen170
-\Gin@req@width=\dimen171
-) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/grffile/grffile.sty
-Package: grffile 2019/11/11 v2.1 Extended file name support for graphics (legac
-y)
-Package grffile Info: This package is an empty stub for compatibility on input 
-line 40.
-) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/amscls/amsthm.sty
+\Gin@req@height=\dimen176
+\Gin@req@width=\dimen177
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/bbm-macros/bbm.sty
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen178
+\captionmargin@=\dimen179
+\captionwidth=\dimen180
+\caption@tempdima=\dimen181
+\caption@indent=\dimen182
+\caption@parindent=\dimen183
+\caption@hangindent=\dimen184
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count305
+\c@continuedfloat=\count306
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
+)) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count307
+\float@exts=\toks22
+\float@box=\box57
+\@float@everytoks=\toks23
+\@floatcapt=\box58
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
+\col@sep=\dimen185
+\ar@mcellbox=\box59
+\extrarowheight=\dimen186
+\NC@list=\toks24
+\extratabsurround=\skip61
+\backup@length=\skip62
+\ar@cellbox=\box60
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/01/02 v2.6 Span multiple rows of a table
+\multirow@colwidth=\skip63
+\multirow@cntb=\count308
+\multirow@dima=\skip64
+\bigstrutjot=\dimen187
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen188
+\WF@size=\dimen189
+\c@WF@wrappedlines=\count309
+\WF@box=\box61
+\WF@everypar=\toks25
+Package: wrapfig 2003/01/31  v 3.6
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+\everycr=\toks26
+\minrowclearance=\skip65
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.st
+y
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
+
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
+Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box62
+\sift@deathcycles=\count310
+\@vwid@loff=\dimen190
+\@vwid@roff=\dimen191
+)
+\c@taburow=\count311
+\tabu@nbcols=\count312
+\tabu@cnt=\count313
+\tabu@Xcol=\count314
+\tabu@alloc=\count315
+\tabu@nested=\count316
+\tabu@target=\dimen192
+\tabu@spreadtarget=\dimen193
+\tabu@naturalX=\dimen194
+\tabucolX=\dimen195
+\tabu@Xsum=\dimen196
+\extrarowdepth=\dimen197
+\abovetabulinesep=\dimen198
+\belowtabulinesep=\dimen199
+\tabustrutrule=\dimen256
+\tabu@thebody=\toks27
+\tabu@footnotes=\toks28
+\tabu@box=\box63
+\tabu@arstrutbox=\box64
+\tabu@hleads=\box65
+\tabu@vleads=\box66
+\tabu@cellskip=\skip66
+)
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/threeparttable/threepart
+table.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box67
+)
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/threeparttablex/threepar
+ttablex.sty
+Package: threeparttablex 2013/07/23 v0.3 by daleif
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.st
+y
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\TPTL@width=\skip67
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box68
+\UL@hyphenbox=\box69
+\UL@skip=\skip68
+\UL@hook=\toks29
+\UL@height=\dimen257
+\UL@pe=\count317
+\UL@pixel=\dimen258
+\ULC@box=\box70
+Package: ulem 2019/11/18
+\ULdepth=\dimen259
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen260
+\c@nlinenum=\count318
+\TeXr@lab=\toks30
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/cjk-ko/kotex.sty
+Package: kotex 2015/04/19 v1.6 Korean TeX (ko.TeX)
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/xetex/xetexko/xetexko.sty
+Package: xetexko 2020/02/17 v2.23 Typesetting Korean with XeTeX
+
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/xetex/xetexko/xetexko-space.st
+y
+Package: xetexko-space 2020/02/17 v2.23 Spacings and fonts for XeTeX-ko
+\XeTeXcharclassID=\XeTeXcharclass1
+\XeTeXcharclassOP=\XeTeXcharclass2
+\XeTeXcharclassCL=\XeTeXcharclass3
+
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/generic/unicode-data/load-unic
+ode-xetex-classes.tex 
+load-unicode-xetex-classes.tex v1.14 (2020-10-24)
+Reading Unicode east Asian character class data
+# LineBreak-13.0.0.txt 
+# Date: 2020-02-17, 07:43:02 GMT [KW, LI] 
+# EastAsianWidth-13.0.0.txt 
+# Date: 2029-01-21, 18:14:00 GMT [KW, LI] 
+)
+\XKsmallkana=\XeTeXcharclass4
+\XKcjkcolon=\XeTeXcharclass5
+\XKcjkfullstop=\XeTeXcharclass6
+\XKcjkliaison=\XeTeXcharclass7
+\XKcjkextrastop=\XeTeXcharclass8
+\XKcjksymbol=\XeTeXcharclass9
+\XKhangulsyllable=\XeTeXcharclass10
+\XKhanguljungjong=\XeTeXcharclass11
+\XKlatinopening=\XeTeXcharclass12
+\XKlatinclosing=\XeTeXcharclass13
+\XKopeningquote=\XeTeXcharclass14
+\XKclosingquote=\XeTeXcharclass15
+\XKlatinfullstop=\XeTeXcharclass16
+\XKlatinquestion=\XeTeXcharclass17
+\XKlatinexclamation=\XeTeXcharclass18
+\XKlatinhyphen=\XeTeXcharclass19
+\XKlatincomma=\XeTeXcharclass20
+\XKlatincolon=\XeTeXcharclass21
+\XKlatinnumber=\XeTeXcharclass22
+\XKhanjacombining=\XeTeXcharclass23
+\XK@toks@=\toks31
+\XKdotemphbox=\box71
+)
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/xetex/xetexko/xetexko-josa.sty
+Package: xetexko-josa 2020/02/17 v2.23 Auto-josa for XeTeX-ko
+\@josa=\count319
+)
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/xetex/xetexko/xetexko-font.sty
+Package: xetexko-font 2020/02/17 v2.23 LaTeX Font commands for XeTeX-ko
+)
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/xetex/xetexko/xetexko-vertical
+.sty
+Package: xetexko-vertical 2020/02/17 v2.23 Vertical environment for XeTeX-ko
+\verticalem=\dimen261
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/cjk-ko/kolabels-utf.st
+y
+Package: kolabels-utf 2015/03/20 v1.5 UTF-8 Hangul item labels
+))) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/base/flafter.sty
+Package: flafter 2018/11/28 v1.4d Standard LaTeX floats after reference (FMi)
+Applying: [2015/01/01] float order in 2-column on input line 49.
+Already applied: [0000/00/00] float order in 2-column on input line 151.
+) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
+)
+\@indexfile=\write4
+\openout4 = `data-apps-text.idx'.
+
+Writing index file data-apps-text.idx
+(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks23
-\thm@bodyfont=\toks24
-\thm@headfont=\toks25
-\thm@notefont=\toks26
-\thm@headpunct=\toks27
-\thm@preskip=\skip58
-\thm@postskip=\skip59
-\thm@headsep=\skip60
-\dth@everypar=\toks28
+\thm@style=\toks32
+\thm@bodyfont=\toks33
+\thm@headfont=\toks34
+\thm@notefont=\toks35
+\thm@headpunct=\toks36
+\thm@preskip=\skip69
+\thm@postskip=\skip70
+\thm@headsep=\skip71
+\dth@everypar=\toks37
 ) (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip61
-\bibsep=\skip62
+\bibhang=\skip72
+\bibsep=\skip73
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count297
+\c@NAT@ctr=\count320
+) (./data-apps-text.aux
+
+LaTeX Warning: Label `eq:pslopemultd' multiply defined.
+
+
+LaTeX Warning: Label `eq:pslopemultd' multiply defined.
+
+
+LaTeX Warning: Label `save-and-upload' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `set-up' multiply defined.
+
+
+LaTeX Warning: Label `data' multiply defined.
+
+
+LaTeX Warning: Label `save-and-upload' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `set-up' multiply defined.
+
+
+LaTeX Warning: Label `save-and-upload' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `set-up' multiply defined.
+
+
+LaTeX Warning: Label `histogram' multiply defined.
+
+
+LaTeX Warning: Label `box-plot' multiply defined.
+
+
+LaTeX Warning: Label `bar-chart' multiply defined.
+
+
+LaTeX Warning: Label `scatter-plot' multiply defined.
+
+
+LaTeX Warning: Label `line-graph' multiply defined.
+
+
+LaTeX Warning: Label `save-and-upload' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `set-up' multiply defined.
+
+
+LaTeX Warning: Label `save-and-upload' multiply defined.
+
+
+LaTeX Warning: Label `learning-objectives' multiply defined.
+
+
+LaTeX Warning: Label `set-up' multiply defined.
+
+
+LaTeX Warning: Label `save-and-upload' multiply defined.
+
+
+LaTeX Warning: Label `set-up' multiply defined.
+
+
+LaTeX Warning: Label `chi-square-test' multiply defined.
+
+
+LaTeX Warning: Label `save-and-upload' multiply defined.
+
+
+LaTeX Warning: Label `learning-outcomes' multiply defined.
+
+
+LaTeX Warning: Label `set-up' multiply defined.
+
+
+LaTeX Warning: Label `save-and-upload' multiply defined.
+
 )
-No file data-apps-text.aux.
 \openout1 = `data-apps-text.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 225.
+LaTeX Font Info:    ... okay on input line 225.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 157.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 225.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 157.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 225.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 157.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 225.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 157.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 225.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 157.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 225.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 157.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 225.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 157.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 225.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -519,7 +799,7 @@ pt=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 157.
+(Font)              scaled to size 10.0pt on input line 225.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -558,18 +838,18 @@ pt=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 157.
+(Font)              scaled to size 10.0pt on input line 225.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 157.
+(Font)              `operators' in the math version `normal' on input line 225.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
- line 157.
+ line 225.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 157.
+(Font)              `operators' in the math version `bold' on input line 225.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
-t line 157.
+t line 225.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -656,15 +936,15 @@ t=math;language=dflt;"
 (fontspec)             \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 157.
+(Font)              `symbols' in the math version `normal' on input line 225.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
-t line 157.
+t line 225.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 157.
+(Font)              `symbols' in the math version `bold' on input line 225.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
-t line 157.
+t line 225.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -733,19 +1013,18 @@ pt=math;language=dflt;"
 (fontspec)             =6.0pt\relax \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 1
-57.
+(Font)              `largesymbols' in the math version `normal' on input line 2
+25.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
-t line 157.
+t line 225.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 157
+(Font)              `largesymbols' in the math version `bold' on input line 225
 .
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
-t line 157.
-\AtBeginShipoutBox=\box55
-Package hyperref Info: Link coloring ON on input line 157.
+t line 225.
+Package hyperref Info: Link coloring ON on input line 225.
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
@@ -755,77 +1034,2954 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 estring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count298
+\c@section@level=\count321
 )
-LaTeX Info: Redefining \ref on input line 157.
-LaTeX Info: Redefining \pageref on input line 157.
-LaTeX Info: Redefining \nameref on input line 157.
-\@outlinefile=\write4
-\openout4 = `data-apps-text.out'.
+LaTeX Info: Redefining \ref on input line 225.
+LaTeX Info: Redefining \pageref on input line 225.
+LaTeX Info: Redefining \nameref on input line 225.
+(./data-apps-text.out) (./data-apps-text.out)
+\@outlinefile=\write5
+\openout5 = `data-apps-text.out'.
 
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\symmathhangul=\mathgroup4
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 159.
+(Font)              scaled to size 12.0pt on input line 227.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 159.
+(Font)              scaled to size 8.0pt on input line 227.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 159.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-59.
+(Font)              scaled to size 6.0pt on input line 227.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
+27.
 (/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 159.
+(Font)              scaled to size 12.0011pt on input line 227.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00073pt on input line 159.
+(Font)              scaled to size 8.00073pt on input line 227.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 159.
+(Font)              scaled to size 6.00055pt on input line 227.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 159.
+(Font)              scaled to size 11.99872pt on input line 227.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 159.
+(Font)              scaled to size 7.99915pt on input line 227.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 159.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 159
-.
-(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 159
-.
-(/Users/alexcombs/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+(Font)              scaled to size 5.99936pt on input line 227.
+
+LaTeX Font Warning: Font shape `TU/lmr/m/up' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 227.
+
+[1
+
 
 
 ] [2
 
+] (./data-apps-text.toc
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 2.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 2.
+
+Overfull \hbox (0.61996pt too wide) detected at line 17
+ []\TU/lmr/m/up/10 xvii
+ []
+
+
+Overfull \hbox (0.61996pt too wide) detected at line 18
+ []\TU/lmr/m/up/10 xvii
+ []
+
+
+Overfull \hbox (0.61996pt too wide) detected at line 21
+ []\TU/lmr/m/up/10 xxii
+ []
+
+
+Overfull \hbox (0.61996pt too wide) detected at line 22
+ []\TU/lmr/m/up/10 xxii
+ []
+
+
+Overfull \hbox (3.39996pt too wide) detected at line 23
+ []\TU/lmr/m/up/10 xxiii
+ []
+
+
+Overfull \hbox (0.33997pt too wide) detected at line 24
+ []\TU/lmr/m/up/10 xxv
+ []
+
+
+Overfull \hbox (0.33997pt too wide) detected at line 25
+ []\TU/lmr/m/up/10 xxv
+ []
+
+
+Overfull \hbox (5.89996pt too wide) detected at line 26
+ []\TU/lmr/m/up/10 xxvii
+ []
+
+
+Overfull \hbox (3.11996pt too wide) detected at line 28
+ []\TU/lmr/m/up/10 xxix
+ []
+
+[3
+
 ]
-\tf@toc=\write5
-\openout5 = `data-apps-text.toc'.
+Overfull \hbox (3.11996pt too wide) detected at line 29
+ []\TU/lmr/m/up/10 xxix
+ []
 
-[3] [4
+
+Overfull \hbox (0.33997pt too wide) detected at line 30
+ []\TU/lmr/m/up/10 xxx
+ []
+
+
+Overfull \hbox (8.39996pt too wide) detected at line 31
+ []\TU/lmr/m/up/10 xxxiv
+ []
+
+
+Overfull \hbox (5.61996pt too wide) detected at line 32
+ []\TU/lmr/m/up/10 xxxv
+ []
+
+
+Overfull \hbox (13.95998pt too wide) detected at line 37
+ []\TU/lmr/m/up/10 xxxviii
+ []
+
+
+Overfull \hbox (0.61996pt too wide) detected at line 45
+ []\TU/lmr/m/up/10 xliv
+ []
+
+
+Overfull \hbox (0.61996pt too wide) detected at line 50
+ []\TU/lmr/m/up/10 xlix
+ []
+
+
+Overfull \hbox (0.89996pt too wide) detected at line 62
+ []\TU/lmr/m/up/10 lviii
+ []
+
+
+Overfull \hbox (0.89996pt too wide) detected at line 63
+ []\TU/lmr/m/up/10 lviii
+ []
+
+
+Overfull \hbox (0.89996pt too wide) detected at line 64
+ []\TU/lmr/m/up/10 lviii
+ []
+
+
+Overfull \hbox (0.61996pt too wide) detected at line 71
+ []\TU/lmr/m/up/10 lxvi
+ []
+
+
+Overfull \hbox (3.39996pt too wide) detected at line 72
+ []\TU/lmr/m/up/10 lxvii
+ []
+
+
+Overfull \hbox (0.61996pt too wide) detected at line 74
+ []\TU/lmr/m/up/10 lxxi
+ []
+
+
+Overfull \hbox (0.61996pt too wide) detected at line 75
+ []\TU/lmr/m/up/10 lxxi
+ []
+
+
+Overfull \hbox (5.89996pt too wide) detected at line 76
+ []\TU/lmr/m/up/10 lxxiv
+ []
+
+
+Overfull \hbox (5.89996pt too wide) detected at line 77
+ []\TU/lmr/m/up/10 lxxvi
+ []
+
+
+Overfull \hbox (8.67998pt too wide) detected at line 79
+ []\TU/lmr/m/up/10 lxxvii
+ []
+
+
+Overfull \hbox (11.45998pt too wide) detected at line 80
+ []\TU/lmr/m/up/10 lxxviii
+ []
+
+
+Overfull \hbox (5.89996pt too wide) detected at line 81
+ []\TU/lmr/m/up/10 lxxxi
+ []
+
+
+Overfull \hbox (8.67998pt too wide) detected at line 82
+ []\TU/lmr/m/up/10 lxxxii
+ []
+
+
+Overfull \hbox (8.67998pt too wide) detected at line 83
+ []\TU/lmr/m/up/10 lxxxii
+ []
+
+[4]
+Overfull \hbox (11.45998pt too wide) detected at line 85
+ []\TU/lmr/m/up/10 lxxxiii
+ []
+
+
+Overfull \hbox (11.17998pt too wide) detected at line 86
+ []\TU/lmr/m/up/10 lxxxiv
+ []
+
+
+Overfull \hbox (8.39996pt too wide) detected at line 87
+ []\TU/lmr/m/up/10 lxxxv
+ []
+
+
+Overfull \hbox (11.17998pt too wide) detected at line 88
+ []\TU/lmr/m/up/10 lxxxix
+ []
+
+
+Overfull \hbox (2.27997pt too wide) detected at line 90
+ []\TU/lmr/m/up/10 xciv
+ []
+
+
+Overfull \hbox (2.27997pt too wide) detected at line 91
+ []\TU/lmr/m/up/10 xcvi
+ []
+
+
+Overfull \hbox (2.27997pt too wide) detected at line 92
+ []\TU/lmr/m/up/10 xcvi
+ []
+
+
+Overfull \hbox (5.05997pt too wide) detected at line 93
+ []\TU/lmr/m/up/10 xcvii
+ []
+
+
+Overfull \hbox (2.27997pt too wide) detected at line 94
+ []\TU/lmr/m/up/10 xcix
+ []
+
+
+Overfull \hbox (2.27997pt too wide) detected at line 109
+ []\TU/lmr/m/up/10 cxiv
+ []
+
+
+Overfull \hbox (5.05997pt too wide) detected at line 112
+ []\TU/lmr/m/up/10 cxvii
+ []
+
+
+Overfull \hbox (7.83997pt too wide) detected at line 113
+ []\TU/lmr/m/up/10 cxviii
+ []
+
+
+Overfull \hbox (5.05997pt too wide) detected at line 117
+ []\TU/lmr/m/up/10 cxxii
+ []
+
+
+Overfull \hbox (7.83997pt too wide) detected at line 118
+ []\TU/lmr/m/up/10 cxxiii
+ []
+
+
+Overfull \hbox (7.55997pt too wide) detected at line 119
+ []\TU/lmr/m/up/10 cxxvi
+ []
+
+
+Overfull \hbox (10.33997pt too wide) detected at line 120
+ []\TU/lmr/m/up/10 cxxvii
+ []
+
+
+Overfull \hbox (7.55997pt too wide) detected at line 123
+ []\TU/lmr/m/up/10 cxxxi
+ []
+
+
+Overfull \hbox (7.55997pt too wide) detected at line 124
+ []\TU/lmr/m/up/10 cxxxi
+ []
+
+
+Overfull \hbox (12.83997pt too wide) detected at line 125
+ []\TU/lmr/m/up/10 cxxxiv
+ []
+
+
+Overfull \hbox (12.83997pt too wide) detected at line 126
+ []\TU/lmr/m/up/10 cxxxiv
+ []
+
+
+Overfull \hbox (2.55997pt too wide) detected at line 128
+ []\TU/lmr/m/up/10 cxlii
+ []
+
+
+Overfull \hbox (5.33997pt too wide) detected at line 129
+ []\TU/lmr/m/up/10 cxliii
+ []
+
+[5]
+Overfull \hbox (2.27997pt too wide) detected at line 131
+ []\TU/lmr/m/up/10 cxlv
+ []
+
+
+Overfull \hbox (2.27997pt too wide) detected at line 132
+ []\TU/lmr/m/up/10 cxlv
+ []
+
+
+Overfull \hbox (2.27997pt too wide) detected at line 133
+ []\TU/lmr/m/up/10 cxlv
+ []
+
+
+Overfull \hbox (5.05997pt too wide) detected at line 134
+ []\TU/lmr/m/up/10 cxlvi
+ []
+
+
+Overfull \hbox (10.61996pt too wide) detected at line 135
+ []\TU/lmr/m/up/10 cxlviii
+ []
+
+
+Overfull \hbox (5.05997pt too wide) detected at line 136
+ []\TU/lmr/m/up/10 cxlix
+ []
+
+
+Overfull \hbox (5.33997pt too wide) detected at line 142
+ []\TU/lmr/m/up/10 clviii
+ []
+
+
+Overfull \hbox (5.05997pt too wide) detected at line 146
+ []\TU/lmr/m/up/10 clxiv
+ []
+
+
+Overfull \hbox (5.05997pt too wide) detected at line 147
+ []\TU/lmr/m/up/10 clxiv
+ []
+
+
+Overfull \hbox (10.61996pt too wide) detected at line 148
+ []\TU/lmr/m/up/10 clxviii
+ []
+
+
+Overfull \hbox (5.05997pt too wide) detected at line 149
+ []\TU/lmr/m/up/10 clxix
+ []
+
+
+Overfull \hbox (5.05997pt too wide) detected at line 150
+ []\TU/lmr/m/up/10 clxxi
+ []
+
+
+Overfull \hbox (7.55997pt too wide) detected at line 153
+ []\TU/lmr/m/up/10 clxxv
+ []
+
+
+Overfull \hbox (10.33997pt too wide) detected at line 154
+ []\TU/lmr/m/up/10 clxxvi
+ []
+
+
+Overfull \hbox (15.89996pt too wide) detected at line 155
+ []\TU/lmr/m/up/10 clxxviii
+ []
+
+
+Overfull \hbox (10.33997pt too wide) detected at line 156
+ []\TU/lmr/m/up/10 clxxxi
+ []
+
+
+Overfull \hbox (10.33997pt too wide) detected at line 157
+ []\TU/lmr/m/up/10 clxxxi
+ []
+
+
+Overfull \hbox (15.61996pt too wide) detected at line 160
+ []\TU/lmr/m/up/10 clxxxiv
+ []
+
+
+Overfull \hbox (1.43997pt too wide) detected at line 161
+ []\TU/lmr/m/up/10 cxci
+ []
+
+
+Overfull \hbox (6.99997pt too wide) detected at line 163
+ []\TU/lmr/m/up/10 cxciii
+ []
+
+
+Overfull \hbox (6.71997pt too wide) detected at line 164
+ []\TU/lmr/m/up/10 cxciv
+ []
+
+
+Overfull \hbox (1.71997pt too wide) detected at line 170
+ []\TU/lmr/m/up/10 cciii
+ []
+
+[6]
+Overfull \hbox (1.43997pt too wide) detected at line 171
+ []\TU/lmr/m/up/10 cciv
+ []
+
+
+Overfull \hbox (4.21997pt too wide) detected at line 177
+ []\TU/lmr/m/up/10 ccvii
+ []
+
+
+Overfull \hbox (4.21997pt too wide) detected at line 178
+ []\TU/lmr/m/up/10 ccvii
+ []
+
+
+Overfull \hbox (4.21997pt too wide) detected at line 179
+ []\TU/lmr/m/up/10 ccvii
+ []
+
+
+Overfull \hbox (6.99997pt too wide) detected at line 180
+ []\TU/lmr/m/up/10 ccviii
+ []
+
+
+Overfull \hbox (1.43997pt too wide) detected at line 181
+ []\TU/lmr/m/up/10 ccix
+ []
+
+
+Overfull \hbox (1.43997pt too wide) detected at line 182
+ []\TU/lmr/m/up/10 ccix
+ []
+
+
+Overfull \hbox (1.43997pt too wide) detected at line 185
+ []\TU/lmr/m/up/10 ccxi
+ []
+
+
+Overfull \hbox (1.43997pt too wide) detected at line 186
+ []\TU/lmr/m/up/10 ccxi
+ []
+
+
+Overfull \hbox (4.21997pt too wide) detected at line 187
+ []\TU/lmr/m/up/10 ccxii
+ []
+
+
+Overfull \hbox (4.21997pt too wide) detected at line 188
+ []\TU/lmr/m/up/10 ccxii
+ []
+
+
+Overfull \hbox (6.99997pt too wide) detected at line 189
+ []\TU/lmr/m/up/10 ccxiii
+ []
+
+
+Overfull \hbox (6.71997pt too wide) detected at line 190
+ []\TU/lmr/m/up/10 ccxiv
+ []
+
+
+Overfull \hbox (3.93997pt too wide) detected at line 191
+ []\TU/lmr/m/up/10 ccxv
+ []
+
+
+Overfull \hbox (6.71997pt too wide) detected at line 192
+ []\TU/lmr/m/up/10 ccxvi
+ []
+
+
+Overfull \hbox (9.49997pt too wide) detected at line 194
+ []\TU/lmr/m/up/10 ccxvii
+ []
+
+
+Overfull \hbox (9.49997pt too wide) detected at line 195
+ []\TU/lmr/m/up/10 ccxvii
+ []
+
+
+Overfull \hbox (12.27997pt too wide) detected at line 196
+ []\TU/lmr/m/up/10 ccxviii
+ []
+
+
+Overfull \hbox (12.27997pt too wide) detected at line 197
+ []\TU/lmr/m/up/10 ccxviii
+ []
+
+
+Overfull \hbox (6.71997pt too wide) detected at line 198
+ []\TU/lmr/m/up/10 ccxix
+ []
+
+
+Overfull \hbox (6.71997pt too wide) detected at line 199
+ []\TU/lmr/m/up/10 ccxix
+ []
+
+
+Overfull \hbox (3.93997pt too wide) detected at line 200
+ []\TU/lmr/m/up/10 ccxx
+ []
+
+
+Overfull \hbox (9.49997pt too wide) detected at line 201
+ []\TU/lmr/m/up/10 ccxxii
+ []
+
+
+Overfull \hbox (9.21997pt too wide) detected at line 205
+ []\TU/lmr/m/up/10 ccxxv
+ []
+
+
+Overfull \hbox (11.99997pt too wide) detected at line 206
+ []\TU/lmr/m/up/10 ccxxvi
+ []
+
+
+Overfull \hbox (11.99997pt too wide) detected at line 207
+ []\TU/lmr/m/up/10 ccxxvi
+ []
+
+
+Overfull \hbox (14.77997pt too wide) detected at line 209
+ []\TU/lmr/m/up/10 ccxxvii
+ []
+
+
+Overfull \hbox (14.77997pt too wide) detected at line 210
+ []\TU/lmr/m/up/10 ccxxvii
+ []
+
+
+Overfull \hbox (17.55997pt too wide) detected at line 211
+ []\TU/lmr/m/up/10 ccxxviii
+ []
+
+
+Overfull \hbox (9.21997pt too wide) detected at line 212
+ []\TU/lmr/m/up/10 ccxxx
+ []
+
+
+Overfull \hbox (14.77997pt too wide) detected at line 213
+ []\TU/lmr/m/up/10 ccxxxii
+ []
+
+
+Overfull \hbox (17.27997pt too wide) detected at line 214
+ []\TU/lmr/m/up/10 ccxxxiv
+ []
+
+
+Overfull \hbox (4.21997pt too wide) detected at line 215
+ []\TU/lmr/m/up/10 ccxli
+ []
+
+
+Overfull \hbox (6.99997pt too wide) detected at line 216
+ []\TU/lmr/m/up/10 ccxlii
+ []
+
+
+Overfull \hbox (9.77997pt too wide) detected at line 217
+ []\TU/lmr/m/up/10 ccxliii
+ []
+
+[7]
+Overfull \hbox (6.71997pt too wide) detected at line 219
+ []\TU/lmr/m/up/10 ccxlv
+ []
+
+
+Overfull \hbox (6.71997pt too wide) detected at line 220
+ []\TU/lmr/m/up/10 ccxlv
+ []
+
+
+Overfull \hbox (9.49997pt too wide) detected at line 221
+ []\TU/lmr/m/up/10 ccxlvi
+ []
+
+
+Overfull \hbox (9.49997pt too wide) detected at line 222
+ []\TU/lmr/m/up/10 ccxlvi
+ []
+
+
+Overfull \hbox (12.27997pt too wide) detected at line 223
+ []\TU/lmr/m/up/10 ccxlvii
+ []
+
+
+Overfull \hbox (12.27997pt too wide) detected at line 224
+ []\TU/lmr/m/up/10 ccxlvii
+ []
+
+
+Overfull \hbox (15.05997pt too wide) detected at line 225
+ []\TU/lmr/m/up/10 ccxlviii
+ []
+
+
+Overfull \hbox (9.49997pt too wide) detected at line 226
+ []\TU/lmr/m/up/10 ccxlix
+ []
+
+
+Overfull \hbox (9.49997pt too wide) detected at line 227
+ []\TU/lmr/m/up/10 ccxlix
+ []
+
+
+Overfull \hbox (1.71997pt too wide) detected at line 228
+ []\TU/lmr/m/up/10 cclii
+ []
+
+
+Overfull \hbox (4.49997pt too wide) detected at line 229
+ []\TU/lmr/m/up/10 ccliii
+ []
+
+
+Overfull \hbox (1.43997pt too wide) detected at line 231
+ []\TU/lmr/m/up/10 cclv
+ []
+
+
+Overfull \hbox (1.43997pt too wide) detected at line 232
+ []\TU/lmr/m/up/10 cclv
+ []
+
+
+Overfull \hbox (4.21997pt too wide) detected at line 233
+ []\TU/lmr/m/up/10 cclvi
+ []
+
+
+Overfull \hbox (9.77997pt too wide) detected at line 234
+ []\TU/lmr/m/up/10 cclviii
+ []
+
+
+Overfull \hbox (1.43997pt too wide) detected at line 235
+ []\TU/lmr/m/up/10 cclx
+ []
+
+
+Overfull \hbox (4.21997pt too wide) detected at line 237
+ []\TU/lmr/m/up/10 cclxi
+ []
+
+
+Overfull \hbox (4.21997pt too wide) detected at line 238
+ []\TU/lmr/m/up/10 cclxi
+ []
+
+
+Overfull \hbox (6.99997pt too wide) detected at line 239
+ []\TU/lmr/m/up/10 cclxii
+ []
+
+
+Overfull \hbox (6.99997pt too wide) detected at line 240
+ []\TU/lmr/m/up/10 cclxii
+ []
+
+
+Overfull \hbox (6.99997pt too wide) detected at line 241
+ []\TU/lmr/m/up/10 cclxii
+ []
+
+
+Overfull \hbox (9.77997pt too wide) detected at line 242
+ []\TU/lmr/m/up/10 cclxiii
+ []
+
+
+Overfull \hbox (9.77997pt too wide) detected at line 243
+ []\TU/lmr/m/up/10 cclxiii
+ []
+
+
+Overfull \hbox (9.77997pt too wide) detected at line 244
+ []\TU/lmr/m/up/10 cclxiii
+ []
+
+
+Overfull \hbox (9.49997pt too wide) detected at line 245
+ []\TU/lmr/m/up/10 cclxiv
+ []
+
+
+Overfull \hbox (6.71997pt too wide) detected at line 247
+ []\TU/lmr/m/up/10 cclxv
+ []
+
+
+Overfull \hbox (6.71997pt too wide) detected at line 248
+ []\TU/lmr/m/up/10 cclxv
+ []
+
+
+Overfull \hbox (9.49997pt too wide) detected at line 249
+ []\TU/lmr/m/up/10 cclxvi
+ []
+
+
+Overfull \hbox (6.71997pt too wide) detected at line 250
+ []\TU/lmr/m/up/10 cclxx
+ []
+
+
+Overfull \hbox (9.49997pt too wide) detected at line 251
+ []\TU/lmr/m/up/10 cclxxi
+ []
+
+
+Overfull \hbox (12.27997pt too wide) detected at line 252
+ []\TU/lmr/m/up/10 cclxxii
+ []
+
+
+Overfull \hbox (20.33997pt too wide) detected at line 253
+ []\TU/lmr/m/up/10 cclxxviii
+ []
+
+
+Overfull \hbox (14.77997pt too wide) detected at line 256
+ []\TU/lmr/m/up/10 cclxxix
+ []
+
+
+Overfull \hbox (14.77997pt too wide) detected at line 257
+ []\TU/lmr/m/up/10 cclxxix
+ []
+
+[8]
+Overfull \hbox (14.77997pt too wide) detected at line 258
+ []\TU/lmr/m/up/10 cclxxix
+ []
+
+
+Overfull \hbox (11.99997pt too wide) detected at line 259
+ []\TU/lmr/m/up/10 cclxxx
+ []
+
+
+Overfull \hbox (11.99997pt too wide) detected at line 260
+ []\TU/lmr/m/up/10 cclxxx
+ []
+
+
+Overfull \hbox (11.99997pt too wide) detected at line 261
+ []\TU/lmr/m/up/10 cclxxx
+ []
+
+
+Overfull \hbox (14.77997pt too wide) detected at line 262
+ []\TU/lmr/m/up/10 cclxxxi
+ []
+
+
+Overfull \hbox (17.27997pt too wide) detected at line 264
+ []\TU/lmr/m/up/10 cclxxxv
+ []
+
+
+Overfull \hbox (20.05997pt too wide) detected at line 265
+ []\TU/lmr/m/up/10 cclxxxvi
+ []
+
+
+Overfull \hbox (20.05997pt too wide) detected at line 266
+ []\TU/lmr/m/up/10 cclxxxvi
+ []
+
+
+Overfull \hbox (20.05997pt too wide) detected at line 267
+ []\TU/lmr/m/up/10 cclxxxix
+ []
+
+
+Overfull \hbox (3.09998pt too wide) detected at line 268
+ []\TU/lmr/m/up/10 ccxc
+ []
+
+
+Overfull \hbox (8.65997pt too wide) detected at line 269
+ []\TU/lmr/m/up/10 ccxcii
+ []
+
+
+Overfull \hbox (8.65997pt too wide) detected at line 270
+ []\TU/lmr/m/up/10 ccxcii
+ []
+
+
+Overfull \hbox (11.15997pt too wide) detected at line 271
+ []\TU/lmr/m/up/10 ccxciv
+ []
+
+
+Overfull \hbox (11.15997pt too wide) detected at line 272
+ []\TU/lmr/m/up/10 ccxciv
+ []
+
+
+Overfull \hbox (8.37997pt too wide) detected at line 273
+ []\TU/lmr/m/up/10 ccxcv
+ []
+
+
+Overfull \hbox (11.15997pt too wide) detected at line 274
+ []\TU/lmr/m/up/10 ccxcvi
+ []
+
+
+Overfull \hbox (13.93997pt too wide) detected at line 275
+ []\TU/lmr/m/up/10 ccxcvii
+ []
+
+
+Overfull \hbox (3.09998pt too wide) detected at line 278
+ []\TU/lmr/m/up/10 cccv
+ []
+
+
+Overfull \hbox (8.65997pt too wide) detected at line 279
+ []\TU/lmr/m/up/10 cccvii
+ []
+
+)
+\tf@toc=\write6
+\openout6 = `data-apps-text.toc'.
+
+[9] [10
+
+]
+Underfull \vbox (badness 1360) has occurred while \output is active []
+
+[11] [12] [13] [14
+
+] [15]
+
+Package hyperref Warning: Suppressing empty link on input line 430.
+
+[16] [17
+
+] [18] [19
+
+]
+File: images/variables.png Graphic file (type bmp)
+<images/variables.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[20] [21]
+
+Package hyperref Warning: Suppressing empty link on input line 562.
+
+[22] [23]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[24]
+
+Package hyperref Warning: Suppressing empty link on input line 697.
+
+[25] [26
+
+]
+File: images/credible.png Graphic file (type bmp)
+<images/credible.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[27] [28] [29]
+File: images/measure_lines.png Graphic file (type bmp)
+<images/measure_lines.png>
+
+Underfull \vbox (badness 1424) has occurred while \output is active []
+
+[30] [31]
+
+Package hyperref Warning: Suppressing empty link on input line 864.
+
+
+Underfull \vbox (badness 1472) has occurred while \output is active []
+
+[32] [33] [34
+
+] [35] [36]
+File: data-apps-text_files/figure-latex/diedist-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/diedist-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[37]
+File: data-apps-text_files/figure-latex/diehisto-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/diehisto-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[38]
+File: data-apps-text_files/figure-latex/obsdieroll-1.pdf Graphic file (type pdf
+)
+<use data-apps-text_files/figure-latex/obsdieroll-1.pdf>
+[39]
+File: data-apps-text_files/figure-latex/infmort-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/infmort-1.pdf>
+[40] [41]
+File: data-apps-text_files/figure-latex/mortcenters-1.pdf Graphic file (type pd
+f)
+<use data-apps-text_files/figure-latex/mortcenters-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[42]
+Underfull \vbox (badness 1590) has occurred while \output is active []
+
+[43]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[44] [45]
+File: data-apps-text_files/figure-latex/mortspread-1.pdf Graphic file (type pdf
+)
+<use data-apps-text_files/figure-latex/mortspread-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[46] [47]
+File: data-apps-text_files/figure-latex/normrates-1.pdf Graphic file (type pdf)
+
+<use data-apps-text_files/figure-latex/normrates-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[48]
+Underfull \vbox (badness 1199) has occurred while \output is active []
+
+[49]
+File: data-apps-text_files/figure-latex/scatterlifedeath-1.pdf Graphic file (ty
+pe pdf)
+<use data-apps-text_files/figure-latex/scatterlifedeath-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[50] [51]
+
+Package hyperref Warning: Suppressing empty link on input line 1404.
+
+File: data-apps-text_files/figure-latex/scattercovar-1.pdf Graphic file (type p
+df)
+<use data-apps-text_files/figure-latex/scattercovar-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[52] [53]
+File: data-apps-text_files/figure-latex/scattercorr-1.pdf Graphic file (type pd
+f)
+<use data-apps-text_files/figure-latex/scattercorr-1.pdf>
+
+Package hyperref Warning: Suppressing empty link on input line 1446.
+
+[54]
+
+Package hyperref Warning: Suppressing empty link on input line 1449.
+
+[55] [56
+
+]
+File: images/vizflow.png Graphic file (type bmp)
+<images/vizflow.png>
+[57]
+File: data-apps-text_files/figure-latex/gradmedhist-1.pdf Graphic file (type pd
+f)
+<use data-apps-text_files/figure-latex/gradmedhist-1.pdf>
+[58]
+
+Package hyperref Warning: Suppressing empty link on input line 1580.
+
+File: data-apps-text_files/figure-latex/gradmedbox-1.pdf Graphic file (type pdf
+)
+<use data-apps-text_files/figure-latex/gradmedbox-1.pdf>
+[59]
+File: data-apps-text_files/figure-latex/emppie-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/emppie-1.pdf>
+[60]
+File: data-apps-text_files/figure-latex/empbar-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/empbar-1.pdf>
+File: data-apps-text_files/figure-latex/empbar2-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/empbar2-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[61]
+File: data-apps-text_files/figure-latex/empbar3-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/empbar3-1.pdf>
+[62]
+File: data-apps-text_files/figure-latex/spiapay-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/spiapay-1.pdf>
+File: data-apps-text_files/figure-latex/spiaemp-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/spiaemp-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[63]
+
+Package hyperref Warning: Suppressing empty link on input line 1682.
+
+[64]
+File: data-apps-text_files/figure-latex/gradpaydiffbox-1.pdf Graphic file (type
+ pdf)
+<use data-apps-text_files/figure-latex/gradpaydiffbox-1.pdf>
+File: data-apps-text_files/figure-latex/gradpaydiffhist-1.pdf Graphic file (typ
+e pdf)
+<use data-apps-text_files/figure-latex/gradpaydiffhist-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[65]
+
+Package hyperref Warning: Suppressing empty link on input line 1717.
+
+File: data-apps-text_files/figure-latex/gradpayenroll-1.pdf Graphic file (type 
+pdf)
+<use data-apps-text_files/figure-latex/gradpayenroll-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[66]
+
+Package hyperref Warning: Suppressing empty link on input line 1731.
+
+[67] [68
+
+] [69] [70] [71
+
+] [72]
+
+Package hyperref Warning: Suppressing empty link on input line 1842.
+
+
+LaTeX Warning: Reference `regression-inference' on page lxxiii undefined on inp
+ut line 1842.
+
+
+Overfull \hbox (47.48999pt too wide) in paragraph at lines 1864--1883
+ [][] 
+ []
+
+[73]
+File: data-apps-text_files/figure-latex/povfedscatter-1.pdf Graphic file (type 
+pdf)
+<use data-apps-text_files/figure-latex/povfedscatter-1.pdf>
+[74]
+Overfull \hbox (6.50998pt too wide) in paragraph at lines 1917--1926
+ [][] 
+ []
+
+
+Package hyperref Warning: Suppressing empty link on input line 1928.
+
+
+Package hyperref Warning: Suppressing empty link on input line 1930.
+
+[75] [76]
+File: data-apps-text_files/figure-latex/povfedscatter2-1.pdf Graphic file (type
+ pdf)
+<use data-apps-text_files/figure-latex/povfedscatter2-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[77] [78] [79]
+File: data-apps-text_files/figure-latex/povfedscatterresid-1.pdf Graphic file (
+type pdf)
+<use data-apps-text_files/figure-latex/povfedscatterresid-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[80] [81]
+
+Package hyperref Warning: Suppressing empty link on input line 2231.
+
+[82]
+
+Package hyperref Warning: Suppressing empty link on input line 2240.
+
+[83]
+Overfull \hbox (34.89998pt too wide) in paragraph at lines 2282--2295
+ [][] 
+ []
+
+[84] [85] [86] [87]
+
+Package hyperref Warning: Suppressing empty link on input line 2459.
+
+[88]
+
+Package hyperref Warning: Suppressing empty link on input line 2522.
+
+
+Underfull \vbox (badness 7133) has occurred while \output is active []
+
+[89
 
 ]
 
-! Package xcolor Error: Undefined color `Announcement'.
+Package hyperref Warning: Suppressing empty link on input line 2575.
 
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.169 \begin{announcement}
-                           
+
+Package hyperref Warning: Suppressing empty link on input line 2589.
+
+[90] [91]
+File: data-apps-text_files/figure-latex/pslopescatter-1.pdf Graphic file (type 
+pdf)
+<use data-apps-text_files/figure-latex/pslopescatter-1.pdf>
+[92]
+Overfull \hbox (6.50998pt too wide) in paragraph at lines 2683--2694
+ [][] 
+ []
+
+[93]
+File: data-apps-text_files/figure-latex/pslopescatter2-1.pdf Graphic file (type
+ pdf)
+<use data-apps-text_files/figure-latex/pslopescatter2-1.pdf>
+
+Underfull \vbox (badness 8019) has occurred while \output is active []
+
+[94] [95]
+
+Package hyperref Warning: Suppressing empty link on input line 2773.
+
+File: data-apps-text_files/figure-latex/pslopescatter3-1.pdf Graphic file (type
+ pdf)
+<use data-apps-text_files/figure-latex/pslopescatter3-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[96]
+Overfull \hbox (28.92998pt too wide) in paragraph at lines 2808--2823
+ [][] 
+ []
+
+[97]
+Overfull \hbox (6.19499pt too wide) detected at line 2830
+[] [] [][][][] [] [][][][][][] [] [][][][][][][] [] [][][][][][][] [] [][][] []
+ [][][][][][] [] [][][] [] [][][][][][] [] [][][]
+ []
+
+[98]
+File: data-apps-text_files/figure-latex/interactscatter-1.pdf Graphic file (typ
+e pdf)
+<use data-apps-text_files/figure-latex/interactscatter-1.pdf>
+[99]
+Overfull \hbox (30.75998pt too wide) in paragraph at lines 2921--2934
+ [][] 
+ []
+
+[100] [101] [102]
+File: data-apps-text_files/figure-latex/lpmscatter-1.pdf Graphic file (type pdf
+)
+<use data-apps-text_files/figure-latex/lpmscatter-1.pdf>
+[103]
+Overfull \hbox (28.92998pt too wide) in paragraph at lines 3055--3070
+ [][] 
+ []
+
+
+Overfull \hbox (21.51102pt too wide) detected at line 3074
+[] [] [][][][][] [] [][][][][] [] [][][][][][][] [] [][][][][] [] [][][] [] [][
+][][][] [] [][][] [] [][][][][] [] [][][]
+ []
+
+[104]
+Underfull \vbox (badness 1028) has occurred while \output is active []
+
+[105] [106] [107
+
+]
+File: data-apps-text_files/figure-latex/quadscatter-1.pdf Graphic file (type pd
+f)
+<use data-apps-text_files/figure-latex/quadscatter-1.pdf>
+[108]
+Overfull \hbox (6.75998pt too wide) in paragraph at lines 3308--3321
+ [][] 
+ []
+
+[109] [110]
+File: images/logs_covid.png Graphic file (type bmp)
+<images/logs_covid.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[111] [112]
+
+Package hyperref Warning: Suppressing empty link on input line 3432.
+
+File: data-apps-text_files/figure-latex/gapskew-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/gapskew-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[113]
+File: data-apps-text_files/figure-latex/gaplog-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/gaplog-1.pdf>
+[114]
+File: data-apps-text_files/figure-latex/gapskewscatter-1.pdf Graphic file (type
+ pdf)
+<use data-apps-text_files/figure-latex/gapskewscatter-1.pdf>
+File: data-apps-text_files/figure-latex/gaplogscatter-1.pdf Graphic file (type 
+pdf)
+<use data-apps-text_files/figure-latex/gaplogscatter-1.pdf>
+[115] [116] [117]
+Overfull \hbox (48.77998pt too wide) in paragraph at lines 3606--3623
+ [][] 
+ []
+
+
+Overfull \hbox (48.77998pt too wide) in paragraph at lines 3629--3646
+ [][] 
+ []
+
+
+Underfull \vbox (badness 5189) has occurred while \output is active []
+
+[118]
+Overfull \hbox (48.77998pt too wide) in paragraph at lines 3652--3669
+ [][] 
+ []
+
+
+Package hyperref Warning: Suppressing empty link on input line 3684.
+
+[119] [120] [121
+
+]
+
+Package hyperref Warning: Suppressing empty link on input line 3754.
+
+
+Package hyperref Warning: Suppressing empty link on input line 3758.
+
+File: images/credible.png Graphic file (type bmp)
+<images/credible.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[122]
+
+Package hyperref Warning: Suppressing empty link on input line 3769.
+
+[123]
+
+Package hyperref Warning: Suppressing empty link on input line 3798.
+
+File: images/dag_basic.png Graphic file (type bmp)
+<images/dag_basic.png>
+[124]
+File: images/dag_reg.png Graphic file (type bmp)
+<images/dag_reg.png>
+[125]
+File: images/dag_confound.png Graphic file (type bmp)
+<images/dag_confound.png>
+
+Underfull \vbox (badness 2529) has occurred while \output is active []
+
+[126]
+File: images/dag_collide.png Graphic file (type bmp)
+<images/dag_collide.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[127] [128]
+File: images/dag_regovb.png Graphic file (type bmp)
+<images/dag_regovb.png>
+[129]
+File: images/dag_regnut.png Graphic file (type bmp)
+<images/dag_regnut.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[130]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[131]
+File: images/dag_ovbdirect.png Graphic file (type bmp)
+<images/dag_ovbdirect.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[132] [133] [134] [135
+
+] [136] [137
+
+]
+
+Package hyperref Warning: Suppressing empty link on input line 4089.
+
+File: images/normdist.png Graphic file (type bmp)
+<images/normdist.png>
+File: data-apps-text_files/figure-latex/profsaldist-1.pdf Graphic file (type pd
+f)
+<use data-apps-text_files/figure-latex/profsaldist-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[138]
+
+Package hyperref Warning: Suppressing empty link on input line 4113.
+
+
+Package hyperref Warning: Suppressing empty link on input line 4120.
+
+
+Underfull \vbox (badness 5893) has occurred while \output is active []
+
+[139]
+
+Package hyperref Warning: Suppressing empty link on input line 4131.
+
+File: data-apps-text_files/figure-latex/dieuniform-1.pdf Graphic file (type pdf
+)
+<use data-apps-text_files/figure-latex/dieuniform-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[140]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[141]
+File: data-apps-text_files/figure-latex/diepophist-1.pdf Graphic file (type pdf
+)
+<use data-apps-text_files/figure-latex/diepophist-1.pdf>
+File: data-apps-text_files/figure-latex/diesamp201-1.pdf Graphic file (type pdf
+)
+<use data-apps-text_files/figure-latex/diesamp201-1.pdf>
+[142]
+File: data-apps-text_files/figure-latex/diesamp202-1.pdf Graphic file (type pdf
+)
+<use data-apps-text_files/figure-latex/diesamp202-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[143]
+File: data-apps-text_files/figure-latex/diesampdist20100-1.pdf Graphic file (ty
+pe pdf)
+<use data-apps-text_files/figure-latex/diesampdist20100-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[144]
+File: data-apps-text_files/figure-latex/diesampdist33-1.pdf Graphic file (type 
+pdf)
+<use data-apps-text_files/figure-latex/diesampdist33-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[145] [146]
+File: data-apps-text_files/figure-latex/diesampdist1000-1.pdf Graphic file (typ
+e pdf)
+<use data-apps-text_files/figure-latex/diesampdist1000-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[147] [148] [149] [150] [151
+
+] [152] [153] [154] [155] [156] [157]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 4578--4578
+[]\TU/lmtt/m/n/10 alternative hypothesis: true difference in means is not equal
+ to 0[] 
+ []
+
+
+Package hyperref Warning: Suppressing empty link on input line 4583.
+
+[158] [159] [160
+
+]
+
+Package hyperref Warning: Suppressing empty link on input line 4648.
+
+
+Package hyperref Warning: Suppressing empty link on input line 4648.
+
+
+Package hyperref Warning: Suppressing empty link on input line 4648.
+
+
+Package hyperref Warning: Suppressing empty link on input line 4648.
+
+
+Overfull \hbox (28.92998pt too wide) in paragraph at lines 4654--4669
+ [][] 
+ []
+
+[161] [162] [163] [164] [165] [166] [167] [168
+
+]
+File: images/credible.png Graphic file (type bmp)
+<images/credible.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[169] [170]
+File: images/genericreg.png Graphic file (type bmp)
+<images/genericreg.png>
+File: images/genericrvfp.png Graphic file (type bmp)
+<images/genericrvfp.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[171]
+File: images/rvfp_linear.png Graphic file (type bmp)
+<images/rvfp_linear.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[172]
+File: images/rvfp_normal.png Graphic file (type bmp)
+<images/rvfp_normal.png>
+File: images/rvfp_equal.png Graphic file (type bmp)
+<images/rvfp_equal.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[173]
+
+Package hyperref Warning: Suppressing empty link on input line 4890.
+
+[174]
+
+Package hyperref Warning: Suppressing empty link on input line 4901.
+
+
+Package hyperref Warning: Suppressing empty link on input line 4903.
+
+
+Package hyperref Warning: Suppressing empty link on input line 4903.
+
+[175]
+File: images/influential.png Graphic file (type bmp)
+<images/influential.png>
+File: images/rvlp.png Graphic file (type bmp)
+<images/rvlp.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[176]
+
+Package hyperref Warning: Suppressing empty link on input line 4949.
+
+[177] [178
+
+] [179] [180]
+
+Package hyperref Warning: Suppressing empty link on input line 4990.
+
+[181
+
+]
+File: data-apps-text_files/figure-latex/usgdp-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/usgdp-1.pdf>
+
+Underfull \vbox (badness 2970) has occurred while \output is active []
+
+[182]
+File: data-apps-text_files/figure-latex/sales-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/sales-1.pdf>
+[183]
+File: data-apps-text_files/figure-latex/acfgdp-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/acfgdp-1.pdf>
+
+Underfull \vbox (badness 1917) has occurred while \output is active []
+
+[184]
+File: data-apps-text_files/figure-latex/acfsales-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/acfsales-1.pdf>
+File: data-apps-text_files/figure-latex/wn-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/wn-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[185]
+File: data-apps-text_files/figure-latex/acfwn-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/acfwn-1.pdf>
+[186]
+File: data-apps-text_files/figure-latex/lagtime-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/lagtime-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[187]
+File: data-apps-text_files/figure-latex/checkresidual-1.pdf Graphic file (type 
+pdf)
+<use data-apps-text_files/figure-latex/checkresidual-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[188]
+
+Package hyperref Warning: Suppressing empty link on input line 5163.
+
+
+Underfull \vbox (badness 4647) has occurred while \output is active []
+
+[189]
+Overfull \hbox (80.84996pt too wide) in paragraph at lines 5171--5178
+ [][] 
+ []
+
+File: data-apps-text_files/figure-latex/formean-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/formean-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[190]
+File: data-apps-text_files/figure-latex/fornaive-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/fornaive-1.pdf>
+File: data-apps-text_files/figure-latex/fordrift-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/fordrift-1.pdf>
+[191]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[192]
+File: data-apps-text_files/figure-latex/gdpdriftresid-1.pdf Graphic file (type 
+pdf)
+<use data-apps-text_files/figure-latex/gdpdriftresid-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[193]
+File: data-apps-text_files/figure-latex/fcompare2-1.pdf Graphic file (type pdf)
+
+<use data-apps-text_files/figure-latex/fcompare2-1.pdf>
+File: data-apps-text_files/figure-latex/fcompare2-2.pdf Graphic file (type pdf)
+
+<use data-apps-text_files/figure-latex/fcompare2-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[194]
+File: data-apps-text_files/figure-latex/fcompare2-3.pdf Graphic file (type pdf)
+
+<use data-apps-text_files/figure-latex/fcompare2-3.pdf>
+[195]
+File: data-apps-text_files/figure-latex/salesresid-1.pdf Graphic file (type pdf
+)
+<use data-apps-text_files/figure-latex/salesresid-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[196] [197] [198
+
+]
+
+Package hyperref Warning: Suppressing empty link on input line 5341.
+
+[199]
+
+Package hyperref Warning: Suppressing empty link on input line 5391.
+
+File: data-apps-text_files/figure-latex/pslopescatter3rep-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/pslopescatter3rep-1.pdf>
+[200]
+File: data-apps-text_files/figure-latex/feviz-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/feviz-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[201]
+File: data-apps-text_files/figure-latex/olsviz-1.pdf Graphic file (type pdf)
+<use data-apps-text_files/figure-latex/olsviz-1.pdf>
+[202]
+
+Package hyperref Warning: Suppressing empty link on input line 5424.
+
+
+Overfull \hbox (28.92998pt too wide) in paragraph at lines 5435--5450
+ [][] 
+ []
+
+[203] [204
+
+] [205] [206]
+Underfull \vbox (badness 3009) has occurred while \output is active []
+
+[207
+
+]
+File: images/rstudio_sshot.png Graphic file (type bmp)
+<images/rstudio_sshot.png>
+[208] [209]
+Underfull \hbox (badness 1728) in paragraph at lines 5600--5607
+[]\TU/lmr/bx/n/10 Exercise 5 \TU/lmr/m/up/10 We will almost always need to use 
+a package called
+ []
+
+
+Underfull \hbox (badness 1009) in paragraph at lines 5600--5607
+\TU/lmtt/m/n/10 tidyverse\TU/lmr/m/up/10 . In your \TU/lmr/bx/n/10 console pane
+ \TU/lmr/m/up/10 (bottom-left) of RStudio, type
+ []
+
+[210] [211] [212
+
+] [213] [214]
+
+Package hyperref Warning: Suppressing empty link on input line 5787.
+
+[215] [216] [217
+
+]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 5927.
+[218]
+
+Package hyperref Warning: Suppressing empty link on input line 5958.
+
+[219] [220] [221] [222]
+Underfull \vbox (badness 1242) has occurred while \output is active []
+
+[223
+
+]
+
+Package hyperref Warning: Suppressing empty link on input line 6186.
+
+[224] [225]
+Underfull \hbox (badness 3919) in paragraph at lines 6314--6315
+[]\TU/lmr/m/up/10 We would almost certainly want to suppress this code and outp
+ut
+ []
+
+[226]
+Underfull \vbox (badness 1189) has occurred while \output is active []
+
+[227] [228] [229]
+Overfull \hbox (36.0pt too wide) in alignment at lines 6546--6565
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (36.0pt too wide) in alignment at lines 6565--6583
+ [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (7.60849pt too wide) in paragraph at lines 6692--6693
+ \TU/lmr/m/up/10 (15490923)| 
+ []
+
+
+Overfull \hbox (4.52019pt too wide) in paragraph at lines 6694--6695
+ \TU/lmr/m/up/10 (50979430)| 
+ []
+
+
+Overfull \hbox (9.52019pt too wide) in paragraph at lines 6696--6697
+ \TU/lmr/m/up/10 (206885205)| 
+ []
+
+
+Overfull \hbox (4.52019pt too wide) in paragraph at lines 6698--6699
+ \TU/lmr/m/up/10 (20519438)| 
+ []
+
+
+Overfull \hbox (2.60849pt too wide) in paragraph at lines 6700--6701
+ \TU/lmr/m/up/10 (6506342)| 
+ []
+
+
+Overfull \hbox (9.52019pt too wide) in paragraph at lines 6702--6703
+ \TU/lmr/m/up/10 (106157897)| 
+ []
+
+
+Overfull \hbox (4.82849pt too wide) in paragraph at lines 6707--6708
+ \TU/lmr/m/up/10 135031164| 
+ []
+
+
+Overfull \hbox (1.74019pt too wide) in paragraph at lines 6709--6710
+ \TU/lmr/m/up/10 301139947| 
+ []
+
+
+Overfull \hbox (6.74019pt too wide) in paragraph at lines 6711--6712
+ \TU/lmr/m/up/10 1318683096| 
+ []
+
+
+Overfull \hbox (6.74019pt too wide) in paragraph at lines 6717--6718
+ \TU/lmr/m/up/10 1318683096| 
+ []
+
+
+Overfull \hbox (36.0pt too wide) in alignment at lines 6583--6720
+ [] [] [] [] [] [] [] 
+ []
+
+[230]
+
+Package hyperref Warning: Suppressing empty link on input line 6761.
+
+[231] [232]
+
+Package hyperref Warning: Suppressing empty link on input line 6828.
+
+[233
+
+] [234]
+File: data-apps-text_files/figure-latex/unnamed-chunk-132-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-132-1.pdf>
+[235]
+
+Package hyperref Warning: Suppressing empty link on input line 6977.
+
+File: data-apps-text_files/figure-latex/gradmedhistrep-1.pdf Graphic file (type
+ pdf)
+<use data-apps-text_files/figure-latex/gradmedhistrep-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[236]
+File: data-apps-text_files/figure-latex/unnamed-chunk-133-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-133-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[237]
+
+Package hyperref Warning: Suppressing empty link on input line 7021.
+
+[238]
+File: data-apps-text_files/figure-latex/gradmedboxrep-1.pdf Graphic file (type 
+pdf)
+<use data-apps-text_files/figure-latex/gradmedboxrep-1.pdf>
+File: data-apps-text_files/figure-latex/unnamed-chunk-136-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-136-1.pdf>
+
+Underfull \vbox (badness 7558) has occurred while \output is active []
+
+[239]
+
+Package hyperref Warning: Suppressing empty link on input line 7066.
+
+
+Overfull \hbox (138.65001pt too wide) in paragraph at lines 7068--7081
+[][] 
+ []
+
+
+Package hyperref Warning: Suppressing empty link on input line 7082.
+
+[240]
+File: data-apps-text_files/figure-latex/unnamed-chunk-139-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-139-1.pdf>
+File: data-apps-text_files/figure-latex/unnamed-chunk-140-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-140-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[241]
+File: data-apps-text_files/figure-latex/unnamed-chunk-141-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-141-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[242]
+File: data-apps-text_files/figure-latex/unnamed-chunk-142-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-142-1.pdf>
+[243]
+File: data-apps-text_files/figure-latex/unnamed-chunk-143-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-143-1.pdf>
+[244]
+File: data-apps-text_files/figure-latex/unnamed-chunk-145-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-145-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[245]
+File: data-apps-text_files/figure-latex/unnamed-chunk-146-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-146-1.pdf>
+
+Package hyperref Warning: Suppressing empty link on input line 7200.
+
+[246]
+File: data-apps-text_files/figure-latex/unnamed-chunk-147-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-147-1.pdf>
+File: data-apps-text_files/figure-latex/unnamed-chunk-148-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-148-1.pdf>
+
+Underfull \vbox (badness 6893) has occurred while \output is active []
+
+[247] [248]
+File: data-apps-text_files/figure-latex/unnamed-chunk-150-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-150-1.pdf>
+[249] [250
+
+] [251]
+
+Package hyperref Warning: Suppressing empty link on input line 7346.
+
+
+Package hyperref Warning: Suppressing empty link on input line 7346.
+
+[252]
+
+Package hyperref Warning: Suppressing empty link on input line 7396.
+
+
+Package hyperref Warning: Suppressing empty link on input line 7411.
+
+[253]
+
+Package hyperref Warning: Suppressing empty link on input line 7447.
+
+[254] [255] [256] [257]
+Overfull \hbox (54.0pt too wide) in paragraph at lines 7713--7713
+[]\TU/lmtt/m/n/10 lm(formula = fed_spend ~ poverty + homeownership + income, da
+ta = selcounty)[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 7713--7713
+[]\TU/lmtt/m/n/10 (Intercept)   23.51860    1.33290  17.645 < 0.000000000000000
+2 ***[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 7713--7713
+[]\TU/lmtt/m/n/10 homeownership -0.12582    0.01172 -10.736 < 0.000000000000000
+2 ***[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 7713--7713
+[]\TU/lmtt/m/n/10 income        -0.08593    0.01113  -7.723   0.000000000000015
+2 ***[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 7713--7713
+[]\TU/lmtt/m/n/10 F-statistic: 71.06 on 3 and 3119 DF,  p-value: < 0.0000000000
+0000022[] 
+ []
+
+[258] [259] [260
+
+]
+
+Package hyperref Warning: Suppressing empty link on input line 7808.
+
+[261] [262]
+
+Package hyperref Warning: Suppressing empty link on input line 7926.
+
+[263] [264] [265] [266]
+
+Package hyperref Warning: Suppressing empty link on input line 8126.
+
+[267
+
+]
+
+Package hyperref Warning: Suppressing empty link on input line 8139.
+
+[268]
+
+Package hyperref Warning: Suppressing empty link on input line 8204.
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 8223--8223
+[]\TU/lmtt/m/n/10 alternative hypothesis: true difference in means is not equal
+ to 0[] 
+ []
+
+[269] [270] [271
+
+]
+
+Package hyperref Warning: Suppressing empty link on input line 8321.
+
+
+Package hyperref Warning: Suppressing empty link on input line 8321.
+
+[272]
+File: data-apps-text_files/figure-latex/unnamed-chunk-202-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-202-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[273]
+File: data-apps-text_files/figure-latex/unnamed-chunk-202-2.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-202-2.pdf>
+File: data-apps-text_files/figure-latex/unnamed-chunk-202-3.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-202-3.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[274]
+File: data-apps-text_files/figure-latex/unnamed-chunk-202-4.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-202-4.pdf>
+
+Underfull \vbox (badness 2253) has occurred while \output is active []
+
+[275] [276]
+Overfull \hbox (54.0pt too wide) in paragraph at lines 8493--8493
+[]\TU/lmtt/m/n/10 lm(formula = fed_spend ~ poverty + homeownership + income, da
+ta = selcounty)[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 8493--8493
+[]                       \TU/lmtt/m/n/10 Value      p-value                   D
+ecision[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 8493--8493
+[]\TU/lmtt/m/n/10 Global Stat        32128.558 0.0000000000 Assumptions NOT sat
+isfied![] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 8493--8493
+[]\TU/lmtt/m/n/10 Skewness            4772.305 0.0000000000 Assumptions NOT sat
+isfied![] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 8493--8493
+[]\TU/lmtt/m/n/10 Kurtosis           27323.830 0.0000000000 Assumptions NOT sat
+isfied![] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 8493--8493
+[]\TU/lmtt/m/n/10 Link Function          4.702 0.0301309727 Assumptions NOT sat
+isfied![] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 8493--8493
+[]\TU/lmtt/m/n/10 Heteroscedasticity    27.721 0.0000001401 Assumptions NOT sat
+isfied![] 
+ []
+
+[277]
+Overfull \hbox (97.85995pt too wide) in paragraph at lines 8512--8527
+[][] 
+ []
+
+[278] [279]
+Overfull \hbox (96.0pt too wide) in paragraph at lines 8648--8648
+[]\TU/lmtt/m/n/10 lm(formula = fed_spend ~ poverty + homeownership + income, da
+ta = selcounty[-c(2907,[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8661--8662
+[]\TU/lmtt/m/n/10 Error in lm.fit(x, y, offset = offset, singular.ok = singular
+.ok,
+ []
+
+[280]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 8731--8731
+[]\TU/lmtt/m/n/10 lm(formula = log(fed_spend) ~ poverty + homeownership + log(i
+ncome),[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 8731--8731
+[]                          \TU/lmtt/m/n/10 Value p-value                   Dec
+ision[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 8731--8731
+[]\TU/lmtt/m/n/10 Global Stat        1210.5140072  0.0000 Assumptions NOT satis
+fied![] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 8731--8731
+[]\TU/lmtt/m/n/10 Skewness            452.0579572  0.0000 Assumptions NOT satis
+fied![] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 8731--8731
+[]\TU/lmtt/m/n/10 Kurtosis            758.3481943  0.0000 Assumptions NOT satis
+fied![] 
+ []
+
+[281]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 8731--8731
+[]\TU/lmtt/m/n/10 Link Function         0.1076608  0.7428    Assumptions accept
+able.[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 8731--8731
+[]\TU/lmtt/m/n/10 Heteroscedasticity    0.0001948  0.9889    Assumptions accept
+able.[] 
+ []
+
+File: data-apps-text_files/figure-latex/unnamed-chunk-219-1.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-219-1.pdf>
+File: data-apps-text_files/figure-latex/unnamed-chunk-219-2.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-219-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[282]
+File: data-apps-text_files/figure-latex/unnamed-chunk-219-3.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-219-3.pdf>
+File: data-apps-text_files/figure-latex/unnamed-chunk-219-4.pdf Graphic file (t
+ype pdf)
+<use data-apps-text_files/figure-latex/unnamed-chunk-219-4.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[283] [284]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 8811--8811
+[]\TU/lmtt/m/n/10 $ country   <fct> Afghanistan, Afghanistan, Afghanistan, Afgh
+anistan, ...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 8811--8811
+[]\TU/lmtt/m/n/10 $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, A
+sia, Asia...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 8811--8811
+[]\TU/lmtt/m/n/10 $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1
+987, 1992...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 8811--8811
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 28.801, 30.332, 31.997, 34.020, 36.088, 38.
+438, 39.8...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 8811--8811
+[]\TU/lmtt/m/n/10 $ pop       <int> 8425333, 9240934, 10267083, 11537966, 13079
+460, 1488...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 8811--8811
+[]\TU/lmtt/m/n/10 $ gdpPercap <dbl> 779.4453, 820.8530, 853.1007, 836.1971, 739
+.9811, 78...[] 
+ []
+
+[285
+
+]
+Overfull \hbox (34.6678pt too wide) in paragraph at lines 8866--8867
+[]\TU/lmr/m/up/10 Note that R did not print out the result like it did when I r
+an \TU/lmtt/m/n/10 mean(gapminder$lifeExp)
+ []
+
+[286] [287] [288] [289] [290
+
+] [291]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9054--9054
+[]\TU/lmtt/m/n/10 $ country   <fct> Afghanistan, Afghanistan, Afghanistan, Afgh
+anistan, ...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9054--9054
+[]\TU/lmtt/m/n/10 $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, A
+sia, Asia...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9054--9054
+[]\TU/lmtt/m/n/10 $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1
+987, 1992...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9054--9054
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 28.801, 30.332, 31.997, 34.020, 36.088, 38.
+438, 39.8...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9054--9054
+[]\TU/lmtt/m/n/10 $ pop       <int> 8425333, 9240934, 10267083, 11537966, 13079
+460, 1488...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9054--9054
+[]\TU/lmtt/m/n/10 $ gdpPercap <dbl> 779.4453, 820.8530, 853.1007, 836.1971, 739
+.9811, 78...[] 
+ []
+
+[292]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9075--9075
+[]\TU/lmtt/m/n/10 $ country   <fct> Afghanistan, Afghanistan, Afghanistan, Afgh
+anistan, ...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9075--9075
+[]\TU/lmtt/m/n/10 $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, A
+sia, Asia...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9075--9075
+[]\TU/lmtt/m/n/10 $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1
+987, 1992...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9075--9075
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 28.801, 30.332, 31.997, 34.020, 36.088, 38.
+438, 39.8...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9075--9075
+[]\TU/lmtt/m/n/10 $ pop       <int> 8425333, 9240934, 10267083, 11537966, 13079
+460, 1488...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9075--9075
+[]\TU/lmtt/m/n/10 $ gdpPercap <dbl> 779.4453, 820.8530, 853.1007, 836.1971, 739
+.9811, 78...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9098--9098
+[]\TU/lmtt/m/n/10 $ country   <fct> "Afghanistan", "Bahrain", "Bangladesh", "Ca
+mbodia", ...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9098--9098
+[]\TU/lmtt/m/n/10 $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, A
+sia, Asia...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9098--9098
+[]\TU/lmtt/m/n/10 $ year      <int> 1952, 1952, 1952, 1952, 1952, 1952, 1952, 1
+952, 1952...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9098--9098
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 28.801, 50.939, 37.484, 39.417, 44.000, 60.
+960, 37.3...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9098--9098
+[]\TU/lmtt/m/n/10 $ pop       <int> 8425333, 120447, 46886859, 4693836, 5562635
+27, 21259...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9098--9098
+[]\TU/lmtt/m/n/10 $ gdpPercap <dbl> 779.4453, 9867.0848, 684.2442, 368.4693, 40
+0.4486, 3...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9121--9121
+[]\TU/lmtt/m/n/10 $ country   <fct> "Afghanistan", "Bangladesh", "Cambodia", "I
+ndia", "I...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9121--9121
+[]\TU/lmtt/m/n/10 $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, A
+sia, Asia...[] 
+ []
+
+[293]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9121--9121
+[]\TU/lmtt/m/n/10 $ year      <int> 1952, 1952, 1952, 1952, 1952, 1952, 1952, 1
+952, 1952...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9121--9121
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 28.801, 37.484, 39.417, 37.373, 37.468, 36.
+319, 36.1...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9121--9121
+[]\TU/lmtt/m/n/10 $ pop       <int> 8425333, 46886859, 4693836, 372000000, 8205
+2000, 200...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9121--9121
+[]\TU/lmtt/m/n/10 $ gdpPercap <dbl> 779.4453, 684.2442, 368.4693, 546.5657, 749
+.6817, 33...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9144--9144
+[]\TU/lmtt/m/n/10 $ country   <fct> Albania, Albania, Albania, Albania, Albania
+, Albania...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9144--9144
+[]\TU/lmtt/m/n/10 $ continent <fct> Europe, Europe, Europe, Europe, Europe, Eur
+ope, Euro...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9144--9144
+[]\TU/lmtt/m/n/10 $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1
+987, 1992...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9144--9144
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 55.230, 59.280, 64.820, 66.220, 67.690, 68.
+930, 70.4...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9144--9144
+[]\TU/lmtt/m/n/10 $ pop       <int> 1282697, 1476505, 1728137, 1984060, 2263554
+, 2509048...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9144--9144
+[]\TU/lmtt/m/n/10 $ gdpPercap <dbl> 1601.056, 1942.284, 2312.889, 2760.197, 331
+3.422, 35...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9165--9165
+[]\TU/lmtt/m/n/10 $ country   <fct> Albania, Albania, Albania, Albania, Albania
+, Albania...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9165--9165
+[]\TU/lmtt/m/n/10 $ continent <fct> Europe, Europe, Europe, Europe, Europe, Eur
+ope, Euro...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9165--9165
+[]\TU/lmtt/m/n/10 $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1
+987, 1992...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9165--9165
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 55.230, 59.280, 64.820, 66.220, 67.690, 68.
+930, 70.4...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9165--9165
+[]\TU/lmtt/m/n/10 $ pop       <int> 1282697, 1476505, 1728137, 1984060, 2263554
+, 2509048...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9165--9165
+[]\TU/lmtt/m/n/10 $ gdpPercap <dbl> 1601.056, 1942.284, 2312.889, 2760.197, 331
+3.422, 35...[] 
+ []
+
+[294]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9186--9186
+[]\TU/lmtt/m/n/10 $ country   <fct> Albania, Albania, Albania, Albania, Albania
+, Albania...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9186--9186
+[]\TU/lmtt/m/n/10 $ continent <fct> Europe, Europe, Europe, Europe, Europe, Eur
+ope, Euro...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9186--9186
+[]\TU/lmtt/m/n/10 $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1
+987, 1992...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9186--9186
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 55.230, 59.280, 64.820, 66.220, 67.690, 68.
+930, 70.4...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9186--9186
+[]\TU/lmtt/m/n/10 $ pop       <int> 1282697, 1476505, 1728137, 1984060, 2263554
+, 2509048...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9186--9186
+[]\TU/lmtt/m/n/10 $ gdpPercap <dbl> 1601.056, 1942.284, 2312.889, 2760.197, 331
+3.422, 35...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9210--9210
+[]\TU/lmtt/m/n/10 $ country   <fct> Afghanistan, Afghanistan, Afghanistan, Afgh
+anistan, ...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9210--9210
+[]\TU/lmtt/m/n/10 $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, A
+sia, Asia...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9210--9210
+[]\TU/lmtt/m/n/10 $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1
+987, 1992...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9210--9210
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 28.801, 30.332, 31.997, 34.020, 36.088, 38.
+438, 39.8...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9229--9229
+[]\TU/lmtt/m/n/10 $ country   <fct> Afghanistan, Afghanistan, Afghanistan, Afgh
+anistan, ...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9229--9229
+[]\TU/lmtt/m/n/10 $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, A
+sia, Asia...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9229--9229
+[]\TU/lmtt/m/n/10 $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1
+987, 1992...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9229--9229
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 28.801, 30.332, 31.997, 34.020, 36.088, 38.
+438, 39.8...[] 
+ []
+
+[295]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9248--9248
+[]\TU/lmtt/m/n/10 $ country   <fct> Afghanistan, Afghanistan, Afghanistan, Afgh
+anistan, ...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9248--9248
+[]\TU/lmtt/m/n/10 $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, A
+sia, Asia...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9248--9248
+[]\TU/lmtt/m/n/10 $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1
+987, 1992...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9248--9248
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 28.801, 30.332, 31.997, 34.020, 36.088, 38.
+438, 39.8...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9274--9274
+[]\TU/lmtt/m/n/10 $ country   <fct> Afghanistan, Afghanistan, Afghanistan, Afgh
+anistan, ...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9274--9274
+[]\TU/lmtt/m/n/10 $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, A
+sia, Asia...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9274--9274
+[]\TU/lmtt/m/n/10 $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1
+987, 1992...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9274--9274
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 28.801, 30.332, 31.997, 34.020, 36.088, 38.
+438, 39.8...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9274--9274
+[]\TU/lmtt/m/n/10 $ pop       <int> 8425333, 9240934, 10267083, 11537966, 13079
+460, 1488...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9274--9274
+[]\TU/lmtt/m/n/10 $ gdpPercap <dbl> 0.7794453, 0.8208530, 0.8531007, 0.8361971,
+ 0.739981...[] 
+ []
+
+[296]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9299--9299
+[]\TU/lmtt/m/n/10 $ country   <fct> Afghanistan, Afghanistan, Afghanistan, Afgh
+anistan, ...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9299--9299
+[]\TU/lmtt/m/n/10 $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, A
+sia, Asia...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9299--9299
+[]\TU/lmtt/m/n/10 $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1
+987, 1992...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9299--9299
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 28.801, 30.332, 31.997, 34.020, 36.088, 38.
+438, 39.8...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9299--9299
+[]\TU/lmtt/m/n/10 $ pop       <int> 8425333, 9240934, 10267083, 11537966, 13079
+460, 1488...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9299--9299
+[]\TU/lmtt/m/n/10 $ gdpPercap <dbl> 0.7794453, 0.8208530, 0.8531007, 0.8361971,
+ 0.739981...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9299--9299
+[]\TU/lmtt/m/n/10 $ gdp       <dbl> 6567086, 7585449, 8758856, 9648014, 9678553
+, 1169765...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9324--9324
+[]\TU/lmtt/m/n/10 $ country   <fct> Afghanistan, Afghanistan, Afghanistan, Afgh
+anistan, ...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9324--9324
+[]\TU/lmtt/m/n/10 $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, A
+sia, Asia...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9324--9324
+[]\TU/lmtt/m/n/10 $ year      <dbl> 195200, 195700, 196200, 196700, 197200, 197
+700, 1982...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9324--9324
+[]\TU/lmtt/m/n/10 $ lifeExp   <dbl> 2880.1, 3033.2, 3199.7, 3402.0, 3608.8, 384
+3.8, 3985...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9324--9324
+[]\TU/lmtt/m/n/10 $ pop       <dbl> 842533300, 924093400, 1026708300, 115379660
+0, 130794...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9324--9324
+[]\TU/lmtt/m/n/10 $ gdpPercap <dbl> 77944.53, 82085.30, 85310.07, 83619.71, 739
+98.11, 78...[] 
+ []
+
+[297]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9352--9352
+[]\TU/lmtt/m/n/10 $ country      <fct> Albania, Austria, Belgium, Bosnia and He
+rzegovina...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9352--9352
+[]\TU/lmtt/m/n/10 $ year         <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007
+, 2007, 2...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9352--9352
+[]\TU/lmtt/m/n/10 $ gdp_billions <dbl> 21.376411, 296.229401, 350.141167, 33.89
+7027, 78....[] 
+ []
+
+[298]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9395--9395
+[]\TU/lmtt/m/n/10 $ country      <fct> Albania, Austria, Belgium, Bosnia and He
+rzegovina...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9395--9395
+[]\TU/lmtt/m/n/10 $ year         <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007
+, 2007, 2...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9395--9395
+[]\TU/lmtt/m/n/10 $ gdp_billions <dbl> 21.376411, 296.229401, 350.141167, 33.89
+7027, 78....[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9395--9395
+[]\TU/lmtt/m/n/10 $ rich         <chr> "no", "no", "no", "no", "no", "no", "no"
+, "no", "...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9421--9421
+[]\TU/lmtt/m/n/10 $ country      <fct> Albania, Austria, Belgium, Bosnia and He
+rzegovina...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9421--9421
+[]\TU/lmtt/m/n/10 $ year         <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007
+, 2007, 2...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9421--9421
+[]\TU/lmtt/m/n/10 $ gdp_billions <dbl> 21.376411, 296.229401, 350.141167, 33.89
+7027, 78....[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9421--9421
+[]\TU/lmtt/m/n/10 $ rich         <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0
+, 0, 1, 0...[] 
+ []
+
+[299]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9443--9443
+[]\TU/lmtt/m/n/10 $ country      <fct> Montenegro, Iceland, Albania, Bosnia and
+ Herzegov...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9443--9443
+[]\TU/lmtt/m/n/10 $ year         <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007
+, 2007, 2...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9443--9443
+[]\TU/lmtt/m/n/10 $ gdp_billions <dbl> 6.336476, 10.924102, 21.376411, 33.89702
+7, 51.774...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9443--9443
+[]\TU/lmtt/m/n/10 $ rich         <dbl> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+, 0, 0, 0...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9462--9462
+[]\TU/lmtt/m/n/10 $ country      <fct> Germany, United Kingdom, France, Italy, 
+Spain, Ne...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9462--9462
+[]\TU/lmtt/m/n/10 $ year         <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007
+, 2007, 2...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9462--9462
+[]\TU/lmtt/m/n/10 $ gdp_billions <dbl> 2650.87089, 2017.96931, 1861.22794, 1661
+.26443, 1...[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9462--9462
+[]\TU/lmtt/m/n/10 $ rich         <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0
+, 0, 0, 0...[] 
+ []
+
+[300] [301]
+Underfull \vbox (badness 4378) has occurred while \output is active []
+
+[302] [303] [304] [305] [306
+
+]
+
+Package hyperref Warning: Suppressing empty link on input line 9732.
+
+[307]
+File: data-apps-text_files/figure-latex/povfedscatter3-1.pdf Graphic file (type
+ pdf)
+<use data-apps-text_files/figure-latex/povfedscatter3-1.pdf>
+[308] [309] [310
+
+] [311] [312] [313] [314] [315] [316
+
+] (./data-apps-text.ind) (./data-apps-text.aux)
+
+ *File List*
+    book.cls    2020/04/10 v1.4m Standard LaTeX document class
+    bk10.clo    2020/04/10 v1.4m Standard LaTeX file (size option)
+ lmodern.sty    2009/10/30 v1.6 Latin Modern Fonts
+ amsmath.sty    2020/09/23 v2.17i AMS math features
+ amstext.sty    2000/06/29 v2.01 AMS text
+  amsgen.sty    1999/11/30 v2.0 generic functions
+  amsbsy.sty    1999/11/29 v1.2d Bold Symbols
+  amsopn.sty    2016/03/08 v2.02 operator names
+ ifxetex.sty    2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+   iftex.sty    2020/03/06 v1.0d TeX engine tests
+ifluatex.sty    2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+unicode-math.sty    2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
+   expl3.sty    2020-12-07 L3 programming layer (loader) 
+l3backend-xetex.def    2020-09-24 L3 backend support: XeTeX
+unicode-math-xetex.sty    2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTe
+X
+  xparse.sty    2020-10-27 L3 Experimental document command parser
+l3keys2e.sty    2020-10-27 LaTeX2e option processing using LaTeX3 keys
+fontspec.sty    2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
+fontspec-xetex.sty    2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
+ fontenc.sty
+fontspec.cfg
+  fix-cm.sty    2015/01/14 v1.1t fixes to LaTeX
+  ts1enc.def    2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+ parskip.sty    2020-06-15 v2.0f non-zero parskip adjustments
+kvoptions.sty    2020-10-07 v3.14 Key value format for package options (HO)
+  keyval.sty    2014/10/28 v1.15 key=value parser (DPC)
+ ltxcmds.sty    2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+kvsetkeys.sty    2019/12/15 v1.18 Key value parser (HO)
+etoolbox.sty    2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+  xcolor.sty    2016/05/11 v2.12 LaTeX color extensions (UK)
+   color.cfg    2016/01/02 v1.6 sample color configuration
+   xetex.def    2020/08/26 v5.0i Graphics/color driver for xetex
+dvipsnam.def    2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+  svgnam.def    2016/05/11 v2.12 Predefined colors according to SVG 1.1 (UK)
+  x11nam.def    2016/05/11 v2.12 Predefined colors according to Unix/X11 (UK)
+hyperref.sty    2020-05-15 v7.00e Hypertext links for LaTeX
+pdftexcmds.sty    2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+infwarerr.sty    2019/12/03 v1.5 Providing info/warning/error messages (HO)
+kvdefinekeys.sty    2019-12-19 v1.6 Define keys (HO)
+pdfescape.sty    2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ hycolor.sty    2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+letltxmacro.sty    2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+ auxhook.sty    2019-12-17 v1.6 Hooks for auxiliary files (HO)
+  pd1enc.def    2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
+ intcalc.sty    2019/12/15 v1.3 Expandable calculations with integers (HO)
+etexcmds.sty    2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+   puenc.def    2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
+     url.sty    2013/09/16  ver 3.4  Verb mode for urls, etc.
+  bitset.sty    2019/12/09 v1.3 Handle bit-vector datatype (HO)
+bigintcalc.sty    2019/12/15 v1.5 Expandable calculations on big integers (HO)
+atbegshi-ltx.sty    2020/08/17 v1.0a Emulation of the original atbegshi package
+
+with kernel methods
+  hxetex.def    2020-05-15 v7.00e Hyperref driver for XeTeX
+stringenc.sty    2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+rerunfilecheck.sty    2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+atveryend-ltx.sty    2020/08/19 v1.0a Emulation of the original atvery package
+with kernel methods
+uniquecounter.sty    2019/12/15 v1.4 Provide unlimited unique counter (HO)
+fancyvrb.sty    2020/05/03 v3.6 verbatim text (tvz,hv)
+  framed.sty    2011/10/22 v 0.96: framed or shaded text with page breaks
+longtable.sty    2020/01/07 v4.13 Multi-page Table package (DPC)
+booktabs.sty    2020/01/12 v1.61803398 Publication quality tables
+    calc.sty    2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+footnote.sty    1997/01/28 1.13 Save footnotes around boxes
+graphicx.sty    2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+graphics.sty    2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+    trig.sty    2016/01/03 v1.10 sin cos tan (DPC)
+graphics.cfg    2016/06/04 v1.11 sample graphics configuration
+     bbm.sty    1999/03/15 V 1.2 provides fonts for set symbols - TH
+ caption.sty    2020/10/26 v3.5g Customizing captions (AR)
+caption3.sty    2020/10/21 v2.2e caption3 kernel (AR)
+ltcaption.sty    2020/05/30 v1.4b longtable captions (AR)
+   float.sty    2001/11/08 v1.3d Float enhancements (AL)
+   array.sty    2020/10/01 v2.5c Tabular extension package (FMi)
+multirow.sty    2021/01/02 v2.6 Span multiple rows of a table
+ wrapfig.sty    2003/01/31  v 3.6
+colortbl.sty    2020/01/04 v1.0e Color table columns (DPC)
+pdflscape.sty    2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+  lscape.sty    2020/05/28 v3.02 Landscape Pages (DPC)
+    tabu.sty    2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
+varwidth.sty    2009/03/30 ver 0.92;  Variable-width minipages
+threeparttable.sty    2003/06/13  v 3.0
+threeparttablex.sty    2013/07/23 v0.3 by daleif
+ environ.sty    2014/05/04 v0.3 A new way to define environments
+trimspaces.sty    2009/09/17 v1.1 Trim spaces around a token list
+    ulem.sty    2019/11/18
+makecell.sty    2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+   kotex.sty    2015/04/19 v1.6 Korean TeX (ko.TeX)
+ xetexko.sty    2020/02/17 v2.23 Typesetting Korean with XeTeX
+xetexko-space.sty    2020/02/17 v2.23 Spacings and fonts for XeTeX-ko
+xetexko-josa.sty    2020/02/17 v2.23 Auto-josa for XeTeX-ko
+xetexko-font.sty    2020/02/17 v2.23 LaTeX Font commands for XeTeX-ko
+xetexko-vertical.sty    2020/02/17 v2.23 Vertical environment for XeTeX-ko
+kolabels-utf.sty    2015/03/20 v1.5 UTF-8 Hangul item labels
+ flafter.sty    2018/11/28 v1.4d Standard LaTeX floats after reference (FMi)
+ makeidx.sty    2014/09/29 v1.0m Standard LaTeX package
+  amsthm.sty    2020/05/29 v2.20.6
+  natbib.sty    2010/09/13 8.31b (PWD, AO)
+ nameref.sty    2019/09/16 v2.46 Cross-referencing by name of section
+refcount.sty    2019/12/15 v3.6 Data extraction from label references (HO)
+gettitlestring.sty    2019/12/15 v1.6 Cleanup title references (HO)
+data-apps-text.out
+data-apps-text.out
+  omllmm.fd    2009/10/30 v1.6 Font defs for Latin Modern
+images/variables.png
+images/credible.png
+images/measure_lines.png
+data-apps-text_files/figure-latex/diedist-1.pdf
+data-apps-text_files/figure-latex/diehisto-1.pdf
+data-apps-text_files/figure-latex/obsdieroll-1.pdf
+data-apps-text_files/figure-latex/infmort-1.pdf
+data-apps-text_files/figure-latex/mortcenters-1.pdf
+data-apps-text_files/figure-latex/mortspread-1.pdf
+data-apps-text_files/figure-latex/normrates-1.pdf
+data-apps-text_files/figure-latex/scatterlifedeath-1.pdf
+data-apps-text_files/figure-latex/scattercovar-1.pdf
+data-apps-text_files/figure-latex/scattercorr-1.pdf
+images/vizflow.png
+data-apps-text_files/figure-latex/gradmedhist-1.pdf
+data-apps-text_files/figure-latex/gradmedbox-1.pdf
+data-apps-text_files/figure-latex/emppie-1.pdf
+data-apps-text_files/figure-latex/empbar-1.pdf
+data-apps-text_files/figure-latex/empbar2-1.pdf
+data-apps-text_files/figure-latex/empbar3-1.pdf
+data-apps-text_files/figure-latex/spiapay-1.pdf
+data-apps-text_files/figure-latex/spiaemp-1.pdf
+data-apps-text_files/figure-latex/gradpaydiffbox-1.pdf
+data-apps-text_files/figure-latex/gradpaydiffhist-1.pdf
+data-apps-text_files/figure-latex/gradpayenroll-1.pdf
+data-apps-text_files/figure-latex/povfedscatter-1.pdf
+data-apps-text_files/figure-latex/povfedscatter2-1.pdf
+data-apps-text_files/figure-latex/povfedscatterresid-1.pdf
+data-apps-text_files/figure-latex/pslopescatter-1.pdf
+data-apps-text_files/figure-latex/pslopescatter2-1.pdf
+data-apps-text_files/figure-latex/pslopescatter3-1.pdf
+data-apps-text_files/figure-latex/interactscatter-1.pdf
+data-apps-text_files/figure-latex/lpmscatter-1.pdf
+data-apps-text_files/figure-latex/quadscatter-1.pdf
+images/logs_covid.png
+data-apps-text_files/figure-latex/gapskew-1.pdf
+data-apps-text_files/figure-latex/gaplog-1.pdf
+data-apps-text_files/figure-latex/gapskewscatter-1.pdf
+data-apps-text_files/figure-latex/gaplogscatter-1.pdf
+images/credible.png
+images/dag_basic.png
+images/dag_reg.png
+images/dag_confound.png
+images/dag_collide.png
+images/dag_regovb.png
+images/dag_regnut.png
+images/dag_ovbdirect.png
+images/normdist.png
+data-apps-text_files/figure-latex/profsaldist-1.pdf
+data-apps-text_files/figure-latex/dieuniform-1.pdf
+data-apps-text_files/figure-latex/diepophist-1.pdf
+data-apps-text_files/figure-latex/diesamp201-1.pdf
+data-apps-text_files/figure-latex/diesamp202-1.pdf
+data-apps-text_files/figure-latex/diesampdist20100-1.pdf
+data-apps-text_files/figure-latex/diesampdist33-1.pdf
+data-apps-text_files/figure-latex/diesampdist1000-1.pdf
+images/credible.png
+images/genericreg.png
+images/genericrvfp.png
+images/rvfp_linear.png
+images/rvfp_normal.png
+images/rvfp_equal.png
+images/influential.png
+images/rvlp.png
+data-apps-text_files/figure-latex/usgdp-1.pdf
+data-apps-text_files/figure-latex/sales-1.pdf
+data-apps-text_files/figure-latex/acfgdp-1.pdf
+data-apps-text_files/figure-latex/acfsales-1.pdf
+data-apps-text_files/figure-latex/wn-1.pdf
+data-apps-text_files/figure-latex/acfwn-1.pdf
+data-apps-text_files/figure-latex/lagtime-1.pdf
+data-apps-text_files/figure-latex/checkresidual-1.pdf
+data-apps-text_files/figure-latex/formean-1.pdf
+data-apps-text_files/figure-latex/fornaive-1.pdf
+data-apps-text_files/figure-latex/fordrift-1.pdf
+data-apps-text_files/figure-latex/gdpdriftresid-1.pdf
+data-apps-text_files/figure-latex/fcompare2-1.pdf
+data-apps-text_files/figure-latex/fcompare2-2.pdf
+data-apps-text_files/figure-latex/fcompare2-3.pdf
+data-apps-text_files/figure-latex/salesresid-1.pdf
+data-apps-text_files/figure-latex/pslopescatter3rep-1.pdf
+data-apps-text_files/figure-latex/feviz-1.pdf
+data-apps-text_files/figure-latex/olsviz-1.pdf
+images/rstudio_sshot.png
+data-apps-text_files/figure-latex/unnamed-chunk-132-1.pdf
+data-apps-text_files/figure-latex/gradmedhistrep-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-133-1.pdf
+data-apps-text_files/figure-latex/gradmedboxrep-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-136-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-139-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-140-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-141-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-142-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-143-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-145-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-146-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-147-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-148-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-150-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-202-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-202-2.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-202-3.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-202-4.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-219-1.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-219-2.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-219-3.pdf
+data-apps-text_files/figure-latex/unnamed-chunk-219-4.pdf
+data-apps-text_files/figure-latex/povfedscatter3-1.pdf
+data-apps-text.ind
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package rerunfilecheck Info: File `data-apps-text.out' has not changed.
+(rerunfilecheck)             Checksum: F9CA4A61107F6CCF3719A8ACCFA17A22;36714.
+ ) 
 Here is how much of TeX's memory you used:
- 17477 strings out of 481666
- 307967 string characters out of 5931295
- 735255 words of memory out of 5000000
- 34377 multiletter control sequences out of 15000+600000
- 538654 words of font info for 59 fonts, out of 8000000 for 9000
+ 24127 strings out of 479256
+ 417303 string characters out of 5875434
+ 895747 words of memory out of 5000000
+ 43201 multiletter control sequences out of 15000+600000
+ 407563 words of font info for 76 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 52i,6n,118p,908b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 94i,10n,118p,1065b,2586s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on data-apps-text.pdf (4 pages).
+Output written on data-apps-text.pdf (316 pages).
+
+! kpathsea:make_tex: Invalid filename `[UnBatang', contains '['
+! kpathsea:make_tex: Invalid filename `[UnDotum', contains '['

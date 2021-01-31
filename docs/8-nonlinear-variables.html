@@ -553,8 +553,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.2</span> Quadratic</h2>
 <p>If we theorize or see visual evidence that the association between an explanatory variable and an outcome is such that the outcome initially increases or decreases as the explanatory variable increases, then, at some value of the explanatory variable, the outcome decreases, then we may want to include a quadratic term of that explanatory variable in our regression model. That long-winded statement warrants an immediate visualization provided by Figure <a href="8-nonlinear-variables.html#fig:quadscatter">8.1</a> below.</p>
 <p>Note that wage appears to initially increase with age, then decreases. The data present a pattern that resembles an inverted U, also known as a concave parabola. Age and wage is a classic example of a quadratic relationship. We should not force ourselves to fit a straight line to these data; we can estimate a better line.</p>
-<div class="figure"><span id="fig:quadscatter"></span>
-<img src="data-apps-text_files/figure-html/quadscatter-1.png" alt="Wages by age" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:quadscatter"></span>
+<img src="data-apps-text_files/figure-html/quadscatter-1.png" alt="Wages by age" width="\textwidth" />
 <p class="caption">
 Figure 8.1: Wages by age
 </p>
@@ -584,99 +584,49 @@ x = {\frac{-b_1}{2b_2}}
 <h3><span class="header-section-number">8.2.1</span> Using quadratics</h3>
 <p>Suppose we collect the following data.</p>
 <table>
-<caption>
-<span id="tab:wagestab">Table 8.1: </span>Preview of wages, age, and education
-</caption>
+<caption><span id="tab:wagestab">Table 8.1: </span>Preview of wages, age, and education</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-Wage
-</th>
-<th style="text-align:right;">
-Educ
-</th>
-<th style="text-align:right;">
-Age
-</th>
+<tr class="header">
+<th align="right">Wage</th>
+<th align="right">Educ</th>
+<th align="right">Age</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-19.13
-</td>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-35
-</td>
+<tr class="odd">
+<td align="right">19.13</td>
+<td align="right">9</td>
+<td align="right">35</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-25.67
-</td>
-<td style="text-align:right;">
-12
-</td>
-<td style="text-align:right;">
-37
-</td>
+<tr class="even">
+<td align="right">25.67</td>
+<td align="right">12</td>
+<td align="right">37</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-38.77
-</td>
-<td style="text-align:right;">
-21
-</td>
-<td style="text-align:right;">
-41
-</td>
+<tr class="odd">
+<td align="right">38.77</td>
+<td align="right">21</td>
+<td align="right">41</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-32.37
-</td>
-<td style="text-align:right;">
-17
-</td>
-<td style="text-align:right;">
-53
-</td>
+<tr class="even">
+<td align="right">32.37</td>
+<td align="right">17</td>
+<td align="right">53</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-19.34
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-38
-</td>
+<tr class="odd">
+<td align="right">19.34</td>
+<td align="right">6</td>
+<td align="right">38</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-18.76
-</td>
-<td style="text-align:right;">
-18
-</td>
-<td style="text-align:right;">
-73
-</td>
+<tr class="even">
+<td align="right">18.76</td>
+<td align="right">18</td>
+<td align="right">73</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-18.11
-</td>
-<td style="text-align:right;">
-14
-</td>
-<td style="text-align:right;">
-21
-</td>
+<tr class="odd">
+<td align="right">18.11</td>
+<td align="right">14</td>
+<td align="right">21</td>
 </tr>
 </tbody>
 </table>
@@ -687,126 +637,54 @@ Wage = \beta_0 + \beta_1Age + \beta_2Age^2 + \beta_3Educ + \epsilon
 \end{equation}\]</span></p>
 <p>Running this regression generates the following results</p>
 <table>
-<caption>
-<span id="tab:quadextab">Table 8.2: </span>Quadratic model results
-</caption>
+<caption><span id="tab:quadextab">Table 8.2: </span>Quadratic model results</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-term
-</th>
-<th style="text-align:right;">
-estimate
-</th>
-<th style="text-align:right;">
-std_error
-</th>
-<th style="text-align:right;">
-statistic
-</th>
-<th style="text-align:right;">
-p_value
-</th>
-<th style="text-align:right;">
-lower_ci
-</th>
-<th style="text-align:right;">
-upper_ci
-</th>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std_error</th>
+<th align="right">statistic</th>
+<th align="right">p_value</th>
+<th align="right">lower_ci</th>
+<th align="right">upper_ci</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-intercept
-</td>
-<td style="text-align:right;">
--22.722
-</td>
-<td style="text-align:right;">
-3.023
-</td>
-<td style="text-align:right;">
--7.517
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
--28.742
-</td>
-<td style="text-align:right;">
--16.701
-</td>
+<tr class="odd">
+<td align="left">intercept</td>
+<td align="right">-22.722</td>
+<td align="right">3.023</td>
+<td align="right">-7.517</td>
+<td align="right">0</td>
+<td align="right">-28.742</td>
+<td align="right">-16.701</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Age
-</td>
-<td style="text-align:right;">
-1.350
-</td>
-<td style="text-align:right;">
-0.134
-</td>
-<td style="text-align:right;">
-10.077
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1.083
-</td>
-<td style="text-align:right;">
-1.617
-</td>
+<tr class="even">
+<td align="left">Age</td>
+<td align="right">1.350</td>
+<td align="right">0.134</td>
+<td align="right">10.077</td>
+<td align="right">0</td>
+<td align="right">1.083</td>
+<td align="right">1.617</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-I(Age^2)
-</td>
-<td style="text-align:right;">
--0.013
-</td>
-<td style="text-align:right;">
-0.001
-</td>
-<td style="text-align:right;">
--9.840
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
--0.016
-</td>
-<td style="text-align:right;">
--0.011
-</td>
+<tr class="odd">
+<td align="left">I(Age^2)</td>
+<td align="right">-0.013</td>
+<td align="right">0.001</td>
+<td align="right">-9.840</td>
+<td align="right">0</td>
+<td align="right">-0.016</td>
+<td align="right">-0.011</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Educ
-</td>
-<td style="text-align:right;">
-1.254
-</td>
-<td style="text-align:right;">
-0.090
-</td>
-<td style="text-align:right;">
-13.990
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1.075
-</td>
-<td style="text-align:right;">
-1.432
-</td>
+<tr class="even">
+<td align="left">Educ</td>
+<td align="right">1.254</td>
+<td align="right">0.090</td>
+<td align="right">13.990</td>
+<td align="right">0</td>
+<td align="right">1.075</td>
+<td align="right">1.432</td>
 </tr>
 </tbody>
 </table>
@@ -818,15 +696,15 @@ Educ
 \end{equation}\]</span></p>
 <p>We can answer questions regarding the predicted <em>value</em> of Wage the same way as before. For example, the predicted wage of an individual who is 40 years old with 16 years of education is</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="8-nonlinear-variables.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">22.7</span> <span class="sc">+</span> <span class="fl">1.4</span><span class="sc">*</span><span class="dv">40</span> <span class="sc">-</span> <span class="fl">0.01</span><span class="sc">*</span><span class="dv">40</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">1.3</span><span class="sc">*</span><span class="dv">16</span></span></code></pre></div>
-<pre><code>## [1] 38.1</code></pre>
+<pre><code>[1] 38.1</code></pre>
 <p>dollars per hour.</p>
 <p>To predict the <em>change</em> in wage given a change in age, we need to know the beginning point for age. For example, if we were asked what is the predicted change is wage for a 24-year old two years later who consequently increases their education from 16 to 18 to get their masters degree, we plug this scenario into Equation <a href="8-nonlinear-variables.html#eq:quadraticsampmarg">(8.3)</a> like so</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="8-nonlinear-variables.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">*</span>(<span class="fl">1.4</span> <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span><span class="fl">0.01</span><span class="sc">*</span><span class="dv">24</span>) <span class="sc">+</span> <span class="fl">1.25</span><span class="sc">*</span><span class="dv">2</span></span></code></pre></div>
-<pre><code>## [1] 4.34</code></pre>
+<pre><code>[1] 4.34</code></pre>
 <p>providing us the answer of a predicted increase of $4.34.</p>
 <p>Controlling for education, at what age do wages tend to reach their maximum? To answer, we plug the results into <a href="8-nonlinear-variables.html#eq:quadraticsampopt">(8.4)</a> like so</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="8-nonlinear-variables.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">1.35</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*-</span><span class="fl">0.013</span>)</span></code></pre></div>
-<pre><code>## [1] 51.92308</code></pre>
+<pre><code>[1] 51.92308</code></pre>
 <p>According to our results, wages reach their maximum at around 52 years of age.</p>
 </div>
 </div>
@@ -838,8 +716,8 @@ Educ
 <p>Graphs like Figure <a href="8-nonlinear-variables.html#fig:logcovid">8.2</a> below were commonplace during the initial COVID-19 spread. Take a look at the small note at the bottom explaining to readers the purpose of a logarithmic scale. Note how the values on the y axis are evenly dispersed, but each tick mark increases by a factor of 10 (i.e. the previous value multiplied by 10). The y-axis is in a <strong>log10</strong> scale. Another common log scale for visualization is a <strong>log2</strong> scale which increases each interval by a factor of 2.</p>
 <p>The use of a log scale allows us to compare states like New York and Wyoming by taking into account large differences in absolute numbers. It would be unfair to compare the absolute number of COVID cases in New York to the absolute number of cases in Wyoming. It would also be unfair to compare the absolute number of new cases each day between the two states. A non-trivial portion of those numbers is a result of the size of the population in each state.</p>
 <p>However, it is fair to compare the <em>rate</em> of growth between the two states. While it is obviously concerning that New York has over 300,000 deaths, the key feature of this graph is that we can compare the slopes of each state’s growth path because population size has been accounted for by the y-axis. Given New York’s population and population density, it was likely to have the most cases, but the state also had the fastest growth rate in cases from about day 5 to day 10.</p>
-<div class="figure"><span id="fig:logcovid"></span>
-<img src="images/logs_covid.png" alt="Growth in COVID-19 cases by state" width="508" />
+<div class="figure" style="text-align: center"><span id="fig:logcovid"></span>
+<img src="images/logs_covid.png" alt="Growth in COVID-19 cases by state" width="\textwidth" />
 <p class="caption">
 Figure 8.2: Growth in COVID-19 cases by state
 </p>
@@ -869,14 +747,14 @@ PctChange = {\frac{NewValue-OldValue}{OldValue}} \times 100
 <p>As will become clear in the next section on inference, using a sample to make valid conclusions about a population relies heavily on the normal distribution, which was introduced in Chapter <a href="4-descriptive-statistics.html#descriptive-statistics">4</a>. In a similar sense, we want the variables we use for inference to be approximately normally distributed because extreme values of a skewed distribution can impose undue influence on our results. Log-transformations can transform a skewed distribution to be more normal.</p>
 <p>For instance, variables that measure income or wealth tend to be right-skewed. Figure <a href="8-nonlinear-variables.html#fig:gapskew">8.3</a> shows the distribution of GDP per capita across most countries in multiple years. Clearly this distribution is not normal and skewed to the right. It is difficult to see because there are so few cases, but some countries have GDP per capita near or more than $120,000.</p>
 <p>Figure <a href="8-nonlinear-variables.html#fig:gaplog">8.4</a> shows the distribution if we convert GDP per capita to a log scale (log10 was used but any log scale will achieve the same normalization). Now we have a more normal distribution. This is desirable in statistics.</p>
-<div class="figure"><span id="fig:gapskew"></span>
-<img src="data-apps-text_files/figure-html/gapskew-1.png" alt="Distribution of GDP per capita" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:gapskew"></span>
+<img src="data-apps-text_files/figure-html/gapskew-1.png" alt="Distribution of GDP per capita" width="\textwidth" />
 <p class="caption">
 Figure 8.3: Distribution of GDP per capita
 </p>
 </div>
-<div class="figure"><span id="fig:gaplog"></span>
-<img src="data-apps-text_files/figure-html/gaplog-1.png" alt="Distribution of log10 GDP per capita" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:gaplog"></span>
+<img src="data-apps-text_files/figure-html/gaplog-1.png" alt="Distribution of log10 GDP per capita" width="\textwidth" />
 <p class="caption">
 Figure 8.4: Distribution of log10 GDP per capita
 </p>
@@ -884,15 +762,15 @@ Figure 8.4: Distribution of log10 GDP per capita
 <p>The third reason for using logs concerns theory, which should always inform the choices we make in statistics. When choosing how to model the relationship between an outcome and an explanatory variable, if past research, experience, visualization of data, or intuition tells us that the outcome changes dramatically at first, then begins to flatten, a logarithmic transformation should be used.</p>
 <p>For example, suppose we wish to examine the relationship between national wealth and life expectancy. Intuitively, we expect this relationship to be positive–as wealth increases, life expectancy should increase. Also, life expectancy has some natural ceiling, so it cannot increase indefinitely, and we may expect relatively small increases from low levels of wealth to have much greater impacts on life expectancy then similar increases from high levels of wealth.</p>
 <p>Figure <a href="8-nonlinear-variables.html#fig:gapskewscatter">8.5</a> provides a scatter plot of GDP per capita and life expectancy in their original units. Note the rapid increase then plateau in life expectancy. A regression line would not fit these data well.</p>
-<div class="figure"><span id="fig:gapskewscatter"></span>
-<img src="data-apps-text_files/figure-html/gapskewscatter-1.png" alt="Relationship between wealth and life expectancy using unit scale" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:gapskewscatter"></span>
+<img src="data-apps-text_files/figure-html/gapskewscatter-1.png" alt="Relationship between wealth and life expectancy using unit scale" width="\textwidth" />
 <p class="caption">
 Figure 8.5: Relationship between wealth and life expectancy using unit scale
 </p>
 </div>
 <p>Using a log transformation in an association between two variables does not change the underlying data or relationship, but it <em>does</em> transform the pattern of points to be more linear, thus allowing a linear regression line to do a better job modeling the relationship. Figure <a href="8-nonlinear-variables.html#fig:gaplogscatter">8.6</a> uses the same data but GDP per capita has been transformed to log scale. This simple change makes a big difference for the validity of any conclusions we may make regarding the relationship between wealth and life expectancy.</p>
-<div class="figure"><span id="fig:gaplogscatter"></span>
-<img src="data-apps-text_files/figure-html/gaplogscatter-1.png" alt="Relationship between wealth and life expectancy using log scale" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:gaplogscatter"></span>
+<img src="data-apps-text_files/figure-html/gaplogscatter-1.png" alt="Relationship between wealth and life expectancy using log scale" width="\textwidth" />
 <p class="caption">
 Figure 8.6: Relationship between wealth and life expectancy using log scale
 </p>
@@ -978,512 +856,212 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 \end{equation}\]</span></p>
 <p>The following tables present results for each of the three log models.</p>
 <table>
-<caption>
-<span id="tab:loglogtab">Table 8.3: </span>Log-log results
-</caption>
+<caption><span id="tab:loglogtab">Table 8.3: </span>Log-log results</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-term
-</th>
-<th style="text-align:right;">
-estimate
-</th>
-<th style="text-align:right;">
-std_error
-</th>
-<th style="text-align:right;">
-statistic
-</th>
-<th style="text-align:right;">
-p_value
-</th>
-<th style="text-align:right;">
-lower_ci
-</th>
-<th style="text-align:right;">
-upper_ci
-</th>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std_error</th>
+<th align="right">statistic</th>
+<th align="right">p_value</th>
+<th align="right">lower_ci</th>
+<th align="right">upper_ci</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-intercept
-</td>
-<td style="text-align:right;">
-3.062
-</td>
-<td style="text-align:right;">
-0.026
-</td>
-<td style="text-align:right;">
-117.692
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3.011
-</td>
-<td style="text-align:right;">
-3.113
-</td>
+<tr class="odd">
+<td align="left">intercept</td>
+<td align="right">3.062</td>
+<td align="right">0.026</td>
+<td align="right">117.692</td>
+<td align="right">0</td>
+<td align="right">3.011</td>
+<td align="right">3.113</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-log(gdpPercap)
-</td>
-<td style="text-align:right;">
-0.112
-</td>
-<td style="text-align:right;">
-0.004
-</td>
-<td style="text-align:right;">
-31.843
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.105
-</td>
-<td style="text-align:right;">
-0.119
-</td>
+<tr class="even">
+<td align="left">log(gdpPercap)</td>
+<td align="right">0.112</td>
+<td align="right">0.004</td>
+<td align="right">31.843</td>
+<td align="right">0</td>
+<td align="right">0.105</td>
+<td align="right">0.119</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-continentAmericas
-</td>
-<td style="text-align:right;">
-0.133
-</td>
-<td style="text-align:right;">
-0.011
-</td>
-<td style="text-align:right;">
-12.519
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.112
-</td>
-<td style="text-align:right;">
-0.154
-</td>
+<tr class="odd">
+<td align="left">continentAmericas</td>
+<td align="right">0.133</td>
+<td align="right">0.011</td>
+<td align="right">12.519</td>
+<td align="right">0</td>
+<td align="right">0.112</td>
+<td align="right">0.154</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-continentAsia
-</td>
-<td style="text-align:right;">
-0.110
-</td>
-<td style="text-align:right;">
-0.009
-</td>
-<td style="text-align:right;">
-12.037
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.092
-</td>
-<td style="text-align:right;">
-0.128
-</td>
+<tr class="even">
+<td align="left">continentAsia</td>
+<td align="right">0.110</td>
+<td align="right">0.009</td>
+<td align="right">12.037</td>
+<td align="right">0</td>
+<td align="right">0.092</td>
+<td align="right">0.128</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-continentEurope
-</td>
-<td style="text-align:right;">
-0.166
-</td>
-<td style="text-align:right;">
-0.012
-</td>
-<td style="text-align:right;">
-14.357
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.143
-</td>
-<td style="text-align:right;">
-0.189
-</td>
+<tr class="odd">
+<td align="left">continentEurope</td>
+<td align="right">0.166</td>
+<td align="right">0.012</td>
+<td align="right">14.357</td>
+<td align="right">0</td>
+<td align="right">0.143</td>
+<td align="right">0.189</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-continentOceania
-</td>
-<td style="text-align:right;">
-0.152
-</td>
-<td style="text-align:right;">
-0.029
-</td>
-<td style="text-align:right;">
-5.187
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.095
-</td>
-<td style="text-align:right;">
-0.210
-</td>
+<tr class="even">
+<td align="left">continentOceania</td>
+<td align="right">0.152</td>
+<td align="right">0.029</td>
+<td align="right">5.187</td>
+<td align="right">0</td>
+<td align="right">0.095</td>
+<td align="right">0.210</td>
 </tr>
 </tbody>
 </table>
 <table>
-<caption>
-<span id="tab:levlogtab">Table 8.4: </span>Level-log results
-</caption>
+<caption><span id="tab:levlogtab">Table 8.4: </span>Level-log results</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-term
-</th>
-<th style="text-align:right;">
-estimate
-</th>
-<th style="text-align:right;">
-std_error
-</th>
-<th style="text-align:right;">
-statistic
-</th>
-<th style="text-align:right;">
-p_value
-</th>
-<th style="text-align:right;">
-lower_ci
-</th>
-<th style="text-align:right;">
-upper_ci
-</th>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std_error</th>
+<th align="right">statistic</th>
+<th align="right">p_value</th>
+<th align="right">lower_ci</th>
+<th align="right">upper_ci</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-intercept
-</td>
-<td style="text-align:right;">
-2.317
-</td>
-<td style="text-align:right;">
-1.359
-</td>
-<td style="text-align:right;">
-1.704
-</td>
-<td style="text-align:right;">
-0.088
-</td>
-<td style="text-align:right;">
--0.349
-</td>
-<td style="text-align:right;">
-4.983
-</td>
+<tr class="odd">
+<td align="left">intercept</td>
+<td align="right">2.317</td>
+<td align="right">1.359</td>
+<td align="right">1.704</td>
+<td align="right">0.088</td>
+<td align="right">-0.349</td>
+<td align="right">4.983</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-log(gdpPercap)
-</td>
-<td style="text-align:right;">
-6.422
-</td>
-<td style="text-align:right;">
-0.183
-</td>
-<td style="text-align:right;">
-35.003
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-6.062
-</td>
-<td style="text-align:right;">
-6.782
-</td>
+<tr class="even">
+<td align="left">log(gdpPercap)</td>
+<td align="right">6.422</td>
+<td align="right">0.183</td>
+<td align="right">35.003</td>
+<td align="right">0.000</td>
+<td align="right">6.062</td>
+<td align="right">6.782</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-continentAmericas
-</td>
-<td style="text-align:right;">
-7.015
-</td>
-<td style="text-align:right;">
-0.554
-</td>
-<td style="text-align:right;">
-12.652
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-5.927
-</td>
-<td style="text-align:right;">
-8.102
-</td>
+<tr class="odd">
+<td align="left">continentAmericas</td>
+<td align="right">7.015</td>
+<td align="right">0.554</td>
+<td align="right">12.652</td>
+<td align="right">0.000</td>
+<td align="right">5.927</td>
+<td align="right">8.102</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-continentAsia
-</td>
-<td style="text-align:right;">
-5.912
-</td>
-<td style="text-align:right;">
-0.477
-</td>
-<td style="text-align:right;">
-12.400
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-4.977
-</td>
-<td style="text-align:right;">
-6.847
-</td>
+<tr class="even">
+<td align="left">continentAsia</td>
+<td align="right">5.912</td>
+<td align="right">0.477</td>
+<td align="right">12.400</td>
+<td align="right">0.000</td>
+<td align="right">4.977</td>
+<td align="right">6.847</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-continentEurope
-</td>
-<td style="text-align:right;">
-9.577
-</td>
-<td style="text-align:right;">
-0.604
-</td>
-<td style="text-align:right;">
-15.855
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-8.392
-</td>
-<td style="text-align:right;">
-10.762
-</td>
+<tr class="odd">
+<td align="left">continentEurope</td>
+<td align="right">9.577</td>
+<td align="right">0.604</td>
+<td align="right">15.855</td>
+<td align="right">0.000</td>
+<td align="right">8.392</td>
+<td align="right">10.762</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-continentOceania
-</td>
-<td style="text-align:right;">
-9.213
-</td>
-<td style="text-align:right;">
-1.536
-</td>
-<td style="text-align:right;">
-5.999
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-6.201
-</td>
-<td style="text-align:right;">
-12.226
-</td>
+<tr class="even">
+<td align="left">continentOceania</td>
+<td align="right">9.213</td>
+<td align="right">1.536</td>
+<td align="right">5.999</td>
+<td align="right">0.000</td>
+<td align="right">6.201</td>
+<td align="right">12.226</td>
 </tr>
 </tbody>
 </table>
 <table>
-<caption>
-<span id="tab:loglevtab">Table 8.5: </span>Log-level results
-</caption>
+<caption><span id="tab:loglevtab">Table 8.5: </span>Log-level results</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-term
-</th>
-<th style="text-align:right;">
-estimate
-</th>
-<th style="text-align:right;">
-std_error
-</th>
-<th style="text-align:right;">
-statistic
-</th>
-<th style="text-align:right;">
-p_value
-</th>
-<th style="text-align:right;">
-lower_ci
-</th>
-<th style="text-align:right;">
-upper_ci
-</th>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std_error</th>
+<th align="right">statistic</th>
+<th align="right">p_value</th>
+<th align="right">lower_ci</th>
+<th align="right">upper_ci</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-intercept
-</td>
-<td style="text-align:right;">
-3.856
-</td>
-<td style="text-align:right;">
-0.006
-</td>
-<td style="text-align:right;">
-601.881
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3.843
-</td>
-<td style="text-align:right;">
-3.869
-</td>
+<tr class="odd">
+<td align="left">intercept</td>
+<td align="right">3.856</td>
+<td align="right">0.006</td>
+<td align="right">601.881</td>
+<td align="right">0</td>
+<td align="right">3.843</td>
+<td align="right">3.869</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-gdpPercap
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-16.374
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.000
-</td>
+<tr class="even">
+<td align="left">gdpPercap</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">16.374</td>
+<td align="right">0</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-continentAmericas
-</td>
-<td style="text-align:right;">
-0.250
-</td>
-<td style="text-align:right;">
-0.011
-</td>
-<td style="text-align:right;">
-22.054
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.228
-</td>
-<td style="text-align:right;">
-0.272
-</td>
+<tr class="odd">
+<td align="left">continentAmericas</td>
+<td align="right">0.250</td>
+<td align="right">0.011</td>
+<td align="right">22.054</td>
+<td align="right">0</td>
+<td align="right">0.228</td>
+<td align="right">0.272</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-continentAsia
-</td>
-<td style="text-align:right;">
-0.160
-</td>
-<td style="text-align:right;">
-0.010
-</td>
-<td style="text-align:right;">
-15.322
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.140
-</td>
-<td style="text-align:right;">
-0.181
-</td>
+<tr class="even">
+<td align="left">continentAsia</td>
+<td align="right">0.160</td>
+<td align="right">0.010</td>
+<td align="right">15.322</td>
+<td align="right">0</td>
+<td align="right">0.140</td>
+<td align="right">0.181</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-continentEurope
-</td>
-<td style="text-align:right;">
-0.311
-</td>
-<td style="text-align:right;">
-0.012
-</td>
-<td style="text-align:right;">
-26.383
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.288
-</td>
-<td style="text-align:right;">
-0.334
-</td>
+<tr class="odd">
+<td align="left">continentEurope</td>
+<td align="right">0.311</td>
+<td align="right">0.012</td>
+<td align="right">26.383</td>
+<td align="right">0</td>
+<td align="right">0.288</td>
+<td align="right">0.334</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-continentOceania
-</td>
-<td style="text-align:right;">
-0.316
-</td>
-<td style="text-align:right;">
-0.034
-</td>
-<td style="text-align:right;">
-9.381
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.250
-</td>
-<td style="text-align:right;">
-0.382
-</td>
+<tr class="even">
+<td align="left">continentOceania</td>
+<td align="right">0.316</td>
+<td align="right">0.034</td>
+<td align="right">9.381</td>
+<td align="right">0</td>
+<td align="right">0.250</td>
+<td align="right">0.382</td>
 </tr>
 </tbody>
 </table>
@@ -1552,7 +1130,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

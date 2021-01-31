@@ -550,16 +550,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>When we calculate an estimate, the estimate is highly unlikely to be exactly equal to the population parameter it is intended to represent. But, given a sample and an estimate, we can calculate the range in which the parameter falls with a certain degree of confidence. If that range does not include zero, then we have reason to believe the parameter is positive or negative. A non-zero parameter may be cause for action. Or, depending on the situation, a parameter of zero may be cause for action. We are able to calculate a confidence interval because of the normal distribution.</p>
 <p>Inference relies on the normal distribution introduced in Chapter <a href="4-descriptive-statistics.html#descriptive-statistics">4</a>. The normal distribution has a unique and useful quality such that wherever the mean of a variable’s distribution lies, if the distribution of the variable is normal, then 68% of the values lie within one standard deviation above and below that mean, 95% of the values lie within two standard deviations above and below, and 99% lie within three standard deviation. This quality of the normal distribution is sometimes called the <strong>68-95-99 rule</strong>, which is shown in Figure <a href="10-sampling.html#fig:normdist">10.1</a> below. The Greek symbol <span class="math inline">\(\mu\)</span> (mû) denotes the mean and the symbol <span class="math inline">\(\sigma\)</span> (sigma) denotes the standard deviation.</p>
 <center>
-<div class="figure"><span id="fig:normdist"></span>
-<img src="images/normdist.png" alt="68-95-99 rule of normal distribution" width="344" />
+<div class="figure" style="text-align: center"><span id="fig:normdist"></span>
+<img src="images/normdist.png" alt="68-95-99 rule of normal distribution" width="\textwidth" />
 <p class="caption">
 Figure 10.1: 68-95-99 rule of normal distribution
 </p>
 </div>
 </center>
 <p>Suppose we take a sample of 397 professor salaries in order to estimate the average salary of all professors at the university. From our sample, we calculate a mean of 113706 dollars and a standard deviation of 30289 dollars. Figure <a href="10-sampling.html#fig:profsaldist">10.2</a> below shows the distribution of this sample of salaries.</p>
-<div class="figure"><span id="fig:profsaldist"></span>
-<img src="data-apps-text_files/figure-html/profsaldist-1.png" alt="Distribution of professor salaries" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:profsaldist"></span>
+<img src="data-apps-text_files/figure-html/profsaldist-1.png" alt="Distribution of professor salaries" width="\textwidth" />
 <p class="caption">
 Figure 10.2: Distribution of professor salaries
 </p>
@@ -578,8 +578,8 @@ Figure 10.2: Distribution of professor salaries
 <h2><span class="header-section-number">10.4</span> Central Limit Theorem</h2>
 <p>The Central Limit Theorem may seem like magic more than anything else in statistics, though it is scientifically sound. Given a sufficient sample size, the Central Limit Theorem allows us to assume sampling distributions are normally distributed even though we do not have data to observe the sampling distribution. Without it, we could not construct confidence intervals. Thus, we could not make inferences about a population.</p>
 <p>Seeing the Central Limit Theorem work is believing, especially when circumstances are set that would seem to work against it. To do this, let us revisit the distribution of a six-sided die discussed in Chapter <a href="4-descriptive-statistics.html#descriptive-statistics">4</a>. With each of the six values having an equal probability of occurring, we know each value has about a 17% chance of occurring. If we were to roll the die some number of times divisible by 6, then all values should occur the same number of times, resulting in a distribution like that depicted in Figure <a href="10-sampling.html#fig:dieuniform">10.3</a>.</p>
-<div class="figure"><span id="fig:dieuniform"></span>
-<img src="data-apps-text_files/figure-html/dieuniform-1.png" alt="Probability distribution of a six-sided die" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:dieuniform"></span>
+<img src="data-apps-text_files/figure-html/dieuniform-1.png" alt="Probability distribution of a six-sided die" width="\textwidth" />
 <p class="caption">
 Figure 10.3: Probability distribution of a six-sided die
 </p>
@@ -587,103 +587,73 @@ Figure 10.3: Probability distribution of a six-sided die
 <p>The distribution in Figure <a href="10-sampling.html#fig:dieuniform">10.3</a> is decidedly not normal. Yet, the Central Limit Theorem states that if we took numerous samples from this distribution, each of sufficient sample size, then the sampling distribution will be normal. We typically do not know the distribution of a variable like we do with a six-sided die, thus we do not know where an important measure like the mean is in that distribution. However, if any estimate regarding any variable–no matter the distribution of the variable–is normally distributed, then we do not need to know the distribution of the variable. This is the power and importance of the Central Limit Theorem.</p>
 <p>To see how the Central Limit Theorem works, we need a population we can observe but would not be able to in usual circumstances. Suppose we had a population comprised of 10,000 observations. Each observation is the result of rolling a six-sided die. This is obviously a play example for the sake of instruction, but one could imagine the six values of the die to be something more interesting and important, such as levels of education. Table <a href="10-sampling.html#tab:diepop">10.1</a> below shows a preview of our simulated population.</p>
 <table>
-<caption>
-<span id="tab:diepop">Table 10.1: </span>Preview of simulated population from uniform distribution
-</caption>
+<caption><span id="tab:diepop">Table 10.1: </span>Preview of simulated population from uniform distribution</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-ID
-</th>
-<th style="text-align:right;">
-education
-</th>
+<tr class="header">
+<th align="right">ID</th>
+<th align="right">education</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-6
-</td>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">6</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4
-</td>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">4</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-9998
-</td>
-<td style="text-align:right;">
-4
-</td>
+<tr class="even">
+<td align="right">9998</td>
+<td align="right">4</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-9999
-</td>
-<td style="text-align:right;">
-6
-</td>
+<tr class="odd">
+<td align="right">9999</td>
+<td align="right">6</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-10000
-</td>
-<td style="text-align:right;">
-4
-</td>
+<tr class="even">
+<td align="right">10000</td>
+<td align="right">4</td>
 </tr>
 </tbody>
 </table>
 <p>Since we have the entire population, we can calculate the population mean, which would typically be a population parameter we cannot calculate. The mean “education level” of this population is 3.518. This is almost exactly equal to the mean we should expect from many rolls of a six-sided die. The distribution of the population’s education is shown in Figure <a href="10-sampling.html#fig:diepophist">10.4</a>. The solid red line represents the population mean.</p>
-<div class="figure"><span id="fig:diepophist"></span>
-<img src="data-apps-text_files/figure-html/diepophist-1.png" alt="Distribution of simulated population" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:diepophist"></span>
+<img src="data-apps-text_files/figure-html/diepophist-1.png" alt="Distribution of simulated population" width="\textwidth" />
 <p class="caption">
 Figure 10.4: Distribution of simulated population
 </p>
 </div>
 <p>Suppose we were to draw one random sample of 20 from this population. The distribution of this sample is shown in Figure <a href="10-sampling.html#fig:diesamp201">10.5</a>. The mean of this sample is 3.65, represented by the purple dashed line. The red solid line represents the population mean of 3.518.</p>
-<div class="figure"><span id="fig:diesamp201"></span>
-<img src="data-apps-text_files/figure-html/diesamp201-1.png" alt="Distribution of sample of 20 from simulated population" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:diesamp201"></span>
+<img src="data-apps-text_files/figure-html/diesamp201-1.png" alt="Distribution of sample of 20 from simulated population" width="\textwidth" />
 <p class="caption">
 Figure 10.5: Distribution of sample of 20 from simulated population
 </p>
 </div>
 <p>The sample mean of 3.65 may or may not be a good guess of the population mean of 3.518; such judgments depend on the context of the research question or the decision needing made. Suppose we take a second random sample of 20 from the population, as shown in Figure <a href="10-sampling.html#fig:diesamp202">10.6</a>. The mean of this second sample is 3.95.</p>
-<div class="figure"><span id="fig:diesamp202"></span>
-<img src="data-apps-text_files/figure-html/diesamp202-1.png" alt="Distribution of a second sample of 20 from simulated population" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:diesamp202"></span>
+<img src="data-apps-text_files/figure-html/diesamp202-1.png" alt="Distribution of a second sample of 20 from simulated population" width="\textwidth" />
 <p class="caption">
 Figure 10.6: Distribution of a second sample of 20 from simulated population
 </p>
 </div>
 <p>Note that the distribution of the two samples are different and neither are uniform like the population distribution. This is the manifestation of randomness. Each sample gives us a different estimate of the population mean, both of which are too high. Estimates of other samples would fall below the population mean. With enough samples and sample estimates of the mean, we can construct a sampling distribution.</p>
 <p>Suppose we take 100 samples of 20 from the population, estimating the mean of each sample to construct a <em>sampling</em> distribution of the mean. This sampling distribution is shown in Figure <a href="10-sampling.html#fig:diesampdist20100">10.7</a>. Note that with only 100 samples of only 20 observations each, the sampling distribution roughly resembles the normal distribution. Also, the mean, or center, of the sampling distribution represented by the yellow line is very close to the population mean.</p>
-<div class="figure"><span id="fig:diesampdist20100"></span>
-<img src="data-apps-text_files/figure-html/diesampdist20100-1.png" alt="Sampling distribution of 100 sample means from samples of size 20" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:diesampdist20100"></span>
+<img src="data-apps-text_files/figure-html/diesampdist20100-1.png" alt="Sampling distribution of 100 sample means from samples of size 20" width="\textwidth" />
 <p class="caption">
 Figure 10.7: Sampling distribution of 100 sample means from samples of size 20
 </p>
 </div>
 <p>The centering of the sampling distribution at the population mean is due to having an unbiased estimate from random sampling. If our estimate is unbiased, then we expect it to equal the population parameter, <em>on average</em>. This applies to any estimate and its potential bias, including the estimates in regression. If our regression model is unbiased, then our estimate comes from a sampling distribution that centers at the population parameter.</p>
 <p>Now let’s take 10,000 samples with a size of 33 observations each, calculating the mean of each sample. The sampling distribution of the 10,000 sample means is shown in Figure <a href="10-sampling.html#fig:diesampdist33">10.8</a> below. Note that it looks very similar to the normal distribution with a mean equal to 3.157. From a variable that is not normally distributed, we obtain a sampling distribution that is normal. No matter the distribution of the variable, the Central Limit Theorem assures us its sampling distribution will be normal, provided we have a large enough sample.</p>
-<div class="figure"><span id="fig:diesampdist33"></span>
-<img src="data-apps-text_files/figure-html/diesampdist33-1.png" alt="Sampling distribution of 10,000 sample means from samples of size 33" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:diesampdist33"></span>
+<img src="data-apps-text_files/figure-html/diesampdist33-1.png" alt="Sampling distribution of 10,000 sample means from samples of size 33" width="\textwidth" />
 <p class="caption">
 Figure 10.8: Sampling distribution of 10,000 sample means from samples of size 33
 </p>
@@ -702,8 +672,8 @@ SE = \frac{s}{\sqrt{n}}
 <p>where <span class="math inline">\(s\)</span> is the standard deviation of the variable in our sample data and <span class="math inline">\(n\)</span> is the number of observations in our sample.</p>
 <p>Equation <a href="10-sampling.html#eq:semean">(10.1)</a> highlights one of the reasons sample size is a point of interest in analysis. In addition to needing at least 33 observations for the Central Limit Theorem to work reliably, sample size affects the precision of our confidence interval. As <span class="math inline">\(n\)</span> increases, the denominator in Equation <a href="10-sampling.html#eq:semean">(10.1)</a> increases. Given a standard deviation, greater denominator results in a smaller SE than a lesser denominator. That is, as our sample size increases, the range of our confidence interval decreases.</p>
 <p>To demonstrate the effect of sample size on precision, suppose we drew 10,000 samples of size 1,000 instead of 33, as was done for the sampling distribution in Figure <a href="10-sampling.html#fig:diesampdist33">10.8</a>. Figure <a href="10-sampling.html#fig:diesampdist1000">10.9</a> depicts the sampling distribution of this hypothetical scenario. Not that the distribution is virtually identical to normal. Of most importance is the spread of the sampling distribution. The standard deviation of the sampling distribution (or standard error) in Figure <a href="10-sampling.html#fig:diesampdist33">10.8</a> is 0.26. The standard error of the sampling distribution in Figure <a href="10-sampling.html#fig:diesampdist1000">10.9</a> is equal to 0.05.</p>
-<div class="figure"><span id="fig:diesampdist1000"></span>
-<img src="data-apps-text_files/figure-html/diesampdist1000-1.png" alt="Sampling distribution of 10,000 sample means from samples of size 100" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:diesampdist1000"></span>
+<img src="data-apps-text_files/figure-html/diesampdist1000-1.png" alt="Sampling distribution of 10,000 sample means from samples of size 100" width="\textwidth" />
 <p class="caption">
 Figure 10.9: Sampling distribution of 10,000 sample means from samples of size 100
 </p>
@@ -715,12 +685,12 @@ Figure 10.9: Sampling distribution of 10,000 sample means from samples of size 1
 <p>Though in reality we obtain only one estimate from one sample, we assume that estimate is one value of a normally distributed sampling distribution that is centered at the population parameter we intended to estimate. Our one sample estimate is highly unlikely to equal the population parameter because of randomness. Therefore, in addition to our specific estimate of the parameter, we construct a range of plausible values that captures that population parameter.</p>
 <p>To walk through the full process of estimation using one sample in this simulated data example, one of the 10,000 samples of size 1,000 (sample 379) had a mean education level of 3.552. The standard deviation of education in this sample was 1.53. Given 1,000 observations, then the standard error is equal to</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="10-sampling.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.53</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">1000</span>)</span></code></pre></div>
-<pre><code>## [1] 0.04838285</code></pre>
+<pre><code>[1] 0.04838285</code></pre>
 <p>Therefore, assuming a normal sampling distribution and absence of bias, the 95% confidence interval for our estimate of the population mean of education is</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="10-sampling.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fl">3.552</span><span class="sc">-</span>(<span class="fl">1.96</span><span class="sc">*</span><span class="fl">0.048</span>)</span></code></pre></div>
-<pre><code>## [1] 3.45792</code></pre>
+<pre><code>[1] 3.45792</code></pre>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="10-sampling.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fl">3.552</span><span class="sc">+</span>(<span class="fl">1.96</span><span class="sc">*</span><span class="fl">0.048</span>)</span></code></pre></div>
-<pre><code>## [1] 3.64608</code></pre>
+<pre><code>[1] 3.64608</code></pre>
 <p>The 95% confidence interval of this particular sample captures the population parameter of 3.518.</p>
 <p>A common interpretation of, say, a 95% confidence interval is that our population parameter has a 95% probability of falling within our confidence interval. This is incorrect. A confidence interval either contains the population parameter or it does not. There is no 95% probability to speak of; only 0% or 100%. What a confidence interval conveys is that if we were to draw numerous samples from this population rather than just the one, then we would expect 95% of the confidence intervals constructed from all of our samples to capture the population parameter and 5% of the confidence intervals to fail. Our sample could be one of those 5% of samples for which the confidence intervals fail to capture the population parameter.</p>
 <p>One out of 20 samples are expected to fail to capture the population parameter that it was intended to estimate. This is why many have concerns regarding a crisis of replication in science. If only one study is published, and replications of a study are difficult to have published, then we do not know if the one that was published is the anomaly or not.</p>
@@ -780,7 +750,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

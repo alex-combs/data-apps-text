@@ -72,7 +72,7 @@ poll$response <- fct_drop(poll$response)
 
 ```{r, echo=FALSE}
 summary(poll) %>% 
-  kable(format = 'html', caption = 'Illegal immigration poll results')
+  kable(caption = 'Illegal immigration poll results')
 ```
 
 Based on the results, a plurality of 39% of the U.S. public believes illegal immigrants should leave the country and 31% believe they should be allowed to apply for citizenship. The question these estimates are biased by the composition of political party affiliation. About 40% of the respondents are Republican and Independent, while about 20% are Democrat. Suppose we find a national survey reporting that the U.S. is 30% Republican, 36% Independent, and 31% Democrat. Therefore, Republicans and Independents are over-represented in our survey, while Democrats are under-represented. We need to correct for this using weights.
@@ -96,7 +96,7 @@ Next, we need to tabulate how many of each response was made by the three partie
 
 ```{r, echo=FALSE}
 polltab <- table(poll$response, poll$party)
-kable(polltab, format = 'html', caption = 'Response by political party')
+kable(polltab, caption = 'Response by political party')
 ```
 
 Then, we multiply the values by their corresponding weight. For example, applying the weight for Republicans results in 134 responses for "Leave the country" ($179 \times 0.75$). This process gives us the following counts
@@ -113,7 +113,7 @@ pollsum <- pollsum %>%
 ```
 
 ```{r, echo=FALSE}
-kable(pollsum, format = 'html', caption = 'Weighted survey counts')
+kable(pollsum, caption = 'Weighted survey counts')
 ```
 
 According to our weighted counts, 36% of the U.S. believes illegal immigrants should leave the country, while 35% believe they should be allowed to apply for citizenship. Weighting has changed a 8 percentage point gap in these two responses to a 1 point gap.

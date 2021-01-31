@@ -91,7 +91,7 @@ diepop_preview <- bind_rows(diepop_head, diepop_tail)
 
 ```{r diepop, echo=FALSE}
 diepop_preview %>% 
-  kable(format = 'html', caption = 'Preview of simulated population from uniform distribution')
+  kable(caption = 'Preview of simulated population from uniform distribution')
 ```
 
 Since we have the entire population, we can calculate the population mean, which would typically be a population parameter we cannot calculate. The mean "education level" of this population is 3.518. This is almost exactly equal to the mean we should expect from many rolls of a six-sided die. The distribution of the population's education is shown in Figure \@ref(fig:diepophist). The solid red line represents the population mean.

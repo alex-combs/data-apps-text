@@ -12,7 +12,7 @@ Recall from Chapter \@ref(data) that panel data measures the *same* units over m
 gapminder %>% 
   filter(continent == 'Americas', year >= 1997) %>% 
   head(n=6) %>% 
-  kable(format = 'html', caption = "Panel example")
+  kable(caption = "Panel example")
 ```
 
 Cross-sectional data is like having a single picture for each unit among multiple units. We use variation across those units with respect to some variable (e.g. income, unemployment rates) to explain or predict outcomes of interest. Time series is like having a video of one subject, following that subject over multiple time periods. We use variation over time to explain or predict outcomes of interest for that subject. Panel data is like having videos for multiple subjects. Therefore, we have variation across units *and* over time to use for explaining or predicting outcomes of interest.
@@ -83,7 +83,7 @@ mrall = \beta_0 + \beta_1vmiles + \beta_2region + \epsilon
 
 ```{r psloperesults2rep, echo=FALSE}
 get_regression_table(pslopemod2) %>% 
-  kable(format = 'html', caption = 'Parallel slopes for regions')
+  kable(caption = 'Parallel slopes for regions')
 ```
 
 We got estimates for three of the regions, providing us average differences in the traffic fatality rate relative to the fourth excluded region.
@@ -95,6 +95,6 @@ We are left with an estimate for the only variable in our model that differs acr
 ```{r, echo=FALSE}
 fereg <- plm(mrall ~ vmiles + region, data = trdeath, index = c("state", "year"), model = "within")
  
-kable(tidy(fereg), digits = 3, format = 'html', caption = 'Fixed effects results')
+kable(tidy(fereg), digits = 3, caption = 'Fixed effects results')
 ```
 

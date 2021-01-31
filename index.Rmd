@@ -13,6 +13,7 @@ lof: false
 description: "Companion text for PADP 7120"
 url:  'https://alex-combs.github.io/data-apps-text/'
 github-repo: "alex-combs/data-apps-text"
+always_allow_html: yes
 ---
 
 # Preface {-}
@@ -21,7 +22,7 @@ This is a collection of lecture and presentation notes intended as a resource fo
 
 The objective of this resource is to help students in PADP7120 become as competitive as possible in their desired job markets via competency in statistics and statistical programming software. It aims to teach students key concepts in statistics and applications of those concepts using R with a level of theoretical and technical detail that is accessible for MPA students.
 
-### Style and Structure {-}
+## Style and Structure {-}
 
 Rather than provide thorough coverage of complex statistical concepts, I take some liberty to present stylized facts for the benefit of the reader. When using R, multiple options exist to achieve an outcome. I provide what I consider or understand to be the best option. You may be aware of or discover what you consider a better approach. I welcome such suggestions for improvement!
 
@@ -62,7 +63,29 @@ library(Stat2Data)
 library(data.table)
 ```
 
-### Supplemental resources {-}
+```{r set-options, include=FALSE, purl=FALSE}
+# Set output options
+if (is_html_output()) {
+  options(width = 80)
+}
+if (is_latex_output()) {
+  options(width = 75)
+}
+options(digits = 7, bookdown.clean_book = TRUE, knitr.kable.NA = "NA")
+opts_chunk$set(
+  tidy = FALSE,
+  out.width = "\\textwidth",
+  fig.align = "center",
+  comment = NA
+)
+
+# To get kable tables to print nicely in .tex file
+if (is_latex_output()) {
+  options(kableExtra.auto_format = FALSE, knitr.table.format = "latex")
+}
+```
+
+## Supplemental resources {-}
 
 There are numerous free materials that teach statistics and R.
 
@@ -82,7 +105,7 @@ There are numerous free materials that teach statistics and R.
   - [Pimp my RMD](https://holtzy.github.io/Pimp-my-rmd/#text_formating) by Yan Holtz
   - [Data Carpentry: R for Social Scientists](https://datacarpentry.org/r-socialsci/)
 
-### R Package References {-}
+## R Package References {-}
 
 The following list cites the creators and authors of the packages used in this resource.
 

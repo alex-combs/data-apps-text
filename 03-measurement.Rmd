@@ -84,7 +84,7 @@ crossgap <- gapminder %>%
 crossgap[1,4] <- NA
 crossgap[2,6] <- NA
 
-kable(crossgap, format = 'html', caption = "Example of explicitly missing data")
+kable(crossgap, caption = "Example of explicitly missing data")
 ```
 
 
@@ -97,7 +97,7 @@ gapminder %>%
   filter(continent == 'Americas', year >= 1997) %>% 
   head(n=6) %>%
   filter(country!='Bolivia' | year!=2002) %>% 
-  kable(format = 'html', caption = 'Example of implicitly missing data')
+  kable(caption = 'Example of implicitly missing data')
 ```
 
 Note that the missing Bolivia observation was easy to spot because the dataset is extremely small. If we were dealing with a large dataset, this would not have been so obvious. A quick way to check whether there may be implicitly missing observations is to check the number of observations in your data. If you are under the impression that your data contains all 50 states for 10 years, then you should have 500 observations. If not, some states or years must be missing.

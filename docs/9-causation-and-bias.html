@@ -556,8 +556,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The focus of this chapter is explanation using regression. Many scenarios within program evaluation or policy analysis involve explaining whether and to what extent one variable impacts another we care about changing. Ultimately, our concern is causality. It is one thing to conclude two variables are associated with each other; it is an entirely different thing to conclude that a change in one variable <em>causes</em> the other to change. If we propose to spend millions of dollars on a program to help people, or decide to cut a program that does not, we should be as certain as about this causal claim as statistics allows us to be.</p>
 <p>Sufficient understanding of causality or causal inference warrants its own course. It does not involve regression models that much different from what you have learned so far or will learn by the end of this book, but it does involve a broader and deeper understanding of research design and knowing how to identify threats to internal and external validity. Let us revisit the figure of credible analysis first shown in Chapter <a href="3-measurement-and-missing.html#measurement-and-missing">3</a>.</p>
 <center>
-<div class="figure"><span id="fig:credfigrepeat"></span>
-<img src="images/credible.png" alt="Components of credible analysis" width="489" />
+<div class="figure" style="text-align: center"><span id="fig:credfigrepeat"></span>
+<img src="images/credible.png" alt="Components of credible analysis" width="\textwidth" />
 <p class="caption">
 Figure 9.1: Components of credible analysis
 </p>
@@ -589,8 +589,8 @@ Figure 9.1: Components of credible analysis
 <p>Directed acyclical graphs (DAGs) are visual representations of causal pathways. Constructing a DAG involves theory, existing research, or theory. A DAG requires us to state our assumptions clearly, thus allowing us and others to evaluate the internal validity of our model.</p>
 <p>Figure <a href="9-causation-and-bias.html#fig:dagbasic">9.2</a> below shows a basic DAG. This model involves three variables, X, Y, and Z. Y denotes the outcome and X denotes the variable of primary interest for which we intend to estimate a causal effect. Z denotes any other variables in the model. The arrow from X to Y indicates our claim that X causes changes in Y. X also causes Z to change, and Z causes Y to change. In this example, the claim is that X has a direct effect on Y and an indirect (mediated) effect on Y through Z.</p>
 <center>
-<div class="figure"><span id="fig:dagbasic"></span>
-<img src="images/dag_basic.png" alt="A basic DAG" width="159" />
+<div class="figure" style="text-align: center"><span id="fig:dagbasic"></span>
+<img src="images/dag_basic.png" alt="A basic DAG" width="\textwidth" />
 <p class="caption">
 Figure 9.2: A basic DAG
 </p>
@@ -610,8 +610,8 @@ BMI = \beta_0 + \beta_1Exercise + \epsilon
 \end{equation}\]</span></p>
 <p>Figure <a href="9-causation-and-bias.html#fig:dagreg">9.3</a> below shows the DAG that corresponds with Equation <a href="9-causation-and-bias.html#eq:dagreg">(9.1)</a>. The central claim is that exercise causes BMI to change. Therefore, there is a solid arrow from exercise to BMI. Also, note that because <span class="math inline">\(\epsilon\)</span>, by definition, represents all other unobserved factors that affect BMI, there is a dashed line from <span class="math inline">\(\epsilon\)</span> to BMI. Lastly, this DAG makes the assumption that no variables contained in <span class="math inline">\(\epsilon\)</span> affects exercise, nor does exercise affect any variables contained in <span class="math inline">\(\epsilon\)</span></p>
 <center>
-<div class="figure"><span id="fig:dagreg"></span>
-<img src="images/dag_reg.png" alt="DAG representation of a regression model" width="259" />
+<div class="figure" style="text-align: center"><span id="fig:dagreg"></span>
+<img src="images/dag_reg.png" alt="DAG representation of a regression model" width="\textwidth" />
 <p class="caption">
 Figure 9.3: DAG representation of a regression model
 </p>
@@ -630,8 +630,8 @@ Figure 9.3: DAG representation of a regression model
 <h4>Confounders</h4>
 <p>Identifying backdoor paths allow us to then identify whether confounding or colliding variables are present in our model. Figure <a href="9-causation-and-bias.html#fig:dagconf">9.4</a> below shows a variation on the simple DAG with one backdoor path. The backdoor path still runs from X to Z to Y, but now the direction of the arrows connecting this path are different. Specifically, the backdoor path is X &lt;– Z –&gt; Y.</p>
 <center>
-<div class="figure"><span id="fig:dagconf"></span>
-<img src="images/dag_confound.png" alt="Example of confounder variable" width="206" />
+<div class="figure" style="text-align: center"><span id="fig:dagconf"></span>
+<img src="images/dag_confound.png" alt="Example of confounder variable" width="\textwidth" />
 <p class="caption">
 Figure 9.4: Example of confounder variable
 </p>
@@ -644,8 +644,8 @@ Figure 9.4: Example of confounder variable
 <h4>Colliders</h4>
 <p>Figure <a href="9-causation-and-bias.html#fig:dagcoll">9.5</a> below shows another variation of the simple DAG with one backdoor path between X and Y that goes through Z. The direction of the arrows are such that this backdoor path can be written as X –&gt; Z &lt;– Y. In this case, Z is a <strong>collider</strong>. Any variable on which the arrows connecting X and Y converge is a collider.</p>
 <center>
-<div class="figure"><span id="fig:dagcoll"></span>
-<img src="images/dag_collide.png" alt="Example of collider variable" width="195" />
+<div class="figure" style="text-align: center"><span id="fig:dagcoll"></span>
+<img src="images/dag_collide.png" alt="Example of collider variable" width="\textwidth" />
 <p class="caption">
 Figure 9.5: Example of collider variable
 </p>
@@ -680,8 +680,8 @@ Figure 9.5: Example of collider variable
 <p>Exercise &lt;– <span class="math inline">\(\epsilon\)</span> –&gt; BMI</p>
 <p>where <span class="math inline">\(\epsilon\)</span> is a confounder. Therefore, this backdoor path is open, and because we do not observe the variables in <span class="math inline">\(\epsilon\)</span>, we do not currently have the means to close it.</p>
 <center>
-<div class="figure"><span id="fig:dagregovb"></span>
-<img src="images/dag_regovb.png" alt="Counfounding error term" width="240" />
+<div class="figure" style="text-align: center"><span id="fig:dagregovb"></span>
+<img src="images/dag_regovb.png" alt="Counfounding error term" width="\textwidth" />
 <p class="caption">
 Figure 9.6: Counfounding error term
 </p>
@@ -691,8 +691,8 @@ Figure 9.6: Counfounding error term
 <p>Our next task then is to identify the set of variables that would eliminate the arrow from <span class="math inline">\(\epsilon\)</span> to exercise. If we can credibly break the link between <span class="math inline">\(\epsilon\)</span> and our explanatory variables, then we can credibly claim there is no omitted variable bias in our model.</p>
 <p>For the sake of this example, suppose healthy eating is the key omitted variable. Healthy nutrition gives us the energy to exercise and obviously affects our BMI. Suppose we collect a variable that measures the extent to which a person’s diet is healthy. Now, we have a new DAG, as depicted in Figure <a href="9-causation-and-bias.html#fig:dagregnut">9.7</a>.</p>
 <center>
-<div class="figure"><span id="fig:dagregnut"></span>
-<img src="images/dag_regnut.png" alt="Eliminating OVB" width="231" />
+<div class="figure" style="text-align: center"><span id="fig:dagregnut"></span>
+<img src="images/dag_regnut.png" alt="Eliminating OVB" width="\textwidth" />
 <p class="caption">
 Figure 9.7: Eliminating OVB
 </p>
@@ -716,8 +716,8 @@ BMI = \beta_0 + \beta_1Exercise + \beta_2Nutrition + \epsilon
 <p>The moral of this section is that when you or someone identifies a variable that may cause OVB, all is not lost. If OVB works against the estimate’s value relative to zero, then it actually lowers the likelihood of significant results that you still obtained. However, if OVB works with the estimate’s value relative to zero, then it increases the likelihood of finding the significant results you found when there may not be a significant relationship.</p>
 <p>How can we postulate the direction of OVB? Figure <a href="9-causation-and-bias.html#fig:dagovbdirect">9.8</a> below shows a simple confounding scenario where our estimate of the effect of X on Y is biased due to an omitted variable Z. If X and Y move in the same direction because of a change in Z, then OVB is positive. If X and Y move in opposite direction because of a change if Z, then OVB is negative.</p>
 <center>
-<div class="figure"><span id="fig:dagovbdirect"></span>
-<img src="images/dag_ovbdirect.png" alt="Predicting direction of OVB" width="228" />
+<div class="figure" style="text-align: center"><span id="fig:dagovbdirect"></span>
+<img src="images/dag_ovbdirect.png" alt="Predicting direction of OVB" width="\textwidth" />
 <p class="caption">
 Figure 9.8: Predicting direction of OVB
 </p>
@@ -789,7 +789,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

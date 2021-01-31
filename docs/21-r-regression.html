@@ -914,35 +914,35 @@ rmse
 <h3><span class="header-section-number">21.4.2</span> Base R</h3>
 <p>A comprehensive set of regression results can be obtained using the <code>summary</code> function on our regression model like so</p>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="21-r-regression.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fedpov2)</span></code></pre></div>
-<pre><code>## 
-## Call:
-## lm(formula = fed_spend ~ poverty + homeownership + income, data = selcounty)
-## 
-## Residuals:
-##    Min     1Q Median     3Q    Max 
-## -9.463 -2.502 -1.007  1.015 39.327 
-## 
-## Coefficients:
-##               Estimate Std. Error t value             Pr(&gt;|t|)    
-## (Intercept)   23.51860    1.33290  17.645 &lt; 0.0000000000000002 ***
-## poverty       -0.05597    0.02093  -2.674              0.00752 ** 
-## homeownership -0.12582    0.01172 -10.736 &lt; 0.0000000000000002 ***
-## income        -0.08593    0.01113  -7.723   0.0000000000000152 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 4.555 on 3119 degrees of freedom
-## Multiple R-squared:  0.06397,	Adjusted R-squared:  0.06307 
-## F-statistic: 71.06 on 3 and 3119 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<pre><code>
+Call:
+lm(formula = fed_spend ~ poverty + homeownership + income, data = selcounty)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-9.463 -2.502 -1.007  1.015 39.327 
+
+Coefficients:
+              Estimate Std. Error t value             Pr(&gt;|t|)    
+(Intercept)   23.51860    1.33290  17.645 &lt; 0.0000000000000002 ***
+poverty       -0.05597    0.02093  -2.674              0.00752 ** 
+homeownership -0.12582    0.01172 -10.736 &lt; 0.0000000000000002 ***
+income        -0.08593    0.01113  -7.723   0.0000000000000152 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 4.555 on 3119 degrees of freedom
+Multiple R-squared:  0.06397,	Adjusted R-squared:  0.06307 
+F-statistic: 71.06 on 3 and 3119 DF,  p-value: &lt; 0.00000000000000022</code></pre>
 <p>which gives us most of the information from <code>get_regression_table</code> except for the confidence intervals.</p>
 <p>The <code>summary</code> function also reports the R-squared and Adjusted R-squared at the bottom. The <code>esidual standard error</code> at the bottom is not <em>exactly</em> the same as the RMSE above–it is actually equal to <code>sigma</code> in the full table from <code>get_regression_summaries</code>–but you can treat them the same.</p>
 <p>To get the confidence intervals, we can use the <code>confint</code> function like so,</p>
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="21-r-regression.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(fedpov2)</span></code></pre></div>
-<pre><code>##                     2.5 %      97.5 %
-## (Intercept)   20.90515522 26.13203853
-## poverty       -0.09700107 -0.01493693
-## homeownership -0.14880274 -0.10284564
-## income        -0.10774450 -0.06411382</code></pre>
+<pre><code>                    2.5 %      97.5 %
+(Intercept)   20.90515522 26.13203853
+poverty       -0.09700107 -0.01493693
+homeownership -0.14880274 -0.10284564
+income        -0.10774450 -0.06411382</code></pre>
 <p>which uses the 95% confidence level by default.</p>
 <div class="learncheck">
 <p>
@@ -996,7 +996,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

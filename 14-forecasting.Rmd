@@ -20,7 +20,7 @@ Recall in Chapter \@ref(data) that time series measures one or more characterist
 gapminder %>% 
   filter(country == 'United States') %>% 
   tail(n=5) %>% 
-  kable(format = 'html', caption = "Time series example")
+  kable(caption = "Time series example")
 ```
 
 Forecasting involves making out-of-sample predictions for a measure within a time series. Throughout the chapters on regression, we made out-of-sample predictions each time we computed the predicted value of the outcome in our regression, $\hat{y}$, for a scenario not observed in our sample. Forecasting is no different in this regard. It is specific to predictions with time series data. Since the unit of analysis in time series data is a unit of time, an out-of-sample prediction involves a time period unobserved in our sample (i.e. the future).
@@ -168,7 +168,7 @@ Table \@ref(tab:frmse) shows a set of standard goodness-of-fit measures for our 
 
 ```{r frmse, echo=FALSE}
 accuracy(gdp_naive) %>% 
-  kable(format = 'html', caption = 'Forecast goodness-of-fit measures')
+  kable(caption = 'Forecast goodness-of-fit measures')
 ```
 
 ### Models
@@ -209,7 +209,7 @@ According to the drift model, predicted GDP for the next ten time periods is sho
 
 ```{r gdpdrift, echo=FALSE}
 forecast(gdp_drift) %>% 
-  kable(format = 'html', caption = 'Forecast values')
+  kable(caption = 'Forecast values')
 ```
 
 Perhaps more sophisticated methods would provide a better forecast model. If so, then the model will fit observed data better, resulting in more precise confidence intervals. Greater precision could indeed be valuable depending on the context, as many decisions can be aided by considering best- and worst-case scenarios. Nevertheless, as long as our model achieves residuals that look like white noise with a mean approximately equal to zero, we can be fairly confident that our model is not wildly inaccurate though it may be less precise than an alternative model.

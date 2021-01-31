@@ -536,151 +536,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">15.1</span> Panel data</h2>
 <p>Recall from Chapter <a href="2-data.html#data">2</a> that panel data measures the <em>same</em> units over multiple time periods. Table <a href="15-panel-analysis.html#tab:panelrep">15.1</a> below provides an example of panel data. Panels for geographic or political areas such as counties, school or voting districts, states, and countries are common and easy to obtain. Due to privacy protections and challenges of following people over time, panels of individual people are somewhat more difficult to obtain but are quite common.</p>
 <table>
-<caption>
-<span id="tab:panelrep">Table 15.1: </span>Panel example
-</caption>
+<caption><span id="tab:panelrep">Table 15.1: </span>Panel example</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
+<tr class="header">
+<th align="left">country</th>
+<th align="left">continent</th>
+<th align="right">year</th>
+<th align="right">lifeExp</th>
+<th align="right">pop</th>
+<th align="right">gdpPercap</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-73.275
-</td>
-<td style="text-align:right;">
-36203463
-</td>
-<td style="text-align:right;">
-10967.282
-</td>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">1997</td>
+<td align="right">73.275</td>
+<td align="right">36203463</td>
+<td align="right">10967.282</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-74.340
-</td>
-<td style="text-align:right;">
-38331121
-</td>
-<td style="text-align:right;">
-8797.641
-</td>
+<tr class="even">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">2002</td>
+<td align="right">74.340</td>
+<td align="right">38331121</td>
+<td align="right">8797.641</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">75.320</td>
+<td align="right">40301927</td>
+<td align="right">12779.380</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-62.050
-</td>
-<td style="text-align:right;">
-7693188
-</td>
-<td style="text-align:right;">
-3326.143
-</td>
+<tr class="even">
+<td align="left">Bolivia</td>
+<td align="left">Americas</td>
+<td align="right">1997</td>
+<td align="right">62.050</td>
+<td align="right">7693188</td>
+<td align="right">3326.143</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-63.883
-</td>
-<td style="text-align:right;">
-8445134
-</td>
-<td style="text-align:right;">
-3413.263
-</td>
+<tr class="odd">
+<td align="left">Bolivia</td>
+<td align="left">Americas</td>
+<td align="right">2002</td>
+<td align="right">63.883</td>
+<td align="right">8445134</td>
+<td align="right">3413.263</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
+<tr class="even">
+<td align="left">Bolivia</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">65.554</td>
+<td align="right">9119152</td>
+<td align="right">3822.137</td>
 </tr>
 </tbody>
 </table>
@@ -702,21 +616,21 @@ y_{it}=\alpha_{i}+\beta_1x_{1it}+\beta_2x_{2it}+\cdots+\beta_kx_{kit}+\epsilon_{
 \tag{15.2}
 \end{equation}\]</span></p>
 <p>The fixed effect model is essentially identical to controlling for a categorical variable like we saw in Chapter <a href="7-categorical-variables-and-interactions.html#categorical-variables-and-interactions">7</a>. Recall the graph below where we controlled for the region each state is in when modeling the relationship between miles driven and traffic fatalities. We controlled for region not because we thought being in the West literally causes drivers to have more fatal accidents, but rather because regions might capture unobserved geographic or infrastructure characteristics that affect traffic fatalities.</p>
-<div class="figure"><span id="fig:pslopescatter3rep"></span>
-<img src="data-apps-text_files/figure-html/pslopescatter3rep-1.png" alt="Parallel slopes for 4 groups" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:pslopescatter3rep"></span>
+<img src="data-apps-text_files/figure-html/pslopescatter3rep-1.png" alt="Parallel slopes for 4 groups" width="\textwidth" />
 <p class="caption">
 Figure 15.1: Parallel slopes for 4 groups
 </p>
 </div>
 <p>The fixed effect model takes this idea a little further, controlling for the unobserved characteristics of each unit–the state in this case–rather than some aggregated level like region. This produces a separate regression line for each unit, as seen in Figure <a href="15-panel-analysis.html#fig:feviz">15.2</a>. For unobserved reasons, states seem to have inherent differences with respect to miles driven and fatalities. Note how flat the common regression slope is for all of the states compared to the slope of the regression without fixed effects in Figure <a href="15-panel-analysis.html#fig:olsviz">15.3</a>. Ignoring the inherent differences between states leads to the conclusion that distance driven has a larger effect on the fatality rate than what the data actually suggests once we control for those differences. This is the primary reason for using a fixed effects model.</p>
-<div class="figure"><span id="fig:feviz"></span>
-<img src="data-apps-text_files/figure-html/feviz-1.png" alt="Visualizing fixed effects" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:feviz"></span>
+<img src="data-apps-text_files/figure-html/feviz-1.png" alt="Visualizing fixed effects" width="\textwidth" />
 <p class="caption">
 Figure 15.2: Visualizing fixed effects
 </p>
 </div>
-<div class="figure"><span id="fig:olsviz"></span>
-<img src="data-apps-text_files/figure-html/olsviz-1.png" alt="Ignoring fixed effects" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:olsviz"></span>
+<img src="data-apps-text_files/figure-html/olsviz-1.png" alt="Ignoring fixed effects" width="\textwidth" />
 <p class="caption">
 Figure 15.3: Ignoring fixed effects
 </p>
@@ -728,149 +642,63 @@ mrall = \beta_0 + \beta_1vmiles + \beta_2region + \epsilon
 \tag{15.3}
 \end{equation}\]</span></p>
 <table>
-<caption>
-<span id="tab:psloperesults2rep">Table 15.2: </span>Parallel slopes for regions
-</caption>
+<caption><span id="tab:psloperesults2rep">Table 15.2: </span>Parallel slopes for regions</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-term
-</th>
-<th style="text-align:right;">
-estimate
-</th>
-<th style="text-align:right;">
-std_error
-</th>
-<th style="text-align:right;">
-statistic
-</th>
-<th style="text-align:right;">
-p_value
-</th>
-<th style="text-align:right;">
-lower_ci
-</th>
-<th style="text-align:right;">
-upper_ci
-</th>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std_error</th>
+<th align="right">statistic</th>
+<th align="right">p_value</th>
+<th align="right">lower_ci</th>
+<th align="right">upper_ci</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-intercept
-</td>
-<td style="text-align:right;">
-0.260
-</td>
-<td style="text-align:right;">
-0.167
-</td>
-<td style="text-align:right;">
-1.553
-</td>
-<td style="text-align:right;">
-0.121
-</td>
-<td style="text-align:right;">
--0.069
-</td>
-<td style="text-align:right;">
-0.589
-</td>
+<tr class="odd">
+<td align="left">intercept</td>
+<td align="right">0.260</td>
+<td align="right">0.167</td>
+<td align="right">1.553</td>
+<td align="right">0.121</td>
+<td align="right">-0.069</td>
+<td align="right">0.589</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-vmiles
-</td>
-<td style="text-align:right;">
-0.188
-</td>
-<td style="text-align:right;">
-0.021
-</td>
-<td style="text-align:right;">
-8.895
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.147
-</td>
-<td style="text-align:right;">
-0.230
-</td>
+<tr class="even">
+<td align="left">vmiles</td>
+<td align="right">0.188</td>
+<td align="right">0.021</td>
+<td align="right">8.895</td>
+<td align="right">0.000</td>
+<td align="right">0.147</td>
+<td align="right">0.230</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-regionN. East
-</td>
-<td style="text-align:right;">
--0.076
-</td>
-<td style="text-align:right;">
-0.065
-</td>
-<td style="text-align:right;">
--1.166
-</td>
-<td style="text-align:right;">
-0.245
-</td>
-<td style="text-align:right;">
--0.204
-</td>
-<td style="text-align:right;">
-0.052
-</td>
+<tr class="odd">
+<td align="left">regionN. East</td>
+<td align="right">-0.076</td>
+<td align="right">0.065</td>
+<td align="right">-1.166</td>
+<td align="right">0.245</td>
+<td align="right">-0.204</td>
+<td align="right">0.052</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-regionSouth
-</td>
-<td style="text-align:right;">
-0.519
-</td>
-<td style="text-align:right;">
-0.056
-</td>
-<td style="text-align:right;">
-9.283
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.409
-</td>
-<td style="text-align:right;">
-0.630
-</td>
+<tr class="even">
+<td align="left">regionSouth</td>
+<td align="right">0.519</td>
+<td align="right">0.056</td>
+<td align="right">9.283</td>
+<td align="right">0.000</td>
+<td align="right">0.409</td>
+<td align="right">0.630</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-regionWest
-</td>
-<td style="text-align:right;">
-0.641
-</td>
-<td style="text-align:right;">
-0.062
-</td>
-<td style="text-align:right;">
-10.264
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.518
-</td>
-<td style="text-align:right;">
-0.763
-</td>
+<tr class="odd">
+<td align="left">regionWest</td>
+<td align="right">0.641</td>
+<td align="right">0.062</td>
+<td align="right">10.264</td>
+<td align="right">0.000</td>
+<td align="right">0.518</td>
+<td align="right">0.763</td>
 </tr>
 </tbody>
 </table>
@@ -878,45 +706,23 @@ regionWest
 <p>Running a fixed effects model for Equation <a href="15-panel-analysis.html#eq:pslopeexamp2rep">(15.3)</a> generates the following results. Note the absence of a single intercept because there is a separate intercept for each state that typically is not included in a table. More importantly, there is no estimate for the regions because a state’s region is absorbed by the state’s fixed effect.</p>
 <p>We are left with an estimate for the only variable in our model that differs across time within each state: <code>vmiles</code>. The estimate is statistically significant at the standard 5% significance level and is substantially less than the estimate in the model ignoring fixed effects. Here, as the average miles driven per driver <em>within</em> a state increases by 1 mile, the fatality rate increases by 0.057 deaths, all else equal.</p>
 <table>
-<caption>
-<span id="tab:unnamed-chunk-62">Table 15.3: </span>Fixed effects results
-</caption>
+<caption><span id="tab:unnamed-chunk-62">Table 15.3: </span>Fixed effects results</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-term
-</th>
-<th style="text-align:right;">
-estimate
-</th>
-<th style="text-align:right;">
-std.error
-</th>
-<th style="text-align:right;">
-statistic
-</th>
-<th style="text-align:right;">
-p.value
-</th>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-vmiles
-</td>
-<td style="text-align:right;">
-0.057
-</td>
-<td style="text-align:right;">
-0.019
-</td>
-<td style="text-align:right;">
-2.956
-</td>
-<td style="text-align:right;">
-0.003
-</td>
+<tr class="odd">
+<td align="left">vmiles</td>
+<td align="right">0.057</td>
+<td align="right">0.019</td>
+<td align="right">2.956</td>
+<td align="right">0.003</td>
 </tr>
 </tbody>
 </table>
@@ -965,7 +771,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

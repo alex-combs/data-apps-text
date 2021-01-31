@@ -597,24 +597,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>is.na</code> function tests every value of a variable for whether it is missing. If a value is NA, <code>is.na</code> returns <code>TRUE</code>. To illustrate, the below code assigns a series of ten values to <code>v</code>, five of which are missing. This <code>v</code> object is no different from a variable in a dataset. Then, using the <code>is.na</code> function on <code>v</code> will return a list of TRUE/FALSE values accordingly.</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="18-r-missing-data.html#cb49-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">1</span>, <span class="cn">NA</span>)</span>
 <span id="cb49-2"><a href="18-r-missing-data.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(v)</span></code></pre></div>
-<pre><code>##  [1]  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE</code></pre>
+<pre><code> [1]  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE</code></pre>
 <p>Recall in Chapter <a href="17-r-data.html#r-data">17</a> that the logical value of <code>TRUE</code> equals 1 in R, while <code>FALSE</code> equals 0. This means we can do math on TRUE/FALSE values just like we would if they were coded as 1/0.</p>
 <p>If <code>is.na</code> gives us <code>TRUE</code> for every <code>NA</code>, then adding all the <code>TRUE</code>s will give us the total count of missing values.</p>
 <p>To sum all the values of any variable, we can use the <code>sum</code> function</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="18-r-missing-data.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(v))</span></code></pre></div>
-<pre><code>## [1] 5</code></pre>
+<pre><code>[1] 5</code></pre>
 <p>The result tells us 5 of the 10 values in <code>v</code> are missing. We can easily determine that 50% of the data for <code>v</code> is missing. But what if we have some denominator that is not as easy as 10? We can quickly to determine the percent of missing values by taking the average of <code>TRUE</code>s and <code>FALSE</code>s from the <code>is.na</code> function because the average sums the values of the variable and divides by the number of values.</p>
 <p>We take the average of the <code>is.na</code> function using the <code>mean</code> function. Since each TRUE value is equal to 1, adding up all the TRUEs will equal 5, which is then divided by the total number of values, 10, giving us 0.5 or 50%.</p>
 <blockquote>
 <p>Whenever we have a dummy 1/0 variable, the average of that variable is the percentage of observations equal to 1. In this case, 1 represents missing, but it could represent anything.</p>
 </blockquote>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="18-r-missing-data.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">is.na</span>(v))</span></code></pre></div>
-<pre><code>## [1] 0.5</code></pre>
+<pre><code>[1] 0.5</code></pre>
 <p>As expected, we get 0.5 or 50%. Building from this example, we can quantify the total and percent of missing values for wages like so</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="18-r-missing-data.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(SLID<span class="sc">$</span>wages))</span></code></pre></div>
-<pre><code>## [1] 3278</code></pre>
+<pre><code>[1] 3278</code></pre>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="18-r-missing-data.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">is.na</span>(SLID<span class="sc">$</span>wages))</span></code></pre></div>
-<pre><code>## [1] 0.4414815</code></pre>
+<pre><code>[1] 0.4414815</code></pre>
 <p>Wages is missing 3,278 observations, or about 44% of all observations.</p>
 <div class="learncheck">
 <p>
@@ -623,21 +623,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>If we had, say, 10 variables with missing values, the process above would be rather tedious. Like before, we can tell R to repeatedly quantify missing values for each variable using a slightly different function:</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="18-r-missing-data.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(SLID, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span></code></pre></div>
-<pre><code>##     wages education       age       sex  language 
-##      3278       249         0         0       121</code></pre>
+<pre><code>    wages education       age       sex  language 
+     3278       249         0         0       121 </code></pre>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="18-r-missing-data.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(SLID, <span class="cf">function</span>(x) <span class="fu">mean</span>(<span class="fu">is.na</span>(x)))</span></code></pre></div>
-<pre><code>##      wages  education        age        sex   language 
-## 0.44148148 0.03353535 0.00000000 0.00000000 0.01629630</code></pre>
+<pre><code>     wages  education        age        sex   language 
+0.44148148 0.03353535 0.00000000 0.00000000 0.01629630 </code></pre>
 </div>
 <div id="bypassing-missing-values" class="section level2" number="18.6">
 <h2><span class="header-section-number">18.6</span> Bypassing missing values</h2>
 <p>Many functions that execute some kind of computation (e.g. sum, average) do not work if you execute them on variables that contain missing values. This is deliberate so users are notified of missing values.</p>
 <p>For instance, below I try to calculate average years of education.</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="18-r-missing-data.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(SLID<span class="sc">$</span>education)</span></code></pre></div>
-<pre><code>## [1] NA</code></pre>
+<pre><code>[1] NA</code></pre>
 <p>In order to have functions bypass missing values, we have to include the <code>na.rm=TRUE</code> option that tells R to skip <code>NA</code>s.</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="18-r-missing-data.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(SLID<span class="sc">$</span>education, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>## [1] 12.49608</code></pre>
+<pre><code>[1] 12.49608</code></pre>
 <p>Since education is missing only 3% of its values, this is probably a good approximation of what the average would be if there were no missing values.</p>
 <div class="learncheck">
 <p>
@@ -704,7 +704,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

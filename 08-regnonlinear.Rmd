@@ -73,7 +73,7 @@ Suppose we collect the following data.
 ```{r wagestab, echo=FALSE}
 wages %>% 
   sample_n(7) %>% 
-  kable(format = 'html', caption = 'Preview of wages, age, and education')
+  kable(caption = 'Preview of wages, age, and education')
 ```
 
 Therefore, our regression equation is as follows
@@ -91,7 +91,7 @@ quad_mod <- lm(Wage ~ Age + I(Age^2) + Educ, data = wages)
 
 ```{r quadextab, echo=FALSE}
 get_regression_table(quad_mod) %>% 
-  kable(format = 'html', caption = 'Quadratic model results')
+  kable(caption = 'Quadratic model results')
 ```
 
 In Table \@ref(tab:quadextab), note that there are two rows for Age--one for the linear or level term and a second for the quadratic term. When the quadratic relationship is an inverted U, or concave, the linear term will be positive and the quadratic will be negative. This corresponds with an initial positive relationship that eventually turns negative once the negative quadratic term overcomes the positive linear term.
@@ -320,17 +320,17 @@ loglev <- lm(log(lifeExp) ~ gdpPercap + continent, data = gapminder)
 
 ```{r loglogtab, echo=FALSE}
 get_regression_table(loglog) %>% 
-  kable(format = 'html', caption = 'Log-log results')
+  kable(caption = 'Log-log results')
 ```
 
 ```{r levlogtab, echo=FALSE}
 get_regression_table(levlog) %>% 
-  kable(format = 'html', caption = 'Level-log results')
+  kable(caption = 'Level-log results')
 ```
 
 ```{r loglevtab, echo=FALSE}
 get_regression_table(loglev) %>% 
-  kable(format = 'html', caption = 'Log-level results')
+  kable(caption = 'Log-level results')
 ```
 
 Our log-log results indicate that a one percent increase in GDP per capita is associated with a 0.11 percent increase in life expectancy, on average and controlling for continent. 

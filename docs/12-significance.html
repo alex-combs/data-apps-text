@@ -549,149 +549,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">12.2</span> Regression table</h2>
 <p>Chapters <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a>, <a href="7-categorical-variables-and-interactions.html#categorical-variables-and-interactions">7</a>, and <a href="8-nonlinear-variables.html#nonlinear-variables">8</a> presented numerous regression tables. These tables included the standard set of results that statistical programs provide by default. Below is one of the tables from Chapter <a href="7-categorical-variables-and-interactions.html#categorical-variables-and-interactions">7</a> for a regression to explain traffic fatalities as a function of miles driven and U.S. region.</p>
 <table>
-<caption>
-<span id="tab:extable">Table 12.1: </span>Parallel slopes for regions
-</caption>
+<caption><span id="tab:extable">Table 12.1: </span>Parallel slopes for regions</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-term
-</th>
-<th style="text-align:right;">
-estimate
-</th>
-<th style="text-align:right;">
-std_error
-</th>
-<th style="text-align:right;">
-statistic
-</th>
-<th style="text-align:right;">
-p_value
-</th>
-<th style="text-align:right;">
-lower_ci
-</th>
-<th style="text-align:right;">
-upper_ci
-</th>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std_error</th>
+<th align="right">statistic</th>
+<th align="right">p_value</th>
+<th align="right">lower_ci</th>
+<th align="right">upper_ci</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-intercept
-</td>
-<td style="text-align:right;">
-0.260
-</td>
-<td style="text-align:right;">
-0.167
-</td>
-<td style="text-align:right;">
-1.553
-</td>
-<td style="text-align:right;">
-0.121
-</td>
-<td style="text-align:right;">
--0.069
-</td>
-<td style="text-align:right;">
-0.589
-</td>
+<tr class="odd">
+<td align="left">intercept</td>
+<td align="right">0.260</td>
+<td align="right">0.167</td>
+<td align="right">1.553</td>
+<td align="right">0.121</td>
+<td align="right">-0.069</td>
+<td align="right">0.589</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-vmiles
-</td>
-<td style="text-align:right;">
-0.188
-</td>
-<td style="text-align:right;">
-0.021
-</td>
-<td style="text-align:right;">
-8.895
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.147
-</td>
-<td style="text-align:right;">
-0.230
-</td>
+<tr class="even">
+<td align="left">vmiles</td>
+<td align="right">0.188</td>
+<td align="right">0.021</td>
+<td align="right">8.895</td>
+<td align="right">0.000</td>
+<td align="right">0.147</td>
+<td align="right">0.230</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-regionN. East
-</td>
-<td style="text-align:right;">
--0.076
-</td>
-<td style="text-align:right;">
-0.065
-</td>
-<td style="text-align:right;">
--1.166
-</td>
-<td style="text-align:right;">
-0.245
-</td>
-<td style="text-align:right;">
--0.204
-</td>
-<td style="text-align:right;">
-0.052
-</td>
+<tr class="odd">
+<td align="left">regionN. East</td>
+<td align="right">-0.076</td>
+<td align="right">0.065</td>
+<td align="right">-1.166</td>
+<td align="right">0.245</td>
+<td align="right">-0.204</td>
+<td align="right">0.052</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-regionSouth
-</td>
-<td style="text-align:right;">
-0.519
-</td>
-<td style="text-align:right;">
-0.056
-</td>
-<td style="text-align:right;">
-9.283
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.409
-</td>
-<td style="text-align:right;">
-0.630
-</td>
+<tr class="even">
+<td align="left">regionSouth</td>
+<td align="right">0.519</td>
+<td align="right">0.056</td>
+<td align="right">9.283</td>
+<td align="right">0.000</td>
+<td align="right">0.409</td>
+<td align="right">0.630</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-regionWest
-</td>
-<td style="text-align:right;">
-0.641
-</td>
-<td style="text-align:right;">
-0.062
-</td>
-<td style="text-align:right;">
-10.264
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.518
-</td>
-<td style="text-align:right;">
-0.763
-</td>
+<tr class="odd">
+<td align="left">regionWest</td>
+<td align="right">0.641</td>
+<td align="right">0.062</td>
+<td align="right">10.264</td>
+<td align="right">0.000</td>
+<td align="right">0.518</td>
+<td align="right">0.763</td>
 </tr>
 </tbody>
 </table>
@@ -802,7 +716,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

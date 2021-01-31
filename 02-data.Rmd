@@ -26,7 +26,7 @@ generic <- tibble(ID = c("Unit of Analysis", "Unit of Analysis", "Unit of Analys
 ```
 
 ```{r print-generic, echo=FALSE}
-kable(generic, format = 'html', caption = "Generic rectangular data")
+kable(generic, caption = "Generic rectangular data")
 ```
 
 <br>
@@ -111,7 +111,7 @@ Just as the type of variable one is dealing with impacts the kinds of visualizat
 gapminder %>% 
   filter(year == 2007 & continent == 'Americas') %>% 
   head(n=3) %>% 
-  kable(format = 'html', caption = "Cross-section example")
+  kable(caption = "Cross-section example")
 ```
 
 <br>
@@ -123,7 +123,7 @@ gapminder %>%
   filter((year == 2007 & continent == 'Americas') | (year==2002 & continent=='Africa')) %>% 
   head(n=7) %>% 
   arrange(year) %>% 
-  kable(format = 'html', caption = "Pooled cross-section example")
+  kable(caption = "Pooled cross-section example")
 ```
 
 <br>
@@ -134,7 +134,7 @@ gapminder %>%
 gapminder %>% 
   filter(country == 'Argentina') %>% 
   tail(n=7) %>% 
-  kable(format = 'html', caption = "Time series example")
+  kable(caption = "Time series example")
 ```
 
 <br>
@@ -145,7 +145,7 @@ gapminder %>%
 gapminder %>% 
   filter(continent == 'Americas', year >= 1997) %>% 
   head(n=6) %>% 
-  kable(format = 'html', caption = "Panel example")
+  kable(caption = "Panel example")
 ```
 
 <br>

@@ -1,4 +1,83 @@
 \usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{bbm}
+\usepackage[bf,singlelinecheck=off]{caption}
+
+\usepackage{framed,color}
+\definecolor{shadecolor}{RGB}{248,248,248}
+
+\usepackage{float}
+\floatplacement{figure}{H}
+\floatplacement{table}{H}
+\setlength{\textfloatsep}{0.1cm}
+\usepackage{array}
+\usepackage{multirow}
+%\usepackage[table]{xcolor}
+\usepackage{wrapfig}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{kotex}
+
+% Changed via Rob Hyndman's suggestions
+% https://robjhyndman.com/hyndsight/latex-floats/
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.7}
+% Force images to appear after their definition
+\usepackage{flafter}
+
+\makeatletter
+\newenvironment{kframe}{%
+\medskip{}
+\setlength{\fboxsep}{.8em}
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}
+
+\usepackage{makeidx}
+\makeindex
+
+\urlstyle{tt}
+
+%% Need to clean up
+\newenvironment{rmdblock}[1]
+  {\begin{shaded*}
+  }
+  {\end{shaded*}
+  }
+
+\newenvironment{learncheck}
+  {\begin{rmdblock}{warning}}
+  {\end{rmdblock}}
+
+% No widow lines
+% Copied from https://github.com/hadley/adv-r/blob/master/latex/preamble.tex
+\widowpenalty=10000
+\clubpenalty=10000
+
 \usepackage{amsthm}
 \makeatletter
 \def\thm@space@setup{%
@@ -7,22 +86,6 @@
 }
 \makeatother
 
+\listfiles
 
-\newenvironment{announcement}% environment name 
-{% begin code 
-  \par\vspace{\baselineskip}\noindent 
-  \color{Announcement}\begin{itshape}% 
-  \par\vspace{\baselineskip}\noindent\ignorespaces 
-}% 
-{% end code 
-  \end{itshape}\ignorespacesafterend 
-}
-\newenvironment{learncheck}% environment name 
-{% begin code 
-  \par\vspace{\baselineskip}\noindent 
-  \color{Exercise}\begin{itshape}% 
-  \par\vspace{\baselineskip}\noindent\ignorespaces 
-}% 
-{% end code 
-  \end{itshape}\ignorespacesafterend 
-}
+\frontmatter

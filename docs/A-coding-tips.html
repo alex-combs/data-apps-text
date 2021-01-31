@@ -544,14 +544,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">A.2.1</span> Datasets</h3>
 <p>R can store multiple datasets or objects at a time for you to work with. Therefore, you must tell R the dataset on which to run a function. Suppose I want R to provide a quick preview of a dataset named <code>gapminder</code>. I can use the <code>glimpse()</code> function for this like so:</p>
 <div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="A-coding-tips.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(gapminder)</span></code></pre></div>
-<pre><code>## Rows: 1,704
-## Columns: 6
-## $ country   &lt;fct&gt; Afghanistan, Afghanistan, Afghanistan, Afghanistan, Afghani…
-## $ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia,…
-## $ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997,…
-## $ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.…
-## $ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 1…
-## $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134,…</code></pre>
+<pre><code>Rows: 1,704
+Columns: 6
+$ country   &lt;fct&gt; Afghanistan, Afghanistan, Afghanistan, Afghanistan, Afghani…
+$ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia,…
+$ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997,…
+$ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.…
+$ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 1…
+$ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134,…</code></pre>
 <p>Failure to tell R a dataset that has been loaded in your environment will result in an error. For example, suppose I misspell the dataset so that R looks for an object that does not exist.</p>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="A-coding-tips.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(gasminder)</span>
 <span id="cb169-2"><a href="A-coding-tips.html#cb169-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -565,7 +565,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb170-3"><a href="A-coding-tips.html#cb170-3" aria-hidden="true" tabindex="-1"></a>argument is not numeric or logical<span class="sc">:</span> returning <span class="cn">NA</span>[<span class="dv">1</span>] <span class="cn">NA</span></span></code></pre></div>
 <p>Instead, I need to specify a variable for which I want the average. To specify a variable within a dataset, we use the <code>$</code> operator. Suppose I want to compute the average life expectancy, <code>lifeExp</code>, in the <code>gapminder</code> dataset.</p>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="A-coding-tips.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(gapminder<span class="sc">$</span>lifeExp)</span></code></pre></div>
-<pre><code>## [1] 59.47444</code></pre>
+<pre><code>[1] 59.47444</code></pre>
 </div>
 </div>
 <div id="assignment-and-pipe-operators" class="section level2" number="25.3">
@@ -578,10 +578,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This <code>avg_lifeExp</code> will now show up in my environment pane (top-right) as a single value. This works not just for specific values but for <em>anything</em> we want to save to use later in our code.</p>
 <p>Note that R did not print out the result like it did when I ran <code>mean(gapminder$lifeExp)</code> above. This is because R assumes I do not want the printout because I am saving it. If I want R to print the result, I can simply run the object name like so</p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="A-coding-tips.html#cb174-1" aria-hidden="true" tabindex="-1"></a>avg_lifeExp</span></code></pre></div>
-<pre><code>## [1] 59.47444</code></pre>
+<pre><code>[1] 59.47444</code></pre>
 <p>or I can wrap the code originally assigning the new object in parentheses</p>
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="A-coding-tips.html#cb176-1" aria-hidden="true" tabindex="-1"></a>(avg_lifeExp <span class="ot">&lt;-</span> <span class="fu">mean</span>(gapminder<span class="sc">$</span>lifeExp))</span></code></pre></div>
-<pre><code>## [1] 59.47444</code></pre>
+<pre><code>[1] 59.47444</code></pre>
 <p>You will use the assignment operator often in this course. The keyboard shortcut for it is <code>Opt + -</code>, that is option and the minus sign key on Mac, or <code>Alt + -</code> on Windows.</p>
 </div>
 <div id="pipe-operator" class="section level3" number="25.3.2">
@@ -598,7 +598,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The pipe operator pipes/feeds the result of what precedes it to the next line and so on. In the code above, I start by naming a new object, <code>gap_1952_lifeExp</code>. This new object is determined by taking the <code>gapminder</code> dataset, then piping it to the <code>filter</code> function that keeps observations for which year equals 1952, then piping the result of that – which is equivalent to the intermediate <code>gap_1952</code> dataset from before – to the <code>select</code> function that keeps only the <code>country</code> and <code>lifeExp</code> variables.</p>
 <p>Now we can compute the average life expectancy in 1952 like so:</p>
 <div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="A-coding-tips.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(gap_1952_lifeExp<span class="sc">$</span>lifeExp)</span></code></pre></div>
-<pre><code>## [1] 49.05762</code></pre>
+<pre><code>[1] 49.05762</code></pre>
 <p>Note how much easier it is to read the code using the pipe operator compared to the code that does not. With the pipe operator, you can read code from left-to-right to understand what is being done. Also, recall that you must specify the dataset for any function.</p>
 <blockquote>
 <p>If you use the pipe operator, you do not need to specify the dataset in every function included in the pipe because you will have already fed the dataset to the next line containing the function.</p>
@@ -659,7 +659,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

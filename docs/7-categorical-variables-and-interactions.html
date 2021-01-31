@@ -593,219 +593,89 @@ y = \beta_0 + \beta_1x + \beta_2d + \epsilon
 <h3><span class="header-section-number">7.2.1</span> Using parallel slopes</h3>
 <p>Suppose we were interested in whether state laws mandating a jail sentence for drunk driving affects traffic fatalities, presumably by deterring drunk driving. To investigate, we collect the following data, some of which is previewed in Table <a href="7-categorical-variables-and-interactions.html#tab:trdeath">7.1</a>.</p>
 <table>
-<caption>
-<span id="tab:trdeath">Table 7.1: </span>Sample of state traffic data
-</caption>
+<caption><span id="tab:trdeath">Table 7.1: </span>Sample of state traffic data</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-state
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-mrall
-</th>
-<th style="text-align:left;">
-jaild
-</th>
-<th style="text-align:right;">
-vmiles
-</th>
-<th style="text-align:right;">
-mlda
-</th>
-<th style="text-align:right;">
-unrate
-</th>
-<th style="text-align:left;">
-region
-</th>
+<tr class="header">
+<th align="right">state</th>
+<th align="right">year</th>
+<th align="right">mrall</th>
+<th align="left">jaild</th>
+<th align="right">vmiles</th>
+<th align="right">mlda</th>
+<th align="right">unrate</th>
+<th align="left">region</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-41
-</td>
-<td style="text-align:right;">
-1987
-</td>
-<td style="text-align:right;">
-2.27606
-</td>
-<td style="text-align:left;">
-yes
-</td>
-<td style="text-align:right;">
-8.565328
-</td>
-<td style="text-align:right;">
-21
-</td>
-<td style="text-align:right;">
-6.2
-</td>
-<td style="text-align:left;">
-West
-</td>
+<tr class="odd">
+<td align="right">41</td>
+<td align="right">1987</td>
+<td align="right">2.27606</td>
+<td align="left">yes</td>
+<td align="right">8.565328</td>
+<td align="right">21</td>
+<td align="right">6.2</td>
+<td align="left">West</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-22
-</td>
-<td style="text-align:right;">
-1982
-</td>
-<td style="text-align:right;">
-2.48916
-</td>
-<td style="text-align:left;">
-yes
-</td>
-<td style="text-align:right;">
-6.137799
-</td>
-<td style="text-align:right;">
-18
-</td>
-<td style="text-align:right;">
-10.3
-</td>
-<td style="text-align:left;">
-South
-</td>
+<tr class="even">
+<td align="right">22</td>
+<td align="right">1982</td>
+<td align="right">2.48916</td>
+<td align="left">yes</td>
+<td align="right">6.137799</td>
+<td align="right">18</td>
+<td align="right">10.3</td>
+<td align="left">South</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1985
-</td>
-<td style="text-align:right;">
-2.80201
-</td>
-<td style="text-align:left;">
-yes
-</td>
-<td style="text-align:right;">
-6.771263
-</td>
-<td style="text-align:right;">
-21
-</td>
-<td style="text-align:right;">
-6.5
-</td>
-<td style="text-align:left;">
-West
-</td>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">1985</td>
+<td align="right">2.80201</td>
+<td align="left">yes</td>
+<td align="right">6.771263</td>
+<td align="right">21</td>
+<td align="right">6.5</td>
+<td align="left">West</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-1982
-</td>
-<td style="text-align:right;">
-1.46127
-</td>
-<td style="text-align:left;">
-yes
-</td>
-<td style="text-align:right;">
-6.733286
-</td>
-<td style="text-align:right;">
-20
-</td>
-<td style="text-align:right;">
-8.6
-</td>
-<td style="text-align:left;">
-N. East
-</td>
+<tr class="even">
+<td align="right">23</td>
+<td align="right">1982</td>
+<td align="right">1.46127</td>
+<td align="left">yes</td>
+<td align="right">6.733286</td>
+<td align="right">20</td>
+<td align="right">8.6</td>
+<td align="left">N. East</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-27
-</td>
-<td style="text-align:right;">
-1982
-</td>
-<td style="text-align:right;">
-1.38156
-</td>
-<td style="text-align:left;">
-no
-</td>
-<td style="text-align:right;">
-7.059264
-</td>
-<td style="text-align:right;">
-19
-</td>
-<td style="text-align:right;">
-7.8
-</td>
-<td style="text-align:left;">
-Midwest
-</td>
+<tr class="odd">
+<td align="right">27</td>
+<td align="right">1982</td>
+<td align="right">1.38156</td>
+<td align="left">no</td>
+<td align="right">7.059264</td>
+<td align="right">19</td>
+<td align="right">7.8</td>
+<td align="left">Midwest</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-1984
-</td>
-<td style="text-align:right;">
-1.90596
-</td>
-<td style="text-align:left;">
-no
-</td>
-<td style="text-align:right;">
-7.707853
-</td>
-<td style="text-align:right;">
-21
-</td>
-<td style="text-align:right;">
-5.6
-</td>
-<td style="text-align:left;">
-West
-</td>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">1984</td>
+<td align="right">1.90596</td>
+<td align="left">no</td>
+<td align="right">7.707853</td>
+<td align="right">21</td>
+<td align="right">5.6</td>
+<td align="left">West</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-23
-</td>
-<td style="text-align:right;">
-1984
-</td>
-<td style="text-align:right;">
-2.00692
-</td>
-<td style="text-align:left;">
-yes
-</td>
-<td style="text-align:right;">
-8.083908
-</td>
-<td style="text-align:right;">
-20
-</td>
-<td style="text-align:right;">
-6.1
-</td>
-<td style="text-align:left;">
-N. East
-</td>
+<tr class="odd">
+<td align="right">23</td>
+<td align="right">1984</td>
+<td align="right">2.00692</td>
+<td align="left">yes</td>
+<td align="right">8.083908</td>
+<td align="right">20</td>
+<td align="right">6.1</td>
+<td align="left">N. East</td>
 </tr>
 </tbody>
 </table>
@@ -820,8 +690,8 @@ mrall = \beta_0 + \beta_1vmiles + \beta_2jaild + \epsilon
 <p>Let us visualize the relationship between these variables using a scatter plot with <code>vmiles</code> on the x axis and using color to differentiate states with and without mandatory jail sentences for drunk driving. Note in Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter">7.1</a> below there appears to be a positive relationship between the average miles people drive and the rate of traffic fatalities. This makes intuitive sense.</p>
 <p>Now, imagine drawing a straight line through the red points that denote states with no mandatory jail for drunk driving and a separate line through the blue dots denoting states with mandatory jail sentencing. Do not force your imaginary lines to be parallel just yet. How do your two lines compare?</p>
 <p>Based on the plot points, our blue line should be above our red line, as the group of blue dots appear to be systematically higher than the group of red dots. Whether the slopes between red and blue lines are similar is less obvious. The red points suggest it <em>may</em> be the case that our red line should have a steeper slope than our <em>blue</em> line, but it is difficult to tell.</p>
-<div class="figure"><span id="fig:pslopescatter"></span>
-<img src="data-apps-text_files/figure-html/pslopescatter-1.png" alt="Relationship between miles driven and traffic fatalities" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:pslopescatter"></span>
+<img src="data-apps-text_files/figure-html/pslopescatter-1.png" alt="Relationship between miles driven and traffic fatalities" width="\textwidth" />
 <p class="caption">
 Figure 7.1: Relationship between miles driven and traffic fatalities
 </p>
@@ -836,103 +706,45 @@ Figure 7.1: Relationship between miles driven and traffic fatalities
 </blockquote>
 <p>Let us now run the parallel slopes model, which generates the following results</p>
 <table>
-<caption>
-<span id="tab:psloperesults">Table 7.2: </span>Parallel slopes results
-</caption>
+<caption><span id="tab:psloperesults">Table 7.2: </span>Parallel slopes results</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-term
-</th>
-<th style="text-align:right;">
-estimate
-</th>
-<th style="text-align:right;">
-std_error
-</th>
-<th style="text-align:right;">
-statistic
-</th>
-<th style="text-align:right;">
-p_value
-</th>
-<th style="text-align:right;">
-lower_ci
-</th>
-<th style="text-align:right;">
-upper_ci
-</th>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std_error</th>
+<th align="right">statistic</th>
+<th align="right">p_value</th>
+<th align="right">lower_ci</th>
+<th align="right">upper_ci</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-intercept
-</td>
-<td style="text-align:right;">
--0.238
-</td>
-<td style="text-align:right;">
-0.182
-</td>
-<td style="text-align:right;">
--1.304
-</td>
-<td style="text-align:right;">
-0.193
-</td>
-<td style="text-align:right;">
--0.597
-</td>
-<td style="text-align:right;">
-0.121
-</td>
+<tr class="odd">
+<td align="left">intercept</td>
+<td align="right">-0.238</td>
+<td align="right">0.182</td>
+<td align="right">-1.304</td>
+<td align="right">0.193</td>
+<td align="right">-0.597</td>
+<td align="right">0.121</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-vmiles
-</td>
-<td style="text-align:right;">
-0.281
-</td>
-<td style="text-align:right;">
-0.023
-</td>
-<td style="text-align:right;">
-12.107
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.236
-</td>
-<td style="text-align:right;">
-0.327
-</td>
+<tr class="even">
+<td align="left">vmiles</td>
+<td align="right">0.281</td>
+<td align="right">0.023</td>
+<td align="right">12.107</td>
+<td align="right">0.000</td>
+<td align="right">0.236</td>
+<td align="right">0.327</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-jaildyes
-</td>
-<td style="text-align:right;">
-0.265
-</td>
-<td style="text-align:right;">
-0.056
-</td>
-<td style="text-align:right;">
-4.726
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.155
-</td>
-<td style="text-align:right;">
-0.376
-</td>
+<tr class="odd">
+<td align="left">jaildyes</td>
+<td align="right">0.265</td>
+<td align="right">0.056</td>
+<td align="right">4.726</td>
+<td align="right">0.000</td>
+<td align="right">0.155</td>
+<td align="right">0.376</td>
 </tr>
 </tbody>
 </table>
@@ -962,8 +774,8 @@ jaildyes
 <p>The two regression lines have the same slope because we forced them to have the same slope. The only difference between the two regression lines is the y-intercept. Because <span class="math inline">\(b_2\)</span>, which in this example was <code>jaildyes</code>, equals 0.265 as shown in Table <a href="7-categorical-variables-and-interactions.html#tab:psloperesults">7.2</a>, the intercept for states with a mandatory jail sentence is 0.265 higher than the intercept for states.</p>
 </blockquote>
 <p>Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a> provides the same scatterplot but adds our parallel regression lines. Note that, as expected, the blue line is above the red line. Based on the results, we know the blue line is above the red line by 0.265. We also know that the slope for both lines is 0.281.</p>
-<div class="figure"><span id="fig:pslopescatter2"></span>
-<img src="data-apps-text_files/figure-html/pslopescatter2-1.png" alt="Parallel slopes visualization" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:pslopescatter2"></span>
+<img src="data-apps-text_files/figure-html/pslopescatter2-1.png" alt="Parallel slopes visualization" width="\textwidth" />
 <p class="caption">
 Figure 7.2: Parallel slopes visualization
 </p>
@@ -999,8 +811,8 @@ mrall = \beta_0 + \beta_1vmiles + \beta_2d_{neast} + \beta_3d_{south} + \beta_4d
 \end{equation}\]</span></p>
 <p>which now has the exact same structure as Equation \tag{7.7}. In this case, the Midwest level is excluded as the reference/base level. This is an arbitrary choice; we could choose to exclude any one of the levels to which all other levels are compared. Statistical software will automatically choose a default level. If the categorical variable is coded using text, then R excludes the level that comes first alphabetically. If coded numerically, one level should be coded as equal to 0 and will be the level that R excludes.</p>
 <p>Figure <a href="7-categorical-variables-and-interactions.html#fig:pslopescatter2">7.2</a> visualizes this model. Note that there are four regression lines, each corresponding to one of the four regions. There are clear differences between the regions. It appears states in the West and South are somehow different than states in the Midwest and Northeast with respect to traffic fatality rates.</p>
-<div class="figure"><span id="fig:pslopescatter3"></span>
-<img src="data-apps-text_files/figure-html/pslopescatter3-1.png" alt="Parallel slopes for 4 groups" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:pslopescatter3"></span>
+<img src="data-apps-text_files/figure-html/pslopescatter3-1.png" alt="Parallel slopes for 4 groups" width="\textwidth" />
 <p class="caption">
 Figure 7.3: Parallel slopes for 4 groups
 </p>
@@ -1008,149 +820,63 @@ Figure 7.3: Parallel slopes for 4 groups
 <p><br></p>
 <p>Running this model produces the following results.</p>
 <table>
-<caption>
-<span id="tab:psloperesults2">Table 7.3: </span>Parallel slopes for regions
-</caption>
+<caption><span id="tab:psloperesults2">Table 7.3: </span>Parallel slopes for regions</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-term
-</th>
-<th style="text-align:right;">
-estimate
-</th>
-<th style="text-align:right;">
-std_error
-</th>
-<th style="text-align:right;">
-statistic
-</th>
-<th style="text-align:right;">
-p_value
-</th>
-<th style="text-align:right;">
-lower_ci
-</th>
-<th style="text-align:right;">
-upper_ci
-</th>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std_error</th>
+<th align="right">statistic</th>
+<th align="right">p_value</th>
+<th align="right">lower_ci</th>
+<th align="right">upper_ci</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-intercept
-</td>
-<td style="text-align:right;">
-0.260
-</td>
-<td style="text-align:right;">
-0.167
-</td>
-<td style="text-align:right;">
-1.553
-</td>
-<td style="text-align:right;">
-0.121
-</td>
-<td style="text-align:right;">
--0.069
-</td>
-<td style="text-align:right;">
-0.589
-</td>
+<tr class="odd">
+<td align="left">intercept</td>
+<td align="right">0.260</td>
+<td align="right">0.167</td>
+<td align="right">1.553</td>
+<td align="right">0.121</td>
+<td align="right">-0.069</td>
+<td align="right">0.589</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-vmiles
-</td>
-<td style="text-align:right;">
-0.188
-</td>
-<td style="text-align:right;">
-0.021
-</td>
-<td style="text-align:right;">
-8.895
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.147
-</td>
-<td style="text-align:right;">
-0.230
-</td>
+<tr class="even">
+<td align="left">vmiles</td>
+<td align="right">0.188</td>
+<td align="right">0.021</td>
+<td align="right">8.895</td>
+<td align="right">0.000</td>
+<td align="right">0.147</td>
+<td align="right">0.230</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-regionN. East
-</td>
-<td style="text-align:right;">
--0.076
-</td>
-<td style="text-align:right;">
-0.065
-</td>
-<td style="text-align:right;">
--1.166
-</td>
-<td style="text-align:right;">
-0.245
-</td>
-<td style="text-align:right;">
--0.204
-</td>
-<td style="text-align:right;">
-0.052
-</td>
+<tr class="odd">
+<td align="left">regionN. East</td>
+<td align="right">-0.076</td>
+<td align="right">0.065</td>
+<td align="right">-1.166</td>
+<td align="right">0.245</td>
+<td align="right">-0.204</td>
+<td align="right">0.052</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-regionSouth
-</td>
-<td style="text-align:right;">
-0.519
-</td>
-<td style="text-align:right;">
-0.056
-</td>
-<td style="text-align:right;">
-9.283
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.409
-</td>
-<td style="text-align:right;">
-0.630
-</td>
+<tr class="even">
+<td align="left">regionSouth</td>
+<td align="right">0.519</td>
+<td align="right">0.056</td>
+<td align="right">9.283</td>
+<td align="right">0.000</td>
+<td align="right">0.409</td>
+<td align="right">0.630</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-regionWest
-</td>
-<td style="text-align:right;">
-0.641
-</td>
-<td style="text-align:right;">
-0.062
-</td>
-<td style="text-align:right;">
-10.264
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.518
-</td>
-<td style="text-align:right;">
-0.763
-</td>
+<tr class="odd">
+<td align="left">regionWest</td>
+<td align="right">0.641</td>
+<td align="right">0.062</td>
+<td align="right">10.264</td>
+<td align="right">0.000</td>
+<td align="right">0.518</td>
+<td align="right">0.763</td>
 </tr>
 </tbody>
 </table>
@@ -1182,8 +908,8 @@ indicates how far above or below the regression line is relative to the line for
 <p>Allowing the two slopes to differ means we allow the marginal effect of the average miles driven per driver to differ between the two groups of states.</p>
 </blockquote>
 <p>Figure <a href="7-categorical-variables-and-interactions.html#fig:interactscatter">7.4</a> visualizes this additional flexibility. Note that the slope of the red line is indeed slightly steeper than the blue line. Thus, this visualization suggests that average miles driven per mile in states without mandatory jail sentences for drunk driving increases the traffic fatality rate by slightly more than it does in states with a mandatory jail sentence.</p>
-<div class="figure"><span id="fig:interactscatter"></span>
-<img src="data-apps-text_files/figure-html/interactscatter-1.png" alt="Interaction model visualization" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:interactscatter"></span>
+<img src="data-apps-text_files/figure-html/interactscatter-1.png" alt="Interaction model visualization" width="\textwidth" />
 <p class="caption">
 Figure 7.4: Interaction model visualization
 </p>
@@ -1217,126 +943,54 @@ y = \beta_0 + \beta_1x + \beta_2d + \beta_3xd + \epsilon
 <h3><span class="header-section-number">7.3.1</span> Using an interaction</h3>
 <p>Running this interaction model in our example produces the following results</p>
 <table>
-<caption>
-<span id="tab:interactionmod">Table 7.4: </span>Interaction model results
-</caption>
+<caption><span id="tab:interactionmod">Table 7.4: </span>Interaction model results</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-term
-</th>
-<th style="text-align:right;">
-estimate
-</th>
-<th style="text-align:right;">
-std_error
-</th>
-<th style="text-align:right;">
-statistic
-</th>
-<th style="text-align:right;">
-p_value
-</th>
-<th style="text-align:right;">
-lower_ci
-</th>
-<th style="text-align:right;">
-upper_ci
-</th>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std_error</th>
+<th align="right">statistic</th>
+<th align="right">p_value</th>
+<th align="right">lower_ci</th>
+<th align="right">upper_ci</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-intercept
-</td>
-<td style="text-align:right;">
--0.384
-</td>
-<td style="text-align:right;">
-0.221
-</td>
-<td style="text-align:right;">
--1.741
-</td>
-<td style="text-align:right;">
-0.083
-</td>
-<td style="text-align:right;">
--0.819
-</td>
-<td style="text-align:right;">
-0.050
-</td>
+<tr class="odd">
+<td align="left">intercept</td>
+<td align="right">-0.384</td>
+<td align="right">0.221</td>
+<td align="right">-1.741</td>
+<td align="right">0.083</td>
+<td align="right">-0.819</td>
+<td align="right">0.050</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-vmiles
-</td>
-<td style="text-align:right;">
-0.300
-</td>
-<td style="text-align:right;">
-0.028
-</td>
-<td style="text-align:right;">
-10.634
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.245
-</td>
-<td style="text-align:right;">
-0.356
-</td>
+<tr class="even">
+<td align="left">vmiles</td>
+<td align="right">0.300</td>
+<td align="right">0.028</td>
+<td align="right">10.634</td>
+<td align="right">0.000</td>
+<td align="right">0.245</td>
+<td align="right">0.356</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-jaildyes
-</td>
-<td style="text-align:right;">
-0.731
-</td>
-<td style="text-align:right;">
-0.399
-</td>
-<td style="text-align:right;">
-1.831
-</td>
-<td style="text-align:right;">
-0.068
-</td>
-<td style="text-align:right;">
--0.054
-</td>
-<td style="text-align:right;">
-1.516
-</td>
+<tr class="odd">
+<td align="left">jaildyes</td>
+<td align="right">0.731</td>
+<td align="right">0.399</td>
+<td align="right">1.831</td>
+<td align="right">0.068</td>
+<td align="right">-0.054</td>
+<td align="right">1.516</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-vmiles:jaildyes
-</td>
-<td style="text-align:right;">
--0.058
-</td>
-<td style="text-align:right;">
-0.050
-</td>
-<td style="text-align:right;">
--1.178
-</td>
-<td style="text-align:right;">
-0.240
-</td>
-<td style="text-align:right;">
--0.156
-</td>
-<td style="text-align:right;">
-0.039
-</td>
+<tr class="even">
+<td align="left">vmiles:jaildyes</td>
+<td align="right">-0.058</td>
+<td align="right">0.050</td>
+<td align="right">-1.178</td>
+<td align="right">0.240</td>
+<td align="right">-0.156</td>
+<td align="right">0.039</td>
 </tr>
 </tbody>
 </table>
@@ -1402,8 +1056,8 @@ Pr(jaild=1)=\beta_0+\beta_1vmiles+\beta_2region+\epsilon
 \tag{7.16}
 \end{equation}\]</span></p>
 <p>Scatter plots for LPMs are not particularly useful for communicating to an audience, but they can provide insight to what it is we are trying to do with an LPM, if it is not yet clear. Figure <a href="7-categorical-variables-and-interactions.html#fig:lpmscatter">7.5</a> changes the coding of <code>jaild</code> from yes/no to 1/0 and plots it on the y axis against traffic fatality rates on the x axis. Regions are excluded for simplicity.</p>
-<div class="figure"><span id="fig:lpmscatter"></span>
-<img src="data-apps-text_files/figure-html/lpmscatter-1.png" alt="LPM visualization" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:lpmscatter"></span>
+<img src="data-apps-text_files/figure-html/lpmscatter-1.png" alt="LPM visualization" width="\textwidth" />
 <p class="caption">
 Figure 7.5: LPM visualization
 </p>
@@ -1413,149 +1067,63 @@ Figure 7.5: LPM visualization
 <p>The values of <span class="math inline">\(y\)</span> along the regression line are the predicted probabilities that a state has a mandatory jail law given the corresponding values for traffic fatality rate. For example, states with a rate of 3 appear to have a probability of 0.5 or 50% of passing a mandatory jail law.</p>
 <p>Running this model produces the following results</p>
 <table>
-<caption>
-<span id="tab:lpmresults">Table 7.5: </span>LPM results
-</caption>
+<caption><span id="tab:lpmresults">Table 7.5: </span>LPM results</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-term
-</th>
-<th style="text-align:right;">
-estimate
-</th>
-<th style="text-align:right;">
-std_error
-</th>
-<th style="text-align:right;">
-statistic
-</th>
-<th style="text-align:right;">
-p_value
-</th>
-<th style="text-align:right;">
-lower_ci
-</th>
-<th style="text-align:right;">
-upper_ci
-</th>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std_error</th>
+<th align="right">statistic</th>
+<th align="right">p_value</th>
+<th align="right">lower_ci</th>
+<th align="right">upper_ci</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-intercept
-</td>
-<td style="text-align:right;">
--0.066
-</td>
-<td style="text-align:right;">
-0.102
-</td>
-<td style="text-align:right;">
--0.645
-</td>
-<td style="text-align:right;">
-0.520
-</td>
-<td style="text-align:right;">
--0.267
-</td>
-<td style="text-align:right;">
-0.135
-</td>
+<tr class="odd">
+<td align="left">intercept</td>
+<td align="right">-0.066</td>
+<td align="right">0.102</td>
+<td align="right">-0.645</td>
+<td align="right">0.520</td>
+<td align="right">-0.267</td>
+<td align="right">0.135</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-mrall
-</td>
-<td style="text-align:right;">
-0.117
-</td>
-<td style="text-align:right;">
-0.054
-</td>
-<td style="text-align:right;">
-2.171
-</td>
-<td style="text-align:right;">
-0.031
-</td>
-<td style="text-align:right;">
-0.011
-</td>
-<td style="text-align:right;">
-0.222
-</td>
+<tr class="even">
+<td align="left">mrall</td>
+<td align="right">0.117</td>
+<td align="right">0.054</td>
+<td align="right">2.171</td>
+<td align="right">0.031</td>
+<td align="right">0.011</td>
+<td align="right">0.222</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-regionN. East
-</td>
-<td style="text-align:right;">
-0.064
-</td>
-<td style="text-align:right;">
-0.070
-</td>
-<td style="text-align:right;">
-0.913
-</td>
-<td style="text-align:right;">
-0.362
-</td>
-<td style="text-align:right;">
--0.074
-</td>
-<td style="text-align:right;">
-0.202
-</td>
+<tr class="odd">
+<td align="left">regionN. East</td>
+<td align="right">0.064</td>
+<td align="right">0.070</td>
+<td align="right">0.913</td>
+<td align="right">0.362</td>
+<td align="right">-0.074</td>
+<td align="right">0.202</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-regionSouth
-</td>
-<td style="text-align:right;">
-0.040
-</td>
-<td style="text-align:right;">
-0.068
-</td>
-<td style="text-align:right;">
-0.580
-</td>
-<td style="text-align:right;">
-0.562
-</td>
-<td style="text-align:right;">
--0.094
-</td>
-<td style="text-align:right;">
-0.173
-</td>
+<tr class="even">
+<td align="left">regionSouth</td>
+<td align="right">0.040</td>
+<td align="right">0.068</td>
+<td align="right">0.580</td>
+<td align="right">0.562</td>
+<td align="right">-0.094</td>
+<td align="right">0.173</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-regionWest
-</td>
-<td style="text-align:right;">
-0.361
-</td>
-<td style="text-align:right;">
-0.078
-</td>
-<td style="text-align:right;">
-4.634
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.208
-</td>
-<td style="text-align:right;">
-0.514
-</td>
+<tr class="odd">
+<td align="left">regionWest</td>
+<td align="right">0.361</td>
+<td align="right">0.078</td>
+<td align="right">4.634</td>
+<td align="right">0.000</td>
+<td align="right">0.208</td>
+<td align="right">0.514</td>
 </tr>
 </tbody>
 </table>
@@ -1577,259 +1145,126 @@ regionWest
 <p>Because our outcome is a dummy variable, it does not have the same kind of variation we need to assess model fit like before using <span class="math inline">\(R^2\)</span> or RMSE. Since we are explaining or predicting whether or not an outcome occurs, we can assess the fit of the model based on how well it predicts the observed outcomes.</p>
 <p>We could change this threshold, but suppose we decide that if our model predicts the likelihood an outcome at 50% or greater, then we say that our model predicts the outcome will occur <span class="math inline">\(y=1\)</span> and so <span class="math inline">\(y=0\)</span> otherwise. Table @ref(tab: lpmpointstab) shows a few rows applying this logic. Note that each row shows the observed data for each variable in our model, then the predicted probability in the <code>jaild_hat</code> column, then the rounding of that probability to 0 or 1 in the <code>prediction</code> column. Note the similarities and differences between the observed outcomes in <code>jaild</code> and the predicted outcomes <code>prediction</code>. Sometimes our model predicts correctly, and sometimes it does not.</p>
 <table>
-<caption>
-<span id="tab:lpmpointstab">Table 7.6: </span>Binary predictions from LPM
-</caption>
+<caption><span id="tab:lpmpointstab">Table 7.6: </span>Binary predictions from LPM</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-ID
-</th>
-<th style="text-align:right;">
-jaild
-</th>
-<th style="text-align:right;">
-mrall
-</th>
-<th style="text-align:left;">
-region
-</th>
-<th style="text-align:right;">
-jaild_hat
-</th>
-<th style="text-align:right;">
-prediction
-</th>
+<tr class="header">
+<th align="right">ID</th>
+<th align="right">jaild</th>
+<th align="right">mrall</th>
+<th align="left">region</th>
+<th align="right">jaild_hat</th>
+<th align="right">prediction</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-29
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2.174
-</td>
-<td style="text-align:left;">
-West
-</td>
-<td style="text-align:right;">
-0.549
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="odd">
+<td align="right">29</td>
+<td align="right">0</td>
+<td align="right">2.174</td>
+<td align="left">West</td>
+<td align="right">0.549</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-113
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1.461
-</td>
-<td style="text-align:left;">
-N. East
-</td>
-<td style="text-align:right;">
-0.169
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="even">
+<td align="right">113</td>
+<td align="right">1</td>
+<td align="right">1.461</td>
+<td align="left">N. East</td>
+<td align="right">0.169</td>
+<td align="right">0</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-254
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.821
-</td>
-<td style="text-align:left;">
-N. East
-</td>
-<td style="text-align:right;">
-0.094
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="odd">
+<td align="right">254</td>
+<td align="right">0</td>
+<td align="right">0.821</td>
+<td align="left">N. East</td>
+<td align="right">0.094</td>
+<td align="right">0</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-98
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1.936
-</td>
-<td style="text-align:left;">
-Midwest
-</td>
-<td style="text-align:right;">
-0.160
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="even">
+<td align="right">98</td>
+<td align="right">1</td>
+<td align="right">1.936</td>
+<td align="left">Midwest</td>
+<td align="right">0.160</td>
+<td align="right">0</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-68
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2.575
-</td>
-<td style="text-align:left;">
-West
-</td>
-<td style="text-align:right;">
-0.596
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="odd">
+<td align="right">68</td>
+<td align="right">0</td>
+<td align="right">2.575</td>
+<td align="left">West</td>
+<td align="right">0.596</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-241
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2.080
-</td>
-<td style="text-align:left;">
-West
-</td>
-<td style="text-align:right;">
-0.538
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="even">
+<td align="right">241</td>
+<td align="right">1</td>
+<td align="right">2.080</td>
+<td align="left">West</td>
+<td align="right">0.538</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-182
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1.825
-</td>
-<td style="text-align:left;">
-N. East
-</td>
-<td style="text-align:right;">
-0.211
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="odd">
+<td align="right">182</td>
+<td align="right">0</td>
+<td align="right">1.825</td>
+<td align="left">N. East</td>
+<td align="right">0.211</td>
+<td align="right">0</td>
 </tr>
 </tbody>
 </table>
 <p>Table <a href="7-categorical-variables-and-interactions.html#tab:confumat">7.7</a> below is referred to as a <strong>confusion matrix</strong>. It is simply a cross-tabulation of the observed outcomes and the predicted outcomes with the predictions along the top as columns.</p>
 <table>
-<caption>
-<span id="tab:confumat">Table 7.7: </span>Confusion matrix for LPM
-</caption>
+<caption><span id="tab:confumat">Table 7.7: </span>Confusion matrix for LPM</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-0
-</th>
-<th style="text-align:right;">
-1
-</th>
+<tr class="header">
+<th align="left"></th>
+<th align="right">0</th>
+<th align="right">1</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-0
-</td>
-<td style="text-align:right;">
-210
-</td>
-<td style="text-align:right;">
-31
-</td>
+<tr class="odd">
+<td align="left">0</td>
+<td align="right">210</td>
+<td align="right">31</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-1
-</td>
-<td style="text-align:right;">
-56
-</td>
-<td style="text-align:right;">
-38
-</td>
+<tr class="even">
+<td align="left">1</td>
+<td align="right">56</td>
+<td align="right">38</td>
 </tr>
 </tbody>
 </table>
 <p>We can see that there are 248 cases where our model correctly predicts the outcome (210 + 38). There are 87 cases where our model incorrectly predicts the outcome. Specifically, there are 31 cases where our model predicts a state has a law but doesn’t and 56 cases where our model predicts a state does not have a law but does. We can also convert these to percentages like the table below. These confusion matrices help us assess and communicate how accurate our model is.</p>
 <table>
-<caption>
-<span id="tab:unnamed-chunk-33">Table 7.8: </span>Confusion matrix for LPM (in proportions)
-</caption>
+<caption><span id="tab:unnamed-chunk-33">Table 7.8: </span>Confusion matrix for LPM (in proportions)</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-0
-</th>
-<th style="text-align:right;">
-1
-</th>
+<tr class="header">
+<th align="left"></th>
+<th align="right">0</th>
+<th align="right">1</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-0
-</td>
-<td style="text-align:right;">
-0.79
-</td>
-<td style="text-align:right;">
-0.45
-</td>
+<tr class="odd">
+<td align="left">0</td>
+<td align="right">0.79</td>
+<td align="right">0.45</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-1
-</td>
-<td style="text-align:right;">
-0.21
-</td>
-<td style="text-align:right;">
-0.55
-</td>
+<tr class="even">
+<td align="left">1</td>
+<td align="right">0.21</td>
+<td align="right">0.55</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
+<blockquote>
+<p><strong>To learn how to run the regression models from in this and Chapter <a href="#regression"><strong>??</strong></a> in R, proceed to Chapter <a href="21-r-regression.html#r-regression">21</a>.</strong></p>
+</blockquote>
 </div>
 </div>
 <div id="kt7" class="section level2" number="7.5">
@@ -1884,7 +1319,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

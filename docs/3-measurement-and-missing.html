@@ -536,8 +536,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Once we understand the structure of our data and the types of variables contained within, we need to understand how the data relates to reality before trying to draw conclusions. Variables and their values are measured representations of reality. They are shadows on the allegorical cave wall. We should not assume these shadows are necessarily good representations of reality.</p>
 <p>Measurement validity and reliability are the foundations of credible analysis, the components of which are depicted in Figure <a href="3-measurement-and-missing.html#fig:credfig">3.1</a>. Without the two, we have little or no basis to make conclusions from data. As they say, garbage in, garbage out. No amount of fancy statistical tactics can compensate for starting with bad data.</p>
 <center>
-<div class="figure"><span id="fig:credfig"></span>
-<img src="images/credible.png" alt="Components of credible analysis" width="489" />
+<div class="figure" style="text-align: center"><span id="fig:credfig"></span>
+<img src="images/credible.png" alt="Components of credible analysis" width="\textwidth" />
 <p class="caption">
 Figure 3.1: Components of credible analysis
 </p>
@@ -571,8 +571,8 @@ Figure 3.1: Components of credible analysis
 <p>The second question above concerns a measure’s consistency for multiple subjects with identical conditions. Suppose two students are equally intelligent, academically apt, or whatever the correct concept should be. Will the two students receive the same GRE score? Will two identical properties receive the same property value?</p>
 <p>A measure can be valid or invalid and reliable or unreliable, resulting in one of four combinations. Let us consider an example where an agency needs to allocate resources to state governments according to the number of persons who are homeless in each state. Suppose the <em>true</em> count of homeless persons for two states is the same. Figure <a href="3-measurement-and-missing.html#fig:homeless">3.2</a> tries to visualize the scenario and the three potentially problematic combinations of validity and reliability along a number line.</p>
 <center>
-<div class="figure"><span id="fig:homeless"></span>
-<img src="images/measure_lines.png" alt="Comparing measurement validity and reliability" width="460" />
+<div class="figure" style="text-align: center"><span id="fig:homeless"></span>
+<img src="images/measure_lines.png" alt="Comparing measurement validity and reliability" width="\textwidth" />
 <p class="caption">
 Figure 3.2: Comparing measurement validity and reliability
 </p>
@@ -598,222 +598,98 @@ Figure 3.2: Comparing measurement validity and reliability
 </blockquote>
 <p>Table 3.1 shows an example of data that are explicitly missing denoted by <code>NA</code>. Missing data is denoted in a variety of ways. For example, instead of <code>NA</code>, the cells could have been left empty, or filled with a period, or some other symbol. If data were obtained from an organization that regularly produces publicly available data, datasets are usually accompanied by a legend that explains what symbols denote missing.</p>
 <table>
-<caption>
-<span id="tab:unnamed-chunk-1">Table 3.1: </span>Example of explicitly missing data
-</caption>
+<caption><span id="tab:unnamed-chunk-1">Table 3.1: </span>Example of explicitly missing data</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
+<tr class="header">
+<th align="left">country</th>
+<th align="left">continent</th>
+<th align="right">year</th>
+<th align="right">lifeExp</th>
+<th align="right">pop</th>
+<th align="right">gdpPercap</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-NA
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">NA</td>
+<td align="right">40301927</td>
+<td align="right">12779.380</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-NA
-</td>
+<tr class="even">
+<td align="left">Bolivia</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">65.554</td>
+<td align="right">9119152</td>
+<td align="right">NA</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Brazil
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-72.390
-</td>
-<td style="text-align:right;">
-190010647
-</td>
-<td style="text-align:right;">
-9065.801
-</td>
+<tr class="odd">
+<td align="left">Brazil</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">72.390</td>
+<td align="right">190010647</td>
+<td align="right">9065.801</td>
 </tr>
 </tbody>
 </table>
 <p>Beware ambiguous missing values. For instance, some survey questions are dependent on previous questions. You do not want to conclude that a value is missing because a respondent chose not to answer when they were never asked the question. Or perhaps a value is missing when it should actually equal 0 or vice versa. If missing data are consequential to your analysis, then you may need to investigate further into how the data were collected or coded in order to eliminate such ambiguity.</p>
 <p>Table 3.2 shows an example of implicitly missing data. Argentina is observed in 1997, 2002, and 2007, but Bolivia is observed only in 1997 and 2007. What happened to the 2002 observation for Bolivia? This sort of entry and exit from the dataset is common in panel data where the same units are observed over multiple time periods.</p>
 <table>
-<caption>
-<span id="tab:unnamed-chunk-2">Table 3.2: </span>Example of implicitly missing data
-</caption>
+<caption><span id="tab:unnamed-chunk-2">Table 3.2: </span>Example of implicitly missing data</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
+<tr class="header">
+<th align="left">country</th>
+<th align="left">continent</th>
+<th align="right">year</th>
+<th align="right">lifeExp</th>
+<th align="right">pop</th>
+<th align="right">gdpPercap</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-73.275
-</td>
-<td style="text-align:right;">
-36203463
-</td>
-<td style="text-align:right;">
-10967.282
-</td>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">1997</td>
+<td align="right">73.275</td>
+<td align="right">36203463</td>
+<td align="right">10967.282</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-74.340
-</td>
-<td style="text-align:right;">
-38331121
-</td>
-<td style="text-align:right;">
-8797.641
-</td>
+<tr class="even">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">2002</td>
+<td align="right">74.340</td>
+<td align="right">38331121</td>
+<td align="right">8797.641</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Argentina
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-75.320
-</td>
-<td style="text-align:right;">
-40301927
-</td>
-<td style="text-align:right;">
-12779.380
-</td>
+<tr class="odd">
+<td align="left">Argentina</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">75.320</td>
+<td align="right">40301927</td>
+<td align="right">12779.380</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-62.050
-</td>
-<td style="text-align:right;">
-7693188
-</td>
-<td style="text-align:right;">
-3326.143
-</td>
+<tr class="even">
+<td align="left">Bolivia</td>
+<td align="left">Americas</td>
+<td align="right">1997</td>
+<td align="right">62.050</td>
+<td align="right">7693188</td>
+<td align="right">3326.143</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Bolivia
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-65.554
-</td>
-<td style="text-align:right;">
-9119152
-</td>
-<td style="text-align:right;">
-3822.137
-</td>
+<tr class="odd">
+<td align="left">Bolivia</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">65.554</td>
+<td align="right">9119152</td>
+<td align="right">3822.137</td>
 </tr>
 </tbody>
 </table>
@@ -874,7 +750,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

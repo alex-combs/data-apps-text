@@ -95,7 +95,7 @@ poll$response <- fct_drop(poll$response)
 
 ```{r pollparty, echo=FALSE}
 polltab <- table(poll$response, poll$party)
-kable(polltab, format = 'html', caption = 'Response by political party')
+kable(polltab, caption = 'Response by political party')
 ```
 
 We see in \@ref(tab:pollparty) that 179 out of 357 Republicans (50%) responded that illegal immigrants should be forced to leave the country, while 101 out of 174 Democrats (58%) responded that illegal immigrants should be allowed to apply for citizenship. Is there a statistically significant pattern in responses conditional on political party affiliation, or are these differences due to random noise?
@@ -140,7 +140,7 @@ jobtrain <- nsw74psid3 %>%
 ```{r jobtraindata, echo=FALSE}
 set.seed(383)
 sample_n(jobtrain, 6) %>% 
-  kable(format = 'html', caption = 'Preview of job training data')
+  kable(caption = 'Preview of job training data')
 ```
 
 Before constructing the null and alternative hypotheses, a note about the population in this example. In program evaluations or generally any analysis aimed toward testing whether some event caused an effect on an outcome of interest, there are two populations. There is the entire population of units of analysis (e.g. all people, all nations, all dogs) and the subset of that population for whom/which the program, policy, or intervention is intended. 
@@ -168,7 +168,7 @@ jobtrainsum <- jobtrain %>%
 ```
 
 ```{r jobtrainsum, echo=FALSE}
-kable(jobtrainsum, format = 'html', caption = 'Comparison of means between treated and untreated')
+kable(jobtrainsum, caption = 'Comparison of means between treated and untreated')
 ```
 
 Participants have a higher average earnings than non-participants, but is this difference statistically significant? For that, we should use an *independent* t-test because participants and non-participants are two different groups. Running the t-test provides the following results

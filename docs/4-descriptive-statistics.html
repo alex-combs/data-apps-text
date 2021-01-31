@@ -587,8 +587,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Sometimes we know what the frequency of values for a variable should be. Genetics tells us to expect 50% males and females. Most of the time we don’t know the function that determines frequency, or it is too complex. For example, we have some idea of the factors that influence GPAs, but there will always be some randomness that goes unaccounted.</p>
 <p>This somewhat esoteric exposition underlies the main focus here: the distribution of a variable. To make this as concrete as possible, let’s consider a variable of something that is simple and familiar to all of us: a roll of a six-sided die.</p>
 <p>We know a roll of a six-sided die can take on a range of integers between 1 and 6. We also know the frequency of each value is the same at 1 in 6, or about 17%. Therefore, we <em>know</em> the distribution of this variable, which is depicted below in Figure <a href="4-descriptive-statistics.html#fig:diedist">4.1</a>.</p>
-<div class="figure"><span id="fig:diedist"></span>
-<img src="data-apps-text_files/figure-html/diedist-1.png" alt="Probability distribution of a six-sided die" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:diedist"></span>
+<img src="data-apps-text_files/figure-html/diedist-1.png" alt="Probability distribution of a six-sided die" width="\textwidth" />
 <p class="caption">
 Figure 4.1: Probability distribution of a six-sided die
 </p>
@@ -630,8 +630,8 @@ Figure 4.1: Probability distribution of a six-sided die
 </tbody>
 </table>
 <p>And we could represent this distribution by counting the number of times each value occurred using a histogram as shown in Figure <a href="4-descriptive-statistics.html#fig:diehisto">4.2</a>, which is the essentially the samce as Figure <a href="4-descriptive-statistics.html#fig:diedist">4.1</a>.</p>
-<div class="figure"><span id="fig:diehisto"></span>
-<img src="data-apps-text_files/figure-html/diehisto-1.png" alt="Expected distribution of 6 rolls" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:diehisto"></span>
+<img src="data-apps-text_files/figure-html/diehisto-1.png" alt="Expected distribution of 6 rolls" width="\textwidth" />
 <p class="caption">
 Figure 4.2: Expected distribution of 6 rolls
 </p>
@@ -698,8 +698,8 @@ Figure 4.2: Expected distribution of 6 rolls
 </tbody>
 </table>
 <p>We can visualize the distribution of these 12 rolls, as is done in Figure <a href="4-descriptive-statistics.html#fig:obsdieroll">4.3</a>.</p>
-<div class="figure"><span id="fig:obsdieroll"></span>
-<img src="data-apps-text_files/figure-html/obsdieroll-1.png" alt="Observed distribution of 12 die rolls" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:obsdieroll"></span>
+<img src="data-apps-text_files/figure-html/obsdieroll-1.png" alt="Observed distribution of 12 die rolls" width="\textwidth" />
 <p class="caption">
 Figure 4.3: Observed distribution of 12 die rolls
 </p>
@@ -711,8 +711,8 @@ Figure 4.3: Observed distribution of 12 die rolls
 <div id="descriptive-measures" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Descriptive Measures</h2>
 <p>A die roll is uninteresting and unimportant. In our review of descriptive measures, let us consider them with respect to the distribution of the infant mortality rate across 222 countries in 2012. Infant mortality is the number deaths of infants under one year old per 1,000 live births. It is used as a measure of health in a country.</p>
-<div class="figure"><span id="fig:infmort"></span>
-<img src="data-apps-text_files/figure-html/infmort-1.png" alt="Infant Mortality Rates" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:infmort"></span>
+<img src="data-apps-text_files/figure-html/infmort-1.png" alt="Infant Mortality Rates" width="\textwidth" />
 <p class="caption">
 Figure 4.4: Infant Mortality Rates
 </p>
@@ -748,8 +748,8 @@ Figure 4.4: Infant Mortality Rates
 <div id="choosing-a-center" class="section level4 unnumbered">
 <h4>Choosing a center</h4>
 <p>As Figure <a href="4-descriptive-statistics.html#fig:infmort">4.4</a> shows, three measures of center have provided us three different typical infant mortality rates. The mean is represented by the red line, the median by the purple line, and the mode by the green line.</p>
-<div class="figure"><span id="fig:mortcenters"></span>
-<img src="data-apps-text_files/figure-html/mortcenters-1.png" alt="Centers of infant mortality rates" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:mortcenters"></span>
+<img src="data-apps-text_files/figure-html/mortcenters-1.png" alt="Centers of infant mortality rates" width="\textwidth" />
 <p class="caption">
 Figure 4.5: Centers of infant mortality rates
 </p>
@@ -848,8 +848,8 @@ Figure 4.5: Centers of infant mortality rates
 <p>The same logic applies to choosing a measure of spread as choosing a measure of center. The standard deviation is based on the mean, and so it is also sensitive to extreme values that, if present, could exaggerate the typical spread of the distribution. The IQR is based on percentiles just like the median. Therefore, IQR is not sensitive to extreme values.</p>
 <p>Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> displays the mean and plus-and-minus one standard deviation using red dashed and solid lines, respectively. The median and the IQR (25th and 75th percentiles) are represented by the purple dashed and solid lines, respectively. Note how wide the area contained by the standard deviation is–it contains most of the distribution and the lower bound of 0.7 is lower than the minimum observed value of 1.8.</p>
 <p>Standard deviation is arguably not good for conveying the typical deviation from the center, as it contains plenty of values that are rather atypical deviations from the center. In the case of describing the distribution of infant mortality rates, the median and IQR are probably a better choice.</p>
-<div class="figure"><span id="fig:mortspread"></span>
-<img src="data-apps-text_files/figure-html/mortspread-1.png" alt="Center and spread of infant mortality rates" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:mortspread"></span>
+<img src="data-apps-text_files/figure-html/mortspread-1.png" alt="Center and spread of infant mortality rates" width="\textwidth" />
 <p class="caption">
 Figure 4.6: Center and spread of infant mortality rates
 </p>
@@ -872,8 +872,8 @@ Figure 4.6: Center and spread of infant mortality rates
 <h3><span class="header-section-number">4.4.4</span> The normal distribution</h3>
 <p>As a brief aside, it should be mentioned that if a distribution is <strong>normal</strong>, then measures of center and spread will be similar to each other. This is one of several desirable features of the normal distribution.</p>
 <p>Figure <a href="4-descriptive-statistics.html#fig:normrates">4.7</a> shows a simulated scenario in which the infant mortality rates in our 222 countries exhibit a normal distribution. Note the peaks in the center and symmetry. There is no skew.</p>
-<div class="figure"><span id="fig:normrates"></span>
-<img src="data-apps-text_files/figure-html/normrates-1.png" alt="Simulated normal distribution of infant mortality rates" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:normrates"></span>
+<img src="data-apps-text_files/figure-html/normrates-1.png" alt="Simulated normal distribution of infant mortality rates" width="\textwidth" />
 <p class="caption">
 Figure 4.7: Simulated normal distribution of infant mortality rates
 </p>
@@ -954,8 +954,8 @@ Figure 4.7: Simulated normal distribution of infant mortality rates
 <div id="visual-association" class="section level4 unnumbered">
 <h4>Visual association</h4>
 <p>As was the case with one variable, we want to visualize the distributions of two variables. When working with two continuous variables, the <strong>scatter plot</strong> is the most common choice to visualize association between two variables. Figure <a href="4-descriptive-statistics.html#fig:scatterlifedeath">4.8</a> plots the paired values of infant mortality rate and life expectancy for each country.</p>
-<div class="figure"><span id="fig:scatterlifedeath"></span>
-<img src="data-apps-text_files/figure-html/scatterlifedeath-1.png" alt="Visualizing association between two continuous variables" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:scatterlifedeath"></span>
+<img src="data-apps-text_files/figure-html/scatterlifedeath-1.png" alt="Visualizing association between two continuous variables" width="\textwidth" />
 <p class="caption">
 Figure 4.8: Visualizing association between two continuous variables
 </p>
@@ -986,8 +986,8 @@ Figure 4.8: Visualizing association between two continuous variables
 <h4>Covariance</h4>
 <p>Covariance tells us when one variable, <span class="math inline">\(X\)</span>, is above or below its mean, whether another variable, <span class="math inline">\(Y\)</span>, tends to be above or below its mean. If <span class="math inline">\(Y\)</span> tends to be above (below) its mean when <span class="math inline">\(X\)</span> is above (below) its mean, then the two have a positive covariance and are positively associated. If <span class="math inline">\(Y\)</span> tends to be below (above) its mean when <span class="math inline">\(X\)</span> is above (below) its mean, then the two have a negative covariance and are negatively associated. If the two variables exhibit no tendencies, they have a covariance of 0 and thus no association.</p>
 <p>Figure <a href="4-descriptive-statistics.html#fig:scattercovar">4.9</a> adds references lines for the mean of each variable. Note that when infant mortality is above its mean (to the right of the red line), life expectancy is below its mean (below the purple line) in almost all cases. When infant mortality is below its mean, life expectancy is above its mean in almost all cases. Therefore, these two variables have a negative covariance and are negatively associated. In fact, the covariance between infant mortality rate and life expectancy is -312.7</p>
-<div class="figure"><span id="fig:scattercovar"></span>
-<img src="data-apps-text_files/figure-html/scattercovar-1.png" alt="Visualizing covariance" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:scattercovar"></span>
+<img src="data-apps-text_files/figure-html/scattercovar-1.png" alt="Visualizing covariance" width="\textwidth" />
 <p class="caption">
 Figure 4.9: Visualizing covariance
 </p>
@@ -1000,8 +1000,8 @@ Figure 4.9: Visualizing covariance
 <p>The correlation coefficient ranges between -1 and 1. If it is negative, then the two variables are negatively associated. If it is positive, the two variables are positively associated. The closer the correlation coefficient of two variables is to -1 or 1, the stronger their correlation and the more the two variables exhibit a straight line in a scatterplot. A correlation equal to -1 or 1 indicates the two variables form a perfect straight line. If two variables exhibit no shared tendencies and form what appears to be a random scattering of plot points, than their correlation will be close or equal to 0.</p>
 <p>Based on the covariance and Figure <a href="4-descriptive-statistics.html#fig:scattercovar">4.9</a>, we know to expect a negative correlation between infant mortality rate and life expectancy. We also know the correlation will not be -1 because the points do not form a perfect straight line. Nevertheless, they do form a fairly tight downward path, so we should expect a correlation closer to -1 than 0. It turns out that the correlation is equal to -0.9. Infant mortality rate and life expectancy exhibit a strong, negative association.</p>
 <p>If we imagined drawing a line through the data points on our scatterplot from left to right that could freely curve according to however the data are scattered, would that line be a straight line and would it slope upward or downward? Figure <a href="4-descriptive-statistics.html#fig:scattercorr">4.10</a> does exactly that with our data. Note that the data points lead the line to slope downward almost throughout the range of observed values. In the upper-left quadrant, the data points are tightly clustered around the line, indicating a strong correlation. In the bottom-right quadrant, the data points begin to spread further away from the line, indicating a weaker correlation. The line also begins to turn in the positive direction, which lowers the correlation coefficient.</p>
-<div class="figure"><span id="fig:scattercorr"></span>
-<img src="data-apps-text_files/figure-html/scattercorr-1.png" alt="Drawing a free line through the data" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:scattercorr"></span>
+<img src="data-apps-text_files/figure-html/scattercorr-1.png" alt="Drawing a free line through the data" width="\textwidth" />
 <p class="caption">
 Figure 4.10: Drawing a free line through the data
 </p>
@@ -1076,7 +1076,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

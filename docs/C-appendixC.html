@@ -541,8 +541,8 @@ SSR=\sum _{i=1}^{n}(y_{i}-\hat{y})^2= (y_{1}-\hat{y})^2+(y_{2}-\hat{y})^2+\cdots
 <p>The SSR also provides us what we need to compute the root mean squared error (RMSE). Recall that in order to compute the variance and standard deviation of a variable in Equations <a href="4-descriptive-statistics.html#eq:variance">(4.2)</a> and <a href="4-descriptive-statistics.html#eq:sd">(4.3)</a>, respectively, we divide the sum of squared deviations by the number of observations (or <span class="math inline">\(n-1\)</span>) then take the square root. The SSR is a sum of squared deviations. The deviations in this case represent error. If we divide SSR by the number of observations, we now have the mean of the sum of squared error. Then, if we take the square root, we have the root mean squared error. Note that this is the same process used to obtain the standard deviation. Thus, the RMSE is the regression version of a standard deviation. Just as the standard deviation tells us the average deviation from the mean, the RMSE tells us the average deviation from the regression line, or the average error in our regression.</p>
 <p>We can also quantify the extent to which our regression <em>explains</em> the outcome. To do so, we need a benchmark against which to compare the reduction in error achieved by our regression. This benchmark is simply the average value of the outcome. If we had no explanatory variables to predict an outcome, the mean provides the typical value of the outcome. If we had to draw a random observation from a variable’s distribution, the mean is our best guess of what that observation’s value would be if we have no explanatory variables.</p>
 <p>Figure <a href="C-appendixC.html#fig:povfedscatter3">C.1</a> adds a reference line of average federal spending to our scatter plot. Note that because average federal spending is a constant number, it does not change as poverty changes; the red line has no slope. Also, note that the red line does slightly worse fitting the data, particularly toward the left and right extremes of poverty. Compared to the red line representing the mean, the data appear to be more centered around our regression line. As a result, our regression line has less error than the mean.</p>
-<div class="figure"><span id="fig:povfedscatter3"></span>
-<img src="data-apps-text_files/figure-html/povfedscatter3-1.png" alt="Federal spending and poverty among U.S. counties" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:povfedscatter3"></span>
+<img src="data-apps-text_files/figure-html/povfedscatter3-1.png" alt="Federal spending and poverty among U.S. counties" width="\textwidth" />
 <p class="caption">
 Figure C.1: Federal spending and poverty among U.S. counties
 </p>
@@ -604,7 +604,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

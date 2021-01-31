@@ -539,131 +539,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">14.1</span> What is forecasting</h2>
 <p>Recall in Chapter <a href="2-data.html#data">2</a> that time series measures one or more characteristics pertaining to the same subject over time. Therefore, the unit of analysis is the unit of time over which those characteristics are measured.</p>
 <table>
-<caption>
-<span id="tab:timeseriesrep">Table 14.1: </span>Time series example
-</caption>
+<caption><span id="tab:timeseriesrep">Table 14.1: </span>Time series example</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-year
-</th>
-<th style="text-align:right;">
-lifeExp
-</th>
-<th style="text-align:right;">
-pop
-</th>
-<th style="text-align:right;">
-gdpPercap
-</th>
+<tr class="header">
+<th align="left">country</th>
+<th align="left">continent</th>
+<th align="right">year</th>
+<th align="right">lifeExp</th>
+<th align="right">pop</th>
+<th align="right">gdpPercap</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1987
-</td>
-<td style="text-align:right;">
-75.020
-</td>
-<td style="text-align:right;">
-242803533
-</td>
-<td style="text-align:right;">
-29884.35
-</td>
+<tr class="odd">
+<td align="left">United States</td>
+<td align="left">Americas</td>
+<td align="right">1987</td>
+<td align="right">75.020</td>
+<td align="right">242803533</td>
+<td align="right">29884.35</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1992
-</td>
-<td style="text-align:right;">
-76.090
-</td>
-<td style="text-align:right;">
-256894189
-</td>
-<td style="text-align:right;">
-32003.93
-</td>
+<tr class="even">
+<td align="left">United States</td>
+<td align="left">Americas</td>
+<td align="right">1992</td>
+<td align="right">76.090</td>
+<td align="right">256894189</td>
+<td align="right">32003.93</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-1997
-</td>
-<td style="text-align:right;">
-76.810
-</td>
-<td style="text-align:right;">
-272911760
-</td>
-<td style="text-align:right;">
-35767.43
-</td>
+<tr class="odd">
+<td align="left">United States</td>
+<td align="left">Americas</td>
+<td align="right">1997</td>
+<td align="right">76.810</td>
+<td align="right">272911760</td>
+<td align="right">35767.43</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2002
-</td>
-<td style="text-align:right;">
-77.310
-</td>
-<td style="text-align:right;">
-287675526
-</td>
-<td style="text-align:right;">
-39097.10
-</td>
+<tr class="even">
+<td align="left">United States</td>
+<td align="left">Americas</td>
+<td align="right">2002</td>
+<td align="right">77.310</td>
+<td align="right">287675526</td>
+<td align="right">39097.10</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-Americas
-</td>
-<td style="text-align:right;">
-2007
-</td>
-<td style="text-align:right;">
-78.242
-</td>
-<td style="text-align:right;">
-301139947
-</td>
-<td style="text-align:right;">
-42951.65
-</td>
+<tr class="odd">
+<td align="left">United States</td>
+<td align="left">Americas</td>
+<td align="right">2007</td>
+<td align="right">78.242</td>
+<td align="right">301139947</td>
+<td align="right">42951.65</td>
 </tr>
 </tbody>
 </table>
@@ -681,14 +607,14 @@ Americas
 <li>Cyclic: irregular increases or decreases over unfixed periods of multiple years</li>
 </ul>
 <p>With a time series of U.S. GDP in Figure <a href="14-forecasting.html#fig:usgdp">14.1</a>, we can see two of the aforementioned patterns. First, there is an obvious upward trend. Secondly, there appear to be irregularly spaced plateaus or dips, most of which represent economic recessions. Recessions exhibit a cyclical pattern. Phenomena related to weather or holidays, such as energy production, consumption, and travel, are likely to exhibit seasonal patterns like the sales data shown in Figure <a href="14-forecasting.html#fig:sales">14.2</a> below.</p>
-<div class="figure"><span id="fig:usgdp"></span>
-<img src="data-apps-text_files/figure-html/usgdp-1.png" alt="U.S. GDP 1975-2019" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:usgdp"></span>
+<img src="data-apps-text_files/figure-html/usgdp-1.png" alt="U.S. GDP 1975-2019" width="\textwidth" />
 <p class="caption">
 Figure 14.1: U.S. GDP 1975-2019
 </p>
 </div>
-<div class="figure"><span id="fig:sales"></span>
-<img src="data-apps-text_files/figure-html/sales-1.png" alt="Sales data" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:sales"></span>
+<img src="data-apps-text_files/figure-html/sales-1.png" alt="Sales data" width="\textwidth" />
 <p class="caption">
 Figure 14.2: Sales data
 </p>
@@ -699,28 +625,28 @@ Figure 14.2: Sales data
 <p>Whereas correlation measures the linear association between two variables, autocorrelation measures the linear association between an outcome and past values of that outcome. We can use an autocorrelation plot to examine if past values appear to predict future values.</p>
 <p>Figure <a href="14-forecasting.html#fig:acfgdp">14.3</a> below is an autocorrelation plot of U.S. GDP. For all measurements along the time series of GDP, the autocorrelation plot quantifies the correlation between a chosen “current” GDP and past measurements of GDP called lags. Figure <a href="14-forecasting.html#fig:acfgdp">14.3</a> goes as far as 22 lagged measures. The blue dashed line denotes the threshold at which the correlations are statistically significant at the 95% confidence level.</p>
 <p>We can see that the first lag of GDP is almost perfectly correlated with current GDP. In other words, last quarter’s GDP is a very strong predictor of current GDP. The strength of the correlation decreases over time but remains statistically significant. This gradual decrease in autocorrelation is indicative of time series with a trend pattern.</p>
-<div class="figure"><span id="fig:acfgdp"></span>
-<img src="data-apps-text_files/figure-html/acfgdp-1.png" alt="Autocorrelation of U.S. GDP" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:acfgdp"></span>
+<img src="data-apps-text_files/figure-html/acfgdp-1.png" alt="Autocorrelation of U.S. GDP" width="\textwidth" />
 <p class="caption">
 Figure 14.3: Autocorrelation of U.S. GDP
 </p>
 </div>
 <p>Figure <a href="14-forecasting.html#fig:acfgdp">14.3</a> below shows the autocorrelation from the quarterly sales time series that exhibited a seasonal pattern. The autocorrelation plot suggests that each even-numbered lag is correlated with the current sales measure, switching between negative and positive each time. This peak and valley pattern is common in seasonal data.</p>
-<div class="figure"><span id="fig:acfsales"></span>
-<img src="data-apps-text_files/figure-html/acfsales-1.png" alt="Autocorrelation of sales" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:acfsales"></span>
+<img src="data-apps-text_files/figure-html/acfsales-1.png" alt="Autocorrelation of sales" width="\textwidth" />
 <p class="caption">
 Figure 14.4: Autocorrelation of sales
 </p>
 </div>
 <p>In each of the examples above, we can use information from the past to predict the future. A time series that shows no autocorrelation is called <strong>white noise</strong>. White noise provides us no significant information about predicting the future. Figures <a href="14-forecasting.html#fig:wn">14.5</a> and <a href="14-forecasting.html#fig:acfwn">14.6</a> below provide an example of white noise. Note there is no discernible pattern in the time series plot and no autocorrelations are statistically significant.</p>
-<div class="figure"><span id="fig:wn"></span>
-<img src="data-apps-text_files/figure-html/wn-1.png" alt="White noise time series" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:wn"></span>
+<img src="data-apps-text_files/figure-html/wn-1.png" alt="White noise time series" width="\textwidth" />
 <p class="caption">
 Figure 14.5: White noise time series
 </p>
 </div>
-<div class="figure"><span id="fig:acfwn"></span>
-<img src="data-apps-text_files/figure-html/acfwn-1.png" alt="Autocorrelation of white noise" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:acfwn"></span>
+<img src="data-apps-text_files/figure-html/acfwn-1.png" alt="Autocorrelation of white noise" width="\textwidth" />
 <p class="caption">
 Figure 14.6: Autocorrelation of white noise
 </p>
@@ -736,15 +662,15 @@ Figure 14.6: Autocorrelation of white noise
 <div id="residuals" class="section level4 unnumbered">
 <h4>Residuals</h4>
 <p>Figure <a href="14-forecasting.html#fig:lagtime">14.7</a> shows a forecast model denoted by the red line that simply uses the previous GDP measure to predict current GDP, compared to observed GDP denoted by the blue line. Recall how strongly lagged GDP was correlated with current GDP. This results in a forecast that appears to fit the trend fairly well. Nevertheless, there is error for almost every year, and since GDP in this time window exhibits a consistent upward trend, using last year’s GDP causes a consistent underestimation.</p>
-<div class="figure"><span id="fig:lagtime"></span>
-<img src="data-apps-text_files/figure-html/lagtime-1.png" alt="Comparing observed to predicted" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:lagtime"></span>
+<img src="data-apps-text_files/figure-html/lagtime-1.png" alt="Comparing observed to predicted" width="\textwidth" />
 <p class="caption">
 Figure 14.7: Comparing observed to predicted
 </p>
 </div>
 <p>Figure <a href="14-forecasting.html#fig:checkresidual">14.8</a> below plots the residuals between observed and predicted GDP–the vertical distance between blue and red lines–in the top panel. The bottom-left panel is a autocorrelation plot for the residuals–computing the correlation between current residuals and lagged residuals–and the bottom-right panel shows the histogram of the residuals.</p>
-<div class="figure"><span id="fig:checkresidual"></span>
-<img src="data-apps-text_files/figure-html/checkresidual-1.png" alt="Residual diagnostics" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:checkresidual"></span>
+<img src="data-apps-text_files/figure-html/checkresidual-1.png" alt="Residual diagnostics" width="\textwidth" />
 <p class="caption">
 Figure 14.8: Residual diagnostics
 </p>
@@ -763,62 +689,29 @@ Figure 14.8: Residual diagnostics
 <p>Multiple models could achieve residuals that are white noise and have a mean equal to zero. We can further evaluate forecast models by comparing their root mean squared errors (RMSE). Recall from Chapter <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a> that the RMSE quantifies the typical deviation of the observed data points from the regression line and is analogous to the standard deviation or standard error measures. In fact, the 95% confidence interval around a forecast is based on two RMSEs above and below the point forecast, just as two standard errors are used to construct a 95% confidence interval around a point estimate in regression.</p>
 <p>Table <a href="14-forecasting.html#tab:frmse">14.2</a> shows a set of standard goodness-of-fit measures for our simple forecast of GDP. We will only concern ourselves with RMSE. According to the results, the point forecast of our model is off by plus-or-minus 137 billion dollars, on average. If we developed a model with a smaller RMSE, we would prefer it to this model, provided its residuals behave no worse.</p>
 <table>
-<caption>
-<span id="tab:frmse">Table 14.2: </span>Forecast goodness-of-fit measures
-</caption>
+<caption><span id="tab:frmse">Table 14.2: </span>Forecast goodness-of-fit measures</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-ME
-</th>
-<th style="text-align:right;">
-RMSE
-</th>
-<th style="text-align:right;">
-MAE
-</th>
-<th style="text-align:right;">
-MPE
-</th>
-<th style="text-align:right;">
-MAPE
-</th>
-<th style="text-align:right;">
-MASE
-</th>
-<th style="text-align:right;">
-ACF1
-</th>
+<tr class="header">
+<th align="left"></th>
+<th align="right">ME</th>
+<th align="right">RMSE</th>
+<th align="right">MAE</th>
+<th align="right">MPE</th>
+<th align="right">MAPE</th>
+<th align="right">MASE</th>
+<th align="right">ACF1</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Training set
-</td>
-<td style="text-align:right;">
-110.1394
-</td>
-<td style="text-align:right;">
-137.2821
-</td>
-<td style="text-align:right;">
-118.1553
-</td>
-<td style="text-align:right;">
-1.421887
-</td>
-<td style="text-align:right;">
-1.475215
-</td>
-<td style="text-align:right;">
-0.2562912
-</td>
-<td style="text-align:right;">
-0.4933519
-</td>
+<tr class="odd">
+<td align="left">Training set</td>
+<td align="right">110.1394</td>
+<td align="right">137.2821</td>
+<td align="right">118.1553</td>
+<td align="right">1.421887</td>
+<td align="right">1.475215</td>
+<td align="right">0.2562912</td>
+<td align="right">0.4933519</td>
 </tr>
 </tbody>
 </table>
@@ -834,283 +727,150 @@ Training set
 <li>Seasonal naive: same as naive but predicts each future season to equal its last observed season</li>
 </ul>
 <p>Figures <a href="14-forecasting.html#fig:formean">14.9</a>, <a href="14-forecasting.html#fig:fornaive">14.10</a>, and <a href="14-forecasting.html#fig:fordrift">14.11</a> below demonstrate the mean, naive, and drift forecast models applied to U.S. GDP, respectively. It should be obvious that using the mean is a poor choice and will be for any time series with a strong trend pattern. Under normal circumstances absent of an impending economic shutdown, we would likely conclude that the drift model provides a more accurate forecast than the naive model.</p>
-<div class="figure"><span id="fig:formean"></span>
-<img src="data-apps-text_files/figure-html/formean-1.png" alt="Mean Forecast" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:formean"></span>
+<img src="data-apps-text_files/figure-html/formean-1.png" alt="Mean Forecast" width="\textwidth" />
 <p class="caption">
 Figure 14.9: Mean Forecast
 </p>
 </div>
-<div class="figure"><span id="fig:fornaive"></span>
-<img src="data-apps-text_files/figure-html/fornaive-1.png" alt="Naive Forecast" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:fornaive"></span>
+<img src="data-apps-text_files/figure-html/fornaive-1.png" alt="Naive Forecast" width="\textwidth" />
 <p class="caption">
 Figure 14.10: Naive Forecast
 </p>
 </div>
-<div class="figure"><span id="fig:fordrift"></span>
-<img src="data-apps-text_files/figure-html/fordrift-1.png" alt="Drift Forecast" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:fordrift"></span>
+<img src="data-apps-text_files/figure-html/fordrift-1.png" alt="Drift Forecast" width="\textwidth" />
 <p class="caption">
 Figure 14.11: Drift Forecast
 </p>
 </div>
 <p>According to the drift model, predicted GDP for the next ten time periods is shown in Table <a href="14-forecasting.html#tab:gdpdrift">14.3</a>. Again, this is not a sophisticated model, and some may be alarmed by making predictions based on simply connecting the first and last observations, then extending the line into the future. It is important to keep in mind that the utility of a forecast is not the exact point forecasts in Table <a href="14-forecasting.html#tab:gdpdrift">14.3</a>. In fact, it would be misleading to report GDP in Q2 of 2020 is predicted to be 21.65 trillion dollars. The utility of a forecast is the corresponding confidence interval. If this is our best model, then we can report that GDP in Q2 of 2020 is predicted to be between 21.48 and 21.81 trillion dollars with 95% confidence.</p>
 <table>
-<caption>
-<span id="tab:gdpdrift">Table 14.3: </span>Forecast values
-</caption>
+<caption><span id="tab:gdpdrift">Table 14.3: </span>Forecast values</caption>
 <thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-Point Forecast
-</th>
-<th style="text-align:right;">
-Lo 80
-</th>
-<th style="text-align:right;">
-Hi 80
-</th>
-<th style="text-align:right;">
-Lo 95
-</th>
-<th style="text-align:right;">
-Hi 95
-</th>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Point Forecast</th>
+<th align="right">Lo 80</th>
+<th align="right">Hi 80</th>
+<th align="right">Lo 95</th>
+<th align="right">Hi 95</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-2020 Q2
-</td>
-<td style="text-align:right;">
-21645.05
-</td>
-<td style="text-align:right;">
-21539.73
-</td>
-<td style="text-align:right;">
-21750.36
-</td>
-<td style="text-align:right;">
-21483.98
-</td>
-<td style="text-align:right;">
-21806.11
-</td>
+<tr class="odd">
+<td align="left">2020 Q2</td>
+<td align="right">21645.05</td>
+<td align="right">21539.73</td>
+<td align="right">21750.36</td>
+<td align="right">21483.98</td>
+<td align="right">21806.11</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2020 Q3
-</td>
-<td style="text-align:right;">
-21755.19
-</td>
-<td style="text-align:right;">
-21605.84
-</td>
-<td style="text-align:right;">
-21904.53
-</td>
-<td style="text-align:right;">
-21526.78
-</td>
-<td style="text-align:right;">
-21983.59
-</td>
+<tr class="even">
+<td align="left">2020 Q3</td>
+<td align="right">21755.19</td>
+<td align="right">21605.84</td>
+<td align="right">21904.53</td>
+<td align="right">21526.78</td>
+<td align="right">21983.59</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2020 Q4
-</td>
-<td style="text-align:right;">
-21865.33
-</td>
-<td style="text-align:right;">
-21681.91
-</td>
-<td style="text-align:right;">
-22048.74
-</td>
-<td style="text-align:right;">
-21584.82
-</td>
-<td style="text-align:right;">
-22145.83
-</td>
+<tr class="odd">
+<td align="left">2020 Q4</td>
+<td align="right">21865.33</td>
+<td align="right">21681.91</td>
+<td align="right">22048.74</td>
+<td align="right">21584.82</td>
+<td align="right">22145.83</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2021 Q1
-</td>
-<td style="text-align:right;">
-21975.46
-</td>
-<td style="text-align:right;">
-21763.10
-</td>
-<td style="text-align:right;">
-22187.83
-</td>
-<td style="text-align:right;">
-21650.68
-</td>
-<td style="text-align:right;">
-22300.25
-</td>
+<tr class="even">
+<td align="left">2021 Q1</td>
+<td align="right">21975.46</td>
+<td align="right">21763.10</td>
+<td align="right">22187.83</td>
+<td align="right">21650.68</td>
+<td align="right">22300.25</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2021 Q2
-</td>
-<td style="text-align:right;">
-22085.60
-</td>
-<td style="text-align:right;">
-21847.53
-</td>
-<td style="text-align:right;">
-22323.68
-</td>
-<td style="text-align:right;">
-21721.50
-</td>
-<td style="text-align:right;">
-22449.71
-</td>
+<tr class="odd">
+<td align="left">2021 Q2</td>
+<td align="right">22085.60</td>
+<td align="right">21847.53</td>
+<td align="right">22323.68</td>
+<td align="right">21721.50</td>
+<td align="right">22449.71</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2021 Q3
-</td>
-<td style="text-align:right;">
-22195.74
-</td>
-<td style="text-align:right;">
-21934.24
-</td>
-<td style="text-align:right;">
-22457.25
-</td>
-<td style="text-align:right;">
-21795.81
-</td>
-<td style="text-align:right;">
-22595.68
-</td>
+<tr class="even">
+<td align="left">2021 Q3</td>
+<td align="right">22195.74</td>
+<td align="right">21934.24</td>
+<td align="right">22457.25</td>
+<td align="right">21795.81</td>
+<td align="right">22595.68</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2021 Q4
-</td>
-<td style="text-align:right;">
-22305.88
-</td>
-<td style="text-align:right;">
-22022.67
-</td>
-<td style="text-align:right;">
-22589.10
-</td>
-<td style="text-align:right;">
-21872.74
-</td>
-<td style="text-align:right;">
-22739.02
-</td>
+<tr class="odd">
+<td align="left">2021 Q4</td>
+<td align="right">22305.88</td>
+<td align="right">22022.67</td>
+<td align="right">22589.10</td>
+<td align="right">21872.74</td>
+<td align="right">22739.02</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2022 Q1
-</td>
-<td style="text-align:right;">
-22416.02
-</td>
-<td style="text-align:right;">
-22112.44
-</td>
-<td style="text-align:right;">
-22719.60
-</td>
-<td style="text-align:right;">
-21951.74
-</td>
-<td style="text-align:right;">
-22880.30
-</td>
+<tr class="even">
+<td align="left">2022 Q1</td>
+<td align="right">22416.02</td>
+<td align="right">22112.44</td>
+<td align="right">22719.60</td>
+<td align="right">21951.74</td>
+<td align="right">22880.30</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2022 Q2
-</td>
-<td style="text-align:right;">
-22526.16
-</td>
-<td style="text-align:right;">
-22203.31
-</td>
-<td style="text-align:right;">
-22849.01
-</td>
-<td style="text-align:right;">
-22032.41
-</td>
-<td style="text-align:right;">
-23019.91
-</td>
+<tr class="odd">
+<td align="left">2022 Q2</td>
+<td align="right">22526.16</td>
+<td align="right">22203.31</td>
+<td align="right">22849.01</td>
+<td align="right">22032.41</td>
+<td align="right">23019.91</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2022 Q3
-</td>
-<td style="text-align:right;">
-22636.30
-</td>
-<td style="text-align:right;">
-22295.09
-</td>
-<td style="text-align:right;">
-22977.51
-</td>
-<td style="text-align:right;">
-22114.46
-</td>
-<td style="text-align:right;">
-23158.14
-</td>
+<tr class="even">
+<td align="left">2022 Q3</td>
+<td align="right">22636.30</td>
+<td align="right">22295.09</td>
+<td align="right">22977.51</td>
+<td align="right">22114.46</td>
+<td align="right">23158.14</td>
 </tr>
 </tbody>
 </table>
 <p>Perhaps more sophisticated methods would provide a better forecast model. If so, then the model will fit observed data better, resulting in more precise confidence intervals. Greater precision could indeed be valuable depending on the context, as many decisions can be aided by considering best- and worst-case scenarios. Nevertheless, as long as our model achieves residuals that look like white noise with a mean approximately equal to zero, we can be fairly confident that our model is not wildly inaccurate though it may be less precise than an alternative model.</p>
 <p>Let us check the residuals for our drift model. As can be seen in Figure <a href="14-forecasting.html#fig:gdpdriftresid">14.12</a>, the mean of the residuals is approximately zero, but it appears that there is still information in past measures not extracted by our simple drift model. These results suggest we should try to improve our model.</p>
-<div class="figure"><span id="fig:gdpdriftresid"></span>
-<img src="data-apps-text_files/figure-html/gdpdriftresid-1.png" alt="GDP drift residuals" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:gdpdriftresid"></span>
+<img src="data-apps-text_files/figure-html/gdpdriftresid-1.png" alt="GDP drift residuals" width="\textwidth" />
 <p class="caption">
 Figure 14.12: GDP drift residuals
 </p>
 </div>
 <p>The figures below compare mean, naive, and seasonal naive models using the seasonal sales data from earlier. Because this time series does not exhibit a clear trend, the mean model is not as obviously bad as it was with GDP, though it is highly imprecise. The same applies to the naive model. If we care about predicting specific seasons (i.e. quarters), then clearly the seasonal naive model is the preferred choice.</p>
-<div class="figure"><span id="fig:fcompare2-1"></span>
-<img src="data-apps-text_files/figure-html/fcompare2-1.png" alt="Comparison of forecast models to seasonal data" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:fcompare2-1"></span>
+<img src="data-apps-text_files/figure-html/fcompare2-1.png" alt="Comparison of forecast models to seasonal data" width="\textwidth" />
 <p class="caption">
 Figure 14.13: Comparison of forecast models to seasonal data
 </p>
 </div>
-<div class="figure"><span id="fig:fcompare2-2"></span>
-<img src="data-apps-text_files/figure-html/fcompare2-2.png" alt="Comparison of forecast models to seasonal data" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:fcompare2-2"></span>
+<img src="data-apps-text_files/figure-html/fcompare2-2.png" alt="Comparison of forecast models to seasonal data" width="\textwidth" />
 <p class="caption">
 Figure 14.14: Comparison of forecast models to seasonal data
 </p>
 </div>
-<div class="figure"><span id="fig:fcompare2-3"></span>
-<img src="data-apps-text_files/figure-html/fcompare2-3.png" alt="Comparison of forecast models to seasonal data" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:fcompare2-3"></span>
+<img src="data-apps-text_files/figure-html/fcompare2-3.png" alt="Comparison of forecast models to seasonal data" width="\textwidth" />
 <p class="caption">
 Figure 14.15: Comparison of forecast models to seasonal data
 </p>
 </div>
 <p>Let us check the residuals of the seasonal naive model. The residuals have a mean of zero, and with the exception of one significantly correlated residual for lag 4, it appears we have mostly white noise. This model may be sufficient in many cases. The fact that sales from a year ago still provide information for current sales suggests there may be an annual trend component to this time series that our seasonal naive model does not extract. Therefore, a better model is achievable.</p>
-<div class="figure"><span id="fig:salesresid"></span>
-<img src="data-apps-text_files/figure-html/salesresid-1.png" alt="Residual check" width="672" />
+<div class="figure" style="text-align: center"><span id="fig:salesresid"></span>
+<img src="data-apps-text_files/figure-html/salesresid-1.png" alt="Residual check" width="\textwidth" />
 <p class="caption">
 Figure 14.16: Residual check
 </p>
@@ -1169,7 +929,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["data-apps-text.pdf"],
 "toc": {
 "collapse": "section"
 }

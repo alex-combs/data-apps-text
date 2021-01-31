@@ -52,7 +52,7 @@ polltable <- table(poll$response, poll$party)
 
 ```{r, echo=FALSE}
 polltable <- table(poll$response, poll$party)
-kable(polltable, format = 'html', caption = 'Response by political party')
+kable(polltable, caption = 'Response by political party')
 ```
 
 ### Run chi-square

@@ -23,7 +23,7 @@ Chapters \@ref(simple-and-multiple-regression), \@ref(categorical-variables-and-
 
 ```{r extable, echo=FALSE}
 get_regression_table(pslopemod2) %>% 
-  kable(format = 'html', caption = 'Parallel slopes for regions')
+  kable(caption = 'Parallel slopes for regions')
 ```
 
 We have covered how to interpret the `estimate` column at length. This value is the sample estimate of our unobserved population parameter. Provided our model is unbiased, and because of the Central Limit Theorem, we assume that the value of our estimate was drawn from a sampling distribution that is approximately normal and a mean equal to the population parameter. We assume our estimate is the mean of that sampling distribution. For example, in Table \@ref(tab:extable), it is assumed the estimate for `vmiles` of 0.188 represents the mean of an unobserved sampling distribution comprised of numerous estimates for `vmiles` that would be obtained if we repeated the regression using numerous samples. 

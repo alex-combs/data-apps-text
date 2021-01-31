@@ -89,7 +89,7 @@ selcounty <- county_complete %>%
 
 selcounty %>% 
   sample_n(7) %>% 
-  kable(format = 'html', caption = 'Preview of county data')
+  kable(caption = 'Preview of county data')
 ```
 
 <br>
@@ -125,7 +125,7 @@ Running the regression as represented in Equation \@ref(eq:simregexample) produc
 fedpov <- lm(fed_spend ~ poverty, data = selcounty)
 
 get_regression_table(fedpov) %>% 
-  kable(format = 'html', caption = 'Regression results of poverty on federal spending')
+  kable(caption = 'Regression results of poverty on federal spending')
 ```
 
 <br>
@@ -306,7 +306,7 @@ Table \@ref(tab:simregexresid) quantifies the error/residual for select observat
 ```{r simregexresid, echo=FALSE}
 get_regression_points(fedpov) %>% 
   sample_n(7) %>% 
-  kable(format = 'html', caption = 'Comparing observed and predicted federal spending')
+  kable(caption = 'Comparing observed and predicted federal spending')
 ```
 
 Our regression model uses observed values of poverty and federal spending to estimate the parameters of the regression line, which produced Equation \@ref(eq:simregresults). We can then plug the observed values of poverty into the equation to compute a predicted level of federal spending, represented by `fed_spend_hat`. For example, for observation 1,961 in our data, actual observed federal spending per capita was \$7.59. However, given that this county's poverty rate was 16.9, our regression model predicts federal spending per capita to be 
@@ -337,7 +337,7 @@ Table \@ref(tab:simregexfit) provides a standard set of three goodness-of-fit me
 ```{r simregexfit, echo=FALSE}
 get_regression_summaries(fedpov) %>% 
   select(r_squared, adj_r_squared, rmse) %>% 
-  kable(format = 'html', caption = 'Goodness-of-fit measures')
+  kable(caption = 'Goodness-of-fit measures')
 ```
 
 The first column titled `r_squared` refers to the measure $R^2$, also known as the **coefficient of determination** defined in \@ref(descriptive-statistics). The $R^2$ measures the strength of association between a set of one or more explanatory variables and an outcome variable. Specifically, it quantifies the percent of total variation in the outcome explained by our regression model. In this case, our regression using poverty explains 2.1% of the total variation in federal spending.
@@ -387,7 +387,7 @@ which generates the following results
 fedpov2 <- lm(fed_spend ~ poverty + homeownership + income, data = selcounty)
 
 get_regression_table(fedpov2) %>% 
-  kable(format = 'html', caption = 'Multiple regression results')
+  kable(caption = 'Multiple regression results')
 ```
 
 and the following goodness-of-fit measures
@@ -395,7 +395,7 @@ and the following goodness-of-fit measures
 ```{r multregexfit, echo=FALSE}
 get_regression_summaries(fedpov2) %>% 
   select(r_squared, adj_r_squared, rmse) %>% 
-  kable(format = 'html', caption = 'Fit of multiple regression')
+  kable(caption = 'Fit of multiple regression')
 ```
 
 Now we can discuss what is different with multiple regression. First, note that our coefficient or estimate for poverty has changed from 0.108 to 0.105. A small difference to be sure, but that is specific to the example used; sometimes the estimate can change dramatically. Why the change? Because we are **controlling for other factors**. A slight amount of the marginal effect we reported poverty had on federal spending in our simple regression model was misattributed from the marginal effects of homeownership and/or income on federal spending.
@@ -463,10 +463,6 @@ The adjusted-$R^2$ accounts for this unfairness by applying a penalty to each ad
 Each explanatory variable we add to our regression model imposes a type of penalty on our results. Basically, for each explanatory variable included, we lose an observation in our data (not literally). This will be discussed further in the section on inference, but we need at least 33 observations to make valid inferences about a population based on sample estimates. If we had, say 50 observations in a dataset, and wanted to run a regression with 25 explanatory variables, then it is as though our regression model is based on only 25 observations (50 observations - 25 variables = 25 degrees of freedom). We will obtain results from such a model, but we should not use those results to make inferences.
 
 In case you were wondering why not simply add all the variables we can to a model rather than carefully consider which variables to include and exclude in a model, this penalty is one of the primary reasons. Fewer degrees of freedom jeopardizes our ability to make valid inference. It can also reduce the precision of our predictions. The goal is to maximize the explanatory or predictive power of our regression model at minimal cost (i.e. excluding superfluous variables). Choosing good regression models is where subject matter expertise plays a crucial role. Experience and knowledge within the context of the research question informs our choices. Statistics is the method by which we apply our expertise to data to make evidence-based decisions.
-
-<br>
-
-> **To learn how to run regression in R, proceed to Chapter \@ref(r-regression).**
 
 ## Key terms and concepts {#kt6}
 
