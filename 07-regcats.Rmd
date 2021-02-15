@@ -201,7 +201,9 @@ y = \beta_0 + \beta_1x + \beta_2d_1 + \beta_3d_2 + \beta_4d_3 + \epsilon
 (\#eq:pslopemultd)
 \end{equation}
 
-Just as we used one dummy variable to represent a categorical variable with two levels, we use three dummy variables to represent a categorical variable with four levels. There is always one fewer dummy variables than there are levels of a categorical variable because one level must be used as the reference/base level to which all other levels are compared.
+Just as we used one dummy variable to represent a categorical variable with two levels, we use three dummy variables to represent a categorical variable with four levels. 
+
+> There is always one fewer dummy variables than there are levels of a categorical variable because one level must be used as the reference/base level to which all other levels are compared.
 
 This model represented by Equation \@ref(eq:pslopemultd) draws four regression lines. One line for the group represented when $d_1=0$, $d_2=0$, and $d_3=0$; a second line for the group represented when $d_1=1$; a third line for the group represented when $d_2=1$; and a fourth line for the group when $d_3=1$. All the math demonstrated in the two-level case with Equations \@ref(eq:pslopesamp)-\@ref(eq:pslopesamp1alt) works exactly the same way.
 
@@ -212,14 +214,14 @@ mrall = \beta_0 + \beta_1vmiles + \beta_2region + \epsilon
 (\#eq:pslopeexamp2)
 \end{equation}
 
-where region is a four-level categorical variable containing South, West, N.East, and Midwest. Note that Equation \@ref(eq:pslopeexamp2) looks different than Equation (\#eq:pslopemultd). This is because Equation \@ref(eq:pslopeexamp2) leaves the various levels implied within the `region` variable. We can explicitly state the levels of `region` in our regression model instead, giving us
+where region is a four-level categorical variable containing South, West, N.East, and Midwest. Note that Equation \@ref(eq:pslopeexamp2) looks different than Equation \@ref(eq:pslopemultd). This is because Equation \@ref(eq:pslopeexamp2) leaves the various levels implied within the `region` variable. We can explicitly state the levels of `region` in our regression model instead, giving us
 
 \begin{equation}
 mrall = \beta_0 + \beta_1vmiles + \beta_2d_{neast} + \beta_3d_{south} + \beta_4d_{west} + \epsilon
 (\#eq:pslopeexamp3)
 \end{equation}
 
-which now has the exact same structure as Equation (\#eq:pslopemultd). In this case, the Midwest level is excluded as the reference/base level. This is an arbitrary choice; we could choose to exclude any one of the levels to which all other levels are compared. Statistical software will automatically choose a default level. If the categorical variable is coded using text, then R excludes the level that comes first alphabetically. If coded numerically, one level should be coded as equal to 0 and will be the level that R excludes.
+which now has the exact same structure as Equation \@ref(eq:pslopemultd). In this case, the Midwest level is excluded as the reference/base level. This is an arbitrary choice; we could choose to exclude any one of the levels to which all other levels are compared. Statistical software will automatically choose a default level. If the categorical variable is coded using text, then R excludes the level that comes first alphabetically. If coded numerically, one level should be coded as equal to 0 and will be the level that R excludes.
 
 Figure \@ref(fig:pslopescatter2) visualizes this model. Note that there are four regression lines, each corresponding to one of the four regions. There are clear differences between the regions. It appears states in the West and South are somehow different than states in the Midwest and Northeast with respect to traffic fatality rates.
 
@@ -244,8 +246,9 @@ get_regression_table(pslopemod2) %>%
   kable(caption = 'Parallel slopes for regions')
 ```
 
-Note that Table \@ref(tab:psloperesults2) provides estimates for three of the four regions. This is no different from our previous model; `jaild` has two levels, yes and no, but Table \@ref(tab:psloperesults) provides only one estimate for `jaild=yes`. No matter how many levels in a categorical variable, one of the levels is set such that $d=0$ and so that level drops out of the equation. Just like with the previous model where the estimate for `jaild=yes`
-indicates how far above or below the regression line is relative to the line for `jaild=no`, the estimates for whatever levels remain in the equation indicate how far above or below the regression lines are relative to the excluded level.
+Note that Table \@ref(tab:psloperesults2) provides estimates for three of the four regions. This is no different from our previous model; `jaild` has two levels, yes and no, but Table \@ref(tab:psloperesults) provides only one estimate for `jaild=yes`. No matter how many levels in a categorical variable, one of the levels is set such that $d=0$ and so that level drops out of the equation. 
+
+> Just like with the previous model where the estimate for `jaild=yes` indicates how far above or below the regression line is relative to the line for `jaild=no`, the estimates for the three regions in Table \@ref(tab:psloperesults2) indicate how far above or below their respective regression lines are relative to the excluded level, `region=Midwest`.
 
 In Table \@ref(tab:psloperesults2), Midwest is excluded as expected. We can plug our estimates into the sample version of Equation \@ref(eq:pslopeexamp3).
 
@@ -263,7 +266,7 @@ $$\hat{mrall} = (0.26 - 0.076) + (0.188 \times vmiles)$$
 
 $$\hat{mrall} = 0.184 + (0.188 \times vmiles)$$
 
-This means that states in the N.East have a lower traffic fatality rate than states in the Midwest, on average. How much lower? By the amount of the estimate associated with $d_{neast}: 0.076. This same process can be applied to the other two regions.
+This means that states in the N.East have a lower traffic fatality rate than states in the Midwest, on average. How much lower? By the amount of the estimate associated with $d_{neast}$: 0.076. This same process can be applied to the other two regions.
 
 Look back at Figure \@ref(fig:pslopescatter2), noting where the Midwest line is relative to the other regions. Northeast is below Midwest, while South and West are above it. 
 
@@ -457,7 +460,7 @@ get_regression_table(lpm_mod) %>%
 Plugging these results into our sample regression equation gives us
 
 
-$$\hat{Pr(jaild=1)}= -0.07 + (0.12 \times vmiles) + (0.06 \times d_{neast}) + (0.04 \times d_{south}) + (0.36 \times d_{west})$$
+$$\hat{Pr(jaild=1)}= -0.07 + (0.12 \times mrall) + (0.06 \times d_{neast}) + (0.04 \times d_{south}) + (0.36 \times d_{west})$$
 
 Once again, we are back to plug-and-chug. For example, what is the predicted probability that a state in the Midwest with a traffic fatality rate of 2.5 has a mandatory jail sentence for drunk driving?
 
@@ -490,7 +493,7 @@ trdeath %>%
 
 Because our outcome is a dummy variable, it does not have the same kind of variation we need to assess model fit like before using $R^2$ or RMSE. Since we are explaining or predicting whether or not an outcome occurs, we can assess the fit of the model based on how well it predicts the observed outcomes.
 
-We could change this threshold, but suppose we decide that if our model predicts the likelihood an outcome at 50% or greater, then we say that our model predicts the outcome will occur $y=1$ and so $y=0$ otherwise. Table \@ref(tab: lpmpointstab) shows a few rows applying this logic. Note that each row shows the observed data for each variable in our model, then the predicted probability in the `jaild_hat` column, then the rounding of that probability to 0 or 1 in the `prediction` column. Note the similarities and differences between the observed outcomes in `jaild` and the predicted outcomes `prediction`. Sometimes our model predicts correctly, and sometimes it does not.
+We could change this threshold, but suppose we decide that if our model predicts the likelihood of an outcome at 50% (0.50) or greater, then we say that our model predicts the outcome will occur $y=1$ and $y=0$ if our model predicts a likelihood less than 0.50. Table \@ref(tab:lpmpointstab) shows a few rows applying this logic. Note that each row shows the observed data for each variable in our model, then the predicted probability in the `jaild_hat` column, then the rounding of that probability to 0 or 1 in the `prediction` column. Note the similarities and differences between the observed outcomes in `jaild` and the predicted outcomes `prediction`. Sometimes our model predicts correctly, and sometimes it does not.
 
 ```{r, include=FALSE}
 lpm_points <- get_regression_points(lpm_mod) %>% 
@@ -524,7 +527,7 @@ prop.table(confusion, 2) %>%
 
 <br>
 
-> **To learn how to run the regression models from in this and Chapter \@ref(regression) in R, proceed to Chapter \@ref(r-regression).**
+> **To learn how to run the regression models from Chapters \@ref(simple-and-multiple-regression) and \@ref(categorical-variables-and-interactions) in R, proceed to Chapter \@ref(r-regression).**
 
 ## Key terms and concepts {#kt7}
 

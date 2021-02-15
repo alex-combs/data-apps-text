@@ -59,7 +59,7 @@ Only one element differs between Equations \@ref(eq:line) and \@ref(eq:simreg). 
 
 The y-intercept denoted as $b$ in Equation \@ref(eq:line) has been moved to the front of the right-hand side in Equation \@ref(eq:simreg) and is denoted by $\beta_0$ (pronounced beta-naught). The slope denoted as $m$ in Equation \@ref(eq:line) is now denoted as $\beta_1$ in Equation \@ref(eq:simreg). These beta, $\beta$, symbols are simply the standard notation for **population parameters** in a statistical model and are used to signal that we intend to estimate these parameters using regression.
 
-Recall that a parameter is a statistical measure of a population. In most cases, our research questions concern a population so large or inaccessible such that we do not observe all members. Instead, we take a sample of the population. From this sample, we calculate sample statistics, or **estimates** of the parameters and use methods of inference to decide if these estimates are valid guesses of the parameter (more on this in Chapters \@ref(sampling) - \@ref(regression-inference)).
+Recall that a parameter is a statistical measure of a population. In most cases, our research questions concern a population so large or inaccessible such that we do not observe all members. Instead, we take a sample of the population. From this sample, we calculate sample statistics, or **estimates** of the parameters and use methods of inference to decide if these estimates are valid guesses of the parameter (more on this in Chapters \@ref(sampling) - \@ref(significance)).
 
 Equation \@ref(eq:simregsample) presents the sample regression equation.
 
@@ -106,7 +106,7 @@ ggplot(selcounty, aes(x = poverty, y = fed_spend)) +
   theme_minimal()
 ```
 
-If we were to trace a line through these points, it would clearly slope upward. Thus, this suggests to us that as the percent of the population of a county increases, the amount of federal spending it receives increases. But by how much? That is precisely what regression estimates for us.
+If we were to trace a line through these points, it would clearly slope upward. This suggests to us that as the percent of the population of a county in poverty increases, the amount of federal spending it receives increases. But by how much? That is what regression estimates for us.
 
 Equation \@ref(eq:simregexample) represents the relationship between federal spending and poverty using a simple linear regression population model. Note that we have chosen to model the two variables such that poverty explains or predicts federal spending. This aligns with the choice to plot poverty on the x axis and federal spending on the y axis in Figure \@ref(fig:povfedscatter). This is a critical choice in every regression and one that computers still need humans to help with (more on that later).
 
@@ -185,6 +185,7 @@ where $\Delta$ denotes change. We replace $b_1$ with our estimate and $x$ with t
 Applying this to our example, what is the predicted change in federal spending per capita given a 10 percentage point increase in the poverty rate?
 
 $$0.108 \times 10 = 1.08$$
+
 > Federal spending per capita is predicted to increase by an average of \$1.08 given a 10 point increase in county poverty rate.
 
 ### Predicted value
@@ -452,17 +453,27 @@ Now we see the effect of a *one thousand* dollar change in per capita income on 
 
 In addition to doing a better job isolating the marginal effect of one variable on an outcome, including additional explanatory variables can reduce the error in our regression, thus achieve more accurate and/or precise predictions of the outcome. 
 
-We can assess this improvement in fit by comparing the results in Table \@ref(tab:multregexfit) to those in Table \@ref(tab:simregexfit). We have gone from an RMSE of 4.65 dollars to an RMSE 4.59 dollars. This means our predictions from the multiple regression model tend to be off by 6 cents fewer than the predictions of our simple regression model.
+We can assess this improvement in fit by comparing the results in Table \@ref(tab:multregexfit) to those in Table \@ref(tab:simregexfit). We have gone from an RMSE of 4.65 dollars to an RMSE 4.55 dollars. This means our predictions from the multiple regression model tend to be off by 10 cents fewer than the predictions of our simple regression model.
 
-The previous discussion on fit conspicuously skipped over the column titled `adj_r_square` because **adjusted-$R^2$** applies when comparing two or more models with a different number of explanatory variables. One caveat to using $R^2$ to choose a preferred model is that it mechanically increases as the number of explanatory variables increases whether those additional variables improve the extent to which our regression explains the total variation in the outcome or not. Therefore, it is unfair to compare a model with one explanatory variable to a model with more than one explanatory variable.
+The previous discussion on fit conspicuously skipped over the column titled `adj_r_square` because **adjusted-$R^2$** applies when comparing two or more models with a different number of explanatory variables. 
 
-The adjusted-$R^2$ accounts for this unfairness by applying a penalty to each additional explanatory variable. We can fairly compare models with different numbers of explanatory variables using their respective adjusted-$R^2$. In our example, we have gone from explaining 2.1% of the total variation in federal spending to explaining 4.7% of its total variation. Adding home ownership and income has more than doubled the explanatory power of our model of federal spending.
+> One caveat to using $R^2$ to choose a preferred model is that it mechanically increases as the number of explanatory variables increases whether those additional variables improve the extent to which our regression explains the total variation in the outcome or not. Therefore, it is unfair to compare a model with one explanatory variable to a model with more than one explanatory variable.
+
+The adjusted-$R^2$ accounts for this unfairness by applying a penalty to each additional explanatory variable. We can fairly compare models with different numbers of explanatory variables using their respective adjusted-$R^2$. 
+
+In our example, the adjusted-$R^2$ for the simple regression model equals 0.021, while the multiple regression model has an adjusted-$R^2$ of 0.063. Therefore, the multiple regression model is the statistically superior model. 
+
+When reporting how much variation in the outcome our preferred model explains, we should still use its $R^2$. Our preferred, multiple regression model explains 6.4% of total variation in federal spending. Adding home ownership and income has more than doubled the explanatory power of our model of federal spending.
 
 ### Explanatory penalty
 
-Each explanatory variable we add to our regression model imposes a type of penalty on our results. Basically, for each explanatory variable included, we lose an observation in our data (not literally). This will be discussed further in the section on inference, but we need at least 33 observations to make valid inferences about a population based on sample estimates. If we had, say 50 observations in a dataset, and wanted to run a regression with 25 explanatory variables, then it is as though our regression model is based on only 25 observations (50 observations - 25 variables = 25 degrees of freedom). We will obtain results from such a model, but we should not use those results to make inferences.
+Each explanatory variable we add to our regression model imposes a type of penalty on our results. Basically, for each explanatory variable included, we lose an observation in our data (not literally). This will be discussed further in the section on inference, but we need at least 33 observations to make valid inferences about a population based on sample estimates. If we had, say 50 observations in a dataset, and wanted to run a regression with 25 explanatory variables, then it is as though our regression model is based on only 25 observations (50 observations - 25 variables = 25 degrees of freedom). We will obtain results from such a model, but we probably should not use those results to make inferences.
 
-In case you were wondering why not simply add all the variables we can to a model rather than carefully consider which variables to include and exclude in a model, this penalty is one of the primary reasons. Fewer degrees of freedom jeopardizes our ability to make valid inference. It can also reduce the precision of our predictions. The goal is to maximize the explanatory or predictive power of our regression model at minimal cost (i.e. excluding superfluous variables). Choosing good regression models is where subject matter expertise plays a crucial role. Experience and knowledge within the context of the research question informs our choices. Statistics is the method by which we apply our expertise to data to make evidence-based decisions.
+In case you were wondering why not simply add all the variables we can to a model rather than carefully consider which variables to include and exclude in a model, this penalty is one of the primary reasons. Fewer degrees of freedom jeopardizes our ability to make valid inference. It can also reduce the precision of our predictions. 
+
+> One of our goals with regression should be to maximize the explanatory or predictive power of our regression model at minimal cost (i.e. excluding superfluous variables). 
+
+Choosing good regression models is where subject matter expertise plays a crucial role. Experience and knowledge within the context of the research question informs our choices. Statistics is the method by which we apply our expertise to data to make evidence-based decisions.
 
 ## Key terms and concepts {#kt6}
 
