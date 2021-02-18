@@ -660,7 +660,7 @@ y=\beta_0+\beta_1x+\epsilon
 </tbody>
 </table>
 <p><br></p>
-<p>where <code>fed_spending</code> is the amount of federal funds allocated to the county per capita, <code>poverty</code> is the percent of the population in poverty, <code>homeownership</code> is the percent of the population that owns a home, and <code>income</code> is per capita income. There are 3,143 observations in this dataset.</p>
+<p>where <code>fed_spending</code> is the amount of federal funds allocated to the county per capita, <code>poverty</code> is the percent of the population in poverty, <code>homeownership</code> is the percent of the population that owns a home, and <code>income</code> is per capita income. There are 3,123 observations in this dataset.</p>
 <p>Suppose we wanted to examine the association between federal spending and poverty for U.S. counties such that poverty <em>explains</em> federal spending. After all, a substantial portion of federal dollars are dedicated to assist those in poverty. First, we might visualize the relationship between the two variables.</p>
 <div class="figure" style="text-align: center"><span id="fig:povfedscatter"></span>
 <img src="data-apps-text_files/figure-html/povfedscatter-1.png" alt="Federal spending and poverty among U.S. counties" width="\textwidth" />
@@ -911,6 +911,7 @@ e = y - \hat{y}
 <th align="right">r_squared</th>
 <th align="right">adj_r_squared</th>
 <th align="right">rmse</th>
+<th align="right">nobs</th>
 </tr>
 </thead>
 <tbody>
@@ -918,6 +919,7 @@ e = y - \hat{y}
 <td align="right">0.021</td>
 <td align="right">0.021</td>
 <td align="right">4.654482</td>
+<td align="right">3123</td>
 </tr>
 </tbody>
 </table>
@@ -1014,6 +1016,7 @@ FedSpend = \beta_0 + \beta_1Poverty + \beta_2HomeOwn + \beta_3Income + \epsilon
 <th align="right">r_squared</th>
 <th align="right">adj_r_squared</th>
 <th align="right">rmse</th>
+<th align="right">nobs</th>
 </tr>
 </thead>
 <tbody>
@@ -1021,26 +1024,31 @@ FedSpend = \beta_0 + \beta_1Poverty + \beta_2HomeOwn + \beta_3Income + \epsilon
 <td align="right">0.064</td>
 <td align="right">0.063</td>
 <td align="right">4.55216</td>
+<td align="right">3123</td>
 </tr>
 </tbody>
 </table>
-<p>Now we can discuss what is different with multiple regression. First, note that our coefficient or estimate for poverty has changed from 0.108 to 0.105. A small difference to be sure, but that is specific to the example used; sometimes the estimate can change dramatically. Why the change? Because we are <strong>controlling for other factors</strong>. A slight amount of the marginal effect we reported poverty had on federal spending in our simple regression model was misattributed from the marginal effects of homeownership and/or income on federal spending.</p>
-<p>This is a key feature of multiple regression: it estimates the marginal effect of a variable on an outcome, holding all other explanatory variables equal to their respective means. In other words, if we were omnipotent beings who could take each county in our data and set homeownership and income to the mean of homeownership and income according to the observed data, then pull some lever that makes poverty change and nothing else, the estimate for poverty in our multiple regression reports how much each percentage point in poverty changes federal spending. This is how we isolate the effect of one variable on an outcome despite knowing other variables simultaneously affect our outcome.</p>
+<p>Now we can discuss what is different with multiple regression. First, note that our coefficient or estimate for poverty has changed from 0.108 to -0.056. Why the change? Because we are <strong>controlling for other factors</strong>. Part of the marginal effect we reported poverty had on federal spending in our simple regression model was misattributed from the marginal effects of homeownership and/or income on federal spending.</p>
+<p>This is a key feature of multiple regression:</p>
+<blockquote>
+<p>it estimates the marginal effect of a variable on an outcome, holding all other explanatory variables equal to their respective means. In other words, if we were omnipotent beings who could take each county in our data and set homeownership and income to the mean of homeownership and income according to the observed data, then pull some lever that makes poverty change and nothing else, the estimate for poverty in our multiple regression reports how much each percentage point in poverty changes federal spending.</p>
+</blockquote>
+<p>This is how we isolate the effect of one variable on an outcome despite knowing other variables simultaneously affect our outcome.</p>
 <p>The interpretation of multiple regression estimates is essentially the same as simple regression. In our example, we can interpret the homeownership estimate like so:</p>
 <blockquote>
-<p>On average, our results indicate that a one percentage point increase in the percent of the population that owns a home is associated with a decrease in federal spending per capita of approximately 9 cents, <strong>holding other factors constant</strong>.</p>
+<p>On average, our results indicate that a one percentage point increase in the percent of the population that owns a home is associated with a decrease in federal spending per capita of approximately 13 cents, <strong>holding other factors constant</strong>.</p>
 </blockquote>
 <p>The part in bold is to point out the small difference between the two interpretations. Here, we are simply reminding a reader that we have controlled for other factors that presumably we have already explained, and our estimate for poverty accounts for those factors by holding them constant. Other common word choices for this part of the interpretation include “all else equal” or its Latin translation “ceteris paribus.”</p>
 <p>Again, we can answer any sort of question relevant to our original research question concerning the predicted change or level of federal spending by plugging in the numbers to our regression equation.</p>
 <p><span class="math display">\[\begin{equation}
-\hat{FedSpend} = 13.50 + 0.105\times Poverty - 0.093\times HomeOwn + 0Income
+\hat{FedSpend} = 23.52 - 0.056 \times Poverty - 0.13 \times HomeOwn + 0 \times Income
 \end{equation}\]</span></p>
 <p>If we wanted to predict the change in federal spending given an 3 percentage point increase in poverty and a decline in home ownership of 4 percentage points, the our answer would be</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="6-simple-and-multiple-regression.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.105</span><span class="sc">*</span><span class="dv">3</span><span class="sc">+</span>(<span class="sc">-</span><span class="fl">0.093</span>)<span class="sc">*</span>(<span class="sc">-</span><span class="dv">4</span>)</span></code></pre></div>
-<pre><code>[1] 0.687</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="6-simple-and-multiple-regression.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">0.056</span><span class="sc">*</span><span class="dv">3</span><span class="sc">+</span>(<span class="sc">-</span><span class="fl">0.126</span>)<span class="sc">*</span>(<span class="sc">-</span><span class="dv">4</span>)</span></code></pre></div>
+<pre><code>[1] 0.336</code></pre>
 <p>dollars per capita (on average and all else equal, of course). If we wanted to predict the level of federal spending per capita for a county with 12% poverty, a 80% home ownership rate, and $31,000 income per capita, then we would predict</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="6-simple-and-multiple-regression.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fl">13.50+0.105</span><span class="sc">*</span><span class="dv">12</span><span class="fl">-0.093</span><span class="sc">*</span><span class="dv">80</span><span class="sc">+</span><span class="dv">0</span><span class="sc">*</span><span class="dv">31000</span></span></code></pre></div>
-<pre><code>[1] 7.32</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="6-simple-and-multiple-regression.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fl">23.519-0.056</span><span class="sc">*</span><span class="dv">12</span><span class="fl">-0.126</span><span class="sc">*</span><span class="dv">80</span><span class="sc">+</span><span class="dv">0</span><span class="sc">*</span><span class="dv">31000</span></span></code></pre></div>
+<pre><code>[1] 12.767</code></pre>
 <p>dollars per capita.</p>
 <p>Not so fast! This example provides a good opportunity to consider another aspect of the units our variables are in. Per capita income is in dollars. This means the estimate for income represents the effect of a <em>one dollar</em> change in per capita income on federal spending per capita. That’s a very small change that we would expect to have a very small effect on federal spending. This effect is so small that statistical software may round to 0. But what if we changed the units of income to <em>thousands</em> of dollars per capita instead of dollars per capita? Then we get the following results.</p>
 <table>
@@ -1141,7 +1149,7 @@ homeownership
 </tr>
 <tr>
 <td style="text-align:left;">
-income
+income_1000
 </td>
 <td style="text-align:right;">
 -0.086
@@ -1165,8 +1173,9 @@ income
 </tbody>
 </table>
 <p>Now we see the effect of a <em>one thousand</em> dollar change in per capita income on federal spending per capita. Note that the estimates for poverty and homeownership are the same. Therefore, the predicted level of federal spending for our county is actually</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="6-simple-and-multiple-regression.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fl">13.50+0.105</span><span class="sc">*</span><span class="dv">12</span><span class="fl">-0.093</span><span class="sc">*</span><span class="dv">80</span><span class="fl">+0.057</span><span class="sc">*</span><span class="dv">31</span></span></code></pre></div>
-<pre><code>[1] 9.087</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="6-simple-and-multiple-regression.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fl">23.519-0.056</span><span class="sc">*</span><span class="dv">12</span><span class="fl">-0.126</span><span class="sc">*</span><span class="dv">80</span><span class="fl">-0.086</span><span class="sc">*</span><span class="dv">31</span></span></code></pre></div>
+<pre><code>[1] 10.101</code></pre>
+<p>dollars per capita. Note that because income is in units of 1,000, a county with an income of 31,000 per capita must be rescaled to 31 in the regression equation.</p>
 </div>
 <div id="fit-and-adjusted-r-squared" class="section level3" number="6.4.2">
 <h3><span class="header-section-number">6.4.2</span> Fit and adjusted R squared</h3>

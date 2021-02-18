@@ -668,10 +668,10 @@ homeownership
 income
 </td>
 <td style="text-align:right;">
--0.086
+0.000
 </td>
 <td style="text-align:right;">
-0.011
+0.000
 </td>
 <td style="text-align:right;">
 -7.723
@@ -680,10 +680,10 @@ income
 0.000
 </td>
 <td style="text-align:right;">
--0.108
+0.000
 </td>
 <td style="text-align:right;">
--0.064
+0.000
 </td>
 </tr>
 </tbody>
@@ -724,7 +724,7 @@ lm(formula = fed_spend ~ poverty + homeownership + income, data = selcounty)
 
 Coefficients:
   (Intercept)        poverty  homeownership         income  
-     23.51860       -0.05597       -0.12582       -0.08593  
+  23.51859688    -0.05596900    -0.12582419    -0.00008593  
 
 
 ASSESSMENT OF THE LINEAR MODEL ASSUMPTIONS
@@ -758,6 +758,7 @@ Heteroscedasticity    27.721 0.0000001401 Assumptions NOT satisfied!</code></pre
 <th align="right">poverty</th>
 <th align="right">homeownership</th>
 <th align="right">income</th>
+<th align="right">income_1000</th>
 </tr>
 </thead>
 <tbody>
@@ -768,6 +769,7 @@ Heteroscedasticity    27.721 0.0000001401 Assumptions NOT satisfied!</code></pre
 <td align="right">45.08154</td>
 <td align="right">5.0</td>
 <td align="right">72.1</td>
+<td align="right">97900</td>
 <td align="right">97.900</td>
 </tr>
 <tr class="even">
@@ -777,6 +779,7 @@ Heteroscedasticity    27.721 0.0000001401 Assumptions NOT satisfied!</code></pre
 <td align="right">45.70920</td>
 <td align="right">6.7</td>
 <td align="right">75.4</td>
+<td align="right">64171</td>
 <td align="right">64.171</td>
 </tr>
 <tr class="odd">
@@ -786,6 +789,7 @@ Heteroscedasticity    27.721 0.0000001401 Assumptions NOT satisfied!</code></pre
 <td align="right">45.84445</td>
 <td align="right">7.3</td>
 <td align="right">75.8</td>
+<td align="right">41066</td>
 <td align="right">41.066</td>
 </tr>
 <tr class="even">
@@ -795,6 +799,7 @@ Heteroscedasticity    27.721 0.0000001401 Assumptions NOT satisfied!</code></pre
 <td align="right">33.05986</td>
 <td align="right">7.8</td>
 <td align="right">45.7</td>
+<td align="right">80847</td>
 <td align="right">80.847</td>
 </tr>
 <tr class="odd">
@@ -804,6 +809,7 @@ Heteroscedasticity    27.721 0.0000001401 Assumptions NOT satisfied!</code></pre
 <td align="right">26.64889</td>
 <td align="right">5.1</td>
 <td align="right">71.9</td>
+<td align="right">105416</td>
 <td align="right">105.416</td>
 </tr>
 </tbody>
@@ -915,10 +921,10 @@ homeownership
 income
 </td>
 <td style="text-align:right;">
--0.103
+0.000
 </td>
 <td style="text-align:right;">
-0.011
+0.000
 </td>
 <td style="text-align:right;">
 -9.490
@@ -927,10 +933,10 @@ income
 0.000
 </td>
 <td style="text-align:right;">
--0.124
+0.000
 </td>
 <td style="text-align:right;">
--0.081
+0.000
 </td>
 </tr>
 </tbody>
@@ -944,7 +950,7 @@ lm(formula = fed_spend ~ poverty + homeownership + income, data = selcounty[-c(2
 
 Coefficients:
   (Intercept)        poverty  homeownership         income  
-      24.1589        -0.0655        -0.1232        -0.1026  
+   24.1588786     -0.0655030     -0.1232241     -0.0001026  
 
 
 ASSESSMENT OF THE LINEAR MODEL ASSUMPTIONS
@@ -977,6 +983,7 @@ Heteroscedasticity     2.457 0.11699    Assumptions acceptable.</code></pre>
 <th align="right">poverty</th>
 <th align="right">homeownership</th>
 <th align="right">income</th>
+<th align="right">income_1000</th>
 </tr>
 </thead>
 <tbody>
@@ -986,6 +993,7 @@ Heteroscedasticity     2.457 0.11699    Assumptions acceptable.</code></pre>
 <td align="right">0</td>
 <td align="right">10.8</td>
 <td align="right">59.1</td>
+<td align="right">73500</td>
 <td align="right">73.500</td>
 </tr>
 <tr class="even">
@@ -994,6 +1002,7 @@ Heteroscedasticity     2.457 0.11699    Assumptions acceptable.</code></pre>
 <td align="right">0</td>
 <td align="right">8.3</td>
 <td align="right">78.7</td>
+<td align="right">50389</td>
 <td align="right">50.389</td>
 </tr>
 </tbody>
@@ -1013,7 +1022,7 @@ lm(formula = log(fed_spend) ~ poverty + homeownership + log(income),
 
 Coefficients:
   (Intercept)        poverty  homeownership    log(income)  
-      6.72532       -0.01675       -0.01254       -0.89687  
+     12.92070       -0.01675       -0.01254       -0.89687  
 
 
 ASSESSMENT OF THE LINEAR MODEL ASSUMPTIONS

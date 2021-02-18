@@ -94,7 +94,7 @@ selcounty %>%
 
 <br>
 
-where `fed_spending` is the amount of federal funds allocated to the county per capita, `poverty` is the percent of the population in poverty, `homeownership` is the percent of the population that owns a home, and `income` is per capita income. There are 3,143 observations in this dataset.
+where `fed_spending` is the amount of federal funds allocated to the county per capita, `poverty` is the percent of the population in poverty, `homeownership` is the percent of the population that owns a home, and `income` is per capita income. There are 3,123 observations in this dataset.
 
 Suppose we wanted to examine the association between federal spending and poverty for U.S. counties such that poverty *explains* federal spending. After all, a substantial portion of federal dollars are dedicated to assist those in poverty. First, we might visualize the relationship between the two variables.
 
@@ -337,7 +337,7 @@ Table \@ref(tab:simregexfit) provides a standard set of three goodness-of-fit me
 
 ```{r simregexfit, echo=FALSE}
 get_regression_summaries(fedpov) %>% 
-  select(r_squared, adj_r_squared, rmse) %>% 
+  select(r_squared, adj_r_squared, rmse, nobs) %>% 
   kable(caption = 'Goodness-of-fit measures')
 ```
 
@@ -395,36 +395,40 @@ and the following goodness-of-fit measures
 
 ```{r multregexfit, echo=FALSE}
 get_regression_summaries(fedpov2) %>% 
-  select(r_squared, adj_r_squared, rmse) %>% 
+  select(r_squared, adj_r_squared, rmse, nobs) %>% 
   kable(caption = 'Fit of multiple regression')
 ```
 
-Now we can discuss what is different with multiple regression. First, note that our coefficient or estimate for poverty has changed from 0.108 to 0.105. A small difference to be sure, but that is specific to the example used; sometimes the estimate can change dramatically. Why the change? Because we are **controlling for other factors**. A slight amount of the marginal effect we reported poverty had on federal spending in our simple regression model was misattributed from the marginal effects of homeownership and/or income on federal spending.
+Now we can discuss what is different with multiple regression. First, note that our coefficient or estimate for poverty has changed from 0.108 to -0.056. Why the change? Because we are **controlling for other factors**. Part of the marginal effect we reported poverty had on federal spending in our simple regression model was misattributed from the marginal effects of homeownership and/or income on federal spending.
 
-This is a key feature of multiple regression:  it estimates the marginal effect of a variable on an outcome, holding all other explanatory variables equal to their respective means. In other words, if we were omnipotent beings who could take each county in our data and set homeownership and income to the mean of homeownership and income according to the observed data, then pull some lever that makes poverty change and nothing else, the estimate for poverty in our multiple regression reports how much each percentage point in poverty changes federal spending. This is how we isolate the effect of one variable on an outcome despite knowing other variables simultaneously affect our outcome.
+This is a key feature of multiple regression:  
+
+> it estimates the marginal effect of a variable on an outcome, holding all other explanatory variables equal to their respective means. In other words, if we were omnipotent beings who could take each county in our data and set homeownership and income to the mean of homeownership and income according to the observed data, then pull some lever that makes poverty change and nothing else, the estimate for poverty in our multiple regression reports how much each percentage point in poverty changes federal spending. 
+
+This is how we isolate the effect of one variable on an outcome despite knowing other variables simultaneously affect our outcome.
 
 The interpretation of multiple regression estimates is essentially the same as simple regression. In our example, we can interpret the homeownership estimate like so:
 
-> On average, our results indicate that a one percentage point increase in the percent of the population that owns a home is associated with a decrease in federal spending per capita of approximately 9 cents, **holding other factors constant**.
+> On average, our results indicate that a one percentage point increase in the percent of the population that owns a home is associated with a decrease in federal spending per capita of approximately 13 cents, **holding other factors constant**.
 
 The part in bold is to point out the small difference between the two interpretations. Here, we are simply reminding a reader that we have controlled for other factors that presumably we have already explained, and our estimate for poverty accounts for those factors by holding them constant. Other common word choices for this part of the interpretation include "all else equal" or its Latin translation "ceteris paribus."
 
 Again, we can answer any sort of question relevant to our original research question concerning the predicted change or level of federal spending by plugging in the numbers to our regression equation.
 
 \begin{equation}
-\hat{FedSpend} = 13.50 + 0.105\times Poverty - 0.093\times HomeOwn + 0Income
+\hat{FedSpend} = 23.52 - 0.056 \times Poverty - 0.13 \times HomeOwn + 0 \times Income
 \end{equation}
 
 If we wanted to predict the change in federal spending given an 3 percentage point increase in poverty and a decline in home ownership of 4 percentage points, the our answer would be 
 
 ```{r}
-0.105*3+(-0.093)*(-4)
+-0.056*3+(-0.126)*(-4)
 ```
 
 dollars per capita (on average and all else equal, of course). If we wanted to predict the level of federal spending per capita for a county with 12% poverty, a 80% home ownership rate, and $31,000 income per capita, then we would predict
 
 ```{r}
-13.50+0.105*12-0.093*80+0*31000
+23.519-0.056*12-0.126*80+0*31000
 ```
 
 dollars per capita.
@@ -433,11 +437,11 @@ Not so fast! This example provides a good opportunity to consider another aspect
 
 ```{r, include=FALSE}
 selcounty <- selcounty %>% 
-  mutate(income = income/1000)
+  mutate(income_1000 = income/1000)
 ```
 
 ```{r, echo=FALSE}
-fedpov3 <- lm(fed_spend ~ poverty + homeownership + income, data = selcounty)
+fedpov3 <- lm(fed_spend ~ poverty + homeownership + income_1000, data = selcounty)
 
 get_regression_table(fedpov3) %>% 
   kable(format = 'html')
@@ -446,8 +450,10 @@ get_regression_table(fedpov3) %>%
 Now we see the effect of a *one thousand* dollar change in per capita income on federal spending per capita. Note that the estimates for poverty and homeownership are the same. Therefore, the predicted level of federal spending for our county is actually
 
 ```{r}
-13.50+0.105*12-0.093*80+0.057*31
+23.519-0.056*12-0.126*80-0.086*31
 ```
+
+dollars per capita. Note that because income is in units of 1,000, a county with an income of 31,000 per capita must be rescaled to 31 in the regression equation. 
 
 ### Fit and adjusted R squared
 
