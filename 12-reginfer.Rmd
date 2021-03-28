@@ -77,7 +77,7 @@ By default, the standard regression table addresses hypothesis tests of the form
 
 Comparing different levels within a categorical variable is slightly more complicated. In Table \@ref(tab:extable), we can conclude that states in the South and West are different than states in the Midwest, and we cannot conclude states in the Northeast are different than states in the Midwest. But, what if we wanted to compare states in the South to states in the West, or Northeast to South? Our regression and our results were not set-up to make such comparisons.
 
-A quick and dirty way to make various comparisons across levels is to examine their confidence intervals. If the confidence intervals do not overlap or do not come close to overlapping, then we can be reasonably certain the population parameters for the two levels are not equal to each other. For example, the `upper_ci` for Northeast is 0.052 and the `lower_ci` for South is 0.4. The two intervals are separated by multiple standard errors. Therefore, it is probably safe to conclude they are different. By contrast, the confidence intervals for South and West overlap substantially. Therefore, it is not safe to conclude that South and West are different. Alternatively, we can tell our statistical software to exclude a specific level, thereby allowing us to test our hypothesis without the guesswork.
+A quick yet technically inaccurate way to make various comparisons across levels is to examine their confidence intervals. If the confidence intervals do not overlap or do not come close to overlapping, then we can be reasonably certain the population parameters for the two levels are not equal to each other. For example, the `upper_ci` for Northeast is 0.052 and the `lower_ci` for South is 0.4. The two intervals are separated by multiple standard errors. Therefore, it is probably safe to conclude they are different. By contrast, the confidence intervals for South and West overlap substantially. Therefore, it is not safe to conclude that South and West are different. Alternatively, we can tell our statistical software to exclude a specific level, thereby allowing us to test our hypothesis without the guesswork.
 
 Finally, every regression result includes a global hypothesis test of the form
 
@@ -91,11 +91,23 @@ Keep in mind that all of our conclusions are probabilistic. There is always a ch
 
 It is easy to lose sight of the forest for the trees when focusing on statistical significance. Just because we find a statistically significant relationship does not mean that relationship is practically significant or economically meaningful. Also, obtaining insignificant results does not necessarily mean you have results that are not important or worth reporting. Such distinctions between statistical and practical significance require an analyst or manager to have a broader sense of the underlying data and the context of the results.
 
+The spirit behind *practical* significance is to ask ourselves whether our results matter in the real world beyond statistical significance.
+
 After obtaining our results, asking ourselves three questions can help determine if our results are practically significant:
 
-- What is the typical change in the explanatory variable associated with the statistically significant estimate?
-- Is the predicted change in the outcome due to a typical change in the explanatory variable negligible or meaningful?
-- If the explanatory variable is statistically significant, is its confidence interval so close to zero that using the upper or lower bound instead of the midpoint estimate would make the predicted change in the outcome negligible? If the explanatory variable is statistically insignificant, is its confidence interval so closely around zero that the entire range of plausible values of the parameter would lead to a negligible change in the outcome?
+1. What is the typical change in the explanatory variable associated with the statistically significant estimate? The standard deviation of the variable provides us a sense of this (provided there is not a substantial skew).
+
+Regression results are usually translated using a one-unit change in the explanatory variable. The first question considers whether a one-unit change is representative of how much the explanatory variable tends to vary. If the standard deviation of a variable is 0.1, then a one-unit change is an absurd magnitude of change to apply to the real world, and we should interpret our results using a much smaller change in the explanatory variable.
+
+2. Is the predicted change in the outcome due to a typical change in the explanatory variable negligible or meaningful? The mean and standard deviation of the outcome give us a sense of this.
+
+After plugging a more representative change for the explanatory variable into our regression results, we now have the associated predicted change in the outcome. The second question considers whether this predicted change would actually matter in the real world. If the standard deviation of an outcome is 500 and our predicted change in the outcome due to a typical change in the explanatory variable is 5 units, this would probably be considered negligible in most contexts. Be sure to consider the context. If the context for the above example were something like monthly income, then an increase of $5 is probably negligible. If the context were something related to life and death, such as murder or cancer rates, then even a relatively small change may be worth pursuing.
+
+3. Do the bounds of the confidence interval for the explanatory variable potentially change my answer?
+
+If I obtained a statistically significant positive estimate, perhaps the lower bound of the confidence interval is so close to zero that using it instead of the midpoint value would make the predicted change in the outcome negligible. If the estimate for the explanatory variable is statistically insignificant, perhaps its confidence interval is so close around zero that the entire range of plausible values of the parameter would lead to a negligible change in the outcome. In this case, even though I cannot say whether or not the parameter of interest equals 0, any plausible value of the parameter may have no practical impact in the real world.
+
+### Example of practical significance
 
 The estimate in our regression table conveys the predicted change in the outcome given a 1-unit or percent change in the explanatory variable. Referring back to Table \@ref(tab:extable), as the average number of miles driven per driver increases by one mile, traffic fatality rate increases 0.188 per 10,000. Is a one-mile increase a realistic change in the average distances driven per driver? Is one mile representative of its typical variation?
 

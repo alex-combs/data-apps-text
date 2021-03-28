@@ -321,7 +321,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="12-significance.html"><a href="12-significance.html#lo12"><i class="fa fa-check"></i><b>12.1</b> Learning objectives</a></li>
 <li class="chapter" data-level="12.2" data-path="12-significance.html"><a href="12-significance.html#regression-table"><i class="fa fa-check"></i><b>12.2</b> Regression table</a></li>
 <li class="chapter" data-level="12.3" data-path="12-significance.html"><a href="12-significance.html#other-hypotheses"><i class="fa fa-check"></i><b>12.3</b> Other hypotheses</a></li>
-<li class="chapter" data-level="12.4" data-path="12-significance.html"><a href="12-significance.html#practical-significance"><i class="fa fa-check"></i><b>12.4</b> Practical significance</a></li>
+<li class="chapter" data-level="12.4" data-path="12-significance.html"><a href="12-significance.html#practical-significance"><i class="fa fa-check"></i><b>12.4</b> Practical significance</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="12-significance.html"><a href="12-significance.html#example-of-practical-significance"><i class="fa fa-check"></i><b>12.4.1</b> Example of practical significance</a></li>
+</ul></li>
 <li class="chapter" data-level="12.5" data-path="12-significance.html"><a href="12-significance.html#kt12"><i class="fa fa-check"></i><b>12.5</b> Key terms and concepts</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="13-regression-diagnostics.html"><a href="13-regression-diagnostics.html"><i class="fa fa-check"></i><b>13</b> Regression Diagnostics</a>
@@ -554,11 +557,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Translating the above into more mathematical concepts, most research questions involve differences: the difference in mean age between MPA students and other grad students, the difference in the proportions of female and male MPA graduates, the difference in the slopes of regression lines drawn through data points for income and education level or degree type.</p>
 <p>Thus, the null hypothesis states that any of these differences equals zero. The alternative hypothesis states that any of these differences does not equal zero. The null hypothesis is denoted by <span class="math inline">\(H_0\)</span> and the alternative hypothesis is denoted by <span class="math inline">\(H_A\)</span>.</p>
 <ul>
-<li><span class="math inline">\(H_0: \mu_{MPA}-\mu_{grad} = 0\)</span> or <span class="math inline">\(H_A: \mu_{MPA}-\mu_{grad} \neq 0\)</span></li>
-<li><span class="math inline">\(H_0: \rho_{female}-\rho_{male} = 0\)</span> or <span class="math inline">\(H_A: \rho_{female}-\rho_{male} \neq 0\)</span></li>
-<li><span class="math inline">\(H_0: \beta_{MPA} = 0\)</span> or <span class="math inline">\(H_A: \beta_{MPA} \neq 0\)</span></li>
+<li><p>Null: There <em>is no</em> difference in average age between MPA students and graduate students in all other programs.</p></li>
+<li><p><span class="math inline">\(H_0: \mu_{MPA}-\mu_{grad} = 0\)</span></p></li>
+<li><p>Alternative: There <em>is</em> a difference in average age between MPA students and graduate students in all other programs.</p></li>
+<li><p><span class="math inline">\(H_A: \mu_{MPA}-\mu_{grad} \neq 0\)</span></p></li>
+<li><p>Null: There <em>is no</em> difference between male and female MPA enrollment.</p></li>
+<li><p><span class="math inline">\(H_0: \rho_{female}-\rho_{male} = 0\)</span></p></li>
+<li><p>Alternative: There <em>is</em> difference between male and female MPA enrollment.</p></li>
+<li><p><span class="math inline">\(H_A: \rho_{female}-\rho_{male} \neq 0\)</span></p></li>
+<li><p>Null: There is <em>no effect</em> of MPA degrees on income.</p></li>
+<li><p><span class="math inline">\(H_0: \beta_{MPA} = 0\)</span></p></li>
+<li><p>Alternative: There is an <em>effect</em> of MPA degrees on income.</p></li>
+<li><p><span class="math inline">\(H_A: \beta_{MPA} \neq 0\)</span></p></li>
 </ul>
-<p>Note the use of population parameters above. Again, inference computes a sample estimate to make inferences about a population. Therefore, our hypotheses include the unobserved population parameter. Our estimate and confidence interval represents our best guess of that population parameter. The purpose of the hypothesis test is to establish a threshold at which we are sufficiently confident in our results to make a conclusion concerning our hypotheses <em>prior</em> to viewing the results.</p>
+<p>Note the use of population parameters in each case above. Again, inference computes a sample estimate to make inferences about a population. Therefore, our hypotheses include the unobserved population parameter. Our estimate and confidence interval represents our best guess of that population parameter. The purpose of the hypothesis test is to establish a threshold at which we are sufficiently confident in our results to make a conclusion concerning our hypotheses <em>prior</em> to viewing the results.</p>
 </div>
 <div id="conclusion-and-error-type" class="section level3" number="11.2.2">
 <h3><span class="header-section-number">11.2.2</span> Conclusion and error type</h3>
@@ -581,12 +593,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="decision-rule" class="section level3" number="11.2.3">
 <h3><span class="header-section-number">11.2.3</span> Decision rule</h3>
-<p>Before testing our hypothesis, we ask ourselves the following question: “What is the maximum probability of Type I error that I or others should be willing to tolerate?” Actually, this question has been answered for us in most disciplines. The common threshold for this tolerance is 5% or 1% probability of rejecting the null hypothesis when the null is actually true. Social sciences typically use 5%.</p>
-<p>With our threshold set, we can now test our hypothesis. We calculate the sample estimate and the standard error of our estimate, which are used to calculate the confidence interval. The confidence level of our confidence interval depends on our chosen threshold for Type I error. If our threshold for Type I error is 5%, then we calculate the 95% confidence interval. If our threshold is 1%, we use a 99% confidence interval.</p>
-<p>Our confidence interval is our best guess of the plausible range of values for the population parameter. We have decided to tolerate the chance that our confidence interval is one of the five out of 100 confidence intervals–or 1 out of 100–expected to fail to capture the parameter. Our null hypothesis states that the parameter equals zero. Therefore, if our confidence interval does not contain zero, we reject the null hypothesis. If our confidence interval does contain zero, then we have failed to reject the null hypothesis because the parameter <em>might</em> equal zero with a higher probability than we decided to tolerate.</p>
-<p>In most cases, we do not need more information than the estimate, standard error, and confidence interval to make a decision regarding our hypothesis test. However, an analysis provides us an additional piece of information that allows us to arrive at the same conclusion but from a different perspective called the <strong>p-value</strong>.</p>
+<p>Before testing our hypothesis, we ask ourselves the following question:</p>
 <blockquote>
-<p>The p-value tells us the probability of obtaining the estimate we did, or an estimate further away from the null hypothesis, if the null hypothesis were actually true.</p>
+<p>“What is the maximum probability of Type I error that I or others should be willing to tolerate?”</p>
+</blockquote>
+<p>Actually, this question has been answered for us in most disciplines. The common threshold for this tolerance is 5% or 1% probability of rejecting the null hypothesis when the null is actually true. Social sciences typically use 5%, though 10% is still seen (too) often.</p>
+<p>With our threshold of tolerance set, we can now test our hypothesis. We calculate the sample estimate and the standard error of our estimate. These are then used to calculate the confidence interval. The confidence level of our confidence interval depends on our chosen threshold for Type I error. If our threshold for Type I error is 5%, then we calculate the 95% confidence interval. If our threshold is 1%, we use a 99% confidence interval.</p>
+<p>Our confidence interval is our best guess of the plausible range of values for the population parameter. If we chose a 95% confidence interval, then we decided to tolerate the chance that our confidence interval is one of the five out of 100 confidence intervals–or the one out of 100 in the case of 99% confidence intervals–expected to fail to capture the parameter. Our null hypothesis states that the parameter equals zero.</p>
+<blockquote>
+<p>Therefore, if our confidence interval does not contain zero, we reject the null hypothesis. If our confidence interval does contain zero, then we have failed to reject the null hypothesis because the parameter <em>might</em> equal zero. It <em>might</em> not equal zero, but we cannot tell either way with a sufficient level of confidence.</p>
+</blockquote>
+<p>All else equal, a lower confidence level, say, 90%, translates to a more narrow range of plausible values. Suppose that if a 90% confidence interval had been chosen, it would not have contained zero. In that case, we would reject the null hypothesis, but we are now using a confidence interval expected to fail 10 out of 100 times (or one out of 10). If the null were actually true, then choosing a 90% confidence interval increased the probability of Type I error and resulted in a false positive. If the null were actually false, then the use of a 95% confidence interval increased the probability of Type II error and resulted in a false negative. Again, this is the trade-off between Types I and II error when choosing between higher or lower levels of confidence.</p>
+<p>In most cases, we do not need more information than the estimate, standard error, and confidence interval to make a decision regarding our hypothesis test. However, analyses involving a hypothesis test provide us an additional piece of information that allows us to arrive at the same conclusion but from a different perspective. This additional piece of information is called the <strong>p-value</strong>.</p>
+<blockquote>
+<p>The <strong>p-value</strong> tells us the probability of obtaining the estimate we did, or an estimate further away from the null hypothesis (usually that the parameter equals 0), if the null hypothesis were actually true.</p>
 </blockquote>
 <p>The p-value provides us a concise decision rule. The tolerance threshold we set is often referred to as the significance level and denoted by the Greek letter <span class="math inline">\(\alpha\)</span> (alpha).</p>
 <ul>
@@ -598,7 +618,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="chi-square-test" class="section level2" number="11.3">
 <h2><span class="header-section-number">11.3</span> Chi-square test</h2>
-<p>The Chi-square (<span class="math inline">\(\chi^2\)</span>) test is a common choice for introducing the application of hypothesis testing. Chi-square is used to test whether two <em>nominal</em> variables are associated to a statistically significant extent. A nominal variable, such as race, sex, or political party affiliation, has two or more of levels. If one wanted to test if, given the level for a unit of analysis in one nominal variable (e.g. male), there is a higher likelihood for a particular level in another nominal variable to occur (e.g. Republican), a Chi-square test is an appropriate choice.</p>
+<p>The Chi-square (<span class="math inline">\(\chi^2\)</span>) test is a common choice for introducing the application of hypothesis testing. Chi-square is used to test whether two <em>nominal</em> variables are associated to a statistically significant extent. A nominal variable, such as race, sex, or political party affiliation, has two or more of levels that differ in name only. If one wanted to test if, given the level for a unit of analysis in one nominal variable (e.g. male), there is a higher likelihood for a particular level in another nominal variable to occur (e.g. Republican), a Chi-square test is an appropriate choice.</p>
+<blockquote>
+<p>Note: A regression could also test this relationship. In fact, you have already learned how to run such a regression as long as the outcome of party affiliation is coded as binary (there are regression models that can handle categorical outcomes of more than two levels outside the scope of this course).</p>
+</blockquote>
 <p>For an example, consider a poll targeted to the general U.S. public asking if workers who have illegally entered the U.S. should be 1) allowed to keep their jobs and apply for citizenship, 2) allowed to keep their jobs as temporary guest workers but not allowed to apply for citizenship, and 3) lose their jobs and have to leave the country. The poll also asked for political party affiliation. A total of 890 responses were collected, generating the following results.</p>
 <table>
 <caption><span id="tab:pollparty">Table 11.1: </span>Response by political party</caption>
@@ -647,7 +670,7 @@ X-squared = 100.95, df = 4, p-value &lt; 0.00000000000000022</code></pre>
 </div>
 <div id="t-test" class="section level2" number="11.4">
 <h2><span class="header-section-number">11.4</span> T-test</h2>
-<p>The t-test is another common introductory application of hypothesis testing. A t-test is used to test the association between a nominal variable with two levels and a numerical variable. It is frequently used in simple program evaluations with a pre/post or treatment/control design. Both involve a nominal variable with two levels. If one want to test if a numerical outcome is different between the two levels, then a t-test is an appropriation choice.</p>
+<p>The t-test is another common introductory application of hypothesis testing. A t-test is used to test the association between a nominal variable with two levels and a numerical variable. It is frequently used in simple program evaluations with a pre/post or treatment/control design. Both involve a nominal variable with two levels. If one want to test if a numerical outcome is different between the two levels, then a t-test is an appropriate choice.</p>
 <p>There are two varieties of the t-test. To test if an average of a numerical outcome is different between two groups, such as a treatment and control group, then we use an <strong>independent t-test</strong>. To test if an average numerical outcome is different before and after a treatment for the <em>same</em> units of analysis, we use a <strong>dependent t-test</strong>. The difference between the two t-tests concerns how we approximate the sampling distributions and confidence intervals, but their use for hypothesis testing is essentially the same.</p>
 <p>Suppose we work for a nonprofit that provides job training workshops and want to evaluate their effectiveness. One way to go about such a task is to compare the earnings of participants (i.e. treatment group) to the earnings of non-participants (i.e. control group). We have earnings data for 185 participants and 128 non-participants, some of which is previewed in the table below.</p>
 <table>
@@ -726,6 +749,9 @@ sample estimates:
 mean in group 0 mean in group 1 
        21645.10        26031.49 </code></pre>
 <p>Our p-value is greater than our significance level, <span class="math inline">\(0.23&gt;0.05\)</span>. Therefore, we fail to reject the null hypothesis and conclude that there is not statistically significant evidence that participants earn more than non-participants, on average. Note that our 95% confidence interval ranges between -11,630 and 2,856. It includes zero, thus we cannot claim the difference between the means is not equal to zero with reasonable confidence.</p>
+<blockquote>
+<p>Note: A regression could also test this relationship. A regression model of <span class="math inline">\(Earnings=\beta_0+\beta_1Training+\epsilon\)</span> would produce the same results as the t-test.</p>
+</blockquote>
 <p><br></p>
 <blockquote>
 <p><strong>To learn how to conduct chi-square and t-tests in R, proceed to Chapter <a href="23-r-evaluations.html#r-evaluations">23</a>.</strong></p>
