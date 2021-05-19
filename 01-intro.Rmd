@@ -6,11 +6,13 @@
 
 ## Why statistics
 
-Statistics converts raw information (i.e. data) into something useful. If we want to make evidence-based decisions, we need statistics. If we want to allow ourselves to be misled by nefarious or mistaken analyses of data, we should resist learning statistics.
+> Statistics converts raw information (i.e. data) into something useful. 
+
+Bottom line:  we need statistics to make evidence-based decisions. A lack of knowledge in statistics leaves us more vulnerable to misinformation and disinformation.
 
 ## Professional standards
 
-The Network of Schools of Public Policy, Affairs, and Administration (NASPAA) is the accrediting authority for MPA programs. NASPAA promotes the following universal competencies:
+The [Network of Schools of Public Policy, Affairs, and Administration (NASPAA)](https://www.naspaa.org) is the accrediting authority for MPA programs. NASPAA promotes the following universal competencies:
 
 - to lead and manage in the public interest;
 - to participate in, and contribute to, the policy process;
@@ -18,17 +20,17 @@ The Network of Schools of Public Policy, Affairs, and Administration (NASPAA) is
 - to articulate, apply, and advance a public service perspective;
 - to communicate and interact productively and in culturally responsive ways with a diverse and changing workforce and society at large. 
 
-Statistics will help you develop all of the above competencies. You would not sufficiently possess one or more of the above competencies without knowledge and skills in statistics.
+Statistics can help develop all of the above competencies.
 
-## Statistics in PA
+## Statistics in Public Administration
 
-The use of statistics is ubiquitous in public administration. Agencies and nonprofits use statistics to describe their clients and assess their needs. Agencies like the Government Accountability Office and watchdog organizations use statistics to monitor performance and guard against fraud. Service-oriented organizations like schools and hospitals use statistics to evaluate services and communicate to stakeholders. The Congressional Budget Office, Office of Management and Budget, and employees at every level of government use statistics to assess finances and forecast trends.
+The use of statistics is ubiquitous in public administration. Agencies and nonprofits use statistics to identify and describe their clients as well as assess their needs. Agencies like the Government Accountability Office (GAO) and watchdog organizations use statistics to monitor performance and guard against fraud. Service-oriented organizations like schools and hospitals use statistics to evaluate services and communicate to stakeholders. The Congressional Budget Office (CBO), Office of Management and Budget (OMB), and employees at every level of government use statistics to manage finances and forecast trends.
 
 ## Using R
 
-The goal of this course is not for you to become an expert in R or even a data scientist or analyst. Rather, the goal is to train you enough so R becomes a legitimate alternative to inferior spreadsheet software like Excel and enable you to perform statistical tasks that may be expected of a master in public administration. 
+The goal of this course is not for you to become an expert in R, a data scientist, or even a data analyst. Rather, the goal is to train you enough in R so it becomes a realistic alternative to inferior spreadsheet software like Excel and enable you to perform statistical tasks that may be expected of someone with an MPA. 
 
-MPA students may be reluctant to learn something referred to as a statistical computing language and its relevancy to their career goals may not be clear. I firmly believe that not training you to use statistical software in a course such as this would be doing you a disservice. Demand for those competent in statistical software like R continues to rise. Even if you plan to pursue a managerial role with minimal analytic tasks, chances are non-trivial that you will supervise or work with those who conduct analyses. You will need to interpret their findings, applying your own managerial and/or subject matter expertise toward making an evidence-based decision. People in both roles--consumers and producers of statistical analyses--need to be able to communicate with the other. The best way to become a competent consumer of statistical information is to learn the basics of producing it.
+MPA students may be reluctant to learn something referred to as a statistical computing language (i.e., R), and its relevancy to their career goals may not be clear. I firmly believe that not training you to use statistical software in a course such as this would be doing you a disservice. Demand for those competent in statistical software like R continues to rise. Even if you plan to pursue a managerial role with minimal analytic tasks, chances are high that you will supervise or work with those who conduct such analyses. You will need to interpret their findings, applying your own managerial and/or subject matter expertise toward making an evidence-based decision. People in both roles -- consumers and producers of statistical analyses -- need to be able to communicate with the other. The best way to become a competent consumer of statistical information is to learn the basics of producing it.
 
 In addition, R is free! There are many free resources that teach R, and R is popular across many disciplines. If you study statistics and data applications for a semester, you might as well spend part of that semester learning software like R. There is only upside in doing so with respect to employment prospects.
 

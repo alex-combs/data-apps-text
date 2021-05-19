@@ -16,49 +16,55 @@
 
 ## Two goals of statistics
 
-The discipline of statistics has one or both of the following goals:
+The application of statistics has one or both of the following goals:
 
 > 
-- **Descriptive statistics:** summarizes the qualities of observed data in a sample or population, describing distributions of variables or the relationship between two or more variables.
-- **Inferential statistics:** uses observed data in a sample to make inferences/conclusions about an unobserved population.
+- **Descriptive statistics:** summarizes the characteristics of observed data in a sample or population. This can involve describing the distribution of a variable or the association between two or more variables.
+- **Inferential statistics:** uses the characteristics of observed data in a sample to make inferences about the characteristics of an unobserved population.
 
-The descriptive or inferential statistics we produce or consume concern one or both of the following groups:
+You can think of these two goals as levels. At the base is descriptive statistics. If we have data for one or more variables, any analysis will involve the description of those data. Description may be the end goal of an analysis in which case the next level -- inferential statistics -- is not pursued. 
+
+A key distinguishing feature between descriptive and inferential statistics is the manner in which they involve a population and/or sample.
 
 >
-- **Population:** all members of a specified group pertaining to a research question
-- **Sample:** a subset of that population
+- **Population:** all members of a specified group pertaining to a statistical question
+- **Sample:** a subset of a population
 
-Descriptive statistics provides information about the data we have. Inferential statistics uses that information to make educated, scientific guesses about a larger group of people, places, or things we do not directly observe. In many cases, we cannot study an entire population because of logistics or cost. Instead, we take a sample of that population to make inferences about it. 
+Descriptive statistics provides information about an *observed* population or an *observed* sample of that population; whichever of the two our data includes. Inferential statistics uses data from an observed sample to make educated, scientific guesses about a population for which we do not have data. In many cases, we cannot study an entire population because of logistics or cost. Instead, we take a sample of that population to make inferences about it. 
 
-If my research question was, "What is the average GPA of all MPA students in the United States?", then the population is all MPA students in the United States. It is unlikely I could obtain the GPA of every MPA student. Therefore, I may take a sample of MPA students instead and use inferential statistics to make conclusions about the population of all MPA students.
+Consider the question, "What is the average GPA of all MPA students in the United States?" In this case, the population is all MPA students in the United States. It is unlikely I could obtain the GPA of every MPA student in order to calculate the average GPA. Therefore, I may take a sample of MPA students instead, calculate their average GPA, and use inferential statistics to make conclusions about the average GPA for the population of all MPA students in the United States.
 
-Sometimes the population is small or accessible enough to observe, though it is probably uninteresting as a result. If my research question was instead, "What is the average GPA of students in my class?", then the population is the students in my class. In this case, I could easily compute the average for the entire population.
+> Note that a sample is a *subset* of the population, meaning that it includes only members of the population. If this class had non-MPA students, and I used all students in the class as my sample, then I no longer have a sample of the intended population.
 
-> We can describe a sample or a population as long as we have the data to do so. Inference is specifically using a sample we observe to describe a population we do not observe. 
+Our research question can be such that the population is accessible enough to collect data on all its members. If our question was instead, "What is the average GPA of students in this class?", then the population is all of the students in this class. In this case, I could easily observe the GPA of all members of the population and compute the average GPA for the population.
 
-When we compute statistical measures of a population or sample, those measures have specific names:
+> We can describe a sample or a population as long as we have the data to do so. Inference uses a sample we observe with data to describe a population we do not. 
+
+When we compute statistical measures, such as an average, of a population or sample, those measures have specific names:
 
 >
 - **Parameter:** a measure pertaining to a population
 - **Statistic:** a measure pertaining to a sample
 
-Whether my statistical measure is a population parameter or sample statistic depends on whether my measure is computed from a population or a sample. If my population is students in my class, and I compute the average GPA for all of the students in my class, that measure is a population parameter. If my population is all MPA students in the U.S., and I use the students in my class as a sample, then the average GPA of the students in my class is a sample statistic. 
+Whether a statistical measure is a population parameter or sample statistic depends on whether my measure is computed using data from a population or a sample. 
 
-In inference, a sample statistic is often referred to as an **estimate** because it is used to estimate a population parameter. The parameter in this example would be the actual average GPA of all MPA students in the U.S.; a value I cannot directly calculate.
+If the population is students in this class, and I compute the average GPA for all of the students in this class, that measure is a population parameter. If the population is all MPA students in the U.S., and I use the students in this class as a sample of the population, then the average GPA of the students in this class is a sample statistic. 
+
+In inference, a sample statistic is often referred to as an **estimate** because it serves as an estimate of the population parameter. If my goal is to use inferential statistics to estimate the average GPA of all MPA students in the US, the average GPA of MPA students in this class could be used as the estimate of the parameter. The parameter in this example would be the actual average GPA of all MPA students in the US; a value I do not directly compute.
 
 ## Distributions
 
-The goal of descriptive statistics is to summarize characteristics of variable distributions. Before reviewing the measures used to summarize distributions, we should understand what a distribution is.
+Descriptive statistics summarizes characteristics of variable distributions. Before reviewing the measures used to summarize distributions, we should understand what a distribution is.
 
 > A **distribution** tells us the (possible) values of a variable and the frequency at which those values occur.
 
-The values of a variable are the result of some random data-generating process. If it wasn't random, and instead deterministic, then there would be no uncertainty in the world. You do not know if you will get a job that requires your degree before you get the degree. An HR department does not know if an implicit bias workshop will reduce the number of racial insensitivity complaints before providing the workshop and measuring the number of complaints, nor does it know how many complaints occur at all before they are made. All of these are variables with some range of possible values, each of which occurs at some frequency. These frequencies are revealed to us when we take measures of the variable.
+The values of a variable are the result of some data-generating process we may or may not fully understand. This data-generating process determines the range of possible values a variable can take on and the frequency at which those values occur. These values and frequencies are revealed to us when we record multiple measures of a variable.
 
-Sometimes we know all the possible values of a variable, or at least the range of possible values. We know a variable for biological sex has possible values of male or female. We know a variable for GPA has a possible range of 0 to 4, in most cases.
+Sometimes we know all the possible values of a variable, or at least the range of possible values. We know a variable for assigned biological sex has possible values of male and female. We know a variable for GPA has a possible range of 0 to 4, in most cases.
 
-Sometimes we know what the frequency of values for a variable should be. Genetics tells us to expect 50% males and females. Most of the time we don't know the function that determines frequency, or it is too complex. For example, we have some idea of the factors that influence GPAs, but there will always be some randomness that goes unaccounted.
+Sometimes we know what the frequency of values for a variable should be. Genetics tells us to expect roughly 50% males and females. Other times we do not know the function that determines frequency, or it is too complex to fully understand. For example, we have some idea of the factors that influence GPAs, but there will always be some factors or randomness that goes unaccounted.
 
-This somewhat esoteric exposition underlies the main focus here: the distribution of a variable. To make this as concrete as possible, let's consider a variable of something that is simple and familiar to all of us: a roll of a six-sided die.
+To make this as concrete as possible, let's consider a variable of something that is simple and familiar to all of us: a roll of a six-sided die.
 
 We know a roll of a six-sided die can take on a range of integers between 1 and 6. We also know the frequency of each value is the same at 1 in 6, or about 17%. Therefore, we *know* the distribution of this variable, which is depicted below in Figure \@ref(fig:diedist).
 
@@ -85,7 +91,7 @@ diedist %>%
   kable(caption = 'Expected results of 6 rolls')
 ```
 
-And we could represent this distribution by counting the number of times each value occurred using a histogram as shown in Figure \@ref(fig:diehisto), which is the essentially the samce as Figure \@ref(fig:diedist).
+And we could represent this distribution by counting the number of times each value occurred using a histogram as shown in Figure \@ref(fig:diehisto), which is the essentially the same as Figure \@ref(fig:diedist).
 
 ```{r diehisto, echo=FALSE, fig.cap='Expected distribution of 6 rolls'}
 ggplot(diedist, aes(value)) +
@@ -97,7 +103,7 @@ ggplot(diedist, aes(value)) +
   theme(axis.title.x = element_blank())
 ```
 
-Of course, this is just what is expected to happen, on average, given many rolls of a die. Anyone who has played a board game knows streaks can occur. Given a number or rolls, we probably will not observe a uniform number of values.
+Of course, this is just what is expected to happen, on average, given many rolls of a die. Anyone who has played a board game knows streaks can occur. Given a number or rolls, we probably will not observe a uniform distribution of values.
 
 Suppose we roll 12 times and record the value of each roll, as is shown in Table \@ref(tab:obsdietable). 
 
@@ -130,7 +136,7 @@ Descriptive measures help us summarize characteristics of distributions and some
 
 ## Descriptive Measures
 
-A die roll is uninteresting and unimportant. In our review of descriptive measures, let us consider them with respect to the distribution of the infant mortality rate across 222 countries in 2012. Infant mortality is the number deaths of infants under one year old per 1,000 live births. It is used as a measure of health in a country.
+A die roll is uninteresting and unimportant. In our review of descriptive measures, let us consider them with respect to the distribution of the infant mortality rate across 222 countries in 2012. Infant mortality is the number of deaths of infants under one year old per 1,000 live births.
 
 ```{r infmort, echo=FALSE, fig.cap='Infant Mortality Rates'}
 ggplot(infmortrate, aes(inf_mort_rate)) +
@@ -150,9 +156,11 @@ Multiple descriptive measures can answer the three questions above. Which measur
 
 ### Measures of center
 
+> Again, measures of center are meant to convey the typical value of a distribution; the most representative value, or the value we would *expect* if we were to randomly draw one observation from the distribution.
+
 #### Mean {-}
 
-The mean or average takes the values of a variable, adds them, then divides that sum by the total count of values.
+The mean or average takes the values of a variable, adds them together, then divides that sum by the total count of values.
 
 \begin{equation}
 {\displaystyle \bar{x}={\frac {1}{n}}\sum _{i=1}^{n}x_{i}={\frac {x_{1}+x_{2}+\cdots +x_{n}}{n}}}

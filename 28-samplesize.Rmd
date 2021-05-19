@@ -1,6 +1,6 @@
 # Survey Sample Size and Weighting {#appendixD}
 
-Appendix C covers the following topics:
+Appendix D covers the following topics:
 
 - Apply the margin or error or the confidence interval of an estimate when making conclusions
 - Compute the sample size required to achieve a desired margin of error or precision around an estimate given the necessary information for such a computation

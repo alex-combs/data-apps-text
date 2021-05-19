@@ -31,7 +31,7 @@ library(tidyverse)
 - **mutate:** alter existing variables or create new variables
 - **if_else:** use a conditional to create a new variable equal to one value if an observation meets the conditional and another value if it does not; often combined with `mutate`
 - **arrange:** reorder rows in ascending or descending order of one or more variables
-- **head/tail:** extract the top/bottom number of rows
+- **slice_head & slice_tail:** extract a few rows from the top (head) or bottom (tail)
 - **summarize:** collapses data into a table of summary statistics
 - **group_by:** tells R to apply functions to each group separately; common to use with summarize
 
@@ -134,7 +134,7 @@ gapminder %>%
   glimpse()
 ```
 
-**Note that I use the name of an existing variable on the left-hand side of the equation. This overwrites the data according to the function I have specified.** You can scroll up to previous glimpses to confirm that gdpPercap has indeed been divided by 1,000.
+> **Note that I use the name of an existing variable on the left-hand side of the equation. This overwrites the data according to the function I have specified.** You can scroll up to previous glimpses to confirm that gdpPercap has indeed been divided by 1,000.
 
 Suppose I wanted a new variable that measures total GDP to have in addition to GDP per capita expressed in thousands. Since GDP per capita equals GDP divided by population, I can simply use the inverse of this calculation. Thus:
 
@@ -145,19 +145,19 @@ gapminder %>%
   glimpse()
 ```
 
-Since `mutate` applies mathematical functions, there are way too many possible uses to cover here. The second page of the [Data transformation](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) cheatsheet lists numerous common functions used with `mutate` under the "Vector Functions" header. Also, the first page of the cheatsheet lists a few different versions of `mutate` that can come in handy. One particularly helpful variation is `mutate_at`.
+Since `mutate` applies mathematical functions, there are way too many possible uses to cover here. The second page of the [Data transformation](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) cheatsheet lists numerous common functions used with `mutate` under the "Vector Functions" header.
 
-Suppose there are multiple variables you want to mutate using the same formula. A common example is when a bunch of variables are expressed as proportions between 0 and 1 when you want them all to be expressed as percentages between 0 and 100. You could list each mutate individually, but this quickly becomes tedious. Instead, you can use `mutate_at` to list the variables you want to mutate, then define the function you want applied to them.
+Suppose there are multiple variables you want to mutate using the same function. A common example is when a bunch of variables are expressed as proportions between 0 and 1 when you want them all to be expressed as percentages between 0 and 100. You could use mutate to multiply each variable by 100, but this quickly becomes tedious. Instead, you can use `across` inside `mutate` to list the variables you want to mutate, then define the function you want applied to them.
 
 For example, suppose I wanted to multiply all of the numerical variables in `gapminder` by 100 (doesn't make sense but just go with it). Then:
 
 ```{r, warning=FALSE}
 gapminder %>% 
-  mutate_at(vars(year, lifeExp, pop, gdpPercap), funs(.*100)) %>% 
+  mutate(across(c(year, lifeExp, pop, gdpPercap), ~ .x*100)) %>% 
   glimpse()
 ```
 
-The period `.` inside `funs` is a generic placeholder, telling R to multiply each of the variables inside `vars` by 100.
+The first argument `c(year, lifeExp, pop, gdpPercap)` specifies the variables I want to mutate. The second argument `~ .x*100` tells R the function to use for the mutation. The `.x` is a generic representation for each of the variables listed in the first argument.
 
 ### Combining filter, select, and mutate
 
@@ -232,16 +232,16 @@ euro_gdp07 %>%
 
 Now we see some of the wealthiest European countries.
 
-### Head/Tail
+### Slice_Head/Tail
 
-By default, the `head` and `tail` verbs extract the top and bottom 6 rows of a dataset, respectively. These verbs are useful if we want to show a reader a sample of the data in a familiar spreadsheet form, which can be useful. Though the output from `glimpse` is very useful, it does not look good in a report. The `head` and `tail` verbs allow us to provide similar information in a much more presentable format.
+By default, the `slice_head` and `slice_tail` verbs extract the top and bottom 6 rows of a dataset, respectively. These verbs are useful if we want to show a reader a sample of the data in a familiar spreadsheet form, which can be useful. Though the output from `glimpse` is very useful, it does not look good in a report. The `slice_head` and `slice_tail` verbs allow us to provide similar information in a much more presentable format.
 
-Suppose we wanted to show a reader the three wealthiest and poorest European countries (in absolute terms). We can specify the number of rows `head` or `tail` extract using `n=#`. Thus:
+Suppose we wanted to show a reader the three wealthiest and poorest European countries (in absolute terms). We can specify the number of rows `slice_head` or `slice_tail` extract using `n=#`. Thus:
 
 ```{r}
 euro_gdp07 %>% 
   arrange(desc(gdp_billions)) %>% 
-  head(n=3) %>% 
+  slice_head(n=3) %>% 
   kable(digits = 0)
 ```
 
@@ -250,7 +250,7 @@ Note the use of `kable` in the last line. This function from the `knitr` package
 ```{r}
 euro_gdp07 %>% 
   arrange(gdp_billions) %>% 
-  head(n=3) %>% 
+  slice_head(n=3) %>% 
   kable(digits = 0)
 ```
 
@@ -294,7 +294,7 @@ gapminder %>%
   filter(year >= 1997) %>% 
   group_by(continent, year) %>% 
   summarize('Average GDP per capita' = mean(gdpPercap), 
-            'Average life expectance' = mean(lifeExp)) %>% 
+            'Average life expectancy' = mean(lifeExp)) %>% 
   kable(digits=0)
 ```
 
@@ -313,6 +313,7 @@ uspop <- gapminder %>%
  
 kable(uspop, format = 'html')
 ```
+
 We don't want each year to be a variable. Rather, we want year to be one variable with separate levels/rows for each period. We can achieve this with `pivot_longer`.
 
 ```{r}

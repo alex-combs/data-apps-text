@@ -1,4 +1,4 @@
-# Measurement and Missing
+# Measurement
 
 > *"Will he not fancy that the shadows which he formerly saw are truer than the objects which are now shown to him?*
 >
@@ -8,7 +8,7 @@
 
 Once we understand the structure of our data and the types of variables contained within, we need to understand how the data relates to reality before trying to draw conclusions. Variables and their values are measured representations of reality. They are shadows on the allegorical cave wall. We should not assume these shadows are necessarily good representations of reality.
 
-Measurement validity and reliability are the foundations of credible analysis, the components of which are depicted in Figure \@ref(fig:credfig). Without the two, we have little or no basis to make conclusions from data. As they say, garbage in, garbage out. No amount of fancy statistical tactics can compensate for starting with bad data.
+Measurement validity and reliability are the foundations of credible analysis, the components of which are depicted in Figure \@ref(fig:credfig) below. Without the two, we have little or no basis to make conclusions from data. As they say, garbage in, garbage out. No amount of fancy statistical techniques can compensate for starting with bad data.
 
 <center>
 ```{r credfig, echo=FALSE, fig.cap="Components of credible analysis"}
@@ -26,25 +26,35 @@ include_graphics("images/credible.png")
 
 ## Measurement validity
 
-Data do not exist in nature. Rather, someone must set out to observe one or more phenomena, measure it, record it, and compile the recorded measures into a file or database. This process involves choices, limitations, and potential flaws. When evaluating the quality of data, the first quality to consider is the validity of the measure. Measurement validity can be considered from two similar yet distinct angles.
+Data do not exist in nature. Someone must set out to observe a phenomenon, measure it, record it, and compile the recorded measures into a dataset. This process involves choices, limitations, and potential flaws. When evaluating the quality of data, the first quality to consider is **measurement validity**.
 
-> **Measurement Validity**: Does the variable measure the concept/phenomenon it is intended or claims to measure? Are the recorded values of the variable accurate measures of the true values of the variable?
+> **Measurement Validity**: The extent to which a variable measures what it is intended to measure.
 
-The first question above concerns conceptual accuracy. On matters of education policy, is GPA or standardized test scores a valid measure of our concept of intelligence? How about IQ? What do we even mean by intelligence? Perhaps we must clarify our concept as academic aptitude or a more observable concept like academic achievement. Are test scores a valid measure of teacher quality? Does the quality of a teacher amount to their students' academic achievement? On matters of public health, is body mass index (BMI; weight in kilograms divided by height in meters squared) a valid measure of a person's health? In public finance, are property values a valid measure of the quality of local public services, such as schools, parks, and police/fire departments? Is a city's bond rating a valid measure of its financial health? Is the unemployment rate a valid measure of economic performance or prosperity? Is the proportion of those below the federal poverty line a valid measure for the severity of poverty or financial stress?
+Variables record measures of observed phenomena. Students take a test, resulting in a variable for test scores. Patients' height and weight are recorded, resulting in a variable for body mass index (BMI). People respond to a survey from the Bureau of Labor Statistics asking whether they are employed or actively looking for a job, resulting in a variable for the unemployment rate. Law enforcement agencies record reported crimes and divide the total by population, resulting in a variable for crime rate.
 
-The second question above concerns procedural accuracy. Regardless of whether we agree or disagree on what a variable actually measures, we must also consider whether the recorded values were accurately recorded. Is the number of sexual assaults in a dataset of city crime the actual number of sexual assaults that were committed? Is the recorded value of a property its actual fair market value? Is the recorded test score for a student their true test score? Procedural issues could be systemic or due to human error or manipulation. Sexual assaults along with almost all types of crime are systematically under-reported, thus recorded values are likely to be lower than the true value. Property value assessors may purposefully over- or under-value properties out of political or personal motivations. Or their inaccuracy could be accidental and due to a property being unique and difficult to assess. Data are also subject to input error depending on how they are recorded, receiving an errant decimal or 0.
+What do these variables *intend* to measure? The intent of a variable could be to simply measure the observed phenomenon. A city manager may use a robbery crime rate to understand how many robberies per capita occurred in their city and how this rate has changed over time. Almost all types of crime are systematically under-reported. Therefore, as a variable intended to measure the incidence of robberies, the measurement validity of robbery crime rate is somewhat flawed. Specifically, we could say that robbery crime rates are biased negatively/downwards.
+
+It is often the case that variables intend to measure some less observable concept. Student test scores could be used as a measure of intelligence or academic merit. BMI is used as a measure of healthy weight. The unemployment rate is used as an indicator for economic growth/decline. Crime rates are used to measure public safety. When the values of a variable changes over time, or we observe differences in values across people or places, we might conclude the same is the case for the abstract concept we attach to the variable. Before doing so, we should pause to consider whether the variable actually captures the concept.
+
+One area in public administration where measurement validity is a common concern is performance management. Are test scores a valid measure of school or teacher performance? To what extent should test scores be used to hold low-performers accountable? Is a crime rate a valid measure of police performance? Suppose a city manager observes an increase in the rate of robberies. Should their conclusion be that police performance has declined?
 
 ## Measurement reliability
 
-Measurement reliability can be also be considered from two similar yet distinct angles.
+The second quality of measurement to consider is reliability.
 
-> **Measurement Reliability**: Provided no change in a subject's condition/reality, does the way the variable is measured generate the same value? Given identical conditions/realities between multiple subjects, does the measure generate identical values?
+> **Measurement Reliability**: The extent to which the measurement process or instrument for a variable generates consistent values.
 
-The first question above concerns a measure's consistency for a single subject. A student receives a score on their GRE. Provided the same student does not study before taking the GRE again, will they receive the same score (referred to as test-retest reliability)? A property value assessor assesses a property. A second assessor conducts an assessment of the same property. Will they arrive at the same property value (referred to as inter-rater reliability)?
+The measurement reliability of a variable can be with respect to repeated measures over time or across subjects. A student receives a score on their GRE. Provided the student does not study before taking the GRE again, will they receive the same or similar score (referred to as test-retest reliability)? A property value assessor assesses a property. A second assessor assesses the same property. Will they arrive at the same property value (referred to as inter-rater reliability)? Suppose two students are equally knowledgeable on the topics included in the GRE. Will the two students receive the same GRE score? Will two identical properties receive the same property value?
 
-The second question above concerns a measure's consistency for multiple subjects with identical conditions. Suppose two students are equally intelligent, academically apt, or whatever the correct concept should be. Will the two students receive the same GRE score? Will two identical properties receive the same property value? 
+Virtually all measurement processes involve at least some **measurement error**. Think of measurement error as the spread of recorded values around the true value. The greater the spread/error, the less reliable the measure. Measurement error can be random, such that the spread around the true value is evenly distributed above and below the true value. If measurement error is not random, we should consider whether the factors that cause error are related to the conclusions we want to draw from the data. 
 
-A measure can be valid or invalid and reliable or unreliable, resulting in one of four combinations. Let us consider an example where an agency needs to allocate resources to state governments according to the number of persons who are homeless in each state. Suppose the *true* count of homeless persons for two states is the same. Figure \@ref(fig:homeless) tries to visualize the scenario and the three potentially problematic combinations of validity and reliability along a number line.
+Poor measurement reliability threatens our ability to make comparisons over time or across subjects. A city manager may know that the rate of robberies is negatively biased (poor measurement validity) but assume that a change in the rate over time reflects the true change despite both recorded values being less than their true values. However, the true crime rate may not have changed at all if the measurement process generates random fluctuations.
+
+### Example
+
+A measure can be valid or invalid and reliable or unreliable, resulting in one of four possible combinations. Let us consider an example where an agency needs to allocate resources to state governments according to the number of persons who are homeless in each state. One method has been to designate a specific day of the year (e.g. January 1st) where government staff and volunteers attempt to conduct a census of homeless people. If the census takers in all states successfully recorded the true count of homeless people, then the resulting dataset would contain a valid and reliable measure.
+
+Suppose the *true* count of homeless persons for two states is the same. Figure \@ref(fig:homeless) depicts this scenario and the three potentially problematic combinations of validity and reliability along a number line.
 
 <center>
 ```{r homeless, echo=FALSE, fig.cap="Comparing measurement validity and reliability"}
@@ -52,19 +62,25 @@ include_graphics("images/measure_lines.png")
 ```
 </center>
 
-Though techniques to count the number of homeless persons are improving, one method has been to designate a specific day of the year (e.g. January 1st) where government staff and volunteers attempt to conduct a census of homeless people. If these census takers in separate states successfully recorded the true count of homeless people, then our dataset would contain a valid and reliable measure. In the case where a valid and reliable measure is taken, the two states receive equal and appropriate amounts of resources.
+In the case where a valid and reliable measure is taken, the two states receive equal and appropriate amounts of resources.
 
-If an invalid yet reliable measure is taken, as is depicted in the second number line from the top in Figure \@ref(fig:homeless), the two states receive equal resources, but the amount of resources is less (or more) than what it should be. If a valid and unreliable measure is taken, as is depicted by the third number line, then amount of resources provided is appropriate *on average*, but the two states receive different amounts. Lastly, if an invalid and unreliable measure is taken, the two states receive different amounts and the amount of resources provided is systematically less (or more) than what it should be.
+The second line in Figure \@ref(fig:homeless) depicts a scenario where the number of homeless people are systematically under-counted, but the process generates the same number across the two states. This would be considered in invalid but reliable measure. Resources going to states is less than it should be, but equal states receive equal resources. 
 
-Taking a count of homeless people on a designated day is known to have issues of measurement validity and reliability. Validity is an issue at least procedurally because it is unlikely that a government can count all of its homeless people. Whether or not it is conceptually invalid depends on what we claim it measures. Why is this measure unreliable? Temperature affects how easily and accurately the number of homeless people can be counted. In a cold state, most homeless people will stay in shelters. In a warm state, homeless people will be scattered and more difficult to count. Even if a cold state and a warm state truly had equal number of homeless people, it is unlikely that the same count would be recorded. 
+The third line in Figure \@ref(fig:homeless) depicts what is likely the most confusing combination: a valid and unreliable measure. Homeless people are under-counted in one state and over-counted in the other, **but the error is roughly equal**. This reflects a case of random measurement error rather than systematic. So long as the spread is not too great, we could consider this a sufficiently valid measure because the recorded values are averaging around the true value. The amount of resources provided is appropriate *on average*, but the two states receive different amounts.
 
-The moral of this story is that when you collect data you did not generate yourself for your own purpose, take the time to consider if those data are valid and reliable measures for your intended purpose and what the consequences could be if they are not. Also, keep in mind that no measure is perfect. Our concern should not be so much whether a measure is valid vs. invalid or reliable vs. unreliable, but rather the degree to which a measure is invalid and unreliable.
+The fourth line in Figure \@ref(fig:homeless) depicts a scenario where an invalid and unreliable measure is taken. Homeless people are systematically under-counted *and* the error is worse in one state than the other. The two states receive different amounts of resources and the amount of resources provided is systematically less than what it should be.
+
+Taking a count of homeless people on a designated day is known to have issues of measurement validity and reliability. Measurement validity is an issue because it is unlikely that a government can accurately count all of its homeless people. In other words, this measure is negatively biased as depicted in either the second or fourth lines in Figure \@ref(fig:homeless).
+
+Even if two states suspiciously had an equal number of homeless people, why might they record undercounts of varying severity? Temperature affects how easily and accurately the number of homeless people can be counted. In a cold state, most homeless people will stay in shelters. In a warm state, homeless people will be scattered and more difficult to count. Differing levels of experience among staff and volunteers is another potential factor. 
+
+Keep in mind that no measure is perfect. Our concern should not be so much whether a measure is valid or invalid and reliable or unreliable, but rather the degree to which a measure is invalid and unreliable. When drawing conclusions from a change in values or differences across subjects, take the time to consider the consequences and limitations due to measurement issues. 
 
 ## Missing data
 
-It is not uncommon to encounter missing values in a data. Respondents skip or choose not to answer survey questions, administrators fail to contact respondents, entities that reported data last year may have dissolved or consolidated with another entity this year. Many reasons can lead to missing data. The key is to consider why data are missing and if it should affect your conclusions.
+It is common to encounter missing values in real data. Respondents skip or choose not to answer survey questions, administrators fail to contact respondents, entities that reported data last year may have dissolved or consolidated with another entity this year. Many reasons can lead to missing data. The key is to consider why data are missing and if it should affect your conclusions.
 
-Using the previous example of self-reported income, suppose there are numerous missing values in the responses. Should we assume they are missing at random, or that there is some underlying reason or pattern? Perhaps those with no or low income do not wish to report. If we were to dismiss these missing values, and draw conclusions from the non-missing values, we may severely overestimate the income of the target population.
+Using the previous example of self-reported income, suppose there are numerous missing values in the responses. Should we assume they are missing at random or that there is some underlying reason or pattern? Perhaps those with no or low income do not wish to report. If we were to dismiss these missing values, and draw conclusions from the non-missing values, we may severely overestimate the income of the target population.
 
 ### Types of missing data
 

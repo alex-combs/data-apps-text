@@ -5,6 +5,7 @@ author: "Alex Combs"
 date: "Last updated on `r format(Sys.time(), '%d %B %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
+bibliography: bib/packages.bib
 biblio-style: apalike
 link-citations: yes
 colorlinks: yes
@@ -18,15 +19,15 @@ always_allow_html: yes
 
 # Preface {-}
 
-This is a collection of lecture and presentation notes intended as a resource for students enrolled in my sections of PADP 7120: Data Applications in Public Administration. Distribution beyond that is discouraged. This resource is not peer-reviewed. All opinions and errors are my own. I do not benefit monetarily from this resource in any way.
+This is a collection of lecture and presentation notes intended as a resource for students enrolled in my sections of PADP 7120: Data Applications in Public Administration. Distributing this resource beyond those enrolled in PADP 7120 is discouraged. This resource is not peer-reviewed. All opinions and errors are my own. I do not benefit monetarily from this resource in any way.
 
-The objective of this resource is to help students in PADP7120 become as competitive as possible in their desired job markets via competency in statistics and statistical programming software. It aims to teach students key concepts in statistics and applications of those concepts using R with a level of theoretical and technical detail that is accessible for MPA students.
+The objective of this resource is to help students in PADP 7120 become as competitive as possible in their desired job markets via competency in statistics and statistical programming software. It aims to teach students key concepts in statistics and applications of those concepts using R with a level of theoretical and technical detail that is appropriate for those pursing a Masters in Public Administration.
 
 ## Style and Structure {-}
 
-Rather than provide thorough coverage of complex statistical concepts, I take some liberty to present stylized facts for the benefit of the reader. When using R, multiple options exist to achieve an outcome. I provide what I consider or understand to be the best option. You may be aware of or discover what you consider a better approach. I welcome such suggestions for improvement!
+Rather than provide thorough coverage of complex theory, I take some liberty to present stylized facts for the benefit of the reader. When using R, it is often the case that multiple options exist to achieve a desired result. I provide what I consider or understand to be the best option.
 
-Chapters are organized along two tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R chapters, each of which corresponds to a conceptual chapter in the first track. For example, the `R Data` chapter corresponds to the `Data` chapter in the first track.
+Chapters are organized along two tracks. The first track covers statistical concepts and is self-contained. The second track applies the concepts in the first track using R. The chapters in the applied track are referred to as R Chapters, each of which corresponds to a chapter in the first track. For example, the `R Data` chapter corresponds to the `Data` chapter in the first track.
 
 The conceptual track is divided into four sections:
 
@@ -61,6 +62,8 @@ library(moderndive)
 library(DAAG)
 library(Stat2Data)
 library(data.table)
+
+write_bib(c(.packages()), here::here("bib", "packages.bib"))
 ```
 
 ```{r set-options, include=FALSE, purl=FALSE}
@@ -85,9 +88,9 @@ if (is_latex_output()) {
 }
 ```
 
-## Supplemental resources {-}
+## Supplemental Resources {-}
 
-There are numerous free materials that teach statistics and R.
+Students may desire alternative coverage of the topics covered in this course. Below is a list of free texts and websites that teach statistics and/or R.
 
 - **Traditional statistics texts**
   - [OpenIntro Statistics](https://www.openintro.org/book/os/) by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr
@@ -104,30 +107,6 @@ There are numerous free materials that teach statistics and R.
   - [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) by Yihui Xie, J.J. Allaire, and Garrett Grolemund
   - [Pimp my RMD](https://holtzy.github.io/Pimp-my-rmd/#text_formating) by Yan Holtz
   - [Data Carpentry: R for Social Scientists](https://datacarpentry.org/r-socialsci/)
-
-## R Package References {-}
-
-The following list cites the creators and authors of the packages used in this resource.
-
-- `arsenal` Ethan Heinzen [aut, cre], Jason Sinnwell [aut], Elizabeth Atkinson [aut], Tina Gunderson [aut], Gregory Dougherty [aut]
-- `broom` David Robinson and Simon Couch
-- `car` and `carData` John Fox [aut, cre], Sanford Weisberg [aut], Brad Price [aut]
-- `DAAG` John H. Maindonald and W. John Braun
-- `data.table` Matt Dowle [aut, cre], Arun Srinivasan [aut]
-- `Ecdat` Yves Croissant and Spencer Graves
-- `fivethirtyeight` Albert Y. Kim [aut, cre], Chester Ismay [aut], Jennifer Chunn [aut]
-- `forecast` Rob J Hyndman
-- `fpp2` Hyndman, R.J., and Athanasopoulos, G. (2017). Forecasting: principles and practice, OTexts: Melbourne, Australia. [https://OTexts.org/fpp2/](https://OTexts.org/fpp2/)
-- `gapminder` Jennifer Bryan
-- `gvlma` Pena, EA and Slate, EH (2006). “Global validation of linear model assumptions,” J.\ Amer.\ Statist.\ Assoc., 101(473):341-354.
-- `knitr` Yihui Xie
-- `lubridate` Garrett Grolemund and Hadley Wickham
-- `moderndive` Albert Y. Kim [aut, cre], Chester Ismay [aut]
-- `openintro` Mine Çetinkaya-Rundel [aut, cre], David Diez [aut], Andrew Bray [aut], Albert Kim [aut], Ben Baumer [aut], Chester Ismay [aut], Christopher Barr [aut]
-- `plm` Yves Croissant [aut, cre], Giovanni Millo [aut], Kevin Tappe [aut]
-- `readxl` Hadley Wickham
-- `Stat2Data` Ann Cannon, George Cobb, Bradley Hartlaub, Julie Legler, Robin Lock, Thomas Moore, Al- lan Rossman, Jeffrey Witmer
-- `tidyverse` Hadley Wickham
 
 <br>
 

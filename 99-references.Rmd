@@ -1,0 +1,22 @@
+`r if (knitr:::is_html_output()) '# References {-}'`
+
+- @R-arsenal
+- @R-base
+- @R-broom
+- @R-car
+- @R-carData
+- @R-DAAG
+- @R-data.table
+- @R-dplyr
+- @R-Ecdat
+- @R-fivethirtyeight
+- @R-forecast
+- @R-fpp2
+- @R-gapminder
+- @R-gvlma
+- @R-knitr
+- @R-moderndive
+- @R-openintro
+- @R-plm
+- @R-Stat2Data
+- @R-tidyverse

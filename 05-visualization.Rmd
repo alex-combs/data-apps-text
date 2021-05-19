@@ -10,13 +10,15 @@ The world of data visualization is incredibly diverse and detailed. You could sp
 At a basic level, most choices of visualization can be determined based on:
 
 - The kind of description or comparison we want to visualize, and
-- the kinds of variables involved in the visualization.
+- the type(s) of variable(s) involved in the visualization.
 
-Figure \@ref(fig:vizflow) below provides a decision tree organized by according to these two considerations.
+Figure \@ref(fig:vizflow) below provides a decision tree organized according to these two considerations. This chapter is roughly organized according to this decision tree.
 
 ```{r vizflow, echo=FALSE, fig.cap='Basic data viz decisions'}
-include_graphics('images/vizflow.png')
+include_graphics('images/vizflow2.png')
 ```
+
+Note that the first branch of Figure \@ref(fig:vizflow) is dictated by whether we want to visualize one variable or the association of two or more variables. The left side pertains to one variable -- the visualization of which depends on whether it is a categorical or numerical variable. The right side pertains to visualizing the association of two or more variables. Which graph is arguably best then depends on the type of variables involved in the association. 
 
 ## Learning objectives {#lo5}
 
@@ -24,12 +26,14 @@ include_graphics('images/vizflow.png')
   - Histogram
   - Box plot
   - Pie chart
-  - Bar chart or dot plot
+  - Bar chart
   - Line graph
   - Scatter plot
 - Recommend an appropriate type of visualization given the intended message and data
 
-## Distribution
+## Distribution of numerical variables
+
+This section refers to the top-left section of Figure \@ref(fig:vizflow) where we want to visualize how the values of a single numerical variable are distributed along its (possible) range of values.
 
 ### Histogram
 
@@ -44,7 +48,7 @@ ggplot(college_grad_students, aes(x = grad_median)) +
   theme_classic()
 ```
 
-These rectangles are called `bins` and the range each rectangle covers is called a `binwidth`. We can specify the number of bins and/or the binwidth. If we have more than 150 observations of a continuous variable, we may want to specify as many as 100 bins but should experiment with this number depending on the particular distribution of the variable. If we have less than 30 observations, we should not use a histogram. If we have more than 30 but less than 150 observations, we should experiment with some number of bins between 30 and 100. Regarding binwidth, if our variable is discrete, then our binwidth should equal the natural integer width. For example, if our variable is a count of weeks, then our binwidth should equal 1 so that each bin contains one week.
+These rectangles are called **bins** and the horizontal range each rectangle covers is called a **binwidth**. We can specify the number of bins and/or the binwidth. If we have more than 150 observations of a continuous variable, we may want to specify as many as 100 bins but should experiment with this number depending on the particular distribution of the variable. If we have less than 30 observations, we should not use a histogram. If we have more than 30 but less than 150 observations, we should experiment with some number of bins between 30 and 100. Regarding binwidth, if our variable is discrete, then our binwidth should equal some integer width of the variable. For example, if our variable is a count of weeks, then our binwidth could equal 1 so that each bin contains one week or some range of multiple weeks.
 
 ### Box plot
 
@@ -61,15 +65,17 @@ ggplot(college_grad_students, aes(x = grad_median)) +
         axis.ticks.x = element_blank())
 ```
 
-The line in the middle of the box denotes the median of the variable's distribution. The top and bottom edges of the box denote the 75th and 25th percentiles, respectively. Therefore, the length of the box denotes the IQR of the variable's distribution. The whiskers of a boxplot extend 1.5 times the length of the box (IQR). This 1.5*IQR is a standard threshold to identify extreme values also known as outliers. If a variable contains values beyond this threshold, a box plot will single them out with dots beyond the end of the whisker.
+The line in the middle of the box denotes the median of the variable's distribution. The top and bottom edges of the box denote the 75th and 25th percentiles, respectively. Therefore, the length of the box denotes the IQR of the variable's distribution. The whiskers of a boxplot extend 1.5 times the length of the box (IQR). This $1.5 \times IQR$ is a standard threshold to identify extreme values also known as outliers. If a variable contains values beyond this threshold, a box plot will single them out with dots beyond the end of the whisker. Figure \@ref(fig:gradmedbox) above shows us that one graduate major is a outlier using this $1.5 \times IQR$ definition.
 
-## Compostion of a category
+## Compostion of a categorical variable
 
 Suppose we deemed a graduate degree for which 5% or more of its graduates are unemployed to be a "high" unemployment degree, and those with an unemployment rate less than 5% as a "low" unemployment degree. We have 173 graduate degree majors. Suppose we want to visualize the composition of this categorical unemployment variable.
 
+We are now in the bottom-left section of Figure \@ref(fig:vizflow). A categorical variable has two more more levels. Some count or proportion of our observations belong to one level, while another count or proportion of our observations belong to a different level. If we wish to visualize the composition of these counts/proportions, we can use the following graphs.
+
 ### Pie charts
 
-Pie charts are much derided. This derision is due to the fact that pie charts are often misused. Pie charts are acceptable if you want to show the composition of one categorical variable for which there are no more than 3 levels, though preferably no more than 2 levels. We should *never* use pie charts to compare the composition of a categorical variable between two groups or time periods. Figure \@ref(fig:emppie) shows the composition of our unemployment variable.
+Pie charts are much derided. This derision is due to the fact that pie charts are often misused. Pie charts are acceptable if you want to show the composition of one categorical variable for which there are no more than 3 levels, though preferably no more than 2 levels. We should *never* use pie charts to compare the composition of a categorical variable between two groups or time periods (i.e., placing two or more pie charts next to each other for our audience to compare). Figure \@ref(fig:emppie) shows the composition of our unemployment variable.
 
 ```{r, include=FALSE}
 gradschool <- college_grad_students %>% 
@@ -109,9 +115,9 @@ pie + blank_theme +
 
 ### Bar chart
 
-Bar charts can be used to present the same information as a pie chart. Moreover, bar charts are easier to interpret, can handle any number of levels, can present data as proportions or total counts, can be used to compare across groups or time, and are easier to make. In short, bar charts are better than pie charts, and we should choose bar charts unless someone forces us to use a pie chart for some reason.
+Bar charts can be used to present the same information as a pie chart. Moreover, bar charts are easier to interpret, can handle any number of levels, can present data as proportions or total counts, and can be used to compare across groups or time. In short, bar charts are better than pie charts, and we should choose bar charts unless someone forces us to use a pie chart for some reason.
 
-The figures below show the three general types of bar charts. Figures \@ref(fig:empbar) and \@ref(fig:empbar2) show the composition of our unemployment variable in terms of absolute counts. Figure \@ref(fig:empbar) is commonly referred to as a `stacked` bar chart, while Figure \@ref(fig:empbar2) is referred to as `dodged`. Figure \@ref(fig:empbar3) shows the composition in terms of proportions. That is, we can see that slightly over 75% of graduate degrees have low unemployment.
+The figures below show the three general types of bar charts. Figures \@ref(fig:empbar) and \@ref(fig:empbar2) are both **stacked** bar charts but differ by how the y-axis is displayed. Figure \@ref(fig:empbar) uses the **count** of degrees, while Figure \@ref(fig:empbar2) uses the **proportion** of total degrees. Figure \@ref(fig:empbar3) presents the same information as Figure \@ref(fig:empbar), but instead of stacking the bars, it uses a **dodged** option.
 
 ```{r empbar, echo=FALSE, fig.cap='Graduate degrees with high/low unemployment'}
 bp_emp +
@@ -125,19 +131,6 @@ bp_emp +
 ```
 
 ```{r empbar2, echo=FALSE, fig.cap='Graduate degrees with high/low unemployment'}
-bp_emp2 <- ggplot(gradschool, aes(x = unemp_cat)) +
-  geom_bar(fill = 'steelblue')
-
-bp_emp2 +
-  labs(y = 'Count of degrees',
-       fill = 'Unemployment') +
-  theme_classic() +
-  theme(axis.line.x = element_blank(),
-        axis.ticks.x = element_blank(),
-        axis.title.x = element_blank())
-```
-
-```{r empbar3, echo=FALSE, fig.cap='Graduate degrees with high/low unemployment'}
 bp_emp3 <- ggplot(gradschool, aes(x = "", fill = unemp_cat)) +
   geom_bar(position = 'fill') 
 
@@ -151,13 +144,30 @@ bp_emp3 +
         axis.title.x = element_blank())
 ```
 
-## Comparing between units
+```{r empbar3, echo=FALSE, fig.cap='Graduate degrees with high/low unemployment'}
+bp_emp2 <- ggplot(gradschool, aes(x = unemp_cat)) +
+  geom_bar(fill = 'steelblue')
 
-### Bar chart
+bp_emp2 +
+  labs(y = 'Count of degrees',
+       fill = 'Unemployment') +
+  theme_classic() +
+  theme(axis.line.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.x = element_blank())
+```
 
-If we want to compare one variable across multiple groups or units that are not time, then a bar chart is a good choice.
+The differences between the three bar charts influence what information is emphasized and easier for an audience to interpret. The first stacked bar chart is best at showing us how many degrees are in our sample while also giving us some sense of how many fall into each level. The second bar chart does not tell us how many degrees are in our sample, but it is the most effective at providing us the proportion or percent of degrees that fall into each level. The dodged bar chart is not necessarily an improvement over either of the previous two. If there were more than two levels to the categorical variable, the dodged bar chart would be best. 
 
-Suppose we wanted to compare the median pay between two or more graduate degrees.  
+## Association
+
+The above graphs visualize summary information about a single variable. This kind of information is often conveyed via tables. However, when associations between variables need to be conveyed, a graph can be much more effective than numbers in a table. Associations are patterns, and patterns are easier to detect visually.
+
+### One categorical and one numerical
+
+#### Bar chart
+
+Suppose we wanted to compare the median pay (numerical) between two or more graduate degrees (nominal). A bar chart is a good choice. 
 
 ```{r, include=FALSE}
 gradschool_spia <- college_grad_students %>% 
@@ -177,9 +187,9 @@ ggplot(gradschool_spia, aes(x = reorder(major, -grad_median), y = grad_median)) 
   )
 ```
 
-### Dot plot
+#### Dot plot
 
-Dot plots serve the same purpose as bar charts, but are more appropriate for variables that measure something we would not naturally stack up for counting purposes. That is, money is stackable--we could imagine each bar as a stack of cash. By contrast, unemployment rates are not somethings we would stack on top of each other.
+Dot plots serve the same purpose as bar charts, but are more appropriate for variables that measure something we would not naturally stack up for counting purposes. That is, money is stackable--we could imagine each bar as a stack of cash. By contrast, unemployment rates are not something we would stack on top of each other.
 
 ```{r spiaemp, echo=FALSE, fig.cap='Comparison of unemployment rates between degrees in public and international affairs'}
 ggplot(gradschool_spia, aes(x = grad_unemployment_rate, y = reorder(major, -grad_unemployment_rate))) +
@@ -194,17 +204,11 @@ ggplot(gradschool_spia, aes(x = grad_unemployment_rate, y = reorder(major, -grad
   )
 ```
 
-### Line graph
+#### Box plot or histogram
 
-If we want to compare values of a variable across units of time (i.e. change over time), then a line graph is probably the most common choice, though a bar chart or dot plot can work too. The graduate degree data is cross-sectional, so there is no good way to make a line graph using these data. I trust you have seen a line graph before. We will cover how to make line graphs using panel data in Chapter \@ref(r-visualization).
+The bar charts above intend to compare a few values of a numerical variable. If we had many values, we may wish to compare the entire distribution between levels of a categorical variable. In that case, a box plot or histogram can be used.
 
-## Association
-
-Associations involve two or more distributions. We can visualize multiple distributions using a scatter plot if both variables are continuous or discrete with many values, or we can use a histogram or box plot if we want to visualize how the distribution of a continuous variable changes for each level of a categorical variable.
-
-### Categorical and numerical
-
-Suppose we wanted to visualize the association between attaining a graduate degree or not and median pay. Whether to attain a graduate degree is a categorical variable with two levels. Therefore, we can use a box plot to visualize the distribution of median pay for employees with undergraduate degrees in the 173 majors in our data and the distribution of median pay for employees with a graduate degree in those same majors. Figure \@ref(fig:gradpaydiffbox) below does just that.
+Suppose we wanted to visualize the association between attaining a graduate degree or not (ordinal) and median pay (numerical). We can use a box plot to visualize the distribution of median pay for employees with undergraduate degrees in the 173 majors in our data and the distribution of median pay for employees with a graduate degree in those same majors. Figure \@ref(fig:gradpaydiffbox) below does just that.
 
 ```{r gradpaydiffbox, echo=FALSE, fig.cap='Median pay for undergraduate and graduate degrees of the same group of majors'}
 ggplot(gradschool) + 
@@ -229,11 +233,13 @@ ggplot(gradschool) +
   theme_minimal()
 ```
 
-### Scatter plot
+### Two numerical variables
 
-The most common visualization for associations is the scatter plot, which you saw several times in Chapter \@ref(descriptive-statistics). It is also common to overlay a simple regression line for the two variables, thus providing a reader the full scatter of the two distributions as well as a tracing of how the two variables move in tandem, *on average*.
+#### Scatter plot
 
-Suppose we wanted to visualize the relationship between median pay of graduate degrees and the total number of people with that graduate degree. Do more people tend to enroll in the programs that pay the most?
+Scatter plots visualize the association between two numerical variables, preferably continuous or discrete with many values. It is also common to overlay a simple regression line for the two variables, thus providing a reader the full scatter of the two distributions as well as a tracing of how the two variables move in tandem, *on average*.
+
+Suppose we wanted to visualize the relationship between median pay of graduate degrees and the total number of people with that graduate degree.
 
 ```{r gradpayenroll, echo=FALSE, message=FALSE, fig.cap='Graduate degree median pay and total number of people with degree'}
 ggplot(gradschool, aes(x = grad_median, y = grad_total)) +
@@ -244,6 +250,10 @@ ggplot(gradschool, aes(x = grad_median, y = grad_total)) +
        x = 'Median pay') +
   theme_minimal()
 ```
+
+#### Line graph
+
+If we want to visualize the association between a numerical variable and time (i.e. change over time), then a line graph is probably the most common choice, though a bar chart or dot plot can work too. The graduate degree data is cross-sectional, so there is no good way to make a line graph using these data. I trust you have seen a line graph before. We will cover how to make line graphs using panel data in Chapter \@ref(r-visualization).
 
 <br>
 
