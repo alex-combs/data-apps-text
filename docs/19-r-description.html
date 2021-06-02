@@ -196,7 +196,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.4.4</b> The normal distribution</a></li>
 <li class="chapter" data-level="4.4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-association"><i class="fa fa-check"></i><b>4.4.5</b> Measures of association</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.5</b> Key terms and concepts</a></li>
+<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#categorical-variables"><i class="fa fa-check"></i><b>4.5</b> Categorical Variables</a></li>
+<li class="chapter" data-level="4.6" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.6</b> Key terms and concepts</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-data-visualization.html"><a href="5-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
 <ul>
@@ -544,21 +545,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Start a R Markdown document</li>
 <li>Change the YAML to the following:</li>
 </ul>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="19-r-description.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb68-2"><a href="19-r-description.html#cb68-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&#39;R Chapter 4&#39;</span></span>
-<span id="cb68-3"><a href="19-r-description.html#cb68-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&#39;Your name&#39;</span></span>
-<span id="cb68-4"><a href="19-r-description.html#cb68-4" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> </span>
-<span id="cb68-5"><a href="19-r-description.html#cb68-5" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
-<span id="cb68-6"><a href="19-r-description.html#cb68-6" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> spacelab</span>
-<span id="cb68-7"><a href="19-r-description.html#cb68-7" aria-hidden="true" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
-<span id="cb68-8"><a href="19-r-description.html#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="19-r-description.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb64-2"><a href="19-r-description.html#cb64-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&#39;R Chapter 4&#39;</span></span>
+<span id="cb64-3"><a href="19-r-description.html#cb64-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&#39;Your name&#39;</span></span>
+<span id="cb64-4"><a href="19-r-description.html#cb64-4" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> </span>
+<span id="cb64-5"><a href="19-r-description.html#cb64-5" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb64-6"><a href="19-r-description.html#cb64-6" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> spacelab</span>
+<span id="cb64-7"><a href="19-r-description.html#cb64-7" aria-hidden="true" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
+<span id="cb64-8"><a href="19-r-description.html#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
 <ul>
 <li>Load the following packages</li>
 </ul>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="19-r-description.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb69-2"><a href="19-r-description.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arsenal)</span>
-<span id="cb69-3"><a href="19-r-description.html#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb69-4"><a href="19-r-description.html#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="19-r-description.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb65-2"><a href="19-r-description.html#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arsenal)</span>
+<span id="cb65-3"><a href="19-r-description.html#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb65-4"><a href="19-r-description.html#cb65-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)</span></code></pre></div>
 </div>
 <div id="introduction" class="section level2" number="19.3">
 <h2><span class="header-section-number">19.3</span> Introduction</h2>
@@ -578,15 +579,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Because R can hold many datasets/objects at once, we need to tell it which dataset/object to apply a given function. We have had to do this many times already. Similarly, if we want R to apply a function to a <em>specific variable</em> within a dataset, we need to tell which variable in which dataset. This is done using the <code>$</code> operator.</p>
 </blockquote>
 <p>Below are all of the useful descriptive measures of center and spread applied to the <code>pay</code> (i.e. average teacher’s salary in 1,000s) variable in the <code>States</code> dataset.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="19-r-description.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(States<span class="sc">$</span>pay)</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="19-r-description.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(States<span class="sc">$</span>pay)</span></code></pre></div>
 <pre><code>[1] 30.94118</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="19-r-description.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(States<span class="sc">$</span>pay)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="19-r-description.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(States<span class="sc">$</span>pay)</span></code></pre></div>
 <pre><code>[1] 30</code></pre>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="19-r-description.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(States<span class="sc">$</span>pay)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="19-r-description.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(States<span class="sc">$</span>pay)</span></code></pre></div>
 <pre><code>[1] 5.308151</code></pre>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="19-r-description.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(States<span class="sc">$</span>pay)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="19-r-description.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(States<span class="sc">$</span>pay)</span></code></pre></div>
 <pre><code>[1] 6</code></pre>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="19-r-description.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(States<span class="sc">$</span>pay)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="19-r-description.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(States<span class="sc">$</span>pay)</span></code></pre></div>
 <pre><code>[1] 22 43</code></pre>
 <div class="learncheck">
 <p>
@@ -615,7 +616,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="background-table" class="section level3" number="19.5.1">
 <h3><span class="header-section-number">19.5.1</span> Background Table</h3>
 <p>Sometimes we do not want to print a fancy table. Rather, we may want to quickly see a full set of descriptive statistics for ourselves that our reader will never see. This can be done using the <code>summary</code> function on our dataset like so:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="19-r-description.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gapminder)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="19-r-description.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gapminder)</span></code></pre></div>
 <pre><code>        country        continent        year         lifeExp     
  Afghanistan:  12   Africa  :624   Min.   :1952   Min.   :23.60  
  Albania    :  12   Americas:300   1st Qu.:1966   1st Qu.:48.20  
@@ -649,12 +650,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Generating the summary table based on the new object we just created</li>
 </ul>
 <p>Here is an example following the steps above using <code>gapminder</code> data without altering any of Aresenal’s default options that we will want to know how to alter in some cases.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="19-r-description.html#cb82-1" aria-hidden="true" tabindex="-1"></a>sum.gapminder <span class="ot">&lt;-</span> <span class="fu">tableby</span>(<span class="sc">~</span> continent <span class="sc">+</span> gdpPercap <span class="sc">+</span> lifeExp <span class="sc">+</span> pop, <span class="at">data =</span> gapminder)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="19-r-description.html#cb78-1" aria-hidden="true" tabindex="-1"></a>sum.gapminder <span class="ot">&lt;-</span> <span class="fu">tableby</span>(<span class="sc">~</span> continent <span class="sc">+</span> gdpPercap <span class="sc">+</span> lifeExp <span class="sc">+</span> pop, <span class="at">data =</span> gapminder)</span></code></pre></div>
 <p>The above code is what actually creates the table I want to export. First, I name the object whatever I want. Then I use the <code>tableby</code> function. We will learn what the tilde, <code>~</code>, does later. For now, know that it is required. Then, I list the variable I want included in the table, separating each with a plus sign. Lastly, I tell R which dataset to apply this function.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="19-r-description.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">labels</span>(sum.gapminder) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="at">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="at">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="19-r-description.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">labels</span>(sum.gapminder) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="at">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="at">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
 <p>Most datasets do not use variable names that would be appropriate for an external audience. The names in <code>gapminder</code> are not bad; most readers could make sense of what the names imply about the data, but it is simple enough (though tedious) to provide a more polished look.</p>
 <p>Therefore, in the above code I use the <code>labels</code> function on the <code>sum.gapminder</code> table I just created, then assign each variable I told R to include in the table a label that will replace the name when it prints.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="19-r-description.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sum.gapminder, <span class="at">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="19-r-description.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sum.gapminder, <span class="at">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
 <table>
 <caption>Summary Stats for Gapminder Data</caption>
 <thead>
@@ -743,10 +744,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">19.5.3.1</span> Decimal digits</h4>
 <p>The biggest aesthetic issue with my table is that it includes so many decimals. None of these variables have such a small range that rounding to integers masks useful information. Obviously, if a variable only ranges between 0 and 1, we would not want to round to an integer.</p>
 <p>Specifying the number of decimals is quite easy with Arsenal. Because arsenal tries to be as flexible as possible, we have to specify the number of decimals separately for numerical and percentage measures. The following code sets the number of decimals to zero for the gapminder data.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="19-r-description.html#cb85-1" aria-hidden="true" tabindex="-1"></a>sum.gapminder2 <span class="ot">&lt;-</span> <span class="fu">tableby</span>(<span class="sc">~</span> continent <span class="sc">+</span> gdpPercap <span class="sc">+</span> lifeExp <span class="sc">+</span> pop, <span class="at">data =</span> gapminder, <span class="at">digits =</span> <span class="dv">0</span>, <span class="at">digits.pct =</span> <span class="dv">0</span>)</span>
-<span id="cb85-2"><a href="19-r-description.html#cb85-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb85-3"><a href="19-r-description.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labels</span>(sum.gapminder2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="at">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="at">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="19-r-description.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sum.gapminder2, <span class="at">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="19-r-description.html#cb81-1" aria-hidden="true" tabindex="-1"></a>sum.gapminder2 <span class="ot">&lt;-</span> <span class="fu">tableby</span>(<span class="sc">~</span> continent <span class="sc">+</span> gdpPercap <span class="sc">+</span> lifeExp <span class="sc">+</span> pop, <span class="at">data =</span> gapminder, <span class="at">digits =</span> <span class="dv">0</span>, <span class="at">digits.pct =</span> <span class="dv">0</span>)</span>
+<span id="cb81-2"><a href="19-r-description.html#cb81-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-3"><a href="19-r-description.html#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labels</span>(sum.gapminder2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="at">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="at">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="19-r-description.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sum.gapminder2, <span class="at">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
 <table>
 <caption>Summary Stats for Gapminder Data</caption>
 <thead>
@@ -827,10 +828,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="reporting-median-and-iqr" class="section level4" number="19.5.3.2">
 <h4><span class="header-section-number">19.5.3.2</span> Reporting median and IQR</h4>
 <p>Instead of the mean and standard deviation, we may want to report the median, first quartile, and third quartile for our numerical variables. We can control the descriptive measures using the following code.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="19-r-description.html#cb87-1" aria-hidden="true" tabindex="-1"></a>sum.gapminder3 <span class="ot">&lt;-</span> <span class="fu">tableby</span>(<span class="sc">~</span> continent <span class="sc">+</span> gdpPercap <span class="sc">+</span> lifeExp <span class="sc">+</span> pop, <span class="at">data =</span> gapminder, <span class="at">digits =</span> <span class="dv">0</span>, <span class="at">digits.pct =</span> <span class="dv">0</span>, <span class="at">numeric.stats =</span> <span class="fu">c</span>(<span class="st">&quot;median&quot;</span>, <span class="st">&quot;q1q3&quot;</span>, <span class="st">&quot;range&quot;</span>))</span>
-<span id="cb87-2"><a href="19-r-description.html#cb87-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-3"><a href="19-r-description.html#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labels</span>(sum.gapminder3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="at">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="at">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="19-r-description.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sum.gapminder3, <span class="at">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="19-r-description.html#cb83-1" aria-hidden="true" tabindex="-1"></a>sum.gapminder3 <span class="ot">&lt;-</span> <span class="fu">tableby</span>(<span class="sc">~</span> continent <span class="sc">+</span> gdpPercap <span class="sc">+</span> lifeExp <span class="sc">+</span> pop, <span class="at">data =</span> gapminder, <span class="at">digits =</span> <span class="dv">0</span>, <span class="at">digits.pct =</span> <span class="dv">0</span>, <span class="at">numeric.stats =</span> <span class="fu">c</span>(<span class="st">&quot;median&quot;</span>, <span class="st">&quot;q1q3&quot;</span>, <span class="st">&quot;range&quot;</span>))</span>
+<span id="cb83-2"><a href="19-r-description.html#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-3"><a href="19-r-description.html#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labels</span>(sum.gapminder3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="at">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="at">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="19-r-description.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sum.gapminder3, <span class="at">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
 <table>
 <caption>Summary Stats for Gapminder Data</caption>
 <thead>
@@ -925,10 +926,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Finally, instead of reporting summary statistics for the entire sample, we may want to report them separately for each level of a categorical variable. This is a common way to make comparisons.</p>
 <p>We can have Arsenal report across groups by adding the categorical variable to the left side of the formula in the <code>tableby</code> code. The code below reports the <code>gapminder</code> data across continents. Note that the tilde <code>~</code> is used to separate grouping variables on the left side from the variables we wish to summarize on the right side.</p>
 <p>By default, Arsenal tests for correlations across groups and reports a p-value. This is not a common part of a summary table (at least for fields in which I am familiar), so I turn this feature off with the <code>test = FALSE</code> within the code below.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="19-r-description.html#cb89-1" aria-hidden="true" tabindex="-1"></a>sum.gapminder4 <span class="ot">&lt;-</span> <span class="fu">tableby</span>(continent <span class="sc">~</span> gdpPercap <span class="sc">+</span> lifeExp <span class="sc">+</span> pop, <span class="at">data =</span> gapminder, <span class="at">digits =</span> <span class="dv">0</span>, <span class="at">digits.pct =</span> <span class="dv">0</span>, <span class="at">test =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb89-2"><a href="19-r-description.html#cb89-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-3"><a href="19-r-description.html#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labels</span>(sum.gapminder4) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="at">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="at">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="19-r-description.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sum.gapminder4, <span class="at">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="19-r-description.html#cb85-1" aria-hidden="true" tabindex="-1"></a>sum.gapminder4 <span class="ot">&lt;-</span> <span class="fu">tableby</span>(continent <span class="sc">~</span> gdpPercap <span class="sc">+</span> lifeExp <span class="sc">+</span> pop, <span class="at">data =</span> gapminder, <span class="at">digits =</span> <span class="dv">0</span>, <span class="at">digits.pct =</span> <span class="dv">0</span>, <span class="at">test =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb85-2"><a href="19-r-description.html#cb85-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-3"><a href="19-r-description.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="fu">labels</span>(sum.gapminder4) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">continent =</span> <span class="st">&quot;Continent&quot;</span>, <span class="at">gdpPercap =</span> <span class="st">&quot;GDP Per Capita&quot;</span>, <span class="at">lifeExp =</span> <span class="st">&quot;Life Expectancy&quot;</span>, <span class="at">pop =</span> <span class="st">&quot;Population&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="19-r-description.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sum.gapminder4, <span class="at">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
 <table style="width:100%;">
 <caption>Summary Stats for Gapminder Data</caption>
 <colgroup>
@@ -1046,11 +1047,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">19.5.4</span> Export to CSV</h3>
 <p>Knitting your notebook to HTML, Word, or PDF should produce a summary table in the appropriate format. Depending on our or others’ workflow, we may want to export our summary table to CSV in order to open in Excel or other spreadsheet software. Arsenal can easily handle this.</p>
 <p>To export my <code>gapminder</code> summary to CSV, I need to create a new object that contains the actual summary table. Below, I save the last summary to the object named <code>sum.table</code>.</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="19-r-description.html#cb91-1" aria-hidden="true" tabindex="-1"></a>sum.table <span class="ot">&lt;-</span> <span class="fu">summary</span>(sum.gapminder4, <span class="at">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="19-r-description.html#cb87-1" aria-hidden="true" tabindex="-1"></a>sum.table <span class="ot">&lt;-</span> <span class="fu">summary</span>(sum.gapminder4, <span class="at">title =</span> <span class="st">&quot;Summary Stats for Gapminder Data&quot;</span>)</span></code></pre></div>
 <p>Next, I need to convert this table into a data frame using the <code>as.data.frame()</code> function like so.</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="19-r-description.html#cb92-1" aria-hidden="true" tabindex="-1"></a>sum.table <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(sum.table)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="19-r-description.html#cb88-1" aria-hidden="true" tabindex="-1"></a>sum.table <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(sum.table)</span></code></pre></div>
 <p>Lastly, I just need to save this data frame as a CSV file using the <code>write.csv()</code> function like so.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="19-r-description.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(sum.table, <span class="at">file =</span> <span class="st">&quot;sumtable.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="19-r-description.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(sum.table, <span class="at">file =</span> <span class="st">&quot;sumtable.csv&quot;</span>)</span></code></pre></div>
 <p>R will save the CSV file to my project folder. Otherwise, R will save the file to my current working directory.</p>
 </div>
 </div>
@@ -1058,13 +1059,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">19.6</span> Correlation Coefficient</h2>
 <p>As mentioned in Chapter <a href="4-descriptive-statistics.html#descriptive-statistics">4</a>, the correlation coefficient quantifies the direction and strength of association between two numerical variables. It is rare to see correlations used in any table. Instead, correlations are typically used as an exploratory tool to inform a more advanced analysis like regression. Nevertheless, we may want to report a specific correlation coefficient in our prose.</p>
 <p>To calculate the correlation coefficient between two variables, we can use the <code>cor()</code> function like so:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="19-r-description.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(gapminder<span class="sc">$</span>gdpPercap, gapminder<span class="sc">$</span>lifeExp)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="19-r-description.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(gapminder<span class="sc">$</span>gdpPercap, gapminder<span class="sc">$</span>lifeExp)</span></code></pre></div>
 <pre><code>[1] 0.5837062</code></pre>
 <p>where I include two variables from the <code>gapminder</code> dataset.</p>
 <p>To calculate correlation coefficient between all numerical variables in a dataset, we can simply include the dataset in <code>cor</code> without specifying any variable. Note that I must first remove the variables that are not numeric.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="19-r-description.html#cb96-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb96-2"><a href="19-r-description.html#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>country, <span class="sc">-</span>continent) <span class="sc">%&gt;%</span> </span>
-<span id="cb96-3"><a href="19-r-description.html#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="19-r-description.html#cb92-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb92-2"><a href="19-r-description.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>country, <span class="sc">-</span>continent) <span class="sc">%&gt;%</span> </span>
+<span id="cb92-3"><a href="19-r-description.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>()</span></code></pre></div>
 <pre><code>                year    lifeExp         pop   gdpPercap
 year      1.00000000 0.43561122  0.08230808  0.22731807
 lifeExp   0.43561122 1.00000000  0.06495537  0.58370622

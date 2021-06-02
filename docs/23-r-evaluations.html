@@ -196,7 +196,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.4.4</b> The normal distribution</a></li>
 <li class="chapter" data-level="4.4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-association"><i class="fa fa-check"></i><b>4.4.5</b> Measures of association</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.5</b> Key terms and concepts</a></li>
+<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#categorical-variables"><i class="fa fa-check"></i><b>4.5</b> Categorical Variables</a></li>
+<li class="chapter" data-level="4.6" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.6</b> Key terms and concepts</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-data-visualization.html"><a href="5-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
 <ul>
@@ -544,20 +545,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Start a R Markdown document</li>
 <li>Change the YAML to at least the following. Feel free to add arguments.</li>
 </ul>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="23-r-evaluations.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb138-2"><a href="23-r-evaluations.html#cb138-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&#39;R Chapter 8&#39;</span></span>
-<span id="cb138-3"><a href="23-r-evaluations.html#cb138-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&#39;Your name&#39;</span></span>
-<span id="cb138-4"><a href="23-r-evaluations.html#cb138-4" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> </span>
-<span id="cb138-5"><a href="23-r-evaluations.html#cb138-5" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
-<span id="cb138-6"><a href="23-r-evaluations.html#cb138-6" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> spacelab</span>
-<span id="cb138-7"><a href="23-r-evaluations.html#cb138-7" aria-hidden="true" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
-<span id="cb138-8"><a href="23-r-evaluations.html#cb138-8" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="23-r-evaluations.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb134-2"><a href="23-r-evaluations.html#cb134-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&#39;R Chapter 8&#39;</span></span>
+<span id="cb134-3"><a href="23-r-evaluations.html#cb134-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&#39;Your name&#39;</span></span>
+<span id="cb134-4"><a href="23-r-evaluations.html#cb134-4" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> </span>
+<span id="cb134-5"><a href="23-r-evaluations.html#cb134-5" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb134-6"><a href="23-r-evaluations.html#cb134-6" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> spacelab</span>
+<span id="cb134-7"><a href="23-r-evaluations.html#cb134-7" aria-hidden="true" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
+<span id="cb134-8"><a href="23-r-evaluations.html#cb134-8" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
 <ul>
 <li>Load the following packages</li>
 </ul>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="23-r-evaluations.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb139-2"><a href="23-r-evaluations.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)</span>
-<span id="cb139-3"><a href="23-r-evaluations.html#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="23-r-evaluations.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb135-2"><a href="23-r-evaluations.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)</span>
+<span id="cb135-3"><a href="23-r-evaluations.html#cb135-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
 <p>For the chi-square test, we will use the <code>MplsStops</code> dataset within the <code>carData</code> package. For the t-tests, we will use the <code>UScrime</code> dataset within the <code>MASS</code> package. Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.</p>
 </div>
 <div id="chi-square-test" class="section level2" number="23.3">
@@ -570,7 +571,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="cross-tab" class="section level3" number="23.3.1">
 <h3><span class="header-section-number">23.3.1</span> Cross-tab</h3>
 <p>Below is the code used to produce the cross-tab from Chapter <a href="11-hypothesis-testing.html#hypothesis-testing">11</a>. I save the new table as <code>polltable</code>. Using the <code>table</code> function, I tell R which two variables from the <code>poll</code> dataset to cross-tabulate. The <code>$</code> is how we identify a specific variable within a dataset. The levels of the first variable, <code>response</code>, will be tabulated by row, while the frequency of the levels of the second variable, <code>party</code>, will be tabulated by column.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="23-r-evaluations.html#cb140-1" aria-hidden="true" tabindex="-1"></a>polltable <span class="ot">&lt;-</span> <span class="fu">table</span>(poll<span class="sc">$</span>response, poll<span class="sc">$</span>party)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="23-r-evaluations.html#cb136-1" aria-hidden="true" tabindex="-1"></a>polltable <span class="ot">&lt;-</span> <span class="fu">table</span>(poll<span class="sc">$</span>response, poll<span class="sc">$</span>party)</span></code></pre></div>
 <table>
 <caption><span id="tab:unnamed-chunk-188">Table 23.1: </span>Response by political party</caption>
 <thead>
@@ -606,7 +607,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="run-chi-square" class="section level3" number="23.3.2">
 <h3><span class="header-section-number">23.3.2</span> Run chi-square</h3>
 <p>Now that we have a cross-tabulation table, we can run the chi-square test. The code below demonstrates how.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="23-r-evaluations.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(immigration_poll)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="23-r-evaluations.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(immigration_poll)</span></code></pre></div>
 <pre><code>
 	Pearson&#39;s Chi-squared test
 
@@ -631,7 +632,7 @@ X-squared = 100.95, df = 4, p-value &lt; 0.00000000000000022</code></pre>
 <div id="independent-t-test" class="section level3" number="23.4.1">
 <h3><span class="header-section-number">23.4.1</span> Independent t-test</h3>
 <p>The code below demonstrates how the independent t-test from Chapter <a href="11-hypothesis-testing.html#hypothesis-testing">11</a> was conducted. The <code>t.test</code> function works a lot like the <code>lm</code> function in that the outcome is entered first, then we input the variable that identifies the groups, which is essentially an explanatory variable. The two variables are separated by <code>~</code>. Then, we tell R which dataset to use, which is called <code>jobtrain</code> in this case.</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="23-r-evaluations.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(earnings <span class="sc">~</span> treatment, <span class="at">data =</span> jobtrain)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="23-r-evaluations.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(earnings <span class="sc">~</span> treatment, <span class="at">data =</span> jobtrain)</span></code></pre></div>
 <pre><code>
 	Welch Two Sample t-test
 
@@ -657,7 +658,7 @@ mean in group 0 mean in group 1
 <div id="dependent-t-test" class="section level3" number="23.4.2">
 <h3><span class="header-section-number">23.4.2</span> Dependent t-test</h3>
 <p>To conduct a dependent t-test, add the option <code>paired=TRUE</code> inside the <code>t.test</code> code like so</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="23-r-evaluations.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(earnings <span class="sc">~</span> treatment, <span class="at">data =</span> jobtrain, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="23-r-evaluations.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(earnings <span class="sc">~</span> treatment, <span class="at">data =</span> jobtrain, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>However, this code will not work because the number of observations in the treatment and control groups are not equal. If we truly had a paired sample where the same subjects measured twice, then we should have the same number of observations in both groups.</p>
 </div>
 </div>

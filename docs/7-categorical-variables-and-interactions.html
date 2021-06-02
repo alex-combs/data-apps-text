@@ -196,7 +196,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.4.4</b> The normal distribution</a></li>
 <li class="chapter" data-level="4.4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-association"><i class="fa fa-check"></i><b>4.4.5</b> Measures of association</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.5</b> Key terms and concepts</a></li>
+<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#categorical-variables"><i class="fa fa-check"></i><b>4.5</b> Categorical Variables</a></li>
+<li class="chapter" data-level="4.6" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.6</b> Key terms and concepts</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-data-visualization.html"><a href="5-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
 <ul>
@@ -609,46 +610,6 @@ y = \beta_0 + \beta_1x + \beta_2d + \epsilon
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">41</td>
-<td align="right">1987</td>
-<td align="right">2.27606</td>
-<td align="left">yes</td>
-<td align="right">8.565328</td>
-<td align="right">21</td>
-<td align="right">6.2</td>
-<td align="left">West</td>
-</tr>
-<tr class="even">
-<td align="right">22</td>
-<td align="right">1982</td>
-<td align="right">2.48916</td>
-<td align="left">yes</td>
-<td align="right">6.137799</td>
-<td align="right">18</td>
-<td align="right">10.3</td>
-<td align="left">South</td>
-</tr>
-<tr class="odd">
-<td align="right">4</td>
-<td align="right">1985</td>
-<td align="right">2.80201</td>
-<td align="left">yes</td>
-<td align="right">6.771263</td>
-<td align="right">21</td>
-<td align="right">6.5</td>
-<td align="left">West</td>
-</tr>
-<tr class="even">
-<td align="right">23</td>
-<td align="right">1982</td>
-<td align="right">1.46127</td>
-<td align="left">yes</td>
-<td align="right">6.733286</td>
-<td align="right">20</td>
-<td align="right">8.6</td>
-<td align="left">N. East</td>
-</tr>
-<tr class="odd">
 <td align="right">27</td>
 <td align="right">1982</td>
 <td align="right">1.38156</td>
@@ -677,6 +638,46 @@ y = \beta_0 + \beta_1x + \beta_2d + \epsilon
 <td align="right">20</td>
 <td align="right">6.1</td>
 <td align="left">N. East</td>
+</tr>
+<tr class="even">
+<td align="right">47</td>
+<td align="right">1987</td>
+<td align="right">2.57055</td>
+<td align="left">yes</td>
+<td align="right">8.676843</td>
+<td align="right">21</td>
+<td align="right">6.6</td>
+<td align="left">South</td>
+</tr>
+<tr class="odd">
+<td align="right">20</td>
+<td align="right">1984</td>
+<td align="right">2.09016</td>
+<td align="left">yes</td>
+<td align="right">7.670888</td>
+<td align="right">21</td>
+<td align="right">5.2</td>
+<td align="left">Midwest</td>
+</tr>
+<tr class="even">
+<td align="right">35</td>
+<td align="right">1988</td>
+<td align="right">3.23159</td>
+<td align="left">no</td>
+<td align="right">10.141353</td>
+<td align="right">21</td>
+<td align="right">7.8</td>
+<td align="left">West</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">1983</td>
+<td align="right">2.39570</td>
+<td align="left">no</td>
+<td align="right">7.175917</td>
+<td align="right">21</td>
+<td align="right">10.1</td>
+<td align="left">South</td>
 </tr>
 </tbody>
 </table>
@@ -1246,7 +1247,7 @@ Figure 7.5: LPM visualization
 </table>
 <p>We can see that there are 248 cases where our model correctly predicts the outcome (210 + 38). There are 87 cases where our model incorrectly predicts the outcome. Specifically, there are 31 cases where our model predicts a state has a law but doesn’t and 56 cases where our model predicts a state does not have a law but does. We can also convert these to percentages like the table below. These confusion matrices help us assess and communicate how accurate our model is.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-33">Table 7.8: </span>Confusion matrix for LPM (in proportions)</caption>
+<caption><span id="tab:unnamed-chunk-35">Table 7.8: </span>Confusion matrix for LPM (in proportions)</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>

@@ -196,7 +196,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.4.4</b> The normal distribution</a></li>
 <li class="chapter" data-level="4.4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-association"><i class="fa fa-check"></i><b>4.4.5</b> Measures of association</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.5</b> Key terms and concepts</a></li>
+<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#categorical-variables"><i class="fa fa-check"></i><b>4.5</b> Categorical Variables</a></li>
+<li class="chapter" data-level="4.6" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.6</b> Key terms and concepts</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-data-visualization.html"><a href="5-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
 <ul>
@@ -544,15 +545,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Start a R Markdown document. Keep the YAML and delete the default content in the body.</li>
 <li>Load the following packages. This requires you to start a code chunk <code>Cmd+Option+I</code> or <code>Ctrl+Option+I</code> on PC. Or use the Insert menu in the top right of the source editor pane.</li>
 </ul>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="17-r-data.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb41-2"><a href="17-r-data.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)  <span class="co">#if this fails, you need to install</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="17-r-data.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb37-2"><a href="17-r-data.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)  <span class="co">#if this fails, you need to install</span></span></code></pre></div>
 <p>Before you begin, go to the <code>Packages</code> tab in the bottom-right pane. Find <code>carData</code> in the list and click on the name. This should take you to the <code>Help</code> tab, which will contain the documentation for <code>carData</code>. This page serves as a directory to all of the datasets that come loaded with the package. We will be examining some of these datasets. If you want or need to learn more about a particular dataset, you can click on its name in this list.</p>
 </div>
 <div id="viewing-datasets" class="section level2" number="17.3">
 <h2><span class="header-section-number">17.3</span> Viewing datasets</h2>
 <p>Perhaps one of the first obstacles to using R is that you do not constantly stare at a spreadsheet, creating somewhat of a disconnect between what you do to data and seeing it done.</p>
 <p>You can examine a dataset in spreadsheet form using the following command:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="17-r-data.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dataset)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="17-r-data.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dataset)</span></code></pre></div>
 <p>where you replace <code>dataset</code> with the actual name of the dataset.</p>
 <div class="learncheck">
 <p>
@@ -587,13 +588,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <strong>Exercise 5</strong> In an existing or new code chunk, run the following code, which saves <code>Arrests</code> to your environment pane in the top-right. Then click on <code>arrests</code>. This should do the same thing as running <code>View</code>. If you find yourself needing to see the spreadsheet, use this point-and-click method.
 </p>
 </div>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="17-r-data.html#cb43-1" aria-hidden="true" tabindex="-1"></a>arrests <span class="ot">&lt;-</span> Arrests</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="17-r-data.html#cb39-1" aria-hidden="true" tabindex="-1"></a>arrests <span class="ot">&lt;-</span> Arrests</span></code></pre></div>
 </div>
 </div>
 <div id="glimpse-data" class="section level2" number="17.4">
 <h2><span class="header-section-number">17.4</span> Glimpse Data</h2>
 <p>If your dataset is moderately large, <code>View</code> is an inefficient way to get a sense of your data. The <code>glimpse</code> function generates a compact printout providing key information about a dataset. The general syntax is as follows:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="17-r-data.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dataset)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="17-r-data.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dataset)</span></code></pre></div>
 <p>where we replace <code>dataset</code> with the name of the <code>dataset</code>.</p>
 <div class="learncheck">
 <p>

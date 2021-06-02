@@ -196,7 +196,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.4.4</b> The normal distribution</a></li>
 <li class="chapter" data-level="4.4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-association"><i class="fa fa-check"></i><b>4.4.5</b> Measures of association</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.5</b> Key terms and concepts</a></li>
+<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#categorical-variables"><i class="fa fa-check"></i><b>4.5</b> Categorical Variables</a></li>
+<li class="chapter" data-level="4.6" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.6</b> Key terms and concepts</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-data-visualization.html"><a href="5-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
 <ul>
@@ -560,7 +561,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Figure 8.1: Wages by age
 </p>
 </div>
-<p>Equation <a href="8-nonlinear-variables.html#eq:quadratic">(8.1)</a> presents a generic population regression model with a quadratic term. With respect to the math, the only difference between this and previous models is the choice to square one of the explanatory variables. This is just an example. Any number of explanatory variables can be squared if theory warrants it.</p>
+<p>Equation <a href="8-nonlinear-variables.html#eq:quadratic">(8.1)</a> presents a generic population regression model with a quadratic term (<span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_1^2\)</span>). The only difference between this and previous models is the choice to square one of the explanatory variables. This is just an example. Any number of explanatory variables can be squared if theory warrants it.</p>
 <p><span class="math display" id="eq:quadratic">\[\begin{equation}
 y = \beta_0 + \beta_1x_1 + \beta_2x_1^2 + \beta_3x_2 + \cdots + \beta_kx_k + \epsilon
 \tag{8.1}
@@ -570,12 +571,15 @@ y = \beta_0 + \beta_1x_1 + \beta_2x_1^2 + \beta_3x_2 + \cdots + \beta_kx_k + \ep
 \hat{y} = b_0 + b_1x_1 + b_2x_1^2 + b_3x_2 + \cdots + b_kx_k
 \tag{8.2}
 \end{equation}\]</span></p>
-<p>Fully understanding the logic of the above equations to answer questions we may encounter as we have done before involves calculus that this book will spare you. In order to report the marginal effect of a variable that has been squared on an outcome in regression, we use Equation <a href="8-nonlinear-variables.html#eq:quadraticsampmarg">(8.3)</a> below. The result of this equation provides the predicted change in <span class="math inline">\(y\)</span> given a one-unit change in <span class="math inline">\(x_1\)</span>.</p>
+<p>As we have done before, once we obtain estimates for the coefficients that correspond to <span class="math inline">\(x_1\)</span> – <span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span>, we want to be able to report how much <span class="math inline">\(y\)</span> is predicted to change due to a one-unit change in <span class="math inline">\(x_1\)</span>. In order to report the marginal effect of an explanatory variable that has been squared, we use Equation <a href="8-nonlinear-variables.html#eq:quadraticsampmarg">(8.3)</a> below. The result of this equation provides the predicted change in <span class="math inline">\(y\)</span> given a one-unit change in <span class="math inline">\(x_1\)</span>.</p>
 <p><span class="math display" id="eq:quadraticsampmarg">\[\begin{equation}
 b_1 + 2b_2x_1
 \tag{8.3}
 \end{equation}\]</span></p>
-<p>Note that had we not squared <span class="math inline">\(x_1\)</span> the predicted change in <span class="math inline">\(y\)</span> from a one-unit change in <span class="math inline">\(x_1\)</span> would be <span class="math inline">\(b_1\)</span>, which is exactly the same as in previous models. However, now that we are drawing a curved line, the effect of a one-unit change in <span class="math inline">\(x\)</span> on <span class="math inline">\(y\)</span> is not constant; it changes depending on the value of <span class="math inline">\(x\)</span>.</p>
+<p>Note that had we not squared <span class="math inline">\(x_1\)</span> the predicted change in <span class="math inline">\(y\)</span> from a one-unit change in <span class="math inline">\(x_1\)</span> would be <span class="math inline">\(b_1\)</span>, which is exactly the same as in previous models.</p>
+<blockquote>
+<p>However, now that we are estimating a curved line, the effect of a one-unit change in <span class="math inline">\(x\)</span> on <span class="math inline">\(y\)</span> is not constant; it changes depending on the value of <span class="math inline">\(x\)</span>.</p>
+</blockquote>
 <p>Another important question when a quadratic relationship is involved is at what value of <span class="math inline">\(x\)</span> is <span class="math inline">\(y\)</span> maximized or minimized. This can help decision-making, such as how to minimize costs or maximize profit, or maximize the probability of some desirable outcome. In order to report the value of <span class="math inline">\(x\)</span> at which <span class="math inline">\(y\)</span> reaches its maximum or minimum, we use Equation <a href="8-nonlinear-variables.html#eq:quadraticsampopt">(8.4)</a> below. The result of the equation gives us the optimal value of <span class="math inline">\(x\)</span>.</p>
 <p><span class="math display" id="eq:quadraticsampopt">\[\begin{equation}
 x = {\frac{-b_1}{2b_2}}
@@ -583,7 +587,7 @@ x = {\frac{-b_1}{2b_2}}
 \end{equation}\]</span></p>
 <div id="using-quadratics" class="section level3" number="8.2.1">
 <h3><span class="header-section-number">8.2.1</span> Using quadratics</h3>
-<p>Suppose we collect the following data.</p>
+<p>Suppose we collect individual-level data for hourly wage, years of education, and age.</p>
 <table>
 <caption><span id="tab:wagestab">Table 8.1: </span>Preview of wages, age, and education</caption>
 <thead>
@@ -631,11 +635,12 @@ x = {\frac{-b_1}{2b_2}}
 </tr>
 </tbody>
 </table>
-<p>Therefore, our regression equation is as follows</p>
+<p>Using these data, suppose we decide to estimate the following regression model:</p>
 <p><span class="math display" id="eq:quadraticex">\[\begin{equation}
 Wage = \beta_0 + \beta_1Age + \beta_2Age^2 + \beta_3Educ + \epsilon
 \tag{8.5}
 \end{equation}\]</span></p>
+<p>Note that our regression model conveys some theory about the effect of age and education on wage. We are theorizing that age has a quadratic effect on wage. That is, the effect of age is not constant with each one-unit increase in age, and at some point, the effect of age switches sign (i.e., positive to negative or vice versa). Conversely, this regression model suggests the effect of education has a constant effect. Each one-unit increase has the same effect on wage regardless of whether education increases from 4 to 5, or 12 to 13.</p>
 <p>Running this regression generates the following results</p>
 <table>
 <caption><span id="tab:quadextab">Table 8.2: </span>Quadratic model results</caption>
@@ -689,7 +694,7 @@ Wage = \beta_0 + \beta_1Age + \beta_2Age^2 + \beta_3Educ + \epsilon
 </tr>
 </tbody>
 </table>
-<p>In Table <a href="8-nonlinear-variables.html#tab:quadextab">8.2</a>, note that there are two rows for Age–one for the linear or level term and a second for the quadratic term. When the quadratic relationship is an inverted U, or concave, the linear term will be positive and the quadratic will be negative. This corresponds with an initial positive relationship that eventually turns negative once the negative quadratic term overcomes the positive linear term.</p>
+<p>In Table <a href="8-nonlinear-variables.html#tab:quadextab">8.2</a>, note that there are two rows for Age–one for the linear, or level, term and a second for the quadratic term. When the quadratic relationship is an inverted U, or concave, the linear term will be positive and the quadratic will be negative. This corresponds with an initial positive relationship that eventually turns negative once the negative quadratic term overcomes the positive linear term.</p>
 <p>Plugging our results from Table <a href="8-nonlinear-variables.html#tab:quadextab">8.2</a> into the regression equation, we obtain the following equation</p>
 <p><span class="math display" id="eq:quadraticexsamp">\[\begin{equation}
 \hat{Wage} = -22.7 + 1.4\times Age - 0.01\times Age^2 + 1.3\times Educ
@@ -699,14 +704,21 @@ Wage = \beta_0 + \beta_1Age + \beta_2Age^2 + \beta_3Educ + \epsilon
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="8-nonlinear-variables.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">22.7</span> <span class="sc">+</span> <span class="fl">1.4</span><span class="sc">*</span><span class="dv">40</span> <span class="sc">-</span> <span class="fl">0.01</span><span class="sc">*</span><span class="dv">40</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">1.3</span><span class="sc">*</span><span class="dv">16</span></span></code></pre></div>
 <pre><code>[1] 38.1</code></pre>
 <p>dollars per hour.</p>
-<p>To predict the <em>change</em> in wage given a change in age, we need to know the beginning point for age. For example, if we were asked what is the predicted change is wage for a 24-year old two years later who consequently increases their education from 16 to 18 to get their masters degree, we plug this scenario into Equation <a href="8-nonlinear-variables.html#eq:quadraticsampmarg">(8.3)</a> like so</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="8-nonlinear-variables.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">*</span>(<span class="fl">1.4</span> <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span><span class="fl">0.01</span><span class="sc">*</span><span class="dv">24</span>) <span class="sc">+</span> <span class="fl">1.25</span><span class="sc">*</span><span class="dv">2</span></span></code></pre></div>
-<pre><code>[1] 4.34</code></pre>
-<p>providing us the answer of a predicted increase of $4.34.</p>
+<p>To predict the <em>change</em> in wage given a change in age, we need to know the beginning point for age. For example, if we were asked what is the predicted change in wage for a 24-year old one year later controlling for education, we plug this scenario into Equation <a href="8-nonlinear-variables.html#eq:quadraticsampmarg">(8.3)</a> like so</p>
+<p><span class="math display">\[(1 \times 1.35) + (1 \times 2 \times -0.013 \times 24)\]</span></p>
+<p>The <span class="math inline">\(1\)</span>s in the above equation are to make explicit that we are estimating the effect of a one-unit increase in age. The <span class="math inline">\(1.35\)</span> is the linear effect of age on wage from Table <a href="8-nonlinear-variables.html#tab:quadextab">8.2</a>. The <span class="math inline">\(-0.013\)</span> is the quadratic effect of age on wage. Note the linear effect is positive, while the quadratic effect is negative. Solving this equation,</p>
+<p><span class="math display">\[1.35 - 0.624 = 0.726\]</span></p>
+<p>provides us the answer of a predicted increase of about $0.73 in hourly wage.</p>
+<p>What about the predicted increase in wage given a one-unit increase in age for a person who is 64 years old, controlling for education? To solve, we use the same equation but replace 24 with 64.</p>
+<p><span class="math display">\[1.35 + (2 \times -0.013 \times 64)\]</span></p>
+<p><span class="math display">\[1.35 - 1.664 = -0.314\]</span></p>
+<p>The predicted change is a <span class="math inline">\(decrease\)</span> of about 31 cents in hourly wage. Note that at a high enough age, the negative quadratic effect overpowers the positive linear effect, resulting in a negative overall change.</p>
 <p>Controlling for education, at what age do wages tend to reach their maximum? To answer, we plug the results into <a href="8-nonlinear-variables.html#eq:quadraticsampopt">(8.4)</a> like so</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="8-nonlinear-variables.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">1.35</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*-</span><span class="fl">0.013</span>)</span></code></pre></div>
-<pre><code>[1] 51.92308</code></pre>
-<p>According to our results, wages reach their maximum at around 52 years of age.</p>
+<p><span class="math display">\[\frac{-1.35}{2 \times -0.013} = 51.92\]</span></p>
+<p>This tells us that, on average, wages tend to reach a maximum at age 52, controlling for education. This aligns with our results for the effect of age between a 24-year old and 64-year old. The 24-year old is on the left side of the maximum and wage is increasing with each additional year. The 64-year old is past the maximum and wage is decreasing with each additional year. If we were to examine the marginal effect of age for someone 52 years of age:</p>
+<p><span class="math display">\[1.35 + 2 \times -0.013 \times 52\]</span></p>
+<p><span class="math display">\[1.35 - 1.352\]</span></p>
+<p>The positive linear and negative quadratic effects offset (not exactly because the precise maximum is 51.923). In other words, the slope of the regression line between wage and age is 0 at age 52.</p>
 </div>
 </div>
 <div id="log-models" class="section level2" number="8.3">
@@ -714,26 +726,41 @@ Wage = \beta_0 + \beta_1Age + \beta_2Age^2 + \beta_3Educ + \epsilon
 <p>Once again, we will forego the math of logarithms and instead focus on why we may want to use them in a regression model and how to interpret the results. In short, logarithms are used to express rates of change in a variable (i.e. percent change) rather than absolute change in a variable (i.e. unit change).</p>
 <div id="logarithmic-scales" class="section level3" number="8.3.1">
 <h3><span class="header-section-number">8.3.1</span> Logarithmic scales</h3>
-<p>Graphs like Figure <a href="8-nonlinear-variables.html#fig:logcovid">8.2</a> below were commonplace during the initial COVID-19 spread. Take a look at the small note at the bottom explaining to readers the purpose of a logarithmic scale. Note how the values on the y axis are evenly dispersed, but each tick mark increases by a factor of 10 (i.e. the previous value multiplied by 10). The y-axis is in a <strong>log10</strong> scale. Another common log scale for visualization is a <strong>log2</strong> scale which increases each interval by a factor of 2.</p>
-<p>The use of a log scale allows us to compare states like New York and Wyoming by taking into account large differences in absolute numbers. It would be unfair to compare the absolute number of COVID cases in New York to the absolute number of cases in Wyoming. It would also be unfair to compare the absolute number of new cases each day between the two states. A non-trivial portion of those numbers is a result of the size of the population in each state.</p>
-<p>However, it is fair to compare the <em>rate</em> of growth between the two states. While it is obviously concerning that New York has over 300,000 deaths, the key feature of this graph is that we can compare the slopes of each state’s growth path because population size has been accounted for by the y-axis. Given New York’s population and population density, it was likely to have the most cases, but the state also had the fastest growth rate in cases from about day 5 to day 10.</p>
+<p>Graphs like Figure <a href="8-nonlinear-variables.html#fig:logcovid">8.2</a> below were commonplace during the spread of COVID-19. Note how the values on the y axis are evenly dispersed, but each tick mark increases by a factor of 10 (i.e. the previous value multiplied by 10). The y-axis is in a <strong>log10</strong> scale. Another common log scale for visualization is a <strong>log2</strong> scale which increases each interval by a factor of 2.</p>
 <div class="figure" style="text-align: center"><span id="fig:logcovid"></span>
 <img src="images/logs_covid.png" alt="Growth in COVID-19 cases by state" width="\textwidth" />
 <p class="caption">
 Figure 8.2: Growth in COVID-19 cases by state
 </p>
 </div>
+<p>As the note at the bottom of Figure <a href="8-nonlinear-variables.html#fig:logcovid">8.2</a> states, one purpose of using a log scale is to effectively display a wide (or highly skewed) range of values (i.e., distribution). If the vertical axis of Figure <a href="8-nonlinear-variables.html#fig:logcovid">8.2</a> was not in log scale, and instead in the scale of absolute/raw counts, then the different states would be so far dispersed from each other so as to make the graph impractical to insert into a document. Instead, the vertical graph actually ranges from only 2 to 5, not 100 to 10,000. How?</p>
+<p>Log base 10 of a given number returns the power that 10 would need to raised to to equal the given number. Log base 10 of 100 equals 2 because 10 squared equals 100. Extending this logic:</p>
+<p><span class="math display">\[log_{10}1,000=3 \leftrightarrow 10^3=1,000\]</span></p>
+<p><span class="math display">\[log_{10}10,000=4 \leftrightarrow 10^4=10,000\]</span>
+<span class="math display">\[log_{10}100,000=5 \leftrightarrow 10^5=100,000\]</span></p>
+<p>and now a variable that ranges between 100 and 100,000 has a more manageable range between 2 and 5.</p>
+<p>Also, what was an exponential increase in cases as days along the x-axis increases is now a proportional increase. For example, note that from day 0 (since the 100th case) to day 10, the trend line for New York is roughly linear. Equal incremental increases in days correspond to an equal incremental increase in cases rescaled to log base 10. Without the log scale, the slope of the line would be <em>extremely</em> exponential. Instead, the line is roughly linear. This conversion of a nonlinear relationship to a linear one has consequences for how we interpret regression models that use variables transformed into a log scale. Understanding those consequences begins with understanding <em>rates</em> of change rather than absolute change.</p>
 </div>
 <div id="percent-v-percentage-point-change" class="section level3" number="8.3.2">
 <h3><span class="header-section-number">8.3.2</span> Percent v percentage point change</h3>
-<p>Rate of change typically refers to percent change. The equation for percent change is shown below.</p>
+<p>The rate of change relevant to log transformations is percent change. The equation for percent change is shown below.</p>
 <p><span class="math display" id="eq:pctchange">\[\begin{equation}
 PctChange = {\frac{NewValue-OldValue}{OldValue}} \times 100
 \tag{8.7}
 \end{equation}\]</span></p>
-<p>For example, if the number of COVID cases increase from 1,000 to 10,000 over the course of a week, the absolute change is 9,000. The percent change is 900%.</p>
-<p>A common cause of confusion is the difference between a percent change and a percentage point change. This occurs when we discuss the change in a variable that is already expressed as a percent. For example, if the U.S. unemployment rate increases from 4% to 15% during the pandemic, that’s an absolute change of 11 percentage points. The unemployment rate is expressed units of percentage points, so a unit change is a percentage point change. An increase from 4% to 15% is also a 275% percent change.</p>
-<p>As we have seen in previous examples of regression, when we include a variable that is not log-transformed, regression estimates the <strong>unit change</strong> in <span class="math inline">\(y\)</span> given a <strong>unit change</strong> in <span class="math inline">\(x\)</span>. If a variable is expressed in units of percentages like unemployment or poverty, then a unit change for those variables is a percentage point change. Including a log-transformed variable in regression estimates percent changes in the variable(s) we transformed.</p>
+<p>For example, if the number of COVID cases increase from 10,000 to 15,000 in one day, the absolute change in cases is 5,000. The percent change is</p>
+<p><span class="math display">\[\frac{(15,000-10,000)}{10,000} \times 100 = 50\]</span></p>
+<p>an increase of 50%, or half of the original value. Note that, in absolute terms, a percent change is not constant across starting values. If the next day experienced another 50% increase in cases from a starting value of 15,000, then the new value will be 22,500 (half of 15,000 is 7,500; 15,000 plus 7,500 equals 22,500). From 10,000 cases, a 50% increase results in a 5,000 increase in cases.</p>
+<blockquote>
+<p>A nonlinear absolute change can be expressed in a linear/constant percent change.</p>
+</blockquote>
+<p>A common cause of confusion is the difference between a percent change and a percentage point change. This occurs when we discuss the change in a variable that is already expressed as a percent. For example, if the U.S. unemployment rate increases from 4% to 15% during the COVID-19 pandemic, that’s an absolute change of 11 <em>percentage points</em>. The unemployment rate is expressed in <em>units</em> of percentage points, so a unit change is a percentage point change.</p>
+<p>A percent change in a variable expressed in percentage points works just like any other variable. An increase from 4% to 15% in the unemployment rate is a 275% change (<span class="math inline">\(\frac{15-4}{4} \times 100 = 275\)</span>).</p>
+<p>Another example: suppose a political poll is taken to assess the job approval of President Joe Biden. Suppose Joe’s approval rating increased from 53% to 60%. Would we say Joe’s approval increased 7%? No! His approval increased 7 percentage points. A 7% increase would be an increase from 53% to 56.7% (<span class="math inline">\(53 \times 1.07 = 56.7\)</span>). In percent change terms, an increase from 53% to 60% is a 13.2% increase (<span class="math inline">\(\frac{60-53}{53} \times 100 = 13.2\)</span>).</p>
+<p>As we have seen in previous examples of regression, when we include a variable that is not log-transformed, regression estimates the <strong>unit change</strong> in <span class="math inline">\(y\)</span> given a <strong>unit change</strong> in <span class="math inline">\(x\)</span>. If a variable is expressed in units of percentages like unemployment or poverty, then a unit change for those variables is a percentage point change.</p>
+<blockquote>
+<p>Including a log-transformed variable in regression estimates percent changes in the variable(s) we transformed.</p>
+</blockquote>
 <p>One reason we may prefer to use percent change is if the variable in question has some underlying impact that differs depending on the initial value from which it changed. This too applies to measures of wealth or income. Suppose we estimate that a policy will, on average, increase peoples’ incomes by 12,000 dollars. This average unit change does not quite capture the benefit of the policy. Imagine a society of two people. One person earns 20,000 dollars per year and the other earns 80,000 dollars. That 12,000 likely has a greater positive impact on the low-income individual than it does the high-income individual. Consequently, this can be expressed in percent change. The 12,000 represents a 60% increase in income for the low-income individual and 15% for the high-income individual.</p>
 </div>
 <div id="why-logs-in-regression" class="section level3" number="8.3.3">

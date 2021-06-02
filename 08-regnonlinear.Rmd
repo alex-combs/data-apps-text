@@ -36,7 +36,7 @@ ggplot(wages, aes(x = Age, y = Wage)) +
   theme_minimal()
 ```
 
-Equation \@ref(eq:quadratic) presents a generic population regression model with a quadratic term. With respect to the math, the only difference between this and previous models is the choice to square one of the explanatory variables. This is just an example. Any number of explanatory variables can be squared if theory warrants it. 
+Equation \@ref(eq:quadratic) presents a generic population regression model with a quadratic term ($x_1$ and $x_1^2$). The only difference between this and previous models is the choice to square one of the explanatory variables. This is just an example. Any number of explanatory variables can be squared if theory warrants it. 
 
 \begin{equation}
 y = \beta_0 + \beta_1x_1 + \beta_2x_1^2 + \beta_3x_2 + \cdots + \beta_kx_k + \epsilon
@@ -50,14 +50,16 @@ Thus, the sample equation is as follows
 (\#eq:quadraticsamp)
 \end{equation}
 
-Fully understanding the logic of the above equations to answer questions we may encounter as we have done before involves calculus that this book will spare you. In order to report the marginal effect of a variable that has been squared on an outcome in regression, we use Equation \@ref(eq:quadraticsampmarg) below. The result of this equation provides the predicted change in $y$ given a one-unit change in $x_1$.
+As we have done before, once we obtain estimates for the coefficients that correspond to $x_1$ -- $b_1$ and $b_2$, we want to be able to report how much $y$ is predicted to change due to a one-unit change in $x_1$. In order to report the marginal effect of an explanatory variable that has been squared, we use Equation \@ref(eq:quadraticsampmarg) below. The result of this equation provides the predicted change in $y$ given a one-unit change in $x_1$.
 
 \begin{equation}
 b_1 + 2b_2x_1
 (\#eq:quadraticsampmarg)
 \end{equation}
 
-Note that had we not squared $x_1$ the predicted change in $y$ from a one-unit change in $x_1$ would be $b_1$, which is exactly the same as in previous models. However, now that we are drawing a curved line, the effect of a one-unit change in $x$ on $y$ is not constant; it changes depending on the value of $x$.
+Note that had we not squared $x_1$ the predicted change in $y$ from a one-unit change in $x_1$ would be $b_1$, which is exactly the same as in previous models. 
+
+> However, now that we are estimating a curved line, the effect of a one-unit change in $x$ on $y$ is not constant; it changes depending on the value of $x$.
 
 Another important question when a quadratic relationship is involved is at what value of $x$ is $y$ maximized or minimized. This can help decision-making, such as how to minimize costs or maximize profit, or maximize the probability of some desirable outcome. In order to report the value of $x$ at which $y$ reaches its maximum or minimum, we use Equation \@ref(eq:quadraticsampopt) below. The result of the equation gives us the optimal value of $x$.
 
@@ -68,7 +70,7 @@ x = {\frac{-b_1}{2b_2}}
 
 ### Using quadratics
 
-Suppose we collect the following data.
+Suppose we collect individual-level data for hourly wage, years of education, and age.
 
 ```{r wagestab, echo=FALSE}
 wages %>% 
@@ -76,12 +78,14 @@ wages %>%
   kable(caption = 'Preview of wages, age, and education')
 ```
 
-Therefore, our regression equation is as follows
+Using these data, suppose we decide to estimate the following regression model:
 
 \begin{equation}
 Wage = \beta_0 + \beta_1Age + \beta_2Age^2 + \beta_3Educ + \epsilon
 (\#eq:quadraticex)
 \end{equation}
+
+Note that our regression model conveys some theory about the effect of age and education on wage. We are theorizing that age has a quadratic effect on wage. That is, the effect of age is not constant with each one-unit increase in age, and at some point, the effect of age switches sign (i.e., positive to negative or vice versa). Conversely, this regression model suggests the effect of education has a constant effect. Each one-unit increase has the same effect on wage regardless of whether education increases from 4 to 5, or 12 to 13.
 
 Running this regression generates the following results
 
@@ -94,7 +98,7 @@ get_regression_table(quad_mod) %>%
   kable(caption = 'Quadratic model results')
 ```
 
-In Table \@ref(tab:quadextab), note that there are two rows for Age--one for the linear or level term and a second for the quadratic term. When the quadratic relationship is an inverted U, or concave, the linear term will be positive and the quadratic will be negative. This corresponds with an initial positive relationship that eventually turns negative once the negative quadratic term overcomes the positive linear term.
+In Table \@ref(tab:quadextab), note that there are two rows for Age--one for the linear, or level, term and a second for the quadratic term. When the quadratic relationship is an inverted U, or concave, the linear term will be positive and the quadratic will be negative. This corresponds with an initial positive relationship that eventually turns negative once the negative quadratic term overcomes the positive linear term.
 
 Plugging our results from Table \@ref(tab:quadextab) into the regression equation, we obtain the following equation
 
@@ -110,21 +114,35 @@ We can answer questions regarding the predicted *value* of Wage the same way as 
 ```
 dollars per hour.
 
-To predict the *change* in wage given a change in age, we need to know the beginning point for age. For example, if we were asked what is the predicted change is wage for a 24-year old two years later who consequently increases their education from 16 to 18 to get their masters degree, we plug this scenario into Equation \@ref(eq:quadraticsampmarg) like so
+To predict the *change* in wage given a change in age, we need to know the beginning point for age. For example, if we were asked what is the predicted change in wage for a 24-year old one year later controlling for education, we plug this scenario into Equation \@ref(eq:quadraticsampmarg) like so
 
-```{r}
-2*(1.4 - 2*0.01*24) + 1.25*2
-```
+$$(1 \times 1.35) + (1 \times 2 \times -0.013 \times 24)$$
 
-providing us the answer of a predicted increase of $4.34.
+The $1$s in the above equation are to make explicit that we are estimating the effect of a one-unit increase in age. The $1.35$ is the linear effect of age on wage from Table \@ref(tab:quadextab). The $-0.013$ is the quadratic effect of age on wage. Note the linear effect is positive, while the quadratic effect is negative. Solving this equation,
+
+$$1.35 - 0.624 = 0.726$$
+
+provides us the answer of a predicted increase of about $0.73 in hourly wage.
+
+What about the predicted increase in wage given a one-unit increase in age for a person who is 64 years old, controlling for education? To solve, we use the same equation but replace 24 with 64.
+
+$$1.35 + (2 \times -0.013 \times 64)$$
+
+$$1.35 - 1.664 = -0.314$$
+
+The predicted change is a $decrease$ of about 31 cents in hourly wage. Note that at a high enough age, the negative quadratic effect overpowers the positive linear effect, resulting in a negative overall change.
 
 Controlling for education, at what age do wages tend to reach their maximum? To answer, we plug the results into \@ref(eq:quadraticsampopt) like so
 
-```{r}
--1.35/(2*-0.013)
-```
+$$\frac{-1.35}{2 \times -0.013} = 51.92$$
 
-According to our results, wages reach their maximum at around 52 years of age.
+This tells us that, on average, wages tend to reach a maximum at age 52, controlling for education. This aligns with our results for the effect of age between a 24-year old and 64-year old. The 24-year old is on the left side of the maximum and wage is increasing with each additional year. The 64-year old is past the maximum and wage is decreasing with each additional year. If we were to examine the marginal effect of age for someone 52 years of age:
+
+$$1.35 + 2 \times -0.013 \times 52$$
+
+$$1.35 - 1.352$$
+
+The positive linear and negative quadratic effects offset (not exactly because the precise maximum is 51.923). In other words, the slope of the regression line between wage and age is 0 at age 52. 
 
 ## Log models
 
@@ -132,30 +150,51 @@ Once again, we will forego the math of logarithms and instead focus on why we ma
 
 ### Logarithmic scales
 
-Graphs like Figure \@ref(fig:logcovid) below were commonplace during the initial COVID-19 spread. Take a look at the small note at the bottom explaining to readers the purpose of a logarithmic scale. Note how the values on the y axis are evenly dispersed, but each tick mark increases by a factor of 10 (i.e. the previous value multiplied by 10). The y-axis is in a **log10** scale. Another common log scale for visualization is a **log2** scale which increases each interval by a factor of 2.
-
-The use of a log scale allows us to compare states like New York and Wyoming by taking into account large differences in absolute numbers. It would be unfair to compare the absolute number of COVID cases in New York to the absolute number of cases in Wyoming. It would also be unfair to compare the absolute number of new cases each day between the two states. A non-trivial portion of those numbers is a result of the size of the population in each state. 
-
-However, it is fair to compare the *rate* of growth between the two states. While it is obviously concerning that New York has over 300,000 deaths, the key feature of this graph is that we can compare the slopes of each state's growth path because population size has been accounted for by the y-axis. Given New York's population and population density, it was likely to have the most cases, but the state also had the fastest growth rate in cases from about day 5 to day 10.
+Graphs like Figure \@ref(fig:logcovid) below were commonplace during the spread of COVID-19. Note how the values on the y axis are evenly dispersed, but each tick mark increases by a factor of 10 (i.e. the previous value multiplied by 10). The y-axis is in a **log10** scale. Another common log scale for visualization is a **log2** scale which increases each interval by a factor of 2. 
 
 ```{r logcovid, echo=FALSE, fig.cap='Growth in COVID-19 cases by state'}
 include_graphics('images/logs_covid.png')
 ```
 
+As the note at the bottom of Figure \@ref(fig:logcovid) states, one purpose of using a log scale is to effectively display a wide (or highly skewed) range of values (i.e., distribution). If the vertical axis of Figure \@ref(fig:logcovid) was not in log scale, and instead in the scale of absolute/raw counts, then the different states would be so far dispersed from each other so as to make the graph impractical to insert into a document. Instead, the vertical graph actually ranges from only 2 to 5, not 100 to 10,000. How?
+
+Log base 10 of a given number returns the power that 10 would need to raised to to equal the given number. Log base 10 of 100 equals 2 because 10 squared equals 100. Extending this logic:
+
+$$log_{10}1,000=3 \leftrightarrow 10^3=1,000$$
+
+$$log_{10}10,000=4 \leftrightarrow 10^4=10,000$$
+$$log_{10}100,000=5 \leftrightarrow 10^5=100,000$$
+
+and now a variable that ranges between 100 and 100,000 has a more manageable range between 2 and 5.
+
+Also, what was an exponential increase in cases as days along the x-axis increases is now a proportional increase. For example, note that from day 0 (since the 100th case) to day 10, the trend line for New York is roughly linear. Equal incremental increases in days correspond to an equal incremental increase in cases rescaled to log base 10. Without the log scale, the slope of the line would be *extremely* exponential. Instead, the line is roughly linear. This conversion of a nonlinear relationship to a linear one has consequences for how we interpret regression models that use variables transformed into a log scale. Understanding those consequences begins with understanding *rates* of change rather than absolute change.
+
 ### Percent v percentage point change
 
-Rate of change typically refers to percent change. The equation for percent change is shown below.
+The rate of change relevant to log transformations is percent change. The equation for percent change is shown below.
 
 \begin{equation}
 PctChange = {\frac{NewValue-OldValue}{OldValue}} \times 100
 (\#eq:pctchange)
 \end{equation}
 
-For example, if the number of COVID cases increase from 1,000 to 10,000 over the course of a week, the absolute change is 9,000. The percent change is 900%.
+For example, if the number of COVID cases increase from 10,000 to 15,000 in one day, the absolute change in cases is 5,000. The percent change is
 
-A common cause of confusion is the difference between a percent change and a percentage point change. This occurs when we discuss the change in a variable that is already expressed as a percent. For example, if the U.S. unemployment rate increases from 4% to 15% during the pandemic, that's an absolute change of 11 percentage points. The unemployment rate is expressed units of percentage points, so a unit change is a percentage point change. An increase from 4% to 15% is also a 275% percent change. 
+$$\frac{(15,000-10,000)}{10,000} \times 100 = 50$$
 
-As we have seen in previous examples of regression, when we include a variable that is not log-transformed, regression estimates the **unit change** in $y$ given a **unit change** in $x$. If a variable is expressed in units of percentages like unemployment or poverty, then a unit change for those variables is a percentage point change. Including a log-transformed variable in regression estimates percent changes in the variable(s) we transformed.
+an increase of 50%, or half of the original value. Note that, in absolute terms, a percent change is not constant across starting values. If the next day experienced another 50% increase in cases from a starting value of 15,000, then the new value will be 22,500 (half of 15,000 is 7,500; 15,000 plus 7,500 equals 22,500). From 10,000 cases, a 50% increase results in a 5,000 increase in cases. 
+
+> A nonlinear absolute change can be expressed in a linear/constant percent change.
+
+A common cause of confusion is the difference between a percent change and a percentage point change. This occurs when we discuss the change in a variable that is already expressed as a percent. For example, if the U.S. unemployment rate increases from 4% to 15% during the COVID-19 pandemic, that's an absolute change of 11 *percentage points*. The unemployment rate is expressed in *units* of percentage points, so a unit change is a percentage point change. 
+
+A percent change in a variable expressed in percentage points works just like any other variable. An increase from 4% to 15% in the unemployment rate is a 275% change ($\frac{15-4}{4} \times 100 = 275$).
+
+Another example: suppose a political poll is taken to assess the job approval of President Joe Biden. Suppose Joe's approval rating increased from 53% to 60%. Would we say Joe's approval increased 7%? No! His approval increased 7 percentage points. A 7% increase would be an increase from 53% to 56.7% ($53 \times 1.07 = 56.7$). In percent change terms, an increase from 53% to 60% is a 13.2% increase ($\frac{60-53}{53} \times 100 = 13.2$).
+
+As we have seen in previous examples of regression, when we include a variable that is not log-transformed, regression estimates the **unit change** in $y$ given a **unit change** in $x$. If a variable is expressed in units of percentages like unemployment or poverty, then a unit change for those variables is a percentage point change. 
+
+> Including a log-transformed variable in regression estimates percent changes in the variable(s) we transformed.
 
 One reason we may prefer to use percent change is if the variable in question has some underlying impact that differs depending on the initial value from which it changed. This too applies to measures of wealth or income. Suppose we estimate that a policy will, on average, increase peoples' incomes by 12,000 dollars. This average unit change does not quite capture the benefit of the policy. Imagine a society of two people. One person earns 20,000 dollars per year and the other earns 80,000 dollars. That 12,000 likely has a greater positive impact on the low-income individual than it does the high-income individual. Consequently, this can be expressed in percent change. The 12,000 represents a 60% increase in income for the low-income individual and 15% for the high-income individual. 
 

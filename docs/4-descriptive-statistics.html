@@ -196,7 +196,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.4.4</b> The normal distribution</a></li>
 <li class="chapter" data-level="4.4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-association"><i class="fa fa-check"></i><b>4.4.5</b> Measures of association</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.5</b> Key terms and concepts</a></li>
+<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#categorical-variables"><i class="fa fa-check"></i><b>4.5</b> Categorical Variables</a></li>
+<li class="chapter" data-level="4.6" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.6</b> Key terms and concepts</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-data-visualization.html"><a href="5-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
 <ul>
@@ -763,12 +764,12 @@ Figure 4.4: Infant Mortality Rates
 Figure 4.5: Centers of infant mortality rates
 </p>
 </div>
-<p>Which should we choose to report? We could report all three, but we should apply some professional judgment to this dilemma. After all, people generally do not like nuance and prefer one best number instead of deciphering the meaning from three, assuming they understand all three measures in the first place.</p>
+<p>Which measure of center should we choose to report? We could report all three, but we may want to apply some professional judgment. Providing three numbers to convey the typical value of a variable may confuse our audience.</p>
 <p>For continuous variables reported at several decimal places, a value may not occur more than once because of the precision. More importantly, because of this low probability of repeat values, the mode is not guaranteed to represent a typical value. If it only takes two occurrences to qualify as the mode, that second occurrence could be an extreme value.</p>
 <blockquote>
-<p>The mode is rarely used to describe continuous variables. The mode is commonly used to report the most frequent value of categorical or discrete variables with relatively few possible values, such as race, sex, political party, or number of TVs in a household.</p>
+<p>The mode is rarely used to describe continuous variables. Instead, the mode is commonly used to report the most frequent value of categorical or discrete variables with relatively few possible values, such as race, sex, political party.</p>
 </blockquote>
-<p>When choosing between mean and median, it usually comes down to the presence of extreme values or the extent to which a distribution is <strong>skewed</strong>. Skew pertains to the tails of a distribution–the taper to the left and right of its center. If the right or left tail extends far out from the center, we consider the distribution to be right- or left-skewed. Our distribution of infant mortality rates is right-skewed.</p>
+<p>When choosing between mean and median, the better choice depends on the presence of extreme values or the extent to which a distribution is <strong>skewed</strong>. Skew pertains to the tails of a distribution–the taper to the left and right of its center. If the right or left tail extends far out from the center, we consider the distribution to be right- or left-skewed. Our distribution of infant mortality rates is right-skewed.</p>
 <blockquote>
 <p>When a distribution is skewed, the median is generally a better choice for reporting its center than the mean. This is because the mean is sensitive to extreme values.</p>
 </blockquote>
@@ -778,6 +779,9 @@ Figure 4.5: Centers of infant mortality rates
 <div id="measures-of-spread" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Measures of spread</h3>
 <p>Measures of center convey the typical value of a distribution. The typical infant mortality rate is 26.7 or 15.6 depending on whether we choose to use mean or median, respectively. If we only had this measure, we would have no idea how far away the values are from the center. Are the infant mortality rates of most countries close to this center, or is the typical value not representative of most countries’ infant mortality rates? Measures of spread provide us this information.</p>
+<blockquote>
+<p>Measures of spread convey how much values typically deviate from the typical value (i.e., center), or how different observations are from each other with respect to the variable being described.</p>
+</blockquote>
 <div id="variance" class="section level4 unnumbered">
 <h4>Variance</h4>
 <p>Almost all values of a numerical variable, especially a continuous variable, do not equal the mean. The difference between a particular value and the mean of the variable is often referred to as <strong>deviation from the mean</strong>. The variance squares each observation’s deviation from the mean, sums all the deviations, and divides this sum by the total count of observations minus one. Equation <a href="4-descriptive-statistics.html#eq:variance">(4.2)</a> displays this process using mathematical notation.</p>
@@ -799,88 +803,100 @@ Figure 4.5: Centers of infant mortality rates
 <tbody>
 <tr class="odd">
 <td align="left">Afghanistan</td>
-<td align="right">121.63</td>
-<td align="right">94.93</td>
-<td align="right">9011.705</td>
+<td align="right">122</td>
+<td align="right">95</td>
+<td align="right">9012</td>
 </tr>
 <tr class="even">
 <td align="left">Niger</td>
-<td align="right">109.98</td>
-<td align="right">83.28</td>
-<td align="right">6935.558</td>
+<td align="right">110</td>
+<td align="right">83</td>
+<td align="right">6936</td>
 </tr>
 <tr class="odd">
 <td align="left">Mali</td>
-<td align="right">109.08</td>
-<td align="right">82.38</td>
-<td align="right">6786.464</td>
+<td align="right">109</td>
+<td align="right">82</td>
+<td align="right">6786</td>
 </tr>
 <tr class="even">
 <td align="left">Somalia</td>
-<td align="right">103.72</td>
-<td align="right">77.02</td>
-<td align="right">5932.080</td>
+<td align="right">104</td>
+<td align="right">77</td>
+<td align="right">5932</td>
 </tr>
 <tr class="odd">
 <td align="left">Central African Republic</td>
-<td align="right">97.17</td>
-<td align="right">70.47</td>
-<td align="right">4966.021</td>
+<td align="right">97</td>
+<td align="right">70</td>
+<td align="right">4966</td>
 </tr>
 </tbody>
 </table>
+<p>Variance is an important building block for inference, but it is useless to report as a descriptive measure because it is in squared units. If someone asks how far values are spread out from the mean, it makes no sense to report that values deviate from the mean by 672 squared infant deaths.</p>
 </div>
 <div id="standard-deviation" class="section level4 unnumbered">
 <h4>Standard deviation</h4>
-<p>Variance is an important building block for inference, but it is essentially useless as a descriptive measure because it is in squared units. If someone asks how far values are spread out from the mean, it would not help much to report values deviate from the mean by 672 squared-deaths.</p>
 <p>The standard deviation is simply the square root of variance, which returns our units to their original meaning.</p>
 <p><span class="math display" id="eq:sd">\[\begin{equation}
 {\displaystyle s = \sqrt{S^2}}
 \tag{4.3}
 \end{equation}\]</span></p>
-<p>The standard deviation in the infant mortality rates data is 25.9. This tells us that, on average, infant mortality rates are about 26 deaths above or below the mean.</p>
+<p>The standard deviation in the infant mortality rates data is 25.9. This tells us that, <em>on average</em>, infant mortality rates are about 26 deaths above and below the mean.</p>
 <blockquote>
-<p>The inuition of the mean and standard deviation is useful for understanding probability and inferential statistics. The mean is the typical value of a variable. The standard deviation is the typical deviation from the mean. If we had to guess a value drawn randomly from a variable, our best guess is the mean as long as the variable is not highly skewed. If we had to guess how far off that randomly drawn value will be from the mean, our best guess is the standard deviation.</p>
+<p>The standard deviation is the average deviation from the mean.</p>
 </blockquote>
 </div>
 <div id="interquartile-range" class="section level4 unnumbered">
 <h4>Interquartile range</h4>
-<p>Recall that the median is the 50th percentile of a distribution–half of the values fall below the median and half fall above it. Two additional percentiles sometimes reported are the 75th and 25th percentiles. The 75th percentile is the value at which 75% of values fall below and 25% fall above it, while the 25th percentile is the value at which 25% of values fall below and 75% fall above it.</p>
-<p>The IQR is equal to the 75th percentile minus the 25th percentile, thus providing the range that captures the middle 50% of the values in the distribution. The IQR for infant mortality rates is 35.6. Alternatively, the IQR can be reported by specifying the 75th and 25th percentiles, leaving the consumer to compute the difference between the two. The 75th percentile for infant mortality rates is 42.1, while the 25th percentile is 6.5.</p>
+<p>Recall that the median is the 50th percentile of a distribution–half of the values fall below the median and half fall above it. Two additional percentiles sometimes reported are the 75th and 25th percentiles. The 75th percentile is the value at which 75% of values fall below and 25% fall above it, while the 25th percentile is the value at which 25% of values fall below and 75% fall above it. All percentiles – from the 0th percentile (i.e., minimum) to the 100th percentile (i.e., maximum) – are interpreted this way.</p>
+<blockquote>
+<p>The interquartile range (IQR) is equal to the 75th percentile minus the 25th percentile. It provides the middle 50% of the values in a distribution.</p>
+</blockquote>
+<p>The IQR for infant mortality rates is 35.6. Alternatively, the IQR can be reported by specifying the 75th and 25th percentiles, leaving the reader to compute the difference between the two. The 75th percentile for infant mortality rates is 42.1, and the 25th percentile is 6.5.</p>
 </div>
 <div id="range" class="section level4 unnumbered">
 <h4>Range</h4>
-<p>The range is the maximum value in a distribution minus the minimum value of a distribution. Usually, the range is left implied in a table of summary statistics by reporting the maximum and minimum without differencing the two. The minimum of infant mortality rates is 1.8, and the maximum is 121.63. Therefore, the range of the distribution is 119.8.</p>
+<blockquote>
+<p>The range is the maximum value in a distribution minus the minimum value of a distribution. It conveys how different are the most different observations with respect to the variable being described.</p>
+</blockquote>
+<p>Usually, the range is left implied in a table of summary statistics by reporting the maximum and minimum without differencing the two. This allows the reader to know the most extreme values in a distribution.</p>
+<p>The minimum of infant mortality rates is 1.8, and the maximum is 121.63. Therefore, the range of the distribution is 119.8.</p>
+<p>In the case of infant mortality rates, we know the minimum possible value is 0 by definition, but the minimum value in our distribution is 1.8. Perhaps 0 deaths is impossible for any country to achieve. Moreover, the maximum value is 121.63. This range tells us the most different countries are <em>very</em> different.</p>
 </div>
 <div id="choosing-a-measure-of-spread" class="section level4 unnumbered">
 <h4>Choosing a measure of spread</h4>
 <p>The same logic applies to choosing a measure of spread as choosing a measure of center. The standard deviation is based on the mean, and so it is also sensitive to extreme values that, if present, could exaggerate the typical spread of the distribution. The IQR is based on percentiles just like the median. Therefore, IQR is not sensitive to extreme values.</p>
 <p>Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> displays the mean and plus-and-minus one standard deviation using red dashed and solid lines, respectively. The median and the IQR (25th and 75th percentiles) are represented by the purple dashed and solid lines, respectively. Note how wide the area contained by the standard deviation is–it contains most of the distribution and the lower bound of 0.7 is lower than the minimum observed value of 1.8.</p>
-<p>Standard deviation is arguably not good for conveying the typical deviation from the center, as it contains plenty of values that are rather atypical deviations from the center. In the case of describing the distribution of infant mortality rates, the median and IQR are probably a better choice.</p>
+<p>In this case, standard deviation is not preferable for conveying the typical deviation from the center, as it contains plenty of values that are rather atypical deviations from the center (a center that is also flawed by using the mean). For describing the distribution of infant mortality rates, the median and IQR are better choices.</p>
 <div class="figure" style="text-align: center"><span id="fig:mortspread"></span>
 <img src="data-apps-text_files/figure-html/mortspread-1.png" alt="Center and spread of infant mortality rates" width="\textwidth" />
 <p class="caption">
 Figure 4.6: Center and spread of infant mortality rates
 </p>
 </div>
-<p>In most cases, the range (or minimum and maximum values) should be reported along with either the mean and standard deviation or median and IQR (or 25th and 75th percentiles), especially when a distribution is skewed. In addition to signaling the skew of a distribution, the range helps convey what may be the possible values of a variable and how different the most different units in the data are with respect to that variable.</p>
-<p>In the case of infant mortality rates, we know the minimum possible value is 0 by definition, but the minimum value in our distribution is 1.8. Perhaps 0 deaths is unrealistic for any country. Moreover, the maximum value is 121.63. This range, along with the median and IQR, tells us the most different countries are <em>very</em> different.</p>
 </div>
 </div>
 <div id="outliers" class="section level3" number="4.4.3">
 <h3><span class="header-section-number">4.4.3</span> Outliers</h3>
-<p>Outliers refer to weird observations in our data whose inclusion may affect the conclusions we draw from our analysis. There are at least two points about outliers that can cause confusion and mistakes:</p>
-<ul>
-<li>There is no definitive threshold at which an observation can becomes an outlier.</li>
-<li>Outliers should not necessarily be excluded from an analysis. It depends on the context. We may only care about making conclusions for typical cases. If so, removing outliers may be warranted. However, atypical cases may be an important part of the story.</li>
-</ul>
-<p>While there is no single definition of an outlier, the most common definition uses <span class="math inline">\(1.5 \times IQR\)</span>. Values that are more than <span class="math inline">\(1.5 \times IQR\)</span> below the 25th percentile are outliers on the left side of the distribution. Values that are more than <span class="math inline">\(1.5 \times IQR\)</span> above the 75th percentile are outliers on the right side of the distribution.</p>
-<p>Recall that the IQR of infant mortality rates depicted in Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> was 35.6 with 25th and 75th percentiles of 6.5 and 42.1, respectively. Applying the above definition, 1.5 times 35.6 equals 53.5. Therefore, values that fall below -46.9 ( <span class="math inline">\(6.5 - 53.4\)</span> ) are outliers, but this is impossible given our variable is infant mortality rates. Values above 95.5 ( <span class="math inline">\(42.1 + 53.4\)</span> ) are outliers on the right end of the distribution. Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> indicates there are a few outliers in our data based on this definition.</p>
+<blockquote>
+<p>Outliers refer to extreme values, the inclusion of which may lead to worse conclusions than if they were excluded from a statistical analysis.</p>
+</blockquote>
+<p>An outlier could be due to data entry error. In the case of error, the value should be corrected, if possible, or removed from the data. If not an error in the data, it is important to recognize that an outlier is a real occurrence. The removal of real data should be done only after careful consideration of the consequences and should always be reported. Outliers should not necessarily be excluded from an analysis. It depends on the context. We may only care about making conclusions for typical cases. If so, removing outliers may be warranted. However, atypical cases may be an important part of the story. The Great Depression and Recession involved atypical stock market crashes, but you would not want them excluded from a description of annual stock market returns.</p>
+<p>There is no single definition of an outlier, but the most common definition uses <span class="math inline">\(1.5 \times IQR\)</span>. Values that are more than <span class="math inline">\(1.5 \times IQR\)</span> below the 25th percentile are outliers on the left side of the distribution. Values that are more than <span class="math inline">\(1.5 \times IQR\)</span> above the 75th percentile are outliers on the right side of the distribution.</p>
+<p>Recall that the IQR of infant mortality rates depicted in Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> was 35.6 with 25th and 75th percentiles of 6.5 and 42.1, respectively. Applying the common definition of an outlier, we get:</p>
+<p><span class="math display">\[1.5 \times 35.6 = 53.5\]</span></p>
+<p>Subtracting this value from the 25th percentile of 6.5 gives us a lower-bound for identifying outliers.</p>
+<p><span class="math display">\[6.5-53.4=-46.9\]</span></p>
+<p>Therefore, values that fall below -46.9 are outliers, but this is impossible given our variable is infant mortality rates.</p>
+<p>Adding this value to the 75th percentile of 42.1 gives us a upper-bound for identifying outliers.</p>
+<p><span class="math display">\[42.1+53.4=95.5\]</span></p>
+<p>Therefore, values above 95.5 could be considered outliers on the right end of the distribution. Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> indicates there are a few outliers in our data based on this definition.</p>
 </div>
 <div id="the-normal-distribution" class="section level3" number="4.4.4">
 <h3><span class="header-section-number">4.4.4</span> The normal distribution</h3>
 <p>As a brief aside, it should be mentioned that if a distribution is <strong>normal</strong>, then measures of center and spread will be similar to each other. This is one of several desirable features of the normal distribution.</p>
-<p>Figure <a href="4-descriptive-statistics.html#fig:normrates">4.7</a> shows a simulated scenario in which the infant mortality rates in our 222 countries exhibit a normal distribution. Note the peaks in the center and symmetry. There is no skew.</p>
+<p>Figure <a href="4-descriptive-statistics.html#fig:normrates">4.7</a> shows a simulated scenario in which the infant mortality rates in our 222 countries exhibit an approximately normal distribution. Note the peak near the center of the distribution and the symmetry of the spread. There is no notable skew.</p>
 <div class="figure" style="text-align: center"><span id="fig:normrates"></span>
 <img src="data-apps-text_files/figure-html/normrates-1.png" alt="Simulated normal distribution of infant mortality rates" width="\textwidth" />
 <p class="caption">
@@ -909,7 +925,7 @@ Figure 4.7: Simulated normal distribution of infant mortality rates
 </tr>
 </tbody>
 </table>
-<p>Again, the normal distribution has several desirable features that will be discussed further in the chapters pertaining to inference. One is that if a distribution is approximately normal, then extreme values are not a concern and the mean and standard deviation are good measures of center and spread, respectively. Besides making our choice of measures convenient, why is this worth repeating? Because the mean and standard deviation are building blocks to the next category of descriptive measures: association. If mean and standard deviation are bad choices of center and spread, then our measures of association will be negatively affected.</p>
+<p>Again, the normal distribution has several desirable features that will be discussed further in the chapters pertaining to inference. One is that if a distribution is approximately normal, then extreme values are not a concern and the mean and standard deviation are good measures of center and spread, respectively. Besides making our choice of measures convenient, why is this worth repeating? Because the mean and standard deviation are building blocks to the next category of descriptive measures: association. If mean and standard deviation are bad choices of center and spread, then our measures of association will be adversely affected.</p>
 </div>
 <div id="measures-of-association" class="section level3" number="4.4.5">
 <h3><span class="header-section-number">4.4.5</span> Measures of association</h3>
@@ -958,8 +974,8 @@ Figure 4.7: Simulated normal distribution of infant mortality rates
 </tr>
 </tbody>
 </table>
-<p>Recalling that the mean infant mortality rate is about 26, the five countries included are in the right tail of the distribution. Also, you probably know enough about life expectancy to know that the values for these countries are quite low. Perhaps these two variables share a relationship?</p>
-<p>In fact, we know they do. Life expectancy in a given year is the average age at which people in that country died. If a country has a high frequency of infants dying, then that will pull the mean downward. A common misunderstanding of life expectancy is that people in that country tend to die at the age of the country’s life expectancy. This is certainly not the case if a country has a high infant mortality rate. While adults in countries with low life expectancy may die somewhat younger (or much younger if it is a war-torn country), adults tend to live longer than the average life expectancy. The key is making it out of infancy alive.</p>
+<p>Recalling that the mean infant mortality rate is about 26, the five countries included are in the right tail of the distribution. Also, you probably know enough about life expectancy to know that the values for these countries are quite low. Perhaps these two variables are associated?</p>
+<p>In fact, we know they are associated. Life expectancy in a given year is the average age at which people in that country died. If a country has a high frequency of infants dying, then that will pull the mean downward. A common misunderstanding of life expectancy is that people in that country tend to die at the age of the country’s life expectancy. This is certainly not the case if a country has a high infant mortality rate. While adults in countries with low life expectancy may die younger, adults tend to live longer than the average life expectancy suggests. The key is making it out of infancy alive.</p>
 <div id="visual-association" class="section level4 unnumbered">
 <h4>Visual association</h4>
 <p>As was the case with one variable, we want to visualize the distributions of two variables. When working with two continuous variables, the <strong>scatter plot</strong> is the most common choice to visualize association between two variables. Figure <a href="4-descriptive-statistics.html#fig:scatterlifedeath">4.8</a> plots the paired values of infant mortality rate and life expectancy for each country.</p>
@@ -977,8 +993,8 @@ Figure 4.8: Visualizing association between two continuous variables
 <p>As was the case with one variable, we want to describe the association between two variables using quantitative measures. The association between two or more variables can be described in terms of</p>
 <ul>
 <li><strong>Direction:</strong> when one variable increases, does the other variable increase or decrease?</li>
-<li><strong>Strength:</strong> how much do the variables seem to be tied together?</li>
-<li><strong>Magnitude:</strong> given an specific increase or decrease in one variable, by how much does the other variable increase or decrease?</li>
+<li><strong>Strength:</strong> the extent to which one variable responds proportionally to another.</li>
+<li><strong>Magnitude:</strong> given a specific increase or decrease in one variable, by how much does the other variable increase or decrease?</li>
 </ul>
 <p>There are several measures one can use to answer the above question.</p>
 <blockquote>
@@ -989,7 +1005,7 @@ Figure 4.8: Visualizing association between two continuous variables
 <li><strong>Coefficient of determination ( <span class="math inline">\(R^2\)</span> ):</strong> measures the strength of association between a set of one or more explanatory variables and an outcome variable</li>
 </ul>
 </blockquote>
-<p>The regression coefficient and coefficient of determination are discussed in Chapter <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a> involving regression models. Let us briefly consider covariance and correlation.</p>
+<p>The regression coefficient will be the focus for much of the remainder of this text beginning with Chapter <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a>. Covariance and the correlation coefficient are briefly considered below.</p>
 </div>
 <div id="covariance" class="section level4 unnumbered">
 <h4>Covariance</h4>
@@ -1001,13 +1017,13 @@ Figure 4.8: Visualizing association between two continuous variables
 Figure 4.9: Visualizing covariance
 </p>
 </div>
-<p>Covariance is the association analog of variance. It is an important building block of other measures of association, but it is essentially useless for description because it only tells us the direction of association. Correlation tells us the direction and strength of association. Therefore, covariance is never used for description because correlation provides us twice as much information.</p>
+<p>Covariance is the association analog of variance. It is an important building block of other measures of association, but it is essentially useless for description because it only tells us the direction of association. The correlation coefficient tells us the direction and strength of association. Therefore, covariance is never used for description because correlation provides us twice as much information.</p>
 </div>
 <div id="correlation" class="section level4 unnumbered">
 <h4>Correlation</h4>
 <p>If <span class="math inline">\(Y\)</span> tends to increase (decrease) as <span class="math inline">\(X\)</span> increases (decreases), then the two are positively correlated. That is, the two variables tend to move in the same direction. If <span class="math inline">\(Y\)</span> tends to increase (decrease) as <span class="math inline">\(X\)</span> decreases (increases), then the two are negatively correlated. That is, the two variables tend to move in opposite directions. Correlation tells us how much the paired values of two variables in a scatterplot exhibit a straight line and whether that straight line is positively or negatively sloped.</p>
 <p>The correlation coefficient ranges between -1 and 1. If it is negative, then the two variables are negatively associated. If it is positive, the two variables are positively associated. The closer the correlation coefficient of two variables is to -1 or 1, the stronger their correlation and the more the two variables exhibit a straight line in a scatterplot. A correlation equal to -1 or 1 indicates the two variables form a perfect straight line. If two variables exhibit no shared tendencies and form what appears to be a random scattering of plot points, than their correlation will be close or equal to 0.</p>
-<p>Based on the covariance and Figure <a href="4-descriptive-statistics.html#fig:scattercovar">4.9</a>, we know to expect a negative correlation between infant mortality rate and life expectancy. We also know the correlation will not be -1 because the points do not form a perfect straight line. Nevertheless, they do form a fairly tight downward path, so we should expect a correlation closer to -1 than 0. It turns out that the correlation is equal to -0.9. Infant mortality rate and life expectancy exhibit a strong, negative association.</p>
+<p>Based on the covariance and Figure <a href="4-descriptive-statistics.html#fig:scattercovar">4.9</a>, we know to expect a negative correlation between infant mortality rate and life expectancy. We also know the correlation will not be -1 because the points do not form a perfect straight line. Nevertheless, they do form a fairly tight downward path, so we should expect a correlation closer to -1 than 0. It turns out that the correlation is equal to -0.9. Infant mortality rate and life expectancy exhibit a strong, negative association. As infant mortality increases, life expectancy decreases.</p>
 <p>If we imagined drawing a line through the data points on our scatterplot from left to right that could freely curve according to however the data are scattered, would that line be a straight line and would it slope upward or downward? Figure <a href="4-descriptive-statistics.html#fig:scattercorr">4.10</a> does exactly that with our data. Note that the data points lead the line to slope downward almost throughout the range of observed values. In the upper-left quadrant, the data points are tightly clustered around the line, indicating a strong correlation. In the bottom-right quadrant, the data points begin to spread further away from the line, indicating a weaker correlation. The line also begins to turn in the positive direction, which lowers the correlation coefficient.</p>
 <div class="figure" style="text-align: center"><span id="fig:scattercorr"></span>
 <img src="data-apps-text_files/figure-html/scattercorr-1.png" alt="Drawing a free line through the data" width="\textwidth" />
@@ -1016,15 +1032,63 @@ Figure 4.10: Drawing a free line through the data
 </p>
 </div>
 <p>The correlation coefficient has three qualities that can lead to misunderstandings or mistakes. First, <strong>correlation is sensitive to extreme values</strong>. A few points on a scatterplot can impose undue influence on the line that is drawn through the data, causing the correlation coefficient to increase or decrease dramatically. Second, <strong>correlation measures only the linear association</strong>. If two variables formed a perfect U-shape in a scatterplot, they are strongly associated. However, their correlation coefficient would suggest a weaker relationship because a straight line does not fit a U-shape well. Third, <strong>correlation is a necessary but not sufficient condition for causality</strong>. In order to validly claim that a change in the value of one variable <em>causes</em> the values of another variable to change, they must be correlated, but a few more conditions must also be met. Those conditions are discussed in Chapter <a href="9-causation-and-bias.html#causation-and-bias">9</a>.</p>
+</div>
+</div>
+</div>
+<div id="categorical-variables" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Categorical Variables</h2>
+<p>Categorical variables, especially nominal variables, do not have a continuous distribution to calculate descriptive measures of center and spread. Figure <a href="4-descriptive-statistics.html#fig:ncwhitemom">4.11</a> below visualizes the race of 800 pregnant women coded as two levels: white or not white. Note that it would not make sense to calculate a mean or median for this variable (technically, a two-level variable can be coded as 0 or 1, then the mean equals the proportion of observations labeled as 1). Mode is a sensible choice in this case, but it does not convey much information. If we had a variable with more levels, such as a 5-point Likert scale within a satisfaction survey, it may be of more interest to know which response was the most frequent.</p>
+<div class="figure" style="text-align: center"><span id="fig:ncwhitemom"></span>
+<img src="data-apps-text_files/figure-html/ncwhitemom-1.png" alt="Full-term and Premature Births in North Carolina" width="\textwidth" />
+<p class="caption">
+Figure 4.11: Full-term and Premature Births in North Carolina
+</p>
+</div>
+<p>The information in Figure <a href="4-descriptive-statistics.html#fig:ncwhitemom">4.11</a> can be presented in a table like the one below.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Race</th>
+<th align="right">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">not white</td>
+<td align="right">182</td>
+</tr>
+<tr class="even">
+<td align="left">white</td>
+<td align="right">618</td>
+</tr>
+</tbody>
+</table>
+<p>We usually want to provide the <em>frequency</em> of the different levels in terms of proportion or percentage like in Table <a href="#tab:whiteprop"><strong>??</strong></a> below, which is commonly referred to as a <strong>frequency table</strong>. Here, we see that 77% of the pregnant women in this sample are white.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Race</th>
+<th align="right">Proportion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">not white</td>
+<td align="right">0.23</td>
+</tr>
+<tr class="even">
+<td align="left">white</td>
+<td align="right">0.77</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 <blockquote>
-<p><strong>To learn how to produce a summary table for a publication, proceed to Chapter <a href="19-r-description.html#r-description">19</a>.</strong></p>
+<p><strong>To learn how to quickly compute descriptive statistics and produce professional-looking tables, proceed to Chapter <a href="19-r-description.html#r-description">19</a>.</strong></p>
 </blockquote>
 </div>
-</div>
-</div>
-<div id="kt4" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Key terms and concepts</h2>
+<div id="kt4" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Key terms and concepts</h2>
 <ul>
 <li>Descriptive statistics</li>
 <li>Inferential statistics</li>

@@ -196,7 +196,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.4" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#the-normal-distribution"><i class="fa fa-check"></i><b>4.4.4</b> The normal distribution</a></li>
 <li class="chapter" data-level="4.4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#measures-of-association"><i class="fa fa-check"></i><b>4.4.5</b> Measures of association</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.5</b> Key terms and concepts</a></li>
+<li class="chapter" data-level="4.5" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#categorical-variables"><i class="fa fa-check"></i><b>4.5</b> Categorical Variables</a></li>
+<li class="chapter" data-level="4.6" data-path="4-descriptive-statistics.html"><a href="4-descriptive-statistics.html#kt4"><i class="fa fa-check"></i><b>4.6</b> Key terms and concepts</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="5-data-visualization.html"><a href="5-data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
 <ul>
@@ -594,7 +595,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4>Install Packages</h4>
 <p>Just like your phone, you have to first install a R package to use it. In your phone’s case, you go to your app store and download an application that will then show up on your screen.</p>
 <p>Installing packages via RStudio is essentially the same. To install R packages, we type the following generic code <strong>into the console pane</strong> (bottom-left).</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="16-r-chapter-introduction.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;name_of_package&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="16-r-chapter-introduction.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;name_of_package&quot;</span>)</span></code></pre></div>
 <p>Where <code>"name_of_package"</code> is replaced with the actual name of the R package we want to install. This code accesses R’s “app store” and downloads it to your computer. You only need to install a R package once. The package is saved on your computer where R can find it.</p>
 <p><br></p>
 <blockquote>
@@ -611,7 +612,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4>Load Packages</h4>
 <p>When an application is installed on your phone, you still have to launch it (i.e. click on it) to use it. The same goes for using a R package. Each time you launch RStudio, you need to load the package(s) that contain the functions you plan to use. Closing RStudio is like shutting off your phone. When you open your phone, an application isn’t running in the background unless you previously launched it.</p>
 <p>Therefore, you should load needed R packages each time you open RStudio. And because you want your code to work each time you or someone else tries to run it, you should include this in your saved code. This means you should load R packages in the source editor pane (top-left) whether it be an R script of R markdown document. The following generic code is used to load a package.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="16-r-chapter-introduction.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(name_of_package)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="16-r-chapter-introduction.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(name_of_package)</span></code></pre></div>
 <blockquote>
 <p>You need not use quotes around the name of the R package when loading it. Quotes are only needed to install, not load.</p>
 </blockquote>
