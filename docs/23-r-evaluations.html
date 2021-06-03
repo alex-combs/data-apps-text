@@ -394,10 +394,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="19.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
 <li class="chapter" data-level="19.3" data-path="19-r-description.html"><a href="19-r-description.html#introduction"><i class="fa fa-check"></i><b>19.3</b> Introduction</a></li>
-<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#individual-stats"><i class="fa fa-check"></i><b>19.4</b> Individual Stats</a></li>
+<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#quick-stat-computation"><i class="fa fa-check"></i><b>19.4</b> Quick Stat Computation</a></li>
 <li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.5</b> Summary Table</a>
 <ul>
-<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#background-table"><i class="fa fa-check"></i><b>19.5.1</b> Background Table</a></li>
+<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#quick-table"><i class="fa fa-check"></i><b>19.5.1</b> Quick Table</a></li>
 <li class="chapter" data-level="19.5.2" data-path="19-r-description.html"><a href="19-r-description.html#using-arsenal"><i class="fa fa-check"></i><b>19.5.2</b> Using Arsenal</a></li>
 <li class="chapter" data-level="19.5.3" data-path="19-r-description.html"><a href="19-r-description.html#adjustments-to-arsenal"><i class="fa fa-check"></i><b>19.5.3</b> Adjustments to Arsenal</a></li>
 <li class="chapter" data-level="19.5.4" data-path="19-r-description.html"><a href="19-r-description.html#export-to-csv"><i class="fa fa-check"></i><b>19.5.4</b> Export to CSV</a></li>
@@ -573,7 +573,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Below is the code used to produce the cross-tab from Chapter <a href="11-hypothesis-testing.html#hypothesis-testing">11</a>. I save the new table as <code>polltable</code>. Using the <code>table</code> function, I tell R which two variables from the <code>poll</code> dataset to cross-tabulate. The <code>$</code> is how we identify a specific variable within a dataset. The levels of the first variable, <code>response</code>, will be tabulated by row, while the frequency of the levels of the second variable, <code>party</code>, will be tabulated by column.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="23-r-evaluations.html#cb136-1" aria-hidden="true" tabindex="-1"></a>polltable <span class="ot">&lt;-</span> <span class="fu">table</span>(poll<span class="sc">$</span>response, poll<span class="sc">$</span>party)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-188">Table 23.1: </span>Response by political party</caption>
+<caption><span id="tab:unnamed-chunk-190">Table 23.1: </span>Response by political party</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>

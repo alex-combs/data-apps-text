@@ -36,7 +36,7 @@ library(carData)
 
 ## Introduction
 
-Summary statistics tables are ubiquitous in reports and studies. Usually a project involves numerous variables that would require too many visualizations, though we should still consider visualizations for the most important variables. A standard table of summary stats provides readers a reference for key measures pertaining to all our variables in a fairly compact form.
+Summary statistics tables are ubiquitous in reports and studies. Usually a dataset involves numerous variables that would require too many visualizations, though we should still consider visualizations for the most important variables. A standard table of summary stats provides readers a reference for key measures pertaining to all our variables in a fairly compact form.
 
 In this chapter, we set out to summarize variables within the `States` dataset of the `carData` package.
 
@@ -50,13 +50,13 @@ glimpse(States)
 
 `States` is a cross-section of the 50 states and D.C. containing education and related statistics. Be sure to skim the documentation for `States` to understand each variable. You can do that by clicking on the `carData` package under the Packages tab then clicking on the `States` link.
 
-## Individual Stats
+## Quick Stat Computation
 
-Before producing a table of descriptive statistics, it is helpful to review how one would tell R to compute each statistic covered in Chapter \@ref(descriptive-statistics) individually.
+Instead of producing a full table of descriptive statistics, sometimes we just want to know one or two descriptive measures of a single variable.
 
 > Because R can hold many datasets/objects at once, we need to tell it which dataset/object to apply a given function. We have had to do this many times already. Similarly, if we want R to apply a function to a *specific variable* within a dataset, we need to tell which variable in which dataset. This is done using the `$` operator.
 
-Below are all of the useful descriptive measures of center and spread applied to the `pay` (i.e. average teacher's salary in 1,000s) variable in the `States` dataset.
+Below are all of the useful descriptive measures of center and spread applied to the `pay` (i.e. average teacher's salary in 1,000s) variable in the `States` dataset. Note that the `$` operator tells R to apply the function to a specific variable within a dataset.
 
 ```{r}
 mean(States$pay)
@@ -85,7 +85,7 @@ Summary tables come in many styles, so there is no way to cover everything. In m
 
 If a variable is skewed, then it may be wise to replace the mean and standard deviation with the median and IQR. We will learn how to do this.
 
-### Background Table
+### Quick Table
 
 Sometimes we do not want to print a fancy table. Rather, we may want to quickly see a full set of descriptive statistics for ourselves that our reader will never see. This can be done using the `summary` function on our dataset like so:
 
@@ -93,10 +93,10 @@ Sometimes we do not want to print a fancy table. Rather, we may want to quickly 
 summary(gapminder)
 ```
 
-We would almost certainly want to suppress this code and output (i.e. `include=FALSE` code chunk option) if preparing a report for an external audience.
+We would almost certainly want to suppress this code and output (i.e. `include=FALSE` code chunk option) if preparing a report for an external audience. Note that for the categorical variables, country and continent, `summary` provides the count of observations instead of measures of center or spread.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 3:**  Generate a background table of descriptive statistics for all of the variables in `States`. Suppress the code and output.
+**Exercise 3:**  Generate a quick table of descriptive statistics for all of the variables in `States`. Suppress the code and output.
 ```
 
 ### Using Arsenal
@@ -129,7 +129,7 @@ Therefore, in the above code I use the `labels` function on the `sum.gapminder` 
 summary(sum.gapminder, title = "Summary Stats for Gapminder Data")
 ```
 
-This last line of code actually prints the summary table when I knit my document. The previous two steps can be included in the same code chunk, but **this function needs to have its own code chunk because**
+This last line of code actually prints the summary table when I knit my document. The previous two steps (`tableby` and `labels`) can be included in the same code chunk, but **this third step needs to have its own code chunk because**
 
 > you need to include a specific code chunk option, `results='asis'`, in order for the table to export properly. To be clear, in the top line of a code chunk that contains `{r}` by default, you need to change it to `{r, results='asis', echo=FALSE}`. I also include the `echo=FALSE` option assuming we do not want our reader to see our code.
 

@@ -448,7 +448,7 @@ ncbirths <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTm2WZwNBo
 
 Categorical variables, especially nominal variables, do not have a continuous distribution to calculate descriptive measures of center and spread. Figure \@ref(fig:ncwhitemom) below visualizes the race of 800 pregnant women coded as two levels: white or not white. Note that it would not make sense to calculate a mean or median for this variable (technically, a two-level variable can be coded as 0 or 1, then the mean equals the proportion of observations labeled as 1). Mode is a sensible choice in this case, but it does not convey much information. If we had a variable with more levels, such as a 5-point Likert scale within a satisfaction survey, it may be of more interest to know which response was the most frequent.
 
-```{r ncwhitemom, echo=FALSE, fig.align='center', fig.cap="Full-term and Premature Births in North Carolina"}
+```{r ncwhitemom, echo=FALSE, fig.align='center', fig.cap="Race of a sample of pregnant women in North Carolina"}
 ggplot(ncbirths, aes(x = whitemom)) +
   geom_bar(fill = 'steelblue') +
   theme_minimal() +
@@ -463,12 +463,32 @@ The information in Figure \@ref(fig:ncwhitemom) can be presented in a table like
   kable(col.names = c('Race', 'Count'))
 ```
 
-We usually want to provide the *frequency* of the different levels in terms of proportion or percentage like in Table \@ref(tab:whiteprop) below, which is commonly referred to as a **frequency table**. Here, we see that 77% of the pregnant women in this sample are white.
+We usually want to provide the *frequency* of the different levels in terms of proportion or percentage like in the table below, which is commonly referred to as a **frequency table**. Here, we see that 77% of the pregnant women in this sample are white.
 
 ```{r whiteprop, echo=FALSE}
 prop.table(white.table) %>% 
   kable(digits = 2, col.names = c('Race', 'Proportion'))
 ```
+
+To convey a possible association between two categorical variables without using a visualization, we can use a **contingency table**. Below is a contingency table for whether a mother in this sample was smoker and whether they had a premature birth.
+
+```{r, echo=FALSE}
+mytable <- table(ncbirths$habit, ncbirths$premie) 
+
+mytable.1 <- addmargins(mytable) 
+
+kable(mytable.1)
+```
+
+This is a simple example where we have a variable, smoking, we may suspect to be the cause of another variable, premature birth. In such cases, we should place the cause (smoking) along the rows and the outcome (premature birth) along the columns. Then, we should provide the reader the frequency of the outcome, given each value of the cause. In the table above, the reader can do this by taking each value in one row and dividing by the total in the row. For example, among non-smokers, 87% carried full-term (625/(625+91)) and 13% had a premature birth. Alternatively, we could provide these frequencies directly in a table like below.
+
+```{r, echo=FALSE}
+prop.table(mytable, 1) %>% 
+  kable(digits = 2)
+```
+
+Now we can see that pregnant women in this sample who smoked had a higher frequency of premature births, 18% as opposed to 13% among non-smokers. Should we conclude that smoking causes an increase in the likelihood of premature birth? Not yet! Remember, correlation is not causation. So far, we have merely described an association between two variables. Broader conclusions like smoking causing an outcome requires inference. The most we can conclude from the above contingency table is that pregnant women in this sample who smoked had a higher proportion of premature births than the women in this sample who did not smoke. 
+
 
 <br>
 

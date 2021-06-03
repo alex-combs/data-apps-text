@@ -394,10 +394,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="19.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
 <li class="chapter" data-level="19.3" data-path="19-r-description.html"><a href="19-r-description.html#introduction"><i class="fa fa-check"></i><b>19.3</b> Introduction</a></li>
-<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#individual-stats"><i class="fa fa-check"></i><b>19.4</b> Individual Stats</a></li>
+<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#quick-stat-computation"><i class="fa fa-check"></i><b>19.4</b> Quick Stat Computation</a></li>
 <li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.5</b> Summary Table</a>
 <ul>
-<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#background-table"><i class="fa fa-check"></i><b>19.5.1</b> Background Table</a></li>
+<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#quick-table"><i class="fa fa-check"></i><b>19.5.1</b> Quick Table</a></li>
 <li class="chapter" data-level="19.5.2" data-path="19-r-description.html"><a href="19-r-description.html#using-arsenal"><i class="fa fa-check"></i><b>19.5.2</b> Using Arsenal</a></li>
 <li class="chapter" data-level="19.5.3" data-path="19-r-description.html"><a href="19-r-description.html#adjustments-to-arsenal"><i class="fa fa-check"></i><b>19.5.3</b> Adjustments to Arsenal</a></li>
 <li class="chapter" data-level="19.5.4" data-path="19-r-description.html"><a href="19-r-description.html#export-to-csv"><i class="fa fa-check"></i><b>19.5.4</b> Export to CSV</a></li>
@@ -1039,9 +1039,9 @@ Figure 4.10: Drawing a free line through the data
 <h2><span class="header-section-number">4.5</span> Categorical Variables</h2>
 <p>Categorical variables, especially nominal variables, do not have a continuous distribution to calculate descriptive measures of center and spread. Figure <a href="4-descriptive-statistics.html#fig:ncwhitemom">4.11</a> below visualizes the race of 800 pregnant women coded as two levels: white or not white. Note that it would not make sense to calculate a mean or median for this variable (technically, a two-level variable can be coded as 0 or 1, then the mean equals the proportion of observations labeled as 1). Mode is a sensible choice in this case, but it does not convey much information. If we had a variable with more levels, such as a 5-point Likert scale within a satisfaction survey, it may be of more interest to know which response was the most frequent.</p>
 <div class="figure" style="text-align: center"><span id="fig:ncwhitemom"></span>
-<img src="data-apps-text_files/figure-html/ncwhitemom-1.png" alt="Full-term and Premature Births in North Carolina" width="\textwidth" />
+<img src="data-apps-text_files/figure-html/ncwhitemom-1.png" alt="Race of a sample of pregnant women in North Carolina" width="\textwidth" />
 <p class="caption">
-Figure 4.11: Full-term and Premature Births in North Carolina
+Figure 4.11: Race of a sample of pregnant women in North Carolina
 </p>
 </div>
 <p>The information in Figure <a href="4-descriptive-statistics.html#fig:ncwhitemom">4.11</a> can be presented in a table like the one below.</p>
@@ -1063,7 +1063,7 @@ Figure 4.11: Full-term and Premature Births in North Carolina
 </tr>
 </tbody>
 </table>
-<p>We usually want to provide the <em>frequency</em> of the different levels in terms of proportion or percentage like in Table <a href="#tab:whiteprop"><strong>??</strong></a> below, which is commonly referred to as a <strong>frequency table</strong>. Here, we see that 77% of the pregnant women in this sample are white.</p>
+<p>We usually want to provide the <em>frequency</em> of the different levels in terms of proportion or percentage like in the table below, which is commonly referred to as a <strong>frequency table</strong>. Here, we see that 77% of the pregnant women in this sample are white.</p>
 <table>
 <thead>
 <tr class="header">
@@ -1082,6 +1082,60 @@ Figure 4.11: Full-term and Premature Births in North Carolina
 </tr>
 </tbody>
 </table>
+<p>To convey a possible association between two categorical variables without using a visualization, we can use a <strong>contingency table</strong>. Below is a contingency table for whether a mother in this sample was smoker and whether they had a premature birth.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">full term</th>
+<th align="right">premie</th>
+<th align="right">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">nonsmoker</td>
+<td align="right">625</td>
+<td align="right">91</td>
+<td align="right">716</td>
+</tr>
+<tr class="even">
+<td align="left">smoker</td>
+<td align="right">69</td>
+<td align="right">15</td>
+<td align="right">84</td>
+</tr>
+<tr class="odd">
+<td align="left">Sum</td>
+<td align="right">694</td>
+<td align="right">106</td>
+<td align="right">800</td>
+</tr>
+</tbody>
+</table>
+<p>This is a simple example where we have a variable, smoking, we may suspect to be the cause of another variable, premature birth. In such cases, we should place the cause (smoking) along the rows and the outcome (premature birth) along the columns. Then, we should provide the reader the frequency of the outcome, given each value of the cause. In the table above, the reader can do this by taking each value in one row and dividing by the total in the row. For example, among non-smokers, 87% carried full-term (625/(625+91)) and 13% had a premature birth. Alternatively, we could provide these frequencies directly in a table like below.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">full term</th>
+<th align="right">premie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">nonsmoker</td>
+<td align="right">0.87</td>
+<td align="right">0.13</td>
+</tr>
+<tr class="even">
+<td align="left">smoker</td>
+<td align="right">0.82</td>
+<td align="right">0.18</td>
+</tr>
+</tbody>
+</table>
+<p>Now we can see that pregnant women in this sample who smoked had a higher frequency of premature births, 18% as opposed to 13% among non-smokers. Should we conclude that smoking causes an increase in the likelihood of premature birth? Not yet! Remember, correlation is not causation. So far, we have merely described an association between two variables. Broader conclusions like smoking causing an outcome requires inference. The most we can conclude from the above contingency table is that pregnant women in this sample who smoked had a higher proportion of premature births than the women in this sample who did not smoke.</p>
 <p><br></p>
 <blockquote>
 <p><strong>To learn how to quickly compute descriptive statistics and produce professional-looking tables, proceed to Chapter <a href="19-r-description.html#r-description">19</a>.</strong></p>

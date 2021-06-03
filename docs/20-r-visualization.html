@@ -394,10 +394,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="19.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
 <li class="chapter" data-level="19.3" data-path="19-r-description.html"><a href="19-r-description.html#introduction"><i class="fa fa-check"></i><b>19.3</b> Introduction</a></li>
-<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#individual-stats"><i class="fa fa-check"></i><b>19.4</b> Individual Stats</a></li>
+<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#quick-stat-computation"><i class="fa fa-check"></i><b>19.4</b> Quick Stat Computation</a></li>
 <li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.5</b> Summary Table</a>
 <ul>
-<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#background-table"><i class="fa fa-check"></i><b>19.5.1</b> Background Table</a></li>
+<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#quick-table"><i class="fa fa-check"></i><b>19.5.1</b> Quick Table</a></li>
 <li class="chapter" data-level="19.5.2" data-path="19-r-description.html"><a href="19-r-description.html#using-arsenal"><i class="fa fa-check"></i><b>19.5.2</b> Using Arsenal</a></li>
 <li class="chapter" data-level="19.5.3" data-path="19-r-description.html"><a href="19-r-description.html#adjustments-to-arsenal"><i class="fa fa-check"></i><b>19.5.3</b> Adjustments to Arsenal</a></li>
 <li class="chapter" data-level="19.5.4" data-path="19-r-description.html"><a href="19-r-description.html#export-to-csv"><i class="fa fa-check"></i><b>19.5.4</b> Export to CSV</a></li>
@@ -587,7 +587,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For example, the below code takes the variable <code>gdpPercap</code> from the dataset <code>gapminder</code> and maps it to the x axis <code>aes</code>thetic of a chosen <code>geom</code>etric object called a histogram.</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="20-r-visualization.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap)) <span class="sc">+</span></span>
 <span id="cb97-2"><a href="20-r-visualization.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<p><img src="data-apps-text_files/figure-html/unnamed-chunk-132-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
+<p><img src="data-apps-text_files/figure-html/unnamed-chunk-134-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Data, aesthetics, and geometries are the essential elements needed to generate a graph. If you tell R these three elements correctly, it will produce a graph. There are additional elements that can be added to make graphs be more effective or look better that will be covered in class.</p>
 <p>Aesthetics take variables in your data and assign them to attributes that correspond to the geometric object you intend to use. That is, <code>aes</code> and <code>geom</code> work together and must be compatible.</p>
 <p>For example, you can’t generate a scatter plot–<code>geom_point</code>–if you only define an <code>x</code> aesthetic. You must define an <code>x</code> and <code>y</code> aesthetic for a scatter plot. Below is a list of available aesthetics and what they control:</p>
@@ -634,7 +634,7 @@ Figure 20.1: Histogram of full-time median earnings for different graduate schoo
 <p>Here is the code for the same histogram without the optional code. This is all that is needed to generate a histogram. In general, all plots require very little code if we do not care what they look like.</p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="20-r-visualization.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(college_grad_students, <span class="fu">aes</span>(<span class="at">x =</span> grad_median)) <span class="sc">+</span></span>
 <span id="cb99-2"><a href="20-r-visualization.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<p><img src="data-apps-text_files/figure-html/unnamed-chunk-133-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
+<p><img src="data-apps-text_files/figure-html/unnamed-chunk-135-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <div class="learncheck">
 <p>
 <strong>Exercise 1:</strong> Add a heading <code># Histogram</code>. In the <code>countyComplete</code> dataset, there is a variable named <code>bachelors_2010</code> that measures the percent of the county population with a bachelor’s degree between 2006-2010. Suppose we want to visualize the distribution of <code>bachelors</code> with a histogram. Generate a simple, default histogram (no optional code unless you want to add it).
@@ -661,7 +661,7 @@ Figure 20.2: Box plot of full-time median earnings for different graduate school
 <p>Again, if we do not care how the box plot looks, all we need to make the plot is shown in the code below.</p>
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="20-r-visualization.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(college_grad_students, <span class="fu">aes</span>(<span class="at">y =</span> grad_median)) <span class="sc">+</span></span>
 <span id="cb101-2"><a href="20-r-visualization.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="data-apps-text_files/figure-html/unnamed-chunk-136-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
+<p><img src="data-apps-text_files/figure-html/unnamed-chunk-138-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <div class="learncheck">
 <p>
 <strong>Exercise 2:</strong> Add another heading <code># Boxplot</code>. Generate a simple, default box plot for <code>bachelors_2010</code> (no optional code unless you want to add it).
@@ -720,11 +720,11 @@ Figure 20.2: Box plot of full-time median earnings for different graduate school
 <span id="cb102-5"><a href="20-r-visualization.html#cb102-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb102-6"><a href="20-r-visualization.html#cb102-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb102-7"><a href="20-r-visualization.html#cb102-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
-<p><img src="data-apps-text_files/figure-html/unnamed-chunk-139-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
+<p><img src="data-apps-text_files/figure-html/unnamed-chunk-141-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Here is what the bar chart looks like without the optional code.</p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="20-r-visualization.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> unemp_cat)) <span class="sc">+</span></span>
 <span id="cb103-2"><a href="20-r-visualization.html#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="data-apps-text_files/figure-html/unnamed-chunk-140-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
+<p><img src="data-apps-text_files/figure-html/unnamed-chunk-142-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Below is the code used to generate the stacked bar chart showing counts, Figure <a href="5-data-visualization.html#fig:empbar">5.5</a>. The code within <code>aes</code> is less intuitive. Since <code>geom_bar</code> requires an x or y aesthetic to be defined, I have to assign x to nothing via the blank quotation marks. The <code>fill = unemp_cat</code> tell R to stack the bar chart, filling the bar with the counts of high and low.</p>
 <div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="20-r-visualization.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> unemp_cat)) <span class="sc">+</span></span>
 <span id="cb104-2"><a href="20-r-visualization.html#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
@@ -735,11 +735,11 @@ Figure 20.2: Box plot of full-time median earnings for different graduate school
 <span id="cb104-7"><a href="20-r-visualization.html#cb104-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb104-8"><a href="20-r-visualization.html#cb104-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb104-9"><a href="20-r-visualization.html#cb104-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
-<p><img src="data-apps-text_files/figure-html/unnamed-chunk-141-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
+<p><img src="data-apps-text_files/figure-html/unnamed-chunk-143-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Below is what the stacked bar chart looks like by default.</p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="20-r-visualization.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> unemp_cat)) <span class="sc">+</span></span>
 <span id="cb105-2"><a href="20-r-visualization.html#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="data-apps-text_files/figure-html/unnamed-chunk-142-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
+<p><img src="data-apps-text_files/figure-html/unnamed-chunk-144-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Lastly, the code below is used to show proportions rather than counts. The only substantive difference between this code and the code above is the use of <code>position='fill'</code> within the <code>geom_bar</code> function. This tells R to show proportions.</p>
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="20-r-visualization.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> unemp_cat)) <span class="sc">+</span></span>
 <span id="cb106-2"><a href="20-r-visualization.html#cb106-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&#39;fill&#39;</span>) <span class="sc">+</span></span>
@@ -750,7 +750,7 @@ Figure 20.2: Box plot of full-time median earnings for different graduate school
 <span id="cb106-7"><a href="20-r-visualization.html#cb106-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb106-8"><a href="20-r-visualization.html#cb106-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb106-9"><a href="20-r-visualization.html#cb106-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
-<p><img src="data-apps-text_files/figure-html/unnamed-chunk-143-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
+<p><img src="data-apps-text_files/figure-html/unnamed-chunk-145-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <div class="learncheck">
 <p>
 <strong>Exercise 3:</strong> Add a heading <code># Bar Chart</code>. Suppose we want to visualize how many counties each state has. That is, we want to count how many rows belong to each <code>state</code> in the <code>countyComplete</code> data using a bar chart. Generate a bar chart that achieves this. Choose the type of bar chart you deem best.
@@ -768,11 +768,11 @@ Figure 20.2: Box plot of full-time median earnings for different graduate school
 <span id="cb107-7"><a href="20-r-visualization.html#cb107-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line.y =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb107-8"><a href="20-r-visualization.html#cb107-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>()</span>
 <span id="cb107-9"><a href="20-r-visualization.html#cb107-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
-<p><img src="data-apps-text_files/figure-html/unnamed-chunk-145-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
+<p><img src="data-apps-text_files/figure-html/unnamed-chunk-147-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Below is what the bar chart looks like without the optional code.</p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="20-r-visualization.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool_spia, <span class="fu">aes</span>(<span class="at">y =</span> major, <span class="at">x =</span> grad_median)) <span class="sc">+</span></span>
 <span id="cb108-2"><a href="20-r-visualization.html#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
-<p><img src="data-apps-text_files/figure-html/unnamed-chunk-146-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
+<p><img src="data-apps-text_files/figure-html/unnamed-chunk-148-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 </div>
 <div id="scatter-plot" class="section level2" number="20.7">
 <h2><span class="header-section-number">20.7</span> Scatter plot</h2>
@@ -785,11 +785,11 @@ Figure 20.2: Box plot of full-time median earnings for different graduate school
 <span id="cb109-6"><a href="20-r-visualization.html#cb109-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&#39;Total degrees&#39;</span>,</span>
 <span id="cb109-7"><a href="20-r-visualization.html#cb109-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Median pay&#39;</span>) <span class="sc">+</span></span>
 <span id="cb109-8"><a href="20-r-visualization.html#cb109-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="data-apps-text_files/figure-html/unnamed-chunk-147-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
+<p><img src="data-apps-text_files/figure-html/unnamed-chunk-149-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Below is the scatter plot without optional code.</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="20-r-visualization.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> grad_median, <span class="at">y =</span> grad_total)) <span class="sc">+</span></span>
 <span id="cb110-2"><a href="20-r-visualization.html#cb110-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="data-apps-text_files/figure-html/unnamed-chunk-148-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
+<p><img src="data-apps-text_files/figure-html/unnamed-chunk-150-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <div class="learncheck">
 <p>
 <strong>Exercise 4:</strong> Add a heading <code># Scatterplot</code>. Pick two variables in the <code>countyComplete</code> data and plot their relationship using a simple scatter plot.
@@ -806,7 +806,7 @@ Figure 20.2: Box plot of full-time median earnings for different graduate school
 <span id="cb111-4"><a href="20-r-visualization.html#cb111-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb111-5"><a href="20-r-visualization.html#cb111-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&#39;State&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Female Sentenced Prisoners&#39;</span>, <span class="at">x =</span> <span class="st">&#39;&#39;</span>) <span class="sc">+</span></span>
 <span id="cb111-6"><a href="20-r-visualization.html#cb111-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="data-apps-text_files/figure-html/unnamed-chunk-150-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
+<p><img src="data-apps-text_files/figure-html/unnamed-chunk-152-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <div class="learncheck">
 <p>
 <strong>Exercise 5:</strong> Add a heading <code># Linegraph</code>. Create a line graph for male prisoners who were sentenced by state.

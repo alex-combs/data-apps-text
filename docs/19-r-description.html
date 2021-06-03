@@ -394,10 +394,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="19.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
 <li class="chapter" data-level="19.3" data-path="19-r-description.html"><a href="19-r-description.html#introduction"><i class="fa fa-check"></i><b>19.3</b> Introduction</a></li>
-<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#individual-stats"><i class="fa fa-check"></i><b>19.4</b> Individual Stats</a></li>
+<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#quick-stat-computation"><i class="fa fa-check"></i><b>19.4</b> Quick Stat Computation</a></li>
 <li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.5</b> Summary Table</a>
 <ul>
-<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#background-table"><i class="fa fa-check"></i><b>19.5.1</b> Background Table</a></li>
+<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#quick-table"><i class="fa fa-check"></i><b>19.5.1</b> Quick Table</a></li>
 <li class="chapter" data-level="19.5.2" data-path="19-r-description.html"><a href="19-r-description.html#using-arsenal"><i class="fa fa-check"></i><b>19.5.2</b> Using Arsenal</a></li>
 <li class="chapter" data-level="19.5.3" data-path="19-r-description.html"><a href="19-r-description.html#adjustments-to-arsenal"><i class="fa fa-check"></i><b>19.5.3</b> Adjustments to Arsenal</a></li>
 <li class="chapter" data-level="19.5.4" data-path="19-r-description.html"><a href="19-r-description.html#export-to-csv"><i class="fa fa-check"></i><b>19.5.4</b> Export to CSV</a></li>
@@ -563,7 +563,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="introduction" class="section level2" number="19.3">
 <h2><span class="header-section-number">19.3</span> Introduction</h2>
-<p>Summary statistics tables are ubiquitous in reports and studies. Usually a project involves numerous variables that would require too many visualizations, though we should still consider visualizations for the most important variables. A standard table of summary stats provides readers a reference for key measures pertaining to all our variables in a fairly compact form.</p>
+<p>Summary statistics tables are ubiquitous in reports and studies. Usually a dataset involves numerous variables that would require too many visualizations, though we should still consider visualizations for the most important variables. A standard table of summary stats provides readers a reference for key measures pertaining to all our variables in a fairly compact form.</p>
 <p>In this chapter, we set out to summarize variables within the <code>States</code> dataset of the <code>carData</code> package.</p>
 <div class="learncheck">
 <p>
@@ -572,13 +572,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><code>States</code> is a cross-section of the 50 states and D.C. containing education and related statistics. Be sure to skim the documentation for <code>States</code> to understand each variable. You can do that by clicking on the <code>carData</code> package under the Packages tab then clicking on the <code>States</code> link.</p>
 </div>
-<div id="individual-stats" class="section level2" number="19.4">
-<h2><span class="header-section-number">19.4</span> Individual Stats</h2>
-<p>Before producing a table of descriptive statistics, it is helpful to review how one would tell R to compute each statistic covered in Chapter <a href="4-descriptive-statistics.html#descriptive-statistics">4</a> individually.</p>
+<div id="quick-stat-computation" class="section level2" number="19.4">
+<h2><span class="header-section-number">19.4</span> Quick Stat Computation</h2>
+<p>Instead of producing a full table of descriptive statistics, sometimes we just want to know one or two descriptive measures of a single variable.</p>
 <blockquote>
 <p>Because R can hold many datasets/objects at once, we need to tell it which dataset/object to apply a given function. We have had to do this many times already. Similarly, if we want R to apply a function to a <em>specific variable</em> within a dataset, we need to tell which variable in which dataset. This is done using the <code>$</code> operator.</p>
 </blockquote>
-<p>Below are all of the useful descriptive measures of center and spread applied to the <code>pay</code> (i.e. average teacher’s salary in 1,000s) variable in the <code>States</code> dataset.</p>
+<p>Below are all of the useful descriptive measures of center and spread applied to the <code>pay</code> (i.e. average teacher’s salary in 1,000s) variable in the <code>States</code> dataset. Note that the <code>$</code> operator tells R to apply the function to a specific variable within a dataset.</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="19-r-description.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(States<span class="sc">$</span>pay)</span></code></pre></div>
 <pre><code>[1] 30.94118</code></pre>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="19-r-description.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(States<span class="sc">$</span>pay)</span></code></pre></div>
@@ -613,8 +613,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 <p>If a variable is skewed, then it may be wise to replace the mean and standard deviation with the median and IQR. We will learn how to do this.</p>
-<div id="background-table" class="section level3" number="19.5.1">
-<h3><span class="header-section-number">19.5.1</span> Background Table</h3>
+<div id="quick-table" class="section level3" number="19.5.1">
+<h3><span class="header-section-number">19.5.1</span> Quick Table</h3>
 <p>Sometimes we do not want to print a fancy table. Rather, we may want to quickly see a full set of descriptive statistics for ourselves that our reader will never see. This can be done using the <code>summary</code> function on our dataset like so:</p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="19-r-description.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gapminder)</span></code></pre></div>
 <pre><code>        country        continent        year         lifeExp     
@@ -633,10 +633,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  3rd Qu.:  19585222   3rd Qu.:  9325.5  
  Max.   :1318683096   Max.   :113523.1  
                                         </code></pre>
-<p>We would almost certainly want to suppress this code and output (i.e. <code>include=FALSE</code> code chunk option) if preparing a report for an external audience.</p>
+<p>We would almost certainly want to suppress this code and output (i.e. <code>include=FALSE</code> code chunk option) if preparing a report for an external audience. Note that for the categorical variables, country and continent, <code>summary</code> provides the count of observations instead of measures of center or spread.</p>
 <div class="learncheck">
 <p>
-<strong>Exercise 3:</strong> Generate a background table of descriptive statistics for all of the variables in <code>States</code>. Suppress the code and output.
+<strong>Exercise 3:</strong> Generate a quick table of descriptive statistics for all of the variables in <code>States</code>. Suppress the code and output.
 </p>
 </div>
 </div>
@@ -727,7 +727,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>This last line of code actually prints the summary table when I knit my document. The previous two steps can be included in the same code chunk, but <strong>this function needs to have its own code chunk because</strong></p>
+<p>This last line of code actually prints the summary table when I knit my document. The previous two steps (<code>tableby</code> and <code>labels</code>) can be included in the same code chunk, but <strong>this third step needs to have its own code chunk because</strong></p>
 <blockquote>
 <p>you need to include a specific code chunk option, <code>results='asis'</code>, in order for the table to export properly. To be clear, in the top line of a code chunk that contains <code>{r}</code> by default, you need to change it to <code>{r, results='asis', echo=FALSE}</code>. I also include the <code>echo=FALSE</code> option assuming we do not want our reader to see our code.</p>
 </blockquote>

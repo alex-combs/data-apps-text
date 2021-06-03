@@ -219,7 +219,7 @@
 \makeatother
 \subtitle{Using R to Learn Concepts and Skills}
 \author{Alex Combs}
-\date{Last updated on 02 June 2021}
+\date{Last updated on 03 June 2021}
 
 \begin{document}
 \maketitle
@@ -1480,7 +1480,7 @@ Categorical variables, especially nominal variables, do not have a continuous di
 
 }
 
-\caption{Full-term and Premature Births in North Carolina}\label{fig:ncwhitemom}
+\caption{Race of a sample of pregnant women in North Carolina}\label{fig:ncwhitemom}
 \end{figure}
 
 The information in Figure \ref{fig:ncwhitemom} can be presented in a table like the one below.
@@ -1495,7 +1495,7 @@ white & 618\\
 \hline
 \end{tabular}
 
-We usually want to provide the \emph{frequency} of the different levels in terms of proportion or percentage like in Table \ref{tab:whiteprop} below, which is commonly referred to as a \textbf{frequency table}. Here, we see that 77\% of the pregnant women in this sample are white.
+We usually want to provide the \emph{frequency} of the different levels in terms of proportion or percentage like in the table below, which is commonly referred to as a \textbf{frequency table}. Here, we see that 77\% of the pregnant women in this sample are white.
 
 \begin{tabular}{l|r}
 \hline
@@ -1506,6 +1506,34 @@ not white & 0.23\\
 white & 0.77\\
 \hline
 \end{tabular}
+
+To convey a possible association between two categorical variables without using a visualization, we can use a \textbf{contingency table}. Below is a contingency table for whether a mother in this sample was smoker and whether they had a premature birth.
+
+\begin{tabular}{l|r|r|r}
+\hline
+  & full term & premie & Sum\\
+\hline
+nonsmoker & 625 & 91 & 716\\
+\hline
+smoker & 69 & 15 & 84\\
+\hline
+Sum & 694 & 106 & 800\\
+\hline
+\end{tabular}
+
+This is a simple example where we have a variable, smoking, we may suspect to be the cause of another variable, premature birth. In such cases, we should place the cause (smoking) along the rows and the outcome (premature birth) along the columns. Then, we should provide the reader the frequency of the outcome, given each value of the cause. In the table above, the reader can do this by taking each value in one row and dividing by the total in the row. For example, among non-smokers, 87\% carried full-term (625/(625+91)) and 13\% had a premature birth. Alternatively, we could provide these frequencies directly in a table like below.
+
+\begin{tabular}{l|r|r}
+\hline
+  & full term & premie\\
+\hline
+nonsmoker & 0.87 & 0.13\\
+\hline
+smoker & 0.82 & 0.18\\
+\hline
+\end{tabular}
+
+Now we can see that pregnant women in this sample who smoked had a higher frequency of premature births, 18\% as opposed to 13\% among non-smokers. Should we conclude that smoking causes an increase in the likelihood of premature birth? Not yet! Remember, correlation is not causation. So far, we have merely described an association between two variables. Broader conclusions like smoking causing an outcome requires inference. The most we can conclude from the above contingency table is that pregnant women in this sample who smoked had a higher proportion of premature births than the women in this sample who did not smoke.
 
 \begin{quote}
 \textbf{To learn how to quickly compute descriptive statistics and produce professional-looking tables, proceed to Chapter \ref{r-description}.}
@@ -3245,7 +3273,7 @@ We can see that there are 248 cases where our model correctly predicts the outco
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-35}Confusion matrix for LPM (in proportions)}
+\caption{\label{tab:unnamed-chunk-37}Confusion matrix for LPM (in proportions)}
 \centering
 \begin{tabular}[t]{l|r|r}
 \hline
@@ -5689,7 +5717,7 @@ We are left with an estimate for the only variable in our model that differs acr
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-62}Fixed effects results}
+\caption{\label{tab:unnamed-chunk-64}Fixed effects results}
 \centering
 \begin{tabular}[t]{l|r|r|r|r}
 \hline
@@ -6401,7 +6429,7 @@ To complete this chapter, you need to
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Summary statistics tables are ubiquitous in reports and studies. Usually a project involves numerous variables that would require too many visualizations, though we should still consider visualizations for the most important variables. A standard table of summary stats provides readers a reference for key measures pertaining to all our variables in a fairly compact form.
+Summary statistics tables are ubiquitous in reports and studies. Usually a dataset involves numerous variables that would require too many visualizations, though we should still consider visualizations for the most important variables. A standard table of summary stats provides readers a reference for key measures pertaining to all our variables in a fairly compact form.
 
 In this chapter, we set out to summarize variables within the \texttt{States} dataset of the \texttt{carData} package.
 
@@ -6412,16 +6440,16 @@ In this chapter, we set out to summarize variables within the \texttt{States} da
 
 \texttt{States} is a cross-section of the 50 states and D.C. containing education and related statistics. Be sure to skim the documentation for \texttt{States} to understand each variable. You can do that by clicking on the \texttt{carData} package under the Packages tab then clicking on the \texttt{States} link.
 
-\hypertarget{individual-stats}{%
-\section{Individual Stats}\label{individual-stats}}
+\hypertarget{quick-stat-computation}{%
+\section{Quick Stat Computation}\label{quick-stat-computation}}
 
-Before producing a table of descriptive statistics, it is helpful to review how one would tell R to compute each statistic covered in Chapter \ref{descriptive-statistics} individually.
+Instead of producing a full table of descriptive statistics, sometimes we just want to know one or two descriptive measures of a single variable.
 
 \begin{quote}
 Because R can hold many datasets/objects at once, we need to tell it which dataset/object to apply a given function. We have had to do this many times already. Similarly, if we want R to apply a function to a \emph{specific variable} within a dataset, we need to tell which variable in which dataset. This is done using the \texttt{\$} operator.
 \end{quote}
 
-Below are all of the useful descriptive measures of center and spread applied to the \texttt{pay} (i.e.~average teacher's salary in 1,000s) variable in the \texttt{States} dataset.
+Below are all of the useful descriptive measures of center and spread applied to the \texttt{pay} (i.e.~average teacher's salary in 1,000s) variable in the \texttt{States} dataset. Note that the \texttt{\$} operator tells R to apply the function to a specific variable within a dataset.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6513,8 +6541,8 @@ Summary tables come in many styles, so there is no way to cover everything. In m
 
 If a variable is skewed, then it may be wise to replace the mean and standard deviation with the median and IQR. We will learn how to do this.
 
-\hypertarget{background-table}{%
-\subsection{Background Table}\label{background-table}}
+\hypertarget{quick-table}{%
+\subsection{Quick Table}\label{quick-table}}
 
 Sometimes we do not want to print a fancy table. Rather, we may want to quickly see a full set of descriptive statistics for ourselves that our reader will never see. This can be done using the \texttt{summary} function on our dataset like so:
 
@@ -6543,12 +6571,12 @@ Sometimes we do not want to print a fancy table. Rather, we may want to quickly 
                                         
 \end{verbatim}
 
-We would almost certainly want to suppress this code and output (i.e.~\texttt{include=FALSE} code chunk option) if preparing a report for an external audience.
+We would almost certainly want to suppress this code and output (i.e.~\texttt{include=FALSE} code chunk option) if preparing a report for an external audience. Note that for the categorical variables, country and continent, \texttt{summary} provides the count of observations instead of measures of center or spread.
 
 \begin{learncheck}
-\textbf{Exercise 3:} Generate a background table of descriptive
-statistics for all of the variables in \texttt{States}. Suppress the
-code and output.
+\textbf{Exercise 3:} Generate a quick table of descriptive statistics
+for all of the variables in \texttt{States}. Suppress the code and
+output.
 \end{learncheck}
 
 \hypertarget{using-arsenal}{%
@@ -6622,7 +6650,7 @@ Therefore, in the above code I use the \texttt{labels} function on the \texttt{s
 \bottomrule
 \end{longtable}
 
-This last line of code actually prints the summary table when I knit my document. The previous two steps can be included in the same code chunk, but \textbf{this function needs to have its own code chunk because}
+This last line of code actually prints the summary table when I knit my document. The previous two steps (\texttt{tableby} and \texttt{labels}) can be included in the same code chunk, but \textbf{this third step needs to have its own code chunk because}
 
 \begin{quote}
 you need to include a specific code chunk option, \texttt{results=\textquotesingle{}asis\textquotesingle{}}, in order for the table to export properly. To be clear, in the top line of a code chunk that contains \texttt{\{r\}} by default, you need to change it to \texttt{\{r,\ results=\textquotesingle{}asis\textquotesingle{},\ echo=FALSE\}}. I also include the \texttt{echo=FALSE} option assuming we do not want our reader to see our code.
@@ -6996,7 +7024,7 @@ For example, the below code takes the variable \texttt{gdpPercap} from the datas
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-132-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-134-1} \end{center}
 
 Data, aesthetics, and geometries are the essential elements needed to generate a graph. If you tell R these three elements correctly, it will produce a graph. There are additional elements that can be added to make graphs be more effective or look better that will be covered in class.
 
@@ -7088,7 +7116,7 @@ Here is the code for the same histogram without the optional code. This is all t
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-133-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-135-1} \end{center}
 
 \begin{learncheck}
 \textbf{Exercise 1:} Add a heading \texttt{\#\ Histogram}. In the
@@ -7137,7 +7165,7 @@ Again, if we do not care how the box plot looks, all we need to make the plot is
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-136-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-138-1} \end{center}
 
 \begin{learncheck}
 \textbf{Exercise 2:} Add another heading \texttt{\#\ Boxplot}. Generate
@@ -7178,7 +7206,7 @@ Below is the code used to generate the side-by-side or dodged bar chart from Cha
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-139-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-141-1} \end{center}
 
 Here is what the bar chart looks like without the optional code.
 
@@ -7189,7 +7217,7 @@ Here is what the bar chart looks like without the optional code.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-140-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-142-1} \end{center}
 
 Below is the code used to generate the stacked bar chart showing counts, Figure \ref{fig:empbar}. The code within \texttt{aes} is less intuitive. Since \texttt{geom\_bar} requires an x or y aesthetic to be defined, I have to assign x to nothing via the blank quotation marks. The \texttt{fill\ =\ unemp\_cat} tell R to stack the bar chart, filling the bar with the counts of high and low.
 
@@ -7207,7 +7235,7 @@ Below is the code used to generate the stacked bar chart showing counts, Figure 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-141-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-143-1} \end{center}
 
 Below is what the stacked bar chart looks like by default.
 
@@ -7218,7 +7246,7 @@ Below is what the stacked bar chart looks like by default.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-142-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-144-1} \end{center}
 
 Lastly, the code below is used to show proportions rather than counts. The only substantive difference between this code and the code above is the use of \texttt{position=\textquotesingle{}fill\textquotesingle{}} within the \texttt{geom\_bar} function. This tells R to show proportions.
 
@@ -7236,7 +7264,7 @@ Lastly, the code below is used to show proportions rather than counts. The only 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-143-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-145-1} \end{center}
 
 \begin{learncheck}
 \textbf{Exercise 3:} Add a heading \texttt{\#\ Bar\ Chart}. Suppose we
@@ -7266,7 +7294,7 @@ There is a new piece of code in the below chunk that can be used to reorder bars
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-145-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-147-1} \end{center}
 
 Below is what the bar chart looks like without the optional code.
 
@@ -7277,7 +7305,7 @@ Below is what the bar chart looks like without the optional code.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-146-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-148-1} \end{center}
 
 \hypertarget{scatter-plot}{%
 \section{Scatter plot}\label{scatter-plot}}
@@ -7297,7 +7325,7 @@ The code below shows how the scatter plot in Chapter \ref{data-visualization} wa
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-147-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-149-1} \end{center}
 
 Below is the scatter plot without optional code.
 
@@ -7308,7 +7336,7 @@ Below is the scatter plot without optional code.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-148-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-150-1} \end{center}
 
 \begin{learncheck}
 \textbf{Exercise 4:} Add a heading \texttt{\#\ Scatterplot}. Pick two
@@ -7334,7 +7362,7 @@ Note how this code is different from the code before because I need to manipulat
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-150-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-152-1} \end{center}
 
 \begin{learncheck}
 \textbf{Exercise 5:} Add a heading \texttt{\#\ Linegraph}. Create a line
@@ -8231,7 +8259,7 @@ Below is the code used to produce the cross-tab from Chapter \ref{hypothesis-tes
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-188}Response by political party}
+\caption{\label{tab:unnamed-chunk-190}Response by political party}
 \centering
 \begin{tabular}[t]{l|r|r|r}
 \hline
@@ -8495,13 +8523,13 @@ Once we have our regression results saved to an object, all we need to do is use
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-202-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-204-1} \end{center}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-202-2} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-204-2} \end{center}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-202-3} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-204-3} \end{center}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-202-4} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-204-4} \end{center}
 
 We want to see no obvious pattern in the RVF plot and a relatively straight line running along the 0 reference line. For this RVF plot, we can see an obvious pattern where the positive residuals are much greater than the negative residuals. This is a classic sign that the regression model violates assumption \textbf{N}. Whether the red line trends in one direction or another away from 0 tells us whether assumption \textbf{L} is violated. This assumption appears to be relatively OK.
 
@@ -8823,13 +8851,13 @@ This appears to have fixed the issue with linearity, but normality of the residu
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-219-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-221-1} \end{center}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-219-2} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-221-2} \end{center}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-219-3} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-221-3} \end{center}
 
-\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-219-4} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{data-apps-text_files/figure-latex/unnamed-chunk-221-4} \end{center}
 
 With the exception of the Normal Q-Q plot, all of the plots look much better. Unfortunately, we have exhausted the options at our disposal for fixing our regression (insofar as this course is covers).
 
@@ -9950,7 +9978,7 @@ Suppose a poll targeted to the general U.S. public asked if workers who have ill
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-266}Illegal immigration poll results}
+\caption{\label{tab:unnamed-chunk-268}Illegal immigration poll results}
 \centering
 \begin{tabular}[t]{l|l|l}
 \hline
@@ -9992,7 +10020,7 @@ Next, we need to tabulate how many of each response was made by the three partie
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-267}Response by political party}
+\caption{\label{tab:unnamed-chunk-269}Response by political party}
 \centering
 \begin{tabular}[t]{l|r|r|r}
 \hline
@@ -10011,7 +10039,7 @@ Then, we multiply the values by their corresponding weight. For example, applyin
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-269}Weighted survey counts}
+\caption{\label{tab:unnamed-chunk-271}Weighted survey counts}
 \centering
 \begin{tabular}[t]{l|l|r|r|r}
 \hline

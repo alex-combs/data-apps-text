@@ -394,10 +394,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="19.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
 <li class="chapter" data-level="19.3" data-path="19-r-description.html"><a href="19-r-description.html#introduction"><i class="fa fa-check"></i><b>19.3</b> Introduction</a></li>
-<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#individual-stats"><i class="fa fa-check"></i><b>19.4</b> Individual Stats</a></li>
+<li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#quick-stat-computation"><i class="fa fa-check"></i><b>19.4</b> Quick Stat Computation</a></li>
 <li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.5</b> Summary Table</a>
 <ul>
-<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#background-table"><i class="fa fa-check"></i><b>19.5.1</b> Background Table</a></li>
+<li class="chapter" data-level="19.5.1" data-path="19-r-description.html"><a href="19-r-description.html#quick-table"><i class="fa fa-check"></i><b>19.5.1</b> Quick Table</a></li>
 <li class="chapter" data-level="19.5.2" data-path="19-r-description.html"><a href="19-r-description.html#using-arsenal"><i class="fa fa-check"></i><b>19.5.2</b> Using Arsenal</a></li>
 <li class="chapter" data-level="19.5.3" data-path="19-r-description.html"><a href="19-r-description.html#adjustments-to-arsenal"><i class="fa fa-check"></i><b>19.5.3</b> Adjustments to Arsenal</a></li>
 <li class="chapter" data-level="19.5.4" data-path="19-r-description.html"><a href="19-r-description.html#export-to-csv"><i class="fa fa-check"></i><b>19.5.4</b> Export to CSV</a></li>
@@ -576,7 +576,7 @@ n=(\frac{sZ}{E})^2
 <p>Weighting is a way to correct for a demographic mismatch between the composition of respondents and the intended population. There are multiple methods of weighting, some of which are complex, but the basic method described below can work for most cases where maximum correction is not necessary or feasible.</p>
 <p>Suppose a poll targeted to the general U.S. public asked if workers who have illegally entered the U.S. should be 1) allowed to keep their jobs and apply for citizenship, 2) allowed to keep their jobs as temporary guest workers but not allowed to apply for citizenship, and 3) lose their jobs and have to leave the country. The poll also asked for political party affiliation. A total of 890 responses were collected, generating the following results.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-266">Table D.1: </span>Illegal immigration poll results</caption>
+<caption><span id="tab:unnamed-chunk-268">Table D.1: </span>Illegal immigration poll results</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -617,7 +617,7 @@ Weight = \frac{Population}{Sample}
 <p>These weights mean that each Republican response counts as only three-quarters of a response and each Democrat response counts as about 1.5 responses.</p>
 <p>Next, we need to tabulate how many of each response was made by the three parties.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-267">Table D.2: </span>Response by political party</caption>
+<caption><span id="tab:unnamed-chunk-269">Table D.2: </span>Response by political party</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -649,7 +649,7 @@ Weight = \frac{Population}{Sample}
 </table>
 <p>Then, we multiply the values by their corresponding weight. For example, applying the weight for Republicans results in 134 responses for “Leave the country” (<span class="math inline">\(179 \times 0.75\)</span>). This process gives us the following counts</p>
 <table>
-<caption><span id="tab:unnamed-chunk-269">Table D.3: </span>Weighted survey counts</caption>
+<caption><span id="tab:unnamed-chunk-271">Table D.3: </span>Weighted survey counts</caption>
 <thead>
 <tr class="header">
 <th align="left">party</th>
