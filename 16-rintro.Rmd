@@ -17,7 +17,7 @@ R is a programming language for statistical computing. RStudio is a user interfa
 First, download and install R [here](https://cloud.r-project.org/).
 
 - **Windows user:** click on "Download R for Windows", then click on "base", then click on "Download R #.#.# for Windows."
-- **MacOS user:**, click on "Download R for (Mac) OS X." What you click on next depends on what version of macOS you are using. Under "Latest release," you will see a link such as "R-#.#.#.pkg" with a description to the right that indicates which versions of macOS it is compatible with, such as macOS 10.13 (High Sierra) and higher. If you are using an older version of macOS, scroll down to the header "Binaries for legacy OS X systems" where you can find the link that will work with your version. If you do not know which version of macOS you are using, click on the apple symbol in the top-left of your screen, then click on "About This Mac." The resulting window will display your version of macOS.
+- **MacOS user:**, click on "Download R for (Mac) OS X." What you click on next depends on what version of macOS you are using. Under "Latest release," you will see a link such as "R-4.2.1.pkg" with a description to the right that indicates which versions of macOS it is compatible with, such as macOS 10.13 (High Sierra) and higher. **Note there are different packages to download depending on whether your machine has Apple silicon (M1 or M2). If your Mac uses an Intel chip, do not download the package for Apple silicon.** If you are using a version of macOS older than 10.13 (High Sierra), scroll down to the header "Binaries for legacy OS X systems" where you can find the link that will work with your version. If you do not know which version of macOS you are using, click on the apple symbol in the top-left of your screen, then click on "About This Mac." The resulting window will display your version of macOS.
 
 Second, download and install RStudio [here](https://www.rstudio.com/products/rstudio/download/).
 
@@ -30,7 +30,7 @@ Second, download and install RStudio [here](https://www.rstudio.com/products/rst
 **Exercise 1**  Launch RStudio
 ```
 
-Upon launch, you should see three sections regerred to as panes:
+Upon launch, you should see three sections referred to as panes:
 
 ```{r, echo=FALSE}
 include_graphics('images/rstudio_sshot.png')
@@ -51,13 +51,19 @@ You will usually see a fourth pane in the upper-left, with the console in the bo
 An R Markdown document allows you to fluidly combine prose that you would write for a report and R code that produces the tables and graphs you wish to incorporate. It can do much more than this, as outlined by this brief [video](https://rmarkdown.rstudio.com/lesson-1.html). In this course, we will use R Markdown for R Labs and Problem Sets in addition to these R Chapters.
 
 An R Markdown file consists of two parts:
-- YAML Header: at the top contained within three dashes, `---`. The YAML sets the global options for the document and how it exports; typically used to adjust the formatting of the export document
+- YAML Header: at the top contained within three dash marks. The YAML sets the global options for the document and how it exports; typically used to adjust the formatting of the export document.
+```{r, eval=FALSE}
+---
+title: "This is a YAML"
+output: html_document
+---
+```
 - Body: where you write prose and code
 
 Be sure to read the default content, as it is informative.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 3** In the YAML, change the title to "R Chapter 1".
+**Exercise 3** In the YAML, change the title to "R Chapter 16".
 ```
 
 ```{block, type='learncheck', purl=FALSE}
@@ -90,6 +96,43 @@ Where `"name_of_package"` is replaced with the actual name of the R package we w
 **Exercise 5** We will almost always need to use a package called `tidyverse`. In your **console pane** (bottom-left) of RStudio, type `install.packages("tidyverse")`, then click `Enter` on your keyboard. This will begin the installation. Monitor the console pane while `tidyverse` installs. RStudio may ask you some Yes/No questions during the process. Answer all questions in the affirmative by typing `Yes` then clicking `Enter`.
 ```
 
+You can install multiple R packages at once. You will need numerous R packages to complete this course. Below is a list of all R packages used in this course.
+
+```{r, eval=FALSE}
+install.packages(c("tidyverse",
+                   "knitr",
+                   "arsenal",
+                   "forecast",
+                   "fpp2",
+                   "lubridate",
+                   "readxl",
+                   "plm",
+                   "broom",
+                   "car",
+                   "gvlma",
+                   "gapminder",
+                   "Ecdat",
+                   "carData",
+                   "openintro",
+                   "fivethirtyeight",
+                   "moderndive",
+                   "DAAG",
+                   "Stat2Data",
+                   "data.table",
+                   "rmarkdown",
+                   "tinytex",
+                   "DiagrammeR",
+                   "jtools",
+                   "blogdown",
+                   "stargazer"))
+```
+
+Complete the following exercise to download all of the R packages needed for the course. 
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 6** In your **console pane** (bottom-left) of RStudio, copy-and-paste the above code and list of packages, then click `Enter`. This will begin the installation. RStudio may ask you some Yes/No questions during the process. Answer all questions in the affirmative by typing `Yes` then clicking `Enter`.
+```
+
 #### Load Packages {-}
 
 When an application is installed on your phone, you still have to launch it (i.e. click on it) to use it. The same goes for using a R package. Each time you launch RStudio, you need to load the package(s) that contain the functions you plan to use. Closing RStudio is like shutting off your phone. When you open your phone, an application isn't running in the background unless you previously launched it. 
@@ -100,10 +143,10 @@ Therefore, you should load needed R packages each time you open RStudio. And bec
 library(name_of_package)
 ```
 
-> You need not use quotes around the name of the R package when loading it. Quotes are only needed to install, not load.
+> Do not use quotes around the name of the R package when loading it. Quotes are only needed to install, not load.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 6**  Near the top of your document, you should see a code chunk named `setup` containing the code `knitr::opts_chunk$set(echo = TRUE)`. Start a new line *inside* of this code chunk. Type `library(tidyverse)` on the new script. Next, run this code chunk either by clicking on the little sideways arrow at the right of the code chunk, or by using the keyboard shortcut `Cmd+Enter` on Mac or `Ctrl+Enter` or `Window+Enter` on PC. This shortcut only executes the line of code on which your cursor (the blinking vertical line) is. The console pane (bottom-left) will provide information about the loading.
+**Exercise 7**  Near the top of your document, you should see a code chunk named `setup` containing the code `knitr::opts_chunk$set(echo = TRUE)`. Start a new line *inside* of this code chunk. Type `library(tidyverse)` on the new script. Next, run this code chunk either by clicking on the little sideways arrow at the right of the code chunk, or by using the keyboard shortcut `Cmd+Enter` on Mac or `Ctrl+Enter` or `Window+Enter` on PC. This shortcut only executes the line of code on which your cursor (the blinking vertical line) is. The console pane (bottom-left) will provide information about the loading.
 ```
 
 <br>

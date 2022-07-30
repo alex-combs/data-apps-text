@@ -84,7 +84,7 @@ where we replace `dataset` with the name of the `dataset`.
 Notice that the results show you the **dimensions** of the dataset--the number of rows (observation) and columns (variables). Next, it provides a vertical list of variables, with several of their values listed horizontally. This allows a very wide dataset with many variables to export to documents more easily. 
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 7**  Having now examined `Arrests` using `View` and `glimpse`, what type are the following variables based on the taxonomy used in Chapter \@ref(data). 
+**Exercise 7**  Having now examined `Arrests` using `View` and `glimpse`, what type are the following variables based on the variable taxonomy used in Chapter 2 on data. 
 
 - year
 - age
@@ -110,4 +110,4 @@ Variables will not always be stored in R the way they should. Sometimes we have 
 
 ## Save and Upload
 
-Change the title in the YAML to "R Chapter 2". Knit your Rmd to save it and check for errors. If you are satisfied with your work, upload to eLC. Once you upload, answers will become available for download.
+Change the title in the YAML to "R Chapter 17". Knit your Rmd to save it and check for errors. If you are satisfied with your work, upload to eLC. Once you upload, answers will become available for download.

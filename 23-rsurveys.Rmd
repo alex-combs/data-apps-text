@@ -16,7 +16,7 @@ To complete this chapter, you need to
 
 ```{r, eval=FALSE}
 ---
-title: 'R Chapter 8'
+title: 'R Chapter 23'
 author: 'Your name'
 output: 
   html_document:
