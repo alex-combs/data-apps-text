@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 8 Nonlinear Variables | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 8 Nonlinear Variables | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
   <meta property="og:description" content="Companion text for PADP 7120" />
   <meta name="github-repo" content="alex-combs/data-apps-text" />
@@ -32,8 +31,8 @@
   
 <link rel="prev" href="7-categorical-variables-and-interactions.html"/>
 <link rel="next" href="9-causation-and-bias.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,17 +48,17 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.14/datatables.js"></script>
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<script src="libs/datatables-binding-0.23/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -125,6 +124,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -376,23 +398,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="17.4" data-path="17-r-data.html"><a href="17-r-data.html#glimpse-data"><i class="fa fa-check"></i><b>17.4</b> Glimpse Data</a></li>
 <li class="chapter" data-level="17.5" data-path="17-r-data.html"><a href="17-r-data.html#variable-types-in-r"><i class="fa fa-check"></i><b>17.5</b> Variable Types in R</a></li>
-<li class="chapter" data-level="17.6" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>17.6</b> Save and Upload</a></li>
+<li class="chapter" data-level="17.6" data-path="17-r-data.html"><a href="17-r-data.html#save-and-upload-1"><i class="fa fa-check"></i><b>17.6</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html"><i class="fa fa-check"></i><b>18</b> R Missing Data</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="18.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>18.2</b> Set-up</a></li>
-<li class="chapter" data-level="18.3" data-path="2-data.html"><a href="2-data.html#data"><i class="fa fa-check"></i><b>18.3</b> Data</a></li>
+<li class="chapter" data-level="18.1" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#learning-objectives-1"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="18.2" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#set-up-1"><i class="fa fa-check"></i><b>18.2</b> Set-up</a></li>
+<li class="chapter" data-level="18.3" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#data-1"><i class="fa fa-check"></i><b>18.3</b> Data</a></li>
 <li class="chapter" data-level="18.4" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#checking-for-missing-data"><i class="fa fa-check"></i><b>18.4</b> Checking for missing data</a></li>
 <li class="chapter" data-level="18.5" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#counting-missing-values"><i class="fa fa-check"></i><b>18.5</b> Counting missing values</a></li>
 <li class="chapter" data-level="18.6" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#bypassing-missing-values"><i class="fa fa-check"></i><b>18.6</b> Bypassing missing values</a></li>
 <li class="chapter" data-level="18.7" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#drop-all-missing-cases"><i class="fa fa-check"></i><b>18.7</b> Drop all missing cases</a></li>
-<li class="chapter" data-level="18.8" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>18.8</b> Save and Upload</a></li>
+<li class="chapter" data-level="18.8" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#save-and-upload-2"><i class="fa fa-check"></i><b>18.8</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="19-r-description.html"><a href="19-r-description.html"><i class="fa fa-check"></i><b>19</b> R Description</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="19.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
+<li class="chapter" data-level="19.1" data-path="19-r-description.html"><a href="19-r-description.html#learning-objectives-2"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="19.2" data-path="19-r-description.html"><a href="19-r-description.html#set-up-2"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
 <li class="chapter" data-level="19.3" data-path="19-r-description.html"><a href="19-r-description.html#introduction"><i class="fa fa-check"></i><b>19.3</b> Introduction</a></li>
 <li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#quick-stat-computation"><i class="fa fa-check"></i><b>19.4</b> Quick Stat Computation</a></li>
 <li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.5</b> Summary Table</a>
@@ -403,24 +425,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.5.4" data-path="19-r-description.html"><a href="19-r-description.html#export-to-csv"><i class="fa fa-check"></i><b>19.5.4</b> Export to CSV</a></li>
 </ul></li>
 <li class="chapter" data-level="19.6" data-path="19-r-description.html"><a href="19-r-description.html#correlation-coefficient"><i class="fa fa-check"></i><b>19.6</b> Correlation Coefficient</a></li>
-<li class="chapter" data-level="19.7" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>19.7</b> Save and Upload</a></li>
+<li class="chapter" data-level="19.7" data-path="19-r-description.html"><a href="19-r-description.html#save-and-upload-3"><i class="fa fa-check"></i><b>19.7</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="20-r-visualization.html"><a href="20-r-visualization.html"><i class="fa fa-check"></i><b>20</b> R Visualization</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>20.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="20.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>20.2</b> Set-up</a></li>
+<li class="chapter" data-level="20.1" data-path="20-r-visualization.html"><a href="20-r-visualization.html#learning-objectives-3"><i class="fa fa-check"></i><b>20.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="20.2" data-path="20-r-visualization.html"><a href="20-r-visualization.html#set-up-3"><i class="fa fa-check"></i><b>20.2</b> Set-up</a></li>
 <li class="chapter" data-level="20.3" data-path="20-r-visualization.html"><a href="20-r-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>20.3</b> Grammar of graphics</a></li>
-<li class="chapter" data-level="20.4" data-path="5-data-visualization.html"><a href="5-data-visualization.html#histogram"><i class="fa fa-check"></i><b>20.4</b> Histogram</a></li>
-<li class="chapter" data-level="20.5" data-path="5-data-visualization.html"><a href="5-data-visualization.html#box-plot"><i class="fa fa-check"></i><b>20.5</b> Box plot</a></li>
-<li class="chapter" data-level="20.6" data-path="5-data-visualization.html"><a href="5-data-visualization.html#bar-chart"><i class="fa fa-check"></i><b>20.6</b> Bar chart</a></li>
-<li class="chapter" data-level="20.7" data-path="5-data-visualization.html"><a href="5-data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>20.7</b> Scatter plot</a></li>
-<li class="chapter" data-level="20.8" data-path="5-data-visualization.html"><a href="5-data-visualization.html#line-graph"><i class="fa fa-check"></i><b>20.8</b> Line graph</a></li>
-<li class="chapter" data-level="20.9" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>20.9</b> Save and Upload</a></li>
+<li class="chapter" data-level="20.4" data-path="20-r-visualization.html"><a href="20-r-visualization.html#histogram-1"><i class="fa fa-check"></i><b>20.4</b> Histogram</a></li>
+<li class="chapter" data-level="20.5" data-path="20-r-visualization.html"><a href="20-r-visualization.html#box-plot-1"><i class="fa fa-check"></i><b>20.5</b> Box plot</a></li>
+<li class="chapter" data-level="20.6" data-path="20-r-visualization.html"><a href="20-r-visualization.html#bar-chart-2"><i class="fa fa-check"></i><b>20.6</b> Bar chart</a></li>
+<li class="chapter" data-level="20.7" data-path="20-r-visualization.html"><a href="20-r-visualization.html#scatter-plot-1"><i class="fa fa-check"></i><b>20.7</b> Scatter plot</a></li>
+<li class="chapter" data-level="20.8" data-path="20-r-visualization.html"><a href="20-r-visualization.html#line-graph-1"><i class="fa fa-check"></i><b>20.8</b> Line graph</a></li>
+<li class="chapter" data-level="20.9" data-path="20-r-visualization.html"><a href="20-r-visualization.html#save-and-upload-4"><i class="fa fa-check"></i><b>20.9</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="21-r-regression.html"><a href="21-r-regression.html"><i class="fa fa-check"></i><b>21</b> R Regression</a>
 <ul>
-<li class="chapter" data-level="21.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>21.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="21.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>21.2</b> Set-up</a></li>
+<li class="chapter" data-level="21.1" data-path="21-r-regression.html"><a href="21-r-regression.html#learning-objectives-4"><i class="fa fa-check"></i><b>21.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="21.2" data-path="21-r-regression.html"><a href="21-r-regression.html#set-up-4"><i class="fa fa-check"></i><b>21.2</b> Set-up</a></li>
 <li class="chapter" data-level="21.3" data-path="21-r-regression.html"><a href="21-r-regression.html#running-regression"><i class="fa fa-check"></i><b>21.3</b> Running Regression</a>
 <ul>
 <li class="chapter" data-level="21.3.1" data-path="21-r-regression.html"><a href="21-r-regression.html#general-syntax"><i class="fa fa-check"></i><b>21.3.1</b> General Syntax</a></li>
@@ -433,21 +455,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.4.1" data-path="21-r-regression.html"><a href="21-r-regression.html#moderndive"><i class="fa fa-check"></i><b>21.4.1</b> Moderndive</a></li>
 <li class="chapter" data-level="21.4.2" data-path="21-r-regression.html"><a href="21-r-regression.html#base-r"><i class="fa fa-check"></i><b>21.4.2</b> Base R</a></li>
 </ul></li>
-<li class="chapter" data-level="21.5" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>21.5</b> Save and Upload</a></li>
+<li class="chapter" data-level="21.5" data-path="21-r-regression.html"><a href="21-r-regression.html#save-and-upload-5"><i class="fa fa-check"></i><b>21.5</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="22" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html"><i class="fa fa-check"></i><b>22</b> R Nonlinear Regression</a>
 <ul>
-<li class="chapter" data-level="22.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>22.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="22.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>22.2</b> Set-up</a></li>
+<li class="chapter" data-level="22.1" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#learning-objectives-5"><i class="fa fa-check"></i><b>22.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="22.2" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#set-up-5"><i class="fa fa-check"></i><b>22.2</b> Set-up</a></li>
 <li class="chapter" data-level="22.3" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#quadratic-term"><i class="fa fa-check"></i><b>22.3</b> Quadratic term</a></li>
 <li class="chapter" data-level="22.4" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#log-transformation"><i class="fa fa-check"></i><b>22.4</b> Log Transformation</a></li>
-<li class="chapter" data-level="22.5" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>22.5</b> Save and Upload</a></li>
+<li class="chapter" data-level="22.5" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#save-and-upload-6"><i class="fa fa-check"></i><b>22.5</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html"><i class="fa fa-check"></i><b>23</b> R Evaluations</a>
 <ul>
 <li class="chapter" data-level="23.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#learning-outcomes"><i class="fa fa-check"></i><b>23.1</b> Learning Outcomes</a></li>
-<li class="chapter" data-level="23.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>23.2</b> Set-up</a></li>
-<li class="chapter" data-level="23.3" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html#chi-square-test"><i class="fa fa-check"></i><b>23.3</b> Chi-square test</a>
+<li class="chapter" data-level="23.2" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#set-up-6"><i class="fa fa-check"></i><b>23.2</b> Set-up</a></li>
+<li class="chapter" data-level="23.3" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#chi-square-test-1"><i class="fa fa-check"></i><b>23.3</b> Chi-square test</a>
 <ul>
 <li class="chapter" data-level="23.3.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#cross-tab"><i class="fa fa-check"></i><b>23.3.1</b> Cross-tab</a></li>
 <li class="chapter" data-level="23.3.2" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#run-chi-square"><i class="fa fa-check"></i><b>23.3.2</b> Run chi-square</a></li>
@@ -457,17 +479,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="23.4.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#independent-t-test"><i class="fa fa-check"></i><b>23.4.1</b> Independent t-test</a></li>
 <li class="chapter" data-level="23.4.2" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#dependent-t-test"><i class="fa fa-check"></i><b>23.4.2</b> Dependent t-test</a></li>
 </ul></li>
-<li class="chapter" data-level="23.5" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>23.5</b> Save and Upload</a></li>
+<li class="chapter" data-level="23.5" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#save-and-upload-7"><i class="fa fa-check"></i><b>23.5</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html"><i class="fa fa-check"></i><b>24</b> R Regression Diagnostics</a>
 <ul>
-<li class="chapter" data-level="24.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#learning-outcomes"><i class="fa fa-check"></i><b>24.1</b> Learning Outcomes</a></li>
-<li class="chapter" data-level="24.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>24.2</b> Set-up</a></li>
+<li class="chapter" data-level="24.1" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#learning-outcomes-1"><i class="fa fa-check"></i><b>24.1</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="24.2" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#set-up-7"><i class="fa fa-check"></i><b>24.2</b> Set-up</a></li>
 <li class="chapter" data-level="24.3" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#diagnostic-plots"><i class="fa fa-check"></i><b>24.3</b> Diagnostic Plots</a></li>
 <li class="chapter" data-level="24.4" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#variance-inflation-factor"><i class="fa fa-check"></i><b>24.4</b> Variance Inflation Factor</a></li>
 <li class="chapter" data-level="24.5" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#statistical-test-on-assumption"><i class="fa fa-check"></i><b>24.5</b> Statistical test on assumption</a></li>
 <li class="chapter" data-level="24.6" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#excluding-observations"><i class="fa fa-check"></i><b>24.6</b> Excluding observations</a></li>
-<li class="chapter" data-level="24.7" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>24.7</b> Save and Upload</a></li>
+<li class="chapter" data-level="24.7" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#save-and-upload-8"><i class="fa fa-check"></i><b>24.7</b> Save and Upload</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="A-coding-tips.html"><a href="A-coding-tips.html"><i class="fa fa-check"></i><b>A</b> Coding Tips</a>
@@ -528,8 +550,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="nonlinear-variables" class="section level1" number="8">
-<h1><span class="header-section-number"> 8</span> Nonlinear Variables</h1>
+<div id="nonlinear-variables" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number"> 8</span> Nonlinear Variables<a href="8-nonlinear-variables.html#nonlinear-variables" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p><em>“The shortest distance between two points is often unbearable.”</em></p>
 <p>—Charles Bukowski</p>
@@ -540,8 +562,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Include a quadratic</li>
 <li>Include a logarithmic transformation</li>
 </ul>
-<div id="lo8" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Learning objectives</h2>
+<div id="lo8" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Learning objectives<a href="8-nonlinear-variables.html#lo8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Explain why and how to extend a regression model to include a quadratic relationship</li>
 <li>Interpret the coefficients associated with a quadratic term in a regression model</li>
@@ -551,11 +573,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Interpret results from log-log, log-level, and level-log models</li>
 </ul>
 </div>
-<div id="quadratic" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Quadratic</h2>
+<div id="quadratic" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Quadratic<a href="8-nonlinear-variables.html#quadratic" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If we theorize or see visual evidence that the association between an explanatory variable and an outcome is such that the outcome initially increases or decreases as the explanatory variable increases, then, at some value of the explanatory variable, the outcome decreases, then we may want to include a quadratic term of that explanatory variable in our regression model. That long-winded statement warrants an immediate visualization provided by Figure <a href="8-nonlinear-variables.html#fig:quadscatter">8.1</a> below.</p>
 <p>Note that wage appears to initially increase with age, then decreases. The data present a pattern that resembles an inverted U, also known as a concave parabola. Age and wage is a classic example of a quadratic relationship. We should not force ourselves to fit a straight line to these data; we can estimate a better line.</p>
-<div class="figure" style="text-align: center"><span id="fig:quadscatter"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:quadscatter"></span>
 <img src="data-apps-text_files/figure-html/quadscatter-1.png" alt="Wages by age" width="\textwidth" />
 <p class="caption">
 Figure 8.1: Wages by age
@@ -585,8 +607,8 @@ b_1 + 2b_2x_1
 x = {\frac{-b_1}{2b_2}}
 \tag{8.4}
 \end{equation}\]</span></p>
-<div id="using-quadratics" class="section level3" number="8.2.1">
-<h3><span class="header-section-number">8.2.1</span> Using quadratics</h3>
+<div id="using-quadratics" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Using quadratics<a href="8-nonlinear-variables.html#using-quadratics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose we collect individual-level data for hourly wage, years of education, and age.</p>
 <table>
 <caption><span id="tab:wagestab">Table 8.1: </span>Preview of wages, age, and education</caption>
@@ -644,6 +666,15 @@ Wage = \beta_0 + \beta_1Age + \beta_2Age^2 + \beta_3Educ + \epsilon
 <p>Running this regression generates the following results</p>
 <table>
 <caption><span id="tab:quadextab">Table 8.2: </span>Quadratic model results</caption>
+<colgroup>
+<col width="15%" />
+<col width="13%" />
+<col width="15%" />
+<col width="15%" />
+<col width="12%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">term</th>
@@ -721,13 +752,13 @@ Wage = \beta_0 + \beta_1Age + \beta_2Age^2 + \beta_3Educ + \epsilon
 <p>The positive linear and negative quadratic effects offset (not exactly because the precise maximum is 51.923). In other words, the slope of the regression line between wage and age is 0 at age 52.</p>
 </div>
 </div>
-<div id="log-models" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Log models</h2>
+<div id="log-models" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Log models<a href="8-nonlinear-variables.html#log-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Once again, we will forego the math of logarithms and instead focus on why we may want to use them in a regression model and how to interpret the results. In short, logarithms are used to express rates of change in a variable (i.e. percent change) rather than absolute change in a variable (i.e. unit change).</p>
-<div id="logarithmic-scales" class="section level3" number="8.3.1">
-<h3><span class="header-section-number">8.3.1</span> Logarithmic scales</h3>
+<div id="logarithmic-scales" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Logarithmic scales<a href="8-nonlinear-variables.html#logarithmic-scales" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Graphs like Figure <a href="8-nonlinear-variables.html#fig:logcovid">8.2</a> below were commonplace during the spread of COVID-19. Note how the values on the y axis are evenly dispersed, but each tick mark increases by a factor of 10 (i.e. the previous value multiplied by 10). The y-axis is in a <strong>log10</strong> scale. Another common log scale for visualization is a <strong>log2</strong> scale which increases each interval by a factor of 2.</p>
-<div class="figure" style="text-align: center"><span id="fig:logcovid"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:logcovid"></span>
 <img src="images/logs_covid.png" alt="Growth in COVID-19 cases by state" width="\textwidth" />
 <p class="caption">
 Figure 8.2: Growth in COVID-19 cases by state
@@ -741,8 +772,8 @@ Figure 8.2: Growth in COVID-19 cases by state
 <p>and now a variable that ranges between 100 and 100,000 has a more manageable range between 2 and 5.</p>
 <p>Also, what was an exponential increase in cases as days along the x-axis increases is now a proportional increase. For example, note that from day 0 (since the 100th case) to day 10, the trend line for New York is roughly linear. Equal incremental increases in days correspond to an equal incremental increase in cases rescaled to log base 10. Without the log scale, the slope of the line would be <em>extremely</em> exponential. Instead, the line is roughly linear. This conversion of a nonlinear relationship to a linear one has consequences for how we interpret regression models that use variables transformed into a log scale. Understanding those consequences begins with understanding <em>rates</em> of change rather than absolute change.</p>
 </div>
-<div id="percent-v-percentage-point-change" class="section level3" number="8.3.2">
-<h3><span class="header-section-number">8.3.2</span> Percent v percentage point change</h3>
+<div id="percent-v-percentage-point-change" class="section level3 hasAnchor" number="8.3.2">
+<h3><span class="header-section-number">8.3.2</span> Percent v percentage point change<a href="8-nonlinear-variables.html#percent-v-percentage-point-change" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The rate of change relevant to log transformations is percent change. The equation for percent change is shown below.</p>
 <p><span class="math display" id="eq:pctchange">\[\begin{equation}
 PctChange = {\frac{NewValue-OldValue}{OldValue}} \times 100
@@ -763,8 +794,8 @@ PctChange = {\frac{NewValue-OldValue}{OldValue}} \times 100
 </blockquote>
 <p>One reason we may prefer to use percent change is if the variable in question has some underlying impact that differs depending on the initial value from which it changed. This too applies to measures of wealth or income. Suppose we estimate that a policy will, on average, increase peoples’ incomes by 12,000 dollars. This average unit change does not quite capture the benefit of the policy. Imagine a society of two people. One person earns 20,000 dollars per year and the other earns 80,000 dollars. That 12,000 likely has a greater positive impact on the low-income individual than it does the high-income individual. Consequently, this can be expressed in percent change. The 12,000 represents a 60% increase in income for the low-income individual and 15% for the high-income individual.</p>
 </div>
-<div id="why-logs-in-regression" class="section level3" number="8.3.3">
-<h3><span class="header-section-number">8.3.3</span> Why logs in regression</h3>
+<div id="why-logs-in-regression" class="section level3 hasAnchor" number="8.3.3">
+<h3><span class="header-section-number">8.3.3</span> Why logs in regression<a href="8-nonlinear-variables.html#why-logs-in-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To summarize, we may want to use logs in regression if</p>
 <ul>
 <li>it is preferable to express change in percentages rather than units</li>
@@ -775,13 +806,13 @@ PctChange = {\frac{NewValue-OldValue}{OldValue}} \times 100
 <p>As will become clear in the next section on inference, using a sample to make valid conclusions about a population relies heavily on the normal distribution, which was introduced in Chapter <a href="4-descriptive-statistics.html#descriptive-statistics">4</a>. In a similar sense, we want the variables we use for inference to be approximately normally distributed because extreme values of a skewed distribution can impose undue influence on our results. Log-transformations can transform a skewed distribution to be more normal.</p>
 <p>For instance, variables that measure income or wealth tend to be right-skewed. Figure <a href="8-nonlinear-variables.html#fig:gapskew">8.3</a> shows the distribution of GDP per capita across most countries in multiple years. Clearly this distribution is not normal and skewed to the right. It is difficult to see because there are so few cases, but some countries have GDP per capita near or more than $120,000.</p>
 <p>Figure <a href="8-nonlinear-variables.html#fig:gaplog">8.4</a> shows the distribution if we convert GDP per capita to a log scale (log10 was used but any log scale will achieve the same normalization). Now we have a more normal distribution. This is desirable in statistics.</p>
-<div class="figure" style="text-align: center"><span id="fig:gapskew"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gapskew"></span>
 <img src="data-apps-text_files/figure-html/gapskew-1.png" alt="Distribution of GDP per capita" width="\textwidth" />
 <p class="caption">
 Figure 8.3: Distribution of GDP per capita
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:gaplog"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gaplog"></span>
 <img src="data-apps-text_files/figure-html/gaplog-1.png" alt="Distribution of log10 GDP per capita" width="\textwidth" />
 <p class="caption">
 Figure 8.4: Distribution of log10 GDP per capita
@@ -790,22 +821,22 @@ Figure 8.4: Distribution of log10 GDP per capita
 <p>The third reason for using logs concerns theory, which should always inform the choices we make in statistics. When choosing how to model the relationship between an outcome and an explanatory variable, if past research, experience, visualization of data, or intuition tells us that the outcome changes dramatically at first, then begins to flatten, a logarithmic transformation should be used.</p>
 <p>For example, suppose we wish to examine the relationship between national wealth and life expectancy. Intuitively, we expect this relationship to be positive–as wealth increases, life expectancy should increase. Also, life expectancy has some natural ceiling, so it cannot increase indefinitely, and we may expect relatively small increases from low levels of wealth to have much greater impacts on life expectancy then similar increases from high levels of wealth.</p>
 <p>Figure <a href="8-nonlinear-variables.html#fig:gapskewscatter">8.5</a> provides a scatter plot of GDP per capita and life expectancy in their original units. Note the rapid increase then plateau in life expectancy. A regression line would not fit these data well.</p>
-<div class="figure" style="text-align: center"><span id="fig:gapskewscatter"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gapskewscatter"></span>
 <img src="data-apps-text_files/figure-html/gapskewscatter-1.png" alt="Relationship between wealth and life expectancy using unit scale" width="\textwidth" />
 <p class="caption">
 Figure 8.5: Relationship between wealth and life expectancy using unit scale
 </p>
 </div>
 <p>Using a log transformation in an association between two variables does not change the underlying data or relationship, but it <em>does</em> transform the pattern of points to be more linear, thus allowing a linear regression line to do a better job modeling the relationship. Figure <a href="8-nonlinear-variables.html#fig:gaplogscatter">8.6</a> uses the same data but GDP per capita has been transformed to log scale. This simple change makes a big difference for the validity of any conclusions we may make regarding the relationship between wealth and life expectancy.</p>
-<div class="figure" style="text-align: center"><span id="fig:gaplogscatter"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gaplogscatter"></span>
 <img src="data-apps-text_files/figure-html/gaplogscatter-1.png" alt="Relationship between wealth and life expectancy using log scale" width="\textwidth" />
 <p class="caption">
 Figure 8.6: Relationship between wealth and life expectancy using log scale
 </p>
 </div>
 </div>
-<div id="using-log-models" class="section level3" number="8.3.4">
-<h3><span class="header-section-number">8.3.4</span> Using log models</h3>
+<div id="using-log-models" class="section level3 hasAnchor" number="8.3.4">
+<h3><span class="header-section-number">8.3.4</span> Using log models<a href="8-nonlinear-variables.html#using-log-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are three variations of the log model:</p>
 <ul>
 <li>Level-log: log transforming one or more explanatory variables but not the outcome</li>
@@ -814,8 +845,8 @@ Figure 8.6: Relationship between wealth and life expectancy using log scale
 </ul>
 <p>Each model fits slightly different patterns of association best but they share the general pattern of a pronounced initial increase or decrease followed by a plateau. If past research, visuals, or theory does not lead us to choose one model over the other, one option is to compare the goodness-of-fit between the three, choosing the one with the highest <span class="math inline">\(R^2\)</span> or lowest RMSE.</p>
 <p>One last point before presenting each of the models and how to interpret: using the logarithmic transformation uses a special log scale called the <strong>natural log</strong>, often denoted as <strong><span class="math inline">\(ln\)</span></strong>, as opposed to, say, <span class="math inline">\(log_{10}\)</span> or <span class="math inline">\(log_2\)</span>. You do not need to concern yourself with the mathematical properties of the natural log. Just know that the natural log is what is used in regression to transform unit changes to percent changes.</p>
-<div id="log-log" class="section level4 unnumbered">
-<h4>Log-log</h4>
+<div id="log-log" class="section level4 unnumbered hasAnchor">
+<h4>Log-log<a href="8-nonlinear-variables.html#log-log" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The log-log model is somewhat special among the three variations because it estimates a commonly used measure in economic or policy analyses–the <strong>elasticity</strong>. You may have already learned in policy analysis courses that the <strong>elasticity is the percent change in an outcome given a one percent change in the explanatory variable</strong>.</p>
 <p>Equation <a href="8-nonlinear-variables.html#eq:loglog">(8.8)</a> presents a generic log-log model. Log-log is simply meant to convey that we logged our outcome and logged at least one explanatory variable.</p>
 <p><span class="math display" id="eq:loglog">\[\begin{equation}
@@ -836,8 +867,8 @@ ln(y)=\beta_0 + \beta_1ln(x_1) + \beta_2x_2 + \cdots + \beta_kx_k + \epsilon
 <p>According to the results, the <span class="math inline">\(x_1\)</span> elasiticy of <span class="math inline">\(y\)</span> is <span class="math inline">\(b_1\)</span>.</p>
 </blockquote>
 </div>
-<div id="level-log" class="section level4 unnumbered">
-<h4>Level-log</h4>
+<div id="level-log" class="section level4 unnumbered hasAnchor">
+<h4>Level-log<a href="8-nonlinear-variables.html#level-log" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Equation <a href="8-nonlinear-variables.html#eq:levlog">(8.10)</a> presents a generic level-log model. Level-log is simply meant to convey that we logged at least one explanatory variable.</p>
 <p><span class="math display" id="eq:levlog">\[\begin{equation}
 y=\beta_0 + \beta_1ln(x_1) + \beta_2x_2 + \cdots + \beta_kx_k + \epsilon
@@ -858,8 +889,8 @@ y=\beta_0 + \beta_1ln(x_1) + \beta_2x_2 + \cdots + \beta_kx_k + \epsilon
 </blockquote>
 <p>because a doubling is equal to a 100 percent increase. Multiplying <span class="math inline">\(\frac{b_1}{100}\)</span> by 100 cancels out the 100 in the denominator, leaving us with just <span class="math inline">\(b_1\)</span>.</p>
 </div>
-<div id="log-level" class="section level4 unnumbered">
-<h4>Log-level</h4>
+<div id="log-level" class="section level4 unnumbered hasAnchor">
+<h4>Log-level<a href="8-nonlinear-variables.html#log-level" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Equation <a href="8-nonlinear-variables.html#eq:loglev">(8.12)</a> presents a generic log-level model. Log-level is simply meant to convey that we logged our outcome.</p>
 <p><span class="math display" id="eq:loglev">\[\begin{equation}
 ln(y)=\beta_0 + \beta_1x_1 + \beta_2x_2 + \cdots + \beta_kx_k + \epsilon
@@ -875,8 +906,8 @@ ln(y)=\beta_0 + \beta_1x_1 + \beta_2x_2 + \cdots + \beta_kx_k + \epsilon
 <p>On average, a one unit change in <span class="math inline">\(x_1\)</span> is associated with a <span class="math inline">\(b_1 \times 100\)</span> percent change in <span class="math inline">\(y\)</span>, all else equal.</p>
 </blockquote>
 </div>
-<div id="example" class="section level4 unnumbered">
-<h4>Example</h4>
+<div id="example-1" class="section level4 unnumbered hasAnchor">
+<h4>Example<a href="8-nonlinear-variables.html#example-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let’s continue our investigation of national life expectancy using the various log models. Suppose we are interested in using the following base model for the three varieties of log models. Continent is included because perhaps we think it will capture some geographical, social, and/or cultural differences that impact life expectancy.</p>
 <p><span class="math display" id="eq:logex">\[\begin{equation}
 LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
@@ -885,6 +916,15 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 <p>The following tables present results for each of the three log models.</p>
 <table>
 <caption><span id="tab:loglogtab">Table 8.3: </span>Log-log results</caption>
+<colgroup>
+<col width="26%" />
+<col width="12%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">term</th>
@@ -916,7 +956,7 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 <td align="right">0.119</td>
 </tr>
 <tr class="odd">
-<td align="left">continentAmericas</td>
+<td align="left">continent: Americas</td>
 <td align="right">0.133</td>
 <td align="right">0.011</td>
 <td align="right">12.519</td>
@@ -925,7 +965,7 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 <td align="right">0.154</td>
 </tr>
 <tr class="even">
-<td align="left">continentAsia</td>
+<td align="left">continent: Asia</td>
 <td align="right">0.110</td>
 <td align="right">0.009</td>
 <td align="right">12.037</td>
@@ -934,7 +974,7 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 <td align="right">0.128</td>
 </tr>
 <tr class="odd">
-<td align="left">continentEurope</td>
+<td align="left">continent: Europe</td>
 <td align="right">0.166</td>
 <td align="right">0.012</td>
 <td align="right">14.357</td>
@@ -943,7 +983,7 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 <td align="right">0.189</td>
 </tr>
 <tr class="even">
-<td align="left">continentOceania</td>
+<td align="left">continent: Oceania</td>
 <td align="right">0.152</td>
 <td align="right">0.029</td>
 <td align="right">5.187</td>
@@ -955,6 +995,15 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 </table>
 <table>
 <caption><span id="tab:levlogtab">Table 8.4: </span>Level-log results</caption>
+<colgroup>
+<col width="26%" />
+<col width="12%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">term</th>
@@ -986,7 +1035,7 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 <td align="right">6.782</td>
 </tr>
 <tr class="odd">
-<td align="left">continentAmericas</td>
+<td align="left">continent: Americas</td>
 <td align="right">7.015</td>
 <td align="right">0.554</td>
 <td align="right">12.652</td>
@@ -995,7 +1044,7 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 <td align="right">8.102</td>
 </tr>
 <tr class="even">
-<td align="left">continentAsia</td>
+<td align="left">continent: Asia</td>
 <td align="right">5.912</td>
 <td align="right">0.477</td>
 <td align="right">12.400</td>
@@ -1004,7 +1053,7 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 <td align="right">6.847</td>
 </tr>
 <tr class="odd">
-<td align="left">continentEurope</td>
+<td align="left">continent: Europe</td>
 <td align="right">9.577</td>
 <td align="right">0.604</td>
 <td align="right">15.855</td>
@@ -1013,7 +1062,7 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 <td align="right">10.762</td>
 </tr>
 <tr class="even">
-<td align="left">continentOceania</td>
+<td align="left">continent: Oceania</td>
 <td align="right">9.213</td>
 <td align="right">1.536</td>
 <td align="right">5.999</td>
@@ -1025,6 +1074,15 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 </table>
 <table>
 <caption><span id="tab:loglevtab">Table 8.5: </span>Log-level results</caption>
+<colgroup>
+<col width="26%" />
+<col width="12%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="12%" />
+<col width="12%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">term</th>
@@ -1056,7 +1114,7 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 <td align="right">0.000</td>
 </tr>
 <tr class="odd">
-<td align="left">continentAmericas</td>
+<td align="left">continent: Americas</td>
 <td align="right">0.250</td>
 <td align="right">0.011</td>
 <td align="right">22.054</td>
@@ -1065,7 +1123,7 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 <td align="right">0.272</td>
 </tr>
 <tr class="even">
-<td align="left">continentAsia</td>
+<td align="left">continent: Asia</td>
 <td align="right">0.160</td>
 <td align="right">0.010</td>
 <td align="right">15.322</td>
@@ -1074,7 +1132,7 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 <td align="right">0.181</td>
 </tr>
 <tr class="odd">
-<td align="left">continentEurope</td>
+<td align="left">continent: Europe</td>
 <td align="right">0.311</td>
 <td align="right">0.012</td>
 <td align="right">26.383</td>
@@ -1083,7 +1141,7 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 <td align="right">0.334</td>
 </tr>
 <tr class="even">
-<td align="left">continentOceania</td>
+<td align="left">continent: Oceania</td>
 <td align="right">0.316</td>
 <td align="right">0.034</td>
 <td align="right">9.381</td>
@@ -1106,8 +1164,8 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
 </div>
 </div>
 </div>
-<div id="kt8" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Key terms and concepts</h2>
+<div id="kt8" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Key terms and concepts<a href="8-nonlinear-variables.html#kt8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Marginal effect</li>
 <li>Logarithmic scale</li>
@@ -1129,7 +1187,6 @@ LifeExp=\beta_0 + \beta_1GDPpercap + \beta_2Continent + \epsilon
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1159,6 +1216,10 @@ gitbook.start({
 "text": null
 },
 "download": ["data-apps-text.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }

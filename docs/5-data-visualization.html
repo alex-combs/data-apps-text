@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 5 Data Visualization | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 5 Data Visualization | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
   <meta property="og:description" content="Companion text for PADP 7120" />
   <meta name="github-repo" content="alex-combs/data-apps-text" />
@@ -32,8 +31,8 @@
   
 <link rel="prev" href="4-descriptive-statistics.html"/>
 <link rel="next" href="6-simple-and-multiple-regression.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,17 +48,17 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.14/datatables.js"></script>
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<script src="libs/datatables-binding-0.23/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -125,6 +124,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -376,23 +398,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="17.4" data-path="17-r-data.html"><a href="17-r-data.html#glimpse-data"><i class="fa fa-check"></i><b>17.4</b> Glimpse Data</a></li>
 <li class="chapter" data-level="17.5" data-path="17-r-data.html"><a href="17-r-data.html#variable-types-in-r"><i class="fa fa-check"></i><b>17.5</b> Variable Types in R</a></li>
-<li class="chapter" data-level="17.6" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>17.6</b> Save and Upload</a></li>
+<li class="chapter" data-level="17.6" data-path="17-r-data.html"><a href="17-r-data.html#save-and-upload-1"><i class="fa fa-check"></i><b>17.6</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html"><i class="fa fa-check"></i><b>18</b> R Missing Data</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="18.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>18.2</b> Set-up</a></li>
-<li class="chapter" data-level="18.3" data-path="2-data.html"><a href="2-data.html#data"><i class="fa fa-check"></i><b>18.3</b> Data</a></li>
+<li class="chapter" data-level="18.1" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#learning-objectives-1"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="18.2" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#set-up-1"><i class="fa fa-check"></i><b>18.2</b> Set-up</a></li>
+<li class="chapter" data-level="18.3" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#data-1"><i class="fa fa-check"></i><b>18.3</b> Data</a></li>
 <li class="chapter" data-level="18.4" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#checking-for-missing-data"><i class="fa fa-check"></i><b>18.4</b> Checking for missing data</a></li>
 <li class="chapter" data-level="18.5" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#counting-missing-values"><i class="fa fa-check"></i><b>18.5</b> Counting missing values</a></li>
 <li class="chapter" data-level="18.6" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#bypassing-missing-values"><i class="fa fa-check"></i><b>18.6</b> Bypassing missing values</a></li>
 <li class="chapter" data-level="18.7" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#drop-all-missing-cases"><i class="fa fa-check"></i><b>18.7</b> Drop all missing cases</a></li>
-<li class="chapter" data-level="18.8" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>18.8</b> Save and Upload</a></li>
+<li class="chapter" data-level="18.8" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#save-and-upload-2"><i class="fa fa-check"></i><b>18.8</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="19-r-description.html"><a href="19-r-description.html"><i class="fa fa-check"></i><b>19</b> R Description</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="19.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
+<li class="chapter" data-level="19.1" data-path="19-r-description.html"><a href="19-r-description.html#learning-objectives-2"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="19.2" data-path="19-r-description.html"><a href="19-r-description.html#set-up-2"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
 <li class="chapter" data-level="19.3" data-path="19-r-description.html"><a href="19-r-description.html#introduction"><i class="fa fa-check"></i><b>19.3</b> Introduction</a></li>
 <li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#quick-stat-computation"><i class="fa fa-check"></i><b>19.4</b> Quick Stat Computation</a></li>
 <li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.5</b> Summary Table</a>
@@ -403,24 +425,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.5.4" data-path="19-r-description.html"><a href="19-r-description.html#export-to-csv"><i class="fa fa-check"></i><b>19.5.4</b> Export to CSV</a></li>
 </ul></li>
 <li class="chapter" data-level="19.6" data-path="19-r-description.html"><a href="19-r-description.html#correlation-coefficient"><i class="fa fa-check"></i><b>19.6</b> Correlation Coefficient</a></li>
-<li class="chapter" data-level="19.7" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>19.7</b> Save and Upload</a></li>
+<li class="chapter" data-level="19.7" data-path="19-r-description.html"><a href="19-r-description.html#save-and-upload-3"><i class="fa fa-check"></i><b>19.7</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="20-r-visualization.html"><a href="20-r-visualization.html"><i class="fa fa-check"></i><b>20</b> R Visualization</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>20.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="20.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>20.2</b> Set-up</a></li>
+<li class="chapter" data-level="20.1" data-path="20-r-visualization.html"><a href="20-r-visualization.html#learning-objectives-3"><i class="fa fa-check"></i><b>20.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="20.2" data-path="20-r-visualization.html"><a href="20-r-visualization.html#set-up-3"><i class="fa fa-check"></i><b>20.2</b> Set-up</a></li>
 <li class="chapter" data-level="20.3" data-path="20-r-visualization.html"><a href="20-r-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>20.3</b> Grammar of graphics</a></li>
-<li class="chapter" data-level="20.4" data-path="5-data-visualization.html"><a href="5-data-visualization.html#histogram"><i class="fa fa-check"></i><b>20.4</b> Histogram</a></li>
-<li class="chapter" data-level="20.5" data-path="5-data-visualization.html"><a href="5-data-visualization.html#box-plot"><i class="fa fa-check"></i><b>20.5</b> Box plot</a></li>
-<li class="chapter" data-level="20.6" data-path="5-data-visualization.html"><a href="5-data-visualization.html#bar-chart"><i class="fa fa-check"></i><b>20.6</b> Bar chart</a></li>
-<li class="chapter" data-level="20.7" data-path="5-data-visualization.html"><a href="5-data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>20.7</b> Scatter plot</a></li>
-<li class="chapter" data-level="20.8" data-path="5-data-visualization.html"><a href="5-data-visualization.html#line-graph"><i class="fa fa-check"></i><b>20.8</b> Line graph</a></li>
-<li class="chapter" data-level="20.9" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>20.9</b> Save and Upload</a></li>
+<li class="chapter" data-level="20.4" data-path="20-r-visualization.html"><a href="20-r-visualization.html#histogram-1"><i class="fa fa-check"></i><b>20.4</b> Histogram</a></li>
+<li class="chapter" data-level="20.5" data-path="20-r-visualization.html"><a href="20-r-visualization.html#box-plot-1"><i class="fa fa-check"></i><b>20.5</b> Box plot</a></li>
+<li class="chapter" data-level="20.6" data-path="20-r-visualization.html"><a href="20-r-visualization.html#bar-chart-2"><i class="fa fa-check"></i><b>20.6</b> Bar chart</a></li>
+<li class="chapter" data-level="20.7" data-path="20-r-visualization.html"><a href="20-r-visualization.html#scatter-plot-1"><i class="fa fa-check"></i><b>20.7</b> Scatter plot</a></li>
+<li class="chapter" data-level="20.8" data-path="20-r-visualization.html"><a href="20-r-visualization.html#line-graph-1"><i class="fa fa-check"></i><b>20.8</b> Line graph</a></li>
+<li class="chapter" data-level="20.9" data-path="20-r-visualization.html"><a href="20-r-visualization.html#save-and-upload-4"><i class="fa fa-check"></i><b>20.9</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="21-r-regression.html"><a href="21-r-regression.html"><i class="fa fa-check"></i><b>21</b> R Regression</a>
 <ul>
-<li class="chapter" data-level="21.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>21.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="21.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>21.2</b> Set-up</a></li>
+<li class="chapter" data-level="21.1" data-path="21-r-regression.html"><a href="21-r-regression.html#learning-objectives-4"><i class="fa fa-check"></i><b>21.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="21.2" data-path="21-r-regression.html"><a href="21-r-regression.html#set-up-4"><i class="fa fa-check"></i><b>21.2</b> Set-up</a></li>
 <li class="chapter" data-level="21.3" data-path="21-r-regression.html"><a href="21-r-regression.html#running-regression"><i class="fa fa-check"></i><b>21.3</b> Running Regression</a>
 <ul>
 <li class="chapter" data-level="21.3.1" data-path="21-r-regression.html"><a href="21-r-regression.html#general-syntax"><i class="fa fa-check"></i><b>21.3.1</b> General Syntax</a></li>
@@ -433,21 +455,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.4.1" data-path="21-r-regression.html"><a href="21-r-regression.html#moderndive"><i class="fa fa-check"></i><b>21.4.1</b> Moderndive</a></li>
 <li class="chapter" data-level="21.4.2" data-path="21-r-regression.html"><a href="21-r-regression.html#base-r"><i class="fa fa-check"></i><b>21.4.2</b> Base R</a></li>
 </ul></li>
-<li class="chapter" data-level="21.5" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>21.5</b> Save and Upload</a></li>
+<li class="chapter" data-level="21.5" data-path="21-r-regression.html"><a href="21-r-regression.html#save-and-upload-5"><i class="fa fa-check"></i><b>21.5</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="22" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html"><i class="fa fa-check"></i><b>22</b> R Nonlinear Regression</a>
 <ul>
-<li class="chapter" data-level="22.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>22.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="22.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>22.2</b> Set-up</a></li>
+<li class="chapter" data-level="22.1" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#learning-objectives-5"><i class="fa fa-check"></i><b>22.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="22.2" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#set-up-5"><i class="fa fa-check"></i><b>22.2</b> Set-up</a></li>
 <li class="chapter" data-level="22.3" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#quadratic-term"><i class="fa fa-check"></i><b>22.3</b> Quadratic term</a></li>
 <li class="chapter" data-level="22.4" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#log-transformation"><i class="fa fa-check"></i><b>22.4</b> Log Transformation</a></li>
-<li class="chapter" data-level="22.5" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>22.5</b> Save and Upload</a></li>
+<li class="chapter" data-level="22.5" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#save-and-upload-6"><i class="fa fa-check"></i><b>22.5</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html"><i class="fa fa-check"></i><b>23</b> R Evaluations</a>
 <ul>
 <li class="chapter" data-level="23.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#learning-outcomes"><i class="fa fa-check"></i><b>23.1</b> Learning Outcomes</a></li>
-<li class="chapter" data-level="23.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>23.2</b> Set-up</a></li>
-<li class="chapter" data-level="23.3" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html#chi-square-test"><i class="fa fa-check"></i><b>23.3</b> Chi-square test</a>
+<li class="chapter" data-level="23.2" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#set-up-6"><i class="fa fa-check"></i><b>23.2</b> Set-up</a></li>
+<li class="chapter" data-level="23.3" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#chi-square-test-1"><i class="fa fa-check"></i><b>23.3</b> Chi-square test</a>
 <ul>
 <li class="chapter" data-level="23.3.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#cross-tab"><i class="fa fa-check"></i><b>23.3.1</b> Cross-tab</a></li>
 <li class="chapter" data-level="23.3.2" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#run-chi-square"><i class="fa fa-check"></i><b>23.3.2</b> Run chi-square</a></li>
@@ -457,17 +479,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="23.4.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#independent-t-test"><i class="fa fa-check"></i><b>23.4.1</b> Independent t-test</a></li>
 <li class="chapter" data-level="23.4.2" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#dependent-t-test"><i class="fa fa-check"></i><b>23.4.2</b> Dependent t-test</a></li>
 </ul></li>
-<li class="chapter" data-level="23.5" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>23.5</b> Save and Upload</a></li>
+<li class="chapter" data-level="23.5" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#save-and-upload-7"><i class="fa fa-check"></i><b>23.5</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html"><i class="fa fa-check"></i><b>24</b> R Regression Diagnostics</a>
 <ul>
-<li class="chapter" data-level="24.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#learning-outcomes"><i class="fa fa-check"></i><b>24.1</b> Learning Outcomes</a></li>
-<li class="chapter" data-level="24.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>24.2</b> Set-up</a></li>
+<li class="chapter" data-level="24.1" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#learning-outcomes-1"><i class="fa fa-check"></i><b>24.1</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="24.2" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#set-up-7"><i class="fa fa-check"></i><b>24.2</b> Set-up</a></li>
 <li class="chapter" data-level="24.3" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#diagnostic-plots"><i class="fa fa-check"></i><b>24.3</b> Diagnostic Plots</a></li>
 <li class="chapter" data-level="24.4" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#variance-inflation-factor"><i class="fa fa-check"></i><b>24.4</b> Variance Inflation Factor</a></li>
 <li class="chapter" data-level="24.5" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#statistical-test-on-assumption"><i class="fa fa-check"></i><b>24.5</b> Statistical test on assumption</a></li>
 <li class="chapter" data-level="24.6" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#excluding-observations"><i class="fa fa-check"></i><b>24.6</b> Excluding observations</a></li>
-<li class="chapter" data-level="24.7" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>24.7</b> Save and Upload</a></li>
+<li class="chapter" data-level="24.7" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#save-and-upload-8"><i class="fa fa-check"></i><b>24.7</b> Save and Upload</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="A-coding-tips.html"><a href="A-coding-tips.html"><i class="fa fa-check"></i><b>A</b> Coding Tips</a>
@@ -528,8 +550,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-visualization" class="section level1" number="5">
-<h1><span class="header-section-number"> 5</span> Data Visualization</h1>
+<div id="data-visualization" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number"> 5</span> Data Visualization<a href="5-data-visualization.html#data-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p><em>“The pen is mightier than the sword, especially if it draws a graph.”</em></p>
 </blockquote>
@@ -544,15 +566,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>the type(s) of variable(s) involved in the visualization.</li>
 </ul>
 <p>Figure <a href="5-data-visualization.html#fig:vizflow">5.1</a> below provides a decision tree organized according to these two considerations. This chapter is roughly organized according to this decision tree.</p>
-<div class="figure" style="text-align: center"><span id="fig:vizflow"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:vizflow"></span>
 <img src="images/vizflow2.png" alt="Basic data viz decisions" width="\textwidth" />
 <p class="caption">
 Figure 5.1: Basic data viz decisions
 </p>
 </div>
 <p>Note that the first branch of Figure <a href="5-data-visualization.html#fig:vizflow">5.1</a> is dictated by whether we want to visualize one variable or the association of two or more variables. The left side pertains to one variable – the visualization of which depends on whether it is a categorical or numerical variable. The right side pertains to visualizing the association of two or more variables. Which graph is arguably best then depends on the type of variables involved in the association.</p>
-<div id="lo5" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Learning objectives</h2>
+<div id="lo5" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Learning objectives<a href="5-data-visualization.html#lo5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Interpret the six common visualizations from Figure <a href="5-data-visualization.html#fig:vizflow">5.1</a>
 <ul>
@@ -566,14 +588,14 @@ Figure 5.1: Basic data viz decisions
 <li>Recommend an appropriate type of visualization given the intended message and data</li>
 </ul>
 </div>
-<div id="distribution-of-numerical-variables" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Distribution of numerical variables</h2>
+<div id="distribution-of-numerical-variables" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Distribution of numerical variables<a href="5-data-visualization.html#distribution-of-numerical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This section refers to the top-left section of Figure <a href="5-data-visualization.html#fig:vizflow">5.1</a> where we want to visualize how the values of a single numerical variable are distributed along its (possible) range of values.</p>
-<div id="histogram" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Histogram</h3>
+<div id="histogram" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Histogram<a href="5-data-visualization.html#histogram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You have already seen several histograms. A histogram visualizes the distribution of a single variable by counting the number of occurrences for values that fall within a certain range. The frequency of occurrences within each range is represented by a vertical rectangle.</p>
 <p>Figure <a href="5-data-visualization.html#fig:gradmedhist">5.2</a> shows the median earnings of those employed full time for different graduate degree majors. We can see that most graduate degrees result in a median pay for graduates of between 60 and 80 thousand dollars. There are a few graduate majors for which the median pay is above 100 thousand dollars.</p>
-<div class="figure" style="text-align: center"><span id="fig:gradmedhist"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gradmedhist"></span>
 <img src="data-apps-text_files/figure-html/gradmedhist-1.png" alt="Histogram of full-time median earnings for different graduate school majors" width="\textwidth" />
 <p class="caption">
 Figure 5.2: Histogram of full-time median earnings for different graduate school majors
@@ -581,10 +603,10 @@ Figure 5.2: Histogram of full-time median earnings for different graduate school
 </div>
 <p>These rectangles are called <strong>bins</strong> and the horizontal range each rectangle covers is called a <strong>binwidth</strong>. We can specify the number of bins and/or the binwidth. If we have more than 150 observations of a continuous variable, we may want to specify as many as 100 bins but should experiment with this number depending on the particular distribution of the variable. If we have less than 30 observations, we should not use a histogram. If we have more than 30 but less than 150 observations, we should experiment with some number of bins between 30 and 100. Regarding binwidth, if our variable is discrete, then our binwidth should equal some integer width of the variable. For example, if our variable is a count of weeks, then our binwidth could equal 1 so that each bin contains one week or some range of multiple weeks.</p>
 </div>
-<div id="box-plot" class="section level3" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> Box plot</h3>
+<div id="box-plot" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Box plot<a href="5-data-visualization.html#box-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A box plot (or box-and-whiskers plot) is similar to the histogram and density plot, but a box plot tries to combine a complete view of a distribution and several visual markers denoting some of the descriptive measures covered in Chapter <a href="4-descriptive-statistics.html#descriptive-statistics">4</a>. Figure <a href="5-data-visualization.html#fig:gradmedbox">5.3</a> shows the median pay data.</p>
-<div class="figure" style="text-align: center"><span id="fig:gradmedbox"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gradmedbox"></span>
 <img src="data-apps-text_files/figure-html/gradmedbox-1.png" alt="Box plot of full-time median earnings for different graduate school majors" width="\textwidth" />
 <p class="caption">
 Figure 5.3: Box plot of full-time median earnings for different graduate school majors
@@ -593,37 +615,37 @@ Figure 5.3: Box plot of full-time median earnings for different graduate school 
 <p>The line in the middle of the box denotes the median of the variable’s distribution. The top and bottom edges of the box denote the 75th and 25th percentiles, respectively. Therefore, the length of the box denotes the IQR of the variable’s distribution. The whiskers of a boxplot extend 1.5 times the length of the box (IQR). This <span class="math inline">\(1.5 \times IQR\)</span> is a standard threshold to identify extreme values also known as outliers. If a variable contains values beyond this threshold, a box plot will single them out with dots beyond the end of the whisker. Figure <a href="5-data-visualization.html#fig:gradmedbox">5.3</a> above shows us that one graduate major is a outlier using this <span class="math inline">\(1.5 \times IQR\)</span> definition.</p>
 </div>
 </div>
-<div id="compostion-of-a-categorical-variable" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Compostion of a categorical variable</h2>
+<div id="compostion-of-a-categorical-variable" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Compostion of a categorical variable<a href="5-data-visualization.html#compostion-of-a-categorical-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Suppose we deemed a graduate degree for which 5% or more of its graduates are unemployed to be a “high” unemployment degree, and those with an unemployment rate less than 5% as a “low” unemployment degree. We have 173 graduate degree majors. Suppose we want to visualize the composition of this categorical unemployment variable.</p>
 <p>We are now in the bottom-left section of Figure <a href="5-data-visualization.html#fig:vizflow">5.1</a>. A categorical variable has two more more levels. Some count or proportion of our observations belong to one level, while another count or proportion of our observations belong to a different level. If we wish to visualize the composition of these counts/proportions, we can use the following graphs.</p>
-<div id="pie-charts" class="section level3" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> Pie charts</h3>
+<div id="pie-charts" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Pie charts<a href="5-data-visualization.html#pie-charts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Pie charts are much derided. This derision is due to the fact that pie charts are often misused. Pie charts are acceptable if you want to show the composition of one categorical variable for which there are no more than 3 levels, though preferably no more than 2 levels. We should <em>never</em> use pie charts to compare the composition of a categorical variable between two groups or time periods (i.e., placing two or more pie charts next to each other for our audience to compare). Figure <a href="5-data-visualization.html#fig:emppie">5.4</a> shows the composition of our unemployment variable.</p>
-<div class="figure" style="text-align: center"><span id="fig:emppie"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:emppie"></span>
 <img src="data-apps-text_files/figure-html/emppie-1.png" alt="Graduate degrees with high/low unemployment" width="\textwidth" />
 <p class="caption">
 Figure 5.4: Graduate degrees with high/low unemployment
 </p>
 </div>
 </div>
-<div id="bar-chart" class="section level3" number="5.3.2">
-<h3><span class="header-section-number">5.3.2</span> Bar chart</h3>
+<div id="bar-chart" class="section level3 hasAnchor" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Bar chart<a href="5-data-visualization.html#bar-chart" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Bar charts can be used to present the same information as a pie chart. Moreover, bar charts are easier to interpret, can handle any number of levels, can present data as proportions or total counts, and can be used to compare across groups or time. In short, bar charts are better than pie charts, and we should choose bar charts unless someone forces us to use a pie chart for some reason.</p>
 <p>The figures below show the three general types of bar charts. Figures <a href="5-data-visualization.html#fig:empbar">5.5</a> and <a href="5-data-visualization.html#fig:empbar2">5.6</a> are both <strong>stacked</strong> bar charts but differ by how the y-axis is displayed. Figure <a href="5-data-visualization.html#fig:empbar">5.5</a> uses the <strong>count</strong> of degrees, while Figure <a href="5-data-visualization.html#fig:empbar2">5.6</a> uses the <strong>proportion</strong> of total degrees. Figure <a href="5-data-visualization.html#fig:empbar3">5.7</a> presents the same information as Figure <a href="5-data-visualization.html#fig:empbar">5.5</a>, but instead of stacking the bars, it uses a <strong>dodged</strong> option.</p>
-<div class="figure" style="text-align: center"><span id="fig:empbar"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:empbar"></span>
 <img src="data-apps-text_files/figure-html/empbar-1.png" alt="Graduate degrees with high/low unemployment" width="\textwidth" />
 <p class="caption">
 Figure 5.5: Graduate degrees with high/low unemployment
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:empbar2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:empbar2"></span>
 <img src="data-apps-text_files/figure-html/empbar2-1.png" alt="Graduate degrees with high/low unemployment" width="\textwidth" />
 <p class="caption">
 Figure 5.6: Graduate degrees with high/low unemployment
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:empbar3"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:empbar3"></span>
 <img src="data-apps-text_files/figure-html/empbar3-1.png" alt="Graduate degrees with high/low unemployment" width="\textwidth" />
 <p class="caption">
 Figure 5.7: Graduate degrees with high/low unemployment
@@ -632,43 +654,43 @@ Figure 5.7: Graduate degrees with high/low unemployment
 <p>The differences between the three bar charts influence what information is emphasized and easier for an audience to interpret. The first stacked bar chart is best at showing us how many degrees are in our sample while also giving us some sense of how many fall into each level. The second bar chart does not tell us how many degrees are in our sample, but it is the most effective at providing us the proportion or percent of degrees that fall into each level. The dodged bar chart is not necessarily an improvement over either of the previous two. If there were more than two levels to the categorical variable, the dodged bar chart would be best.</p>
 </div>
 </div>
-<div id="association" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Association</h2>
+<div id="association" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Association<a href="5-data-visualization.html#association" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The above graphs visualize summary information about a single variable. This kind of information is often conveyed via tables. However, when associations between variables need to be conveyed, a graph can be much more effective than numbers in a table. Associations are patterns, and patterns are easier to detect visually.</p>
-<div id="one-categorical-and-one-numerical" class="section level3" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> One categorical and one numerical</h3>
-<div id="bar-chart-1" class="section level4" number="5.4.1.1">
-<h4><span class="header-section-number">5.4.1.1</span> Bar chart</h4>
+<div id="one-categorical-and-one-numerical" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> One categorical and one numerical<a href="5-data-visualization.html#one-categorical-and-one-numerical" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="bar-chart-1" class="section level4 hasAnchor" number="5.4.1.1">
+<h4><span class="header-section-number">5.4.1.1</span> Bar chart<a href="5-data-visualization.html#bar-chart-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Suppose we wanted to compare the median pay (numerical) between two or more graduate degrees (nominal). A bar chart is a good choice.</p>
-<div class="figure" style="text-align: center"><span id="fig:spiapay"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:spiapay"></span>
 <img src="data-apps-text_files/figure-html/spiapay-1.png" alt="Comparison of median pay between degrees in public and international affairs" width="\textwidth" />
 <p class="caption">
 Figure 5.8: Comparison of median pay between degrees in public and international affairs
 </p>
 </div>
 </div>
-<div id="dot-plot" class="section level4" number="5.4.1.2">
-<h4><span class="header-section-number">5.4.1.2</span> Dot plot</h4>
+<div id="dot-plot" class="section level4 hasAnchor" number="5.4.1.2">
+<h4><span class="header-section-number">5.4.1.2</span> Dot plot<a href="5-data-visualization.html#dot-plot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Dot plots serve the same purpose as bar charts, but are more appropriate for variables that measure something we would not naturally stack up for counting purposes. That is, money is stackable–we could imagine each bar as a stack of cash. By contrast, unemployment rates are not something we would stack on top of each other.</p>
-<div class="figure" style="text-align: center"><span id="fig:spiaemp"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:spiaemp"></span>
 <img src="data-apps-text_files/figure-html/spiaemp-1.png" alt="Comparison of unemployment rates between degrees in public and international affairs" width="\textwidth" />
 <p class="caption">
 Figure 5.9: Comparison of unemployment rates between degrees in public and international affairs
 </p>
 </div>
 </div>
-<div id="box-plot-or-histogram" class="section level4" number="5.4.1.3">
-<h4><span class="header-section-number">5.4.1.3</span> Box plot or histogram</h4>
+<div id="box-plot-or-histogram" class="section level4 hasAnchor" number="5.4.1.3">
+<h4><span class="header-section-number">5.4.1.3</span> Box plot or histogram<a href="5-data-visualization.html#box-plot-or-histogram" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The bar charts above intend to compare a few values of a numerical variable. If we had many values, we may wish to compare the entire distribution between levels of a categorical variable. In that case, a box plot or histogram can be used.</p>
 <p>Suppose we wanted to visualize the association between attaining a graduate degree or not (ordinal) and median pay (numerical). We can use a box plot to visualize the distribution of median pay for employees with undergraduate degrees in the 173 majors in our data and the distribution of median pay for employees with a graduate degree in those same majors. Figure <a href="5-data-visualization.html#fig:gradpaydiffbox">5.10</a> below does just that.</p>
-<div class="figure" style="text-align: center"><span id="fig:gradpaydiffbox"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gradpaydiffbox"></span>
 <img src="data-apps-text_files/figure-html/gradpaydiffbox-1.png" alt="Median pay for undergraduate and graduate degrees of the same group of majors" width="\textwidth" />
 <p class="caption">
 Figure 5.10: Median pay for undergraduate and graduate degrees of the same group of majors
 </p>
 </div>
 <p>Overlaying histograms for each level could work too as is done in Figure <a href="5-data-visualization.html#fig:gradpaydiffhist">5.11</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:gradpaydiffhist"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gradpaydiffhist"></span>
 <img src="data-apps-text_files/figure-html/gradpaydiffhist-1.png" alt="Median pay for undergraduate and graduate degrees of the same group of majors" width="\textwidth" />
 <p class="caption">
 Figure 5.11: Median pay for undergraduate and graduate degrees of the same group of majors
@@ -676,21 +698,21 @@ Figure 5.11: Median pay for undergraduate and graduate degrees of the same group
 </div>
 </div>
 </div>
-<div id="two-numerical-variables" class="section level3" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> Two numerical variables</h3>
-<div id="scatter-plot" class="section level4" number="5.4.2.1">
-<h4><span class="header-section-number">5.4.2.1</span> Scatter plot</h4>
+<div id="two-numerical-variables" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Two numerical variables<a href="5-data-visualization.html#two-numerical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="scatter-plot" class="section level4 hasAnchor" number="5.4.2.1">
+<h4><span class="header-section-number">5.4.2.1</span> Scatter plot<a href="5-data-visualization.html#scatter-plot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Scatter plots visualize the association between two numerical variables, preferably continuous or discrete with many values. It is also common to overlay a simple regression line for the two variables, thus providing a reader the full scatter of the two distributions as well as a tracing of how the two variables move in tandem, <em>on average</em>.</p>
 <p>Suppose we wanted to visualize the relationship between median pay of graduate degrees and the total number of people with that graduate degree.</p>
-<div class="figure" style="text-align: center"><span id="fig:gradpayenroll"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gradpayenroll"></span>
 <img src="data-apps-text_files/figure-html/gradpayenroll-1.png" alt="Graduate degree median pay and total number of people with degree" width="\textwidth" />
 <p class="caption">
 Figure 5.12: Graduate degree median pay and total number of people with degree
 </p>
 </div>
 </div>
-<div id="line-graph" class="section level4" number="5.4.2.2">
-<h4><span class="header-section-number">5.4.2.2</span> Line graph</h4>
+<div id="line-graph" class="section level4 hasAnchor" number="5.4.2.2">
+<h4><span class="header-section-number">5.4.2.2</span> Line graph<a href="5-data-visualization.html#line-graph" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If we want to visualize the association between a numerical variable and time (i.e. change over time), then a line graph is probably the most common choice, though a bar chart or dot plot can work too. The graduate degree data is cross-sectional, so there is no good way to make a line graph using these data. I trust you have seen a line graph before. We will cover how to make line graphs using panel data in Chapter <a href="20-r-visualization.html#r-visualization">20</a>.</p>
 <p><br></p>
 <blockquote>
@@ -699,8 +721,8 @@ Figure 5.12: Graduate degree median pay and total number of people with degree
 </div>
 </div>
 </div>
-<div id="kt5" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Key terms and concepts</h2>
+<div id="kt5" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Key terms and concepts<a href="5-data-visualization.html#kt5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Uses of a histogram</li>
 <li>Uses of a box plot</li>
@@ -726,7 +748,6 @@ Figure 5.12: Graduate degree median pay and total number of people with degree
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -756,6 +777,10 @@ gitbook.start({
 "text": null
 },
 "download": ["data-apps-text.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
