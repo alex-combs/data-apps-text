@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 4 Descriptive Statistics | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 4 Descriptive Statistics | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://alex-combs.github.io/data-apps-text/" />
   
   <meta property="og:description" content="Companion text for PADP 7120" />
   <meta name="github-repo" content="alex-combs/data-apps-text" />
@@ -32,8 +31,8 @@
   
 <link rel="prev" href="3-measurement.html"/>
 <link rel="next" href="5-data-visualization.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,17 +48,17 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.14/datatables.js"></script>
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<script src="libs/datatables-binding-0.23/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -125,6 +124,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -376,23 +398,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="17.4" data-path="17-r-data.html"><a href="17-r-data.html#glimpse-data"><i class="fa fa-check"></i><b>17.4</b> Glimpse Data</a></li>
 <li class="chapter" data-level="17.5" data-path="17-r-data.html"><a href="17-r-data.html#variable-types-in-r"><i class="fa fa-check"></i><b>17.5</b> Variable Types in R</a></li>
-<li class="chapter" data-level="17.6" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>17.6</b> Save and Upload</a></li>
+<li class="chapter" data-level="17.6" data-path="17-r-data.html"><a href="17-r-data.html#save-and-upload-1"><i class="fa fa-check"></i><b>17.6</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html"><i class="fa fa-check"></i><b>18</b> R Missing Data</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="18.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>18.2</b> Set-up</a></li>
-<li class="chapter" data-level="18.3" data-path="2-data.html"><a href="2-data.html#data"><i class="fa fa-check"></i><b>18.3</b> Data</a></li>
+<li class="chapter" data-level="18.1" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#learning-objectives-1"><i class="fa fa-check"></i><b>18.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="18.2" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#set-up-1"><i class="fa fa-check"></i><b>18.2</b> Set-up</a></li>
+<li class="chapter" data-level="18.3" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#data-1"><i class="fa fa-check"></i><b>18.3</b> Data</a></li>
 <li class="chapter" data-level="18.4" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#checking-for-missing-data"><i class="fa fa-check"></i><b>18.4</b> Checking for missing data</a></li>
 <li class="chapter" data-level="18.5" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#counting-missing-values"><i class="fa fa-check"></i><b>18.5</b> Counting missing values</a></li>
 <li class="chapter" data-level="18.6" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#bypassing-missing-values"><i class="fa fa-check"></i><b>18.6</b> Bypassing missing values</a></li>
 <li class="chapter" data-level="18.7" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#drop-all-missing-cases"><i class="fa fa-check"></i><b>18.7</b> Drop all missing cases</a></li>
-<li class="chapter" data-level="18.8" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>18.8</b> Save and Upload</a></li>
+<li class="chapter" data-level="18.8" data-path="18-r-missing-data.html"><a href="18-r-missing-data.html#save-and-upload-2"><i class="fa fa-check"></i><b>18.8</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="19-r-description.html"><a href="19-r-description.html"><i class="fa fa-check"></i><b>19</b> R Description</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="19.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
+<li class="chapter" data-level="19.1" data-path="19-r-description.html"><a href="19-r-description.html#learning-objectives-2"><i class="fa fa-check"></i><b>19.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="19.2" data-path="19-r-description.html"><a href="19-r-description.html#set-up-2"><i class="fa fa-check"></i><b>19.2</b> Set-up</a></li>
 <li class="chapter" data-level="19.3" data-path="19-r-description.html"><a href="19-r-description.html#introduction"><i class="fa fa-check"></i><b>19.3</b> Introduction</a></li>
 <li class="chapter" data-level="19.4" data-path="19-r-description.html"><a href="19-r-description.html#quick-stat-computation"><i class="fa fa-check"></i><b>19.4</b> Quick Stat Computation</a></li>
 <li class="chapter" data-level="19.5" data-path="19-r-description.html"><a href="19-r-description.html#summary-table"><i class="fa fa-check"></i><b>19.5</b> Summary Table</a>
@@ -403,24 +425,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.5.4" data-path="19-r-description.html"><a href="19-r-description.html#export-to-csv"><i class="fa fa-check"></i><b>19.5.4</b> Export to CSV</a></li>
 </ul></li>
 <li class="chapter" data-level="19.6" data-path="19-r-description.html"><a href="19-r-description.html#correlation-coefficient"><i class="fa fa-check"></i><b>19.6</b> Correlation Coefficient</a></li>
-<li class="chapter" data-level="19.7" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>19.7</b> Save and Upload</a></li>
+<li class="chapter" data-level="19.7" data-path="19-r-description.html"><a href="19-r-description.html#save-and-upload-3"><i class="fa fa-check"></i><b>19.7</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="20-r-visualization.html"><a href="20-r-visualization.html"><i class="fa fa-check"></i><b>20</b> R Visualization</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>20.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="20.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>20.2</b> Set-up</a></li>
+<li class="chapter" data-level="20.1" data-path="20-r-visualization.html"><a href="20-r-visualization.html#learning-objectives-3"><i class="fa fa-check"></i><b>20.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="20.2" data-path="20-r-visualization.html"><a href="20-r-visualization.html#set-up-3"><i class="fa fa-check"></i><b>20.2</b> Set-up</a></li>
 <li class="chapter" data-level="20.3" data-path="20-r-visualization.html"><a href="20-r-visualization.html#grammar-of-graphics"><i class="fa fa-check"></i><b>20.3</b> Grammar of graphics</a></li>
-<li class="chapter" data-level="20.4" data-path="5-data-visualization.html"><a href="5-data-visualization.html#histogram"><i class="fa fa-check"></i><b>20.4</b> Histogram</a></li>
-<li class="chapter" data-level="20.5" data-path="5-data-visualization.html"><a href="5-data-visualization.html#box-plot"><i class="fa fa-check"></i><b>20.5</b> Box plot</a></li>
-<li class="chapter" data-level="20.6" data-path="5-data-visualization.html"><a href="5-data-visualization.html#bar-chart"><i class="fa fa-check"></i><b>20.6</b> Bar chart</a></li>
-<li class="chapter" data-level="20.7" data-path="5-data-visualization.html"><a href="5-data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>20.7</b> Scatter plot</a></li>
-<li class="chapter" data-level="20.8" data-path="5-data-visualization.html"><a href="5-data-visualization.html#line-graph"><i class="fa fa-check"></i><b>20.8</b> Line graph</a></li>
-<li class="chapter" data-level="20.9" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>20.9</b> Save and Upload</a></li>
+<li class="chapter" data-level="20.4" data-path="20-r-visualization.html"><a href="20-r-visualization.html#histogram-1"><i class="fa fa-check"></i><b>20.4</b> Histogram</a></li>
+<li class="chapter" data-level="20.5" data-path="20-r-visualization.html"><a href="20-r-visualization.html#box-plot-1"><i class="fa fa-check"></i><b>20.5</b> Box plot</a></li>
+<li class="chapter" data-level="20.6" data-path="20-r-visualization.html"><a href="20-r-visualization.html#bar-chart-2"><i class="fa fa-check"></i><b>20.6</b> Bar chart</a></li>
+<li class="chapter" data-level="20.7" data-path="20-r-visualization.html"><a href="20-r-visualization.html#scatter-plot-1"><i class="fa fa-check"></i><b>20.7</b> Scatter plot</a></li>
+<li class="chapter" data-level="20.8" data-path="20-r-visualization.html"><a href="20-r-visualization.html#line-graph-1"><i class="fa fa-check"></i><b>20.8</b> Line graph</a></li>
+<li class="chapter" data-level="20.9" data-path="20-r-visualization.html"><a href="20-r-visualization.html#save-and-upload-4"><i class="fa fa-check"></i><b>20.9</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="21-r-regression.html"><a href="21-r-regression.html"><i class="fa fa-check"></i><b>21</b> R Regression</a>
 <ul>
-<li class="chapter" data-level="21.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>21.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="21.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>21.2</b> Set-up</a></li>
+<li class="chapter" data-level="21.1" data-path="21-r-regression.html"><a href="21-r-regression.html#learning-objectives-4"><i class="fa fa-check"></i><b>21.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="21.2" data-path="21-r-regression.html"><a href="21-r-regression.html#set-up-4"><i class="fa fa-check"></i><b>21.2</b> Set-up</a></li>
 <li class="chapter" data-level="21.3" data-path="21-r-regression.html"><a href="21-r-regression.html#running-regression"><i class="fa fa-check"></i><b>21.3</b> Running Regression</a>
 <ul>
 <li class="chapter" data-level="21.3.1" data-path="21-r-regression.html"><a href="21-r-regression.html#general-syntax"><i class="fa fa-check"></i><b>21.3.1</b> General Syntax</a></li>
@@ -433,21 +455,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.4.1" data-path="21-r-regression.html"><a href="21-r-regression.html#moderndive"><i class="fa fa-check"></i><b>21.4.1</b> Moderndive</a></li>
 <li class="chapter" data-level="21.4.2" data-path="21-r-regression.html"><a href="21-r-regression.html#base-r"><i class="fa fa-check"></i><b>21.4.2</b> Base R</a></li>
 </ul></li>
-<li class="chapter" data-level="21.5" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>21.5</b> Save and Upload</a></li>
+<li class="chapter" data-level="21.5" data-path="21-r-regression.html"><a href="21-r-regression.html#save-and-upload-5"><i class="fa fa-check"></i><b>21.5</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="22" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html"><i class="fa fa-check"></i><b>22</b> R Nonlinear Regression</a>
 <ul>
-<li class="chapter" data-level="22.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>22.1</b> Learning Objectives</a></li>
-<li class="chapter" data-level="22.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>22.2</b> Set-up</a></li>
+<li class="chapter" data-level="22.1" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#learning-objectives-5"><i class="fa fa-check"></i><b>22.1</b> Learning Objectives</a></li>
+<li class="chapter" data-level="22.2" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#set-up-5"><i class="fa fa-check"></i><b>22.2</b> Set-up</a></li>
 <li class="chapter" data-level="22.3" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#quadratic-term"><i class="fa fa-check"></i><b>22.3</b> Quadratic term</a></li>
 <li class="chapter" data-level="22.4" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#log-transformation"><i class="fa fa-check"></i><b>22.4</b> Log Transformation</a></li>
-<li class="chapter" data-level="22.5" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>22.5</b> Save and Upload</a></li>
+<li class="chapter" data-level="22.5" data-path="22-r-nonlinear-regression.html"><a href="22-r-nonlinear-regression.html#save-and-upload-6"><i class="fa fa-check"></i><b>22.5</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html"><i class="fa fa-check"></i><b>23</b> R Evaluations</a>
 <ul>
 <li class="chapter" data-level="23.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#learning-outcomes"><i class="fa fa-check"></i><b>23.1</b> Learning Outcomes</a></li>
-<li class="chapter" data-level="23.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>23.2</b> Set-up</a></li>
-<li class="chapter" data-level="23.3" data-path="11-hypothesis-testing.html"><a href="11-hypothesis-testing.html#chi-square-test"><i class="fa fa-check"></i><b>23.3</b> Chi-square test</a>
+<li class="chapter" data-level="23.2" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#set-up-6"><i class="fa fa-check"></i><b>23.2</b> Set-up</a></li>
+<li class="chapter" data-level="23.3" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#chi-square-test-1"><i class="fa fa-check"></i><b>23.3</b> Chi-square test</a>
 <ul>
 <li class="chapter" data-level="23.3.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#cross-tab"><i class="fa fa-check"></i><b>23.3.1</b> Cross-tab</a></li>
 <li class="chapter" data-level="23.3.2" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#run-chi-square"><i class="fa fa-check"></i><b>23.3.2</b> Run chi-square</a></li>
@@ -457,17 +479,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="23.4.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#independent-t-test"><i class="fa fa-check"></i><b>23.4.1</b> Independent t-test</a></li>
 <li class="chapter" data-level="23.4.2" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#dependent-t-test"><i class="fa fa-check"></i><b>23.4.2</b> Dependent t-test</a></li>
 </ul></li>
-<li class="chapter" data-level="23.5" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>23.5</b> Save and Upload</a></li>
+<li class="chapter" data-level="23.5" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#save-and-upload-7"><i class="fa fa-check"></i><b>23.5</b> Save and Upload</a></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html"><i class="fa fa-check"></i><b>24</b> R Regression Diagnostics</a>
 <ul>
-<li class="chapter" data-level="24.1" data-path="23-r-evaluations.html"><a href="23-r-evaluations.html#learning-outcomes"><i class="fa fa-check"></i><b>24.1</b> Learning Outcomes</a></li>
-<li class="chapter" data-level="24.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>24.2</b> Set-up</a></li>
+<li class="chapter" data-level="24.1" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#learning-outcomes-1"><i class="fa fa-check"></i><b>24.1</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="24.2" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#set-up-7"><i class="fa fa-check"></i><b>24.2</b> Set-up</a></li>
 <li class="chapter" data-level="24.3" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#diagnostic-plots"><i class="fa fa-check"></i><b>24.3</b> Diagnostic Plots</a></li>
 <li class="chapter" data-level="24.4" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#variance-inflation-factor"><i class="fa fa-check"></i><b>24.4</b> Variance Inflation Factor</a></li>
 <li class="chapter" data-level="24.5" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#statistical-test-on-assumption"><i class="fa fa-check"></i><b>24.5</b> Statistical test on assumption</a></li>
 <li class="chapter" data-level="24.6" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#excluding-observations"><i class="fa fa-check"></i><b>24.6</b> Excluding observations</a></li>
-<li class="chapter" data-level="24.7" data-path="16-r-chapter-introduction.html"><a href="16-r-chapter-introduction.html#save-and-upload"><i class="fa fa-check"></i><b>24.7</b> Save and Upload</a></li>
+<li class="chapter" data-level="24.7" data-path="24-r-regression-diagnostics.html"><a href="24-r-regression-diagnostics.html#save-and-upload-8"><i class="fa fa-check"></i><b>24.7</b> Save and Upload</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="A-coding-tips.html"><a href="A-coding-tips.html"><i class="fa fa-check"></i><b>A</b> Coding Tips</a>
@@ -528,14 +550,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="descriptive-statistics" class="section level1" number="4">
-<h1><span class="header-section-number"> 4</span> Descriptive Statistics</h1>
+<div id="descriptive-statistics" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number"> 4</span> Descriptive Statistics<a href="4-descriptive-statistics.html#descriptive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
-<p><em>"Just the facts, ma’am.</em></p>
+<p><em>“Just the facts, ma’am.</em></p>
 <p>—Joe Friday, Dragnet</p>
 </blockquote>
-<div id="lo4" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Learning objectives</h2>
+<div id="lo4" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Learning objectives<a href="4-descriptive-statistics.html#lo4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Explain the difference between descriptive and inferential statistics</li>
 <li>Explain the difference between a population and sample; parameter and statistic</li>
@@ -546,8 +568,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Explain the possible shortcomings of correlation</li>
 </ul>
 </div>
-<div id="two-goals-of-statistics" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Two goals of statistics</h2>
+<div id="two-goals-of-statistics" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Two goals of statistics<a href="4-descriptive-statistics.html#two-goals-of-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The application of statistics has one or both of the following goals:</p>
 <blockquote>
 <ul>
@@ -568,7 +590,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>Note that a sample is a <em>subset</em> of the population, meaning that it includes only members of the population. If this class had non-MPA students, and I used all students in the class as my sample, then I no longer have a sample of the intended population.</p>
 </blockquote>
-<p>Our research question can be such that the population is accessible enough to collect data on all its members. If our question was instead, “What is the average GPA of students in this class?” then the population is all of the students in this class. In this case, I could easily observe the GPA of all members of the population and compute the average GPA for the population.</p>
+<p>Our research question can be such that the population is accessible enough to collect data on all its members. If our question was instead, “What is the average GPA of students in this class?”, then the population is all of the students in this class. In this case, I could easily observe the GPA of all members of the population and compute the average GPA for the population.</p>
 <blockquote>
 <p>We can describe a sample or a population as long as we have the data to do so. Inference uses a sample we observe with data to describe a population we do not.</p>
 </blockquote>
@@ -583,8 +605,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If the population is students in this class, and I compute the average GPA for all of the students in this class, that measure is a population parameter. If the population is all MPA students in the U.S., and I use the students in this class as a sample of the population, then the average GPA of the students in this class is a sample statistic.</p>
 <p>In inference, a sample statistic is often referred to as an <strong>estimate</strong> because it serves as an estimate of the population parameter. If my goal is to use inferential statistics to estimate the average GPA of all MPA students in the US, the average GPA of MPA students in this class could be used as the estimate of the parameter. The parameter in this example would be the actual average GPA of all MPA students in the US; a value I do not directly compute.</p>
 </div>
-<div id="distributions" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Distributions</h2>
+<div id="distributions" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Distributions<a href="4-descriptive-statistics.html#distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Descriptive statistics summarizes characteristics of variable distributions. Before reviewing the measures used to summarize distributions, we should understand what a distribution is.</p>
 <blockquote>
 <p>A <strong>distribution</strong> tells us the (possible) values of a variable and the frequency at which those values occur.</p>
@@ -594,7 +616,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Sometimes we know what the frequency of values for a variable should be. Genetics tells us to expect roughly 50% males and females. Other times we do not know the function that determines frequency, or it is too complex to fully understand. For example, we have some idea of the factors that influence GPAs, but there will always be some factors or randomness that goes unaccounted.</p>
 <p>To make this as concrete as possible, let’s consider a variable of something that is simple and familiar to all of us: a roll of a six-sided die.</p>
 <p>We know a roll of a six-sided die can take on a range of integers between 1 and 6. We also know the frequency of each value is the same at 1 in 6, or about 17%. Therefore, we <em>know</em> the distribution of this variable, which is depicted below in Figure <a href="4-descriptive-statistics.html#fig:diedist">4.1</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:diedist"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:diedist"></span>
 <img src="data-apps-text_files/figure-html/diedist-1.png" alt="Probability distribution of a six-sided die" width="\textwidth" />
 <p class="caption">
 Figure 4.1: Probability distribution of a six-sided die
@@ -637,7 +659,7 @@ Figure 4.1: Probability distribution of a six-sided die
 </tbody>
 </table>
 <p>And we could represent this distribution by counting the number of times each value occurred using a histogram as shown in Figure <a href="4-descriptive-statistics.html#fig:diehisto">4.2</a>, which is the essentially the same as Figure <a href="4-descriptive-statistics.html#fig:diedist">4.1</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:diehisto"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:diehisto"></span>
 <img src="data-apps-text_files/figure-html/diehisto-1.png" alt="Expected distribution of 6 rolls" width="\textwidth" />
 <p class="caption">
 Figure 4.2: Expected distribution of 6 rolls
@@ -705,7 +727,7 @@ Figure 4.2: Expected distribution of 6 rolls
 </tbody>
 </table>
 <p>We can visualize the distribution of these 12 rolls, as is done in Figure <a href="4-descriptive-statistics.html#fig:obsdieroll">4.3</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:obsdieroll"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:obsdieroll"></span>
 <img src="data-apps-text_files/figure-html/obsdieroll-1.png" alt="Observed distribution of 12 die rolls" width="\textwidth" />
 <p class="caption">
 Figure 4.3: Observed distribution of 12 die rolls
@@ -715,10 +737,10 @@ Figure 4.3: Observed distribution of 12 die rolls
 <p>This is exactly the point of descriptive statistics: whether or not we know what to expect in terms of a variable’s distribution, we want to know the characteristics of the distribution for a variable from a particular sample or population. When we ask for, say, a variable’s average, we are asking for the approximate midpoint of that variable’s distribution.</p>
 <p>Descriptive measures help us summarize characteristics of distributions and some serve as the building blocks for other descriptive measures as well as inferential statistics.</p>
 </div>
-<div id="descriptive-measures" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Descriptive Measures</h2>
+<div id="descriptive-measures" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Descriptive Measures<a href="4-descriptive-statistics.html#descriptive-measures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A die roll is uninteresting and unimportant. In our review of descriptive measures, let us consider them with respect to the distribution of the infant mortality rate across 222 countries in 2012. Infant mortality is the number of deaths of infants under one year old per 1,000 live births.</p>
-<div class="figure" style="text-align: center"><span id="fig:infmort"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:infmort"></span>
 <img src="data-apps-text_files/figure-html/infmort-1.png" alt="Infant Mortality Rates" width="\textwidth" />
 <p class="caption">
 Figure 4.4: Infant Mortality Rates
@@ -733,13 +755,13 @@ Figure 4.4: Infant Mortality Rates
 </ul>
 </blockquote>
 <p>Multiple descriptive measures can answer the three questions above. Which measure is more appropriate to use largely depends on the shape of the distribution.</p>
-<div id="measures-of-center" class="section level3" number="4.4.1">
-<h3><span class="header-section-number">4.4.1</span> Measures of center</h3>
+<div id="measures-of-center" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Measures of center<a href="4-descriptive-statistics.html#measures-of-center" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>Again, measures of center are meant to convey the typical value of a distribution; the most representative value, or the value we would <em>expect</em> if we were to randomly draw one observation from the distribution.</p>
 </blockquote>
-<div id="mean" class="section level4 unnumbered">
-<h4>Mean</h4>
+<div id="mean" class="section level4 unnumbered hasAnchor">
+<h4>Mean<a href="4-descriptive-statistics.html#mean" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The mean or average takes the values of a variable, adds them together, then divides that sum by the total count of values.</p>
 <p><span class="math display" id="eq:mean">\[\begin{equation}
 {\displaystyle \bar{x}={\frac {1}{n}}\sum _{i=1}^{n}x_{i}={\frac {x_{1}+x_{2}+\cdots +x_{n}}{n}}}
@@ -747,18 +769,18 @@ Figure 4.4: Infant Mortality Rates
 \end{equation}\]</span></p>
 <p>Infant mortality has 222 values, so <span class="math inline">\(n\)</span> in equation <a href="4-descriptive-statistics.html#eq:mean">(4.1)</a> above would equal 222 in this case. If we were to pluck one country out of our pool of 222 countries at random, the mean tells us the infant mortality rate to expect. In other words, the mean tells us the typical infant mortality rate in our observed data. In this case, the average infant mortality rate is 26.7 per 1,000 live births.</p>
 </div>
-<div id="median" class="section level4 unnumbered">
-<h4>Median</h4>
+<div id="median" class="section level4 unnumbered hasAnchor">
+<h4>Median<a href="4-descriptive-statistics.html#median" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If we took the 222 infant mortality rates and listed them in ascending or descending numerical order, the median is the value that sits at the middle of the ordered list. The median is also referred to as the 50th percentile because half of the values fall below it and half of the values fall above it. In the case of an even number of values, there is no naturally occurring middle value. In that case, we take the average of the two values in the middle. The median infant mortality rate is 15.6.</p>
 </div>
-<div id="mode" class="section level4 unnumbered">
-<h4>Mode</h4>
+<div id="mode" class="section level4 unnumbered hasAnchor">
+<h4>Mode<a href="4-descriptive-statistics.html#mode" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The mode is the value that occurs most frequently. If all values occur only once, then a variable has no mode. If two or more values occur an equal number of times and it is more than other values, then a variable has two or more modes. For instance, the modes for our 12 die rolls in Figure <a href="4-descriptive-statistics.html#fig:obsdieroll">4.3</a> are 1, 2, and 5. The mode for infant mortality rates is 11.6.</p>
 </div>
-<div id="choosing-a-center" class="section level4 unnumbered">
-<h4>Choosing a center</h4>
+<div id="choosing-a-center" class="section level4 unnumbered hasAnchor">
+<h4>Choosing a center<a href="4-descriptive-statistics.html#choosing-a-center" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>As Figure <a href="4-descriptive-statistics.html#fig:infmort">4.4</a> shows, three measures of center have provided us three different typical infant mortality rates. The mean is represented by the red line, the median by the purple line, and the mode by the green line.</p>
-<div class="figure" style="text-align: center"><span id="fig:mortcenters"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mortcenters"></span>
 <img src="data-apps-text_files/figure-html/mortcenters-1.png" alt="Centers of infant mortality rates" width="\textwidth" />
 <p class="caption">
 Figure 4.5: Centers of infant mortality rates
@@ -776,14 +798,14 @@ Figure 4.5: Centers of infant mortality rates
 <p>Note in Figure <a href="4-descriptive-statistics.html#fig:mortcenters">4.5</a> that the mean is pulled to the right by the right-skew of extreme values. The red line representing the mean is to the right of the cluster of frequent values and may not be a good answer for the typical value of this distribution. The median is not sensitive to extreme values. No matter how far the values above the median were to stretch to the right, the median of the distribution would not change.</p>
 </div>
 </div>
-<div id="measures-of-spread" class="section level3" number="4.4.2">
-<h3><span class="header-section-number">4.4.2</span> Measures of spread</h3>
+<div id="measures-of-spread" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Measures of spread<a href="4-descriptive-statistics.html#measures-of-spread" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Measures of center convey the typical value of a distribution. The typical infant mortality rate is 26.7 or 15.6 depending on whether we choose to use mean or median, respectively. If we only had this measure, we would have no idea how far away the values are from the center. Are the infant mortality rates of most countries close to this center, or is the typical value not representative of most countries’ infant mortality rates? Measures of spread provide us this information.</p>
 <blockquote>
 <p>Measures of spread convey how much values typically deviate from the typical value (i.e., center), or how different observations are from each other with respect to the variable being described.</p>
 </blockquote>
-<div id="variance" class="section level4 unnumbered">
-<h4>Variance</h4>
+<div id="variance" class="section level4 unnumbered hasAnchor">
+<h4>Variance<a href="4-descriptive-statistics.html#variance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Almost all values of a numerical variable, especially a continuous variable, do not equal the mean. The difference between a particular value and the mean of the variable is often referred to as <strong>deviation from the mean</strong>. The variance squares each observation’s deviation from the mean, sums all the deviations, and divides this sum by the total count of observations minus one. Equation <a href="4-descriptive-statistics.html#eq:variance">(4.2)</a> displays this process using mathematical notation.</p>
 <p><span class="math display" id="eq:variance">\[\begin{equation}
 {\displaystyle S^2={\frac {1}{n-1}}\sum _{i=1}^{n}(x_{i}-\bar{x})^2={\frac {(x_{1}-\bar{x})^2+(x_{2}-\bar{x})^2+\cdots +(x_{n}-\bar{x})^2}{n-1}}}
@@ -835,8 +857,8 @@ Figure 4.5: Centers of infant mortality rates
 </table>
 <p>Variance is an important building block for inference, but it is useless to report as a descriptive measure because it is in squared units. If someone asks how far values are spread out from the mean, it makes no sense to report that values deviate from the mean by 672 squared infant deaths.</p>
 </div>
-<div id="standard-deviation" class="section level4 unnumbered">
-<h4>Standard deviation</h4>
+<div id="standard-deviation" class="section level4 unnumbered hasAnchor">
+<h4>Standard deviation<a href="4-descriptive-statistics.html#standard-deviation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The standard deviation is simply the square root of variance, which returns our units to their original meaning.</p>
 <p><span class="math display" id="eq:sd">\[\begin{equation}
 {\displaystyle s = \sqrt{S^2}}
@@ -847,16 +869,16 @@ Figure 4.5: Centers of infant mortality rates
 <p>The standard deviation is the average deviation from the mean.</p>
 </blockquote>
 </div>
-<div id="interquartile-range" class="section level4 unnumbered">
-<h4>Interquartile range</h4>
+<div id="interquartile-range" class="section level4 unnumbered hasAnchor">
+<h4>Interquartile range<a href="4-descriptive-statistics.html#interquartile-range" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Recall that the median is the 50th percentile of a distribution–half of the values fall below the median and half fall above it. Two additional percentiles sometimes reported are the 75th and 25th percentiles. The 75th percentile is the value at which 75% of values fall below and 25% fall above it, while the 25th percentile is the value at which 25% of values fall below and 75% fall above it. All percentiles – from the 0th percentile (i.e., minimum) to the 100th percentile (i.e., maximum) – are interpreted this way.</p>
 <blockquote>
 <p>The interquartile range (IQR) is equal to the 75th percentile minus the 25th percentile. It provides the middle 50% of the values in a distribution.</p>
 </blockquote>
 <p>The IQR for infant mortality rates is 35.6. Alternatively, the IQR can be reported by specifying the 75th and 25th percentiles, leaving the reader to compute the difference between the two. The 75th percentile for infant mortality rates is 42.1, and the 25th percentile is 6.5.</p>
 </div>
-<div id="range" class="section level4 unnumbered">
-<h4>Range</h4>
+<div id="range" class="section level4 unnumbered hasAnchor">
+<h4>Range<a href="4-descriptive-statistics.html#range" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <blockquote>
 <p>The range is the maximum value in a distribution minus the minimum value of a distribution. It conveys how different are the most different observations with respect to the variable being described.</p>
 </blockquote>
@@ -864,12 +886,12 @@ Figure 4.5: Centers of infant mortality rates
 <p>The minimum of infant mortality rates is 1.8, and the maximum is 121.63. Therefore, the range of the distribution is 119.8.</p>
 <p>In the case of infant mortality rates, we know the minimum possible value is 0 by definition, but the minimum value in our distribution is 1.8. Perhaps 0 deaths is impossible for any country to achieve. Moreover, the maximum value is 121.63. This range tells us the most different countries are <em>very</em> different.</p>
 </div>
-<div id="choosing-a-measure-of-spread" class="section level4 unnumbered">
-<h4>Choosing a measure of spread</h4>
+<div id="choosing-a-measure-of-spread" class="section level4 unnumbered hasAnchor">
+<h4>Choosing a measure of spread<a href="4-descriptive-statistics.html#choosing-a-measure-of-spread" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The same logic applies to choosing a measure of spread as choosing a measure of center. The standard deviation is based on the mean, and so it is also sensitive to extreme values that, if present, could exaggerate the typical spread of the distribution. The IQR is based on percentiles just like the median. Therefore, IQR is not sensitive to extreme values.</p>
 <p>Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> displays the mean and plus-and-minus one standard deviation using red dashed and solid lines, respectively. The median and the IQR (25th and 75th percentiles) are represented by the purple dashed and solid lines, respectively. Note how wide the area contained by the standard deviation is–it contains most of the distribution and the lower bound of 0.7 is lower than the minimum observed value of 1.8.</p>
 <p>In this case, standard deviation is not preferable for conveying the typical deviation from the center, as it contains plenty of values that are rather atypical deviations from the center (a center that is also flawed by using the mean). For describing the distribution of infant mortality rates, the median and IQR are better choices.</p>
-<div class="figure" style="text-align: center"><span id="fig:mortspread"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mortspread"></span>
 <img src="data-apps-text_files/figure-html/mortspread-1.png" alt="Center and spread of infant mortality rates" width="\textwidth" />
 <p class="caption">
 Figure 4.6: Center and spread of infant mortality rates
@@ -877,8 +899,8 @@ Figure 4.6: Center and spread of infant mortality rates
 </div>
 </div>
 </div>
-<div id="outliers" class="section level3" number="4.4.3">
-<h3><span class="header-section-number">4.4.3</span> Outliers</h3>
+<div id="outliers" class="section level3 hasAnchor" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Outliers<a href="4-descriptive-statistics.html#outliers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p>Outliers refer to extreme values, the inclusion of which may lead to worse conclusions than if they were excluded from a statistical analysis.</p>
 </blockquote>
@@ -893,11 +915,11 @@ Figure 4.6: Center and spread of infant mortality rates
 <p><span class="math display">\[42.1+53.4=95.5\]</span></p>
 <p>Therefore, values above 95.5 could be considered outliers on the right end of the distribution. Figure <a href="4-descriptive-statistics.html#fig:mortspread">4.6</a> indicates there are a few outliers in our data based on this definition.</p>
 </div>
-<div id="the-normal-distribution" class="section level3" number="4.4.4">
-<h3><span class="header-section-number">4.4.4</span> The normal distribution</h3>
+<div id="the-normal-distribution" class="section level3 hasAnchor" number="4.4.4">
+<h3><span class="header-section-number">4.4.4</span> The normal distribution<a href="4-descriptive-statistics.html#the-normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As a brief aside, it should be mentioned that if a distribution is <strong>normal</strong>, then measures of center and spread will be similar to each other. This is one of several desirable features of the normal distribution.</p>
 <p>Figure <a href="4-descriptive-statistics.html#fig:normrates">4.7</a> shows a simulated scenario in which the infant mortality rates in our 222 countries exhibit an approximately normal distribution. Note the peak near the center of the distribution and the symmetry of the spread. There is no notable skew.</p>
-<div class="figure" style="text-align: center"><span id="fig:normrates"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:normrates"></span>
 <img src="data-apps-text_files/figure-html/normrates-1.png" alt="Simulated normal distribution of infant mortality rates" width="\textwidth" />
 <p class="caption">
 Figure 4.7: Simulated normal distribution of infant mortality rates
@@ -927,8 +949,8 @@ Figure 4.7: Simulated normal distribution of infant mortality rates
 </table>
 <p>Again, the normal distribution has several desirable features that will be discussed further in the chapters pertaining to inference. One is that if a distribution is approximately normal, then extreme values are not a concern and the mean and standard deviation are good measures of center and spread, respectively. Besides making our choice of measures convenient, why is this worth repeating? Because the mean and standard deviation are building blocks to the next category of descriptive measures: association. If mean and standard deviation are bad choices of center and spread, then our measures of association will be adversely affected.</p>
 </div>
-<div id="measures-of-association" class="section level3" number="4.4.5">
-<h3><span class="header-section-number">4.4.5</span> Measures of association</h3>
+<div id="measures-of-association" class="section level3 hasAnchor" number="4.4.5">
+<h3><span class="header-section-number">4.4.5</span> Measures of association<a href="4-descriptive-statistics.html#measures-of-association" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>With association, we now consider the distributions of two variables at a time. That is, given the value within one variable’s distribution, what does the distribution of another variable look like?</p>
 <p>We need a second variable to continue our example involving infant mortality rates. Table <a href="4-descriptive-statistics.html#tab:gapdeathtab">4.5</a> shows a preview of a dataset that adds two more variables to our previous infant mortality data.</p>
 <table>
@@ -976,10 +998,10 @@ Figure 4.7: Simulated normal distribution of infant mortality rates
 </table>
 <p>Recalling that the mean infant mortality rate is about 26, the five countries included are in the right tail of the distribution. Also, you probably know enough about life expectancy to know that the values for these countries are quite low. Perhaps these two variables are associated?</p>
 <p>In fact, we know they are associated. Life expectancy in a given year is the average age at which people in that country died. If a country has a high frequency of infants dying, then that will pull the mean downward. A common misunderstanding of life expectancy is that people in that country tend to die at the age of the country’s life expectancy. This is certainly not the case if a country has a high infant mortality rate. While adults in countries with low life expectancy may die younger, adults tend to live longer than the average life expectancy suggests. The key is making it out of infancy alive.</p>
-<div id="visual-association" class="section level4 unnumbered">
-<h4>Visual association</h4>
+<div id="visual-association" class="section level4 unnumbered hasAnchor">
+<h4>Visual association<a href="4-descriptive-statistics.html#visual-association" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>As was the case with one variable, we want to visualize the distributions of two variables. When working with two continuous variables, the <strong>scatter plot</strong> is the most common choice to visualize association between two variables. Figure <a href="4-descriptive-statistics.html#fig:scatterlifedeath">4.8</a> plots the paired values of infant mortality rate and life expectancy for each country.</p>
-<div class="figure" style="text-align: center"><span id="fig:scatterlifedeath"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scatterlifedeath"></span>
 <img src="data-apps-text_files/figure-html/scatterlifedeath-1.png" alt="Visualizing association between two continuous variables" width="\textwidth" />
 <p class="caption">
 Figure 4.8: Visualizing association between two continuous variables
@@ -988,8 +1010,8 @@ Figure 4.8: Visualizing association between two continuous variables
 <p>Note that I plotted infant mortality rate along the x axis and life expectancy on the y axis. This choice was deliberate. If we suspect that one variable influences or affects the value of another variable, then the variable doing the influencing should be plotted on the x axis. Plotting a variable on the y axis implies to the viewer that it responds to the variable on the x axis.</p>
 <p>Figure <a href="4-descriptive-statistics.html#fig:scatterlifedeath">4.8</a> confirms our suspicion that the two variables are associated. There appears to be a rather strong association such that as infant mortality rate increases, the lower a country’s life expectancy.</p>
 </div>
-<div id="quantified-association" class="section level4 unnumbered">
-<h4>Quantified association</h4>
+<div id="quantified-association" class="section level4 unnumbered hasAnchor">
+<h4>Quantified association<a href="4-descriptive-statistics.html#quantified-association" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>As was the case with one variable, we want to describe the association between two variables using quantitative measures. The association between two or more variables can be described in terms of</p>
 <ul>
 <li><strong>Direction:</strong> when one variable increases, does the other variable increase or decrease?</li>
@@ -1007,11 +1029,11 @@ Figure 4.8: Visualizing association between two continuous variables
 </blockquote>
 <p>The regression coefficient will be the focus for much of the remainder of this text beginning with Chapter <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a>. Covariance and the correlation coefficient are briefly considered below.</p>
 </div>
-<div id="covariance" class="section level4 unnumbered">
-<h4>Covariance</h4>
+<div id="covariance" class="section level4 unnumbered hasAnchor">
+<h4>Covariance<a href="4-descriptive-statistics.html#covariance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Covariance tells us when one variable, <span class="math inline">\(X\)</span>, is above or below its mean, whether another variable, <span class="math inline">\(Y\)</span>, tends to be above or below its mean. If <span class="math inline">\(Y\)</span> tends to be above (below) its mean when <span class="math inline">\(X\)</span> is above (below) its mean, then the two have a positive covariance and are positively associated. If <span class="math inline">\(Y\)</span> tends to be below (above) its mean when <span class="math inline">\(X\)</span> is above (below) its mean, then the two have a negative covariance and are negatively associated. If the two variables exhibit no tendencies, they have a covariance of 0 and thus no association.</p>
 <p>Figure <a href="4-descriptive-statistics.html#fig:scattercovar">4.9</a> adds references lines for the mean of each variable. Note that when infant mortality is above its mean (to the right of the red line), life expectancy is below its mean (below the purple line) in almost all cases. When infant mortality is below its mean, life expectancy is above its mean in almost all cases. Therefore, these two variables have a negative covariance and are negatively associated. In fact, the covariance between infant mortality rate and life expectancy is -312.7</p>
-<div class="figure" style="text-align: center"><span id="fig:scattercovar"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scattercovar"></span>
 <img src="data-apps-text_files/figure-html/scattercovar-1.png" alt="Visualizing covariance" width="\textwidth" />
 <p class="caption">
 Figure 4.9: Visualizing covariance
@@ -1019,13 +1041,13 @@ Figure 4.9: Visualizing covariance
 </div>
 <p>Covariance is the association analog of variance. It is an important building block of other measures of association, but it is essentially useless for description because it only tells us the direction of association. The correlation coefficient tells us the direction and strength of association. Therefore, covariance is never used for description because correlation provides us twice as much information.</p>
 </div>
-<div id="correlation" class="section level4 unnumbered">
-<h4>Correlation</h4>
+<div id="correlation" class="section level4 unnumbered hasAnchor">
+<h4>Correlation<a href="4-descriptive-statistics.html#correlation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If <span class="math inline">\(Y\)</span> tends to increase (decrease) as <span class="math inline">\(X\)</span> increases (decreases), then the two are positively correlated. That is, the two variables tend to move in the same direction. If <span class="math inline">\(Y\)</span> tends to increase (decrease) as <span class="math inline">\(X\)</span> decreases (increases), then the two are negatively correlated. That is, the two variables tend to move in opposite directions. Correlation tells us how much the paired values of two variables in a scatterplot exhibit a straight line and whether that straight line is positively or negatively sloped.</p>
 <p>The correlation coefficient ranges between -1 and 1. If it is negative, then the two variables are negatively associated. If it is positive, the two variables are positively associated. The closer the correlation coefficient of two variables is to -1 or 1, the stronger their correlation and the more the two variables exhibit a straight line in a scatterplot. A correlation equal to -1 or 1 indicates the two variables form a perfect straight line. If two variables exhibit no shared tendencies and form what appears to be a random scattering of plot points, than their correlation will be close or equal to 0.</p>
 <p>Based on the covariance and Figure <a href="4-descriptive-statistics.html#fig:scattercovar">4.9</a>, we know to expect a negative correlation between infant mortality rate and life expectancy. We also know the correlation will not be -1 because the points do not form a perfect straight line. Nevertheless, they do form a fairly tight downward path, so we should expect a correlation closer to -1 than 0. It turns out that the correlation is equal to -0.9. Infant mortality rate and life expectancy exhibit a strong, negative association. As infant mortality increases, life expectancy decreases.</p>
 <p>If we imagined drawing a line through the data points on our scatterplot from left to right that could freely curve according to however the data are scattered, would that line be a straight line and would it slope upward or downward? Figure <a href="4-descriptive-statistics.html#fig:scattercorr">4.10</a> does exactly that with our data. Note that the data points lead the line to slope downward almost throughout the range of observed values. In the upper-left quadrant, the data points are tightly clustered around the line, indicating a strong correlation. In the bottom-right quadrant, the data points begin to spread further away from the line, indicating a weaker correlation. The line also begins to turn in the positive direction, which lowers the correlation coefficient.</p>
-<div class="figure" style="text-align: center"><span id="fig:scattercorr"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:scattercorr"></span>
 <img src="data-apps-text_files/figure-html/scattercorr-1.png" alt="Drawing a free line through the data" width="\textwidth" />
 <p class="caption">
 Figure 4.10: Drawing a free line through the data
@@ -1035,10 +1057,10 @@ Figure 4.10: Drawing a free line through the data
 </div>
 </div>
 </div>
-<div id="categorical-variables" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Categorical Variables</h2>
+<div id="categorical-variables" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Categorical Variables<a href="4-descriptive-statistics.html#categorical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Categorical variables, especially nominal variables, do not have a continuous distribution to calculate descriptive measures of center and spread. Figure <a href="4-descriptive-statistics.html#fig:ncwhitemom">4.11</a> below visualizes the race of 800 pregnant women coded as two levels: white or not white. Note that it would not make sense to calculate a mean or median for this variable (technically, a two-level variable can be coded as 0 or 1, then the mean equals the proportion of observations labeled as 1). Mode is a sensible choice in this case, but it does not convey much information. If we had a variable with more levels, such as a 5-point Likert scale within a satisfaction survey, it may be of more interest to know which response was the most frequent.</p>
-<div class="figure" style="text-align: center"><span id="fig:ncwhitemom"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ncwhitemom"></span>
 <img src="data-apps-text_files/figure-html/ncwhitemom-1.png" alt="Race of a sample of pregnant women in North Carolina" width="\textwidth" />
 <p class="caption">
 Figure 4.11: Race of a sample of pregnant women in North Carolina
@@ -1141,8 +1163,8 @@ Figure 4.11: Race of a sample of pregnant women in North Carolina
 <p><strong>To learn how to quickly compute descriptive statistics and produce professional-looking tables, proceed to Chapter <a href="19-r-description.html#r-description">19</a>.</strong></p>
 </blockquote>
 </div>
-<div id="kt4" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> Key terms and concepts</h2>
+<div id="kt4" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Key terms and concepts<a href="4-descriptive-statistics.html#kt4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Descriptive statistics</li>
 <li>Inferential statistics</li>
@@ -1174,7 +1196,6 @@ Figure 4.11: Race of a sample of pregnant women in North Carolina
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1204,6 +1225,10 @@ gitbook.start({
 "text": null
 },
 "download": ["data-apps-text.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
