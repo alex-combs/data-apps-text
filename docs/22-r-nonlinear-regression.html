@@ -567,20 +567,20 @@ div.csl-indent {
 <li>Start a R Markdown document</li>
 <li>Change the YAML to at least the following. Feel free to add arguments.</li>
 </ul>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="22-r-nonlinear-regression.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb129-2"><a href="22-r-nonlinear-regression.html#cb129-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&#39;R Chapter 22&#39;</span></span>
-<span id="cb129-3"><a href="22-r-nonlinear-regression.html#cb129-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&#39;Your name&#39;</span></span>
-<span id="cb129-4"><a href="22-r-nonlinear-regression.html#cb129-4" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> </span>
-<span id="cb129-5"><a href="22-r-nonlinear-regression.html#cb129-5" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
-<span id="cb129-6"><a href="22-r-nonlinear-regression.html#cb129-6" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> spacelab</span>
-<span id="cb129-7"><a href="22-r-nonlinear-regression.html#cb129-7" aria-hidden="true" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
-<span id="cb129-8"><a href="22-r-nonlinear-regression.html#cb129-8" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="22-r-nonlinear-regression.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb130-2"><a href="22-r-nonlinear-regression.html#cb130-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&#39;R Chapter 22&#39;</span></span>
+<span id="cb130-3"><a href="22-r-nonlinear-regression.html#cb130-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&#39;Your name&#39;</span></span>
+<span id="cb130-4"><a href="22-r-nonlinear-regression.html#cb130-4" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> </span>
+<span id="cb130-5"><a href="22-r-nonlinear-regression.html#cb130-5" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb130-6"><a href="22-r-nonlinear-regression.html#cb130-6" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> spacelab</span>
+<span id="cb130-7"><a href="22-r-nonlinear-regression.html#cb130-7" aria-hidden="true" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
+<span id="cb130-8"><a href="22-r-nonlinear-regression.html#cb130-8" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
 <ul>
 <li>Load the following packages</li>
 </ul>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="22-r-nonlinear-regression.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb130-2"><a href="22-r-nonlinear-regression.html#cb130-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(moderndive)</span>
-<span id="cb130-3"><a href="22-r-nonlinear-regression.html#cb130-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="22-r-nonlinear-regression.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb131-2"><a href="22-r-nonlinear-regression.html#cb131-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(moderndive)</span>
+<span id="cb131-3"><a href="22-r-nonlinear-regression.html#cb131-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)</span></code></pre></div>
 <p>We will use the <code>Mroz</code> dataset within the <code>carData</code> package. Be sure to view the documentation for these data in the Help tab of the bottom-right pane by typing the name of the dataset in the search bar.</p>
 </div>
 <div id="quadratic-term" class="section level2 hasAnchor" number="22.3">
@@ -590,10 +590,10 @@ div.csl-indent {
 Wage = \beta_0 + \beta_1Age + \beta_2Age^2 + \beta_3Educ + \epsilon
 \end{equation}\]</span></p>
 <p>The below code demonstrates how to include a quadratic term within the <code>lm</code> function.</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="22-r-nonlinear-regression.html#cb131-1" aria-hidden="true" tabindex="-1"></a>quad_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Wage <span class="sc">~</span> Age <span class="sc">+</span> <span class="fu">I</span>(Age<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> Educ, <span class="at">data =</span> wages)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="22-r-nonlinear-regression.html#cb132-1" aria-hidden="true" tabindex="-1"></a>quad_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Wage <span class="sc">~</span> Age <span class="sc">+</span> <span class="fu">I</span>(Age<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> Educ, <span class="at">data =</span> wages)</span></code></pre></div>
 <p>In this case, the code reflects the equation only somewhat; the <code>I()</code> is necessary to tell R that <code>Age^2</code> is the squared version of <code>Age</code>. Otherwise, R would not recognize <code>Age^2</code> in the data, thus excluding it from the regression.</p>
 <p>Now we can obtain results in the usual manner.</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="22-r-nonlinear-regression.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_regression_table</span>(quad_mod)</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="22-r-nonlinear-regression.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_regression_table</span>(quad_mod)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -716,8 +716,8 @@ Educ
 </tbody>
 </table>
 <p>We need to alter the <code>Mroz</code> data slightly before running a regression. Run the following code that creates a new variable that equals 1 if <code>lfp</code> equals “yes” and 0 if <code>lfp</code> equals “no.” This is necessary because our outcome variable–even though categorical–must be represented numerically in order for the regression to work.</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="22-r-nonlinear-regression.html#cb133-1" aria-hidden="true" tabindex="-1"></a>my_Mroz <span class="ot">&lt;-</span> Mroz <span class="sc">%&gt;%</span> </span>
-<span id="cb133-2"><a href="22-r-nonlinear-regression.html#cb133-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lfp_numeric =</span> <span class="fu">if_else</span>(lfp <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="22-r-nonlinear-regression.html#cb134-1" aria-hidden="true" tabindex="-1"></a>my_Mroz <span class="ot">&lt;-</span> Mroz <span class="sc">%&gt;%</span> </span>
+<span id="cb134-2"><a href="22-r-nonlinear-regression.html#cb134-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lfp_numeric =</span> <span class="fu">if_else</span>(lfp <span class="sc">==</span> <span class="st">&quot;yes&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
 <div class="learncheck">
 <p>
 <strong>Exercise 1:</strong> Suppose we want to examine factors that
@@ -742,10 +742,10 @@ Run this regression model and obtain the results.
 ln(LifeExp)=\beta_0 + \beta_1ln(GDPpercap) + \beta_2Continent + \epsilon
 \end{equation}\]</span></p>
 <p>The below code demonstrates how to transform a variable into its natural log within the <code>lm</code> function.</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="22-r-nonlinear-regression.html#cb134-1" aria-hidden="true" tabindex="-1"></a>loglog <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(lifeExp) <span class="sc">~</span> <span class="fu">log</span>(gdpPercap) <span class="sc">+</span> continent, <span class="at">data =</span> gapminder)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="22-r-nonlinear-regression.html#cb135-1" aria-hidden="true" tabindex="-1"></a>loglog <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(lifeExp) <span class="sc">~</span> <span class="fu">log</span>(gdpPercap) <span class="sc">+</span> continent, <span class="at">data =</span> gapminder)</span></code></pre></div>
 <p>Note that all we need to do is place the appropriate variables within the <code>log()</code> function, which R interprets as the natural log. This <em>temporarily</em> transforms the variables; it does not create new variables in the dataset equal to the natural log of the variables.</p>
 <p>Now we can obtain results in the usual manner.</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="22-r-nonlinear-regression.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_regression_table</span>(loglog)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="22-r-nonlinear-regression.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_regression_table</span>(loglog)</span></code></pre></div>
 <table>
 <thead>
 <tr>
