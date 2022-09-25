@@ -126,11 +126,13 @@ ggplot(college_grad_students, aes(x = grad_median)) +
   geom_histogram()
 ```
 
+
+
 ```{block, type='learncheck', purl=FALSE}
 **Exercise 1:**  Add a heading `# Histogram`. In the `countyComplete` dataset, there is a variable named `bachelors_2010` that measures the percent of the county population with a bachelor's degree between 2006-2010. Suppose we want to visualize the distribution of `bachelors` with a histogram. Generate a simple, default histogram (no optional code unless you want to add it).
 ```
 
-```{r, include=FALSE}
+```{r, eval=FALSE}
 ggplot(countyComplete, aes(x = bachelors_2010)) +
   geom_histogram()
 ```
@@ -138,8 +140,6 @@ ggplot(countyComplete, aes(x = bachelors_2010)) +
 ## Box plot
 
 Below is the code used for the box plot in Chapter \@ref(data-visualization). Like the histogram, a box plot visualizes the distribution of one variable but uses descriptive measures median, first and third quartile, and identifies extreme values. Therefore, we only need to tell R which variable to assign to the either the x or y axis. Note that I assign `grad_median` to the y axis so that the box plot is vertical, which is merely a stylistic choice. Assigning `grad_median` to the x axis would make the box plot horizontal. Then, `geom_boxplot` is used to tell R to make a boxplot from `grad_median`.
-
-Again, all the code after `geom_boxplot` is optional and was used to make the box plot look more polished. The `fill = 'steelblue'` changes the color of the box, `labs` is used to help the reader understand what `grad_median` measures, `theme_classic` is one of several themes built within R that changes the look of a plot, and the code inside the `theme` function removes all of the ink related to the x axis due to it being unnecessary. The `theme` function allows you to control every element of a plot. Unique themes can be created and saved for replication, saving time and avoiding errors.
 
 ```{r gradmedboxrep, fig.cap='Box plot of full-time median earnings for different graduate school majors'}
 ggplot(college_grad_students, aes(y = grad_median)) +
@@ -151,12 +151,16 @@ ggplot(college_grad_students, aes(y = grad_median)) +
         axis.ticks.x = element_blank())
 ```
 
+Again, all the code after `geom_boxplot` is optional and was used to make the box plot look more polished. The `fill = 'steelblue'` changes the color of the box, `labs` is used to help the reader understand what `grad_median` measures, `theme_classic` is one of several themes built within R that changes the look of a plot, and the code inside the `theme` function removes all of the ink related to the x axis due to it being unnecessary. The `theme` function allows you to control every element of a plot. Unique themes can be created and saved for replication, saving time and avoiding errors.
+
 Again, if we do not care how the box plot looks, all we need to make the plot is shown in the code below.
 
 ```{r}
 ggplot(college_grad_students, aes(y = grad_median)) +
   geom_boxplot()
 ```
+
+
 
 ```{block, type='learncheck', purl=FALSE}
 **Exercise 2:**  Add another heading `# Boxplot`. Generate a simple, default box plot for `bachelors_2010` (no optional code unless you want to add it).
