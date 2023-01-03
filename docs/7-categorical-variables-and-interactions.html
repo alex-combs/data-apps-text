@@ -701,7 +701,7 @@ y = \beta_0 + \beta_1x + \beta_2d + \epsilon
 </tbody>
 </table>
 <p><br></p>
-<p>where <code>mrall</code> is number of traffic deaths per 10,000 population, <code>jaild</code> is the dummy variable for whether the state has a mandatory jail sentence for drunk driving, <code>vmiles</code> is the average miles driven per driver in a state, <code>mlda</code> is the minimum legal drinking age at the time, and <code>unrate</code> is the state’s unemployment rate. There are 336 observations in this dataset (48 states from 1982 to 1988, making it panel data but here it is used like a pooled cross-sectional).</p>
+<p>where <code>mrall</code> is number of traffic deaths per 10,000 population, <code>jaild</code> is the dummy variable for whether the state has a mandatory jail sentence for drunk driving, <code>vmiles</code> is the average miles driven per driver in each state in <strong>thousands of miles</strong>, <code>mlda</code> is the minimum legal drinking age at the time, and <code>unrate</code> is the state’s unemployment rate. There are 336 observations in this dataset (48 states from 1982 to 1988, making it panel data but here it is used like a pooled cross-sectional).</p>
 <p>Suppose we choose to use the following model</p>
 <p><span class="math display" id="eq:pslopeexamp">\[\begin{equation}
 mrall = \beta_0 + \beta_1vmiles + \beta_2jaild + \epsilon
@@ -813,8 +813,10 @@ Figure 7.2: Parallel slopes visualization
 <p><br></p>
 <p>When communicating an interpretation of the results for a parallel slopes model, we can write something like the following:</p>
 <blockquote>
-<p>Controlling for whether a state has a mandatory jail sentence for drunk driving, the results indicate that as the average miles driven per driver in a state increases 1 mile, traffic fatalities per 10,000 increase 0.281, on average.</p>
+<p>Controlling for whether a state has a mandatory jail sentence for drunk driving, the results indicate that as the average miles driven per driver in a state increases 1,000 miles, traffic fatalities per 10,000 population increase by 0.281, on average.</p>
 </blockquote>
+<p>Why does the interpretation use an increase of 1,000 miles instead of 1 mile? Isn’t the estimate the predicted change in the outcome given a 1-unit increase in the explanatory variable? That is correct. However, remember that <code>vmiles</code> is in units of 1,000 miles. Imagine one state has a value of 6 and another of 7. That is a one unit increase for which the regression model estimates a predicted change in the traffic death rate. But this is not an increase of 1 mile, it is an increase of 1,000 miles; 6,000 to 7,000.</p>
+<p>If we want to focus on the dummy variable, we could write:</p>
 <blockquote>
 <p>On average, states with mandatory jail sentencing have a higher traffic fatality rate of 0.265 per 10,000, controlling for average miles driven per driver.</p>
 </blockquote>
@@ -1054,7 +1056,7 @@ y = \beta_0 + \beta_1x + \beta_2d + \beta_3xd + \epsilon
 <p><span class="math display">\[\hat{mrall} = -0.384 + 0.3\times vmiles\]</span></p>
 <p>When communicating an interpretation of this equation, we might write something like:</p>
 <blockquote>
-<p>For states that do not have a mandatory jail sentence for drunk driving, as the average miles driven per mile increases by 1 mile, traffic fatalities per 10,000 increases by 0.3, on average.</p>
+<p>For states that do not have a mandatory jail sentence for drunk driving, as the average miles driven per mile increases by 1,000 miles, traffic fatalities per 10,000 increases by 0.3, on average.</p>
 </blockquote>
 <p>For states with mandatory jail sentencing (jaild = 1), the equation is</p>
 <p><span class="math display">\[\hat{mrall} = -0.384 + (0.3\times vmiles) + (0.731\times jaild) + (-0.058\times vmiles \times jaild)\]</span></p>
@@ -1066,7 +1068,7 @@ y = \beta_0 + \beta_1x + \beta_2d + \beta_3xd + \epsilon
 <p><span class="math display">\[\hat{mrall} = 0.347 + 0.242\times vmiles\]</span></p>
 <p>When communicating an interpretation of this equation, we might write something like:</p>
 <blockquote>
-<p>For states that have a mandatory jail sentence for drunk driving, as the average miles driven per mile increases by 1 mile, traffic fatalities per 10,000 increases by 0.242, on average.</p>
+<p>For states that have a mandatory jail sentence for drunk driving, as the average miles driven per mile increases by 1,000 miles, traffic fatalities per 10,000 increases by 0.242, on average.</p>
 </blockquote>
 <p>Look back at Figure <a href="7-categorical-variables-and-interactions.html#fig:interactscatter">7.4</a>. As we suspected the slope of the blue line that represents states with a mandatory jail sentence is less than the slope of the red line representing states without a mandatory jail sentence. How much less? By the amount of the estimate associated with the interaction term, <code>vmiles:jaildyes</code> in Table <a href="7-categorical-variables-and-interactions.html#tab:interactionmod">7.4</a>: 0.058.</p>
 <p>The intercepts of the two lines are also different. If the x-axis in Figure <a href="7-categorical-variables-and-interactions.html#fig:interactscatter">7.4</a> were extended to 0 and the regression lines were extrapolated to the left until they intersect the y-axis, the blue line would intersect at 0.347, while the red line would intersect at -0.384. Note that the difference between these two intercepts is the estimate associated with the dummy variable <code>jaildyes</code> in Table <a href="7-categorical-variables-and-interactions.html#tab:interactionmod">7.4</a>: 0.731.</p>

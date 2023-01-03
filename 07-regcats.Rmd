@@ -86,7 +86,7 @@ trdeath %>%
 
 <br>
 
-where `mrall` is number of traffic deaths per 10,000 population, `jaild` is the dummy variable for whether the state has a mandatory jail sentence for drunk driving, `vmiles` is the average miles driven per driver in a state, `mlda` is the minimum legal drinking age at the time, and `unrate` is the state's unemployment rate. There are 336 observations in this dataset (48 states from 1982 to 1988, making it panel data but here it is used like a pooled cross-sectional).
+where `mrall` is number of traffic deaths per 10,000 population, `jaild` is the dummy variable for whether the state has a mandatory jail sentence for drunk driving, `vmiles` is the average miles driven per driver in each state in **thousands of miles**, `mlda` is the minimum legal drinking age at the time, and `unrate` is the state's unemployment rate. There are 336 observations in this dataset (48 states from 1982 to 1988, making it panel data but here it is used like a pooled cross-sectional).
 
 Suppose we choose to use the following model
 
@@ -106,7 +106,7 @@ Based on the plot points, our blue line should be above our red line, as the gro
 ```{r pslopescatter, echo=FALSE, fig.cap='Relationship between miles driven and traffic fatalities'}
 ggplot(trdeath, aes(x = vmiles, y = mrall, color = jaild)) +
   geom_point() +
-  labs(x = 'Average miles per driver',
+  labs(x = 'Average miles per driver (thousands)',
        y = 'Traffic deaths per 10,000',
        color = 'Mandatory jail') +
   theme_minimal()
@@ -176,7 +176,7 @@ Figure \@ref(fig:pslopescatter2) provides the same scatterplot but adds our para
 ggplot(trdeath, aes(x = vmiles, y = mrall, color = jaild)) +
   geom_point() +
   geom_parallel_slopes(se = FALSE) +
-  labs(x = 'Average miles per driver',
+  labs(x = 'Average miles per driver (thousands)',
        y = 'Traffic deaths per 10,000',
        color = 'Mandatory jail') +
   theme_minimal()
@@ -186,7 +186,11 @@ ggplot(trdeath, aes(x = vmiles, y = mrall, color = jaild)) +
 
 When communicating an interpretation of the results for a parallel slopes model, we can write something like the following: 
 
-> Controlling for whether a state has a mandatory jail sentence for drunk driving, the results indicate that as the average miles driven per driver in a state increases 1 mile, traffic fatalities per 10,000 increase 0.281, on average.
+> Controlling for whether a state has a mandatory jail sentence for drunk driving, the results indicate that as the average miles driven per driver in a state increases 1,000 miles, traffic fatalities per 10,000 population increase by 0.281, on average.
+
+Why does the interpretation use an increase of 1,000 miles instead of 1 mile? Isn't the estimate the predicted change in the outcome given a 1-unit increase in the explanatory variable? That is correct. However, remember that `vmiles` is in units of 1,000 miles. Imagine one state has a value of 6 and another of 7. That is a one unit increase for which the regression model estimates a predicted change in the traffic death rate. But this is not an increase of 1 mile, it is an increase of 1,000 miles; 6,000 to 7,000.
+
+If we want to focus on the dummy variable, we could write:
 
 > On average, states with mandatory jail sentencing have a higher traffic fatality rate of 0.265 per 10,000, controlling for average miles driven per driver.
 
@@ -229,7 +233,7 @@ Figure \@ref(fig:pslopescatter2) visualizes this model. Note that there are four
 ggplot(trdeath, aes(x = vmiles, y = mrall, color = region)) +
   geom_point() +
   geom_parallel_slopes(se = FALSE) +
-  labs(x = 'Average miles per driver',
+  labs(x = 'Average miles per driver (thousands)',
        y = 'Traffic deaths per 10,000',
        color = 'Region') +
   theme_minimal()
@@ -288,7 +292,7 @@ Figure \@ref(fig:interactscatter) visualizes this additional flexibility. Note t
 ggplot(trdeath, aes(x = vmiles, y = mrall, color = jaild)) +
   geom_point() +
   geom_smooth(method = 'lm', se = FALSE) +
-  labs(x = 'Average miles per driver',
+  labs(x = 'Average miles per driver (thousands)',
        y = 'Traffic deaths per 10,000',
        color = 'Mandatory jail') +
   theme_minimal()
@@ -354,7 +358,7 @@ $$\hat{mrall} = -0.384 + 0.3\times vmiles$$
 
 When communicating an interpretation of this equation, we might write something like:
 
-> For states that do not have a mandatory jail sentence for drunk driving, as the average miles driven per mile increases by 1 mile, traffic fatalities per 10,000 increases by 0.3, on average.
+> For states that do not have a mandatory jail sentence for drunk driving, as the average miles driven per mile increases by 1,000 miles, traffic fatalities per 10,000 increases by 0.3, on average.
 
 For states with mandatory jail sentencing (jaild = 1), the equation is
 
@@ -374,7 +378,7 @@ $$\hat{mrall} = 0.347 + 0.242\times vmiles$$
 
 When communicating an interpretation of this equation, we might write something like:
 
-> For states that have a mandatory jail sentence for drunk driving, as the average miles driven per mile increases by 1 mile, traffic fatalities per 10,000 increases by 0.242, on average.
+> For states that have a mandatory jail sentence for drunk driving, as the average miles driven per mile increases by 1,000 miles, traffic fatalities per 10,000 increases by 0.242, on average.
 
 Look back at Figure \@ref(fig:interactscatter). As we suspected the slope of the blue line that represents states with a mandatory jail sentence is less than the slope of the red line representing states without a mandatory jail sentence. How much less? By the amount of the estimate associated with the interaction term, `vmiles:jaildyes` in Table \@ref(tab:interactionmod): 0.058.
 
