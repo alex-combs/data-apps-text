@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 17 R Data | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 17 R Data | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
@@ -51,12 +51,12 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.0/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.23/datatables.js"></script>
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="libs/datatables-binding-0.26/datatables.js"></script>
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
@@ -99,7 +99,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -112,7 +112,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -392,10 +392,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="17.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>17.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="17.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>17.2</b> Set-up</a></li>
-<li class="chapter" data-level="17.3" data-path="17-r-data.html"><a href="17-r-data.html#viewing-datasets"><i class="fa fa-check"></i><b>17.3</b> Viewing datasets</a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="17-r-data.html"><a href="17-r-data.html#warning-about-view"><i class="fa fa-check"></i><b>17.3.1</b> Warning about View</a></li>
-</ul></li>
+<li class="chapter" data-level="17.3" data-path="17-r-data.html"><a href="17-r-data.html#viewing-data-sets"><i class="fa fa-check"></i><b>17.3</b> Viewing data sets</a></li>
 <li class="chapter" data-level="17.4" data-path="17-r-data.html"><a href="17-r-data.html#glimpse-data"><i class="fa fa-check"></i><b>17.4</b> Glimpse Data</a></li>
 <li class="chapter" data-level="17.5" data-path="17-r-data.html"><a href="17-r-data.html#variable-types-in-r"><i class="fa fa-check"></i><b>17.5</b> Variable Types in R</a></li>
 <li class="chapter" data-level="17.6" data-path="17-r-data.html"><a href="17-r-data.html#save-and-upload-1"><i class="fa fa-check"></i><b>17.6</b> Save and Upload</a></li>
@@ -564,85 +561,95 @@ div.csl-indent {
 <h2><span class="header-section-number">17.2</span> Set-up<a href="17-r-data.html#set-up" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To complete this chapter, you need to</p>
 <ul>
-<li>Start a R Markdown document. Keep the YAML and delete the default content in the body.</li>
-<li>Load the following packages. This requires you to start a code chunk <code>Cmd+Option+I</code> or <code>Ctrl+Option+I</code> on PC. Or use the Insert menu in the top right of the source editor pane.</li>
+<li>Start a R Markdown document. Keep the YAML and delete the default content in the body except for the first code chunk named <code>setup</code> containing the code <code>knitr::opts_chunk$set(echo = TRUE)</code>.</li>
+<li>Use the code below to load the required packages. Start a new line inside of the <code>setup</code> code chunk you did not delete, then paste the code. Run this code chunk.</li>
 </ul>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="17-r-data.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb39-2"><a href="17-r-data.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)  <span class="co">#if this fails, you need to install</span></span></code></pre></div>
-<p>Before you begin, go to the <code>Packages</code> tab in the bottom-right pane. Find <code>carData</code> in the list and click on the name. This should take you to the <code>Help</code> tab, which will contain the documentation for <code>carData</code>. This page serves as a directory to all of the datasets that come loaded with the package. We will be examining some of these datasets. If you want or need to learn more about a particular dataset, you can click on its name in this list.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="17-r-data.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb40-2"><a href="17-r-data.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)  <span class="co">#if this fails, you need to install the package (see RChapter 16)</span></span></code></pre></div>
+<p>Now that you have successfully loaded the two packages, you have access to the functions they contain as well as any data sets they contain. Many packages include data sets used for demonstrating and learning certain functions work.</p>
+<p>Before starting the exercises, go to the <code>Packages</code> tab in the bottom-right pane. Find <code>carData</code> in the list and click on the name. This should take you to the <code>Help</code> tab, which will contain the documentation for <code>carData</code>. This page serves as a directory to all of the data sets that come loaded with the package. We will be examining some of these data sets. If you want or need to learn more about a particular data set, you can click on its name in this list.</p>
 </div>
-<div id="viewing-datasets" class="section level2 hasAnchor" number="17.3">
-<h2><span class="header-section-number">17.3</span> Viewing datasets<a href="17-r-data.html#viewing-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Perhaps one of the first obstacles to using R is that you do not constantly stare at a spreadsheet, creating somewhat of a disconnect between what you do to data and seeing it done.</p>
-<p>You can examine a dataset in spreadsheet form using the following command:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="17-r-data.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dataset)</span></code></pre></div>
-<p>where you replace <code>dataset</code> with the actual name of the dataset.</p>
+<div id="viewing-data-sets" class="section level2 hasAnchor" number="17.3">
+<h2><span class="header-section-number">17.3</span> Viewing data sets<a href="17-r-data.html#viewing-data-sets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Perhaps one of the first obstacles to using R is that you do not constantly stare at a spreadsheet, creating somewhat of a disconnect between what you do to data and seeing it done. While you do not need to view a spreadsheet to understand what you are doing to the data, it is often helpful to examine a data set in spreadsheet form when initially trying to understand its contents.</p>
+<p>You can always examine a data set in spreadsheet form any time you need to. The following information and exercises walk you through how to do so.</p>
+<p>Your environment pane (top-right) will list all data sets that have been imported during your current R session. We have not imported any data (we will learn how in a different assignment). Therefore, our environment is empty.</p>
+<blockquote>
+<p>This will become much clearer later, but any time there is a data set in your environment that you want to view in spreadsheet form, click on its name and a new tab will appear in the top-left pane that displays the data set.</p>
+</blockquote>
+<p>Since we loaded <code>carData</code> we do have access to numerous data sets but are not immediately available in the environment pane. To view a data set included in a package, we want to copy it over to our environment.</p>
 <div class="learncheck">
 <p>
-<strong>Exercise 1:</strong> In your document, start a new code chunk
-to use the <code>View</code> command on the <code>Arrests</code> dataset
-that should be available in your current R session.
+<strong>Exercise 1:</strong> Start a new code chunk below the setup
+code chunk in which you loaded the required packages. To do so, you can
+use the keyboard shortcuts <code>Cmd+Option+I</code> on Mac or
+<code>Ctrl+Option+I</code> on PC, or use insert code drop down menu
+along the top of your R Markdown pane that has a plus sign over a square
+with a c inside of it. If using the menu, click on the R option.
 </p>
 </div>
-<p>A new tab should have appeared in the top-left pane containing the spreadsheet of <code>Arrests</code>. This dataset contains information on arrests for possession of small amounts of marijuana in the city of Toronto.</p>
 <div class="learncheck">
 <p>
-<strong>Exercise 2</strong> Based on what you see in the spreadsheet
-of <code>Arrests</code>, what is the structure of this dataset? What is
+<strong>Exercise 2</strong> In the code chunk you just started, paste
+and run the code provided below, which saves a data set named
+<code>Arrests</code> contained within the <code>carData</code> package
+to your environment pane in the top-right.
+</p>
+</div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="17-r-data.html#cb41-1" aria-hidden="true" tabindex="-1"></a>arrests <span class="ot">&lt;-</span> Arrests</span></code></pre></div>
+<div class="learncheck">
+<p>
+<strong>Exercise 3</strong> Click on <code>arrests</code> in your
+environment pane. A new tab should appear that shows the spreadsheet for
+<code>arrests</code>. If you find yourself needing to see a spreadsheet,
+use this point-and-click method.
+</p>
+</div>
+<p>Now that we can view data, let’s practice applying some of the concepts you read about in the Chapter 2.</p>
+<p>The <code>arrests</code> data set contains information on arrests for possession of small amounts of marijuana in the city of Toronto.</p>
+<div class="learncheck">
+<p>
+<strong>Exercise 4</strong> Based on what you see in the spreadsheet
+of <code>arrests</code>, what is the structure of this data set? What is
 the unit of analysis? Remember to write your answer outside of a code
 chunk.
 </p>
 </div>
-<p>Let’s examine a new dataset called <code>Florida</code> which contains county voting results for the 2000 presidential election.</p>
+<p>Let’s examine a new data set called <code>Florida</code> which contains county voting results for the 2000 presidential election.</p>
 <div class="learncheck">
 <p>
-<strong>Exercise 3</strong> What is the structure and unit of
-analysis of the <code>Florida</code> dataset?
+<strong>Exercise 5</strong> Follow the same process used for viewing
+the <code>Arrests</code> data set to view the <code>Florida</code> data
+set. What is the structure and unit of analysis of the
+<code>Florida</code> data set?
 </p>
 </div>
 <div class="learncheck">
 <p>
-<strong>Exercise 4</strong> Do the same thing one more time with the
-<code>USPop</code> dataset. What is its structure and unit of
+<strong>Exercise 6</strong> Do the same thing one more time with a
+data set named <code>USPop</code>. What is its structure and unit of
 analysis?
 </p>
-</div>
-<div id="warning-about-view" class="section level3 hasAnchor" number="17.3.1">
-<h3><span class="header-section-number">17.3.1</span> Warning about View<a href="17-r-data.html#warning-about-view" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<blockquote>
-<p><code>View</code> is useful but <strong>should not</strong> be included in a document that you plan to export. This is because R will attempt to print the entire dataset to the export document. This is almost always a mistake.</p>
-</blockquote>
-<p>To avoid making this mistake, I suggest you not use the <code>View</code> function as code, but rather use a point-and-click alternative.</p>
-<div class="learncheck">
-<p>
-<strong>Exercise 5</strong> In an existing or new code chunk, run the
-following code, which saves <code>Arrests</code> to your environment
-pane in the top-right. Then click on <code>arrests</code>. This should
-do the same thing as running <code>View</code>. If you find yourself
-needing to see the spreadsheet, use this point-and-click method.
-</p>
-</div>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="17-r-data.html#cb41-1" aria-hidden="true" tabindex="-1"></a>arrests <span class="ot">&lt;-</span> Arrests</span></code></pre></div>
 </div>
 </div>
 <div id="glimpse-data" class="section level2 hasAnchor" number="17.4">
 <h2><span class="header-section-number">17.4</span> Glimpse Data<a href="17-r-data.html#glimpse-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If your dataset is moderately large, <code>View</code> is an inefficient way to get a sense of your data. The <code>glimpse</code> function generates a compact printout providing key information about a dataset. The general syntax is as follows:</p>
+<p>A data set can contain far too many variables (columns) and observations (rows) to effectively scroll through in a spreadsheet. The <code>glimpse</code> function generates a compact printout providing key information about a data set. The general code is as follows:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="17-r-data.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(dataset)</span></code></pre></div>
 <p>where we replace <code>dataset</code> with the name of the <code>dataset</code>.</p>
 <div class="learncheck">
 <p>
-<strong>Exercise 6</strong> In an existing or new code chunk, use
-<code>glimpse</code> on <code>Arrests</code>.
+<strong>Exercise 7</strong> In an existing or new code chunk, use
+<code>glimpse</code> on <code>arrests</code>.
 </p>
 </div>
-<p>Notice that the results show you the <strong>dimensions</strong> of the dataset–the number of rows (observation) and columns (variables). Next, it provides a vertical list of variables, with several of their values listed horizontally. This allows a very wide dataset with many variables to export to documents more easily.</p>
+<p>Notice that the results show you the <strong>dimensions</strong> of the dataset–the number of rows (observation) and columns (variables). Next, it provides a vertical list of variables, with several of their values listed horizontally. This allows us to easily view a very wide dataset with many variables and export the information to a document.</p>
 <div class="learncheck">
 <p>
-<strong>Exercise 7</strong> Having now examined <code>Arrests</code>
-using <code>View</code> and <code>glimpse</code>, what type are the
-following variables based on the variable taxonomy used in Chapter 2 on
-data.
+<strong>Exercise 8</strong> Having now examined <code>arrests</code>
+as a spreadsheet and using <code>glimpse</code>, what type are the
+following variables based on what you read in Chapter 2 (numerical
+vs. categorical; continuous, discrete, ordinal, nominal)?
 </p>
 <ul>
 <li>
@@ -669,8 +676,9 @@ sex
 </ul>
 <div class="learncheck">
 <p>
-<strong>Exercise 8</strong> Are the variables in exercise 7 stored in
-a way that makes sense given your answers?
+<strong>Exercise 9</strong> Are the variables listed exercise 8
+stored in R in a way that aligns with their type you identified in
+exercise 8?
 </p>
 </div>
 <p>Variables will not always be stored in R the way they should. Sometimes we have to tell R how to store a variable based on our own understanding of their type. This skill will be covered later.</p>
@@ -737,7 +745,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

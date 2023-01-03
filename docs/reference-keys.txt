@@ -344,8 +344,7 @@ additional-resources
 r-data
 learning-objectives
 set-up
-viewing-datasets
-warning-about-view
+viewing-data-sets
 glimpse-data
 variable-types-in-r
 save-and-upload-1

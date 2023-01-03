@@ -11,65 +11,67 @@ In this chapter, you will learn how to:
 
 To complete this chapter, you need to
 
-- Start a R Markdown document. Keep the YAML and delete the default content in the body.
-- Load the following packages. This requires you to start a code chunk `Cmd+Option+I` or `Ctrl+Option+I` on PC. Or use the Insert menu in the top right of the source editor pane.
+- Start a R Markdown document. Keep the YAML and delete the default content in the body except for the first code chunk named `setup` containing the code `knitr::opts_chunk$set(echo = TRUE)`.
+- Use the code below to load the required packages. Start a new line inside of the `setup` code chunk you did not delete, then paste the code. Run this code chunk.
 
 ```{r, eval=FALSE}
 library(tidyverse)
-library(carData)  #if this fails, you need to install
+library(carData)  #if this fails, you need to install the package (see RChapter 16)
 ```
 
-Before you begin, go to the `Packages` tab in the bottom-right pane. Find `carData` in the list and click on the name. This should take you to the `Help` tab, which will contain the documentation for `carData`. This page serves as a directory to all of the datasets that come loaded with the package. We will be examining some of these datasets. If you want or need to learn more about a particular dataset, you can click on its name in this list. 
+Now that you have successfully loaded the two packages, you have access to the functions they contain as well as any data sets they contain. Many packages include data sets used for demonstrating and learning certain functions work. 
 
-## Viewing datasets
+Before starting the exercises, go to the `Packages` tab in the bottom-right pane. Find `carData` in the list and click on the name. This should take you to the `Help` tab, which will contain the documentation for `carData`. This page serves as a directory to all of the data sets that come loaded with the package. We will be examining some of these data sets. If you want or need to learn more about a particular data set, you can click on its name in this list. 
 
-Perhaps one of the first obstacles to using R is that you do not constantly stare at a spreadsheet, creating somewhat of a disconnect between what you do to data and seeing it done.
+## Viewing data sets
 
-You can examine a dataset in spreadsheet form using the following command:
+Perhaps one of the first obstacles to using R is that you do not constantly stare at a spreadsheet, creating somewhat of a disconnect between what you do to data and seeing it done. While you do not need to view a spreadsheet to understand what you are doing to the data, it is often helpful to examine a data set in spreadsheet form when initially trying to understand its contents.
 
-```{r, eval=FALSE}
-View(dataset)
-```
+You can always examine a data set in spreadsheet form any time you need to. The following information and exercises walk you through how to do so.
 
-where you replace `dataset` with the actual name of the dataset.
+Your environment pane (top-right) will list all data sets that have been imported during your current R session. We have not imported any data (we will learn how in a different assignment). Therefore, our environment is empty.
+
+> This will become much clearer later, but any time there is a data set in your environment that you want to view in spreadsheet form, click on its name and a new tab will appear in the top-left pane that displays the data set.
+
+Since we loaded `carData` we do have access to numerous data sets but are not immediately available in the environment pane. To view a data set included in a package, we want to copy it over to our environment.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 1:**  In your document, start a new code chunk to use the `View` command on the `Arrests` dataset that should be available in your current R session.
-```
-
-A new tab should have appeared in the top-left pane containing the spreadsheet of `Arrests`. This dataset contains information on arrests for possession of small amounts of marijuana in the city of Toronto. 
-
-```{block, type='learncheck', purl=FALSE}
-**Exercise 2**  Based on what you see in the spreadsheet of `Arrests`, what is the structure of this dataset? What is the unit of analysis? Remember to write your answer outside of a code chunk.
-```
-
-Let's examine a new dataset called `Florida` which contains county voting results for the 2000 presidential election.
-
-```{block, type='learncheck', purl=FALSE}
-**Exercise 3**  What is the structure and unit of analysis of the `Florida` dataset? 
+**Exercise 1:**  Start a new code chunk below the setup code chunk in which you loaded the required packages. To do so, you can use the keyboard shortcuts `Cmd+Option+I` on Mac or `Ctrl+Option+I` on PC, or use insert code drop down menu along the top of your R Markdown pane that has a plus sign over a square with a c inside of it. If using the menu, click on the R option.
 ```
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 4**  Do the same thing one more time with the `USPop` dataset. What is its structure and unit of analysis? 
-```
-
-### Warning about View
-
-> `View` is useful but **should not** be included in a document that you plan to export. This is because R will attempt to print the entire dataset to the export document. This is almost always a mistake. 
-
-To avoid making this mistake, I suggest you not use the `View` function as code, but rather use a point-and-click alternative.
-
-```{block, type='learncheck', purl=FALSE}
-**Exercise 5**  In an existing or new code chunk, run the following code, which saves `Arrests` to your environment pane in the top-right. Then click on `arrests`. This should do the same thing as running `View`. If you find yourself needing to see the spreadsheet, use this point-and-click method.
+**Exercise 2**  In the code chunk you just started, paste and run the code provided below, which saves a data set named `Arrests` contained within the `carData` package to your environment pane in the top-right.
 ```
 
 ```{r, eval=FALSE}
 arrests <- Arrests
 ```
 
+```{block, type='learncheck', purl=FALSE}
+**Exercise 3**  Click on `arrests` in your environment pane. A new tab should appear that shows the spreadsheet for `arrests`. If you find yourself needing to see a spreadsheet, use this point-and-click method.
+```
+
+Now that we can view data, let's practice applying some of the concepts you read about in the Chapter 2. 
+
+The `arrests` data set contains information on arrests for possession of small amounts of marijuana in the city of Toronto. 
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 4**  Based on what you see in the spreadsheet of `arrests`, what is the structure of this data set? What is the unit of analysis? Remember to write your answer outside of a code chunk.
+```
+
+Let's examine a new data set called `Florida` which contains county voting results for the 2000 presidential election.
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 5**  Follow the same process used for viewing the `Arrests` data set to view the `Florida` data set. What is the structure and unit of analysis of the `Florida` data set? 
+```
+
+```{block, type='learncheck', purl=FALSE}
+**Exercise 6**  Do the same thing one more time with a data set named `USPop`. What is its structure and unit of analysis? 
+```
+
 ## Glimpse Data
 
-If your dataset is moderately large, `View` is an inefficient way to get a sense of your data. The `glimpse` function generates a compact printout providing key information about a dataset. The general syntax is as follows:
+A data set can contain far too many variables (columns) and observations (rows) to effectively scroll through in a spreadsheet. The `glimpse` function generates a compact printout providing key information about a data set. The general code is as follows:
 
 ```{r, eval=FALSE}
 glimpse(dataset)
@@ -78,13 +80,13 @@ glimpse(dataset)
 where we replace `dataset` with the name of the `dataset`.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 6**  In an existing or new code chunk, use `glimpse` on `Arrests`. 
+**Exercise 7**  In an existing or new code chunk, use `glimpse` on `arrests`. 
 ```
 
-Notice that the results show you the **dimensions** of the dataset--the number of rows (observation) and columns (variables). Next, it provides a vertical list of variables, with several of their values listed horizontally. This allows a very wide dataset with many variables to export to documents more easily. 
+Notice that the results show you the **dimensions** of the dataset--the number of rows (observation) and columns (variables). Next, it provides a vertical list of variables, with several of their values listed horizontally. This allows us to easily view a very wide dataset with many variables and export the information to a document. 
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 7**  Having now examined `Arrests` using `View` and `glimpse`, what type are the following variables based on the variable taxonomy used in Chapter 2 on data. 
+**Exercise 8**  Having now examined `arrests` as a spreadsheet and using `glimpse`, what type are the following variables based on what you read in Chapter 2 (numerical vs. categorical; continuous, discrete, ordinal, nominal)? 
 
 - year
 - age
@@ -103,7 +105,7 @@ The column immediately to the right of the variable name in the `glimpse` printo
 - **Characters:** commonly used for strings of text that don't fit the other storage types well, such as open-ended responses in a survey. However, any variable can be stored as a character. A numerical variable can be stored as a character and R will not recognize its values as numbers.
 
 ```{block, type='learncheck', purl=FALSE}
-**Exercise 8**  Are the variables in exercise 7 stored in a way that makes sense given your answers?
+**Exercise 9**  Are the variables listed exercise 8 stored in R in a way that aligns with their type you identified in exercise 8?
 ```
 
 Variables will not always be stored in R the way they should. Sometimes we have to tell R how to store a variable based on our own understanding of their type. This skill will be covered later.

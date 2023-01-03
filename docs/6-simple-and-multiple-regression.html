@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 6 Simple and Multiple Regression | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 6 Simple and Multiple Regression | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
@@ -51,12 +51,12 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.0/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.23/datatables.js"></script>
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="libs/datatables-binding-0.26/datatables.js"></script>
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
@@ -99,7 +99,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -112,7 +112,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -392,10 +392,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="17.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>17.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="17.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>17.2</b> Set-up</a></li>
-<li class="chapter" data-level="17.3" data-path="17-r-data.html"><a href="17-r-data.html#viewing-datasets"><i class="fa fa-check"></i><b>17.3</b> Viewing datasets</a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="17-r-data.html"><a href="17-r-data.html#warning-about-view"><i class="fa fa-check"></i><b>17.3.1</b> Warning about View</a></li>
-</ul></li>
+<li class="chapter" data-level="17.3" data-path="17-r-data.html"><a href="17-r-data.html#viewing-data-sets"><i class="fa fa-check"></i><b>17.3</b> Viewing data sets</a></li>
 <li class="chapter" data-level="17.4" data-path="17-r-data.html"><a href="17-r-data.html#glimpse-data"><i class="fa fa-check"></i><b>17.4</b> Glimpse Data</a></li>
 <li class="chapter" data-level="17.5" data-path="17-r-data.html"><a href="17-r-data.html#variable-types-in-r"><i class="fa fa-check"></i><b>17.5</b> Variable Types in R</a></li>
 <li class="chapter" data-level="17.6" data-path="17-r-data.html"><a href="17-r-data.html#save-and-upload-1"><i class="fa fa-check"></i><b>17.6</b> Save and Upload</a></li>
@@ -857,6 +854,9 @@ Figure 6.2: Federal spending and poverty among U.S. counties
 <p>Could we account for multiple factors (i.e. multiple regression)? Absolutely. Can we control for <em>everything</em> that affects our outcome? Definitely not if you subscribe to chaos theory or philosopher David Hume’s thoughts on causality. Even if not so extreme as to say our world is too complex to ever make decisions concerning one variable’s effect on another, the plausibility for us to collect data on every relevant factor is highly unlikely.</p>
 <p>So, where did the error term go? It never really left; it simply is not used when calculating the predicted outcome based on our regression results. Like our <span class="math inline">\(\beta\)</span> terms, the error term is a population parameter. However, unlike the <span class="math inline">\(\beta\)</span>s, we do not have observed data that corresponds to the error term’s estimation. In fact, the concept of the error term exists on the basis that we do not observe it. Therefore, it is necessarily excluded when we predict an outcome based on observed data, all the while we are careful to remind readers that the numbers we report are estimates subject to error and everything we report is based on an average.</p>
 <p>If the error term never left, where is it? Its sample analog exists as the difference between our estimated regression line and the observed data. Figure <a href="6-simple-and-multiple-regression.html#fig:povfedscatterresid">6.3</a> below highlights each residual in our running example.</p>
+<pre><code>Warning: Using `size` aesthetic for lines was
+deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:povfedscatterresid"></span>
 <img src="data-apps-text_files/figure-html/povfedscatterresid-1.png" alt="Federal spending and poverty among U.S. counties" width="\textwidth" />
 <p class="caption">
@@ -929,7 +929,7 @@ Figure 6.3: Federal spending and poverty among U.S. counties
 </tbody>
 </table>
 <p>Our regression model uses observed values of poverty and federal spending to estimate the parameters of the regression line, which produced Equation <a href="6-simple-and-multiple-regression.html#eq:simregresults">(6.5)</a>. We can then plug the observed values of poverty into the equation to compute a predicted level of federal spending, represented by <code>fed_spend_hat</code>. For example, for observation 1,961 in our data, actual observed federal spending per capita was $7.59. However, given that this county’s poverty rate was 16.9, our regression model predicts federal spending per capita to be</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="6-simple-and-multiple-regression.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fl">7.95</span> <span class="sc">+</span> <span class="fl">0.108</span><span class="sc">*</span><span class="fl">16.9</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="6-simple-and-multiple-regression.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fl">7.95</span> <span class="sc">+</span> <span class="fl">0.108</span><span class="sc">*</span><span class="fl">16.9</span></span></code></pre></div>
 <pre><code>[1] 9.7752</code></pre>
 <p>as we can see in the <code>fed_spend_hat</code> column ( <span class="math inline">\(\hat{y}\)</span> ).The right-most column of Table <a href="6-simple-and-multiple-regression.html#tab:simregexresid">6.3</a> shows the difference between <em>predicted</em> federal spending and <em>observed</em> federal spending. Again, this difference is called the <strong>residual</strong>. Our regression over-estimates federal spending for this county by $2.18. Thus, the residual for this county is -2.18 because the observed outcome is 2.18 less than the estimated outcome.</p>
 <p>The residual is represented mathematically by Equation <a href="6-simple-and-multiple-regression.html#eq:simregresid">(6.7)</a></p>
@@ -1094,10 +1094,10 @@ FedSpend = \beta_0 + \beta_1Poverty + \beta_2HomeOwn + \beta_3Income + \epsilon
 \hat{FedSpend} = 23.52 - 0.056 \times Poverty - 0.13 \times HomeOwn + 0 \times Income
 \end{equation}\]</span></p>
 <p>If we wanted to predict the change in federal spending given an 3 percentage point increase in poverty and a decline in home ownership of 4 percentage points, the our answer would be</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="6-simple-and-multiple-regression.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">0.056</span><span class="sc">*</span><span class="dv">3</span><span class="sc">+</span>(<span class="sc">-</span><span class="fl">0.126</span>)<span class="sc">*</span>(<span class="sc">-</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="6-simple-and-multiple-regression.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">0.056</span><span class="sc">*</span><span class="dv">3</span><span class="sc">+</span>(<span class="sc">-</span><span class="fl">0.126</span>)<span class="sc">*</span>(<span class="sc">-</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>[1] 0.336</code></pre>
 <p>dollars per capita (on average and all else equal, of course). If we wanted to predict the level of federal spending per capita for a county with 12% poverty, a 80% home ownership rate, and $31,000 income per capita, then we would predict</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="6-simple-and-multiple-regression.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fl">23.519-0.056</span><span class="sc">*</span><span class="dv">12</span><span class="fl">-0.126</span><span class="sc">*</span><span class="dv">80</span><span class="sc">+</span><span class="dv">0</span><span class="sc">*</span><span class="dv">31000</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="6-simple-and-multiple-regression.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fl">23.519-0.056</span><span class="sc">*</span><span class="dv">12</span><span class="fl">-0.126</span><span class="sc">*</span><span class="dv">80</span><span class="sc">+</span><span class="dv">0</span><span class="sc">*</span><span class="dv">31000</span></span></code></pre></div>
 <pre><code>[1] 12.767</code></pre>
 <p>dollars per capita.</p>
 <p>Not so fast! This example provides a good opportunity to consider another aspect of the units our variables are in. Per capita income is in dollars. This means the estimate for income represents the effect of a <em>one dollar</em> change in per capita income on federal spending per capita. That’s a very small change that we would expect to have a very small effect on federal spending. This effect is so small that statistical software may round to 0. But what if we changed the units of income to <em>thousands</em> of dollars per capita instead of dollars per capita? Then we get the following results.</p>
@@ -1223,7 +1223,7 @@ income_1000
 </tbody>
 </table>
 <p>Now we see the effect of a <em>one thousand</em> dollar change in per capita income on federal spending per capita. Note that the estimates for poverty and homeownership are the same. Therefore, the predicted level of federal spending for our county is actually</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="6-simple-and-multiple-regression.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fl">23.519-0.056</span><span class="sc">*</span><span class="dv">12</span><span class="fl">-0.126</span><span class="sc">*</span><span class="dv">80</span><span class="fl">-0.086</span><span class="sc">*</span><span class="dv">31</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="6-simple-and-multiple-regression.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fl">23.519-0.056</span><span class="sc">*</span><span class="dv">12</span><span class="fl">-0.126</span><span class="sc">*</span><span class="dv">80</span><span class="fl">-0.086</span><span class="sc">*</span><span class="dv">31</span></span></code></pre></div>
 <pre><code>[1] 10.101</code></pre>
 <p>dollars per capita. Note that because income is in units of 1,000, a county with an income of 31,000 per capita must be rescaled to 31 in the regression equation.</p>
 </div>
@@ -1334,7 +1334,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

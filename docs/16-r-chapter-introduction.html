@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 16 R Chapter Introduction | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
-  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 16 R Chapter Introduction | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
@@ -51,12 +51,12 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.0/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.23/datatables.js"></script>
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="libs/datatables-binding-0.26/datatables.js"></script>
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
@@ -99,7 +99,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -112,7 +112,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -392,10 +392,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="17.1" data-path="17-r-data.html"><a href="17-r-data.html#learning-objectives"><i class="fa fa-check"></i><b>17.1</b> Learning Objectives</a></li>
 <li class="chapter" data-level="17.2" data-path="17-r-data.html"><a href="17-r-data.html#set-up"><i class="fa fa-check"></i><b>17.2</b> Set-up</a></li>
-<li class="chapter" data-level="17.3" data-path="17-r-data.html"><a href="17-r-data.html#viewing-datasets"><i class="fa fa-check"></i><b>17.3</b> Viewing datasets</a>
-<ul>
-<li class="chapter" data-level="17.3.1" data-path="17-r-data.html"><a href="17-r-data.html#warning-about-view"><i class="fa fa-check"></i><b>17.3.1</b> Warning about View</a></li>
-</ul></li>
+<li class="chapter" data-level="17.3" data-path="17-r-data.html"><a href="17-r-data.html#viewing-data-sets"><i class="fa fa-check"></i><b>17.3</b> Viewing data sets</a></li>
 <li class="chapter" data-level="17.4" data-path="17-r-data.html"><a href="17-r-data.html#glimpse-data"><i class="fa fa-check"></i><b>17.4</b> Glimpse Data</a></li>
 <li class="chapter" data-level="17.5" data-path="17-r-data.html"><a href="17-r-data.html#variable-types-in-r"><i class="fa fa-check"></i><b>17.5</b> Variable Types in R</a></li>
 <li class="chapter" data-level="17.6" data-path="17-r-data.html"><a href="17-r-data.html#save-and-upload-1"><i class="fa fa-check"></i><b>17.6</b> Save and Upload</a></li>
@@ -557,19 +554,29 @@ div.csl-indent {
 <p>Once you upload your R Chapter work to eLC, a document will become available that contains my answers to those same exercises. This is meant to provide almost immediate feedback. You should compare your work to my own, making note of any differences and attempting to make sense of them. Keep in mind that my answers are not necessarily definitive. R Chapters will be incorporated into class discussion when possible, but feel free to ask specific questions about each R Chapter during class.</p>
 <div id="what-is-r-and-rstudio" class="section level2 hasAnchor" number="16.1">
 <h2><span class="header-section-number">16.1</span> What is R and RStudio<a href="16-r-chapter-introduction.html#what-is-r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R is a programming language for statistical computing. RStudio is a user interface for R. These two programs are analogous to a smart phone. Your phone has base code you never interact with directly but is what allows your phone to work. Similarly, you should never have to launch and interact with R on your computer. Instead, you interact with this code, doing all the cool things it allows you to do through what you see on the screen. RStudio is like the screen of your phone.</p>
+<p>R is a programming language for statistical computing. RStudio is a user interface for R. RStudio requires R to be installed on a computer in order to function. Though you need R installed to use RStudio, you never need to launch the actual R program. Instead, you will always use RStudio for assignments in this course.</p>
 </div>
 <div id="installing-r-and-rstudio" class="section level2 hasAnchor" number="16.2">
 <h2><span class="header-section-number">16.2</span> Installing R and RStudio<a href="16-r-chapter-introduction.html#installing-r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>If you intend to install R and RStudio on your computer, follow the instructions below. There are also plenty of videos online that demonstrate downloading R and RStudio if you prefer to have a visual walkthrough.</p>
+</blockquote>
 <p>First, download and install R <a href="https://cloud.r-project.org/">here</a>.</p>
 <ul>
 <li><strong>Windows user:</strong> click on “Download R for Windows”, then click on “base”, then click on “Download R #.#.# for Windows.”</li>
-<li><strong>MacOS user:</strong>, click on “Download R for (Mac) OS X.” What you click on next depends on what version of macOS you are using. Under “Latest release,” you will see a link such as “R-4.2.1.pkg” with a description to the right that indicates which versions of macOS it is compatible with, such as macOS 10.13 (High Sierra) and higher. <strong>Note there are different packages to download depending on whether your machine has Apple silicon (M1 or M2). If your Mac uses an Intel chip, do not download the package for Apple silicon.</strong> If you are using a version of macOS older than 10.13 (High Sierra), scroll down to the header “Binaries for legacy OS X systems” where you can find the link that will work with your version. If you do not know which version of macOS you are using, click on the apple symbol in the top-left of your screen, then click on “About This Mac.” The resulting window will display your version of macOS.</li>
+<li><strong>MacOS user:</strong>, click on “Download R for (Mac) OS X.” What you click on next depends on what version of macOS is installed on your Mac and whether your Mac has an Intel chip or Apple chip.
+<ul>
+<li>Under “Latest release,” you will see a link such as “R-4.2.2-arm64.pkg” or “R-4.2.2.pkg” with a description to the right that indicates which versions of macOS it is compatible with, such as macOS 11 (Big Sur) and higher or 10.13 (High Sierra) and higher. If you do not know which version of macOS you are using, click on the apple symbol in the top-left of your screen, then click on “About This Mac.” The resulting window will display your version of macOS.</li>
+<li>If your macOS version is compatible with the latest release, you should download one of the two options under “Latest release.” <strong>Note there are different packages to download depending on whether your machine has Apple silicon (M1 and higher) or Intel. Be sure to download the correct package.</strong>
+-If you are using a version of macOS older than 10.13 (High Sierra), scroll down to the header “Binaries for legacy OS X systems” where you can find the link that will work with your version.</li>
+</ul></li>
+<li>Once you have downloaded R, open the installer file (probably) located in your downloads folder. Follow the prompts to install R, similar to installing any software.</li>
 </ul>
 <p>Second, download and install RStudio <a href="https://www.rstudio.com/products/rstudio/download/">here</a>.</p>
 <ul>
-<li>Click on the download link beneath the “RStudio Desktop” version that is “FREE.”</li>
-<li>The website should automatically provide a link under step 2 to download the version of RStudio recommended for your computer.</li>
+<li>Scrolling down this page, you will see “Step 1: Install R,” which you should have already completed. If so, proceed to “Step 2: Install RStudio Desktop”</li>
+<li>The blue box should provide the correct installer based on your operating system. For example, if you are using Windows OS, the blue box should display “Download RStudio Desktop for Windows.” If so, click on the link. If not, scroll down and you will see a list of all installers based on operating system (OS). The second column lists the download link. Click the link that is compatible with your OS.</li>
+<li>Once you have RStudio downloaded, open the installer file (probably) located in your downloads folder. Follow the prompts to install RStudio.</li>
 </ul>
 </div>
 <div id="rstudio-orientation" class="section level2 hasAnchor" number="16.3">
@@ -589,13 +596,13 @@ div.csl-indent {
 <p>You will usually see a fourth pane in the upper-left, with the console in the bottom-left, while working in RStudio – the source editor pane.</p>
 <div class="learncheck">
 <p>
-<strong>Exercise 2</strong> Two options: 1) See that plus sign (+)
-icon with a piece of paper in the very top left of RStudio? Click on
-that and you will see a list of options. In this course, we will always
-use R Markdown documents. Select R Markdown. 2) In the RStudio menu bar
-at the top of your screen, go to
-<code>File -&gt; New File -&gt; R Markdown</code>. Either way, a dialog
-box will appear. You do not need to do anything other than click
+<strong>Exercise 2</strong> Start a new R Markdown file. You have two
+options to do so: 1) See that plus sign (+) icon with a piece of paper
+in the very top left of RStudio? Click on that and you will see a list
+of options. In this course, we will always use R Markdown documents.
+Select R Markdown. 2) In the RStudio menu bar at the top of your screen,
+go to <code>File -&gt; New File -&gt; R Markdown</code>. Either way, a
+dialog box will appear. You do not need to do anything other than click
 <code>OK</code>. A new pane should appear with some default content in
 it. <strong>This is the pane where you will tell R what to do 99% of the
 time because it allows you to write code that you can save.</strong>
@@ -604,16 +611,17 @@ time because it allows you to write code that you can save.</strong>
 <div id="r-markdown" class="section level3 hasAnchor" number="16.3.1">
 <h3><span class="header-section-number">16.3.1</span> R Markdown<a href="16-r-chapter-introduction.html#r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>An R Markdown document allows you to fluidly combine prose that you would write for a report and R code that produces the tables and graphs you wish to incorporate. It can do much more than this, as outlined by this brief <a href="https://rmarkdown.rstudio.com/lesson-1.html">video</a>. In this course, we will use R Markdown for R Labs and Problem Sets in addition to these R Chapters.</p>
-<p>An R Markdown file consists of two parts:
-- YAML Header: at the top contained within three dash marks. The YAML sets the global options for the document and how it exports; typically used to adjust the formatting of the export document.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="16-r-chapter-introduction.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb35-2"><a href="16-r-chapter-introduction.html#cb35-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;This is a YAML&quot;</span></span>
-<span id="cb35-3"><a href="16-r-chapter-introduction.html#cb35-3" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> html_document</span>
-<span id="cb35-4"><a href="16-r-chapter-introduction.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<p>An R Markdown file consists of two parts:</p>
 <ul>
-<li>Body: where you write prose and code</li>
+<li>YAML Header. The YAML is at the top of your R Markdown file beginning and ending with three dash marks. The YAML sets the global parameters for the document and how it exports. Below is the YAML you may see in your current R Markdown document.</li>
 </ul>
-<p>Be sure to read the default content, as it is informative.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="16-r-chapter-introduction.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb36-2"><a href="16-r-chapter-introduction.html#cb36-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Untitled&quot;</span></span>
+<span id="cb36-3"><a href="16-r-chapter-introduction.html#cb36-3" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> html_document</span>
+<span id="cb36-4"><a href="16-r-chapter-introduction.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<ul>
+<li>Body: where you write prose and code. Your current R Markdown document likely opened with some content already in the body. Feel free to read this content, as it is informative.</li>
+</ul>
 <div class="learncheck">
 <p>
 <strong>Exercise 3</strong> In the YAML, change the title to “R
@@ -624,25 +632,33 @@ Chapter 16”.
 <p>
 <strong>Exercise 4</strong> Click on the <code>Knit</code> button at
 the top of the source editor pane (looks like a ball of yarn with a
-needle stuck in it. A drop down menu will appear. Click on HTML. RStudio
-will then prompt you to save your document. Save your R Markdown file
-using your last name (<code>lastname_rch16</code>) wherever on your
-computer you prefer. R will start to process your document and a new
-window will appear that contains your export document. Feel free to test
-knitting to Word if your computer has Word installed. PDF will not yet
-work. RStudio saves your document every time you knit.
+needle stuck in it. If a drop down menu appears, click on
+<code>Knit to HTML</code>. RStudio will then prompt you to save your
+document. Save your R Markdown file, naming it according to the
+following convention (<code>yourlastname_rch16</code>). R will start to
+process your document and a new window will appear that contains your
+export document. You want to take some time to consider how the code and
+prose in the R Markdown document relates to the content you see in the
+exported html document. You can close this new window once you are
+finished viewing it. Feel free to test <code>Knit to Word</code> if your
+computer has Microsoft Word installed. <code>Knit to PDF</code> will not
+yet work. RStudio saves your R Markdown document every time you
+knit.
 </p>
 </div>
 </div>
 <div id="r-packages" class="section level3 hasAnchor" number="16.3.2">
 <h3><span class="header-section-number">16.3.2</span> R Packages<a href="16-r-chapter-introduction.html#r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Many tasks in R require you to install R packages that augment its functionality. Extending the smartphone analogy from before, your phone comes with base programs (e.g. calendar, weather), but others develop third-party applications to augment the functionality of your phone. This is also the case with R, which has an active community that develops useful third-party apps called packages.</p>
+<p>Many tasks in R require you to install R packages that augment its functionality. This is analogous to a smartphone that comes with base programs (e.g. calendar, weather), but others develop third-party applications to augment its functionality. If you wish to those functions, you go to an app store and download it.</p>
+<p>Similarly, when you open RStudio, some base packages are already available that allow you to use a variety of functions. Still, we will almost always need to use functions that require third-party packages.</p>
 <div id="install-packages" class="section level4 unnumbered hasAnchor">
 <h4>Install Packages<a href="16-r-chapter-introduction.html#install-packages" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Just like your phone, you have to first install a R package to use it. In your phone’s case, you go to your app store and download an application that will then show up on your screen.</p>
-<p>Installing packages via RStudio is essentially the same. To install R packages, we type the following generic code <strong>into the console pane</strong> (bottom-left).</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="16-r-chapter-introduction.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;name_of_package&quot;</span>)</span></code></pre></div>
-<p>Where <code>"name_of_package"</code> is replaced with the actual name of the R package we want to install. This code accesses R’s “app store” and downloads it to your computer. You only need to install a R package once. The package is saved on your computer where R can find it.</p>
+<blockquote>
+<p>Two important points to remember throughout this course. First, NEVER install a package from within your R Markdown document (top-left pane). Instead, ALWAYS install a package using the console pane (bottom-left). Installing packages is one of the very few instances in which we use the console pane. Second, you only have to install a package once. If you install a package, you do not need to install it again unless you want or need to update it.</p>
+</blockquote>
+<p>To install R packages, we type the following generic code <strong>into the console pane</strong> (bottom-left).</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="16-r-chapter-introduction.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;name_of_package&quot;</span>)</span></code></pre></div>
+<p>Where <code>"name_of_package"</code> is replaced with the actual name of the R package we want to install. If we run this code, it accesses R’s “app store” and downloads the package to your computer. Again, you only need to install a R package once. The package is saved on your computer where R can find it.</p>
 <p><br></p>
 <blockquote>
 <p>Remember to include quotes around the name of the R package when installing it.</p>
@@ -655,56 +671,65 @@ package called <code>tidyverse</code>. In your <strong>console
 pane</strong> (bottom-left) of RStudio, type
 <code>install.packages(“tidyverse”)</code>, then click
 <code>Enter</code> on your keyboard. This will begin the installation.
-Monitor the console pane while <code>tidyverse</code> installs. RStudio
-may ask you some Yes/No questions during the process. Answer all
-questions in the affirmative by typing <code>Yes</code> then clicking
+Be sure to monitor the console pane while <code>tidyverse</code>
+installs. RStudio may ask you some Yes/No questions during the
+installation. If you receive the following question:
+<code>Do you want to install from sources the package which needs compilation?</code>,
+respond with typing <code>no</code> and hit Enter. For any other
+questions, respond with typing <code>Yes</code> then click
 <code>Enter</code>.
 </p>
 </div>
-<p>You can install multiple R packages at once. You will need numerous R packages to complete this course. Below is a list of all R packages used in this course.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="16-r-chapter-introduction.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>,</span>
-<span id="cb37-2"><a href="16-r-chapter-introduction.html#cb37-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;knitr&quot;</span>,</span>
-<span id="cb37-3"><a href="16-r-chapter-introduction.html#cb37-3" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;arsenal&quot;</span>,</span>
-<span id="cb37-4"><a href="16-r-chapter-introduction.html#cb37-4" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;forecast&quot;</span>,</span>
-<span id="cb37-5"><a href="16-r-chapter-introduction.html#cb37-5" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;fpp2&quot;</span>,</span>
-<span id="cb37-6"><a href="16-r-chapter-introduction.html#cb37-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;lubridate&quot;</span>,</span>
-<span id="cb37-7"><a href="16-r-chapter-introduction.html#cb37-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;readxl&quot;</span>,</span>
-<span id="cb37-8"><a href="16-r-chapter-introduction.html#cb37-8" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;plm&quot;</span>,</span>
-<span id="cb37-9"><a href="16-r-chapter-introduction.html#cb37-9" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;broom&quot;</span>,</span>
-<span id="cb37-10"><a href="16-r-chapter-introduction.html#cb37-10" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;car&quot;</span>,</span>
-<span id="cb37-11"><a href="16-r-chapter-introduction.html#cb37-11" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;gvlma&quot;</span>,</span>
-<span id="cb37-12"><a href="16-r-chapter-introduction.html#cb37-12" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;gapminder&quot;</span>,</span>
-<span id="cb37-13"><a href="16-r-chapter-introduction.html#cb37-13" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;Ecdat&quot;</span>,</span>
-<span id="cb37-14"><a href="16-r-chapter-introduction.html#cb37-14" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;carData&quot;</span>,</span>
-<span id="cb37-15"><a href="16-r-chapter-introduction.html#cb37-15" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;openintro&quot;</span>,</span>
-<span id="cb37-16"><a href="16-r-chapter-introduction.html#cb37-16" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;fivethirtyeight&quot;</span>,</span>
-<span id="cb37-17"><a href="16-r-chapter-introduction.html#cb37-17" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;moderndive&quot;</span>,</span>
-<span id="cb37-18"><a href="16-r-chapter-introduction.html#cb37-18" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;DAAG&quot;</span>,</span>
-<span id="cb37-19"><a href="16-r-chapter-introduction.html#cb37-19" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;Stat2Data&quot;</span>,</span>
-<span id="cb37-20"><a href="16-r-chapter-introduction.html#cb37-20" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;data.table&quot;</span>,</span>
-<span id="cb37-21"><a href="16-r-chapter-introduction.html#cb37-21" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;rmarkdown&quot;</span>,</span>
-<span id="cb37-22"><a href="16-r-chapter-introduction.html#cb37-22" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;tinytex&quot;</span>,</span>
-<span id="cb37-23"><a href="16-r-chapter-introduction.html#cb37-23" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;DiagrammeR&quot;</span>,</span>
-<span id="cb37-24"><a href="16-r-chapter-introduction.html#cb37-24" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;jtools&quot;</span>,</span>
-<span id="cb37-25"><a href="16-r-chapter-introduction.html#cb37-25" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;blogdown&quot;</span>,</span>
-<span id="cb37-26"><a href="16-r-chapter-introduction.html#cb37-26" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;stargazer&quot;</span>))</span></code></pre></div>
-<p>Complete the following exercise to download all of the R packages needed for the course.</p>
+<p>You can install multiple R packages at once. You will need numerous R packages to complete this course. Below is a list of all R packages used in this course except for <code>tidyverse</code>, which you just installed and do not need to install again.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="16-r-chapter-introduction.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>,</span>
+<span id="cb38-2"><a href="16-r-chapter-introduction.html#cb38-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;arsenal&quot;</span>,</span>
+<span id="cb38-3"><a href="16-r-chapter-introduction.html#cb38-3" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;forecast&quot;</span>,</span>
+<span id="cb38-4"><a href="16-r-chapter-introduction.html#cb38-4" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;fpp2&quot;</span>,</span>
+<span id="cb38-5"><a href="16-r-chapter-introduction.html#cb38-5" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;lubridate&quot;</span>,</span>
+<span id="cb38-6"><a href="16-r-chapter-introduction.html#cb38-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;readxl&quot;</span>,</span>
+<span id="cb38-7"><a href="16-r-chapter-introduction.html#cb38-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;plm&quot;</span>,</span>
+<span id="cb38-8"><a href="16-r-chapter-introduction.html#cb38-8" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;broom&quot;</span>,</span>
+<span id="cb38-9"><a href="16-r-chapter-introduction.html#cb38-9" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;car&quot;</span>,</span>
+<span id="cb38-10"><a href="16-r-chapter-introduction.html#cb38-10" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;gvlma&quot;</span>,</span>
+<span id="cb38-11"><a href="16-r-chapter-introduction.html#cb38-11" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;gapminder&quot;</span>,</span>
+<span id="cb38-12"><a href="16-r-chapter-introduction.html#cb38-12" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;Ecdat&quot;</span>,</span>
+<span id="cb38-13"><a href="16-r-chapter-introduction.html#cb38-13" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;carData&quot;</span>,</span>
+<span id="cb38-14"><a href="16-r-chapter-introduction.html#cb38-14" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;openintro&quot;</span>,</span>
+<span id="cb38-15"><a href="16-r-chapter-introduction.html#cb38-15" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;fivethirtyeight&quot;</span>,</span>
+<span id="cb38-16"><a href="16-r-chapter-introduction.html#cb38-16" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;moderndive&quot;</span>,</span>
+<span id="cb38-17"><a href="16-r-chapter-introduction.html#cb38-17" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;DAAG&quot;</span>,</span>
+<span id="cb38-18"><a href="16-r-chapter-introduction.html#cb38-18" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;Stat2Data&quot;</span>,</span>
+<span id="cb38-19"><a href="16-r-chapter-introduction.html#cb38-19" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;data.table&quot;</span>,</span>
+<span id="cb38-20"><a href="16-r-chapter-introduction.html#cb38-20" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;rmarkdown&quot;</span>,</span>
+<span id="cb38-21"><a href="16-r-chapter-introduction.html#cb38-21" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;tinytex&quot;</span>,</span>
+<span id="cb38-22"><a href="16-r-chapter-introduction.html#cb38-22" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;DiagrammeR&quot;</span>,</span>
+<span id="cb38-23"><a href="16-r-chapter-introduction.html#cb38-23" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;jtools&quot;</span>,</span>
+<span id="cb38-24"><a href="16-r-chapter-introduction.html#cb38-24" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;blogdown&quot;</span>,</span>
+<span id="cb38-25"><a href="16-r-chapter-introduction.html#cb38-25" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;stargazer&quot;</span>))</span></code></pre></div>
+<p>Complete the following exercise to download all of the packages needed for the course.</p>
 <div class="learncheck">
 <p>
 <strong>Exercise 6</strong> In your <strong>console pane</strong>
-(bottom-left) of RStudio, copy-and-paste the above code and list of
-packages, then click <code>Enter</code>. This will begin the
-installation. RStudio may ask you some Yes/No questions during the
-process. Answer all questions in the affirmative by typing
-<code>Yes</code> then clicking <code>Enter</code>.
+(bottom-left) of RStudio, copy-and-paste the above code, then click
+<code>Enter</code>. This will begin the installation. Again, RStudio may
+ask you some Yes/No questions during the installation. If you receive
+the following question:
+<code>Do you want to install from sources the package which needs compilation?</code>,
+respond with typing <code>no</code> and hit Enter. For any other
+questions, respond with typing <code>Yes</code> then click
+<code>Enter</code>.
 </p>
 </div>
 </div>
 <div id="load-packages" class="section level4 unnumbered hasAnchor">
 <h4>Load Packages<a href="16-r-chapter-introduction.html#load-packages" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>When an application is installed on your phone, you still have to launch it (i.e. click on it) to use it. The same goes for using a R package. Each time you launch RStudio, you need to load the package(s) that contain the functions you plan to use. Closing RStudio is like shutting off your phone. When you open your phone, an application isn’t running in the background unless you previously launched it.</p>
-<p>Therefore, you should load needed R packages each time you open RStudio. And because you want your code to work each time you or someone else tries to run it, you should include this in your saved code. This means you should load R packages in the source editor pane (top-left) whether it be an R script of R markdown document. The following generic code is used to load a package.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="16-r-chapter-introduction.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(name_of_package)</span></code></pre></div>
+<p>Therefore, you should load needed R packages each time you open RStudio. And because you want your code to work each time you or someone else tries to run it, you should include this in your R Markdown document that you save. This is different than installing a package, which you should do in the console, not the saved document.</p>
+<blockquote>
+<p>Remember, you have to load a package every time you restart RStudio. Therefore, type the code that loads a package in the R Markdown document that you save.</p>
+</blockquote>
+<p>The following generic code is loads a package.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="16-r-chapter-introduction.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(name_of_package)</span></code></pre></div>
 <blockquote>
 <p>Do not use quotes around the name of the R package when loading it. Quotes are only needed to install, not load.</p>
 </blockquote>
@@ -712,15 +737,14 @@ process. Answer all questions in the affirmative by typing
 <p>
 <strong>Exercise 7</strong> Near the top of your document, you should
 see a code chunk named <code>setup</code> containing the code
-<code>knitr::opts_chunk$set(echo = TRUE)</code>. Start a new line
-<em>inside</em> of this code chunk. Type <code>library(tidyverse)</code>
-on the new script. Next, run this code chunk either by clicking on the
-little sideways arrow at the right of the code chunk, or by using the
-keyboard shortcut <code>Cmd+Enter</code> on Mac or
-<code>Ctrl+Enter</code> or <code>Window+Enter</code> on PC. This
-shortcut only executes the line of code on which your cursor (the
-blinking vertical line) is. The console pane (bottom-left) will provide
-information about the loading.
+<code>knitr::opts_chunk$set(echo = TRUE)</code>. Start a new line inside
+of this code chunk. Type <code>library(tidyverse)</code> on the new
+line. Next, run this code chunk either by clicking on the little
+sideways arrow at the right of the code chunk, or by using the keyboard
+shortcut <code>Cmd+Enter</code> on Mac or <code>Ctrl+Enter</code> or
+<code>Window+Enter</code> on PC. This shortcut only executes the line of
+code on which your cursor (the blinking vertical line) is. The console
+pane (bottom-left) will provide information about the loading.
 </p>
 </div>
 <p><br></p>
@@ -736,7 +760,7 @@ information about the loading.
 </div>
 <div id="additional-resources" class="section level2 hasAnchor" number="16.5">
 <h2><span class="header-section-number">16.5</span> Additional Resources<a href="16-r-chapter-introduction.html#additional-resources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are many resources that provide orientations to R. Below are a two that I consider particularly helpful and accessible.</p>
+<p>There are many resources that provide orientations to R. Below are two that I consider particularly helpful and accessible.</p>
 <ul>
 <li>Chapters 1-3 of <a href="https://rbasics.netlify.app/index.html">Getting Used to R, RStudio, and R Markdown</a></li>
 <li><a href="https://rladiessydney.org/courses/ryouwithme/01-basicbasics-0/">BasicBasics of RYouWithMe</a> by R-Ladies Sydney</li>
@@ -800,7 +824,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
