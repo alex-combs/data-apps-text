@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 20 R Visualization | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 20 R Visualization | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
@@ -51,12 +51,12 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.6.0/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.26/datatables.js"></script>
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="libs/datatables-binding-0.28/datatables.js"></script>
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
@@ -126,6 +126,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -568,28 +572,28 @@ div.csl-indent {
 <li>Start a R Markdown document</li>
 <li>Change the YAML to the following:</li>
 </ul>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="20-r-visualization.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb96-2"><a href="20-r-visualization.html#cb96-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&#39;R Chapter 20&#39;</span></span>
-<span id="cb96-3"><a href="20-r-visualization.html#cb96-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&#39;Your name&#39;</span></span>
-<span id="cb96-4"><a href="20-r-visualization.html#cb96-4" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> </span>
-<span id="cb96-5"><a href="20-r-visualization.html#cb96-5" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
-<span id="cb96-6"><a href="20-r-visualization.html#cb96-6" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> spacelab</span>
-<span id="cb96-7"><a href="20-r-visualization.html#cb96-7" aria-hidden="true" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
-<span id="cb96-8"><a href="20-r-visualization.html#cb96-8" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
-<span id="cb96-9"><a href="20-r-visualization.html#cb96-9" aria-hidden="true" tabindex="-1"></a>    toc_float<span class="sc">:</span></span>
-<span id="cb96-10"><a href="20-r-visualization.html#cb96-10" aria-hidden="true" tabindex="-1"></a>      toc_collapsed<span class="sc">:</span> false</span>
-<span id="cb96-11"><a href="20-r-visualization.html#cb96-11" aria-hidden="true" tabindex="-1"></a>    fig_width<span class="sc">:</span> <span class="dv">6</span></span>
-<span id="cb96-12"><a href="20-r-visualization.html#cb96-12" aria-hidden="true" tabindex="-1"></a>    fig_height<span class="sc">:</span> <span class="dv">4</span></span>
-<span id="cb96-13"><a href="20-r-visualization.html#cb96-13" aria-hidden="true" tabindex="-1"></a>    fig_align<span class="sc">:</span> <span class="st">&quot;center&quot;</span></span>
-<span id="cb96-14"><a href="20-r-visualization.html#cb96-14" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="20-r-visualization.html#cb96-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb96-2"><a href="20-r-visualization.html#cb96-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&#39;R Chapter 20&#39;</span></span>
+<span id="cb96-3"><a href="20-r-visualization.html#cb96-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&#39;Your name&#39;</span></span>
+<span id="cb96-4"><a href="20-r-visualization.html#cb96-4" tabindex="-1"></a>output<span class="sc">:</span> </span>
+<span id="cb96-5"><a href="20-r-visualization.html#cb96-5" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb96-6"><a href="20-r-visualization.html#cb96-6" tabindex="-1"></a>    theme<span class="sc">:</span> spacelab</span>
+<span id="cb96-7"><a href="20-r-visualization.html#cb96-7" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
+<span id="cb96-8"><a href="20-r-visualization.html#cb96-8" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb96-9"><a href="20-r-visualization.html#cb96-9" tabindex="-1"></a>    toc_float<span class="sc">:</span></span>
+<span id="cb96-10"><a href="20-r-visualization.html#cb96-10" tabindex="-1"></a>      toc_collapsed<span class="sc">:</span> false</span>
+<span id="cb96-11"><a href="20-r-visualization.html#cb96-11" tabindex="-1"></a>    fig_width<span class="sc">:</span> <span class="dv">6</span></span>
+<span id="cb96-12"><a href="20-r-visualization.html#cb96-12" tabindex="-1"></a>    fig_height<span class="sc">:</span> <span class="dv">4</span></span>
+<span id="cb96-13"><a href="20-r-visualization.html#cb96-13" tabindex="-1"></a>    fig_align<span class="sc">:</span> <span class="st">&quot;center&quot;</span></span>
+<span id="cb96-14"><a href="20-r-visualization.html#cb96-14" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
 <p>The newest additions to the YAML header are worth explaining. The <code>toc</code> stands for table of contents, which works really well for HTML output but not so much Word or PDF. Each level of the table of contents is dictated by the headings you include in your document. The arguments beginning with <code>fig</code> dictate the size and alignment of each figure your code produces. You can override these global arguments by including with code chunk options.</p>
 <ul>
 <li>Load the following packages and data</li>
 </ul>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="20-r-visualization.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb97-2"><a href="20-r-visualization.html#cb97-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table) <span class="co"># contains fread function to import from URL</span></span>
-<span id="cb97-3"><a href="20-r-visualization.html#cb97-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fpp2)</span>
-<span id="cb97-4"><a href="20-r-visualization.html#cb97-4" aria-hidden="true" tabindex="-1"></a>countyComplete <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;http://openintro.org/data/tab-delimited/county_complete.txt&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="20-r-visualization.html#cb97-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb97-2"><a href="20-r-visualization.html#cb97-2" tabindex="-1"></a><span class="fu">library</span>(data.table) <span class="co"># contains fread function to import from URL</span></span>
+<span id="cb97-3"><a href="20-r-visualization.html#cb97-3" tabindex="-1"></a><span class="fu">library</span>(fpp2)</span>
+<span id="cb97-4"><a href="20-r-visualization.html#cb97-4" tabindex="-1"></a>countyComplete <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&#39;http://openintro.org/data/tab-delimited/county_complete.txt&#39;</span>)</span></code></pre></div>
 <p>For everything but the line graph, we will use the <code>countyComplete</code> data within the <code>openintro</code> package. This dataset contains 3,143 counties and 53 variables. For the line graph, we will use the <code>prisonLF</code> data within the <code>fpp2</code> package. This dataset is a quarterly time series of prisoner numbers in Australia from 2005 to 2016, split by sex, state, and legal status.</p>
 </div>
 <div id="grammar-of-graphics" class="section level2 hasAnchor" number="20.3">
@@ -601,11 +605,11 @@ div.csl-indent {
 <li><code>geom</code>: defines the kind of plot</li>
 </ul>
 <p>We plot variables from <code>data</code> to <code>aes</code>thetic attributes of <code>geom</code>etric objects. The function we use to do this is called <code>ggplot</code>. The generic code below shows the essential elements that will produce a default plot. We replace <code>data</code> with the name of the dataset. Within the <code>aes</code> parentheses, we tell R to assign one or more variables to a variety of attributes, such as <code>x</code> or <code>y</code> or <code>color</code>. What we include within <code>aes</code> depends on the type of plot we want to make, which is determined by the second line which always includes <code>geom_</code> followed by the type of plot.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="20-r-visualization.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> variable, ...)) <span class="sc">+</span></span>
-<span id="cb98-2"><a href="20-r-visualization.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_type</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="20-r-visualization.html#cb98-1" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> variable, ...)) <span class="sc">+</span></span>
+<span id="cb98-2"><a href="20-r-visualization.html#cb98-2" tabindex="-1"></a>  <span class="fu">geom_type</span>()</span></code></pre></div>
 <p>For example, the below code takes the variable <code>gdpPercap</code> from the dataset <code>gapminder</code> and maps it to the x axis <code>aes</code>thetic of a chosen <code>geom</code>etric object called a histogram.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="20-r-visualization.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap)) <span class="sc">+</span></span>
-<span id="cb99-2"><a href="20-r-visualization.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="20-r-visualization.html#cb99-1" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder, <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap)) <span class="sc">+</span></span>
+<span id="cb99-2"><a href="20-r-visualization.html#cb99-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-137-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Data, aesthetics, and geometries are the essential elements needed to generate a graph. If you tell R these three elements correctly, it will produce a graph. There are additional elements that can be added to make graphs be more effective or look better that will be covered in class.</p>
 <p>Aesthetics take variables in your data and assign them to attributes that correspond to the geometric object you intend to use. That is, <code>aes</code> and <code>geom</code> work together and must be compatible.</p>
@@ -640,10 +644,10 @@ div.csl-indent {
 <div id="histogram-1" class="section level2 hasAnchor" number="20.4">
 <h2><span class="header-section-number">20.4</span> Histogram<a href="20-r-visualization.html#histogram-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here is the code used to make the histogram from Chapter <a href="5-data-visualization.html#data-visualization">5</a>. The dataset is named <code>college_grad_students</code> and the variable assigned to the x axis aesthetic is named <code>grad_median</code>, which is the median earnings of full-time employees with various graduate school majors. Then, a <code>geom_histogram</code> is added. The rest of the code inside the histogram parentheses, the <code>labs</code> parentheses (stands for labels), and the <code>theme_classic</code> is optional and used to make the histogram look more polished.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="20-r-visualization.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(college_grad_students, <span class="fu">aes</span>(<span class="at">x =</span> grad_median)) <span class="sc">+</span></span>
-<span id="cb100-2"><a href="20-r-visualization.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">&#39;steelblue&#39;</span>, <span class="at">color =</span> <span class="st">&#39;white&#39;</span>) <span class="sc">+</span></span>
-<span id="cb100-3"><a href="20-r-visualization.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Median earnings&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Count of graduate majors&#39;</span>) <span class="sc">+</span></span>
-<span id="cb100-4"><a href="20-r-visualization.html#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="20-r-visualization.html#cb100-1" tabindex="-1"></a><span class="fu">ggplot</span>(college_grad_students, <span class="fu">aes</span>(<span class="at">x =</span> grad_median)) <span class="sc">+</span></span>
+<span id="cb100-2"><a href="20-r-visualization.html#cb100-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">&#39;steelblue&#39;</span>, <span class="at">color =</span> <span class="st">&#39;white&#39;</span>) <span class="sc">+</span></span>
+<span id="cb100-3"><a href="20-r-visualization.html#cb100-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Median earnings&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Count of graduate majors&#39;</span>) <span class="sc">+</span></span>
+<span id="cb100-4"><a href="20-r-visualization.html#cb100-4" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:gradmedhistrep"></span>
 <img src="data-apps-text_files/figure-html/gradmedhistrep-1.png" alt="Histogram of full-time median earnings for different graduate school majors" width="\textwidth" />
 <p class="caption">
@@ -651,8 +655,8 @@ Figure 20.1: Histogram of full-time median earnings for different graduate schoo
 </p>
 </div>
 <p>Here is the code for the same histogram without the optional code. This is all that is needed to generate a histogram. In general, all plots require very little code if we do not care what they look like.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="20-r-visualization.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(college_grad_students, <span class="fu">aes</span>(<span class="at">x =</span> grad_median)) <span class="sc">+</span></span>
-<span id="cb101-2"><a href="20-r-visualization.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="20-r-visualization.html#cb101-1" tabindex="-1"></a><span class="fu">ggplot</span>(college_grad_students, <span class="fu">aes</span>(<span class="at">x =</span> grad_median)) <span class="sc">+</span></span>
+<span id="cb101-2"><a href="20-r-visualization.html#cb101-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-138-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <div class="learncheck">
 <p>
@@ -665,19 +669,19 @@ histogram. Generate a simple, default histogram (no optional code unless
 you want to add it).
 </p>
 </div>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="20-r-visualization.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(countyComplete, <span class="fu">aes</span>(<span class="at">x =</span> bachelors_2010)) <span class="sc">+</span></span>
-<span id="cb102-2"><a href="20-r-visualization.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="20-r-visualization.html#cb102-1" tabindex="-1"></a><span class="fu">ggplot</span>(countyComplete, <span class="fu">aes</span>(<span class="at">x =</span> bachelors_2010)) <span class="sc">+</span></span>
+<span id="cb102-2"><a href="20-r-visualization.html#cb102-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
 </div>
 <div id="box-plot-1" class="section level2 hasAnchor" number="20.5">
 <h2><span class="header-section-number">20.5</span> Box plot<a href="20-r-visualization.html#box-plot-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Below is the code used for the box plot in Chapter <a href="5-data-visualization.html#data-visualization">5</a>. Like the histogram, a box plot visualizes the distribution of one variable but uses descriptive measures median, first and third quartile, and identifies extreme values. Therefore, we only need to tell R which variable to assign to the either the x or y axis. Note that I assign <code>grad_median</code> to the y axis so that the box plot is vertical, which is merely a stylistic choice. Assigning <code>grad_median</code> to the x axis would make the box plot horizontal. Then, <code>geom_boxplot</code> is used to tell R to make a boxplot from <code>grad_median</code>.</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="20-r-visualization.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(college_grad_students, <span class="fu">aes</span>(<span class="at">y =</span> grad_median)) <span class="sc">+</span></span>
-<span id="cb103-2"><a href="20-r-visualization.html#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&#39;steelblue&#39;</span>) <span class="sc">+</span></span>
-<span id="cb103-3"><a href="20-r-visualization.html#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&#39;Median earnings&#39;</span>) <span class="sc">+</span></span>
-<span id="cb103-4"><a href="20-r-visualization.html#cb103-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb103-5"><a href="20-r-visualization.html#cb103-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb103-6"><a href="20-r-visualization.html#cb103-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb103-7"><a href="20-r-visualization.html#cb103-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="20-r-visualization.html#cb103-1" tabindex="-1"></a><span class="fu">ggplot</span>(college_grad_students, <span class="fu">aes</span>(<span class="at">y =</span> grad_median)) <span class="sc">+</span></span>
+<span id="cb103-2"><a href="20-r-visualization.html#cb103-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&#39;steelblue&#39;</span>) <span class="sc">+</span></span>
+<span id="cb103-3"><a href="20-r-visualization.html#cb103-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&#39;Median earnings&#39;</span>) <span class="sc">+</span></span>
+<span id="cb103-4"><a href="20-r-visualization.html#cb103-4" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb103-5"><a href="20-r-visualization.html#cb103-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb103-6"><a href="20-r-visualization.html#cb103-6" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb103-7"><a href="20-r-visualization.html#cb103-7" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:gradmedboxrep"></span>
 <img src="data-apps-text_files/figure-html/gradmedboxrep-1.png" alt="Box plot of full-time median earnings for different graduate school majors" width="\textwidth" />
 <p class="caption">
@@ -686,8 +690,8 @@ Figure 20.2: Box plot of full-time median earnings for different graduate school
 </div>
 <p>Again, all the code after <code>geom_boxplot</code> is optional and was used to make the box plot look more polished. The <code>fill = 'steelblue'</code> changes the color of the box, <code>labs</code> is used to help the reader understand what <code>grad_median</code> measures, <code>theme_classic</code> is one of several themes built within R that changes the look of a plot, and the code inside the <code>theme</code> function removes all of the ink related to the x axis due to it being unnecessary. The <code>theme</code> function allows you to control every element of a plot. Unique themes can be created and saved for replication, saving time and avoiding errors.</p>
 <p>Again, if we do not care how the box plot looks, all we need to make the plot is shown in the code below.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="20-r-visualization.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(college_grad_students, <span class="fu">aes</span>(<span class="at">y =</span> grad_median)) <span class="sc">+</span></span>
-<span id="cb104-2"><a href="20-r-visualization.html#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="20-r-visualization.html#cb104-1" tabindex="-1"></a><span class="fu">ggplot</span>(college_grad_students, <span class="fu">aes</span>(<span class="at">y =</span> grad_median)) <span class="sc">+</span></span>
+<span id="cb104-2"><a href="20-r-visualization.html#cb104-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-141-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <div class="learncheck">
 <p>
@@ -750,43 +754,43 @@ it).
 </tbody>
 </table>
 <p>Below is the code used to generate the side-by-side or dodged bar chart from Chapter <a href="5-data-visualization.html#data-visualization">5</a>. Note the use of <code>geom_bar</code>, which requires either an x or y aesthetic to be defined. Here, I assign the categorical variable <code>unemp_cat</code> to the x aesthetic, making the bar chart vertical. Assigning it to the y aesthetic would make the bar chart horizontal. Again, all the code past <code>geom_bar</code> is optional.</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="20-r-visualization.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> unemp_cat)) <span class="sc">+</span></span>
-<span id="cb105-2"><a href="20-r-visualization.html#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">&#39;steelblue&#39;</span>) <span class="sc">+</span></span>
-<span id="cb105-3"><a href="20-r-visualization.html#cb105-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&#39;Count of degrees&#39;</span>) <span class="sc">+</span></span>
-<span id="cb105-4"><a href="20-r-visualization.html#cb105-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb105-5"><a href="20-r-visualization.html#cb105-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb105-6"><a href="20-r-visualization.html#cb105-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb105-7"><a href="20-r-visualization.html#cb105-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="20-r-visualization.html#cb105-1" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> unemp_cat)) <span class="sc">+</span></span>
+<span id="cb105-2"><a href="20-r-visualization.html#cb105-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">&#39;steelblue&#39;</span>) <span class="sc">+</span></span>
+<span id="cb105-3"><a href="20-r-visualization.html#cb105-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&#39;Count of degrees&#39;</span>) <span class="sc">+</span></span>
+<span id="cb105-4"><a href="20-r-visualization.html#cb105-4" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb105-5"><a href="20-r-visualization.html#cb105-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb105-6"><a href="20-r-visualization.html#cb105-6" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb105-7"><a href="20-r-visualization.html#cb105-7" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-144-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Here is what the bar chart looks like without the optional code.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="20-r-visualization.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> unemp_cat)) <span class="sc">+</span></span>
-<span id="cb106-2"><a href="20-r-visualization.html#cb106-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="20-r-visualization.html#cb106-1" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> unemp_cat)) <span class="sc">+</span></span>
+<span id="cb106-2"><a href="20-r-visualization.html#cb106-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-145-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Below is the code used to generate the stacked bar chart showing counts, Figure <a href="5-data-visualization.html#fig:empbar">5.5</a>. The code within <code>aes</code> is less intuitive. Since <code>geom_bar</code> requires an x or y aesthetic to be defined, I have to assign x to nothing via the blank quotation marks. The <code>fill = unemp_cat</code> tell R to stack the bar chart, filling the bar with the counts of high and low.</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="20-r-visualization.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> unemp_cat)) <span class="sc">+</span></span>
-<span id="cb107-2"><a href="20-r-visualization.html#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb107-3"><a href="20-r-visualization.html#cb107-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&#39;Count of degrees&#39;</span>,</span>
-<span id="cb107-4"><a href="20-r-visualization.html#cb107-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&#39;Unemployment&#39;</span>) <span class="sc">+</span></span>
-<span id="cb107-5"><a href="20-r-visualization.html#cb107-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb107-6"><a href="20-r-visualization.html#cb107-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb107-7"><a href="20-r-visualization.html#cb107-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb107-8"><a href="20-r-visualization.html#cb107-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb107-9"><a href="20-r-visualization.html#cb107-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="20-r-visualization.html#cb107-1" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> unemp_cat)) <span class="sc">+</span></span>
+<span id="cb107-2"><a href="20-r-visualization.html#cb107-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb107-3"><a href="20-r-visualization.html#cb107-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&#39;Count of degrees&#39;</span>,</span>
+<span id="cb107-4"><a href="20-r-visualization.html#cb107-4" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&#39;Unemployment&#39;</span>) <span class="sc">+</span></span>
+<span id="cb107-5"><a href="20-r-visualization.html#cb107-5" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb107-6"><a href="20-r-visualization.html#cb107-6" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb107-7"><a href="20-r-visualization.html#cb107-7" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb107-8"><a href="20-r-visualization.html#cb107-8" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb107-9"><a href="20-r-visualization.html#cb107-9" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-146-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Below is what the stacked bar chart looks like by default.</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="20-r-visualization.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> unemp_cat)) <span class="sc">+</span></span>
-<span id="cb108-2"><a href="20-r-visualization.html#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="20-r-visualization.html#cb108-1" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> unemp_cat)) <span class="sc">+</span></span>
+<span id="cb108-2"><a href="20-r-visualization.html#cb108-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-147-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Lastly, the code below is used to show proportions rather than counts. The only substantive difference between this code and the code above is the use of <code>position='fill'</code> within the <code>geom_bar</code> function. This tells R to show proportions.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="20-r-visualization.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> unemp_cat)) <span class="sc">+</span></span>
-<span id="cb109-2"><a href="20-r-visualization.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&#39;fill&#39;</span>) <span class="sc">+</span></span>
-<span id="cb109-3"><a href="20-r-visualization.html#cb109-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&#39;Proportion of degrees&#39;</span>,</span>
-<span id="cb109-4"><a href="20-r-visualization.html#cb109-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&#39;Unemployment&#39;</span>) <span class="sc">+</span></span>
-<span id="cb109-5"><a href="20-r-visualization.html#cb109-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb109-6"><a href="20-r-visualization.html#cb109-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb109-7"><a href="20-r-visualization.html#cb109-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb109-8"><a href="20-r-visualization.html#cb109-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb109-9"><a href="20-r-visualization.html#cb109-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="20-r-visualization.html#cb109-1" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> unemp_cat)) <span class="sc">+</span></span>
+<span id="cb109-2"><a href="20-r-visualization.html#cb109-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&#39;fill&#39;</span>) <span class="sc">+</span></span>
+<span id="cb109-3"><a href="20-r-visualization.html#cb109-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&#39;Proportion of degrees&#39;</span>,</span>
+<span id="cb109-4"><a href="20-r-visualization.html#cb109-4" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&#39;Unemployment&#39;</span>) <span class="sc">+</span></span>
+<span id="cb109-5"><a href="20-r-visualization.html#cb109-5" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb109-6"><a href="20-r-visualization.html#cb109-6" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb109-7"><a href="20-r-visualization.html#cb109-7" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb109-8"><a href="20-r-visualization.html#cb109-8" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb109-9"><a href="20-r-visualization.html#cb109-9" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-148-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <div class="learncheck">
 <p>
@@ -800,36 +804,36 @@ that achieves this. Choose the type of bar chart you deem best.
 <p>When should we use <code>geom_col</code> instead? When our counts are already aggregated in our data. Refer back to the table above. Note that <code>grad_total</code> and <code>grad_median</code> contain the count of graduates within each major and their median pay, respectively. Therefore, we do not need R to count the number of rows in our data, but rather report each number already included in the data. The <code>geom_col</code> function takes these counts and visualizes them using a bar (or column) chart.</p>
 <p>The below code shows how to generate Figure <a href="5-data-visualization.html#fig:spiapay">5.8</a>, which visualized the median pay for the four majors in the data related to those offered by SPIA. Median pay is simply a number in the data that does not need counting, thus the code uses <code>geom_col</code>, which requires both an x and y aesthetic to be defined. To allow room for the long names of each major, I made the bar chart horizontal by assigning <code>major</code> to the y aesthetic. Each bar visually represents the numbers for <code>grad_median</code> in the above table.</p>
 <p>There is a new piece of code in the below chunk that can be used to reorder bars in ascending or descending order, which is generally preferred over random order of peaks and valleys. The <code>reorder(major, -grad_median)</code> code tells R to reorder the majors in the plot in ascending because of the minus sign; removing it would reverse the order to descending.</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="20-r-visualization.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool_spia, <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">reorder</span>(major, <span class="sc">-</span>grad_median), <span class="at">x =</span> grad_median)) <span class="sc">+</span></span>
-<span id="cb110-2"><a href="20-r-visualization.html#cb110-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&#39;steelblue&#39;</span>) <span class="sc">+</span></span>
-<span id="cb110-3"><a href="20-r-visualization.html#cb110-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb110-4"><a href="20-r-visualization.html#cb110-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Median pay&#39;</span>) <span class="sc">+</span></span>
-<span id="cb110-5"><a href="20-r-visualization.html#cb110-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb110-6"><a href="20-r-visualization.html#cb110-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb110-7"><a href="20-r-visualization.html#cb110-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.line.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb110-8"><a href="20-r-visualization.html#cb110-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb110-9"><a href="20-r-visualization.html#cb110-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="20-r-visualization.html#cb110-1" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool_spia, <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">reorder</span>(major, <span class="sc">-</span>grad_median), <span class="at">x =</span> grad_median)) <span class="sc">+</span></span>
+<span id="cb110-2"><a href="20-r-visualization.html#cb110-2" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&#39;steelblue&#39;</span>) <span class="sc">+</span></span>
+<span id="cb110-3"><a href="20-r-visualization.html#cb110-3" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb110-4"><a href="20-r-visualization.html#cb110-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Median pay&#39;</span>) <span class="sc">+</span></span>
+<span id="cb110-5"><a href="20-r-visualization.html#cb110-5" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb110-6"><a href="20-r-visualization.html#cb110-6" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb110-7"><a href="20-r-visualization.html#cb110-7" tabindex="-1"></a>    <span class="at">axis.line.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb110-8"><a href="20-r-visualization.html#cb110-8" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb110-9"><a href="20-r-visualization.html#cb110-9" tabindex="-1"></a>  )</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-150-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Below is what the bar chart looks like without the optional code.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="20-r-visualization.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool_spia, <span class="fu">aes</span>(<span class="at">y =</span> major, <span class="at">x =</span> grad_median)) <span class="sc">+</span></span>
-<span id="cb111-2"><a href="20-r-visualization.html#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="20-r-visualization.html#cb111-1" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool_spia, <span class="fu">aes</span>(<span class="at">y =</span> major, <span class="at">x =</span> grad_median)) <span class="sc">+</span></span>
+<span id="cb111-2"><a href="20-r-visualization.html#cb111-2" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-151-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 </div>
 <div id="scatter-plot-1" class="section level2 hasAnchor" number="20.7">
 <h2><span class="header-section-number">20.7</span> Scatter plot<a href="20-r-visualization.html#scatter-plot-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The code below shows how the scatter plot in Chapter <a href="5-data-visualization.html#data-visualization">5</a> was generated. This scatter plot actually contains two geometric objects. The <code>geom_point</code> function generates the scatter plot, and the <code>geom_smooth</code> function generates the regression/trend line. Note the assignment of x and y aesthetics that every scatter plot requires. Everything beyond <code>geom_point</code> is optional.</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="20-r-visualization.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> grad_median, <span class="at">y =</span> grad_total)) <span class="sc">+</span></span>
-<span id="cb112-2"><a href="20-r-visualization.html#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">&#39;steelblue&#39;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb112-3"><a href="20-r-visualization.html#cb112-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb112-4"><a href="20-r-visualization.html#cb112-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">linetype =</span> <span class="st">&#39;dashed&#39;</span>, <span class="at">color =</span> <span class="st">&#39;black&#39;</span>) <span class="sc">+</span></span>
-<span id="cb112-5"><a href="20-r-visualization.html#cb112-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">label=</span>scales<span class="sc">::</span><span class="fu">comma_format</span>()) <span class="sc">+</span></span>
-<span id="cb112-6"><a href="20-r-visualization.html#cb112-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&#39;Total degrees&#39;</span>,</span>
-<span id="cb112-7"><a href="20-r-visualization.html#cb112-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Median pay&#39;</span>) <span class="sc">+</span></span>
-<span id="cb112-8"><a href="20-r-visualization.html#cb112-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="20-r-visualization.html#cb112-1" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> grad_median, <span class="at">y =</span> grad_total)) <span class="sc">+</span></span>
+<span id="cb112-2"><a href="20-r-visualization.html#cb112-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">&#39;steelblue&#39;</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb112-3"><a href="20-r-visualization.html#cb112-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb112-4"><a href="20-r-visualization.html#cb112-4" tabindex="-1"></a>              <span class="at">linetype =</span> <span class="st">&#39;dashed&#39;</span>, <span class="at">color =</span> <span class="st">&#39;black&#39;</span>) <span class="sc">+</span></span>
+<span id="cb112-5"><a href="20-r-visualization.html#cb112-5" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">label=</span>scales<span class="sc">::</span><span class="fu">comma_format</span>()) <span class="sc">+</span></span>
+<span id="cb112-6"><a href="20-r-visualization.html#cb112-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&#39;Total degrees&#39;</span>,</span>
+<span id="cb112-7"><a href="20-r-visualization.html#cb112-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Median pay&#39;</span>) <span class="sc">+</span></span>
+<span id="cb112-8"><a href="20-r-visualization.html#cb112-8" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-152-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <p>Below is the scatter plot without optional code.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="20-r-visualization.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> grad_median, <span class="at">y =</span> grad_total)) <span class="sc">+</span></span>
-<span id="cb113-2"><a href="20-r-visualization.html#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="20-r-visualization.html#cb113-1" tabindex="-1"></a><span class="fu">ggplot</span>(gradschool, <span class="fu">aes</span>(<span class="at">x =</span> grad_median, <span class="at">y =</span> grad_total)) <span class="sc">+</span></span>
+<span id="cb113-2"><a href="20-r-visualization.html#cb113-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-153-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <div class="learncheck">
 <p>
@@ -844,12 +848,12 @@ simple scatter plot.
 <h2><span class="header-section-number">20.8</span> Line graph<a href="20-r-visualization.html#line-graph-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Line graphs are best for visualizing variables over time (i.e. time series). The <code>prisonLF</code> data separate prisoner counts by male vs. female, remanded vs. sentenced, and state. Therefore, there are four times series for each state. The code below generates a line graph for the time series of female prisoners who were sentenced in each Australia state.</p>
 <p>Note how this code is different from the code before because I need to manipulate it before creating the plot. Specifically, I pipe the <code>prisonLF</code> data into the <code>filter</code> verb, which keeps only the rows with <code>Female</code> and <code>Sentenced</code>. Then, I pipe that result into the typical <code>ggplot</code>. However, I do not need to specify the dataset because it is already being piped into <code>ggplot</code>. Therefore, <code>ggplot</code> only needs <code>aes</code> and <code>geom</code> to be defined. Time <code>t</code> is assigned to the <code>x</code> aesthetic, <code>count</code> is assigned to the <code>y</code> aesthetic, and <code>state</code> is assigned to the <code>color</code> aesthetic. The <code>color</code> aesthetic is a common way to plot multiple groups. It also provides a legend by default. The <code>geom_line</code> function generates a line graph.</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="20-r-visualization.html#cb114-1" aria-hidden="true" tabindex="-1"></a>prisonLF <span class="sc">%&gt;%</span> </span>
-<span id="cb114-2"><a href="20-r-visualization.html#cb114-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gender <span class="sc">==</span> <span class="st">&#39;Female&#39;</span> <span class="sc">&amp;</span> legal <span class="sc">==</span> <span class="st">&#39;Sentenced&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb114-3"><a href="20-r-visualization.html#cb114-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> t, <span class="at">y =</span> count, <span class="at">color =</span> state)) <span class="sc">+</span></span>
-<span id="cb114-4"><a href="20-r-visualization.html#cb114-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb114-5"><a href="20-r-visualization.html#cb114-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&#39;State&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Female Sentenced Prisoners&#39;</span>, <span class="at">x =</span> <span class="st">&#39;&#39;</span>) <span class="sc">+</span></span>
-<span id="cb114-6"><a href="20-r-visualization.html#cb114-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="20-r-visualization.html#cb114-1" tabindex="-1"></a>prisonLF <span class="sc">%&gt;%</span> </span>
+<span id="cb114-2"><a href="20-r-visualization.html#cb114-2" tabindex="-1"></a>  <span class="fu">filter</span>(gender <span class="sc">==</span> <span class="st">&#39;Female&#39;</span> <span class="sc">&amp;</span> legal <span class="sc">==</span> <span class="st">&#39;Sentenced&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb114-3"><a href="20-r-visualization.html#cb114-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> t, <span class="at">y =</span> count, <span class="at">color =</span> state)) <span class="sc">+</span></span>
+<span id="cb114-4"><a href="20-r-visualization.html#cb114-4" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb114-5"><a href="20-r-visualization.html#cb114-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color =</span> <span class="st">&#39;State&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Female Sentenced Prisoners&#39;</span>, <span class="at">x =</span> <span class="st">&#39;&#39;</span>) <span class="sc">+</span></span>
+<span id="cb114-6"><a href="20-r-visualization.html#cb114-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="data-apps-text_files/figure-html/unnamed-chunk-155-1.png" width="\textwidth" style="display: block; margin: auto;" /></p>
 <div class="learncheck">
 <p>

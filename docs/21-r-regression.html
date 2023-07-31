@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 21 R Regression | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 21 R Regression | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
@@ -51,12 +51,12 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.6.0/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.26/datatables.js"></script>
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="libs/datatables-binding-0.28/datatables.js"></script>
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
@@ -126,6 +126,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -570,23 +574,23 @@ div.csl-indent {
 <li>Start a R Markdown document</li>
 <li>Change the YAML to at least the following. Feel free to add arguments.</li>
 </ul>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="21-r-regression.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb115-2"><a href="21-r-regression.html#cb115-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&#39;R Chapter 21&#39;</span></span>
-<span id="cb115-3"><a href="21-r-regression.html#cb115-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&#39;Your name&#39;</span></span>
-<span id="cb115-4"><a href="21-r-regression.html#cb115-4" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> </span>
-<span id="cb115-5"><a href="21-r-regression.html#cb115-5" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
-<span id="cb115-6"><a href="21-r-regression.html#cb115-6" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> spacelab</span>
-<span id="cb115-7"><a href="21-r-regression.html#cb115-7" aria-hidden="true" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
-<span id="cb115-8"><a href="21-r-regression.html#cb115-8" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="21-r-regression.html#cb115-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb115-2"><a href="21-r-regression.html#cb115-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&#39;R Chapter 21&#39;</span></span>
+<span id="cb115-3"><a href="21-r-regression.html#cb115-3" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">&#39;Your name&#39;</span></span>
+<span id="cb115-4"><a href="21-r-regression.html#cb115-4" tabindex="-1"></a>output<span class="sc">:</span> </span>
+<span id="cb115-5"><a href="21-r-regression.html#cb115-5" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb115-6"><a href="21-r-regression.html#cb115-6" tabindex="-1"></a>    theme<span class="sc">:</span> spacelab</span>
+<span id="cb115-7"><a href="21-r-regression.html#cb115-7" tabindex="-1"></a>    df_print<span class="sc">:</span> paged</span>
+<span id="cb115-8"><a href="21-r-regression.html#cb115-8" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
 <ul>
 <li>Load the following packages</li>
 </ul>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="21-r-regression.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb116-2"><a href="21-r-regression.html#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(moderndive)</span>
-<span id="cb116-3"><a href="21-r-regression.html#cb116-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Stat2Data)</span>
-<span id="cb116-4"><a href="21-r-regression.html#cb116-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="21-r-regression.html#cb116-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb116-2"><a href="21-r-regression.html#cb116-2" tabindex="-1"></a><span class="fu">library</span>(moderndive)</span>
+<span id="cb116-3"><a href="21-r-regression.html#cb116-3" tabindex="-1"></a><span class="fu">library</span>(Stat2Data)</span>
+<span id="cb116-4"><a href="21-r-regression.html#cb116-4" tabindex="-1"></a><span class="fu">library</span>(carData)</span></code></pre></div>
 <p>We will use the <code>TeenPregnancy</code> dataset within the <code>Stat2Data</code> package and the <code>Salaries</code> dataset within the <code>carData</code> package. While data in most packages is available in the background once the package is loaded, we need to manually load datasets from <code>Stat2Data</code> in order to use them. Run the following code, and the dataset should show up in your Environment pane in the top-right.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="21-r-regression.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;TeenPregnancy&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="21-r-regression.html#cb117-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;TeenPregnancy&quot;</span>)</span></code></pre></div>
 <p>Be sure to view the documentation for these data by clicking on the package name under the packages tab in the bottom-right pane, then click on the dataset.</p>
 </div>
 <div id="running-regression" class="section level2 hasAnchor" number="21.3">
@@ -605,7 +609,7 @@ div.csl-indent {
 </blockquote>
 <div id="general-syntax" class="section level3 hasAnchor" number="21.3.1">
 <h3><span class="header-section-number">21.3.1</span> General Syntax<a href="21-r-regression.html#general-syntax" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="21-r-regression.html#cb118-1" aria-hidden="true" tabindex="-1"></a>new_object_name <span class="ot">&lt;-</span> <span class="fu">lm</span>(outcome <span class="sc">~</span> exp_1 <span class="sc">+</span> exp_2 <span class="sc">+</span> ... <span class="sc">+</span> exp_k, <span class="at">data =</span> name_of_dataset)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="21-r-regression.html#cb118-1" tabindex="-1"></a>new_object_name <span class="ot">&lt;-</span> <span class="fu">lm</span>(outcome <span class="sc">~</span> exp_1 <span class="sc">+</span> exp_2 <span class="sc">+</span> ... <span class="sc">+</span> exp_k, <span class="at">data =</span> name_of_dataset)</span></code></pre></div>
 <ul>
 <li>We name a new object that will hold the results of our regression</li>
 <li><code>lm</code> is the function for linear regression (acronym for linear model)</li>
@@ -623,7 +627,7 @@ FedSpend = \beta_0 + \beta_1Poverty + \beta_2HomeOwn + \beta_3Income + \epsilon
 \tag{21.1}
 \end{equation}\]</span></p>
 <p>I ran this regression using the following code:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="21-r-regression.html#cb119-1" aria-hidden="true" tabindex="-1"></a>fedpov2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(fed_spend <span class="sc">~</span> poverty <span class="sc">+</span> homeownership <span class="sc">+</span> income, <span class="at">data =</span> selcounty)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="21-r-regression.html#cb119-1" tabindex="-1"></a>fedpov2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(fed_spend <span class="sc">~</span> poverty <span class="sc">+</span> homeownership <span class="sc">+</span> income, <span class="at">data =</span> selcounty)</span></code></pre></div>
 <p>That’s all there is to it. I named the model <code>fedpov2</code> to remind myself it was the second model I ran to examine the relationship between federal spending and poverty rate. Note that the code within the <code>lm</code> function mimics Equation <a href="21-r-regression.html#eq:multregexrep">(21.1)</a>. No matter if the explanatory variables happen to be numerical or categorical, the regression works the same in R. Lastly, I did some behind-the-scenes cleaning of the original <code>county</code> data discussed in Chapter <a href="6-simple-and-multiple-regression.html#simple-and-multiple-regression">6</a> and named it <code>selcounty</code>. Therefore, I told R to use that dataset when running the regression.</p>
 <p><code>TeenPregnancy</code> is a dataset with 50 observations on the following 4 variables.</p>
 <ul>
@@ -660,7 +664,7 @@ Run this regression model.
 mrall = \beta_0 + \beta_1 vmiles + \beta_2 jaild + \beta_3 vmiles \times jaild + \epsilon
 \end{equation}\]</span></p>
 <p>I ran this regression using the following code</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="21-r-regression.html#cb120-1" aria-hidden="true" tabindex="-1"></a>interactmod <span class="ot">&lt;-</span> <span class="fu">lm</span>(mrall <span class="sc">~</span> vmiles <span class="sc">+</span> jaild <span class="sc">+</span> vmiles<span class="sc">*</span>jaild, <span class="at">data =</span> trdeath)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="21-r-regression.html#cb120-1" tabindex="-1"></a>interactmod <span class="ot">&lt;-</span> <span class="fu">lm</span>(mrall <span class="sc">~</span> vmiles <span class="sc">+</span> jaild <span class="sc">+</span> vmiles<span class="sc">*</span>jaild, <span class="at">data =</span> trdeath)</span></code></pre></div>
 <blockquote>
 <p>Note that the only difference from the code in the previous example is <code>vmiles*jaild</code>, which tells R to interact the two variables by multiplying them together. Once again, the code reflects the equation.</p>
 </blockquote>
@@ -692,10 +696,10 @@ Run this regression model.
 <p>Recall in Table <a href="7-categorical-variables-and-interactions.html#tab:trdeath">7.1</a> the coding for <code>jaild</code> is yes/no. Also recall the regression equation <a href="7-categorical-variables-and-interactions.html#eq:lpmex">(7.16)</a> for the linear probability model example restated below:</p>
 <p><span class="math display">\[Pr(jaild=1)=\beta_0+\beta_1vmiles+\beta_2region+\epsilon\]</span></p>
 <p>I ran this regression using the following code:</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="21-r-regression.html#cb121-1" aria-hidden="true" tabindex="-1"></a>lpm_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(jaild <span class="sc">~</span> mrall <span class="sc">+</span> region, <span class="at">data =</span> trdeath2)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="21-r-regression.html#cb121-1" tabindex="-1"></a>lpm_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(jaild <span class="sc">~</span> mrall <span class="sc">+</span> region, <span class="at">data =</span> trdeath2)</span></code></pre></div>
 <p>But this won’t work if we include <code>jaild</code> in our regression code without recoding it to 1/0. This can be done using the following code.</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="21-r-regression.html#cb122-1" aria-hidden="true" tabindex="-1"></a>trdeath2 <span class="ot">&lt;-</span> trdeath <span class="sc">%&gt;%</span> </span>
-<span id="cb122-2"><a href="21-r-regression.html#cb122-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">jaild =</span> <span class="fu">if_else</span>(jaild <span class="sc">==</span> <span class="st">&#39;yes&#39;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="21-r-regression.html#cb122-1" tabindex="-1"></a>trdeath2 <span class="ot">&lt;-</span> trdeath <span class="sc">%&gt;%</span> </span>
+<span id="cb122-2"><a href="21-r-regression.html#cb122-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">jaild =</span> <span class="fu">if_else</span>(jaild <span class="sc">==</span> <span class="st">&#39;yes&#39;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
 <p>This code creates a new dataset named <code>trdeath2</code> which is a copy of the <code>trdeath</code> dataset except for changing the values for <code>jaild</code> using the <code>mutate</code> verb. Inside <code>mutate</code>, I name the “new” variable <code>jaild</code>, which overwrites the existing <code>jaild</code> variable based on what follows the equal sign.</p>
 <p>The <code>if_else</code> function can be used for a variety of purposes, but it is the simplest way to recode a dummy variable in text to 1/0. The first argument is the conditional. Observations that meet this conditional receive the second argument, while observations that do not receive the third argument. Using natural language, I’m telling R, “If <code>jaild</code> equals”yes”, then code it as 1 or else code it as 0.”</p>
 <div class="learncheck">
@@ -723,7 +727,7 @@ Run this regression model.
 <div id="moderndive" class="section level3 hasAnchor" number="21.4.1">
 <h3><span class="header-section-number">21.4.1</span> Moderndive<a href="21-r-regression.html#moderndive" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To get a standard table of regression estimates using <code>moderndive</code>, we can use the <code>get_regression_table</code> function on our saved regression model results like so</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="21-r-regression.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_regression_table</span>(fedpov2)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="21-r-regression.html#cb123-1" tabindex="-1"></a><span class="fu">get_regression_table</span>(fedpov2)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -846,7 +850,7 @@ income
 </tbody>
 </table>
 <p>To get goodness-of-fit measures, we can use the <code>get_regression_summaries</code> function like so</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="21-r-regression.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_regression_summaries</span>(fedpov2)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="21-r-regression.html#cb124-1" tabindex="-1"></a><span class="fu">get_regression_summaries</span>(fedpov2)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -912,8 +916,8 @@ nobs
 </tbody>
 </table>
 <p>and if I only want the R-squared, Adjusted R-squared, and RMSE from this table, I can add the <code>select</code> function to the above code chunk like so</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="21-r-regression.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_regression_summaries</span>(fedpov2) <span class="sc">%&gt;%</span> </span>
-<span id="cb125-2"><a href="21-r-regression.html#cb125-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(r_squared, adj_r_squared, rmse)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="21-r-regression.html#cb125-1" tabindex="-1"></a><span class="fu">get_regression_summaries</span>(fedpov2) <span class="sc">%&gt;%</span> </span>
+<span id="cb125-2"><a href="21-r-regression.html#cb125-2" tabindex="-1"></a>  <span class="fu">select</span>(r_squared, adj_r_squared, rmse)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -953,7 +957,7 @@ models using the <code>moderndive</code> functions.
 <div id="base-r" class="section level3 hasAnchor" number="21.4.2">
 <h3><span class="header-section-number">21.4.2</span> Base R<a href="21-r-regression.html#base-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A comprehensive set of regression results can be obtained using the <code>summary</code> function on our regression model like so</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="21-r-regression.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fedpov2)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="21-r-regression.html#cb126-1" tabindex="-1"></a><span class="fu">summary</span>(fedpov2)</span></code></pre></div>
 <pre><code>
 Call:
 lm(formula = fed_spend ~ poverty + homeownership + income, data = selcounty)
@@ -977,7 +981,7 @@ F-statistic: 71.06 on 3 and 3119 DF,  p-value: &lt; 0.00000000000000022</code></
 <p>which gives us most of the information from <code>get_regression_table</code> except for the confidence intervals.</p>
 <p>The <code>summary</code> function also reports the R-squared and Adjusted R-squared at the bottom. The <code>esidual standard error</code> at the bottom is not <em>exactly</em> the same as the RMSE above–it is actually equal to <code>sigma</code> in the full table from <code>get_regression_summaries</code>–but you can treat them the same.</p>
 <p>To get the confidence intervals, we can use the <code>confint</code> function like so,</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="21-r-regression.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(fedpov2)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="21-r-regression.html#cb128-1" tabindex="-1"></a><span class="fu">confint</span>(fedpov2)</span></code></pre></div>
 <pre><code>                      2.5 %         97.5 %
 (Intercept)   20.9051552232 26.13203853435
 poverty       -0.0970010683 -0.01493693303

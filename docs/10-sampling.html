@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 10 Sampling | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 10 Sampling | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
@@ -51,12 +51,12 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.6.0/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.26/datatables.js"></script>
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="libs/datatables-binding-0.28/datatables.js"></script>
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
@@ -126,6 +126,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -705,12 +709,12 @@ Figure 10.9: Sampling distribution of 10,000 sample means from samples of size 1
 <h2><span class="header-section-number">10.6</span> Conclusion<a href="10-sampling.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Though in reality we obtain only one estimate from one sample, we assume that estimate is one value of a normally distributed sampling distribution that is centered at the population parameter we intended to estimate. Our one sample estimate is highly unlikely to equal the population parameter because of randomness. Therefore, in addition to our specific estimate of the parameter, we construct a range of plausible values that captures that population parameter.</p>
 <p>To walk through the full process of estimation using one sample in this simulated data example, one of the 10,000 samples of size 1,000 (sample 379) had a mean education level of 3.552. The standard deviation of education in this sample was 1.53. Given 1,000 observations, then the standard error is equal to</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="10-sampling.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.53</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">1000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="10-sampling.html#cb28-1" tabindex="-1"></a><span class="fl">1.53</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">1000</span>)</span></code></pre></div>
 <pre><code>[1] 0.04838285</code></pre>
 <p>Therefore, assuming a normal sampling distribution and absence of bias, the 95% confidence interval for our estimate of the population mean of education is</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="10-sampling.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fl">3.552</span><span class="sc">-</span>(<span class="fl">1.96</span><span class="sc">*</span><span class="fl">0.048</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="10-sampling.html#cb30-1" tabindex="-1"></a><span class="fl">3.552</span><span class="sc">-</span>(<span class="fl">1.96</span><span class="sc">*</span><span class="fl">0.048</span>)</span></code></pre></div>
 <pre><code>[1] 3.45792</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="10-sampling.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fl">3.552</span><span class="sc">+</span>(<span class="fl">1.96</span><span class="sc">*</span><span class="fl">0.048</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="10-sampling.html#cb32-1" tabindex="-1"></a><span class="fl">3.552</span><span class="sc">+</span>(<span class="fl">1.96</span><span class="sc">*</span><span class="fl">0.048</span>)</span></code></pre></div>
 <pre><code>[1] 3.64608</code></pre>
 <p>The 95% confidence interval of this particular sample captures the population parameter of 3.518.</p>
 <p>A common interpretation of, say, a 95% confidence interval is that our population parameter has a 95% probability of falling within our confidence interval. This is incorrect. A confidence interval either contains the population parameter or it does not. There is no 95% probability to speak of; only 0% or 100%. What a confidence interval conveys is that if we were to draw numerous samples from this population rather than just the one, then we would expect 95% of the confidence intervals constructed from all of our samples to capture the population parameter and 5% of the confidence intervals to fail. Our sample could be one of those 5% of samples for which the confidence intervals fail to capture the population parameter.</p>

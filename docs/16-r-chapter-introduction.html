@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 16 R Chapter Introduction | Data Applications in Public Administration</title>
   <meta name="description" content="Companion text for PADP 7120" />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 16 R Chapter Introduction | Data Applications in Public Administration" />
   <meta property="og:type" content="book" />
@@ -51,12 +51,12 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.6.0/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.26/datatables.js"></script>
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="libs/datatables-binding-0.28/datatables.js"></script>
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
@@ -126,6 +126,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -615,10 +619,10 @@ time because it allows you to write code that you can save.</strong>
 <ul>
 <li>YAML Header. The YAML is at the top of your R Markdown file beginning and ending with three dash marks. The YAML sets the global parameters for the document and how it exports. Below is the YAML you may see in your current R Markdown document.</li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="16-r-chapter-introduction.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb36-2"><a href="16-r-chapter-introduction.html#cb36-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Untitled&quot;</span></span>
-<span id="cb36-3"><a href="16-r-chapter-introduction.html#cb36-3" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> html_document</span>
-<span id="cb36-4"><a href="16-r-chapter-introduction.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="16-r-chapter-introduction.html#cb36-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb36-2"><a href="16-r-chapter-introduction.html#cb36-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;Untitled&quot;</span></span>
+<span id="cb36-3"><a href="16-r-chapter-introduction.html#cb36-3" tabindex="-1"></a>output<span class="sc">:</span> html_document</span>
+<span id="cb36-4"><a href="16-r-chapter-introduction.html#cb36-4" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
 <ul>
 <li>Body: where you write prose and code. Your current R Markdown document likely opened with some content already in the body. Feel free to read this content, as it is informative.</li>
 </ul>
@@ -657,7 +661,7 @@ knit.
 <p>Two important points to remember throughout this course. First, NEVER install a package from within your R Markdown document (top-left pane). Instead, ALWAYS install a package using the console pane (bottom-left). Installing packages is one of the very few instances in which we use the console pane. Second, you only have to install a package once. If you install a package, you do not need to install it again unless you want or need to update it.</p>
 </blockquote>
 <p>To install R packages, we type the following generic code <strong>into the console pane</strong> (bottom-left).</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="16-r-chapter-introduction.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;name_of_package&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="16-r-chapter-introduction.html#cb37-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;name_of_package&quot;</span>)</span></code></pre></div>
 <p>Where <code>"name_of_package"</code> is replaced with the actual name of the R package we want to install. If we run this code, it accesses R’s “app store” and downloads the package to your computer. Again, you only need to install a R package once. The package is saved on your computer where R can find it.</p>
 <p><br></p>
 <blockquote>
@@ -681,31 +685,31 @@ questions, respond with typing <code>Yes</code> then click
 </p>
 </div>
 <p>You can install multiple R packages at once. You will need numerous R packages to complete this course. Below is a list of all R packages used in this course except for <code>tidyverse</code>, which you just installed and do not need to install again.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="16-r-chapter-introduction.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>,</span>
-<span id="cb38-2"><a href="16-r-chapter-introduction.html#cb38-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;arsenal&quot;</span>,</span>
-<span id="cb38-3"><a href="16-r-chapter-introduction.html#cb38-3" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;forecast&quot;</span>,</span>
-<span id="cb38-4"><a href="16-r-chapter-introduction.html#cb38-4" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;fpp2&quot;</span>,</span>
-<span id="cb38-5"><a href="16-r-chapter-introduction.html#cb38-5" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;lubridate&quot;</span>,</span>
-<span id="cb38-6"><a href="16-r-chapter-introduction.html#cb38-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;readxl&quot;</span>,</span>
-<span id="cb38-7"><a href="16-r-chapter-introduction.html#cb38-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;plm&quot;</span>,</span>
-<span id="cb38-8"><a href="16-r-chapter-introduction.html#cb38-8" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;broom&quot;</span>,</span>
-<span id="cb38-9"><a href="16-r-chapter-introduction.html#cb38-9" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;car&quot;</span>,</span>
-<span id="cb38-10"><a href="16-r-chapter-introduction.html#cb38-10" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;gvlma&quot;</span>,</span>
-<span id="cb38-11"><a href="16-r-chapter-introduction.html#cb38-11" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;gapminder&quot;</span>,</span>
-<span id="cb38-12"><a href="16-r-chapter-introduction.html#cb38-12" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;Ecdat&quot;</span>,</span>
-<span id="cb38-13"><a href="16-r-chapter-introduction.html#cb38-13" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;carData&quot;</span>,</span>
-<span id="cb38-14"><a href="16-r-chapter-introduction.html#cb38-14" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;openintro&quot;</span>,</span>
-<span id="cb38-15"><a href="16-r-chapter-introduction.html#cb38-15" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;fivethirtyeight&quot;</span>,</span>
-<span id="cb38-16"><a href="16-r-chapter-introduction.html#cb38-16" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;moderndive&quot;</span>,</span>
-<span id="cb38-17"><a href="16-r-chapter-introduction.html#cb38-17" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;DAAG&quot;</span>,</span>
-<span id="cb38-18"><a href="16-r-chapter-introduction.html#cb38-18" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;Stat2Data&quot;</span>,</span>
-<span id="cb38-19"><a href="16-r-chapter-introduction.html#cb38-19" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;data.table&quot;</span>,</span>
-<span id="cb38-20"><a href="16-r-chapter-introduction.html#cb38-20" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;rmarkdown&quot;</span>,</span>
-<span id="cb38-21"><a href="16-r-chapter-introduction.html#cb38-21" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;tinytex&quot;</span>,</span>
-<span id="cb38-22"><a href="16-r-chapter-introduction.html#cb38-22" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;DiagrammeR&quot;</span>,</span>
-<span id="cb38-23"><a href="16-r-chapter-introduction.html#cb38-23" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;jtools&quot;</span>,</span>
-<span id="cb38-24"><a href="16-r-chapter-introduction.html#cb38-24" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;blogdown&quot;</span>,</span>
-<span id="cb38-25"><a href="16-r-chapter-introduction.html#cb38-25" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;stargazer&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="16-r-chapter-introduction.html#cb38-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>,</span>
+<span id="cb38-2"><a href="16-r-chapter-introduction.html#cb38-2" tabindex="-1"></a>                   <span class="st">&quot;arsenal&quot;</span>,</span>
+<span id="cb38-3"><a href="16-r-chapter-introduction.html#cb38-3" tabindex="-1"></a>                   <span class="st">&quot;forecast&quot;</span>,</span>
+<span id="cb38-4"><a href="16-r-chapter-introduction.html#cb38-4" tabindex="-1"></a>                   <span class="st">&quot;fpp2&quot;</span>,</span>
+<span id="cb38-5"><a href="16-r-chapter-introduction.html#cb38-5" tabindex="-1"></a>                   <span class="st">&quot;lubridate&quot;</span>,</span>
+<span id="cb38-6"><a href="16-r-chapter-introduction.html#cb38-6" tabindex="-1"></a>                   <span class="st">&quot;readxl&quot;</span>,</span>
+<span id="cb38-7"><a href="16-r-chapter-introduction.html#cb38-7" tabindex="-1"></a>                   <span class="st">&quot;plm&quot;</span>,</span>
+<span id="cb38-8"><a href="16-r-chapter-introduction.html#cb38-8" tabindex="-1"></a>                   <span class="st">&quot;broom&quot;</span>,</span>
+<span id="cb38-9"><a href="16-r-chapter-introduction.html#cb38-9" tabindex="-1"></a>                   <span class="st">&quot;car&quot;</span>,</span>
+<span id="cb38-10"><a href="16-r-chapter-introduction.html#cb38-10" tabindex="-1"></a>                   <span class="st">&quot;gvlma&quot;</span>,</span>
+<span id="cb38-11"><a href="16-r-chapter-introduction.html#cb38-11" tabindex="-1"></a>                   <span class="st">&quot;gapminder&quot;</span>,</span>
+<span id="cb38-12"><a href="16-r-chapter-introduction.html#cb38-12" tabindex="-1"></a>                   <span class="st">&quot;Ecdat&quot;</span>,</span>
+<span id="cb38-13"><a href="16-r-chapter-introduction.html#cb38-13" tabindex="-1"></a>                   <span class="st">&quot;carData&quot;</span>,</span>
+<span id="cb38-14"><a href="16-r-chapter-introduction.html#cb38-14" tabindex="-1"></a>                   <span class="st">&quot;openintro&quot;</span>,</span>
+<span id="cb38-15"><a href="16-r-chapter-introduction.html#cb38-15" tabindex="-1"></a>                   <span class="st">&quot;fivethirtyeight&quot;</span>,</span>
+<span id="cb38-16"><a href="16-r-chapter-introduction.html#cb38-16" tabindex="-1"></a>                   <span class="st">&quot;moderndive&quot;</span>,</span>
+<span id="cb38-17"><a href="16-r-chapter-introduction.html#cb38-17" tabindex="-1"></a>                   <span class="st">&quot;DAAG&quot;</span>,</span>
+<span id="cb38-18"><a href="16-r-chapter-introduction.html#cb38-18" tabindex="-1"></a>                   <span class="st">&quot;Stat2Data&quot;</span>,</span>
+<span id="cb38-19"><a href="16-r-chapter-introduction.html#cb38-19" tabindex="-1"></a>                   <span class="st">&quot;data.table&quot;</span>,</span>
+<span id="cb38-20"><a href="16-r-chapter-introduction.html#cb38-20" tabindex="-1"></a>                   <span class="st">&quot;rmarkdown&quot;</span>,</span>
+<span id="cb38-21"><a href="16-r-chapter-introduction.html#cb38-21" tabindex="-1"></a>                   <span class="st">&quot;tinytex&quot;</span>,</span>
+<span id="cb38-22"><a href="16-r-chapter-introduction.html#cb38-22" tabindex="-1"></a>                   <span class="st">&quot;DiagrammeR&quot;</span>,</span>
+<span id="cb38-23"><a href="16-r-chapter-introduction.html#cb38-23" tabindex="-1"></a>                   <span class="st">&quot;jtools&quot;</span>,</span>
+<span id="cb38-24"><a href="16-r-chapter-introduction.html#cb38-24" tabindex="-1"></a>                   <span class="st">&quot;blogdown&quot;</span>,</span>
+<span id="cb38-25"><a href="16-r-chapter-introduction.html#cb38-25" tabindex="-1"></a>                   <span class="st">&quot;stargazer&quot;</span>))</span></code></pre></div>
 <p>Complete the following exercise to download all of the packages needed for the course.</p>
 <div class="learncheck">
 <p>
@@ -729,7 +733,7 @@ questions, respond with typing <code>Yes</code> then click
 <p>Remember, you have to load a package every time you restart RStudio. Therefore, type the code that loads a package in the R Markdown document that you save.</p>
 </blockquote>
 <p>The following generic code is loads a package.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="16-r-chapter-introduction.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(name_of_package)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="16-r-chapter-introduction.html#cb39-1" tabindex="-1"></a><span class="fu">library</span>(name_of_package)</span></code></pre></div>
 <blockquote>
 <p>Do not use quotes around the name of the R package when loading it. Quotes are only needed to install, not load.</p>
 </blockquote>
